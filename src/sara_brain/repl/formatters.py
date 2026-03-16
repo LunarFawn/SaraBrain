@@ -93,7 +93,9 @@ def format_similarities(links: list[SimilarityLink]) -> str:
     return "\n".join(lines)
 
 
-def format_define_result(name: str) -> str:
+def format_define_result(name: str, question_word: str | None = None) -> str:
+    if question_word:
+        return f'  Created association: {name} (question word: "{question_word}")'
     return f"  Created association: {name}"
 
 
@@ -110,4 +112,33 @@ def format_associations(assocs: dict[str, list[str]]) -> str:
     lines = []
     for name, props in sorted(assocs.items()):
         lines.append(f"  {name}: {', '.join(props)}")
+    return "\n".join(lines)
+
+
+def format_query(question_word: str, subject: str, association: str, properties: list[str]) -> str:
+    if not properties:
+        return f'  No "{association}" known for "{subject}".'
+    return f"  {subject} {association}: {', '.join(sorted(properties))}"
+
+
+def format_questions(question_words: dict[str, list[str]]) -> str:
+    if not question_words:
+        return "  No question words defined."
+    lines = ["  Available questions:"]
+    for qword, assocs in sorted(question_words.items()):
+        for assoc in sorted(assocs):
+            lines.append(f"    {qword} <concept> {assoc}")
+    return "\n".join(lines)
+
+
+def format_categorize(label: str, category: str) -> str:
+    return f'  Categorized "{label}" as "{category}".'
+
+
+def format_categories(categories: dict[str, list[str]]) -> str:
+    if not categories:
+        return "  No categories defined."
+    lines = []
+    for cat, labels in sorted(categories.items()):
+        lines.append(f"  {cat}: {', '.join(sorted(labels))}")
     return "\n".join(lines)

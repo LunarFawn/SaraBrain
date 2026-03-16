@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from ..models.neuron import NeuronType
 from ..models.result import RecognitionResult, PathTrace
 from ..parsing.statement_parser import StatementParser
 from ..parsing.taxonomy import Taxonomy
@@ -9,6 +10,7 @@ from ..storage.database import Database
 from ..storage.neuron_repo import NeuronRepo
 from ..storage.segment_repo import SegmentRepo
 from ..storage.path_repo import PathRepo
+from ..storage.association_repo import AssociationRepo
 from .learner import Learner, LearnResult
 from .recognizer import Recognizer
 from .similarity import SimilarityAnalyzer, SimilarityLink
@@ -28,6 +30,7 @@ class Brain:
         self.neuron_repo = NeuronRepo(self.conn)
         self.segment_repo = SegmentRepo(self.conn)
         self.path_repo = PathRepo(self.conn)
+        self.association_repo = AssociationRepo(self.conn)
 
         # Taxonomy & parser
         self.taxonomy = Taxonomy()
@@ -37,6 +40,9 @@ class Brain:
         self.learner = Learner(self.parser, self.neuron_repo, self.segment_repo, self.path_repo)
         self.recognizer = Recognizer(self.neuron_repo, self.segment_repo)
         self.similarity = SimilarityAnalyzer(self.neuron_repo, self.segment_repo, self.conn)
+
+        # Load dynamic associations from DB
+        self._load_dynamic_associations()
 
     def teach(self, statement: str) -> LearnResult | None:
         """Teach a fact. Returns None if unparseable."""
@@ -112,6 +118,57 @@ class Brain:
             "paths": paths,
             "strongest_segment": strongest,
         }
+
+    def _load_dynamic_associations(self) -> None:
+        """Reload dynamic associations from DB into taxonomy."""
+        for assoc, prop_label in self.association_repo.list_all():
+            self.taxonomy.register_property(prop_label, assoc)
+
+    def define_association(self, name: str):
+        """Create an ASSOCIATION neuron. Returns the neuron."""
+        name = name.strip().lower()
+        neuron, _ = self.neuron_repo.get_or_create(name, NeuronType.ASSOCIATION)
+        self.conn.commit()
+        return neuron
+
+    def describe_association(self, name: str, properties: list[str]) -> list[str]:
+        """Register properties under an association, creating neurons and segments."""
+        name = name.strip().lower()
+
+        # Ensure the association neuron exists
+        assoc_neuron = self.neuron_repo.get_by_label(name)
+        if assoc_neuron is None:
+            raise ValueError(f"Unknown association: {name}. Use 'define {name}' first.")
+
+        registered = []
+        for prop_label in properties:
+            prop_label = prop_label.strip().lower()
+            if not prop_label:
+                continue
+
+            # Get or create PROPERTY neuron
+            prop_neuron, _ = self.neuron_repo.get_or_create(prop_label, NeuronType.PROPERTY)
+
+            # Create segment: property → association (relation: "is_a")
+            self.segment_repo.get_or_create(prop_neuron.id, assoc_neuron.id, "is_a")
+
+            # Register in taxonomy
+            self.taxonomy.register_property(prop_label, name)
+
+            # Persist to associations table
+            self.association_repo.create(name, prop_label, assoc_neuron.id)
+
+            registered.append(prop_label)
+
+        self.conn.commit()
+        return registered
+
+    def list_associations(self) -> dict[str, list[str]]:
+        """Return dict of {association: [properties]}."""
+        result: dict[str, list[str]] = {}
+        for assoc, prop_label in self.association_repo.list_all():
+            result.setdefault(assoc, []).append(prop_label)
+        return result
 
     def close(self) -> None:
         self.db.close()

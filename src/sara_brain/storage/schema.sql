@@ -43,6 +43,15 @@ CREATE TABLE IF NOT EXISTS similarities (
     PRIMARY KEY (neuron_a_id, neuron_b_id)
 );
 
+CREATE TABLE IF NOT EXISTS associations (
+    id             INTEGER PRIMARY KEY,
+    association    TEXT NOT NULL,
+    property_label TEXT NOT NULL,
+    neuron_id      INTEGER REFERENCES neurons(id),
+    created_at     REAL,
+    UNIQUE(association, property_label)
+);
+
 CREATE INDEX IF NOT EXISTS idx_seg_source ON segments(source_id, strength DESC);
 CREATE INDEX IF NOT EXISTS idx_seg_target ON segments(target_id);
 CREATE INDEX IF NOT EXISTS idx_neuron_label ON neurons(label);

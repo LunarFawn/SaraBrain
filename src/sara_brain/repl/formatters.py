@@ -91,3 +91,23 @@ def format_similarities(links: list[SimilarityLink]) -> str:
             f"(shared: {link.shared_paths}, overlap: {link.overlap_ratio:.1%})"
         )
     return "\n".join(lines)
+
+
+def format_define_result(name: str) -> str:
+    return f"  Created association: {name}"
+
+
+def format_describe_result(name: str, registered: list[str]) -> str:
+    lines = [f"  Registered {len(registered)} propert{'y' if len(registered) == 1 else 'ies'} under \"{name}\":"]
+    for prop in registered:
+        lines.append(f"    {prop} → {name}")
+    return "\n".join(lines)
+
+
+def format_associations(assocs: dict[str, list[str]]) -> str:
+    if not assocs:
+        return "  No associations defined."
+    lines = []
+    for name, props in sorted(assocs.items()):
+        lines.append(f"  {name}: {', '.join(props)}")
+    return "\n".join(lines)

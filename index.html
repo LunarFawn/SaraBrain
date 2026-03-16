@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sara Brain — Path of Thought</title>
+
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- JetBrains Mono font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Pyodide -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.27.4/full/pyodide.js"></script>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="loading-title">Sara Brain</div>
+      <div class="loading-subtitle">Path of Thought — Brain Simulation</div>
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <div class="loading-status" id="loading-status">Initializing...</div>
+    </div>
+
+    <!-- App -->
+    <div id="app">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-title">
+          <span class="brain-icon">&#x1F9E0;</span>
+          Sara Brain
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-accent" id="btn-seed">Seed Demo</button>
+          <button class="btn" id="btn-reset">Reset</button>
+          <button class="btn" id="btn-export">Export</button>
+          <button class="btn" id="btn-import">Import</button>
+        </div>
+      </header>
+
+      <!-- REPL Panel -->
+      <div class="repl-panel">
+        <div class="repl-output" id="repl-output"></div>
+        <div class="repl-input-container">
+          <span class="repl-prompt">brain&gt;</span>
+          <input
+            type="text"
+            class="repl-input"
+            id="repl-input"
+            placeholder="teach apples are red"
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </div>
+      </div>
+
+      <!-- Graph Panel -->
+      <div class="graph-panel">
+        <div class="graph-header">
+          <span>Neural Graph</span>
+          <div class="graph-legend">
+            <div class="legend-item">
+              <div class="legend-dot concept"></div>
+              <span>Concept</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-dot property"></div>
+              <span>Property</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-dot relation"></div>
+              <span>Relation</span>
+            </div>
+          </div>
+        </div>
+        <div id="graph-container">
+          <div class="graph-empty">
+            Teach something to see the graph
+          </div>
+        </div>
+      </div>
+
+      <!-- Detail Panel -->
+      <div class="detail-panel" id="detail-panel">
+        <div class="detail-label">Detail</div>
+        <div>Click a node or run trace/why to see details here.</div>
+      </div>
+    </div>
+
+    <!-- App JS (module) -->
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

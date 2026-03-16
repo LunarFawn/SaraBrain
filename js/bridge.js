@@ -1,0 +1,72 @@
+/**
+ * bridge.js — JS↔Python bridge via Pyodide.
+ * All calls go through pyodide.runPythonAsync() and convert results to JS.
+ */
+
+let pyodide = null;
+
+/**
+ * Set the Pyodide instance (called from app.js after loading).
+ */
+export function setPyodide(py) {
+  pyodide = py;
+}
+
+/**
+ * Initialize the brain (call boot.init_brain()).
+ */
+export async function initBrain() {
+  return await pyodide.runPythonAsync("init_brain()");
+}
+
+/**
+ * Run a REPL command and return the output string.
+ */
+export async function runCommand(commandLine) {
+  // Escape backslashes and quotes for safe Python string embedding
+  const escaped = commandLine.replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+  const result = await pyodide.runPythonAsync(`run_command('${escaped}')`);
+  return result;
+}
+
+/**
+ * Get graph data (nodes + links) as a JS object.
+ */
+export async function getGraphData() {
+  const jsonStr = await pyodide.runPythonAsync("get_graph_data()");
+  return JSON.parse(jsonStr);
+}
+
+/**
+ * Get cached recognition path data for wavefront animation.
+ * Must be called after runCommand('recognize ...') — does NOT re-run recognition.
+ */
+export async function getLastRecognitionPaths() {
+  const jsonStr = await pyodide.runPythonAsync("get_last_recognition_paths()");
+  return JSON.parse(jsonStr);
+}
+
+/**
+ * Export brain state as a JSON string.
+ */
+export async function exportBrain() {
+  return await pyodide.runPythonAsync("export_db()");
+}
+
+/**
+ * Import brain state from a JSON string.
+ */
+export async function importBrain(jsonStr) {
+  // Use a global variable to avoid string escaping issues
+  pyodide.globals.set("_import_data", jsonStr);
+  const result = await pyodide.runPythonAsync("import_db(_import_data)");
+  pyodide.globals.delete("_import_data");
+  return result;
+}
+
+/**
+ * Seed the brain with demo data.
+ */
+export async function seedBrain() {
+  return await pyodide.runPythonAsync("_seed_brain()");
+}

@@ -65,3 +65,32 @@ def cmd_analyze(brain: Brain, _args: str) -> str:
     if not links:
         return "  No new similarities found."
     return f"  Found {len(links)} similarity link(s):\n" + formatters.format_similarities(links)
+
+
+def cmd_define(brain: Brain, args: str) -> str:
+    name = args.strip()
+    if not name:
+        return "  Usage: define <association>"
+    neuron = brain.define_association(name)
+    return formatters.format_define_result(neuron.label)
+
+
+def cmd_describe(brain: Brain, args: str) -> str:
+    # Parse: "<association> as <prop1>, <prop2>, ..."
+    parts = args.split(" as ", 1)
+    if len(parts) != 2 or not parts[0].strip() or not parts[1].strip():
+        return "  Usage: describe <association> as <prop1>, <prop2>, ..."
+    name = parts[0].strip()
+    properties = [p.strip() for p in parts[1].split(",") if p.strip()]
+    if not properties:
+        return "  Usage: describe <association> as <prop1>, <prop2>, ..."
+    try:
+        registered = brain.describe_association(name, properties)
+    except ValueError as e:
+        return f"  {e}"
+    return formatters.format_describe_result(name, registered)
+
+
+def cmd_associations(brain: Brain, _args: str) -> str:
+    assocs = brain.list_associations()
+    return formatters.format_associations(assocs)

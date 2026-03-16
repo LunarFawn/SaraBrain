@@ -53,6 +53,18 @@ class SaraShell(cmd.Cmd):
         """Analyze path similarities across all neurons"""
         print(commands.cmd_analyze(self.brain, args))
 
+    def do_define(self, args: str) -> None:
+        """Define a new association type: define mood"""
+        print(commands.cmd_define(self.brain, args))
+
+    def do_describe(self, args: str) -> None:
+        """Register properties under an association: describe mood as happy, sad"""
+        print(commands.cmd_describe(self.brain, args))
+
+    def do_associations(self, args: str) -> None:
+        """List all defined associations and their properties"""
+        print(commands.cmd_associations(self.brain, args))
+
     def do_save(self, args: str) -> None:
         """Force flush to disk"""
         self.brain.conn.commit()

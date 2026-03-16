@@ -13,3 +13,6 @@ venv/
 .env
 .pytest_cache/
 .mypy_cache/
+
+# Local dev symlink (created by web/serve_local.sh)
+web/python/sara_brain

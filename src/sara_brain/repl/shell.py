@@ -86,7 +86,7 @@ class SaraShell(cmd.Cmd):
         translator = self._get_translator()
         if translator is None:
             print("  No LLM configured. Use structured commands (how, what, where, etc.)")
-            print('  Or configure with: llm set <api_url> <api_key> <model>')
+            print('  Or configure with: llm set <api_key> [model]')
             return
 
         # Build available commands list for the LLM
@@ -107,23 +107,28 @@ class SaraShell(cmd.Cmd):
         self.onecmd(translated)
 
     def do_llm(self, args: str) -> None:
-        """Configure LLM for natural language translation.
-        llm set <api_url> <api_key> <model>
+        """Configure Claude LLM for natural language translation.
+        llm set <api_key> [model]  (default model: claude-sonnet-4-20250514)
         llm status
         llm clear"""
+        from ..nlp.translator import is_blocked_domain, _DEFAULT_API_URL
+
         parts = args.strip().split()
         if not parts:
-            print("  Usage: llm set <api_url> <api_key> <model>")
+            print("  Usage: llm set <api_key> [model]")
             print("         llm status")
             print("         llm clear")
             return
 
         subcmd = parts[0].lower()
         if subcmd == "set":
-            if len(parts) < 4:
-                print("  Usage: llm set <api_url> <api_key> <model>")
+            if len(parts) < 2:
+                print("  Usage: llm set <api_key> [model]")
+                print("  Example: llm set sk-ant-... claude-sonnet-4-20250514")
                 return
-            api_url, api_key, model = parts[1], parts[2], parts[3]
+            api_key = parts[1]
+            model = parts[2] if len(parts) >= 3 else "claude-sonnet-4-20250514"
+            api_url = _DEFAULT_API_URL
             self.brain.settings_repo.set("llm_api_url", api_url)
             self.brain.settings_repo.set("llm_api_key", api_key)
             self.brain.settings_repo.set("llm_model", model)
@@ -147,13 +152,13 @@ class SaraShell(cmd.Cmd):
 
     def _get_translator(self):
         """Return an LLMTranslator if configured, else None."""
-        url = self.brain.settings_repo.get("llm_api_url")
+        from ..nlp.translator import LLMTranslator, _DEFAULT_API_URL
+        url = self.brain.settings_repo.get("llm_api_url") or _DEFAULT_API_URL
         key = self.brain.settings_repo.get("llm_api_key")
         model = self.brain.settings_repo.get("llm_model")
-        if not url or not model:
+        if not key or not model:
             return None
-        from ..nlp.translator import LLMTranslator
-        return LLMTranslator(url, key or "", model)
+        return LLMTranslator(url, key, model)
 
     def do_save(self, args: str) -> None:
         """Force flush to disk"""

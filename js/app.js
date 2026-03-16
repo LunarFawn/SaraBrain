@@ -36,7 +36,10 @@ async function boot() {
       indexURL: "https://cdn.jsdelivr.net/pyodide/v0.27.4/full/",
     });
 
-    setProgress(40, "Mounting sara_brain engine...");
+    setProgress(30, "Loading sqlite3 package...");
+    await pyodide.loadPackage("sqlite3");
+
+    setProgress(50, "Mounting sara_brain engine...");
     await mountSaraBrain(pyodide);
 
     setProgress(60, "Initializing boot.py...");

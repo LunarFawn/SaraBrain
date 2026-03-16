@@ -10,6 +10,7 @@ class NeuronType(str, Enum):
     CONCEPT = "concept"
     PROPERTY = "property"
     RELATION = "relation"
+    ASSOCIATION = "association"
 
 
 @dataclass

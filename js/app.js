@@ -123,6 +123,7 @@ async function mountSaraBrain(pyodide) {
     "sara_brain/storage/neuron_repo.py",
     "sara_brain/storage/segment_repo.py",
     "sara_brain/storage/path_repo.py",
+    "sara_brain/storage/association_repo.py",
     "sara_brain/storage/queries.py",
     "sara_brain/storage/schema.sql",
     "sara_brain/visualization/__init__.py",

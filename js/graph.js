@@ -6,12 +6,14 @@ const NODE_COLORS = {
   concept: "#a8d8ea",
   property: "#ffcfdf",
   relation: "#fefdca",
+  association: "#c4b5fd",
 };
 
 const NODE_RADIUS = {
   concept: 24,
   property: 20,
   relation: 16,
+  association: 22,
 };
 
 let svg, simulation, linkGroup, nodeGroup, labelGroup;
@@ -50,9 +52,19 @@ export function initGraph(containerId) {
     .attr("d", "M0,-5L10,0L0,5")
     .attr("fill", "#666");
 
-  linkGroup = svg.append("g").attr("class", "links");
-  nodeGroup = svg.append("g").attr("class", "nodes");
-  labelGroup = svg.append("g").attr("class", "labels");
+  const zoomGroup = svg.append("g").attr("class", "zoom-layer");
+
+  linkGroup = zoomGroup.append("g").attr("class", "links");
+  nodeGroup = zoomGroup.append("g").attr("class", "nodes");
+  labelGroup = zoomGroup.append("g").attr("class", "labels");
+
+  const zoom = d3.zoom()
+    .scaleExtent([0.1, 4])
+    .on("zoom", (event) => {
+      zoomGroup.attr("transform", event.transform);
+    });
+
+  svg.call(zoom);
 
   simulation = d3
     .forceSimulation()

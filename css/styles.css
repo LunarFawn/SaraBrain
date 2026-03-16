@@ -16,6 +16,7 @@
   --concept-color: #a8d8ea;
   --property-color: #ffcfdf;
   --relation-color: #fefdca;
+  --association-color: #c4b5fd;
   --font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", "Consolas",
     monospace;
 }
@@ -266,6 +267,9 @@ body {
 .legend-dot.relation {
   background: var(--relation-color);
 }
+.legend-dot.association {
+  background: var(--association-color);
+}
 
 #graph-container {
   flex: 1;
@@ -336,7 +340,7 @@ body {
 @media (max-width: 800px) {
   #app.visible {
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr 1fr auto;
+    grid-template-rows: auto 2fr 3fr auto;
   }
 
   .repl-panel {
@@ -344,7 +348,41 @@ body {
     border-bottom: 1px solid var(--border);
   }
 
+  .header-actions {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .graph-legend {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
   .detail-panel {
     grid-column: 1;
+    max-height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title {
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.65rem;
+  }
+
+  .legend-item span {
+    font-size: 0.65rem;
+  }
+
+  .repl-prompt {
+    font-size: 0.7rem;
+  }
+
+  .repl-input {
+    font-size: 0.7rem;
   }
 }

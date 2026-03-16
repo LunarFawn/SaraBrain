@@ -10,6 +10,7 @@ from sara_brain.core.brain import Brain
 from sara_brain.repl.commands import (
     cmd_teach, cmd_recognize, cmd_why, cmd_trace,
     cmd_neurons, cmd_paths, cmd_stats, cmd_similar, cmd_analyze,
+    cmd_define, cmd_describe, cmd_associations,
 )
 from sara_brain.visualization.text_tree import render_paths_from
 
@@ -51,6 +52,9 @@ def run_command(command_line):
         "stats": cmd_stats,
         "similar": cmd_similar,
         "analyze": cmd_analyze,
+        "define": cmd_define,
+        "describe": cmd_describe,
+        "associations": cmd_associations,
     }
 
     if cmd == "tree":
@@ -71,6 +75,9 @@ def run_command(command_line):
             "    neurons                 — List all neurons\n"
             "    paths                   — List all paths\n"
             "    stats                   — Brain statistics\n"
+            "    define <name>           — Define a new association type\n"
+            "    describe <a> as <p>,... — Register properties under association\n"
+            "    associations            — List all associations\n"
             "    reset                   — Reset brain to empty\n"
             "    seed                    — Load demo data\n"
             "    help                    — Show this help"

@@ -11,9 +11,22 @@ from ..storage.neuron_repo import NeuronRepo
 from ..storage.segment_repo import SegmentRepo
 from ..storage.path_repo import PathRepo
 from ..storage.association_repo import AssociationRepo
+from ..storage.category_repo import CategoryRepo
+from ..storage.settings_repo import SettingsRepo
 from .learner import Learner, LearnResult
 from .recognizer import Recognizer
 from .similarity import SimilarityAnalyzer, SimilarityLink
+
+
+# Default question words for built-in taxonomy property types
+_BUILTIN_QUESTION_WORDS: dict[str, str] = {
+    "color": "what",
+    "taste": "how",
+    "shape": "what",
+    "texture": "how",
+    "size": "what",
+    "temperature": "how",
+}
 
 
 class Brain:
@@ -31,6 +44,8 @@ class Brain:
         self.segment_repo = SegmentRepo(self.conn)
         self.path_repo = PathRepo(self.conn)
         self.association_repo = AssociationRepo(self.conn)
+        self.category_repo = CategoryRepo(self.conn)
+        self.settings_repo = SettingsRepo(self.conn)
 
         # Taxonomy & parser
         self.taxonomy = Taxonomy()
@@ -41,8 +56,9 @@ class Brain:
         self.recognizer = Recognizer(self.neuron_repo, self.segment_repo)
         self.similarity = SimilarityAnalyzer(self.neuron_repo, self.segment_repo, self.conn)
 
-        # Load dynamic associations from DB
+        # Load dynamic associations and categories from DB
         self._load_dynamic_associations()
+        self._load_categories()
 
     def teach(self, statement: str) -> LearnResult | None:
         """Teach a fact. Returns None if unparseable."""
@@ -124,10 +140,13 @@ class Brain:
         for assoc, prop_label in self.association_repo.list_all():
             self.taxonomy.register_property(prop_label, assoc)
 
-    def define_association(self, name: str):
-        """Create an ASSOCIATION neuron. Returns the neuron."""
+    def define_association(self, name: str, question_word: str | None = None):
+        """Create an ASSOCIATION neuron with an optional question word."""
         name = name.strip().lower()
         neuron, _ = self.neuron_repo.get_or_create(name, NeuronType.ASSOCIATION)
+        if question_word:
+            question_word = question_word.strip().lower()
+            self.association_repo.set_question_word(name, question_word)
         self.conn.commit()
         return neuron
 
@@ -162,6 +181,80 @@ class Brain:
 
         self.conn.commit()
         return registered
+
+    def query_association(self, subject: str, association: str) -> list[str]:
+        """Find properties of <subject> under <association>.
+
+        E.g., query_association("apple", "taste") -> ["sweet"]
+        """
+        concept = self.neuron_repo.get_by_label(subject.strip().lower())
+        if concept is None:
+            return []
+
+        # Gather all properties registered under this association
+        assoc_properties = set(self.association_repo.get_properties(association))
+        # Also check built-in taxonomy
+        for label, ptype in self.taxonomy._properties.items():
+            if ptype == association:
+                assoc_properties.add(label)
+
+        # Find paths ending at this concept, filter by matching properties
+        paths = self.path_repo.get_paths_to(concept.id)
+        results = []
+        for p in paths:
+            origin = self.neuron_repo.get_by_id(p.origin_id)
+            if origin and origin.label in assoc_properties:
+                results.append(origin.label)
+        return sorted(set(results))
+
+    def list_question_words(self) -> dict[str, list[str]]:
+        """Return {question_word: [association_names]} for all registered question words."""
+        result: dict[str, list[str]] = {}
+        # Built-in defaults
+        for assoc, qword in _BUILTIN_QUESTION_WORDS.items():
+            result.setdefault(qword, []).append(assoc)
+        # Dynamic (from DB) — overrides/extends
+        for assoc, qword in self.association_repo.list_question_words():
+            result.setdefault(qword, []).append(assoc)
+        return result
+
+    def resolve_question_word(self, word: str) -> list[str]:
+        """Return association names for a question word. Checks DB then builtins."""
+        associations = self.association_repo.get_by_question_word(word)
+        if associations:
+            return associations
+        # Check builtins
+        result = []
+        for assoc, qword in _BUILTIN_QUESTION_WORDS.items():
+            if qword == word:
+                result.append(assoc)
+        return result
+
+    def categorize(self, label: str, category: str) -> None:
+        """Tag a concept: categorize apple item"""
+        label = label.strip().lower()
+        category = category.strip().lower()
+        self.taxonomy.register_category(label, category)
+        self.category_repo.set_category(label, category)
+        self.conn.commit()
+
+    def get_category(self, label: str) -> str:
+        """Returns category for a concept, or 'thing' as default."""
+        return self.taxonomy.subject_category(label)
+
+    def list_categories(self) -> dict[str, list[str]]:
+        """Return {category: [labels]} combining taxonomy and DB."""
+        result: dict[str, list[str]] = {}
+        # From taxonomy (builtins + loaded)
+        for label, cat in self.taxonomy._categories.items():
+            result.setdefault(cat, []).append(label)
+        return {k: sorted(v) for k, v in sorted(result.items())}
+
+    def _load_categories(self) -> None:
+        """Reload categories from DB into taxonomy."""
+        for cat, labels in self.category_repo.list_categories().items():
+            for label in labels:
+                self.taxonomy.register_category(label, cat)
 
     def list_associations(self) -> dict[str, list[str]]:
         """Return dict of {association: [properties]}."""

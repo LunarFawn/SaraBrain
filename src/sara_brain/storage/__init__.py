@@ -3,5 +3,15 @@ from .neuron_repo import NeuronRepo
 from .segment_repo import SegmentRepo
 from .path_repo import PathRepo
 from .association_repo import AssociationRepo
+from .category_repo import CategoryRepo
+from .settings_repo import SettingsRepo
 
-__all__ = ["Database", "NeuronRepo", "SegmentRepo", "PathRepo", "AssociationRepo"]
+__all__ = [
+    "Database",
+    "NeuronRepo",
+    "SegmentRepo",
+    "PathRepo",
+    "AssociationRepo",
+    "CategoryRepo",
+    "SettingsRepo",
+]

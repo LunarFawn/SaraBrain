@@ -5,7 +5,7 @@ from __future__ import annotations
 import cmd
 import sys
 
-from ..core.brain import Brain
+from ..core.brain import Brain, _BUILTIN_QUESTION_WORDS
 from . import commands
 
 
@@ -54,7 +54,7 @@ class SaraShell(cmd.Cmd):
         print(commands.cmd_analyze(self.brain, args))
 
     def do_define(self, args: str) -> None:
-        """Define a new association type: define mood"""
+        """Define a new association type: define taste how"""
         print(commands.cmd_define(self.brain, args))
 
     def do_describe(self, args: str) -> None:
@@ -64,6 +64,101 @@ class SaraShell(cmd.Cmd):
     def do_associations(self, args: str) -> None:
         """List all defined associations and their properties"""
         print(commands.cmd_associations(self.brain, args))
+
+    def do_questions(self, args: str) -> None:
+        """List all available question words"""
+        print(commands.cmd_questions(self.brain, args))
+
+    def do_categorize(self, args: str) -> None:
+        """Tag a concept with a category: categorize apple item"""
+        print(commands.cmd_categorize(self.brain, args))
+
+    def do_categories(self, args: str) -> None:
+        """List all categories and their members"""
+        print(commands.cmd_categories(self.brain, args))
+
+    def do_ask(self, args: str) -> None:
+        """Ask a natural language question (requires LLM config): ask what does an apple taste like?"""
+        if not args.strip():
+            print("  Usage: ask <natural language question>")
+            return
+
+        translator = self._get_translator()
+        if translator is None:
+            print("  No LLM configured. Use structured commands (how, what, where, etc.)")
+            print('  Or configure with: llm set <api_key> [model]')
+            return
+
+        # Build available commands list for the LLM
+        qwords = self.brain.list_question_words()
+        available = ["teach <subject> is/are <property>"]
+        for qword, assocs in sorted(qwords.items()):
+            for assoc in sorted(assocs):
+                available.append(f"{qword} <concept> {assoc}")
+        available.append("categorize <concept> <category>")
+
+        translated = translator.translate(args, available)
+        if translated is None:
+            print("  Could not translate query. Try using structured commands.")
+            return
+
+        print(f"  → {translated}")
+        # Dispatch the translated command through the REPL
+        self.onecmd(translated)
+
+    def do_llm(self, args: str) -> None:
+        """Configure Claude LLM for natural language translation.
+        llm set <api_key> [model]  (default model: claude-sonnet-4-20250514)
+        llm status
+        llm clear"""
+        from ..nlp.translator import is_blocked_domain, _DEFAULT_API_URL
+
+        parts = args.strip().split()
+        if not parts:
+            print("  Usage: llm set <api_key> [model]")
+            print("         llm status")
+            print("         llm clear")
+            return
+
+        subcmd = parts[0].lower()
+        if subcmd == "set":
+            if len(parts) < 2:
+                print("  Usage: llm set <api_key> [model]")
+                print("  Example: llm set sk-ant-... claude-sonnet-4-20250514")
+                return
+            api_key = parts[1]
+            model = parts[2] if len(parts) >= 3 else "claude-sonnet-4-20250514"
+            api_url = _DEFAULT_API_URL
+            self.brain.settings_repo.set("llm_api_url", api_url)
+            self.brain.settings_repo.set("llm_api_key", api_key)
+            self.brain.settings_repo.set("llm_model", model)
+            self.brain.conn.commit()
+            print(f"  LLM configured: {model} @ {api_url}")
+        elif subcmd == "status":
+            url = self.brain.settings_repo.get("llm_api_url")
+            model = self.brain.settings_repo.get("llm_model")
+            if url and model:
+                print(f"  LLM: {model} @ {url}")
+            else:
+                print("  No LLM configured.")
+        elif subcmd == "clear":
+            self.brain.settings_repo.delete("llm_api_url")
+            self.brain.settings_repo.delete("llm_api_key")
+            self.brain.settings_repo.delete("llm_model")
+            self.brain.conn.commit()
+            print("  LLM configuration cleared.")
+        else:
+            print("  Unknown subcommand. Use: set, status, clear")
+
+    def _get_translator(self):
+        """Return an LLMTranslator if configured, else None."""
+        from ..nlp.translator import LLMTranslator, _DEFAULT_API_URL
+        url = self.brain.settings_repo.get("llm_api_url") or _DEFAULT_API_URL
+        key = self.brain.settings_repo.get("llm_api_key")
+        model = self.brain.settings_repo.get("llm_model")
+        if not key or not model:
+            return None
+        return LLMTranslator(url, key, model)
 
     def do_save(self, args: str) -> None:
         """Force flush to disk"""
@@ -83,7 +178,17 @@ class SaraShell(cmd.Cmd):
     do_EOF = do_quit
 
     def default(self, line: str) -> None:
-        print(f"  Unknown command: {line.split()[0]}. Type 'help' for commands.")
+        parts = line.split(None, 1)
+        word = parts[0].lower()
+        args = parts[1] if len(parts) > 1 else ""
+
+        # Check if it's a registered question word (DB first, then builtins)
+        associations = self.brain.resolve_question_word(word)
+        if associations:
+            print(commands.cmd_query(self.brain, word, args))
+            return
+
+        print(f'  Unknown command: "{word}". Type "help" for commands.')
 
     def emptyline(self) -> None:
         pass

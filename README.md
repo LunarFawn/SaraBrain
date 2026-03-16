@@ -33,11 +33,13 @@ python3 -m venv .venv
 
 Requires Python 3.11+.
 
+For a deep dive into the design philosophy, recognition algorithm, and architecture, see **[docs/v002_user_guide.md](docs/v002_user_guide.md)**.
+
 ## How It Works
 
 ### Data Model
 
-- **Neurons** — three types: `concept` (apple), `property` (red), `relation` (apple_color)
+- **Neurons** — four types: `concept` (apple), `property` (red), `relation` (apple_color), `association` (taste)
 - **Segments** — directed edges between neurons with strength (`1 + ln(1 + traversals)`) and traversal counts
 - **Paths** — recorded chains of segments representing a learned fact, with source text provenance
 
@@ -78,11 +80,12 @@ sara> dot               # Full Graphviz DOT export
 ```
 src/sara_brain/
   models/        — Pure dataclasses (Neuron, Segment, Path, PathTrace, RecognitionResult)
-  storage/       — SQLite repos (NeuronRepo, SegmentRepo, PathRepo, Database)
+  storage/       — SQLite repos (NeuronRepo, SegmentRepo, PathRepo, AssociationRepo, CategoryRepo, SettingsRepo, Database)
   parsing/       — Statement parser and taxonomy
   core/          — Brain orchestrator, Learner, Recognizer, SimilarityAnalyzer
+  nlp/           — Optional LLM translation (Claude-only, Anthropic Messages API)
   visualization/ — ASCII tree and Graphviz DOT export
-  repl/          — Interactive shell
+  repl/          — Interactive shell with commands and formatters
 ```
 
 ## REPL Commands
@@ -94,15 +97,25 @@ src/sara_brain/
 | `trace <label>` | Show all outgoing paths from a neuron |
 | `why <label>` | Show all paths leading to a neuron |
 | `similar <label>` | Find neurons with shared downstream paths |
-| `tree <label>` | ASCII tree visualization |
-| `dot` | Full Graphviz DOT export |
+| `analyze` | Scan all neurons for path similarities |
+| `define <name> <qword>` | Create a new association with a question word |
+| `describe <name> as <props>` | Register properties under an association |
+| `associations` | List all associations and their properties |
+| `<question_word> <concept> <assoc>` | Query properties (e.g., `what apple color`) |
+| `questions` | List all available question words |
+| `categorize <concept> <cat>` | Tag a concept with a category |
+| `categories` | List all categories |
+| `ask <question>` | Translate natural language via Claude LLM |
+| `llm set <key> [model]` | Configure Claude API |
+| `llm status` / `llm clear` | Check or remove LLM config |
 | `stats` | Brain statistics |
-| `neurons` / `segments` / `paths` | List all |
+| `neurons` / `paths` | List all |
+| `save` | Force flush to disk |
 | `quit` / `exit` | Exit |
 
 ## Tests
 
-56 tests covering models, storage, parsing, learning, recognition, similarity, and end-to-end integration.
+113 tests covering models, storage, parsing, learning, recognition, similarity, associations, categories, queries, LLM translation, and end-to-end integration.
 
 ```bash
 .venv/bin/pytest tests/ -v

@@ -20,7 +20,7 @@ const CHANGELOG = [
     version: "v005",
     date: "2026-03-19",
     label: "current",
-    summary: "Design philosophy manifesto: origin story, why paths not activation levels, never forgets, parallel wavefronts, child development model, tribal trust, concept-specific relations, strength formula, zero dependencies",
+    summary: "Design philosophy + user guide: origin story, why paths not activation levels, never forgets, parallel wavefronts, tribal trust, strength formula — plus complete REPL reference, data model, perception, LLM translation, all 23 commands",
   },
   {
     version: "v004",

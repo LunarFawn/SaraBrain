@@ -508,48 +508,62 @@ body {
   border-bottom: 1px solid var(--border);
 }
 
-.docs-list {
+.docs-sidebar-section-label {
+  padding: 0.5rem 1rem 0.25rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.docs-changelog {
   flex: 1;
   overflow-y: auto;
+  padding: 0 0.75rem 0.75rem;
 }
 
-.docs-list-item {
-  padding: 0.6rem 1rem;
-  cursor: pointer;
-  border-bottom: 1px solid var(--border);
-  transition: background 0.15s ease;
+.changelog-entry {
+  padding: 0.5rem 0.5rem;
+  border-left: 2px solid var(--border);
+  margin-bottom: 0.25rem;
+  padding-left: 0.75rem;
 }
 
-.docs-list-item:hover {
-  background: var(--bg-tertiary);
+.changelog-entry.changelog-current {
+  border-left-color: var(--accent);
 }
 
-.docs-list-item.active {
-  background: var(--accent-dim);
-  border-left: 3px solid var(--accent);
-}
-
-.docs-list-item-title {
+.changelog-version {
   font-size: 0.7rem;
   font-weight: 700;
   color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
   margin-bottom: 2px;
 }
 
-.docs-list-item-desc {
+.changelog-badge {
+  font-size: 0.55rem;
+  font-weight: 400;
+  color: var(--accent);
+  background: var(--accent-dim);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.changelog-date {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+.changelog-summary {
   font-size: 0.6rem;
   color: var(--text-muted);
-  line-height: 1.3;
-}
-
-.docs-download-all {
-  padding: 0.5rem 1rem;
-  border-top: 1px solid var(--border);
-}
-
-.docs-download-all .btn {
-  width: 100%;
-  text-align: center;
+  line-height: 1.4;
 }
 
 .docs-modal-main {

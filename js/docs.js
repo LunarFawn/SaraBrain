@@ -1,101 +1,94 @@
 /**
- * docs.js — Documentation viewer and download manager.
+ * docs.js — Documentation viewer with changelog.
  *
- * Fetches markdown docs, renders them with a lightweight parser,
- * and provides download functionality.
+ * Shows the latest doc for viewing/download, with a version changelog
+ * summarizing what changed in each release.
  */
 
-// ── Doc Registry ──
+// ── Current Doc ──
 
-const DOCS = [
+const CURRENT_DOC = {
+  title: "Sara Brain — Documentation",
+  file: "docs/v004_web_app.md",
+  filename: "sara_brain_docs_v004.md",
+};
+
+// ── Changelog ──
+
+const CHANGELOG = [
   {
-    id: "v001",
-    title: "v001 — Foundation",
-    file: "docs/v001_foundation.md",
-    description: "Architecture, data model, storage schema",
+    version: "v004",
+    date: "2026-03-19",
+    label: "current",
+    summary: "Web app guide: guided UI, image viewer with region selection, neural graph visualization, vision proxy setup, data persistence",
   },
   {
-    id: "v002",
-    title: "v002 — User Guide",
-    file: "docs/v002_user_guide.md",
-    description: "Philosophy, algorithms, associations, categories, LLM, REPL reference",
+    version: "v003",
+    date: "2026-03-16",
+    summary: "Image perception via Claude Vision, cognitive development model, tribal trust, correction & teaching mechanisms, security & sanitization",
   },
   {
-    id: "v003",
-    title: "v003 — Perception",
-    file: "docs/v003_perception.md",
-    description: "Vision perception, cognitive development, tribal trust, security",
+    version: "v002",
+    date: "2026-03-14",
+    summary: "Full user guide: design philosophy, learning & recognition algorithms, associations & question words, categories, LLM translation, complete REPL reference, storage schema",
   },
   {
-    id: "v004",
-    title: "v004 — Web App",
-    file: "docs/v004_web_app.md",
-    description: "Guided UI, image viewer, region selection, neural graph, vision proxy",
+    version: "v001",
+    date: "2026-03-12",
+    summary: "Foundation: architecture overview, data model (neurons, segments, paths), storage schema, initial REPL commands, test suite",
   },
 ];
 
 // ── State ──
 
-const docCache = {};
-let currentDoc = null;
+let docContent = null;
 
 // ── DOM Refs ──
 
 let modal = null;
-let docsList = null;
 let bodyEl = null;
-let titleEl = null;
-let downloadBtn = null;
+let changelogEl = null;
 
 // ── Public API ──
 
 export function initDocs() {
   modal = document.getElementById("docs-modal");
-  docsList = document.getElementById("docs-list");
   bodyEl = document.getElementById("docs-modal-body");
-  titleEl = document.getElementById("docs-current-title");
-  downloadBtn = document.getElementById("btn-download-doc");
+  changelogEl = document.getElementById("docs-changelog");
 
-  // Build sidebar list
-  docsList.innerHTML = "";
-  for (const doc of DOCS) {
+  // Build changelog
+  changelogEl.innerHTML = "";
+  for (const entry of CHANGELOG) {
     const item = document.createElement("div");
-    item.className = "docs-list-item";
-    item.dataset.id = doc.id;
+    item.className = "changelog-entry" + (entry.label === "current" ? " changelog-current" : "");
     item.innerHTML = `
-      <div class="docs-list-item-title">${doc.title}</div>
-      <div class="docs-list-item-desc">${doc.description}</div>
+      <div class="changelog-version">
+        ${entry.version}${entry.label === "current" ? ' <span class="changelog-badge">current</span>' : ""}
+        <span class="changelog-date">${entry.date}</span>
+      </div>
+      <div class="changelog-summary">${entry.summary}</div>
     `;
-    item.addEventListener("click", () => loadDoc(doc));
-    docsList.appendChild(item);
+    changelogEl.appendChild(item);
   }
 
-  // Close button
+  // Close
   document.getElementById("btn-close-docs").addEventListener("click", hideDocs);
 
-  // Download current doc
-  downloadBtn.addEventListener("click", () => {
-    if (currentDoc && docCache[currentDoc.id]) {
-      downloadFile(currentDoc.file.split("/").pop(), docCache[currentDoc.id]);
-    }
+  // Download
+  document.getElementById("btn-download-doc").addEventListener("click", () => {
+    if (docContent) downloadFile(CURRENT_DOC.filename, docContent);
   });
 
-  // Download all as zip (simple: downloads each file individually)
-  document.getElementById("btn-download-all-docs").addEventListener("click", downloadAllDocs);
-
-  // Close on backdrop click
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) hideDocs();
-  });
-
-  // Close on Escape
+  // Close on backdrop / escape
+  modal.addEventListener("click", (e) => { if (e.target === modal) hideDocs(); });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && modal.style.display !== "none") hideDocs();
   });
 }
 
-export function showDocs() {
+export async function showDocs() {
   modal.style.display = "";
+  if (!docContent) await loadDoc();
 }
 
 export function hideDocs() {
@@ -104,39 +97,20 @@ export function hideDocs() {
 
 // ── Internal ──
 
-async function loadDoc(doc) {
-  // Update sidebar selection
-  for (const item of docsList.querySelectorAll(".docs-list-item")) {
-    item.classList.toggle("active", item.dataset.id === doc.id);
-  }
-
-  currentDoc = doc;
-  titleEl.textContent = doc.title;
-  downloadBtn.style.display = "";
-
-  // Check cache
-  if (docCache[doc.id]) {
-    renderMarkdown(docCache[doc.id]);
-    return;
-  }
-
-  // Show loading
+async function loadDoc() {
   bodyEl.innerHTML = '<div class="docs-placeholder">Loading...</div>';
 
   try {
-    const resp = await fetch(doc.file);
-    if (!resp.ok) throw new Error(`Failed to fetch ${doc.file}: ${resp.status}`);
-    const text = await resp.text();
-    docCache[doc.id] = text;
-    renderMarkdown(text);
+    const resp = await fetch(CURRENT_DOC.file);
+    if (!resp.ok) throw new Error(`${resp.status}`);
+    docContent = await resp.text();
+    renderMarkdown(docContent);
   } catch (err) {
     bodyEl.innerHTML = `<div class="docs-placeholder">Error loading document: ${err.message}</div>`;
   }
 }
 
 function renderMarkdown(md) {
-  // Lightweight markdown → HTML conversion
-  // Handles: headings, code blocks, inline code, tables, bold, italic, links, lists, blockquotes, hr
   let html = "";
   const lines = md.split("\n");
   let i = 0;
@@ -155,7 +129,6 @@ function renderMarkdown(md) {
         codeContent = "";
         inCodeBlock = false;
       } else {
-        // Flush any open table
         if (inTable) { html += buildTable(tableRows); inTable = false; tableRows = []; }
         inCodeBlock = true;
       }
@@ -172,7 +145,6 @@ function renderMarkdown(md) {
     // Table rows
     if (line.includes("|") && line.trim().startsWith("|")) {
       if (!inTable) { inTable = true; tableRows = []; }
-      // Skip separator rows (|---|---|)
       if (/^\|[\s-:|]+\|$/.test(line.trim())) { i++; continue; }
       const cells = line.split("|").slice(1, -1).map(c => c.trim());
       tableRows.push(cells);
@@ -184,20 +156,10 @@ function renderMarkdown(md) {
       tableRows = [];
     }
 
-    // Blank line
-    if (line.trim() === "") {
-      i++;
-      continue;
-    }
+    if (line.trim() === "") { i++; continue; }
 
-    // Horizontal rule
-    if (/^---+$/.test(line.trim())) {
-      html += "<hr>";
-      i++;
-      continue;
-    }
+    if (/^---+$/.test(line.trim())) { html += "<hr>"; i++; continue; }
 
-    // Headings
     const headingMatch = line.match(/^(#{1,6})\s+(.+)/);
     if (headingMatch) {
       const level = headingMatch[1].length;
@@ -206,7 +168,6 @@ function renderMarkdown(md) {
       continue;
     }
 
-    // Blockquote
     if (line.trimStart().startsWith("> ")) {
       let quote = "";
       while (i < lines.length && lines[i].trimStart().startsWith("> ")) {
@@ -217,7 +178,6 @@ function renderMarkdown(md) {
       continue;
     }
 
-    // Unordered list
     if (/^\s*[-*]\s+/.test(line)) {
       html += "<ul>";
       while (i < lines.length && /^\s*[-*]\s+/.test(lines[i])) {
@@ -228,7 +188,6 @@ function renderMarkdown(md) {
       continue;
     }
 
-    // Ordered list
     if (/^\s*\d+[.)]\s+/.test(line)) {
       html += "<ol>";
       while (i < lines.length && /^\s*\d+[.)]\s+/.test(lines[i])) {
@@ -239,18 +198,14 @@ function renderMarkdown(md) {
       continue;
     }
 
-    // Paragraph
     html += `<p>${inlineFormat(line)}</p>`;
     i++;
   }
 
-  // Flush
   if (inCodeBlock) {
     html += `<pre class="docs-code"><code>${escapeHtml(codeContent.trimEnd())}</code></pre>`;
   }
-  if (inTable) {
-    html += buildTable(tableRows);
-  }
+  if (inTable) { html += buildTable(tableRows); }
 
   bodyEl.innerHTML = html;
   bodyEl.scrollTop = 0;
@@ -259,15 +214,11 @@ function renderMarkdown(md) {
 function buildTable(rows) {
   if (rows.length === 0) return "";
   let html = '<table class="docs-table"><thead><tr>';
-  for (const cell of rows[0]) {
-    html += `<th>${inlineFormat(cell)}</th>`;
-  }
+  for (const cell of rows[0]) { html += `<th>${inlineFormat(cell)}</th>`; }
   html += "</tr></thead><tbody>";
   for (let i = 1; i < rows.length; i++) {
     html += "<tr>";
-    for (const cell of rows[i]) {
-      html += `<td>${inlineFormat(cell)}</td>`;
-    }
+    for (const cell of rows[i]) { html += `<td>${inlineFormat(cell)}</td>`; }
     html += "</tr>";
   }
   html += "</tbody></table>";
@@ -276,23 +227,15 @@ function buildTable(rows) {
 
 function inlineFormat(text) {
   let s = escapeHtml(text);
-  // Bold
   s = s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-  // Italic
   s = s.replace(/\*(.+?)\*/g, "<em>$1</em>");
-  // Inline code
   s = s.replace(/`([^`]+)`/g, '<code class="docs-inline-code">$1</code>');
-  // Links [text](url)
   s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
   return s;
 }
 
 function escapeHtml(text) {
-  return text
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+  return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
 function downloadFile(filename, content) {
@@ -303,23 +246,4 @@ function downloadFile(filename, content) {
   a.download = filename;
   a.click();
   URL.revokeObjectURL(url);
-}
-
-async function downloadAllDocs() {
-  // Fetch all docs and download each one
-  for (const doc of DOCS) {
-    let content = docCache[doc.id];
-    if (!content) {
-      try {
-        const resp = await fetch(doc.file);
-        content = await resp.text();
-        docCache[doc.id] = content;
-      } catch {
-        continue;
-      }
-    }
-    downloadFile(doc.file.split("/").pop(), content);
-    // Small delay between downloads so browser doesn't block them
-    await new Promise(r => setTimeout(r, 300));
-  }
 }

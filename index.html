@@ -45,8 +45,51 @@
           <button class="btn" id="btn-reset">Reset</button>
           <button class="btn" id="btn-export">Export</button>
           <button class="btn" id="btn-import">Import</button>
+          <button class="btn" id="btn-vision">Vision</button>
         </div>
       </header>
+
+      <!-- Vision Panel -->
+      <div class="vision-panel" id="vision-panel" style="display: none;">
+        <div class="vision-section" id="proxy-setup">
+          <div class="vision-row">
+            <span class="status-dot" id="proxy-dot"></span>
+            <span id="proxy-text">Proxy: not connected</span>
+            <span class="vision-spacer"></span>
+            <a class="source-link" href="https://github.com/LunarFawn/sara_brain" target="_blank" rel="noopener">View source on GitHub</a>
+          </div>
+          <div class="vision-instructions" id="proxy-instructions">
+            <p>Vision requires a small local proxy (Python, ~60 lines, no dependencies).</p>
+            <div class="vision-row">
+              <button class="btn" id="btn-download-proxy">Download Proxy</button>
+              <button class="btn" id="btn-view-code">View Code</button>
+            </div>
+            <p>Then run: <code>python vision_proxy.py</code></p>
+          </div>
+        </div>
+        <div class="vision-section" id="vision-controls" style="display: none;">
+          <div class="vision-row">
+            <label>Key:</label>
+            <input type="password" id="vision-key" placeholder="sk-ant-..." autocomplete="off" />
+            <label>Model:</label>
+            <input type="text" id="vision-model" value="claude-sonnet-4-20250514" />
+          </div>
+          <div class="vision-row">
+            <button class="btn btn-accent" id="btn-perceive" disabled>Perceive Image</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code Viewer Modal -->
+      <div class="code-modal" id="code-modal" style="display: none;">
+        <div class="code-modal-content">
+          <div class="code-modal-header">
+            <span>vision_proxy.py — Local CORS Proxy</span>
+            <button class="btn" id="btn-close-modal">Close</button>
+          </div>
+          <pre class="code-modal-body" id="code-modal-body"></pre>
+        </div>
+      </div>
 
       <!-- REPL Panel -->
       <div class="repl-panel">

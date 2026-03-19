@@ -17,6 +17,7 @@ from sara_brain.visualization.text_tree import render_paths_from
 # Global brain instance
 brain = None
 _last_recognition = None  # Cache last recognition results for animation
+_perception_state = None  # {label, all_observations, top_guess} — set by JS after perception loop
 
 
 def init_brain():
@@ -62,6 +63,15 @@ def run_command(command_line):
             return "  Usage: tree <neuron>"
         return render_paths_from(brain, args.strip())
 
+    if cmd == "perceive":
+        return "  Use the Vision panel to upload an image, or type: help perceive"
+
+    if cmd == "no":
+        return cmd_no_web(args.strip().lower())
+
+    if cmd == "see":
+        return cmd_see_web(args.strip().lower())
+
     if cmd == "help":
         return (
             "  Commands:\n"
@@ -71,13 +81,16 @@ def run_command(command_line):
             "    why <concept>           — Incoming paths to a concept\n"
             "    similar <neuron>        — Find similar neurons\n"
             "    analyze                 — Run full similarity analysis\n"
+            "    define <association>    — Define a new association type\n"
+            "    describe <a> as <props> — Register properties under an association\n"
+            "    associations            — List all associations and properties\n"
             "    tree <neuron>           — ASCII path tree\n"
             "    neurons                 — List all neurons\n"
             "    paths                   — List all paths\n"
             "    stats                   — Brain statistics\n"
-            "    define <name>           — Define a new association type\n"
-            "    describe <a> as <p>,... — Register properties under association\n"
-            "    associations            — List all associations\n"
+            "    perceive               — Upload an image (via Vision panel)\n"
+            "    no <correct_label>     — Correct last perception: no ball\n"
+            "    see <property>         — Point out a missed property: see seams\n"
             "    reset                   — Reset brain to empty\n"
             "    seed                    — Load demo data\n"
             "    help                    — Show this help"
@@ -186,6 +199,85 @@ def _seed_brain():
             lines.append(f"    taught: {stmt}")
     lines.append(f"  Done! Loaded {len(teachings)} facts.")
     return "\n".join(lines)
+
+
+def set_perception_state(state_json):
+    """Called from JS after perception loop. Stores state for no/see commands."""
+    global _perception_state
+    _perception_state = json.loads(state_json)
+
+
+def get_question_words():
+    """Return JSON of brain.list_question_words()."""
+    global brain
+    if brain is None:
+        return json.dumps({})
+    qwords = brain.list_question_words()
+    return json.dumps(qwords)
+
+
+def get_candidate_properties(label):
+    """Return JSON list of properties Sara knows about a concept (via brain.why)."""
+    global brain
+    if brain is None:
+        return json.dumps([])
+    props = []
+    traces = brain.why(label)
+    for trace in traces:
+        if trace.neurons:
+            props.append(trace.neurons[0].label)
+    return json.dumps(props)
+
+
+def cmd_no_web(correct_label):
+    """Correction: teach correct identity + transfer all observed properties."""
+    global brain, _perception_state
+    if not correct_label:
+        return "  Usage: no <correct_label>"
+    if _perception_state is None:
+        return "  No perception to correct. Use the Vision panel first."
+
+    image_label = _perception_state["label"]
+    all_obs = _perception_state.get("all_observations", [])
+    old_guess = _perception_state.get("top_guess")
+
+    # Teach identity
+    brain.teach(f"{image_label} is {correct_label}")
+
+    # Transfer all observed properties to the correct concept
+    taught = []
+    for prop in all_obs:
+        r = brain.teach(f"{correct_label} is {prop}")
+        if r is not None:
+            taught.append(prop)
+
+    brain.conn.commit()
+
+    lines = []
+    if old_guess:
+        lines.append(f"  Corrected: was {old_guess}, now {correct_label}")
+    else:
+        lines.append(f"  Corrected: {image_label} is {correct_label}")
+    lines.append(f"  Taught {len(taught)} properties to {correct_label}")
+    return "\n".join(lines)
+
+
+def cmd_see_web(property_label):
+    """Parent points out: teach last perceived image a new property."""
+    global brain, _perception_state
+    if not property_label:
+        return "  Usage: see <property>"
+    if _perception_state is None:
+        return "  No perception active. Use the Vision panel first."
+
+    image_label = _perception_state["label"]
+    r = brain.teach(f"{image_label} is {property_label}")
+    brain.conn.commit()
+
+    if r is not None:
+        _perception_state.setdefault("all_observations", []).append(property_label)
+        return f"  Taught: {image_label} is {property_label}"
+    return f"  Already knew: {image_label} is {property_label}"
 
 
 def export_db():

@@ -70,3 +70,30 @@ export async function importBrain(jsonStr) {
 export async function seedBrain() {
   return await pyodide.runPythonAsync("_seed_brain()");
 }
+
+/**
+ * Get question words (association → question word mappings) as a JS object.
+ */
+export async function getQuestionWords() {
+  const json = await pyodide.runPythonAsync("get_question_words()");
+  return JSON.parse(json);
+}
+
+/**
+ * Get known properties for a candidate concept label.
+ */
+export async function getCandidateProperties(label) {
+  const escaped = label.replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+  const json = await pyodide.runPythonAsync(`get_candidate_properties('${escaped}')`);
+  return JSON.parse(json);
+}
+
+/**
+ * Store perception state from JS into Python for no/see commands.
+ */
+export async function setPerceptionState(stateObj) {
+  const json = JSON.stringify(stateObj);
+  pyodide.globals.set("_ps_json", json);
+  await pyodide.runPythonAsync("set_perception_state(_ps_json)");
+  pyodide.globals.delete("_ps_json");
+}

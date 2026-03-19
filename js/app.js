@@ -2,15 +2,23 @@
  * app.js — Main entry point: load Pyodide, mount sara_brain, wire UI.
  */
 
-import { setPyodide, initBrain, runCommand, getGraphData, getLastRecognitionPaths, exportBrain, importBrain, seedBrain } from "./bridge.js";
+import { setPyodide, initBrain, runCommand, getGraphData, getLastRecognitionPaths, exportBrain, importBrain, seedBrain, getQuestionWords, getCandidateProperties, setPerceptionState } from "./bridge.js";
 import { saveBrainState, loadBrainState, clearBrainState, downloadBrainExport, uploadBrainImport } from "./persistence.js";
 import { initGraph, updateGraph, animateWavefront } from "./graph.js";
+import { checkProxyHealth, runPerceptionLoop, generateLabel } from "./vision.js";
 
 // ── State ──
 
 let commandHistory = [];
 let historyIndex = -1;
 let isProcessing = false;
+
+// Vision state
+let visionApiKey = localStorage.getItem("sara_vision_key") || "";
+let visionModel = localStorage.getItem("sara_vision_model") || "claude-sonnet-4-20250514";
+let proxyUrl = "http://localhost:8765";
+let proxyConnected = false;
+let proxyPollInterval = null;
 
 // ── DOM refs ──
 
@@ -21,6 +29,18 @@ const app = document.getElementById("app");
 const replOutput = document.getElementById("repl-output");
 const replInput = document.getElementById("repl-input");
 const detailPanel = document.getElementById("detail-panel");
+
+// Vision DOM refs
+const visionPanel = document.getElementById("vision-panel");
+const proxyDot = document.getElementById("proxy-dot");
+const proxyText = document.getElementById("proxy-text");
+const proxyInstructions = document.getElementById("proxy-instructions");
+const visionControls = document.getElementById("vision-controls");
+const visionKeyInput = document.getElementById("vision-key");
+const visionModelInput = document.getElementById("vision-model");
+const btnPerceive = document.getElementById("btn-perceive");
+const codeModal = document.getElementById("code-modal");
+const codeModalBody = document.getElementById("code-modal-body");
 
 // ── Loading ──
 
@@ -187,6 +207,32 @@ function initUI() {
   document.getElementById("btn-reset").addEventListener("click", handleReset);
   document.getElementById("btn-export").addEventListener("click", handleExport);
   document.getElementById("btn-import").addEventListener("click", handleImport);
+
+  // Vision panel handlers
+  document.getElementById("btn-vision").addEventListener("click", toggleVisionPanel);
+  document.getElementById("btn-download-proxy").addEventListener("click", handleDownloadProxy);
+  document.getElementById("btn-view-code").addEventListener("click", handleViewCode);
+  document.getElementById("btn-close-modal").addEventListener("click", () => { codeModal.style.display = "none"; });
+  btnPerceive.addEventListener("click", handlePerceive);
+
+  // Restore saved vision settings
+  if (visionApiKey) visionKeyInput.value = visionApiKey;
+  if (visionModel) visionModelInput.value = visionModel;
+
+  visionKeyInput.addEventListener("change", () => {
+    visionApiKey = visionKeyInput.value.trim();
+    localStorage.setItem("sara_vision_key", visionApiKey);
+    updatePerceiveButton();
+  });
+  visionModelInput.addEventListener("change", () => {
+    visionModel = visionModelInput.value.trim();
+    localStorage.setItem("sara_vision_model", visionModel);
+  });
+
+  // Close modal on backdrop click
+  codeModal.addEventListener("click", (e) => {
+    if (e.target === codeModal) codeModal.style.display = "none";
+  });
 }
 
 async function handleInputKeydown(e) {
@@ -226,6 +272,25 @@ async function executeCommand(line) {
 
   try {
     const cmd = line.split(/\s+/)[0].toLowerCase();
+
+    // Perceive: trigger file dialog instead of running Python command
+    if (cmd === "perceive") {
+      await handlePerceive();
+      isProcessing = false;
+      replInput.focus();
+      return;
+    }
+
+    // no/see: run command, refresh graph
+    if (cmd === "no" || cmd === "see") {
+      const output = await runCommand(line);
+      appendOutput(output, "cmd-output");
+      await refreshGraph();
+      await persistState();
+      isProcessing = false;
+      replInput.focus();
+      return;
+    }
 
     // For recognize, run command then get cached path data for animation
     if (cmd === "recognize") {
@@ -364,6 +429,156 @@ async function persistState() {
   } catch (err) {
     console.warn("Failed to persist brain state:", err);
   }
+}
+
+// ── Vision Panel ──
+
+function toggleVisionPanel() {
+  const visible = visionPanel.style.display !== "none";
+  if (visible) {
+    visionPanel.style.display = "none";
+    stopProxyPolling();
+  } else {
+    visionPanel.style.display = "";
+    startProxyPolling();
+  }
+}
+
+function startProxyPolling() {
+  checkAndUpdateStatus();
+  proxyPollInterval = setInterval(checkAndUpdateStatus, 3000);
+}
+
+function stopProxyPolling() {
+  if (proxyPollInterval) {
+    clearInterval(proxyPollInterval);
+    proxyPollInterval = null;
+  }
+}
+
+async function checkAndUpdateStatus() {
+  proxyConnected = await checkProxyHealth(proxyUrl);
+  if (proxyConnected) {
+    proxyDot.classList.add("connected");
+    proxyText.textContent = "Proxy: connected";
+    proxyInstructions.style.display = "none";
+    visionControls.style.display = "";
+  } else {
+    proxyDot.classList.remove("connected");
+    proxyText.textContent = "Proxy: not connected";
+    proxyInstructions.style.display = "";
+    visionControls.style.display = "none";
+  }
+  updatePerceiveButton();
+}
+
+function updatePerceiveButton() {
+  btnPerceive.disabled = !(proxyConnected && visionApiKey);
+}
+
+async function handleDownloadProxy() {
+  try {
+    const resp = await fetch("python/vision_proxy.py");
+    const text = await resp.text();
+    const blob = new Blob([text], { type: "text/x-python" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "vision_proxy.py";
+    a.click();
+    URL.revokeObjectURL(url);
+  } catch (err) {
+    appendOutput(`Download error: ${err.message}`, "cmd-error");
+  }
+}
+
+async function handleViewCode() {
+  try {
+    const resp = await fetch("python/vision_proxy.py");
+    const text = await resp.text();
+    codeModalBody.textContent = text;
+    codeModal.style.display = "";
+  } catch (err) {
+    appendOutput(`Error loading source: ${err.message}`, "cmd-error");
+  }
+}
+
+async function handlePerceive() {
+  if (isProcessing) return;
+  if (!proxyConnected || !visionApiKey) {
+    appendOutput("  Vision not ready. Connect proxy and enter API key.", "cmd-error");
+    return;
+  }
+
+  // Open file dialog
+  const file = await pickImageFile();
+  if (!file) return;
+
+  isProcessing = true;
+  appendOutput(`> perceive ${file.name}`, "cmd-line");
+  appendOutput("  Reading image...", "cmd-output");
+
+  try {
+    const arrayBuffer = await file.arrayBuffer();
+    const label = await generateLabel(file.name, arrayBuffer);
+
+    // Convert to base64
+    const bytes = new Uint8Array(arrayBuffer);
+    let binary = "";
+    for (let i = 0; i < bytes.length; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    const imageBase64 = btoa(binary);
+
+    // Determine media type
+    const ext = file.name.split(".").pop().toLowerCase();
+    const mediaTypes = { jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", gif: "image/gif", webp: "image/webp" };
+    const mediaType = mediaTypes[ext] || "image/jpeg";
+
+    appendOutput(`  Label: ${label}`, "cmd-output");
+    appendOutput("  Starting perception loop...", "cmd-output");
+
+    const bridge = {
+      runCommand,
+      getQuestionWords,
+      getCandidateProperties,
+      setPerceptionState,
+    };
+
+    const result = await runPerceptionLoop(
+      proxyUrl, visionApiKey, visionModel,
+      imageBase64, mediaType, label, bridge,
+      (step) => {
+        appendOutput(`  [${step.phase}] observed: ${step.observations.join(", ") || "(none)"}`, "perception-obs");
+        if (step.recognition) {
+          appendOutput(`  ${step.recognition}`, "cmd-output");
+        }
+      }
+    );
+
+    appendOutput(`  Perception complete: ${result.totalTaught} properties taught`, "perception-phase");
+    await refreshGraph();
+    await persistState();
+  } catch (err) {
+    appendOutput(`  Perception error: ${err.message}`, "cmd-error");
+  }
+
+  isProcessing = false;
+  replInput.focus();
+}
+
+function pickImageFile() {
+  return new Promise((resolve) => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/jpeg,image/png,image/gif,image/webp";
+    input.onchange = () => {
+      resolve(input.files[0] || null);
+    };
+    // If user cancels, resolve null after a delay
+    input.addEventListener("cancel", () => resolve(null));
+    input.click();
+  });
 }
 
 // ── Init Graph & Boot ──

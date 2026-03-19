@@ -9,17 +9,22 @@
 
 const CURRENT_DOC = {
   title: "Sara Brain — Documentation",
-  file: "docs/v004_web_app.md",
-  filename: "sara_brain_docs_v004.md",
+  file: "docs/v005_design_philosophy.md",
+  filename: "sara_brain_docs_v005.md",
 };
 
 // ── Changelog ──
 
 const CHANGELOG = [
   {
-    version: "v004",
+    version: "v005",
     date: "2026-03-19",
     label: "current",
+    summary: "Design philosophy manifesto: origin story, why paths not activation levels, never forgets, parallel wavefronts, child development model, tribal trust, concept-specific relations, strength formula, zero dependencies",
+  },
+  {
+    version: "v004",
+    date: "2026-03-19",
     summary: "Web app guide: guided UI, image viewer with region selection, neural graph visualization, vision proxy setup, data persistence",
   },
   {

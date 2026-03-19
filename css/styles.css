@@ -468,6 +468,348 @@ body {
   background: var(--border);
 }
 
+/* ── Mode Toggle ── */
+
+.mode-toggle {
+  display: flex;
+  gap: 0;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.mode-btn {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.mode-btn:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.mode-btn:last-child {
+  border-radius: 0 4px 4px 0;
+  border-left: none;
+}
+
+.mode-btn.active {
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+.mode-btn:hover:not(.active) {
+  color: var(--text-secondary);
+}
+
+/* ── Guided Container ── */
+
+.guided-container {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.guided-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.guided-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.guided-btn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.15s ease;
+}
+
+.guided-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--text-muted);
+}
+
+.guided-btn:hover .guided-btn-hint {
+  opacity: 1;
+}
+
+.guided-btn-hint {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 10;
+  margin-top: 4px;
+}
+
+.guided-btn--followup {
+  border-color: var(--yellow);
+  color: var(--yellow);
+}
+
+.guided-btn--followup:hover {
+  background: rgba(210, 153, 34, 0.15);
+  color: var(--text-primary);
+}
+
+/* ── Guided Flow Panel ── */
+
+.guided-flow {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.guided-flow-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.guided-flow-title {
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.guided-flow-input {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-primary);
+  padding: 0.4rem 0.5rem;
+  margin-bottom: 0.25rem;
+  outline: none;
+  caret-color: var(--accent);
+}
+
+.guided-flow-input:focus {
+  border-color: var(--accent-dim);
+}
+
+.guided-flow-hint {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.guided-flow-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.guided-flow-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.guided-flow-status {
+  font-size: 0.7rem;
+  color: var(--yellow);
+}
+
+/* ── Panel Tabs (Graph / Image) ── */
+
+.panel-tabs {
+  display: flex;
+  gap: 0;
+}
+
+.panel-tab {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--border);
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.panel-tab:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.panel-tab:last-child {
+  border-radius: 0 4px 4px 0;
+  border-left: none;
+}
+
+.panel-tab.active {
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+.panel-tab:hover:not(.active) {
+  color: var(--text-secondary);
+}
+
+/* ── Image Viewer ── */
+
+#image-viewer-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.iv-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0.5rem 0.75rem;
+  max-height: 80px;
+  overflow-y: auto;
+  border-bottom: 1px solid var(--border);
+}
+
+.iv-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.iv-label.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.iv-label--initial {
+  background: rgba(63, 185, 80, 0.2);
+  color: var(--green);
+  border: 1px solid rgba(63, 185, 80, 0.3);
+}
+
+.iv-label--directed-1,
+.iv-label--directed-2,
+.iv-label--directed-3 {
+  background: rgba(88, 166, 255, 0.2);
+  color: var(--accent);
+  border: 1px solid rgba(88, 166, 255, 0.3);
+}
+
+.iv-label--verification {
+  background: rgba(210, 153, 34, 0.2);
+  color: var(--yellow);
+  border: 1px solid rgba(210, 153, 34, 0.3);
+}
+
+.iv-label--region {
+  background: rgba(196, 181, 253, 0.2);
+  color: var(--association-color);
+  border: 1px solid rgba(196, 181, 253, 0.3);
+}
+
+.iv-canvas-area {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.iv-canvas-area canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#iv-image-canvas {
+  z-index: 1;
+}
+
+#iv-overlay-canvas {
+  z-index: 2;
+  cursor: crosshair;
+}
+
+.iv-empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.iv-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg-secondary);
+}
+
+.iv-tool-btn {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.iv-tool-btn.active {
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+.iv-tool-btn:hover:not(.active) {
+  color: var(--text-secondary);
+}
+
+.iv-coords {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
 /* ── Responsive ── */
 
 @media (max-width: 800px) {

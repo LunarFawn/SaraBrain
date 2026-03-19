@@ -93,8 +93,22 @@
 
       <!-- REPL Panel -->
       <div class="repl-panel">
+        <!-- Mode toggle -->
+        <div class="mode-toggle">
+          <button class="mode-btn active" id="mode-guided">Guided</button>
+          <button class="mode-btn" id="mode-repl">REPL</button>
+        </div>
+
+        <!-- Guided mode container -->
+        <div class="guided-container" id="guided-container">
+          <!-- guided.js builds action buttons + flow panel here -->
+        </div>
+
+        <!-- Shared output log -->
         <div class="repl-output" id="repl-output"></div>
-        <div class="repl-input-container">
+
+        <!-- REPL input (hidden in guided mode) -->
+        <div class="repl-input-container" id="repl-input-container" style="display:none">
           <span class="repl-prompt">brain&gt;</span>
           <input
             type="text"
@@ -110,7 +124,10 @@
       <!-- Graph Panel -->
       <div class="graph-panel">
         <div class="graph-header">
-          <span>Neural Graph</span>
+          <div class="panel-tabs">
+            <button class="panel-tab active" id="tab-graph">Graph</button>
+            <button class="panel-tab" id="tab-image" style="display:none">Image</button>
+          </div>
           <div class="graph-legend">
             <div class="legend-item">
               <div class="legend-dot concept"></div>
@@ -135,6 +152,7 @@
             Teach something to see the graph
           </div>
         </div>
+        <div id="image-viewer-container" style="display:none"></div>
       </div>
 
       <!-- Detail Panel -->

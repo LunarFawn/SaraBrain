@@ -5,7 +5,9 @@
 import { setPyodide, initBrain, runCommand, getGraphData, getLastRecognitionPaths, exportBrain, importBrain, seedBrain, getQuestionWords, getCandidateProperties, setPerceptionState } from "./bridge.js";
 import { saveBrainState, loadBrainState, clearBrainState, downloadBrainExport, uploadBrainImport } from "./persistence.js";
 import { initGraph, updateGraph, animateWavefront } from "./graph.js";
-import { checkProxyHealth, runPerceptionLoop, generateLabel } from "./vision.js";
+import { checkProxyHealth, runPerceptionLoop, generateLabel, sanitize, callVision } from "./vision.js";
+import { initImageViewer, loadImage, addLabel, clearViewer, onRegionSelected, hasImage } from "./imageviewer.js";
+import { initGuided, showFlow, hideFlow, setMode as setGuidedMode, showPerceptionFollowUps } from "./guided.js";
 
 // ── State ──
 
@@ -41,6 +43,86 @@ const visionModelInput = document.getElementById("vision-model");
 const btnPerceive = document.getElementById("btn-perceive");
 const codeModal = document.getElementById("code-modal");
 const codeModalBody = document.getElementById("code-modal-body");
+
+// ── Mode Toggle ──
+
+function toggleMode(mode) {
+  document.getElementById("guided-container").style.display = mode === "guided" ? "" : "none";
+  document.getElementById("repl-input-container").style.display = mode === "repl" ? "" : "none";
+  document.getElementById("mode-guided").classList.toggle("active", mode === "guided");
+  document.getElementById("mode-repl").classList.toggle("active", mode === "repl");
+  setGuidedMode(mode);
+  if (mode === "repl") replInput.focus();
+}
+
+// ── Right Panel Tabs ──
+
+function switchRightPanel(panel) {
+  const graphContainer = document.getElementById("graph-container");
+  const imageContainer = document.getElementById("image-viewer-container");
+  const tabGraph = document.getElementById("tab-graph");
+  const tabImage = document.getElementById("tab-image");
+
+  if (panel === "image") {
+    graphContainer.style.display = "none";
+    imageContainer.style.display = "";
+    tabGraph.classList.remove("active");
+    tabImage.classList.add("active");
+  } else {
+    graphContainer.style.display = "";
+    imageContainer.style.display = "none";
+    tabGraph.classList.add("active");
+    tabImage.classList.remove("active");
+  }
+}
+
+// ── Region Query ──
+
+async function handleRegionQuery(croppedBase64, mediaType, coords) {
+  if (!proxyConnected || !visionApiKey) {
+    appendOutput("  Vision not ready for region query.", "cmd-error");
+    return;
+  }
+
+  appendOutput(`  [region @ (${coords.x},${coords.y}) ${coords.w}x${coords.h}] Asking Claude...`, "cmd-line");
+
+  try {
+    const prompt =
+      "Describe everything you observe in this cropped region. " +
+      "List each observation as a single word or short phrase on its own line. " +
+      "Include: colors, shapes, textures, patterns, objects, features. " +
+      "One observation per line, lowercase, simple words only.";
+
+    const raw = await callVision(proxyUrl, visionApiKey, visionModel, croppedBase64, mediaType, prompt);
+    if (!raw) {
+      appendOutput("  No response from Vision API.", "cmd-error");
+      return;
+    }
+
+    const labels = sanitize(raw);
+    if (labels.length === 0) {
+      appendOutput("  No labels detected in region.", "cmd-output");
+      return;
+    }
+
+    // Find the current image label from perception state
+    // Use the most recent perceive label if available
+    const imageLabel = lastPerceiveLabel || "region";
+
+    for (const lbl of labels) {
+      await runCommand(`teach ${imageLabel} is ${lbl}`);
+      addLabel(lbl, "region");
+      appendOutput(`  [region] taught: ${imageLabel} is ${lbl}`, "cmd-output");
+    }
+
+    await refreshGraph();
+    await persistState();
+  } catch (err) {
+    appendOutput(`  Region query error: ${err.message}`, "cmd-error");
+  }
+}
+
+let lastPerceiveLabel = null;
 
 // ── Loading ──
 
@@ -233,6 +315,29 @@ function initUI() {
   codeModal.addEventListener("click", (e) => {
     if (e.target === codeModal) codeModal.style.display = "none";
   });
+
+  // ── Guided Mode ──
+  initGuided(document.getElementById("guided-container"), {
+    onTeach: async (text) => { await executeCommand(`teach ${text}`); },
+    onRecognize: async (text) => { await executeCommand(`recognize ${text}`); },
+    onPerceive: async () => { await handlePerceive(); },
+    onWhy: async (text) => { await executeCommand(`why ${text}`); },
+    onTrace: async (text) => { await executeCommand(`trace ${text}`); },
+    onCorrect: async (text) => { await executeCommand(`no ${text}`); },
+    onSee: async (text) => { await executeCommand(`see ${text}`); },
+  });
+
+  // Mode toggle
+  document.getElementById("mode-guided").addEventListener("click", () => toggleMode("guided"));
+  document.getElementById("mode-repl").addEventListener("click", () => toggleMode("repl"));
+
+  // ── Image Viewer ──
+  initImageViewer("image-viewer-container");
+  onRegionSelected(handleRegionQuery);
+
+  // Tab buttons (Graph / Image)
+  document.getElementById("tab-graph").addEventListener("click", () => switchRightPanel("graph"));
+  document.getElementById("tab-image").addEventListener("click", () => switchRightPanel("image"));
 }
 
 async function handleInputKeydown(e) {
@@ -342,6 +447,11 @@ async function handleSeed() {
 async function handleReset() {
   await executeCommand("reset");
   await clearBrainState();
+  clearViewer();
+  showPerceptionFollowUps(false);
+  lastPerceiveLabel = null;
+  document.getElementById("tab-image").style.display = "none";
+  switchRightPanel("graph");
 }
 
 async function handleExport() {
@@ -535,6 +645,14 @@ async function handlePerceive() {
     const mediaTypes = { jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", gif: "image/gif", webp: "image/webp" };
     const mediaType = mediaTypes[ext] || "image/jpeg";
 
+    // Load image into viewer, show Image tab
+    loadImage(imageBase64, mediaType, label);
+    document.getElementById("tab-image").style.display = "";
+    switchRightPanel("image");
+
+    // Track label for region queries
+    lastPerceiveLabel = label;
+
     appendOutput(`  Label: ${label}`, "cmd-output");
     appendOutput("  Starting perception loop...", "cmd-output");
 
@@ -549,6 +667,10 @@ async function handlePerceive() {
       proxyUrl, visionApiKey, visionModel,
       imageBase64, mediaType, label, bridge,
       (step) => {
+        // Add label chips to image viewer
+        for (const obs of step.observations) {
+          addLabel(obs, step.phase);
+        }
         appendOutput(`  [${step.phase}] observed: ${step.observations.join(", ") || "(none)"}`, "perception-obs");
         if (step.recognition) {
           appendOutput(`  ${step.recognition}`, "cmd-output");
@@ -559,6 +681,9 @@ async function handlePerceive() {
     appendOutput(`  Perception complete: ${result.totalTaught} properties taught`, "perception-phase");
     await refreshGraph();
     await persistState();
+
+    // Show contextual follow-up buttons
+    showPerceptionFollowUps(true);
   } catch (err) {
     appendOutput(`  Perception error: ${err.message}`, "cmd-error");
   }

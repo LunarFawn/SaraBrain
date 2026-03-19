@@ -41,6 +41,7 @@ Requires Python 3.11+.
 | **[docs/v002_user_guide.md](docs/v002_user_guide.md)** | Design philosophy, algorithms, associations, categories, LLM, full REPL reference |
 | **[docs/v003_perception.md](docs/v003_perception.md)** | Vision perception, cognitive development model, tribal trust, correction, security |
 | **[docs/v004_web_app.md](docs/v004_web_app.md)** | Web app guide: guided UI, image viewer, region selection, neural graph, vision proxy |
+| **[docs/v005_design_philosophy.md](docs/v005_design_philosophy.md)** | Design philosophy: origin story, why paths not activation, never forgets, parallel thought, tribal trust |
 
 ## How It Works
 

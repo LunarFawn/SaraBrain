@@ -8,6 +8,7 @@ import { initGraph, updateGraph, animateWavefront } from "./graph.js";
 import { checkProxyHealth, runPerceptionLoop, generateLabel, sanitize, callVision } from "./vision.js";
 import { initImageViewer, loadImage, addLabel, clearViewer, onRegionSelected, hasImage } from "./imageviewer.js";
 import { initGuided, showFlow, hideFlow, setMode as setGuidedMode, showPerceptionFollowUps } from "./guided.js";
+import { initDocs, showDocs } from "./docs.js";
 
 // ── State ──
 
@@ -292,6 +293,8 @@ function initUI() {
 
   // Vision panel handlers
   document.getElementById("btn-vision").addEventListener("click", toggleVisionPanel);
+  document.getElementById("btn-docs").addEventListener("click", showDocs);
+  initDocs();
   document.getElementById("btn-download-proxy").addEventListener("click", handleDownloadProxy);
   document.getElementById("btn-view-code").addEventListener("click", handleViewCode);
   document.getElementById("btn-close-modal").addEventListener("click", () => { codeModal.style.display = "none"; });

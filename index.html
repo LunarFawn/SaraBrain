@@ -46,6 +46,7 @@
           <button class="btn" id="btn-export">Export</button>
           <button class="btn" id="btn-import">Import</button>
           <button class="btn" id="btn-vision">Vision</button>
+          <button class="btn" id="btn-docs">Docs</button>
         </div>
       </header>
 
@@ -88,6 +89,31 @@
             <button class="btn" id="btn-close-modal">Close</button>
           </div>
           <pre class="code-modal-body" id="code-modal-body"></pre>
+        </div>
+      </div>
+
+      <!-- Docs Modal -->
+      <div class="docs-modal" id="docs-modal" style="display: none;">
+        <div class="docs-modal-content">
+          <div class="docs-modal-sidebar">
+            <div class="docs-modal-title">Documentation</div>
+            <div class="docs-list" id="docs-list"></div>
+            <div class="docs-download-all">
+              <button class="btn" id="btn-download-all-docs">Download All (.zip)</button>
+            </div>
+          </div>
+          <div class="docs-modal-main">
+            <div class="docs-modal-header">
+              <span id="docs-current-title">Select a document</span>
+              <div class="docs-header-actions">
+                <button class="btn" id="btn-download-doc" style="display:none">Download</button>
+                <button class="btn" id="btn-close-docs">Close</button>
+              </div>
+            </div>
+            <div class="docs-modal-body" id="docs-modal-body">
+              <div class="docs-placeholder">Choose a document from the sidebar to view it.</div>
+            </div>
+          </div>
         </div>
       </div>
 

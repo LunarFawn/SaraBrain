@@ -106,7 +106,7 @@ async function loadDoc() {
   bodyEl.innerHTML = '<div class="docs-placeholder">Loading...</div>';
 
   try {
-    const resp = await fetch(CURRENT_DOC.file);
+    const resp = await fetch(CURRENT_DOC.file + "?v=" + Date.now());
     if (!resp.ok) throw new Error(`${resp.status}`);
     docContent = await resp.text();
     renderMarkdown(docContent);

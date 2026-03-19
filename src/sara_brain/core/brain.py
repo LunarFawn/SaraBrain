@@ -35,6 +35,8 @@ class Brain:
     Every mutation writes to SQLite immediately. On restart, full state is recovered.
     """
 
+    _last_perception = None  # Set by Perceiver after perceive()
+
     def __init__(self, db_path: str = ":memory:") -> None:
         self.db = Database(db_path)
         self.conn = self.db.conn
@@ -261,6 +263,74 @@ class Brain:
         result: dict[str, list[str]] = {}
         for assoc, prop_label in self.association_repo.list_all():
             result.setdefault(assoc, []).append(prop_label)
+        return result
+
+    def perceive(self, image_path: str, label: str | None = None,
+                 max_rounds: int = 3, callback=None):
+        """Run the perception loop on an image.
+
+        Requires LLM configured (same as 'ask'). Uses Claude Vision
+        as Sara's senses: observe, recognize, inquire, verify.
+
+        Returns a PerceptionResult.
+        """
+        from ..nlp.vision import VisionObserver
+        from ..nlp.translator import _DEFAULT_API_URL
+        from .perceiver import Perceiver
+
+        url = self.settings_repo.get("llm_api_url") or _DEFAULT_API_URL
+        key = self.settings_repo.get("llm_api_key")
+        model = self.settings_repo.get("llm_model")
+        if not key or not model:
+            raise ValueError("No LLM configured. Use: llm set <api_key> [model]")
+
+        observer = VisionObserver(url, key, model)
+        perceiver = Perceiver(self, observer)
+        result = perceiver.perceive(image_path, label=label,
+                                    max_rounds=max_rounds, callback=callback)
+        self.conn.commit()
+        return result
+
+    def correct(self, correct_label: str):
+        """Correct the last perception: the guess was wrong, this is actually <correct_label>.
+
+        Returns correction details dict, or raises ValueError if no perception to correct.
+        """
+        from .perceiver import Perceiver
+        from ..nlp.vision import VisionObserver
+        from ..nlp.translator import _DEFAULT_API_URL
+
+        if self._last_perception is None:
+            raise ValueError("No recent perception to correct.")
+
+        url = self.settings_repo.get("llm_api_url") or _DEFAULT_API_URL
+        key = self.settings_repo.get("llm_api_key")
+        model = self.settings_repo.get("llm_model")
+        observer = VisionObserver(url or _DEFAULT_API_URL, key or "", model or "")
+        perceiver = Perceiver(self, observer)
+        result = perceiver.correct(correct_label, self._last_perception)
+        self.conn.commit()
+        return result
+
+    def see(self, property_label: str):
+        """Parent points out a property Sara missed on the last perceived image.
+
+        Returns teaching details dict, or raises ValueError if no perception.
+        """
+        from .perceiver import Perceiver
+        from ..nlp.vision import VisionObserver
+        from ..nlp.translator import _DEFAULT_API_URL
+
+        if self._last_perception is None:
+            raise ValueError("No recent perception to add observations to.")
+
+        url = self.settings_repo.get("llm_api_url") or _DEFAULT_API_URL
+        key = self.settings_repo.get("llm_api_key")
+        model = self.settings_repo.get("llm_model")
+        observer = VisionObserver(url or _DEFAULT_API_URL, key or "", model or "")
+        perceiver = Perceiver(self, observer)
+        result = perceiver.add_observation(property_label, self._last_perception)
+        self.conn.commit()
         return result
 
     def close(self) -> None:

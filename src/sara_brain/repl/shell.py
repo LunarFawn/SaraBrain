@@ -77,6 +77,31 @@ class SaraShell(cmd.Cmd):
         """List all categories and their members"""
         print(commands.cmd_categories(self.brain, args))
 
+    def do_perceive(self, args: str) -> None:
+        """Perceive an image: perceive /path/to/image.jpg [label]"""
+        if not args.strip():
+            print("  Usage: perceive <image_path> [label]")
+            return
+
+        translator = self._get_translator()
+        if translator is None:
+            print("  No LLM configured. Use: llm set <api_key> [model]")
+            return
+
+        from . import formatters
+        def _step_callback(step):
+            print(formatters.format_perception_step(step))
+
+        print(commands.cmd_perceive(self.brain, args, callback=_step_callback))
+
+    def do_no(self, args: str) -> None:
+        """Correct a perception: no <correct_label> (e.g., 'no ball')"""
+        print(commands.cmd_correct(self.brain, args))
+
+    def do_see(self, args: str) -> None:
+        """Point out a missed property: see <property> (e.g., 'see seams')"""
+        print(commands.cmd_see(self.brain, args))
+
     def do_ask(self, args: str) -> None:
         """Ask a natural language question (requires LLM config): ask what does an apple taste like?"""
         if not args.strip():

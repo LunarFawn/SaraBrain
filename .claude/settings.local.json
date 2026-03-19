@@ -4,7 +4,9 @@
       "WebSearch",
       "Bash(python3:*)",
       "Bash(.venv/bin/pip install:*)",
-      "Bash(.venv/bin/pytest tests/ -v 2>&1)"
+      "Bash(.venv/bin/pytest tests/ -v 2>&1)",
+      "Bash(find:*)",
+      "Bash(.venv/bin/python -m pytest tests/ -v --tb=short 2>&1 | tail -20)"
     ]
   }
 }

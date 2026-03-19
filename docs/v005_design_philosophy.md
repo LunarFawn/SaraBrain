@@ -354,3 +354,495 @@ The current SQLite backend works, but it wasn't designed for neuron-chain traver
 ---
 
 > Sara Brain doesn't simulate thinking. It *is* thinking — paths through neurons, intersections as conclusions, everything traceable, nothing forgotten, nothing hidden.
+
+---
+
+# Part II — User Guide
+
+> Everything below is sourced from the current codebase. If the code and these docs ever disagree, the code wins.
+
+---
+
+## Table of Contents (User Guide)
+
+14. [Getting Started](#getting-started)
+15. [Teaching](#teaching)
+16. [Recognition](#recognition)
+17. [Exploring the Brain](#exploring-the-brain)
+18. [Similarity](#similarity)
+19. [Associations & Questions](#associations--questions)
+20. [Categories](#categories)
+21. [Image Perception](#image-perception)
+22. [LLM Translation](#llm-translation)
+23. [Data Model Reference](#data-model-reference)
+24. [Storage](#storage)
+25. [Complete Command Reference](#complete-command-reference)
+
+---
+
+## Getting Started
+
+### Requirements
+
+- Python 3.11+
+- No external dependencies (stdlib + SQLite only)
+
+### Installation
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -e .
+```
+
+### Launching the REPL
+
+```bash
+.venv/bin/sara                # defaults to sara.db
+.venv/bin/sara my_brain.db    # custom database path
+```
+
+The entry point is `sara_brain.repl.shell:main`. On launch, Sara prints the database path and opens an interactive prompt:
+
+```
+  Using database: sara.db
+Sara Brain v0.1.0 — Path-of-thought brain simulation
+Type 'help' for commands.
+
+sara>
+```
+
+If no database file exists, one is created automatically.
+
+---
+
+## Teaching
+
+Teach Sara facts with natural language statements:
+
+```
+sara> teach an apple is red
+sara> teach apples are round
+sara> teach a banana is yellow
+sara> teach a banana is long
+```
+
+### How parsing works
+
+1. Articles (`a`, `an`, `the`) are stripped
+2. Basic singularization is applied (`apples` → `apple`, `cherries` → `cherry`)
+3. The statement is split on `is` / `are`
+4. The property is looked up in the taxonomy to determine its type (e.g., `red` → `color`)
+5. A 3-neuron chain is created:
+
+```
+property → relation → concept
+red      → apple_color → apple
+```
+
+The relation neuron is concept-specific: `{subject}_{property_type}`. This prevents cross-concept contamination — teaching "apple is red" never leaks redness to banana.
+
+### Examples
+
+```
+sara> teach an apple is red
+  Learned: red → apple_color → apple (3 neurons, 2 segments)
+
+sara> teach an apple is sweet
+  Learned: sweet → apple_taste → apple (1 neuron, 2 segments)
+```
+
+If the property type is unknown, the relation defaults to `is_a` and the type to `attribute`.
+
+---
+
+## Recognition
+
+Give Sara comma-separated properties and it finds matching concepts via parallel wavefront intersection:
+
+```
+sara> recognize red, round
+  Recognized: apple (score: 1.00)
+```
+
+### How it works
+
+1. Each input property launches a **parallel wavefront** through all connected segments
+2. Wavefronts propagate simultaneously through the neuron chains
+3. Where multiple wavefronts **converge** on the same concept — that's the recognition
+4. Results are ranked by the number of independent wavefronts that intersect
+
+More matching paths = stronger recognition. This is convergence, not calculation.
+
+```
+sara> recognize red, round, sweet
+  Recognized: apple (score: 1.00)
+```
+
+If properties match multiple concepts, all are returned ranked by intersection count:
+
+```
+sara> recognize red, round
+  Recognized: apple (score: 0.67), ball (score: 0.67)
+```
+
+---
+
+## Exploring the Brain
+
+### `why <label>`
+
+Shows all paths that lead **to** a neuron, with the original teaching statement that created each path:
+
+```
+sara> why apple
+  Paths leading to apple:
+    red → apple_color → apple  (source: "an apple is red")
+    round → apple_shape → apple  (source: "apples are round")
+```
+
+### `trace <label>`
+
+Shows all outgoing paths **from** a neuron:
+
+```
+sara> trace red
+  Paths from red:
+    red → apple_color → apple
+    red → cherry_color → cherry
+```
+
+### `neurons`
+
+Lists every neuron in the brain with its type:
+
+```
+sara> neurons
+  [concept]  apple
+  [property] red
+  [relation] apple_color
+  ...
+```
+
+### `paths`
+
+Lists all recorded paths with their origin, terminus, and source text.
+
+### `stats`
+
+Shows brain statistics — neuron count, segment count, path count, and strongest segment:
+
+```
+sara> stats
+  Neurons:  12
+  Segments: 8
+  Paths:    4
+  Strongest: red → apple_color (strength: 2.39)
+```
+
+---
+
+## Similarity
+
+### `similar <label>`
+
+Finds neurons that share downstream paths with the given neuron:
+
+```
+sara> similar red
+  red ↔ round (shared: 2, overlap: 0.67)
+```
+
+This tells you that `red` and `round` both reach the same downstream concepts — they co-occur in the brain's path structure.
+
+### `analyze`
+
+Scans **all** property neurons for path similarities and stores the results:
+
+```
+sara> analyze
+  Found 3 similarity link(s):
+  red ↔ round (shared: 2, overlap: 0.67)
+  ...
+```
+
+Similarity is computed from shared downstream paths, not from activation levels or vector distances. Two neurons are similar because they *go to the same places* through the brain.
+
+---
+
+## Associations & Questions
+
+Associations let you define custom property groupings and query them with question words.
+
+### Defining associations
+
+```
+sara> define taste how
+  Defined association: taste (question word: how)
+
+sara> describe taste as sweet, sour, bitter, salty, savory, spicy
+  Registered under taste: sweet, sour, bitter, salty, savory, spicy
+```
+
+### Querying
+
+Use the question word, a concept, and an association:
+
+```
+sara> how apple taste
+  sweet
+```
+
+### Listing
+
+```
+sara> associations      # all defined associations and their properties
+sara> questions         # all available question words
+```
+
+### Built-in defaults
+
+These are registered automatically from the taxonomy — no setup needed:
+
+| Question Word | Associations |
+|---------------|-------------|
+| `what` | color, shape, size |
+| `how` | taste, texture, temperature |
+
+### Dynamic question-word commands
+
+Any registered question word works as a REPL command via the `default()` handler. If you define a new association with question word `where`, then `where apple habitat` becomes a valid command automatically.
+
+```
+sara> define habitat where
+sara> describe habitat as tropical, temperate, arctic
+sara> teach mango is tropical
+sara> where mango habitat
+  tropical
+```
+
+---
+
+## Categories
+
+Tag concepts with categories for organizational grouping.
+
+```
+sara> categorize apple fruit
+sara> categorize banana fruit
+sara> categorize dog animal
+sara> categories
+  animal: dog
+  fruit: apple, banana
+```
+
+### Built-in categories
+
+The taxonomy includes these defaults:
+
+| Category | Members |
+|----------|---------|
+| fruit | apple, banana, cherry, grape, lemon, mango, orange, peach, pear, strawberry |
+| geometric | circle, cube, rectangle, sphere, square, triangle |
+| animal | bird, cat, dog, fish, horse |
+| vehicle | bus, car, firetruck, truck |
+
+Unknown concepts default to category `thing`.
+
+---
+
+## Image Perception
+
+Perceive images using Claude Vision as Sara's senses.
+
+```
+sara> perceive /path/to/apple.jpg
+sara> perceive /path/to/apple.jpg apple
+```
+
+### Requirements
+
+LLM must be configured first (`llm set <api_key>`).
+
+### The 3-phase perception loop
+
+**Phase 1 — Initial observation:** Claude Vision freely describes what it sees. Each observation becomes a property taught to the brain. Recognition runs against all observations.
+
+**Phase 2 — Directed inquiry:** Sara identifies unobserved property types (e.g., no texture observed yet) and asks Claude Vision targeted questions. New observations are taught and recognition re-runs. Repeats up to 3 rounds or until recognition converges.
+
+**Phase 3 — Verification:** If Sara has a top candidate, she checks known properties of that candidate against the image. Claude Vision confirms or denies each. Confirmed properties are taught, strengthening the recognition.
+
+### Label generation
+
+Without an explicit label, Sara generates one: `img_{filename}_{sha256_prefix}` (e.g., `img_photo_a3f2c1`).
+
+### Corrections
+
+If Sara guesses wrong:
+
+```
+sara> no ball
+```
+
+This teaches the correct identity and transfers all observed properties to the correct concept. The original observations and the wrong guess are **retained** — corrections add knowledge, they never erase.
+
+### Missed properties
+
+Point out something Sara didn't notice:
+
+```
+sara> see seams
+```
+
+This teaches the last perceived image the given property.
+
+---
+
+## LLM Translation
+
+Optionally configure Claude to translate natural language questions into structured Sara Brain commands.
+
+### Setup
+
+```
+sara> llm set sk-ant-your-api-key-here
+  LLM configured: claude-sonnet-4-20250514 @ https://api.anthropic.com
+
+sara> llm set sk-ant-your-key claude-sonnet-4-20250514
+  LLM configured: claude-sonnet-4-20250514 @ https://api.anthropic.com
+```
+
+Default model: `claude-sonnet-4-20250514`. API endpoint: `https://api.anthropic.com`. Claude-only — OpenAI endpoints are explicitly blocked.
+
+### Usage
+
+```
+sara> ask what color is an apple?
+  → what apple color
+  red
+```
+
+The `ask` command sends your question to Claude along with the list of available structured commands. Claude translates, and the result is dispatched through the REPL.
+
+### Management
+
+```
+sara> llm status    # show current config
+sara> llm clear     # remove config
+```
+
+---
+
+## Data Model Reference
+
+### Neuron types
+
+| Type | Purpose | Example |
+|------|---------|---------|
+| `concept` | A thing being learned about | `apple`, `ball`, `img_photo_a3f2c1` |
+| `property` | An observable characteristic | `red`, `round`, `sweet` |
+| `relation` | Concept-specific link between property and concept | `apple_color`, `ball_shape` |
+| `association` | A property grouping for queries | `taste`, `habitat` |
+
+### Segments
+
+Directed edges between neurons. Each segment tracks:
+
+- **source_id / target_id** — the connected neurons
+- **relation** — edge label (e.g., `has_color`, `is_a`)
+- **strength** — `1 + ln(1 + traversals)`, never decreases
+- **traversals** — how many times this edge has been walked
+
+### Paths
+
+Recorded chains of segments representing a learned fact. Each path stores:
+
+- **origin_id** — the starting neuron (property)
+- **terminus_id** — the ending neuron (concept)
+- **source_text** — the original teaching statement
+- **path_steps** — ordered list of segment references
+
+### Strength formula
+
+```
+strength = 1 + ln(1 + traversals)
+```
+
+| Traversals | Strength |
+|-----------|----------|
+| 0 | 1.000 |
+| 1 | 1.693 |
+| 5 | 2.792 |
+| 10 | 3.398 |
+| 50 | 4.934 |
+| 100 | 5.620 |
+
+Strength only increases. No decay, no forgetting.
+
+---
+
+## Storage
+
+Sara Brain uses **SQLite** with WAL mode and foreign keys enabled.
+
+### Schema tables
+
+| Table | Purpose |
+|-------|---------|
+| `neurons` | All neurons (id, label, type, metadata) |
+| `segments` | Directed edges between neurons (strength, traversals) |
+| `paths` | Recorded neuron chains with source text |
+| `path_steps` | Ordered segment references within a path |
+| `similarities` | Cached path-similarity results |
+| `associations` | Property-to-association mappings |
+| `question_words` | Association-to-question-word mappings |
+| `categories` | Concept-to-category tags |
+| `settings` | Key-value store (LLM config, etc.) |
+
+### Indexes
+
+- `idx_seg_source` — segments by source, strength descending
+- `idx_seg_target` — segments by target
+- `idx_neuron_label` — neurons by label
+- `idx_neuron_type` — neurons by type
+- `idx_path_terminus` — paths by terminus
+
+### Behavior
+
+- Auto-commit after every `teach`, `recognize`, `perceive`, `categorize`, and `correct`
+- `save` command forces an explicit flush
+- Database file is the single source of truth — full state recovers on restart
+- WAL mode allows concurrent reads during writes
+
+---
+
+## Complete Command Reference
+
+All 23 REPL commands, sourced from `do_*` methods in `shell.py`:
+
+| Command | Arguments | Description |
+|---------|-----------|-------------|
+| `teach` | `<statement>` | Teach a fact (`teach an apple is red`) |
+| `recognize` | `<input1>, <input2>, ...` | Recognize concept from comma-separated properties |
+| `why` | `<label>` | Show all paths leading to a neuron with provenance |
+| `trace` | `<label>` | Show all outgoing paths from a neuron |
+| `neurons` | — | List all neurons and their types |
+| `paths` | — | List all recorded paths |
+| `stats` | — | Show brain statistics (neuron/segment/path counts) |
+| `similar` | `<label>` | Find neurons with shared downstream paths |
+| `analyze` | — | Scan all neurons for path similarities |
+| `define` | `<association> <question_word>` | Create a new association type |
+| `describe` | `<association> as <prop1>, <prop2>, ...` | Register properties under an association |
+| `associations` | — | List all associations and their properties |
+| `questions` | — | List all available question words |
+| `categorize` | `<concept> <category>` | Tag a concept with a category |
+| `categories` | — | List all categories and their members |
+| `perceive` | `<image_path> [label]` | Run multi-phase image perception (requires LLM) |
+| `no` | `<correct_label>` | Correct a misidentification from last perception |
+| `see` | `<property>` | Point out a missed property on last perceived image |
+| `ask` | `<question>` | Translate natural language via Claude LLM |
+| `llm` | `set <key> [model]` / `status` / `clear` | Configure, check, or remove Claude LLM config |
+| `save` | — | Force flush to disk |
+| `quit` | — | Save and exit |
+| `exit` | — | Save and exit |
+
+Dynamic question-word commands (e.g., `what apple color`, `how apple taste`) are handled via `default()` and do not appear in this table — any registered question word works automatically as a command.

@@ -513,7 +513,7 @@ The current SQLite storage is designed as a stepping stone. The plan is to migra
 
 ## Testing
 
-113 tests across 13 test files. All tests use in-memory SQLite (`:memory:`) for isolation.
+166 tests across 16 test files. All tests use in-memory SQLite (`:memory:`) for isolation.
 
 | File | Tests | Coverage |
 |------|-------|----------|
@@ -528,6 +528,9 @@ The current SQLite storage is designed as a stepping stone. The plan is to migra
 | `test_categories.py` | 10 | Categorize, override builtins, persistence, CategoryRepo CRUD |
 | `test_query.py` | 12 | Built-in queries, dynamic queries, question word resolution, persistence |
 | `test_translator.py` | 12 | System prompt, translate, blocked domains, URL building, error handling |
+| `test_vision.py` | 20 | VisionObserver methods, sanitization security, API payload, blocked domains |
+| `test_perceiver.py` | 22 | Full perception loop, correction, observation addition |
+| `test_vision_proxy.py` | 8 | CORS proxy health, headers, forwarding, error passthrough |
 
 ### Running Tests
 
@@ -537,4 +540,4 @@ python3 -m venv .venv
 .venv/bin/pytest tests/ -v
 ```
 
-All 113 tests should pass in under 1 second.
+All 166 tests should pass in under 5 seconds.

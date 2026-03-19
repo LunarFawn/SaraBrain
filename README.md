@@ -33,7 +33,14 @@ python3 -m venv .venv
 
 Requires Python 3.11+.
 
-For a deep dive into the design philosophy, recognition algorithm, and architecture, see **[docs/v002_user_guide.md](docs/v002_user_guide.md)**.
+### Documentation
+
+| Doc | Contents |
+|-----|----------|
+| **[docs/v001_foundation.md](docs/v001_foundation.md)** | Architecture foundation, data model, storage schema |
+| **[docs/v002_user_guide.md](docs/v002_user_guide.md)** | Design philosophy, algorithms, associations, categories, LLM, full REPL reference |
+| **[docs/v003_perception.md](docs/v003_perception.md)** | Vision perception, cognitive development model, tribal trust, correction, security |
+| **[docs/v004_web_app.md](docs/v004_web_app.md)** | Web app guide: guided UI, image viewer, region selection, neural graph, vision proxy |
 
 ## How It Works
 
@@ -82,8 +89,8 @@ src/sara_brain/
   models/        — Pure dataclasses (Neuron, Segment, Path, PathTrace, RecognitionResult)
   storage/       — SQLite repos (NeuronRepo, SegmentRepo, PathRepo, AssociationRepo, CategoryRepo, SettingsRepo, Database)
   parsing/       — Statement parser and taxonomy
-  core/          — Brain orchestrator, Learner, Recognizer, SimilarityAnalyzer
-  nlp/           — Optional LLM translation (Claude-only, Anthropic Messages API)
+  core/          — Brain orchestrator, Learner, Recognizer, SimilarityAnalyzer, Perceiver
+  nlp/           — VisionObserver (Claude Vision), LLM translator (Claude-only)
   visualization/ — ASCII tree and Graphviz DOT export
   repl/          — Interactive shell with commands and formatters
 ```
@@ -108,6 +115,9 @@ src/sara_brain/
 | `ask <question>` | Translate natural language via Claude LLM |
 | `llm set <key> [model]` | Configure Claude API |
 | `llm status` / `llm clear` | Check or remove LLM config |
+| `perceive <path> [label]` | Run multi-phase image perception via Claude Vision |
+| `no <correct_label>` | Correct a misidentification |
+| `see <property>` | Point out a missed property |
 | `stats` | Brain statistics |
 | `neurons` / `paths` | List all |
 | `save` | Force flush to disk |
@@ -115,7 +125,7 @@ src/sara_brain/
 
 ## Tests
 
-113 tests covering models, storage, parsing, learning, recognition, similarity, associations, categories, queries, LLM translation, and end-to-end integration.
+166 tests covering models, storage, parsing, learning, recognition, similarity, associations, categories, queries, LLM translation, vision, perception, proxy, and end-to-end integration.
 
 ```bash
 .venv/bin/pytest tests/ -v

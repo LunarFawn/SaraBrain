@@ -41,7 +41,7 @@ Requires Python 3.11+.
 | **[docs/v002_user_guide.md](docs/v002_user_guide.md)** | Design philosophy, algorithms, associations, categories, LLM, full REPL reference |
 | **[docs/v003_perception.md](docs/v003_perception.md)** | Vision perception, cognitive development model, tribal trust, correction, security |
 | **[docs/v004_web_app.md](docs/v004_web_app.md)** | Web app guide: guided UI, image viewer, region selection, neural graph, vision proxy |
-| **[docs/v005_design_philosophy.md](docs/v005_design_philosophy.md)** | Design philosophy + user guide: origin story, why paths not activation, never forgets, parallel thought, tribal trust, the transformer connection (how path-of-thought and attention share computational roots), complete REPL reference |
+| **[docs/v005_design_philosophy.md](docs/v005_design_philosophy.md)** | Design philosophy + user guide: origin story, why paths not activation, never forgets, parallel thought, tribal trust, "You Need More Than Attention" (transformers as sensory cortex, inventor skepticism, shared computational roots — 22 academic references), complete REPL reference |
 
 ## How It Works
 

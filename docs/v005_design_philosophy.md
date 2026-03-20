@@ -18,7 +18,7 @@
 10. [The Strength Formula](#the-strength-formula)
 11. [Zero Dependencies](#zero-dependencies)
 12. [What Sara Brain Is Not](#what-sara-brain-is-not)
-13. [The Transformer Connection](#the-transformer-connection)
+13. [You Need More Than Attention](#you-need-more-than-attention)
 14. [Where This Goes](#where-this-goes)
 
 ---
@@ -330,13 +330,27 @@ The future plan is to swap the storage layer to [data-nut-squirrel](https://gith
 
 ---
 
-## The Transformer Connection
+## You Need More Than Attention
 
-Everyone assumes Sara Brain and transformers are completely different animals. They're not.
+The paper that launched the transformer era was called "Attention Is All You Need." It wasn't. You need more than attention. You need paths. You need memory. You need the ability to explain yourself.
 
-Both are doing the same thing: finding relevant paths through stored knowledge. Transformers just hide their paths inside compressed weight matrices. Sara Brain lays them out where you can see them. The difference is encoding, not mechanism. And the research backs this up — from mechanistic interpretability to computational neuroscience, the evidence keeps pointing to the same conclusion: these architectures are different bridges across the same river.
+Everyone assumes Sara Brain and transformers are completely different animals. They're not — but they're not the same animal either. Both are doing the same thing: finding relevant paths through stored knowledge. Transformers just hide their paths inside compressed weight matrices. Sara Brain lays them out where you can see them. The difference is encoding, not mechanism. And the research backs this up — from mechanistic interpretability to computational neuroscience, the evidence keeps pointing to the same conclusion: these architectures are different bridges across the same river.
+
+But here's what the transformer hype obscured: even some of the people who *built* the transformer think the field took a wrong turn by treating it as the destination rather than a waypoint.
 
 The field spent so long worshipping the transformer that nobody stopped to ask what it's actually *doing*. When you look closely — when you peel back the matrix multiplications and the softmax normalization — you find paths. Discrete circuits. Localized knowledge. Content-addressable memory retrieval. Everything Sara Brain does explicitly, transformers do implicitly. The transformer just makes it really hard to see.
+
+### Even the Inventors Have Doubts
+
+Llion Jones — the man who literally named the transformer — stood on stage at TED AI in 2025 and said he was "absolutely sick" of them [17]. Not sick of AI. Sick of the architecture he helped create dominating the field so completely that it's choking off alternatives. His words: "I don't think the Transformer is the end, nor do I believe that we just need to continue to scale infinitely." He described transformers as creating a "gravity well" that traps the industry and prevents discovery of genuinely intelligent reasoning. He's now building biologically-inspired alternatives at Sakana AI.
+
+He's not alone among the original eight co-authors. Aidan Gomez, CEO of Cohere, said at NVIDIA GTC 2024: "I think the world needs something better than the transformer. It would be really sad if this is the best we can do" [18]. He pointed to inefficiencies in memory, context scaling, and parameterization.
+
+To be fair — and being fair matters — the other co-authors range from neutral to bullish. Noam Shazeer thinks scaling laws haven't hit a wall. Lukasz Kaiser actively defends LLMs against "dead end" criticism. The eight people who built the transformer don't agree on whether it's the answer. That disagreement itself is informative.
+
+Outside the original paper, the skepticism is louder. Yann LeCun — Turing Award winner, Meta's Chief AI Scientist — has called the path to superintelligence via LLMs "complete bullshit" and characterized autoregressive language models as "an offramp on the path to AGI" [19]. François Chollet, creator of Keras and the ARC-AGI benchmark, argues that LLMs scale *skill* but not *intelligence* — they memorize and retrieve but cannot adapt to genuine novelty [20]. Gary Marcus has consistently argued that LLMs lack world models and that hallucination isn't a fixable bug but a structural feature of systems that traffic only in statistics [21].
+
+None of this means transformers are useless. They're extraordinary at what they do. But what they do might not be what everyone thinks it is.
 
 ### They're Both Finding Paths
 
@@ -398,6 +412,35 @@ The brain evidence supports both architectures — because they're different des
 
 **Context-dependent memory.** The hippocampus prevents interference through context-specific representations. Research has shown that the hippocampus doesn't just store associations — it stores them in context, creating unique representations that prevent one memory from corrupting another [13]. Sara Brain's concept-specific relations (`apple_color` not `fruit_color`) implement exactly this principle. Each concept has its own context for each property type. Cross-concept contamination is structurally impossible — which is exactly what the hippocampus achieves through contextual encoding.
 
+### Transformers Are Sensory Cortex, Not the Whole Brain
+
+Here's the argument nobody's making, and it reframes the entire debate: transformers aren't brains. They're eyes. They're hands. They're the sensory processing pipeline that feeds a brain. And if you look at what they actually do — rather than what the marketing says — the biology supports this.
+
+Consider what biological sensory cortex does. The visual cortex takes raw photon data from the retina and processes it through hierarchical layers — V1 detects edges and orientations, V2 handles contours and textures, V4 processes color and shape, and the inferotemporal cortex (IT) recognizes objects [22]. Each layer extracts more abstract features from the previous layer's output. The processing is largely feedforward. The cortex doesn't "decide" what it's looking at — it presents processed features to higher brain regions that do the deciding.
+
+Transformers do exactly this. Raw input (tokens, pixels) passes through stacked layers. Each layer extracts more abstract representations. Each attention head picks up different features. The output is a rich, structured representation of the input. The processing is feedforward — each inference pass runs start to finish with no persistent state.
+
+The parallel goes deeper than architecture:
+
+**Statelessness.** Your retina doesn't remember what it saw yesterday. Each visual fixation is processed fresh. Transformers are identical — each inference is stateless. No matter how many times you've asked Claude about apples, the next query starts from scratch. There is no accumulated experience, no learning from prior interactions, no path that got stronger because you walked it before.
+
+**Feature extraction without understanding.** The visual cortex can tell you "this region is red, round, and has a stem-like protrusion at the top." It cannot tell you "that's an apple, and the last time I saw one it wasn't ripe enough." Feature extraction is not comprehension. Transformers extract features from input with extraordinary sophistication — but the extraction happens in the moment and vanishes.
+
+**No persistent memory formation.** Sensory cortex processes but doesn't store. Memory formation happens in the hippocampus and medial temporal lobe — separate structures with different mechanisms [9]. Transformers process but don't learn from the processing. Anything resembling "memory" in an LLM (the context window) is really just an extended sensory buffer — it evaporates when the session ends.
+
+Sara Brain already uses this division of labor. Claude Vision is literally Sara's eyes — it looks at images, extracts features ("red," "round," "smooth," "has a stem"), and passes those features to Sara Brain as property labels. Sara Brain is the hippocampus — it takes those features, forms permanent paths, strengthens connections through repetition, and retrieves knowledge by retracing paths. The perception pipeline in Sara Brain isn't a metaphor for this division. It IS this division.
+
+```
+Biological:   retina → visual cortex (V1→V2→V4→IT) → hippocampus → memory & reasoning
+Sara Brain:   image  → Claude Vision (feature extraction) → teach/recognize → paths & intersections
+```
+
+**The honest caveat.** This analogy has real limits. Calling an LLM "just an eye" undersells what it does. LLMs compose multi-step reasoning chains, generate novel code, translate between languages. No biological eye does that. A more defensible framing: transformers are like the **entire sensory cortex** — visual, auditory, somatosensory, and language processing areas combined. That's sophisticated. That's impressive. But it's still fundamentally about processing input, not about forming persistent understanding.
+
+Chain-of-thought prompting adds reasoning-like capability, but it's done statelessly — like forcing your sensory cortex to do arithmetic by running multiple processing passes through it. It works, sometimes impressively. But it's computation without accumulation. The "reasoning" doesn't strengthen any path. It doesn't build any lasting structure. It processes and evaporates.
+
+The strongest version of this argument: transformers are the best sensory processing system ever built. Sara Brain is an attempt to build what comes after — the cognitive system that takes sensory output and turns it into durable, traceable, accumulating knowledge. Not a replacement for transformers. A complement. The brain that the eyes feed into.
+
 ### Where They Honestly Diverge
 
 Different tools. Different tradeoffs. Neither is wrong.
@@ -417,6 +460,8 @@ Both architectures are trying to solve the same problem: how do you store knowle
 Transformers compress paths into weight matrices, gaining massive storage efficiency at the cost of opacity. Sara Brain lays paths out explicitly, gaining full traceability at the cost of storage efficiency. Hopfield networks show these are mathematically the same operation with different encodings. Mechanistic interpretability shows the paths exist inside transformers whether you look for them or not. Neuroscience shows the biology supports both interpretations because they're interpretations of the same underlying computation.
 
 The field spent decades assuming dense matrices were the only viable encoding for learned knowledge. They weren't. They were just the first one that scaled. Sara Brain is a bet that explicitness scales too — and that the ability to ask "why?" and get a real answer is worth more than an extra billion parameters.
+
+Attention is not all you need. It's a starting point. The transformer gave us the best sensory cortex ever engineered. Now build the brain that uses it.
 
 ### References
 
@@ -467,6 +512,22 @@ The field spent decades assuming dense matrices were the only viable encoding fo
 [15] French, R.M. (1999). "Catastrophic forgetting in connectionist networks." *Trends in Cognitive Sciences*, 3(4), 128–135. https://doi.org/10.1016/S1364-6613(99)01294-2
 
 [16] Kirkpatrick, J., Pascanu, R., Rabinowitz, N., Veness, J., Desjardins, G., Rusu, A.A., Milan, K., Quan, J., Ramalho, T., Grabska-Barwinska, A., Hassabis, D., Clopath, C., Kumaran, D., & Hadsell, R. (2017). "Overcoming catastrophic forgetting in neural networks." *Proceedings of the National Academy of Sciences*, 114(13), 3521–3526. https://doi.org/10.1073/pnas.1611835114
+
+**Transformer Inventor Perspectives**
+
+[17] Jones, L. (2025). "How competition is stifling AI breakthroughs." *TED AI*, San Francisco. Reported in: "Sakana AI's CTO says he's 'absolutely sick' of transformers." *VentureBeat*, 2025.
+
+[18] Gomez, A. (2024). Panel remarks at NVIDIA GTC 2024. Reported in: "'Attention is All You Need' creators look beyond Transformers at Nvidia GTC." *VentureBeat*, 2024.
+
+[19] LeCun, Y. (2025). Various public remarks. "Meta Chief AI Scientist Slams Quest for Human-Level Intelligence via LLMs." *PYMNTS*, 2025. Note: LeCun was NOT a co-author of "Attention Is All You Need" — he is cited as an external critic.
+
+[20] Chollet, F. (2024). "LLMs won't lead to AGI." *Dwarkesh Podcast*. See also: ARC-AGI benchmark, https://arcprize.org/. Note: Chollet was NOT a co-author of "Attention Is All You Need" — he is cited as an external critic.
+
+[21] Marcus, G. (2025). "Not on the Best Path." *Communications of the ACM*. See also: "CONFIRMED: LLMs have indeed reached a point of diminishing returns." *Gary Marcus Substack*, 2025. Note: Marcus was NOT a co-author of "Attention Is All You Need" — he is cited as an external critic.
+
+**Visual Cortex Hierarchy**
+
+[22] Felleman, D.J. & Van Essen, D.C. (1991). "Distributed hierarchical processing in the primate cerebral cortex." *Cerebral Cortex*, 1(1), 1–47. https://doi.org/10.1093/cercor/1.1.1-a. See also: Hubel, D.H. & Wiesel, T.N. (1962). "Receptive fields, binocular interaction and functional architecture in the cat's visual cortex." *Journal of Physiology*, 160(1), 106–154.
 
 ---
 

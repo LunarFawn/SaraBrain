@@ -20,7 +20,7 @@ const CHANGELOG = [
     version: "v005",
     date: "2026-03-19",
     label: "current",
-    summary: "Design philosophy + user guide: origin story, why paths not activation levels, never forgets, parallel wavefronts, tribal trust, strength formula, the transformer connection (how path-of-thought and attention share computational roots, 16 academic references) — plus complete REPL reference, data model, perception, LLM translation, all 23 commands",
+    summary: "Design philosophy + user guide: origin story, why paths not activation levels, never forgets, parallel wavefronts, tribal trust, strength formula, 'You Need More Than Attention' (transformers as sensory cortex, inventor skepticism, shared computational roots — 22 academic references) — plus complete REPL reference, data model, perception, LLM translation, all 23 commands",
   },
   {
     version: "v004",

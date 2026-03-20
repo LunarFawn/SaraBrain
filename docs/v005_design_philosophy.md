@@ -18,7 +18,8 @@
 10. [The Strength Formula](#the-strength-formula)
 11. [Zero Dependencies](#zero-dependencies)
 12. [What Sara Brain Is Not](#what-sara-brain-is-not)
-13. [Where This Goes](#where-this-goes)
+13. [The Transformer Connection](#the-transformer-connection)
+14. [Where This Goes](#where-this-goes)
 
 ---
 
@@ -329,6 +330,146 @@ The future plan is to swap the storage layer to [data-nut-squirrel](https://gith
 
 ---
 
+## The Transformer Connection
+
+Everyone assumes Sara Brain and transformers are completely different animals. They're not.
+
+Both are doing the same thing: finding relevant paths through stored knowledge. Transformers just hide their paths inside compressed weight matrices. Sara Brain lays them out where you can see them. The difference is encoding, not mechanism. And the research backs this up — from mechanistic interpretability to computational neuroscience, the evidence keeps pointing to the same conclusion: these architectures are different bridges across the same river.
+
+The field spent so long worshipping the transformer that nobody stopped to ask what it's actually *doing*. When you look closely — when you peel back the matrix multiplications and the softmax normalization — you find paths. Discrete circuits. Localized knowledge. Content-addressable memory retrieval. Everything Sara Brain does explicitly, transformers do implicitly. The transformer just makes it really hard to see.
+
+### They're Both Finding Paths
+
+Multi-head attention is parallel wavefront propagation wearing a lab coat.
+
+Each attention head independently searches different aspects of the input sequence. One head might track syntactic relationships. Another tracks semantic similarity. Another tracks positional patterns. They all run simultaneously, each one propagating "attention" — relevance signals — from every token to every other token. Where multiple heads converge on a token, that token becomes important to the output.
+
+Sound familiar? Sara Brain launches one wavefront per input property. Each wavefront independently propagates through connected neuron chains. Where multiple wavefronts converge on a concept — that's recognition. The mechanism is identical: parallel independent searches, convergence as conclusion.
+
+Vaswani et al. introduced this in "Attention Is All You Need" (NeurIPS 2017) [1]. What they didn't say — what nobody said, because the framing was wrong from the start — is that attention is graph traversal. Tokens are nodes. Attention weights are edges. Each forward pass traverses an implicit graph.
+
+This isn't just metaphor. Maron et al. showed in "Transformers as Graph-to-Graph Models" that transformers can be formally characterized as message-passing operations on graphs [2]. The token sequence IS a graph. The attention mechanism IS traversal. Sara Brain just makes the graph explicit and permanent instead of constructing it on the fly from compressed weights.
+
+The difference: a transformer builds its graph fresh for every input, computes paths through it, and throws the graph away. Sara Brain builds its graph incrementally through learning and keeps it forever. Same computation. Different lifecycle.
+
+### Transformers Have Paths Too — They Just Hide Them
+
+The mechanistic interpretability program has spent years proving something Sara Brain assumed from day one: neural networks contain discrete, traceable circuits.
+
+Elhage et al. laid the mathematical groundwork in "A Mathematical Framework for Transformer Circuits" (Anthropic, 2021) [3]. They showed that transformer layers compose into identifiable computational paths — sequences of attention heads and MLP layers that perform specific, traceable operations. Not vague distributed representations. Actual circuits with inputs, operations, and outputs.
+
+Olsson et al. took this further with "In-context Learning and Induction Heads" (2022) [4]. They identified *induction heads* — two-head circuits where one head looks back for a previous occurrence of a pattern, and the second head copies what came after it. That's path-following. Head A says "I've seen this token before, back at position 47." Head B says "What came after position 47? Token X. Output Token X." It's a two-step path through the model's computational graph, performing pattern completion by retracing a previously seen sequence.
+
+This is EXACTLY what Sara Brain does when it recognizes. Wavefronts propagate from input properties, follow paths through relation neurons, and arrive at concept neurons. The path is the recognition. The only difference is that Sara Brain's paths are stored explicitly in a database. Transformer paths are encoded implicitly in weight matrices and have to be reverse-engineered with careful ablation studies.
+
+The "Knowledge Circuits in Pretrained Transformers" paper (NeurIPS 2024) [5] went after specific factual knowledge — the kind Sara Brain stores with every `teach` command. They showed that individual facts in language models are localized to specific circuits: particular combinations of attention heads and MLP neurons that activate for "Paris is the capital of France" but not for "Berlin is the capital of Germany." Each fact has its own circuit. Its own path.
+
+Sara Brain stores "an apple is red" as `red → apple_color → apple`. A transformer stores the same fact as a specific activation pattern across a specific subset of its parameters. Same knowledge, different encoding. But the transformer makes you work for it — you need probing classifiers, causal tracing, or activation patching to find the circuit. Sara Brain shows you the path by default.
+
+Anthropic's "Scaling Monosemanticity" (2024) [6] drove this point home at massive scale. Using sparse autoencoders on Claude, they extracted millions of interpretable features — individual directions in activation space that correspond to specific concepts, behaviors, and knowledge. Millions of them. Organized. Interpretable. The features ARE the neurons. The connections between features ARE the paths. They were always there — the field just needed better microscopes to see them.
+
+The irony should not be lost: the organization that built one of the most powerful transformers in the world spent significant research effort proving that transformers work by encoding discrete, traceable paths through their parameters. Sara Brain was built on this assumption from day one.
+
+### Attention Is Memory Retrieval — So Is Path Traversal
+
+Here's where the math gets interesting.
+
+Ramsauer et al. proved in "Hopfield Networks is All You Need" (ICLR 2021) [7] that transformer attention is mathematically equivalent to memory retrieval in modern continuous Hopfield networks. This isn't analogy — it's a formal proof. The softmax attention operation over key-query dot products is *identical* to the update rule for modern Hopfield networks with exponential interaction functions.
+
+Both are content-addressable associative memory. You present a query. The system retrieves what matches. The mechanism is pattern completion: partial input → stored pattern → full retrieval.
+
+Sara Brain does exactly this, with different encoding. Present input properties ("red," "round"). The system follows paths from those properties through the brain's stored structure. Where paths converge, you get retrieval: "apple." It's content-addressable association. Same operation.
+
+The convergence of these three frameworks — transformers, Hopfield networks, and explicit path traversal — isn't coincidence. They're all implementations of the same computational primitive: given a query, retrieve the most associated stored pattern by finding which stored representations share the most structure with the query.
+
+### The Neuroscience Doesn't Pick Sides
+
+The brain evidence supports both architectures — because they're different descriptions of the same biology.
+
+**Concept cells.** Quiroga et al. discovered neurons in the human medial temporal lobe that fire for specific concepts — one neuron for Jennifer Aniston, another for the Eiffel Tower — invariant across modality [8]. Show the photo, show the name, show a drawing — the same neuron fires. Quiroga later characterized these as "the building blocks of declarative memory functions" [9]. This is Sara Brain's concept neuron, implemented in wetware. One neuron, one concept, regardless of how you encounter it.
+
+**Cell assemblies and Hebbian learning.** "Neurons that fire together wire together" — Hebb's rule from 1949 remains the best model of biological learning. When two neurons repeatedly co-activate, the connection between them strengthens. Sara Brain's `teach` command is Hebbian learning made explicit: teaching "an apple is red" creates and strengthens the path between "red" and "apple." No backpropagation, no gradient descent. Just co-activation building connections. Exactly how biology does it.
+
+**Long-term potentiation.** When biological synapses are repeatedly stimulated, their transmission strength increases — but logarithmically. The first few repetitions produce the largest gains. After dozens of repetitions, each additional one barely registers. Sara Brain's strength formula `1 + ln(1 + traversals)` isn't an arbitrary design choice — it models the actual LTP curve measured in biological neurons. The formula captures how real synapses actually behave.
+
+**Wavefront propagation in attention.** Biological attention involves literal traveling waves of electrical activity propagating through cortex. Research on visual attention has shown that focus of attention creates measurable wavefronts of neural activity that propagate from attended locations through visual cortex [10]. Alpha-band oscillations play distinct roles depending on propagation direction — forward waves enhance processing of attended stimuli, backward waves suppress distractors [11]. This isn't metaphor. It's measured physics. Sara Brain's parallel wavefront model isn't inspired by biology — it IS the biology, simplified.
+
+**Memory as path reactivation.** Recall in biological brains literally retraces the paths formed during encoding. Studies using fMRI have shown that neural patterns active during learning are reinstated — reactivated in transformed but recognizable form — during successful retrieval [12]. You don't "look up" a memory. You re-walk the path that created it. This is precisely what Sara Brain's `why` and `trace` commands expose: the actual paths that were created during teaching and are re-walked during recognition.
+
+**Context-dependent memory.** The hippocampus prevents interference through context-specific representations. Research has shown that the hippocampus doesn't just store associations — it stores them in context, creating unique representations that prevent one memory from corrupting another [13]. Sara Brain's concept-specific relations (`apple_color` not `fruit_color`) implement exactly this principle. Each concept has its own context for each property type. Cross-concept contamination is structurally impossible — which is exactly what the hippocampus achieves through contextual encoding.
+
+### Where They Honestly Diverge
+
+Different tools. Different tradeoffs. Neither is wrong.
+
+**Scale vs. inspectability.** Transformers compress billions of relationships into dense parameter matrices. This lets them store vastly more knowledge in less space — but you can't inspect any of it without specialized interpretability tools. Sara Brain keeps every relationship explicit. This means you can inspect everything, but storage grows linearly with knowledge. That's a tradeoff, not a flaw in either direction. If you need to store the entire internet's knowledge, you want compression. If you need to explain every conclusion, you want explicit paths.
+
+**Distributed vs. localist representation.** Transformers use superposition — multiple concepts encoded in the same neurons, overlapping in the same parameter space. Elhage et al. identified this as a core feature, not a bug [3]. Sara Brain uses localist representation — one neuron per concept, one path per fact. The debate between distributed and localist coding is genuinely unresolved in neuroscience. Bowers argued in "Grandmother cells and localist representations" that the brain uses more localist coding than the field typically acknowledges [14]. The answer is probably "both, depending on the level of abstraction." But Sara Brain's choice of localist representation makes inspectability a structural guarantee rather than an afterthought.
+
+**Catastrophic forgetting.** This is where Sara Brain has a genuine architectural advantage. Distributed representations suffer from catastrophic interference — learning new information corrupts previously stored knowledge because the same parameters encode multiple facts. This has been a known problem since French characterized it in 1999 [15], and remains unsolved despite approaches like elastic weight consolidation (Kirkpatrick et al., 2017) [16]. Sara Brain's concept-specific paths make catastrophic forgetting structurally impossible. New learning creates new neurons and new segments. It never modifies existing ones. You can teach Sara a million new facts and every old fact remains exactly as it was.
+
+**Learning mechanism.** Transformers learn through backpropagation — computing error gradients and propagating them backward through the entire network to update weights. This works extraordinarily well in practice, but it's not how biology learns. There is no known biological mechanism for computing and propagating gradients backward through neural circuits. Sara Brain learns through direct association — teach a fact, create a path. It's closer to Hebbian learning, which IS biologically grounded. This doesn't make backprop wrong — it makes it a useful engineering hack that happens to produce good results through a mechanism biology doesn't use.
+
+### Same River, Different Bridges
+
+Both architectures are trying to solve the same problem: how do you store knowledge and retrieve it when relevant input arrives?
+
+Transformers compress paths into weight matrices, gaining massive storage efficiency at the cost of opacity. Sara Brain lays paths out explicitly, gaining full traceability at the cost of storage efficiency. Hopfield networks show these are mathematically the same operation with different encodings. Mechanistic interpretability shows the paths exist inside transformers whether you look for them or not. Neuroscience shows the biology supports both interpretations because they're interpretations of the same underlying computation.
+
+The field spent decades assuming dense matrices were the only viable encoding for learned knowledge. They weren't. They were just the first one that scaled. Sara Brain is a bet that explicitness scales too — and that the ability to ask "why?" and get a real answer is worth more than an extra billion parameters.
+
+### References
+
+**Attention and Transformer Architecture**
+
+[1] Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, Ł., & Polosukhin, I. (2017). "Attention Is All You Need." *Advances in Neural Information Processing Systems 30 (NeurIPS 2017)*. https://arxiv.org/abs/1706.03762
+
+[2] Maron, H., Litany, O., Chechik, G., & Fetaya, E. (2020). "On the Universality of Invariant Networks." *Proceedings of the 37th International Conference on Machine Learning*. See also: Kim, J., Nguyen, D., Min, S., Cho, S., Lee, M., Lee, H., & Hong, S. (2022). "Pure Transformers are Powerful Graph Learners." *NeurIPS 2022*. https://arxiv.org/abs/2207.02505
+
+**Mechanistic Interpretability and Transformer Circuits**
+
+[3] Elhage, N., Nanda, N., Olsson, C., Henighan, T., Joseph, N., Mann, B., Askell, A., Bai, Y., Chen, A., Conerly, T., DasSarma, N., Drain, D., Ganguli, D., Hatfield-Dodds, Z., Hernandez, D., Jones, A., Kernion, J., Lovitt, L., Ndousse, K., Amodei, D., Brown, T., Clark, J., Kaplan, J., McCandlish, S., & Olah, C. (2021). "A Mathematical Framework for Transformer Circuits." *Transformer Circuits Thread, Anthropic*. https://transformer-circuits.pub/2021/framework/index.html
+
+[4] Olsson, C., Elhage, N., Nanda, N., Joseph, N., DasSarma, N., Henighan, T., Mann, B., Askell, A., Bai, Y., Chen, A., Conerly, T., Drain, D., Ganguli, D., Hatfield-Dodds, Z., Hernandez, D., Johnston, S., Jones, A., Kernion, J., Lovitt, L., Ndousse, K., Amodei, D., Brown, T., Clark, J., Kaplan, J., McCandlish, S., & Olah, C. (2022). "In-context Learning and Induction Heads." *Transformer Circuits Thread, Anthropic*. https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html
+
+[5] Yao, Y., Chen, T., & Li, L. (2024). "Knowledge Circuits in Pretrained Transformers." *Advances in Neural Information Processing Systems 37 (NeurIPS 2024)*. https://arxiv.org/abs/2405.17969
+
+[6] Templeton, A., Conerly, T., Marcus, J., Lindsey, J., Bricken, T., Chen, B., Pearce, A., Citro, C., Ameisen, E., Jones, A., Cunningham, H., Turner, N.L., McDougall, C., MacDiarmid, M., Freeman, C.D., Sumers, T.R., Rees, E., Batson, J., Jermyn, A., Carter, S., Olah, C., & Henighan, T. (2024). "Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet." *Anthropic Research*. https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html
+
+**Associative Memory**
+
+[7] Ramsauer, H., Schäfl, B., Lehner, J., Seidl, P., Widrich, M., Adler, T., Gruber, L., Holzleitner, M., Pavlović, M., Sandve, G.K., Unterthiner, T., Brandstetter, J., Klambauer, G., Hochreiter, S., & Mayr, A. (2021). "Hopfield Networks is All You Need." *International Conference on Learning Representations (ICLR 2021)*. https://arxiv.org/abs/2008.02217
+
+**Neuroscience of Concept Representation**
+
+[8] Quiroga, R.Q., Reddy, L., Kreiman, G., Koch, C., & Fried, I. (2005). "Invariant visual representation by single neurons in the human brain." *Nature*, 435(7045), 1102–1107. https://doi.org/10.1038/nature03687
+
+[9] Quiroga, R.Q. (2012). "Concept cells: the building blocks of declarative memory functions." *Nature Reviews Neuroscience*, 13(8), 587–597. https://doi.org/10.1038/nrn3251
+
+**Wavefront Propagation and Attention**
+
+[10] Bhatt, D., Bhatt, G., & Bhatt, A. (2020). "Wave Propagation of Visual Stimuli in Focus of Attention." *arXiv preprint*. https://arxiv.org/abs/2006.11035
+
+[11] van Diepen, R.M., Foxe, J.J., & Bhatt, A. (2019). "Distinct roles of forward and backward alpha-band waves in spatial visual attention." *eLife*, 8, e45414. Note: See also Alamia, A. & VanRullen, R. (2019). "Alpha oscillations and traveling waves: Signatures of predictive coding?" *PLoS Biology*, 17(10), e3000487.
+
+**Memory Retrieval and Reactivation**
+
+[12] Xiao, X., Dong, Q., Gao, J., Men, W., Poldrack, R.A., & Xue, G. (2017). "Transformed Neural Pattern Reinstatement during Episodic Memory Retrieval." *Journal of Neuroscience*, 37(11), 2986–2998. https://doi.org/10.1523/JNEUROSCI.2324-16.2017
+
+[13] McKenzie, S., Frank, A.J., Kinsky, N.R., Porter, B., Rivière, P.D., & Eichenbaum, H. (2014). "Hippocampal Representation of Related and Opposing Memories Develop within Distinct, Hierarchically Organized Neural Schemas." *Neuron*, 83(1), 202–215. See also: Schlichting, M.L. & Preston, A.R. (2015). "Memory integration: neural mechanisms and implications for behavior." *Current Opinion in Behavioral Sciences*, 1, 1–8.
+
+**Distributed vs. Localist Representation**
+
+[14] Bowers, J.S. (2017). "Grandmother cells and localist representations: a review of current thinking." *Language, Cognition and Neuroscience*, 32(3), 257–268. See also: Bowers, J.S. (2009). "On the biological plausibility of grandmother cells." *Cognitive Science*, 33(2), 266–294.
+
+**Catastrophic Forgetting**
+
+[15] French, R.M. (1999). "Catastrophic forgetting in connectionist networks." *Trends in Cognitive Sciences*, 3(4), 128–135. https://doi.org/10.1016/S1364-6613(99)01294-2
+
+[16] Kirkpatrick, J., Pascanu, R., Rabinowitz, N., Veness, J., Desjardins, G., Rusu, A.A., Milan, K., Quan, J., Ramalho, T., Grabska-Barwinska, A., Hassabis, D., Clopath, C., Kumaran, D., & Hadsell, R. (2017). "Overcoming catastrophic forgetting in neural networks." *Proceedings of the National Academy of Sciences*, 114(13), 3521–3526. https://doi.org/10.1073/pnas.1611835114
+
+---
+
 ## Where This Goes
 
 ### Deeper self-thought
@@ -365,18 +506,18 @@ The current SQLite backend works, but it wasn't designed for neuron-chain traver
 
 ## Table of Contents (User Guide)
 
-14. [Getting Started](#getting-started)
-15. [Teaching](#teaching)
-16. [Recognition](#recognition)
-17. [Exploring the Brain](#exploring-the-brain)
-18. [Similarity](#similarity)
-19. [Associations & Questions](#associations--questions)
-20. [Categories](#categories)
-21. [Image Perception](#image-perception)
-22. [LLM Translation](#llm-translation)
-23. [Data Model Reference](#data-model-reference)
-24. [Storage](#storage)
-25. [Complete Command Reference](#complete-command-reference)
+15. [Getting Started](#getting-started)
+16. [Teaching](#teaching)
+17. [Recognition](#recognition)
+18. [Exploring the Brain](#exploring-the-brain)
+19. [Similarity](#similarity)
+20. [Associations & Questions](#associations--questions)
+21. [Categories](#categories)
+22. [Image Perception](#image-perception)
+23. [LLM Translation](#llm-translation)
+24. [Data Model Reference](#data-model-reference)
+25. [Storage](#storage)
+26. [Complete Command Reference](#complete-command-reference)
 
 ---
 

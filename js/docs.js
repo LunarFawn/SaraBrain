@@ -9,17 +9,22 @@
 
 const CURRENT_DOC = {
   title: "Sara Brain — Documentation",
-  file: "docs/v005_design_philosophy.md",
-  filename: "sara_brain_docs_v005.md",
+  file: "docs/v006_design_philosophy.md",
+  filename: "sara_brain_docs_v006.md",
 };
 
 // ── Changelog ──
 
 const CHANGELOG = [
   {
+    version: "v006",
+    date: "2026-03-20",
+    label: "current",
+    summary: "Author introduction: Jennifer Pearl — RNA dynamics (PNAS 2022, JMIRx Bio 2024 mentorship), US Navy Aegis, Omron Microscan optics, Philips Sonicare, Amazon Kuiper satellite flight computers. Establishes credibility before the design philosophy begins",
+  },
+  {
     version: "v005",
     date: "2026-03-19",
-    label: "current",
     summary: "Design philosophy + user guide: origin story, why paths not activation levels, never forgets, parallel wavefronts, tribal trust, strength formula, 'You Need More Than Attention' (transformers as sensory cortex, inventor skepticism, shared computational roots — 22 academic references) — plus complete REPL reference, data model, perception, LLM translation, all 23 commands",
   },
   {

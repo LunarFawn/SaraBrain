@@ -412,6 +412,28 @@ The brain evidence supports both architectures — because they're different des
 
 **Context-dependent memory.** The hippocampus prevents interference through context-specific representations. Research has shown that the hippocampus doesn't just store associations — it stores them in context, creating unique representations that prevent one memory from corrupting another [13]. Sara Brain's concept-specific relations (`apple_color` not `fruit_color`) implement exactly this principle. Each concept has its own context for each property type. Cross-concept contamination is structurally impossible — which is exactly what the hippocampus achieves through contextual encoding.
 
+### The Brain Is Decodable — Because Paths Are Real
+
+Recent research shows AI can decode what a person is seeing or thinking from brain scans. This has been framed as an AI achievement — look what our models can do. It's actually a neuroscience revelation: the brain's encoding is structured enough to be read.
+
+Here's what the decoders actually do. fMRI voxels — each averaging roughly a million neurons — are pattern-matched against learned statistical models. Tang et al. (Nature Neuroscience 2023) decoded continuous language from non-invasive brain recordings [23]. Takagi & Nishimoto (CVPR 2023) reconstructed images from visual cortex activity [24]. Meta AI decoded speech perception from MEG signals in real time [25]. These aren't parlor tricks. They're reading structured information from biological neural tissue.
+
+The key implication for paths: each voxel averages a million neurons. For a consistent, decodable signal to survive that averaging, the underlying neurons must reliably encode specific information — not random firing, not uniform noise. Individual neurons are data points. The structure is stable enough that even million-neuron spatial averaging can't destroy it. That's localized encoding. That's what Sara Brain models.
+
+**The exponential richness of path accumulation.** When you see an apple, it's not just "red" and "round" firing. It's every property from every apple you've ever encountered — red, green, bruised, sliced, the smell, the crunch, the stem shape, the association with pie, with orchards, with Newton. Each experience created slightly different paths that all converge at "apple." A child who's seen one apple has 3 paths. An adult has hundreds, from thousands of slightly different experiences. The recognition doesn't get better because a weight was tuned — it gets better because more independent paths converge. That exponential growth of converging paths is what makes a million neurons per voxel still carry a decodable signal — there are SO many paths encoding "apple" that even a blurry average can't hide the pattern. Sara Brain's `1 + ln(1 + traversals)` models the diminishing-returns strengthening per path, while the sheer count of independent converging paths models the richness.
+
+**Localized clusters and neural highways.** Neurons for "apple" cluster physically in the medial temporal lobe. Visual features like "red" process in visual cortex. Motor associations in motor cortex. These aren't random — they're localized clusters, and the brain connects them via literal physical highways: white matter tracts (bundles of axons like the arcuate fasciculus and corpus callosum) and relay stations like the thalamus [26]. "Red" is a highway that connects to apple, car, firetruck, cherry — but through separate off-ramps. Sara Brain's concept-specific relations ARE those off-ramps: `apple_color` is the exit from the "red" highway into the apple cluster. `car_color` is a different exit. The highway is shared; the exits are private. An apple carved to look like a car? The wavefront follows: `apple → car_shape → car` — the signal travels the highway from one localized cluster to another through shared properties. That's not metaphor. That's how the thalamus and white matter tracts route signals between cortical regions [27][28].
+
+Different knowledge types — visual, motor, social, linguistic — physically localize in distinct cortical regions [29]. Connectomics research has mapped the white matter structural core, showing it forms a path network with hub regions acting as routing centers [30]. The brain's physical wiring IS a path network with localized clusters and shared routes.
+
+This is consistent with what we already know — concept cells (Quiroga), Hebbian path formation, memory as path reactivation. The decodability evidence adds another line of support: the structure is so robust it survives massive spatial averaging. The highway/off-ramp anatomy adds another: the brain's physical wiring matches the architecture Sara Brain implements in software.
+
+**The transformer decoder proves weights ARE knowledge.** Here's the part everyone gets backwards. The fact that a transformer CAN decode brain activity proves the transformer itself stores real knowledge — not "just weights," but genuine structured understanding of how humans perceive and think, absorbed during training. If the weights were empty math, the decoder wouldn't work. The training data became stored information. This is exactly what mechanistic interpretability already shows: the weights encode discrete circuits, localized knowledge, traceable paths (see sections above on induction heads, knowledge circuits, monosemanticity). This is also why the "transformers are just eyes/ears" framing from the next subsection needs nuance — transformers blur into cortex-like function BECAUSE they genuinely contain absorbed knowledge. They aren't empty processors; they're processors that accumulated structured information during training. The debate isn't whether transformers store knowledge — they do. The debate is whether you can inspect it, trace it, and explain it. Sara Brain says yes by design. Transformers require Anthropic-scale interpretability research to even begin answering.
+
+**The honest caveat.** The decoders themselves are uninterpretable — they pattern-match on voxel statistics without tracing any paths. They prove the structure exists in the brain; they don't model it. And the transformer decoder proves knowledge CAN be stored in compressed weights — it works. The question is whether that's the best encoding. Also: decodability doesn't exclusively prove path structure — population codes and topographic organization also contribute. The argument is that paths are a significant component, not the only one.
+
+Both the brain and the transformer store real, structured knowledge. The brain stores it in localized clusters connected by physical highways — and Sara Brain models that directly. The transformer stores it in distributed weight matrices — and you need sparse autoencoders and causal tracing to even find it. The brain decoders prove both systems work. Sara Brain is a bet on which encoding is more honest about what it knows.
+
 ### Transformers Are Sensory Cortex, Not the Whole Brain
 
 Here's the argument nobody's making, and it reframes the entire debate: transformers aren't brains. They're eyes. They're hands. They're the sensory processing pipeline that feeds a brain. And if you look at what they actually do — rather than what the marketing says — the biology supports this.
@@ -452,6 +474,24 @@ Different tools. Different tradeoffs. Neither is wrong.
 **Catastrophic forgetting.** This is where Sara Brain has a genuine architectural advantage. Distributed representations suffer from catastrophic interference — learning new information corrupts previously stored knowledge because the same parameters encode multiple facts. This has been a known problem since French characterized it in 1999 [15], and remains unsolved despite approaches like elastic weight consolidation (Kirkpatrick et al., 2017) [16]. Sara Brain's concept-specific paths make catastrophic forgetting structurally impossible. New learning creates new neurons and new segments. It never modifies existing ones. You can teach Sara a million new facts and every old fact remains exactly as it was.
 
 **Learning mechanism.** Transformers learn through backpropagation — computing error gradients and propagating them backward through the entire network to update weights. This works extraordinarily well in practice, but it's not how biology learns. There is no known biological mechanism for computing and propagating gradients backward through neural circuits. Sara Brain learns through direct association — teach a fact, create a path. It's closer to Hebbian learning, which IS biologically grounded. This doesn't make backprop wrong — it makes it a useful engineering hack that happens to produce good results through a mechanism biology doesn't use.
+
+### Weights Are Knowledge — And That Has Consequences
+
+Courts have ruled that LLM weights don't store training data. The UK High Court in Getty Images v. Stability AI (November 2025) stated explicitly: "The model weights do not and have not stored or contained reproductions of [copyrighted] works; they are the product of training, but are not themselves copies" [31]. US courts in Bartz v. Anthropic [32] and Kadrey v. Meta [33] ruled that training on copyrighted material is "transformative" fair use because the model extracts "statistical patterns," not expressive content.
+
+The evidence says otherwise. Three independent lines of evidence contradict the "weights don't store data" position:
+
+**Mechanistic interpretability.** Sparse autoencoders extract millions of interpretable features from transformer weights — specific concepts, specific knowledge, specific behaviors [6]. Knowledge circuits localize individual facts to specific weight combinations [5]. If you can extract the specific knowledge, it was stored.
+
+**Data compression equivalence.** Research has shown that neural network training is mathematically equivalent to data compression — the training objective (minimizing prediction loss) IS compression [34]. Compressed data is stored data. The encoding changed; the information didn't disappear.
+
+**Verbatim extraction.** The RECAP method (2025) successfully extracts memorized copyrighted content from production LLMs, outperforming prior methods by 78% [35]. You cannot extract what was not stored.
+
+Sara Brain makes the contrast stark. Every `teach` command visibly stores knowledge: `red → apple_color → apple`. You can trace it. You can see exactly what was taught, when, and by whom. You can ask `why apple` and get the exact source text. A transformer stores the same knowledge — "apples are red" lives somewhere in its weights — but it takes elaborate interpretability tools to find it, and courts have accepted the argument that because you can't point to a specific weight and say "that's the apple fact," the data isn't "stored." Sara Brain's architecture proves this is a question of encoding, not of storage. Both systems store knowledge. One is honest about it.
+
+This isn't about killing LLMs. This is about honest accounting. If transformer weights encode specific knowledge from specific training data — and they do — then the people who created that data deserve to know. Copyright law, consent frameworks, and compensation models should be built on what these systems actually do, not on a convenient fiction about "statistical patterns." Sara Brain's explicit storage isn't just an architectural choice — it's a demonstration of what transparent AI looks like. Every path has provenance. Every fact has a source. Every conclusion is traceable. That's the standard.
+
+A brief note on precedent: all current rulings are district court level (US) or first instance (UK). No appellate court has ruled. The science is moving faster than the law — extraction tools, interpretability research, and compression-equivalence arguments that didn't exist when these cases were filed may reshape future decisions [36]. The US Copyright Office's 2025 report on generative AI training acknowledged that the technical understanding of what models "store" is still evolving — a signal that even regulators recognize the legal fiction may have an expiration date.
 
 ### Same River, Different Bridges
 
@@ -528,6 +568,40 @@ Attention is not all you need. It's a starting point. The transformer gave us th
 **Visual Cortex Hierarchy**
 
 [22] Felleman, D.J. & Van Essen, D.C. (1991). "Distributed hierarchical processing in the primate cerebral cortex." *Cerebral Cortex*, 1(1), 1–47. https://doi.org/10.1093/cercor/1.1.1-a. See also: Hubel, D.H. & Wiesel, T.N. (1962). "Receptive fields, binocular interaction and functional architecture in the cat's visual cortex." *Journal of Physiology*, 160(1), 106–154.
+
+**Brain Decoding**
+
+[23] Tang, S., LeBel, A., Jain, S., & Huth, A.G. (2023). "Semantic reconstruction of continuous language from non-invasive brain recordings." *Nature Neuroscience*, 26, 858–866. https://doi.org/10.1038/s41593-023-01304-9
+
+[24] Takagi, Y. & Nishimoto, S. (2023). "High-resolution image reconstruction with latent diffusion models from human brain activity." *CVPR 2023*.
+
+[25] Défossez, A., Caucheteux, C., Rapin, J., Kabeli, O., & King, J.-R. (2023). "Decoding speech perception from non-invasive brain recordings." *ICLR 2024* (Meta AI).
+
+**Neural Highways and Cortical Routing**
+
+[26] Bullock, D.N., et al. (2022). "A taxonomy of the brain's white matter: twenty-one major tracts for the 21st century." *Cerebral Cortex*, 32(20), 4524–4548. https://doi.org/10.1093/cercor/bhab502
+
+[27] Guillery, R.W. & Sherman, S.M. (2002). "Thalamic relay functions and their role in corticocortical communication." *Neuron*, 33(1), 1–20. https://doi.org/10.1016/S0896-6273(01)00582-7
+
+[28] Theyel, B.B., Llano, D.A., & Sherman, S.M. (2010). "Integration of signals from different cortical areas in higher order thalamic neurons." *PNAS*, 107(15), 6930–6935. https://doi.org/10.1073/pnas.0913048107
+
+[29] Huth, A.G., de Heer, W.A., Griffiths, T.L., Theunissen, F.E., & Gallant, J.L. (2016). "Natural speech reveals the semantic maps that tile human cerebral cortex." *Nature*, 532, 453–458. https://doi.org/10.1038/nature17637
+
+[30] Hagmann, P., Cammoun, L., Gigandet, X., Meuli, R., Honey, C.J., Wedeen, V.J., & Sporns, O. (2008). "Mapping the structural core of human cerebral cortex." *PLOS Biology*, 6(7), e159. https://doi.org/10.1371/journal.pbio.0060159
+
+**Data Storage and Legal Implications**
+
+[31] Getty Images v. Stability AI, [2025] EWHC 3002 (Ch), UK High Court, November 4, 2025. Court ruling.
+
+[32] Bartz v. Anthropic, No. 3:23-cv-07721-WHA, USDC N.D. Cal., June 2025. Court ruling.
+
+[33] Kadrey v. Meta Platforms, No. 3:23-cv-03417-VC, USDC N.D. Cal., June 2025. Court ruling.
+
+[34] Deletang, G., Ruoss, A., Grau-Moya, J., Genewein, T., Wenliang, L.K., Catt, E., Cundy, C., Hutter, M., Legg, S., Veness, J., & Ortega, P.A. (2024). "Language Modeling Is Compression." *ICLR 2024*. https://arxiv.org/abs/2309.10668
+
+[35] RECAP: Reproducing Copyrighted Data from LLMs (2025). https://arxiv.org/abs/2510.25941
+
+[36] US Copyright Office (2025). "Copyright and Artificial Intelligence, Part 3: Generative AI Training." Pre-publication report, May 9, 2025.
 
 ---
 

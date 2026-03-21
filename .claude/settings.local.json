@@ -6,7 +6,16 @@
       "Bash(.venv/bin/pip install:*)",
       "Bash(.venv/bin/pytest tests/ -v 2>&1)",
       "Bash(find:*)",
-      "Bash(.venv/bin/python -m pytest tests/ -v --tb=short 2>&1 | tail -20)"
+      "Bash(.venv/bin/python -m pytest tests/ -v --tb=short 2>&1 | tail -20)",
+      "WebFetch(domain:www.nature.com)",
+      "WebFetch(domain:openaccess.thecvf.com)",
+      "WebFetch(domain:ai.meta.com)",
+      "WebFetch(domain:www.biorxiv.org)",
+      "WebFetch(domain:pmc.ncbi.nlm.nih.gov)",
+      "WebFetch(domain:onlinelibrary.wiley.com)",
+      "WebFetch(domain:arxiv.org)",
+      "WebFetch(domain:academic.oup.com)",
+      "WebFetch(domain:www.pnas.org)"
     ]
   }
 }

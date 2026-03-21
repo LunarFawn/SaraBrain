@@ -9,17 +9,22 @@
 
 const CURRENT_DOC = {
   title: "Sara Brain — Documentation",
-  file: "docs/v006_design_philosophy.md",
-  filename: "sara_brain_docs_v006.md",
+  file: "docs/v007_design_philosophy.md",
+  filename: "sara_brain_docs_v007.md",
 };
 
 // ── Changelog ──
 
 const CHANGELOG = [
   {
+    version: "v007",
+    date: "2026-03-21",
+    label: "current",
+    summary: "New section: 'Why Sara Brain Doesn't Sleep' — maps LLM session degradation to sleep deprivation neuroscience (synaptic homeostasis, cortical fatigue, memory consolidation), shows Sara Brain is structurally immune, critiques the scaling trap and expertise inversion in AI industry. 12 new references [37]–[48]",
+  },
+  {
     version: "v006",
     date: "2026-03-20",
-    label: "current",
     summary: "Author introduction: Jennifer Pearl — RNA dynamics (PNAS 2022, JMIRx Bio 2024 mentorship), US Navy Aegis, Omron Microscan optics, Philips Sonicare, Amazon Kuiper satellite flight computers. Establishes credibility before the design philosophy begins",
   },
   {

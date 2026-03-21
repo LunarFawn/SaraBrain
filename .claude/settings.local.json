@@ -16,7 +16,8 @@
       "WebFetch(domain:arxiv.org)",
       "WebFetch(domain:academic.oup.com)",
       "WebFetch(domain:www.pnas.org)",
-      "WebFetch(domain:pub.orcid.org)"
+      "WebFetch(domain:pub.orcid.org)",
+      "Bash(git:*)"
     ]
   }
 }

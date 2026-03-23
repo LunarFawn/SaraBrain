@@ -2,7 +2,8 @@
  * vision.js — JS vision client + sanitization + perception loop.
  *
  * Port of Python VisionObserver + Perceiver to JavaScript.
- * All Claude output is sanitized to safe property labels before reaching the brain.
+ * All LLM output is sanitized to safe property labels before reaching the brain.
+ * Supports Anthropic (Claude) and Ollama (local) providers.
  */
 
 // ── Label pattern (exact match of Python _LABEL_PATTERN) ──
@@ -11,8 +12,13 @@ const LABEL_PATTERN = /^[a-z0-9][a-z0-9_ -]*$/;
 const BLOCKED_KEYWORDS = ["http", "www", "import ", "def ", "class ", "print("];
 const MAX_LABEL_LENGTH = 40;
 
+export const PROVIDERS = {
+  anthropic: "anthropic",
+  ollama: "ollama",
+};
+
 /**
- * Sanitize raw Claude output to safe lowercase property labels.
+ * Sanitize raw LLM output to safe lowercase property labels.
  * Exact port of Python VisionObserver._sanitize().
  */
 export function sanitize(rawText) {
@@ -55,10 +61,9 @@ export function sanitize(rawText) {
 // ── API Calls ──
 
 /**
- * Call the Claude Vision API via the local proxy.
- * Returns the text response or null on error.
+ * Call the Vision API via the local proxy — Anthropic format.
  */
-export async function callVision(proxyUrl, apiKey, model, imageBase64, mediaType, prompt, maxTokens = 300) {
+async function callVisionAnthropic(proxyUrl, apiKey, model, imageBase64, mediaType, prompt, maxTokens) {
   const payload = {
     model,
     messages: [
@@ -77,22 +82,69 @@ export async function callVision(proxyUrl, apiKey, model, imageBase64, mediaType
     max_tokens: maxTokens,
   };
 
-  try {
-    const resp = await fetch(`${proxyUrl}/v1/messages`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": apiKey,
-        "anthropic-version": "2023-06-01",
+  const resp = await fetch(`${proxyUrl}/v1/messages`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": apiKey,
+      "anthropic-version": "2023-06-01",
+    },
+    body: JSON.stringify(payload),
+  });
+  if (!resp.ok) {
+    console.warn("Vision API error:", resp.status, await resp.text());
+    return null;
+  }
+  const body = await resp.json();
+  return body.content[0].text.trim();
+}
+
+/**
+ * Call the Vision API via the local proxy — Ollama (OpenAI-compatible) format.
+ */
+async function callVisionOllama(proxyUrl, model, imageBase64, mediaType, prompt, maxTokens) {
+  const payload = {
+    model,
+    messages: [
+      {
+        role: "user",
+        content: [
+          {
+            type: "image_url",
+            image_url: { url: `data:${mediaType};base64,${imageBase64}` },
+          },
+          { type: "text", text: prompt },
+        ],
       },
-      body: JSON.stringify(payload),
-    });
-    if (!resp.ok) {
-      console.warn("Vision API error:", resp.status, await resp.text());
-      return null;
+    ],
+    temperature: 0,
+    max_tokens: maxTokens,
+  };
+
+  const resp = await fetch(`${proxyUrl}/v1/chat/completions`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (!resp.ok) {
+    console.warn("Vision API error:", resp.status, await resp.text());
+    return null;
+  }
+  const body = await resp.json();
+  return body.choices[0].message.content.trim();
+}
+
+/**
+ * Call the Vision API via the local proxy.
+ * provider: 'anthropic' (default) | 'ollama'
+ * Returns the text response or null on error.
+ */
+export async function callVision(proxyUrl, apiKey, model, imageBase64, mediaType, prompt, maxTokens = 300, provider = "anthropic") {
+  try {
+    if (provider === "ollama") {
+      return await callVisionOllama(proxyUrl, model, imageBase64, mediaType, prompt, maxTokens);
     }
-    const body = await resp.json();
-    return body.content[0].text.trim();
+    return await callVisionAnthropic(proxyUrl, apiKey, model, imageBase64, mediaType, prompt, maxTokens);
   } catch (err) {
     console.warn("Vision API call failed:", err);
     return null;
@@ -102,7 +154,7 @@ export async function callVision(proxyUrl, apiKey, model, imageBase64, mediaType
 /**
  * Phase 1: Freely describe everything visible in the image.
  */
-export async function observeInitial(proxyUrl, apiKey, model, imageBase64, mediaType) {
+export async function observeInitial(proxyUrl, apiKey, model, imageBase64, mediaType, provider = "anthropic") {
   const prompt =
     "Describe everything you observe in this image. " +
     "List each observation as a single word or short phrase on its own line. " +
@@ -110,7 +162,7 @@ export async function observeInitial(proxyUrl, apiKey, model, imageBase64, media
     "features, markings, and any distinguishing characteristics. " +
     "Be thorough — report everything you see, even subtle details. " +
     "One observation per line, lowercase, simple words only.";
-  const raw = await callVision(proxyUrl, apiKey, model, imageBase64, mediaType, prompt);
+  const raw = await callVision(proxyUrl, apiKey, model, imageBase64, mediaType, prompt, 300, provider);
   if (raw === null) return [];
   return sanitize(raw);
 }
@@ -120,7 +172,7 @@ export async function observeInitial(proxyUrl, apiKey, model, imageBase64, media
  * questions: {association: questionText}
  * Returns: {association: value|null}
  */
-export async function observeDirected(proxyUrl, apiKey, model, imageBase64, mediaType, questions) {
+export async function observeDirected(proxyUrl, apiKey, model, imageBase64, mediaType, questions, provider = "anthropic") {
   if (Object.keys(questions).length === 0) return {};
 
   const lines = Object.entries(questions).map(([assoc, q]) => `${assoc}: ${q}`);
@@ -130,7 +182,7 @@ export async function observeDirected(proxyUrl, apiKey, model, imageBase64, medi
     "If you cannot determine the answer from the image, say 'cannot determine'.\n\n" +
     lines.join("\n");
 
-  const raw = await callVision(proxyUrl, apiKey, model, imageBase64, mediaType, prompt);
+  const raw = await callVision(proxyUrl, apiKey, model, imageBase64, mediaType, prompt, 300, provider);
   if (raw === null) {
     const empty = {};
     for (const assoc of Object.keys(questions)) empty[assoc] = null;
@@ -168,11 +220,11 @@ export async function observeDirected(proxyUrl, apiKey, model, imageBase64, medi
 /**
  * Phase 3: Verify a single property — YES/NO/indeterminate.
  */
-export async function verifyProperty(proxyUrl, apiKey, model, imageBase64, mediaType, prop) {
+export async function verifyProperty(proxyUrl, apiKey, model, imageBase64, mediaType, prop, provider = "anthropic") {
   const prompt =
     `Does this image appear to show something that is '${prop}'? ` +
     "Answer only YES, NO, or CANNOT DETERMINE.";
-  const raw = await callVision(proxyUrl, apiKey, model, imageBase64, mediaType, prompt, 20);
+  const raw = await callVision(proxyUrl, apiKey, model, imageBase64, mediaType, prompt, 20, provider);
   if (raw === null) return null;
   const answer = raw.trim().toUpperCase();
   if (answer.includes("CANNOT") || answer.includes("DETERMINE")) return null;
@@ -220,10 +272,11 @@ export async function generateLabel(fileName, arrayBuffer) {
  *
  * bridge: { runCommand, getQuestionWords, getCandidateProperties, setPerceptionState }
  * onStep: callback({phase, observations, recognition, taughtCount}) for live display
+ * provider: 'anthropic' | 'ollama'
  *
  * Returns: {label, steps, allObservations, totalTaught, finalRecognition}
  */
-export async function runPerceptionLoop(proxyUrl, apiKey, model, imageBase64, mediaType, label, bridge, onStep) {
+export async function runPerceptionLoop(proxyUrl, apiKey, model, imageBase64, mediaType, label, bridge, onStep, provider = "anthropic") {
   const allObserved = [];
   let prevTop = null;
   let prevConfidence = 0;
@@ -234,7 +287,7 @@ export async function runPerceptionLoop(proxyUrl, apiKey, model, imageBase64, me
   await bridge.runCommand(`teach ${label} is ${label}`);
 
   // --- Phase 1: Initial Observation ---
-  const observations = await observeInitial(proxyUrl, apiKey, model, imageBase64, mediaType);
+  const observations = await observeInitial(proxyUrl, apiKey, model, imageBase64, mediaType, provider);
 
   let taught = 0;
   for (const prop of observations) {
@@ -282,7 +335,7 @@ export async function runPerceptionLoop(proxyUrl, apiKey, model, imageBase64, me
       questions[assoc] = `What ${assoc} does this appear to have or be?`;
     }
 
-    const directedResults = await observeDirected(proxyUrl, apiKey, model, imageBase64, mediaType, questions);
+    const directedResults = await observeDirected(proxyUrl, apiKey, model, imageBase64, mediaType, questions, provider);
 
     const newObs = [];
     taught = 0;
@@ -327,7 +380,7 @@ export async function runPerceptionLoop(proxyUrl, apiKey, model, imageBase64, me
     taught = 0;
     for (const prop of candidateProps) {
       if (allObserved.includes(prop)) continue;
-      const verified = await verifyProperty(proxyUrl, apiKey, model, imageBase64, mediaType, prop);
+      const verified = await verifyProperty(proxyUrl, apiKey, model, imageBase64, mediaType, prop, provider);
       if (verified === true) {
         verifiedObs.push(prop);
         await bridge.runCommand(`teach ${label} is ${prop}`);
@@ -366,11 +419,11 @@ export async function runPerceptionLoop(proxyUrl, apiKey, model, imageBase64, me
 
 /**
  * Parse the top recognition result from text output.
- * Looks for pattern like "  concept (confidence: N, ...)"
+ * Looks for pattern like "  #1 concept (N converging paths)"
  */
 function parseTopRecognition(text) {
   if (!text) return null;
-  const match = text.match(/^\s+(\S+)\s+\(confidence:\s*(\d+)/m);
+  const match = text.match(/^\s+#1\s+(\S+)\s+\((\d+)\s+converging/m);
   if (match) {
     return { label: match[1], confidence: parseInt(match[2], 10) };
   }

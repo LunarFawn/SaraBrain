@@ -11,6 +11,7 @@ from sara_brain.repl.commands import (
     cmd_teach, cmd_recognize, cmd_why, cmd_trace,
     cmd_neurons, cmd_paths, cmd_stats, cmd_similar, cmd_analyze,
     cmd_define, cmd_describe, cmd_associations,
+    cmd_query, cmd_questions, cmd_categorize, cmd_categories,
 )
 from sara_brain.visualization.text_tree import render_paths_from
 
@@ -56,6 +57,9 @@ def run_command(command_line):
         "define": cmd_define,
         "describe": cmd_describe,
         "associations": cmd_associations,
+        "questions": cmd_questions,
+        "categorize": cmd_categorize,
+        "categories": cmd_categories,
     }
 
     if cmd == "tree":
@@ -75,25 +79,29 @@ def run_command(command_line):
     if cmd == "help":
         return (
             "  Commands:\n"
-            "    teach <statement>       — Teach a fact (e.g., teach apples are red)\n"
-            "    recognize <a>, <b>, ... — Recognize from inputs\n"
-            "    trace <neuron>          — Outgoing paths from a neuron\n"
-            "    why <concept>           — Incoming paths to a concept\n"
-            "    similar <neuron>        — Find similar neurons\n"
-            "    analyze                 — Run full similarity analysis\n"
-            "    define <association>    — Define a new association type\n"
-            "    describe <a> as <props> — Register properties under an association\n"
-            "    associations            — List all associations and properties\n"
-            "    tree <neuron>           — ASCII path tree\n"
-            "    neurons                 — List all neurons\n"
-            "    paths                   — List all paths\n"
-            "    stats                   — Brain statistics\n"
-            "    perceive               — Upload an image (via Vision panel)\n"
-            "    no <correct_label>     — Correct last perception: no ball\n"
-            "    see <property>         — Point out a missed property: see seams\n"
-            "    reset                   — Reset brain to empty\n"
-            "    seed                    — Load demo data\n"
-            "    help                    — Show this help"
+            "    teach <statement>           — Teach a fact (e.g., teach apples are red)\n"
+            "    recognize <a>, <b>, ...     — Recognize from inputs\n"
+            "    trace <neuron>              — Outgoing paths from a neuron\n"
+            "    why <concept>               — Incoming paths to a concept\n"
+            "    similar <neuron>            — Find similar neurons\n"
+            "    analyze                     — Run full similarity analysis\n"
+            "    define <assoc> <qword>      — Define association (e.g., define taste how)\n"
+            "    describe <a> as <props>     — Register properties under an association\n"
+            "    associations                — List all associations and properties\n"
+            "    questions                   — List all question word patterns\n"
+            "    <qword> <concept> <assoc>   — Query (e.g., how apple taste)\n"
+            "    categorize <concept> <cat>  — Tag a concept (e.g., categorize apple item)\n"
+            "    categories                  — List all categories\n"
+            "    tree <neuron>               — ASCII path tree\n"
+            "    neurons                     — List all neurons\n"
+            "    paths                       — List all paths\n"
+            "    stats                       — Brain statistics\n"
+            "    perceive                    — Upload an image (via Vision panel)\n"
+            "    no <correct_label>          — Correct last perception: no ball\n"
+            "    see <property>              — Point out a missed property: see seams\n"
+            "    reset                       — Reset brain to empty\n"
+            "    seed                        — Load demo data\n"
+            "    help                        — Show this help"
         )
 
     if cmd == "reset":
@@ -105,6 +113,10 @@ def run_command(command_line):
 
     handler = dispatch.get(cmd)
     if handler is None:
+        # Check if cmd is a registered question word (e.g., "how", "what")
+        associations = brain.resolve_question_word(cmd)
+        if associations:
+            return cmd_query(brain, cmd, args)
         return f'  Unknown command: "{cmd}". Type "help" for available commands.'
 
     # For recognize, cache the results for wavefront animation

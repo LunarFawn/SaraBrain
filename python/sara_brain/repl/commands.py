@@ -68,11 +68,12 @@ def cmd_analyze(brain: Brain, _args: str) -> str:
 
 
 def cmd_define(brain: Brain, args: str) -> str:
-    name = args.strip()
-    if not name:
-        return "  Usage: define <association>"
-    neuron = brain.define_association(name)
-    return formatters.format_define_result(neuron.label)
+    parts = args.strip().split()
+    if len(parts) < 2:
+        return "  Usage: define <association> <question_word>\n  Example: define taste how"
+    name, question_word = parts[0], parts[1]
+    neuron = brain.define_association(name, question_word)
+    return formatters.format_define_result(neuron.label, question_word)
 
 
 def cmd_describe(brain: Brain, args: str) -> str:
@@ -94,3 +95,82 @@ def cmd_describe(brain: Brain, args: str) -> str:
 def cmd_associations(brain: Brain, _args: str) -> str:
     assocs = brain.list_associations()
     return formatters.format_associations(assocs)
+
+
+def cmd_query(brain: Brain, question_word: str, args: str) -> str:
+    """Handle: <question_word> <subject> <association>"""
+    parts = args.strip().split()
+    if len(parts) < 2:
+        return f"  Usage: {question_word} <concept> <association>"
+    subject, association = parts[0], parts[1]
+    results = brain.query_association(subject, association)
+    return formatters.format_query(question_word, subject, association, results)
+
+
+def cmd_questions(brain: Brain, _args: str) -> str:
+    question_words = brain.list_question_words()
+    return formatters.format_questions(question_words)
+
+
+def cmd_categorize(brain: Brain, args: str) -> str:
+    parts = args.strip().split()
+    if len(parts) < 2:
+        return "  Usage: categorize <concept> <category>\n  Example: categorize apple item"
+    label, category = parts[0], parts[1]
+    brain.categorize(label, category)
+    return formatters.format_categorize(label, category)
+
+
+def cmd_categories(brain: Brain, _args: str) -> str:
+    categories = brain.list_categories()
+    return formatters.format_categories(categories)
+
+
+def cmd_perceive(brain: Brain, args: str, callback=None) -> str:
+    """Run the perception loop on an image file."""
+    parts = args.strip().split(None, 1)
+    if not parts:
+        return "  Usage: perceive <image_path> [label]"
+    image_path = parts[0]
+    label = parts[1].strip() if len(parts) > 1 else None
+
+    from pathlib import Path
+    if not Path(image_path).is_file():
+        return f'  File not found: "{image_path}"'
+
+    try:
+        result = brain.perceive(image_path, label=label, callback=callback)
+    except ValueError as e:
+        return f"  {e}"
+
+    return formatters.format_perception_result(result)
+
+
+def cmd_correct(brain: Brain, args: str) -> str:
+    """Correct the last perception: no <correct_label>."""
+    correct_label = args.strip().lower()
+    if not correct_label:
+        return "  Usage: no <correct_label>"
+
+    try:
+        info = brain.correct(correct_label)
+    except ValueError as e:
+        return f"  {e}"
+
+    return formatters.format_correction(
+        info["wrong_guess"], info["correct_label"], info["properties_taught"]
+    )
+
+
+def cmd_see(brain: Brain, args: str) -> str:
+    """Parent points out a property Sara missed: see <property>."""
+    prop = args.strip().lower()
+    if not prop:
+        return "  Usage: see <property>"
+
+    try:
+        info = brain.see(prop)
+    except ValueError as e:
+        return f"  {e}"
+
+    return formatters.format_see(info["image_label"], info["property"], info["taught"])

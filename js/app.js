@@ -17,8 +17,10 @@ let historyIndex = -1;
 let isProcessing = false;
 
 // Vision state
+let visionProvider = localStorage.getItem("sara_vision_provider") || "anthropic";
 let visionApiKey = localStorage.getItem("sara_vision_key") || "";
 let visionModel = localStorage.getItem("sara_vision_model") || "claude-sonnet-4-20250514";
+let visionOllamaModel = localStorage.getItem("sara_vision_ollama_model") || "llava";
 let proxyUrl = "http://localhost:8765";
 let proxyConnected = false;
 let proxyPollInterval = null;
@@ -39,8 +41,12 @@ const proxyDot = document.getElementById("proxy-dot");
 const proxyText = document.getElementById("proxy-text");
 const proxyInstructions = document.getElementById("proxy-instructions");
 const visionControls = document.getElementById("vision-controls");
+const visionProviderSelect = document.getElementById("vision-provider");
+const visionKeyRow = document.getElementById("vision-key-row");
+const visionOllamaRow = document.getElementById("vision-ollama-row");
 const visionKeyInput = document.getElementById("vision-key");
 const visionModelInput = document.getElementById("vision-model");
+const visionOllamaModelInput = document.getElementById("vision-ollama-model");
 const btnPerceive = document.getElementById("btn-perceive");
 const codeModal = document.getElementById("code-modal");
 const codeModalBody = document.getElementById("code-modal-body");
@@ -80,12 +86,15 @@ function switchRightPanel(panel) {
 // ── Region Query ──
 
 async function handleRegionQuery(croppedBase64, mediaType, coords) {
-  if (!proxyConnected || !visionApiKey) {
+  if (!proxyConnected || (visionProvider === "anthropic" && !visionApiKey)) {
     appendOutput("  Vision not ready for region query.", "cmd-error");
     return;
   }
 
-  appendOutput(`  [region @ (${coords.x},${coords.y}) ${coords.w}x${coords.h}] Asking Claude...`, "cmd-line");
+  const providerLabel = visionProvider === "ollama" ? "Ollama" : "Claude";
+  appendOutput(`  [region @ (${coords.x},${coords.y}) ${coords.w}x${coords.h}] Asking ${providerLabel}...`, "cmd-line");
+
+  const activeModel = visionProvider === "ollama" ? visionOllamaModel : visionModel;
 
   try {
     const prompt =
@@ -94,7 +103,7 @@ async function handleRegionQuery(croppedBase64, mediaType, coords) {
       "Include: colors, shapes, textures, patterns, objects, features. " +
       "One observation per line, lowercase, simple words only.";
 
-    const raw = await callVision(proxyUrl, visionApiKey, visionModel, croppedBase64, mediaType, prompt);
+    const raw = await callVision(proxyUrl, visionApiKey, activeModel, croppedBase64, mediaType, prompt, 300, visionProvider);
     if (!raw) {
       appendOutput("  No response from Vision API.", "cmd-error");
       return;
@@ -227,6 +236,8 @@ async function mountSaraBrain(pyodide) {
     "sara_brain/storage/segment_repo.py",
     "sara_brain/storage/path_repo.py",
     "sara_brain/storage/association_repo.py",
+    "sara_brain/storage/category_repo.py",
+    "sara_brain/storage/settings_repo.py",
     "sara_brain/storage/queries.py",
     "sara_brain/storage/schema.sql",
     "sara_brain/visualization/__init__.py",
@@ -301,9 +312,18 @@ function initUI() {
   btnPerceive.addEventListener("click", handlePerceive);
 
   // Restore saved vision settings
+  visionProviderSelect.value = visionProvider;
+  applyProviderUI();
   if (visionApiKey) visionKeyInput.value = visionApiKey;
   if (visionModel) visionModelInput.value = visionModel;
+  if (visionOllamaModel) visionOllamaModelInput.value = visionOllamaModel;
 
+  visionProviderSelect.addEventListener("change", () => {
+    visionProvider = visionProviderSelect.value;
+    localStorage.setItem("sara_vision_provider", visionProvider);
+    applyProviderUI();
+    updatePerceiveButton();
+  });
   visionKeyInput.addEventListener("change", () => {
     visionApiKey = visionKeyInput.value.trim();
     localStorage.setItem("sara_vision_key", visionApiKey);
@@ -312,6 +332,10 @@ function initUI() {
   visionModelInput.addEventListener("change", () => {
     visionModel = visionModelInput.value.trim();
     localStorage.setItem("sara_vision_model", visionModel);
+  });
+  visionOllamaModelInput.addEventListener("change", () => {
+    visionOllamaModel = visionOllamaModelInput.value.trim();
+    localStorage.setItem("sara_vision_ollama_model", visionOllamaModel);
   });
 
   // Close modal on backdrop click
@@ -593,8 +617,18 @@ async function checkAndUpdateStatus() {
   updatePerceiveButton();
 }
 
+function applyProviderUI() {
+  const isOllama = visionProvider === "ollama";
+  visionKeyRow.style.display = isOllama ? "none" : "";
+  visionOllamaRow.style.display = isOllama ? "" : "none";
+}
+
 function updatePerceiveButton() {
-  btnPerceive.disabled = !(proxyConnected && visionApiKey);
+  if (visionProvider === "ollama") {
+    btnPerceive.disabled = !proxyConnected;
+  } else {
+    btnPerceive.disabled = !(proxyConnected && visionApiKey);
+  }
 }
 
 async function handleDownloadProxy() {
@@ -626,7 +660,7 @@ async function handleViewCode() {
 
 async function handlePerceive() {
   if (isProcessing) return;
-  if (!proxyConnected || !visionApiKey) {
+  if (!proxyConnected || (visionProvider === "anthropic" && !visionApiKey)) {
     appendOutput("  Vision not ready. Connect proxy and enter API key.", "cmd-error");
     return;
   }
@@ -674,8 +708,9 @@ async function handlePerceive() {
       setPerceptionState,
     };
 
+    const activeModel = visionProvider === "ollama" ? visionOllamaModel : visionModel;
     const result = await runPerceptionLoop(
-      proxyUrl, visionApiKey, visionModel,
+      proxyUrl, visionApiKey, activeModel,
       imageBase64, mediaType, label, bridge,
       (step) => {
         // Add label chips to image viewer
@@ -686,7 +721,8 @@ async function handlePerceive() {
         if (step.recognition) {
           appendOutput(`  ${step.recognition}`, "cmd-output");
         }
-      }
+      },
+      visionProvider
     );
 
     appendOutput(`  Perception complete: ${result.totalTaught} properties taught`, "perception-phase");

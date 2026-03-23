@@ -70,10 +70,22 @@
         </div>
         <div class="vision-section" id="vision-controls" style="display: none;">
           <div class="vision-row">
+            <label>Provider:</label>
+            <select id="vision-provider">
+              <option value="anthropic">Anthropic (Claude)</option>
+              <option value="ollama">Ollama (local)</option>
+            </select>
+          </div>
+          <div class="vision-row" id="vision-key-row">
             <label>Key:</label>
             <input type="password" id="vision-key" placeholder="sk-ant-..." autocomplete="off" />
             <label>Model:</label>
             <input type="text" id="vision-model" value="claude-sonnet-4-20250514" />
+          </div>
+          <div class="vision-row" id="vision-ollama-row" style="display:none">
+            <label>Model:</label>
+            <input type="text" id="vision-ollama-model" value="llava" />
+            <span class="vision-hint">Proxy: python vision_proxy.py --provider ollama</span>
           </div>
           <div class="vision-row">
             <button class="btn btn-accent" id="btn-perceive" disabled>Perceive Image</button>

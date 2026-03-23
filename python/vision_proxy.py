@@ -1,15 +1,18 @@
-"""Local CORS proxy for forwarding Claude Vision API requests.
+"""Local CORS proxy for forwarding Vision API requests.
 
-Runs on localhost, forwards only to api.anthropic.com.
-Stdlib only — no dependencies beyond Python 3.9+.
+Supports Anthropic (Claude) and Ollama (local LLMs).
+Runs on localhost. Stdlib only — no dependencies beyond Python 3.9+.
 
 Usage:
-    python -m sara_brain.vision_proxy          # from package
-    python vision_proxy.py                     # standalone download
+    python vision_proxy.py                          # Anthropic (default)
+    python vision_proxy.py --provider ollama        # Ollama at localhost:11434
+    python vision_proxy.py --provider ollama --ollama-url http://localhost:11434
+    python vision_proxy.py --port 8765              # custom port
 """
 
 from __future__ import annotations
 
+import argparse
 import http.server
 import json
 import sys
@@ -17,16 +20,21 @@ import urllib.error
 import urllib.request
 from datetime import datetime
 
-TARGET = "https://api.anthropic.com"
+ANTHROPIC_TARGET = "https://api.anthropic.com"
+OLLAMA_DEFAULT_URL = "http://localhost:11434"
+
+# Set by main() before server starts
+_provider: str = "anthropic"
+_ollama_url: str = OLLAMA_DEFAULT_URL
 
 
 class CORSProxyHandler(http.server.BaseHTTPRequestHandler):
-    """Forward POST requests to api.anthropic.com with CORS headers."""
+    """Forward POST requests to the configured provider with CORS headers."""
 
     def do_GET(self):
         """Health check endpoint."""
         if self.path == "/health":
-            body = json.dumps({"status": "ok"}).encode("utf-8")
+            body = json.dumps({"status": "ok", "provider": _provider}).encode("utf-8")
             self.send_response(200)
             self._add_cors_headers()
             self.send_header("Content-Type", "application/json")
@@ -45,14 +53,20 @@ class CORSProxyHandler(http.server.BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_POST(self):
-        """Forward request body to api.anthropic.com."""
+        """Forward request body to the configured provider."""
         content_length = int(self.headers.get("Content-Length", 0))
         body = self.rfile.read(content_length)
 
-        url = f"{TARGET}{self.path}"
+        if _provider == "ollama":
+            self._forward_ollama(body)
+        else:
+            self._forward_anthropic(body)
+
+    def _forward_anthropic(self, body: bytes) -> None:
+        """Forward to api.anthropic.com, preserving API key and version headers."""
+        url = f"{ANTHROPIC_TARGET}{self.path}"
         headers = {"Content-Type": "application/json"}
 
-        # Forward relevant headers
         api_key = self.headers.get("x-api-key")
         if api_key:
             headers["x-api-key"] = api_key
@@ -60,8 +74,16 @@ class CORSProxyHandler(http.server.BaseHTTPRequestHandler):
         if anthropic_version:
             headers["anthropic-version"] = anthropic_version
 
-        req = urllib.request.Request(url, data=body, headers=headers, method="POST")
+        self._do_forward(url, headers, body)
 
+    def _forward_ollama(self, body: bytes) -> None:
+        """Forward to Ollama (OpenAI-compatible endpoint), no auth headers."""
+        url = f"{_ollama_url.rstrip('/')}{self.path}"
+        headers = {"Content-Type": "application/json"}
+        self._do_forward(url, headers, body)
+
+    def _do_forward(self, url: str, headers: dict, body: bytes) -> None:
+        req = urllib.request.Request(url, data=body, headers=headers, method="POST")
         try:
             with urllib.request.urlopen(req, timeout=120) as resp:
                 resp_body = resp.read()
@@ -105,12 +127,31 @@ class CORSProxyHandler(http.server.BaseHTTPRequestHandler):
         pass
 
 
-def main(port: int = 8765):
-    """Start the CORS proxy server."""
-    print(f"Sara Brain Vision Proxy -- forwarding to {TARGET}")
-    print(f"Listening on http://localhost:{port}")
+def main():
+    global _provider, _ollama_url
+
+    parser = argparse.ArgumentParser(description="Sara Brain Vision Proxy")
+    parser.add_argument("--provider", choices=["anthropic", "ollama"], default="anthropic",
+                        help="LLM provider (default: anthropic)")
+    parser.add_argument("--ollama-url", default=OLLAMA_DEFAULT_URL,
+                        help=f"Ollama base URL (default: {OLLAMA_DEFAULT_URL})")
+    parser.add_argument("--port", type=int, default=8765,
+                        help="Proxy port (default: 8765)")
+    args = parser.parse_args()
+
+    _provider = args.provider
+    _ollama_url = args.ollama_url.rstrip("/")
+
+    if _provider == "anthropic":
+        target_display = ANTHROPIC_TARGET
+    else:
+        target_display = _ollama_url
+
+    print(f"Sara Brain Vision Proxy -- provider: {_provider}, forwarding to {target_display}")
+    print(f"Listening on http://localhost:{args.port}")
     print()
-    server = http.server.HTTPServer(("127.0.0.1", port), CORSProxyHandler)
+
+    server = http.server.HTTPServer(("127.0.0.1", args.port), CORSProxyHandler)
     try:
         server.serve_forever()
     except KeyboardInterrupt:
@@ -119,11 +160,4 @@ def main(port: int = 8765):
 
 
 if __name__ == "__main__":
-    port = 8765
-    if len(sys.argv) > 1:
-        try:
-            port = int(sys.argv[1])
-        except ValueError:
-            print(f"Usage: python {sys.argv[0]} [port]")
-            sys.exit(1)
-    main(port)
+    main()

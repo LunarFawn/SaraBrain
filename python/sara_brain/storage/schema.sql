@@ -52,6 +52,21 @@ CREATE TABLE IF NOT EXISTS associations (
     UNIQUE(association, property_label)
 );
 
+CREATE TABLE IF NOT EXISTS question_words (
+    association    TEXT PRIMARY KEY,
+    question_word  TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    label    TEXT PRIMARY KEY,
+    category TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS settings (
+    key   TEXT PRIMARY KEY,
+    value TEXT NOT NULL
+);
+
 CREATE INDEX IF NOT EXISTS idx_seg_source ON segments(source_id, strength DESC);
 CREATE INDEX IF NOT EXISTS idx_seg_target ON segments(target_id);
 CREATE INDEX IF NOT EXISTS idx_neuron_label ON neurons(label);

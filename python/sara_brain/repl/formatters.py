@@ -93,7 +93,9 @@ def format_similarities(links: list[SimilarityLink]) -> str:
     return "\n".join(lines)
 
 
-def format_define_result(name: str) -> str:
+def format_define_result(name: str, question_word: str | None = None) -> str:
+    if question_word:
+        return f'  Created association: {name} (question word: "{question_word}")'
     return f"  Created association: {name}"
 
 
@@ -111,3 +113,87 @@ def format_associations(assocs: dict[str, list[str]]) -> str:
     for name, props in sorted(assocs.items()):
         lines.append(f"  {name}: {', '.join(props)}")
     return "\n".join(lines)
+
+
+def format_query(question_word: str, subject: str, association: str, properties: list[str]) -> str:
+    if not properties:
+        return f'  No "{association}" known for "{subject}".'
+    return f"  {subject} {association}: {', '.join(sorted(properties))}"
+
+
+def format_questions(question_words: dict[str, list[str]]) -> str:
+    if not question_words:
+        return "  No question words defined."
+    lines = ["  Available questions:"]
+    for qword, assocs in sorted(question_words.items()):
+        for assoc in sorted(assocs):
+            lines.append(f"    {qword} <concept> {assoc}")
+    return "\n".join(lines)
+
+
+def format_categorize(label: str, category: str) -> str:
+    return f'  Categorized "{label}" as "{category}".'
+
+
+def format_categories(categories: dict[str, list[str]]) -> str:
+    if not categories:
+        return "  No categories defined."
+    lines = []
+    for cat, labels in sorted(categories.items()):
+        lines.append(f"  {cat}: {', '.join(sorted(labels))}")
+    return "\n".join(lines)
+
+
+def format_perception_step(step) -> str:
+    """Format one phase of the perception loop."""
+    lines = [f"  [{step.phase}]"]
+    if step.observations:
+        lines.append(f"    Observed: {', '.join(step.observations)}")
+    else:
+        lines.append("    No new observations.")
+    if step.taught_count:
+        lines.append(f"    Taught {step.taught_count} fact{'s' if step.taught_count != 1 else ''}.")
+    if step.recognition:
+        top = step.recognition[0]
+        lines.append(f"    Recognition: {top.neuron.label} ({top.confidence} converging path{'s' if top.confidence != 1 else ''})")
+        for trace in top.converging_paths:
+            lines.append(f"      {trace}")
+    else:
+        lines.append("    No recognition yet.")
+    return "\n".join(lines)
+
+
+def format_perception_result(result) -> str:
+    """Format the final perception summary."""
+    lines = [
+        f"  Perception of {result.label}:",
+        f"    Image: {result.image_path}",
+        f"    Total observations: {len(result.all_observations)}",
+        f"    Total facts taught: {result.total_taught}",
+    ]
+    if result.final_recognition:
+        top = result.final_recognition[0]
+        lines.append(f"    Final recognition: {top.neuron.label} ({top.confidence} converging path{'s' if top.confidence != 1 else ''})")
+    else:
+        lines.append("    Final recognition: none")
+    return "\n".join(lines)
+
+
+def format_correction(wrong_guess: str | None, correct_label: str, properties_taught: list[str]) -> str:
+    """Format correction output."""
+    lines = []
+    if wrong_guess:
+        lines.append(f"  Corrected: not {wrong_guess}, this is {correct_label}.")
+    else:
+        lines.append(f"  Corrected: this is {correct_label}.")
+    if properties_taught:
+        lines.append(f"  Taught {correct_label}: {', '.join(properties_taught)}")
+    lines.append("  (Original observations retained — Sara never erases.)")
+    return "\n".join(lines)
+
+
+def format_see(image_label: str, property_label: str, taught: bool) -> str:
+    """Format parent-points-out output."""
+    if taught:
+        return f"  Taught {image_label} is {property_label}."
+    return f"  {image_label} already knows about {property_label}."

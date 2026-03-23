@@ -19,38 +19,94 @@ let currentFlow = null;
 const FLOWS = {
   teach: {
     title: "Teach Sara",
-    placeholder: "apples are red",
-    hint: "Format: subject are property",
+    placeholder: "e.g., apples are red",
+    hint: "Teach a fact. Format: <subject> is <property> or <subject> is a <concept>",
     submitLabel: "Teach",
     callback: "onTeach",
   },
   recognize: {
     title: "Recognize",
-    placeholder: "red, round, sweet",
-    hint: "Comma-separated properties",
+    placeholder: "e.g., red, round, sweet",
+    hint: "Find concepts with these properties. Comma-separated.",
     submitLabel: "Recognize",
     callback: "onRecognize",
   },
   explore: {
     title: "Explore",
-    placeholder: "apples",
-    hint: "Neuron or concept name",
+    placeholder: "e.g., apples",
+    hint: "Look up a concept or neuron by name.",
     submitLabel: null, // Has sub-buttons instead
     callback: null,
   },
+  associations: {
+    title: "List Associations",
+    placeholder: "",
+    hint: "Show all defined association types.",
+    submitLabel: "List",
+    callback: "onAssociations",
+  },
+  define: {
+    title: "Define Association",
+    placeholder: "e.g., fruit",
+    hint: "Define a new type of association.",
+    submitLabel: "Define",
+    callback: "onDefine",
+  },
+  describe: {
+    title: "Describe Association",
+    placeholder: "e.g., fruit as color, shape, taste",
+    hint: "Describe an association with properties. Format: <assoc> as <prop1>, <prop2>",
+    submitLabel: "Describe",
+    callback: "onDescribe",
+  },
+  similar: {
+    title: "Find Similar",
+    placeholder: "e.g., apple",
+    hint: "Find neurons similar to this one.",
+    submitLabel: "Find",
+    callback: "onSimilar",
+  },
+  analyze: {
+    title: "Analyze Similarity",
+    placeholder: "",
+    hint: "Run a full similarity analysis across all neurons.",
+    submitLabel: "Analyze",
+    callback: "onAnalyze",
+  },
   correct: {
     title: "Correct Sara",
-    placeholder: "ball",
-    hint: "What it actually is",
+    placeholder: "e.g., ball",
+    hint: "If Sara recognized something incorrectly, provide the correct label.",
     submitLabel: "Correct",
     callback: "onCorrect",
   },
   pointout: {
     title: "Point Out",
-    placeholder: "seams",
-    hint: "Property Sara missed",
+    placeholder: "e.g., seams",
+    hint: "If Sara perceived an image and missed a property, point it out.",
     submitLabel: "Teach",
     callback: "onSee",
+  },
+  neurons: {
+    title: "List Neurons",
+    placeholder: "",
+    hint: "Show all neurons in the brain.",
+    submitLabel: "List",
+    callback: "onNeurons",
+  },
+  paths: {
+    title: "List Paths",
+    placeholder: "",
+    hint: "Show all concept paths in the brain.",
+    submitLabel: "List",
+    callback: "onPaths",
+  },
+  stats: {
+    title: "Show Stats",
+    placeholder: "",
+    hint: "Show brain statistics.",
+    submitLabel: "Show",
+    callback: "onStats",
   },
 };
 
@@ -63,31 +119,69 @@ export function initGuided(el, cbs) {
   containerEl.innerHTML = `
     <div class="guided-actions" id="guided-actions">
       <div class="guided-btn-row">
-        <button class="guided-btn" data-flow="teach" title="Teach Sara a new fact">
+        <button class="guided-btn" data-flow="teach" title="Teach a fact. e.g., 'apples are red'">
           Teach
-          <span class="guided-btn-hint">Teach Sara a new fact</span>
+          <span class="guided-btn-hint">Teach a fact. e.g., "apples are red"</span>
         </button>
-        <button class="guided-btn" data-flow="recognize" title="What could these properties be?">
+        <button class="guided-btn" data-flow="recognize" title="Recognize a concept from properties. e.g., 'red, round, sweet'">
           Recognize
-          <span class="guided-btn-hint">What could these properties be?</span>
+          <span class="guided-btn-hint">Recognize a concept. e.g., "red, round"</span>
         </button>
-        <button class="guided-btn" data-action="perceive" title="Show Sara an image to identify">
+        <button class="guided-btn" data-action="perceive" title="Perceive an image and learn from it">
           Perceive
-          <span class="guided-btn-hint">Show Sara an image to identify</span>
+          <span class="guided-btn-hint">Perceive an image</span>
         </button>
-        <button class="guided-btn" data-flow="explore" title="Look up what Sara knows">
+        <button class="guided-btn" data-flow="explore" title="Explore the brain's knowledge. e.g., 'apples'">
           Explore
-          <span class="guided-btn-hint">Look up what Sara knows</span>
+          <span class="guided-btn-hint">Explore the brain's knowledge</span>
+        </button>
+      </div>
+      <div class="guided-btn-row">
+        <button class="guided-btn" data-flow="associations" title="List all association types">
+          Associations
+          <span class="guided-btn-hint">List all association types</span>
+        </button>
+        <button class="guided-btn" data-flow="define" title="Define a new association type. e.g., 'fruit'">
+          Define
+          <span class="guided-btn-hint">Define an association. e.g., "fruit"</span>
+        </button>
+        <button class="guided-btn" data-flow="describe" title="Describe an association with properties. e.g., 'fruit as color, shape'">
+          Describe
+          <span class="guided-btn-hint">Describe an association. e.g., "fruit as color"</span>
+        </button>
+      </div>
+      <div class="guided-btn-row">
+        <button class="guided-btn" data-flow="similar" title="Find neurons similar to one. e.g., 'apple'">
+          Similar
+          <span class="guided-btn-hint">Find similar neurons. e.g., "apple"</span>
+        </button>
+        <button class="guided-btn" data-flow="analyze" title="Run a full similarity analysis">
+          Analyze
+          <span class="guided-btn-hint">Run similarity analysis</span>
+        </button>
+        <button class="guided-btn" data-flow="stats" title="Show brain statistics">
+          Stats
+          <span class="guided-btn-hint">Show brain statistics</span>
+        </button>
+      </div>
+      <div class="guided-btn-row">
+        <button class="guided-btn" data-flow="neurons" title="List all neurons">
+          Neurons
+          <span class="guided-btn-hint">List all neurons</span>
+        </button>
+        <button class="guided-btn" data-flow="paths" title="List all concept paths">
+          Paths
+          <span class="guided-btn-hint">List all concept paths</span>
         </button>
       </div>
       <div class="guided-btn-row guided-followups" id="guided-followups" style="display:none">
-        <button class="guided-btn guided-btn--followup" data-flow="correct" title="That's wrong — tell Sara what it really is">
+        <button class="guided-btn guided-btn--followup" data-flow="correct" title="Correct a misrecognition. e.g., 'ball'">
           Correct
-          <span class="guided-btn-hint">That's wrong — tell Sara what it really is</span>
+          <span class="guided-btn-hint">Correct a misrecognition. e.g., "ball"</span>
         </button>
-        <button class="guided-btn guided-btn--followup" data-flow="pointout" title="Sara missed something — point it out">
+        <button class="guided-btn guided-btn--followup" data-flow="pointout" title="Point out a missed property. e.g., 'seams'">
           Point Out
-          <span class="guided-btn-hint">Sara missed something — point it out</span>
+          <span class="guided-btn-hint">Point out a missed property. e.g., "seams"</span>
         </button>
       </div>
     </div>
@@ -143,6 +237,14 @@ export function showFlow(flowName) {
   input.placeholder = def.placeholder;
   flowEl.querySelector(".guided-flow-hint").textContent = def.hint;
 
+  // Hide input for flows that don't need it
+  const bodyEl = flowEl.querySelector(".guided-flow-body");
+  if (def.placeholder === "") {
+    bodyEl.style.display = "none";
+  } else {
+    bodyEl.style.display = "";
+  }
+
   // Build action buttons
   const actionsArea = flowEl.querySelector(".guided-flow-actions");
   actionsArea.innerHTML = "";
@@ -184,12 +286,13 @@ export function showFlow(flowName) {
 
   // Show flow, hide progress
   flowEl.style.display = "";
-  flowEl.querySelector(".guided-flow-body").style.display = "";
   flowEl.querySelector(".guided-flow-actions").style.display = "";
   flowEl.querySelector(".guided-flow-progress").style.display = "none";
 
-  // Focus input
-  setTimeout(() => input.focus(), 50);
+  // Focus input if visible
+  if (def.placeholder !== "") {
+    setTimeout(() => input.focus(), 50);
+  }
 
   // Enter key submits
   input.onkeydown = (e) => {
@@ -224,9 +327,12 @@ export function showPerceptionFollowUps(show) {
 // ── Internal ──
 
 async function submitFlow(callbackName) {
+  const def = FLOWS[currentFlow];
   const input = flowEl.querySelector(".guided-flow-input");
   const value = input.value.trim();
-  if (!value) return;
+
+  // For flows with no placeholder, the input value is not required.
+  if (def.placeholder !== "" && !value) return;
 
   const cb = callbacks[callbackName];
   if (!cb) return;

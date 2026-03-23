@@ -328,6 +328,14 @@ function initUI() {
     onTrace: async (text) => { await executeCommand(`trace ${text}`); },
     onCorrect: async (text) => { await executeCommand(`no ${text}`); },
     onSee: async (text) => { await executeCommand(`see ${text}`); },
+    onAssociations: async () => { await executeCommand("associations"); },
+    onDefine: async (text) => { await executeCommand(`define ${text}`); },
+    onDescribe: async (text) => { await executeCommand(`describe ${text}`); },
+    onSimilar: async (text) => { await executeCommand(`similar ${text}`); },
+    onAnalyze: async () => { await executeCommand("analyze"); },
+    onNeurons: async () => { await executeCommand("neurons"); },
+    onPaths: async () => { await executeCommand("paths"); },
+    onStats: async () => { await executeCommand("stats"); },
   });
 
   // Mode toggle

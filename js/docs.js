@@ -9,17 +9,22 @@
 
 const CURRENT_DOC = {
   title: "Sara Brain — Documentation",
-  file: "docs/v007_design_philosophy.md",
-  filename: "sara_brain_docs_v007.md",
+  file: "docs/v008_design_philosophy.md",
+  filename: "sara_brain_docs_v008.md",
 };
 
 // ── Changelog ──
 
 const CHANGELOG = [
   {
+    version: "v008",
+    date: "2026-03-22",
+    label: "current",
+    summary: "Full document restructure for research paper flow. Breaks monolithic §13 (~300 lines) into 5 focused sections. Adds §2 'A Note on Method' (ADA disability accommodation). Adds §21 'The LLM Detector Myth' (detector unreliability, bias against non-native/disabled writers, false accusations destroying lives, societal literacy regression). Separates sleep neuroscience from scaling critique. Reorders architecture → design boundaries → comparative analysis → industry critique. 5 new references [49]–[53]. 22 Part I + 12 Part II = 34 sections total",
+  },
+  {
     version: "v007",
     date: "2026-03-21",
-    label: "current",
     summary: "New section: 'Why Sara Brain Doesn't Sleep' — maps LLM session degradation to sleep deprivation neuroscience (synaptic homeostasis, cortical fatigue, memory consolidation), shows Sara Brain is structurally immune, critiques the scaling trap and expertise inversion in AI industry. 12 new references [37]–[48]",
   },
   {

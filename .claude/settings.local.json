@@ -17,7 +17,11 @@
       "WebFetch(domain:academic.oup.com)",
       "WebFetch(domain:www.pnas.org)",
       "WebFetch(domain:pub.orcid.org)",
-      "Bash(git:*)"
+      "Bash(git:*)",
+      "Bash(curl:*)",
+      "Bash(cat:*)",
+      "Bash(ollama list:*)",
+      "Bash(echo:*)"
     ]
   }
 }

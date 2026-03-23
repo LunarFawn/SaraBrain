@@ -85,7 +85,7 @@ class SaraShell(cmd.Cmd):
 
         translator = self._get_translator()
         if translator is None:
-            print("  No LLM configured. Use: llm set <api_key> [model]")
+            print("  No LLM configured. Use: llm set ollama <model>  or  llm set claude <api_key>")
             return
 
         from . import formatters
@@ -111,7 +111,7 @@ class SaraShell(cmd.Cmd):
         translator = self._get_translator()
         if translator is None:
             print("  No LLM configured. Use structured commands (how, what, where, etc.)")
-            print('  Or configure with: llm set <api_key> [model]')
+            print('  Or configure with: llm set ollama <model>  or  llm set claude <api_key>')
             return
 
         # Build available commands list for the LLM
@@ -132,15 +132,19 @@ class SaraShell(cmd.Cmd):
         self.onecmd(translated)
 
     def do_llm(self, args: str) -> None:
-        """Configure Claude LLM for natural language translation.
-        llm set <api_key> [model]  (default model: claude-sonnet-4-20250514)
+        """Configure LLM for natural language translation.
+        llm set ollama <model> [url]         Local LLM (no API key needed)
+        llm set claude <api_key> [model]     Anthropic Claude
+        llm set <api_key> [model]            Legacy format (treated as claude)
         llm status
         llm clear"""
-        from ..nlp.translator import is_blocked_domain, _DEFAULT_API_URL
+        from ..nlp.provider import DEFAULT_URLS
 
         parts = args.strip().split()
         if not parts:
-            print("  Usage: llm set <api_key> [model]")
+            print("  Usage: llm set ollama <model> [url]")
+            print("         llm set claude <api_key> [model]")
+            print("         llm set <api_key> [model]   (legacy, treated as claude)")
             print("         llm status")
             print("         llm clear")
             return
@@ -148,25 +152,66 @@ class SaraShell(cmd.Cmd):
         subcmd = parts[0].lower()
         if subcmd == "set":
             if len(parts) < 2:
-                print("  Usage: llm set <api_key> [model]")
-                print("  Example: llm set sk-ant-... claude-sonnet-4-20250514")
+                print("  Usage: llm set ollama <model> [url]")
+                print("         llm set claude <api_key> [model]")
+                print("         llm set <api_key> [model]")
                 return
-            api_key = parts[1]
-            model = parts[2] if len(parts) >= 3 else "claude-sonnet-4-20250514"
-            api_url = _DEFAULT_API_URL
-            self.brain.settings_repo.set("llm_api_url", api_url)
-            self.brain.settings_repo.set("llm_api_key", api_key)
-            self.brain.settings_repo.set("llm_model", model)
-            self.brain.conn.commit()
-            print(f"  LLM configured: {model} @ {api_url}")
+
+            arg1 = parts[1]
+
+            if arg1.lower() == "ollama":
+                # llm set ollama <model> [url]
+                if len(parts) < 3:
+                    print("  Usage: llm set ollama <model> [url]")
+                    print("  Example: llm set ollama llava")
+                    return
+                model = parts[2]
+                api_url = parts[3] if len(parts) >= 4 else DEFAULT_URLS["ollama"]
+                self.brain.settings_repo.set("llm_provider", "ollama")
+                self.brain.settings_repo.set("llm_api_url", api_url)
+                self.brain.settings_repo.set("llm_model", model)
+                self.brain.settings_repo.delete("llm_api_key")
+                self.brain.conn.commit()
+                print(f"  LLM configured: ollama/{model} @ {api_url}")
+
+            elif arg1.lower() == "claude":
+                # llm set claude <api_key> [model]
+                if len(parts) < 3:
+                    print("  Usage: llm set claude <api_key> [model]")
+                    print("  Example: llm set claude sk-ant-... claude-sonnet-4-20250514")
+                    return
+                api_key = parts[2]
+                model = parts[3] if len(parts) >= 4 else "claude-sonnet-4-20250514"
+                api_url = DEFAULT_URLS["anthropic"]
+                self.brain.settings_repo.set("llm_provider", "anthropic")
+                self.brain.settings_repo.set("llm_api_url", api_url)
+                self.brain.settings_repo.set("llm_api_key", api_key)
+                self.brain.settings_repo.set("llm_model", model)
+                self.brain.conn.commit()
+                print(f"  LLM configured: claude/{model} @ {api_url}")
+
+            else:
+                # Legacy: llm set <api_key> [model] -> treated as claude
+                api_key = arg1
+                model = parts[2] if len(parts) >= 3 else "claude-sonnet-4-20250514"
+                api_url = DEFAULT_URLS["anthropic"]
+                self.brain.settings_repo.set("llm_provider", "anthropic")
+                self.brain.settings_repo.set("llm_api_url", api_url)
+                self.brain.settings_repo.set("llm_api_key", api_key)
+                self.brain.settings_repo.set("llm_model", model)
+                self.brain.conn.commit()
+                print(f"  LLM configured: claude/{model} @ {api_url}")
+
         elif subcmd == "status":
+            provider_name = self.brain.settings_repo.get("llm_provider") or "anthropic"
             url = self.brain.settings_repo.get("llm_api_url")
             model = self.brain.settings_repo.get("llm_model")
             if url and model:
-                print(f"  LLM: {model} @ {url}")
+                print(f"  LLM: {provider_name}/{model} @ {url}")
             else:
                 print("  No LLM configured.")
         elif subcmd == "clear":
+            self.brain.settings_repo.delete("llm_provider")
             self.brain.settings_repo.delete("llm_api_url")
             self.brain.settings_repo.delete("llm_api_key")
             self.brain.settings_repo.delete("llm_model")
@@ -177,13 +222,19 @@ class SaraShell(cmd.Cmd):
 
     def _get_translator(self):
         """Return an LLMTranslator if configured, else None."""
-        from ..nlp.translator import LLMTranslator, _DEFAULT_API_URL
-        url = self.brain.settings_repo.get("llm_api_url") or _DEFAULT_API_URL
-        key = self.brain.settings_repo.get("llm_api_key")
+        from ..nlp.translator import LLMTranslator
+        from ..nlp.provider import get_provider, DEFAULT_URLS
+
+        provider_name = self.brain.settings_repo.get("llm_provider") or "anthropic"
+        provider = get_provider(provider_name)
+        url = self.brain.settings_repo.get("llm_api_url") or DEFAULT_URLS.get(provider_name, "")
+        key = self.brain.settings_repo.get("llm_api_key") or ""
         model = self.brain.settings_repo.get("llm_model")
-        if not key or not model:
+        if not model:
             return None
-        return LLMTranslator(url, key, model)
+        if provider.needs_api_key() and not key:
+            return None
+        return LLMTranslator(url, key, model, provider=provider)
 
     def do_save(self, args: str) -> None:
         """Force flush to disk"""

@@ -1,4 +1,4 @@
-# Sara Brain v005 — Design Philosophy
+# Sara Brain v006 — Design Philosophy
 
 > "Finally trying to code up my idea for AI I had back in the 90's."
 
@@ -24,6 +24,14 @@
 ---
 
 ## Origin Story
+
+My name is Jennifer Pearl. I'm a volunteer scientist at the University of Houston Center for Nuclear Receptors and Cell Signaling and the leading researcher in RNA dynamics. When there's a conflict about what RNA does in the dynamics space, I have the final say — if I can explain it. My ORCID is 0009-0006-6083-384X.
+
+The work that established that position came through Stanford's Eterna project. I wrote the software that designed the RNA sequence featured in the PNAS 2022 paper, "Crowdsourced RNA design discovers diverse, reversible, efficient, self-contained molecular switches." That work proved computationally that pairing probabilities are essential for multi-state RNA design. Every tool Eterna has used since roughly 2015 is built on concepts I personally proved — the tools the field uses today exist because of that work. More recently, I mentored Vasco Mendes on the RNA science behind our paper on viral pseudoknotted RNA prediction accuracy (JMIRx Bio 2024) — I'm second-named because he wrote it and I mentored him on the RNA. I'm also working on OpenASO: RNA Rescue.
+
+The RNA work didn't come from nowhere. It came from a career spent solving hard problems that other people couldn't, across domains that have almost nothing in common except that they all involve understanding how systems actually behave. In the **US Navy**, I was part of the team that made the Aegis ballistic missile defense system (USQ-151 JTT) operational — I troubleshot the issues preventing fleet deployment and authored the original operation and testing documentation the entire Navy used. At **Omron Microscan**, I developed the designs, algorithms, and optic targets used to focus all Microhawk imagers, writing the code to prove optics were focused based on sharpness of line pairs — pure logic, no libraries. At **Philips Sonicare**, I put all devices, testers, and documentation in place for the new brush handle spring design, acting as release engineer. At **Amazon Kuiper**, I was a senior engineer and V2 engineer on the LEO satellite flight computer — I wrote the failover code that validates satellites will work in space as part of fit-for-flight power testing, and solved blocking issues where, at least twice, satellites would not have flown without my specific involvement.
+
+Why does any of this matter for a paper about AI architecture? Because this is someone who has spent a career looking at how systems actually work — RNA folding dynamics, missile defense routing, satellite failover logic, optical focus validation — and noticing the same pattern everywhere: structured paths through state space. Sara Brain isn't a hobbyist sketch. It's the product of decades of thinking about how information flows through systems, applied to the question of how a brain thinks.
 
 This idea started in the 90s. Before deep learning, before transformers, before anyone was talking about LLMs. The question was simple: how does a brain actually think? Not "how do we get a machine to produce correct outputs" — how does *thinking* work?
 

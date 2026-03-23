@@ -265,26 +265,42 @@ class Brain:
             result.setdefault(assoc, []).append(prop_label)
         return result
 
+    def _make_provider(self):
+        """Build LLM provider from settings."""
+        from ..nlp.provider import get_provider
+        provider_name = self.settings_repo.get("llm_provider") or "anthropic"
+        return get_provider(provider_name)
+
+    def _make_observer(self):
+        """Build a VisionObserver from current settings."""
+        from ..nlp.vision import VisionObserver
+        from ..nlp.provider import DEFAULT_URLS
+
+        provider = self._make_provider()
+        url = self.settings_repo.get("llm_api_url") or DEFAULT_URLS.get(provider.name, "")
+        key = self.settings_repo.get("llm_api_key") or ""
+        model = self.settings_repo.get("llm_model") or ""
+        return VisionObserver(url, key, model, provider=provider)
+
     def perceive(self, image_path: str, label: str | None = None,
                  max_rounds: int = 3, callback=None):
         """Run the perception loop on an image.
 
-        Requires LLM configured (same as 'ask'). Uses Claude Vision
+        Requires LLM configured (same as 'ask'). Uses LLM Vision
         as Sara's senses: observe, recognize, inquire, verify.
 
         Returns a PerceptionResult.
         """
-        from ..nlp.vision import VisionObserver
-        from ..nlp.translator import _DEFAULT_API_URL
         from .perceiver import Perceiver
 
-        url = self.settings_repo.get("llm_api_url") or _DEFAULT_API_URL
-        key = self.settings_repo.get("llm_api_key")
         model = self.settings_repo.get("llm_model")
-        if not key or not model:
+        provider = self._make_provider()
+        if provider.needs_api_key() and not self.settings_repo.get("llm_api_key"):
+            raise ValueError("No LLM configured. Use: llm set <api_key> [model]")
+        if not model:
             raise ValueError("No LLM configured. Use: llm set <api_key> [model]")
 
-        observer = VisionObserver(url, key, model)
+        observer = self._make_observer()
         perceiver = Perceiver(self, observer)
         result = perceiver.perceive(image_path, label=label,
                                     max_rounds=max_rounds, callback=callback)
@@ -297,16 +313,11 @@ class Brain:
         Returns correction details dict, or raises ValueError if no perception to correct.
         """
         from .perceiver import Perceiver
-        from ..nlp.vision import VisionObserver
-        from ..nlp.translator import _DEFAULT_API_URL
 
         if self._last_perception is None:
             raise ValueError("No recent perception to correct.")
 
-        url = self.settings_repo.get("llm_api_url") or _DEFAULT_API_URL
-        key = self.settings_repo.get("llm_api_key")
-        model = self.settings_repo.get("llm_model")
-        observer = VisionObserver(url or _DEFAULT_API_URL, key or "", model or "")
+        observer = self._make_observer()
         perceiver = Perceiver(self, observer)
         result = perceiver.correct(correct_label, self._last_perception)
         self.conn.commit()
@@ -318,16 +329,11 @@ class Brain:
         Returns teaching details dict, or raises ValueError if no perception.
         """
         from .perceiver import Perceiver
-        from ..nlp.vision import VisionObserver
-        from ..nlp.translator import _DEFAULT_API_URL
 
         if self._last_perception is None:
             raise ValueError("No recent perception to add observations to.")
 
-        url = self.settings_repo.get("llm_api_url") or _DEFAULT_API_URL
-        key = self.settings_repo.get("llm_api_key")
-        model = self.settings_repo.get("llm_model")
-        observer = VisionObserver(url or _DEFAULT_API_URL, key or "", model or "")
+        observer = self._make_observer()
         perceiver = Perceiver(self, observer)
         result = perceiver.add_observation(property_label, self._last_perception)
         self.conn.commit()

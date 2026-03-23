@@ -1,7 +1,8 @@
 """Optional LLM translation layer for natural language queries.
 
-Uses the Anthropic Messages API (Claude only). OpenAI endpoints are
-explicitly blocked.
+Supports multiple LLM providers via the provider abstraction.
+OpenAI endpoints are explicitly blocked when using providers
+that require an API key.
 """
 
 from __future__ import annotations
@@ -10,6 +11,8 @@ import json
 import urllib.request
 import urllib.error
 from urllib.parse import urlparse
+
+from .provider import LLMProvider, AnthropicProvider
 
 _BLOCKED_DOMAINS = frozenset({
     "api.openai.com",
@@ -32,20 +35,23 @@ def is_blocked_domain(url: str) -> bool:
 class LLMTranslator:
     """Translates natural language to structured Sara Brain commands.
 
-    Uses the Anthropic Messages API exclusively.
+    Works with any LLMProvider (defaults to AnthropicProvider for backward compat).
     """
 
-    def __init__(self, api_url: str, api_key: str, model: str) -> None:
+    def __init__(self, api_url: str, api_key: str, model: str,
+                 provider: LLMProvider | None = None) -> None:
         self.api_url = api_url.rstrip("/")
         self.api_key = api_key
         self.model = model
+        self.provider = provider or AnthropicProvider()
 
     def translate(self, user_input: str, available_commands: list[str]) -> str | None:
-        """Send to Claude, get back a structured sara command. Returns None on failure.
+        """Send to LLM, get back a structured sara command. Returns None on failure.
 
-        Raises ValueError if the configured URL points to a blocked domain.
+        Raises ValueError if the configured URL points to a blocked domain
+        (only enforced for providers that require an API key).
         """
-        if is_blocked_domain(self.api_url):
+        if self.provider.needs_api_key() and is_blocked_domain(self.api_url):
             raise ValueError(
                 f"Blocked API domain: {self.api_url}. "
                 "Only Anthropic (Claude) endpoints are allowed."
@@ -53,24 +59,17 @@ class LLMTranslator:
 
         system_prompt = self.build_system_prompt(available_commands)
 
-        payload = {
-            "model": self.model,
-            "system": system_prompt,
-            "messages": [
-                {"role": "user", "content": user_input},
-            ],
-            "temperature": 0,
-            "max_tokens": 100,
-        }
+        messages = [{"role": "user", "content": user_input}]
+        payload = self.provider.build_chat_payload(
+            model=self.model,
+            system=system_prompt,
+            messages=messages,
+            temperature=0,
+            max_tokens=100,
+        )
 
-        url = f"{self.api_url}/v1/messages"
-
-        headers = {
-            "Content-Type": "application/json",
-            "anthropic-version": "2023-06-01",
-        }
-        if self.api_key and self.api_key.lower() != "none":
-            headers["x-api-key"] = self.api_key
+        url = self.provider.build_endpoint_url(self.api_url)
+        headers = self.provider.build_headers(self.api_key)
 
         data = json.dumps(payload).encode("utf-8")
         req = urllib.request.Request(url, data=data, headers=headers, method="POST")
@@ -78,7 +77,10 @@ class LLMTranslator:
         try:
             with urllib.request.urlopen(req, timeout=30) as resp:
                 body = json.loads(resp.read().decode("utf-8"))
-                content = body["content"][0]["text"].strip()
+                content = self.provider.parse_text_response(body)
+                if content is None:
+                    return None
+                content = content.strip()
                 if content.upper() == "UNKNOWN":
                     return None
                 return content

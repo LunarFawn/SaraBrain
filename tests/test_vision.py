@@ -1,25 +1,34 @@
-"""Tests for the Claude Vision API client."""
+"""Tests for the Vision API client (supports multiple providers)."""
 
 from unittest.mock import patch, MagicMock
 import json
-import tempfile
-import os
+import base64
 
 import pytest
 
 from sara_brain.nlp.vision import VisionObserver
+from sara_brain.nlp.provider import AnthropicProvider, OllamaProvider
 
 
 @pytest.fixture
 def observer():
-    return VisionObserver("https://api.anthropic.com", "sk-ant-test", "claude-sonnet-4-20250514")
+    return VisionObserver(
+        "https://api.anthropic.com", "sk-ant-test", "claude-sonnet-4-20250514",
+        provider=AnthropicProvider(),
+    )
+
+
+@pytest.fixture
+def ollama_observer():
+    return VisionObserver(
+        "http://localhost:11434", "", "llava",
+        provider=OllamaProvider(),
+    )
 
 
 @pytest.fixture
 def test_image(tmp_path):
     """Create a minimal valid PNG file for testing."""
-    # Minimal 1x1 white PNG
-    import base64
     png_b64 = (
         "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4"
         "2mP8/58BAwAI/AL+hc2rNAAAAABJRU5ErkJggg=="
@@ -33,17 +42,28 @@ def test_image(tmp_path):
 @pytest.fixture
 def test_jpeg(tmp_path):
     """Create a minimal test JPEG file."""
-    # Minimal JPEG (not valid image data, but enough for base64 encoding)
     data = b"\xff\xd8\xff\xe0" + b"\x00" * 20 + b"\xff\xd9"
     img_path = tmp_path / "test.jpg"
     img_path.write_bytes(data)
     return str(img_path)
 
 
-def _mock_api_response(text):
-    """Create a mock urllib response returning the given text."""
+def _mock_anthropic_response(text):
+    """Create a mock urllib response returning Anthropic-format text."""
     response_body = json.dumps({
         "content": [{"type": "text", "text": text}]
+    }).encode("utf-8")
+    mock_resp = MagicMock()
+    mock_resp.read.return_value = response_body
+    mock_resp.__enter__ = MagicMock(return_value=mock_resp)
+    mock_resp.__exit__ = MagicMock(return_value=False)
+    return mock_resp
+
+
+def _mock_ollama_response(text):
+    """Create a mock urllib response returning Ollama/OpenAI-format text."""
+    response_body = json.dumps({
+        "choices": [{"message": {"content": text}}]
     }).encode("utf-8")
     mock_resp = MagicMock()
     mock_resp.read.return_value = response_body
@@ -128,7 +148,7 @@ class TestSanitize:
 class TestObserveInitial:
     @patch("urllib.request.urlopen")
     def test_returns_sanitized_labels(self, mock_urlopen, observer, test_image):
-        mock_urlopen.return_value = _mock_api_response("red\nround\nsmooth\nshiny\nsmall")
+        mock_urlopen.return_value = _mock_anthropic_response("red\nround\nsmooth\nshiny\nsmall")
         result = observer.observe_initial(test_image)
         assert result == ["red", "round", "smooth", "shiny", "small"]
 
@@ -141,7 +161,7 @@ class TestObserveInitial:
 
     @patch("urllib.request.urlopen")
     def test_api_payload_structure(self, mock_urlopen, observer, test_image):
-        mock_urlopen.return_value = _mock_api_response("red")
+        mock_urlopen.return_value = _mock_anthropic_response("red")
         observer.observe_initial(test_image)
 
         req = mock_urlopen.call_args[0][0]
@@ -158,10 +178,35 @@ class TestObserveInitial:
         assert msg["content"][1]["type"] == "text"
 
 
+class TestOllamaObserveInitial:
+    @patch("urllib.request.urlopen")
+    def test_returns_sanitized_labels(self, mock_urlopen, ollama_observer, test_image):
+        mock_urlopen.return_value = _mock_ollama_response("red\nround\nsmooth")
+        result = ollama_observer.observe_initial(test_image)
+        assert result == ["red", "round", "smooth"]
+
+    @patch("urllib.request.urlopen")
+    def test_ollama_payload_structure(self, mock_urlopen, ollama_observer, test_image):
+        mock_urlopen.return_value = _mock_ollama_response("red")
+        ollama_observer.observe_initial(test_image)
+
+        req = mock_urlopen.call_args[0][0]
+        assert req.full_url == "http://localhost:11434/v1/chat/completions"
+        assert req.get_header("X-api-key") is None
+
+        payload = json.loads(req.data)
+        msg = payload["messages"][0]
+        assert msg["role"] == "user"
+        assert len(msg["content"]) == 2
+        assert msg["content"][0]["type"] == "image_url"
+        assert msg["content"][0]["image_url"]["url"].startswith("data:image/png;base64,")
+        assert msg["content"][1]["type"] == "text"
+
+
 class TestObserveDirected:
     @patch("urllib.request.urlopen")
     def test_parses_directed_response(self, mock_urlopen, observer, test_image):
-        mock_urlopen.return_value = _mock_api_response(
+        mock_urlopen.return_value = _mock_anthropic_response(
             "taste: sweet\ntexture: smooth\ntemperature: cannot determine"
         )
         questions = {
@@ -176,7 +221,7 @@ class TestObserveDirected:
 
     @patch("urllib.request.urlopen")
     def test_missing_answers_return_none(self, mock_urlopen, observer, test_image):
-        mock_urlopen.return_value = _mock_api_response("taste: sweet")
+        mock_urlopen.return_value = _mock_anthropic_response("taste: sweet")
         questions = {"taste": "taste?", "size": "size?"}
         result = observer.observe_directed(test_image, questions)
         assert result["taste"] == "sweet"
@@ -190,17 +235,17 @@ class TestObserveDirected:
 class TestVerifyProperty:
     @patch("urllib.request.urlopen")
     def test_yes(self, mock_urlopen, observer, test_image):
-        mock_urlopen.return_value = _mock_api_response("YES")
+        mock_urlopen.return_value = _mock_anthropic_response("YES")
         assert observer.verify_property(test_image, "crunchy") is True
 
     @patch("urllib.request.urlopen")
     def test_no(self, mock_urlopen, observer, test_image):
-        mock_urlopen.return_value = _mock_api_response("NO")
+        mock_urlopen.return_value = _mock_anthropic_response("NO")
         assert observer.verify_property(test_image, "crunchy") is False
 
     @patch("urllib.request.urlopen")
     def test_indeterminate(self, mock_urlopen, observer, test_image):
-        mock_urlopen.return_value = _mock_api_response("CANNOT DETERMINE")
+        mock_urlopen.return_value = _mock_anthropic_response("CANNOT DETERMINE")
         assert observer.verify_property(test_image, "crunchy") is None
 
     @patch("urllib.request.urlopen")
@@ -211,7 +256,23 @@ class TestVerifyProperty:
 
 
 class TestBlockedDomain:
-    def test_blocked_domain_raises(self, test_image):
-        obs = VisionObserver("https://api.openai.com", "key", "model")
+    def test_blocked_domain_raises_anthropic_provider(self, test_image):
+        obs = VisionObserver(
+            "https://api.openai.com", "key", "model",
+            provider=AnthropicProvider(),
+        )
         with pytest.raises(ValueError, match="Blocked API domain"):
             obs.observe_initial(test_image)
+
+    def test_ollama_no_domain_blocking(self, test_image):
+        """Ollama provider should not raise on any domain."""
+        obs = VisionObserver(
+            "https://api.openai.com", "", "model",
+            provider=OllamaProvider(),
+        )
+        # Should not raise ValueError — will fail on network instead
+        with patch("urllib.request.urlopen") as mock_urlopen:
+            import urllib.error
+            mock_urlopen.side_effect = urllib.error.URLError("no server")
+            result = obs.observe_initial(test_image)
+            assert result == []

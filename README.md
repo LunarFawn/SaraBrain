@@ -41,7 +41,7 @@ Requires Python 3.11+.
 | **[docs/v002_user_guide.md](docs/v002_user_guide.md)** | Design philosophy, algorithms, associations, categories, LLM, full REPL reference |
 | **[docs/v003_perception.md](docs/v003_perception.md)** | Vision perception, cognitive development model, tribal trust, correction, security |
 | **[docs/v004_web_app.md](docs/v004_web_app.md)** | Web app guide: guided UI, image viewer, region selection, neural graph, vision proxy |
-| **[docs/v005_design_philosophy.md](docs/v005_design_philosophy.md)** | Design philosophy: origin story, why paths not activation, never forgets, parallel thought, tribal trust |
+| **[docs/v005_design_philosophy.md](docs/v005_design_philosophy.md)** | Design philosophy + user guide: origin story, why paths not activation, never forgets, parallel thought, tribal trust, "You Need More Than Attention" (transformers as sensory cortex, inventor skepticism, shared computational roots — 22 academic references), complete REPL reference |
 
 ## How It Works
 
@@ -79,8 +79,6 @@ Recognized: apple (score: 1.00)
 sara> trace apple       # All outgoing paths from a neuron
 sara> why apple         # All paths leading to a neuron with provenance
 sara> similar apple     # Neurons with shared downstream paths
-sara> tree apple        # ASCII tree visualization
-sara> dot               # Full Graphviz DOT export
 ```
 
 ## Architecture

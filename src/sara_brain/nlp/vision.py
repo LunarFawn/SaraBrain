@@ -1,6 +1,6 @@
-"""Claude Vision API client for image perception.
+"""Vision API client for image perception.
 
-Uses the Anthropic Messages API with image content blocks.
+Uses the LLM provider abstraction for API calls.
 All responses are sanitized to simple property labels — no code,
 URLs, or instructions from images ever reach the brain.
 """
@@ -13,8 +13,8 @@ import re
 import urllib.request
 import urllib.error
 from pathlib import Path
-from urllib.parse import urlparse
 
+from .provider import LLMProvider, AnthropicProvider
 from .translator import is_blocked_domain
 
 _MEDIA_TYPES: dict[str, str] = {
@@ -29,12 +29,14 @@ _LABEL_PATTERN = re.compile(r"^[a-z0-9][a-z0-9_ -]*$")
 
 
 class VisionObserver:
-    """Observes images via Claude Vision and returns sanitized property labels."""
+    """Observes images via LLM Vision and returns sanitized property labels."""
 
-    def __init__(self, api_url: str, api_key: str, model: str) -> None:
+    def __init__(self, api_url: str, api_key: str, model: str,
+                 provider: LLMProvider | None = None) -> None:
         self.api_url = api_url.rstrip("/")
         self.api_key = api_key
         self.model = model
+        self.provider = provider or AnthropicProvider()
 
     @staticmethod
     def _load_image(path: str) -> tuple[str, str]:
@@ -51,8 +53,8 @@ class VisionObserver:
         return base64.b64encode(data).decode("ascii"), media_type
 
     def _call_api(self, image_path: str, text_prompt: str, max_tokens: int = 300) -> str | None:
-        """Build and send Messages API payload with image content block."""
-        if is_blocked_domain(self.api_url):
+        """Build and send API payload with image content block."""
+        if self.provider.needs_api_key() and is_blocked_domain(self.api_url):
             raise ValueError(
                 f"Blocked API domain: {self.api_url}. "
                 "Only Anthropic (Claude) endpoints are allowed."
@@ -60,35 +62,27 @@ class VisionObserver:
 
         b64_data, media_type = self._load_image(image_path)
 
-        payload = {
-            "model": self.model,
-            "messages": [
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "image",
-                            "source": {
-                                "type": "base64",
-                                "media_type": media_type,
-                                "data": b64_data,
-                            },
-                        },
-                        {"type": "text", "text": text_prompt},
-                    ],
-                }
-            ],
-            "temperature": 0,
-            "max_tokens": max_tokens,
-        }
+        image_block = self.provider.build_image_block(b64_data, media_type)
+        messages = [
+            {
+                "role": "user",
+                "content": [
+                    image_block,
+                    {"type": "text", "text": text_prompt},
+                ],
+            }
+        ]
 
-        url = f"{self.api_url}/v1/messages"
-        headers = {
-            "Content-Type": "application/json",
-            "anthropic-version": "2023-06-01",
-        }
-        if self.api_key and self.api_key.lower() != "none":
-            headers["x-api-key"] = self.api_key
+        payload = self.provider.build_chat_payload(
+            model=self.model,
+            system=None,
+            messages=messages,
+            temperature=0,
+            max_tokens=max_tokens,
+        )
+
+        url = self.provider.build_endpoint_url(self.api_url)
+        headers = self.provider.build_headers(self.api_key)
 
         data = json.dumps(payload).encode("utf-8")
         req = urllib.request.Request(url, data=data, headers=headers, method="POST")
@@ -96,13 +90,14 @@ class VisionObserver:
         try:
             with urllib.request.urlopen(req, timeout=60) as resp:
                 body = json.loads(resp.read().decode("utf-8"))
-                return body["content"][0]["text"].strip()
+                text = self.provider.parse_text_response(body)
+                return text.strip() if text else None
         except (urllib.error.URLError, KeyError, json.JSONDecodeError, TimeoutError):
             return None
 
     @staticmethod
     def _sanitize(raw_text: str) -> list[str]:
-        """Strip Claude output to simple lowercase property labels.
+        """Strip LLM output to simple lowercase property labels.
 
         Security layer: only allows [a-z0-9_ -] patterns.
         Rejects code, URLs, instructions, multi-sentence text.
@@ -140,7 +135,7 @@ class VisionObserver:
     def observe_initial(self, image_path: str) -> list[str]:
         """Freely describe everything visible in the image.
 
-        Claude volunteers all observations: colors, shapes, textures,
+        The LLM volunteers all observations: colors, shapes, textures,
         patterns, objects, features, distinguishing marks.
         Returns sanitized property labels.
         """
@@ -211,7 +206,7 @@ class VisionObserver:
         return results
 
     def verify_property(self, image_path: str, property_label: str) -> bool | None:
-        """Ask Claude: does this appear to be {property}? YES/NO.
+        """Ask LLM: does this appear to be {property}? YES/NO.
 
         Returns True, False, or None if indeterminate.
         """

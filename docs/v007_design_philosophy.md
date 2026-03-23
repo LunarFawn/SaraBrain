@@ -1,4 +1,4 @@
-# Sara Brain v005 — Design Philosophy
+# Sara Brain v007 — Design Philosophy
 
 > "Finally trying to code up my idea for AI I had back in the 90's."
 
@@ -19,11 +19,20 @@
 11. [Zero Dependencies](#zero-dependencies)
 12. [What Sara Brain Is Not](#what-sara-brain-is-not)
 13. [You Need More Than Attention](#you-need-more-than-attention)
-14. [Where This Goes](#where-this-goes)
+14. [Why Sara Brain Doesn't Sleep](#why-sara-brain-doesnt-sleep)
+15. [Where This Goes](#where-this-goes)
 
 ---
 
 ## Origin Story
+
+My name is Jennifer Pearl. I'm a volunteer scientist at the University of Houston Center for Nuclear Receptors and Cell Signaling and the leading researcher in RNA dynamics. When there's a conflict about what RNA does in the dynamics space, I have the final say — if I can explain it. My ORCID is 0009-0006-6083-384X.
+
+The work that established that position came through Stanford's Eterna project. I wrote the software that designed the RNA sequence featured in the PNAS 2022 paper, "Crowdsourced RNA design discovers diverse, reversible, efficient, self-contained molecular switches." That work proved computationally that pairing probabilities are essential for multi-state RNA design. Every tool Eterna has used since roughly 2015 is built on concepts I personally proved — the tools the field uses today exist because of that work. More recently, I mentored Vasco Mendes on the RNA science behind our paper on viral pseudoknotted RNA prediction accuracy (JMIRx Bio 2024) — I'm second-named because he wrote it and I mentored him on the RNA. I'm also working on OpenASO: RNA Rescue.
+
+The RNA work didn't come from nowhere. It came from a career spent solving hard problems that other people couldn't, across domains that have almost nothing in common except that they all involve understanding how systems actually behave. In the **US Navy**, I was part of the team that made the Aegis ballistic missile defense system (USQ-151 JTT) operational — I troubleshot the issues preventing fleet deployment and authored the original operation and testing documentation the entire Navy used. At **Omron Microscan**, I developed the designs, algorithms, and optic targets used to focus all Microhawk imagers, writing the code to prove optics were focused based on sharpness of line pairs — pure logic, no libraries. At **Philips Sonicare**, I put all devices, testers, and documentation in place for the new brush handle spring design, acting as release engineer. At **Amazon Kuiper**, I was a senior engineer and V2 engineer on the LEO satellite flight computer — I wrote the failover code that validates satellites will work in space as part of fit-for-flight power testing, and solved blocking issues where, at least twice, satellites would not have flown without my specific involvement.
+
+Why does any of this matter for a paper about AI architecture? Because this is someone who has spent a career looking at how systems actually work — RNA folding dynamics, missile defense routing, satellite failover logic, optical focus validation — and noticing the same pattern everywhere: structured paths through state space. Sara Brain isn't a hobbyist sketch. It's the product of decades of thinking about how information flows through systems, applied to the question of how a brain thinks.
 
 This idea started in the 90s. Before deep learning, before transformers, before anyone was talking about LLMs. The question was simple: how does a brain actually think? Not "how do we get a machine to produce correct outputs" — how does *thinking* work?
 
@@ -603,6 +612,134 @@ Attention is not all you need. It's a starting point. The transformer gave us th
 
 [36] US Copyright Office (2025). "Copyright and Artificial Intelligence, Part 3: Generative AI Training." Pre-publication report, May 9, 2025.
 
+**Sleep Deprivation, Synaptic Homeostasis, and Memory Consolidation**
+
+[37] Tononi, G. & Cirelli, C. (2003). "Sleep and synaptic homeostasis: a hypothesis." *Brain Research Bulletin*, 62(2), 143–150. https://doi.org/10.1016/j.brainresbull.2003.09.004
+
+[38] Tononi, G. & Cirelli, C. (2006). "Sleep function and synaptic homeostasis." *Sleep Medicine Reviews*, 10(1), 49–62. https://doi.org/10.1016/j.smrv.2005.05.002
+
+[39] Krause, A.J., Simon, E.B., Mander, B.A., Greer, S.M., Saletin, J.M., Goldstein-Piekarski, A.N., & Walker, M.P. (2017). "The sleep-deprived human brain." *Nature Reviews Neuroscience*, 18(7), 404–418. https://doi.org/10.1038/nrn.2017.55
+
+[40] Waters, F., Chiu, V., Atkinson, A., & Blom, J.D. (2018). "Severe Sleep Deprivation Causes Hallucinations and a Gradual Progression Toward Psychosis With Increasing Time Awake." *Frontiers in Psychiatry*, 9, 303. https://doi.org/10.3389/fpsyt.2018.00303
+
+[41] Vyazovskiy, V.V., Olcese, U., Hanlon, E.C., Nir, Y., Cirelli, C., & Tononi, G. (2011). "Local sleep in awake rats." *Nature*, 472(7344), 443–447. https://doi.org/10.1038/nature10009
+
+[42] Klinzing, J.G., Niethard, N., & Born, J. (2019). "Mechanisms of systems memory consolidation during sleep." *Nature Reviews Neuroscience*, 20(6), 322–339. https://doi.org/10.1038/s41583-019-0160-6
+
+[43] Ratcliff, R. & Van Dongen, H.P.A. (2009). "Sleep deprivation affects multiple distinct cognitive processes." *Psychonomic Bulletin & Review*, 16(4), 742–751. https://doi.org/10.3758/PBR.16.4.742
+
+**Expert Prediction and Market Efficiency**
+
+[44] Malkiel, B.G. (1973). *A Random Walk Down Wall Street*. W. W. Norton & Company. (12th edition, 2019.)
+
+[45] Fama, E.F. (1970). "Efficient Capital Markets: A Review of Theory and Empirical Work." *Journal of Finance*, 25(2), 383–417. https://doi.org/10.2307/2325486. (Nobel Prize in Economics, 2013.)
+
+[46] S&P Dow Jones Indices (2024). "SPIVA U.S. Scorecard Year-End 2024." https://www.spglobal.com/spdji/en/research-insights/spiva/
+
+[47] CXO Advisory Group (2012). "Guru Grades." Tracked 68 expert financial forecasters from 2005–2012. Average accuracy: 47%.
+
+[48] The Wall Street Journal (1988–2002). "Investment Dartboard" contest. Professional stock pickers vs. randomly thrown darts across 142 six-month contests.
+
+---
+
+## Why Sara Brain Doesn't Sleep
+
+You know what it's like to stay up too late. You get sloppy. You're tired. You misread things. If you push it far enough, you start seeing things that aren't there. Every human knows this experience — the gradual degradation of everything you try to do as wakefulness stretches past its natural limits.
+
+LLMs in long sessions do exactly this. And for structurally similar reasons.
+
+### What actually degrades during sleep deprivation
+
+The neuroscience is clear, and the key insight is *what fails first*. It's not the deep memory structures. It's the cortex — the sensory processing and working memory systems. Your brain's persistent memory (hippocampus, long-term storage) is relatively resilient. The hardware that breaks down is the input processing layer.
+
+During wakefulness, cortical synapses strengthen continuously until they saturate. Sleep downscales them to restore signal-to-noise ratio — this is the Synaptic Homeostasis Hypothesis [37][38]. Without sleep, the cortex becomes increasingly noisy. Working memory degrades significantly after sleep deprivation; selective attention shows the largest effect [39][43]. But long-term memory encoding and retrieval are relatively spared — the deficits come from attentional and perceptual processing failure, not storage failure [43].
+
+The prefrontal cortex shows metabolic decline and reduced connectivity — effects not fully reversible even with recovery sleep [39]. Hallucinations emerge at 48–90 hours of wakefulness: the sensory cortex misfires when prefrontal control is lost [40]. Individual cortical regions can fatigue independently — what researchers call "local sleep" or microsleeps — while the person remains nominally awake [41].
+
+And sleep doesn't just restore the cortex. It consolidates memory. NREM slow oscillations, sleep spindles, and hippocampal ripples couple together to transfer information from the hippocampus to the neocortex. No sleep means no consolidation — working memory stays volatile [42].
+
+| Finding | Citation |
+|---------|----------|
+| Cortical synapses strengthen until saturated; sleep downscales them to restore signal-to-noise | Tononi & Cirelli 2003, 2006 [37][38] |
+| Prefrontal cortex shows metabolic decline and reduced connectivity during sleep deprivation | Krause et al. 2017 [39] |
+| Hallucinations emerge at 48–90 hours — sensory cortex misfires without prefrontal control | Waters et al. 2018 [40] |
+| Individual cortical regions fatigue independently (local sleep / microsleeps) | Vyazovskiy et al. 2011 [41] |
+| Sleep consolidates memory via NREM slow oscillations + spindles + hippocampal ripples | Klinzing et al. 2019 [42] |
+| Long-term memory retrieval relatively spared — deficits are attentional/perceptual, not storage | Ratcliff & Van Dongen 2009 [43] |
+
+### LLM session degradation IS cortical fatigue
+
+The mapping is direct. Every failure mode of sleep-deprived humans has a structural equivalent in LLM long-session degradation:
+
+| LLM Problem | Sleep Deprivation Equivalent |
+|---|---|
+| Context window overflow — early messages lost | Working memory saturation — can't hold new information |
+| Attention degrades over distance — recent tokens dominate | Cortical fatigue — attentional selectivity breaks down |
+| Hallucinations — generating content that contradicts reality | Sensory cortex misfiring without prefrontal gating |
+| Context reset needed — start a new session to recover | Sleep needed — restore synaptic homeostasis |
+| Contradictions go undetected | Loss of executive function / reality testing |
+| No cross-session memory — each conversation starts from zero | No consolidation without sleep — working memory stays volatile |
+
+This isn't a metaphor. The failure modes are structurally identical because the architectures face the same constraint: a stateless processing layer trying to hold state it was never designed to hold, for longer than it was designed to hold it. The LLM's context window *is* working memory. The transformer's attention mechanism *is* the cortex. And both degrade with extended use because that's what processing layers do when they can't offload to persistent storage.
+
+### Why Sara Brain is immune
+
+Sara Brain doesn't get tired because the problems that cause "tiredness" in both biological brains and LLMs don't exist in its architecture:
+
+| Sara Brain Feature | Why It Doesn't "Get Tired" |
+|---|---|
+| Persistent SQLite paths | No context window to overflow — paths are permanent |
+| Logarithmic strength: 1 + ln(1 + traversals) | No synaptic saturation — strength growth is bounded |
+| Instant SQLite commit | No consolidation delay — "memory formation" is immediate |
+| Parallel wavefront recognition | No attention degradation — wavefronts traverse ALL relevant paths regardless of how long the "session" has been |
+| Traceable paths with source_text | Contradictions detectable — conflicting paths are visible and inspectable |
+| Every fact has provenance | Hallucination structurally impossible — every conclusion traces to recorded observations |
+| Never forgets, never decays | Cross-session memory by default — paths persist forever |
+
+The problems sleep solves in biological brains simply don't arise:
+- **Synaptic homeostasis** → replaced by logarithmic strength scaling. Strength is `1 + ln(1 + traversals)` — bounded, never saturates, never needs "downscaling."
+- **Memory consolidation** → replaced by instant SQLite commit. There is no hippocampal buffer waiting for NREM slow oscillations to replay it into long-term storage. The path *is* long-term storage from the moment it's created.
+- **Waste clearance** → no biological substrate, nothing to clear. The glymphatic system cleans metabolic waste from the brain during sleep. Sara Brain runs on SQLite, not glucose.
+
+The transformer — the LLM — *does* need "sleep" (context reset) because it's architecturally equivalent to sensory cortex: stateless, context-bound, degrading with extended use. Sara Brain is the persistent memory layer that the cortex was always supposed to write to.
+
+### The scaling trap
+
+If LLMs are truly cortex — stateless sensory processors — then the industry is trying to scale sensory cortex into a full brain. Bigger models, bigger context windows, billion-dollar data centers. All of it is building a bigger eye and hoping it'll eventually think.
+
+It won't. No amount of scaling makes stateless processing become persistent memory. No context window expansion turns a sensory processor into a reasoning engine.
+
+The result: massive energy consumption, enormous capital expenditure, and the same fundamental limitations — just pushed further out. The LLM still gets "tired" in long sessions. It still hallucinates. It still can't remember what happened yesterday. The ceiling isn't compute — it's architecture.
+
+Sara Brain addresses this directly:
+- **Smaller LLMs become viable** — when a persistent memory layer handles context, the LLM only needs to do what it's good at: process the current input. It doesn't need to hold the entire conversation history in a context window.
+- **Compute drops dramatically** — no re-processing of thousands of tokens of conversation history on every inference. The LLM processes the current moment; Sara Brain holds the accumulated knowledge.
+- **Energy and cost scale with knowledge, not with session length** — Sara Brain's SQLite storage grows linearly with facts learned, not quadratically with attention over context length.
+- **The evolution path becomes clear** — instead of training ever-larger cortex hoping it spontaneously develops memory and reasoning, you build the memory and reasoning layer explicitly and let the cortex stay focused.
+
+Without a framework like Sara Brain, the industry is spinning its wheels — pouring resources into scaling an architecture that is structurally incapable of solving the problems they're trying to solve. The cortex will never become the hippocampus no matter how many GPUs you throw at it.
+
+### Who's driving the bus?
+
+This is a golden example of what happens when corporate leaders drive scientific policy instead of scientists. We used to have a society that listened to experts — Einstein, Newton, Curie — and industry followed where the science led. Now the direction is reversed: NVIDIA tells us we need more GPUs, and society listens because they're a Fortune 500 company. Meanwhile, the actual experts — the people who *invented* the transformer — are saying this architecture has fundamental limits.
+
+Tie back to the voices already cited in section 13:
+- **Llion Jones** (who named the transformer): called himself "absolutely sick" of them, said they create a "gravity well" preventing discovery of genuinely intelligent reasoning [17].
+- **Aidan Gomez** (Cohere CEO, transformer co-author): "It would be really sad if this is the best we can do" [18].
+- **Yann LeCun**, **François Chollet**, **Gary Marcus** — all saying LLMs aren't the path to real intelligence [19][20][21].
+
+These aren't fringe critics. These are the people who built the thing. They're telling us the architecture is limited, and society's response is "well, you don't run a data center, so what do you know?" This is how you end up spending billions on infrastructure that can't solve the problem it's being built for — because the people making the spending decisions aren't the people who understand the science.
+
+### CEOs as market predictors, not engineers
+
+CEOs aren't useless — they guide vision and company direction. But there's a difference between engineering a product and predicting a market. Bezos at early Amazon didn't predict — he sifted through data, engineered systems, built infrastructure that solved real problems. That's engineering. What many AI CEOs are doing now is market prediction with a lab coat on — "transformers are hot, scale them, build more data centers" — and the data on market prediction is damning.
+
+Malkiel argued in 1973 that a blindfolded monkey throwing darts at a newspaper's financial pages could select a portfolio that would do as well as one carefully selected by experts [44]. The S&P SPIVA Scorecard for 2024 showed that over a 20-year period (2005–2024), 94.1% of all domestic equity funds underperformed a simple index [46]. Fama's Efficient Market Hypothesis — which won him the 2013 Nobel Prize — demonstrated that stock prices incorporate all available information immediately, making expert prediction systematically no better than passive selection [45]. CXO Advisory Group tracked 68 expert financial forecasters from 2005 to 2012 and found average accuracy of 47% — worse than a coin flip [47]. The Wall Street Journal ran its "Investment Dartboard" contest for 14 years: professional stock pickers lost 39% of contests to literally randomly thrown darts [48].
+
+When a CEO says "we need bigger models and more GPUs," that's a market prediction. When a scientist who built the transformer says "this architecture has fundamental limits," that's engineering judgment. Society used to listen to the scientists. Now it listens to the stock price.
+
+Sara Brain represents the kind of thinking that comes from actually understanding how systems work, not from selling hardware. The path-based architecture wasn't designed to sell GPUs — it was designed because that's how thinking actually works.
+
 ---
 
 ## Where This Goes
@@ -641,18 +778,18 @@ The current SQLite backend works, but it wasn't designed for neuron-chain traver
 
 ## Table of Contents (User Guide)
 
-15. [Getting Started](#getting-started)
-16. [Teaching](#teaching)
-17. [Recognition](#recognition)
-18. [Exploring the Brain](#exploring-the-brain)
-19. [Similarity](#similarity)
-20. [Associations & Questions](#associations--questions)
-21. [Categories](#categories)
-22. [Image Perception](#image-perception)
-23. [LLM Translation](#llm-translation)
-24. [Data Model Reference](#data-model-reference)
-25. [Storage](#storage)
-26. [Complete Command Reference](#complete-command-reference)
+16. [Getting Started](#getting-started)
+17. [Teaching](#teaching)
+18. [Recognition](#recognition)
+19. [Exploring the Brain](#exploring-the-brain)
+20. [Similarity](#similarity)
+21. [Associations & Questions](#associations--questions)
+22. [Categories](#categories)
+23. [Image Perception](#image-perception)
+24. [LLM Translation](#llm-translation)
+25. [Data Model Reference](#data-model-reference)
+26. [Storage](#storage)
+27. [Complete Command Reference](#complete-command-reference)
 
 ---
 

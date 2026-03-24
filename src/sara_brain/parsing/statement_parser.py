@@ -4,6 +4,7 @@ Handles patterns like:
   "apples are red"       → (apple, has_color, red)
   "circles are round"    → (circle, has_shape, round)
   "a dog is an animal"   → (dog, is_a, animal)
+  "qmse includes auditability" → (qmse, includes, auditability)
 """
 
 from __future__ import annotations
@@ -39,12 +40,14 @@ class StatementParser:
         if len(words) < 3:
             return None
 
-        # Pattern: "<subject> is/are <object>"
+        # Pattern: "<subject> is/are/includes <object>"
         # Find the verb
         verb_idx = None
+        verb_word = None
         for i, w in enumerate(words):
-            if w in ("is", "are"):
+            if w in ("is", "are", "includes", "include"):
                 verb_idx = i
+                verb_word = w
                 break
 
         if verb_idx is None or verb_idx == 0 or verb_idx >= len(words) - 1:
@@ -59,11 +62,14 @@ class StatementParser:
         obj = " ".join(obj_words)
 
         # Determine relation type from taxonomy
-        prop_type = self.taxonomy.property_type(obj)
-        if prop_type != "attribute":
-            relation = f"has_{prop_type}"
+        if verb_word in ("includes", "include"):
+            relation = "includes"
         else:
-            relation = "is_a"
+            prop_type = self.taxonomy.property_type(obj)
+            if prop_type != "attribute":
+                relation = f"has_{prop_type}"
+            else:
+                relation = "is_a"
 
         return ParsedStatement(
             subject=subject,

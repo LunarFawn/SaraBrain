@@ -44,6 +44,7 @@ RELATIONAL = frozenset({
     "is",
     "has",
     "contains",
+    "includes",
     "follows",
     "precedes",
     "requires",

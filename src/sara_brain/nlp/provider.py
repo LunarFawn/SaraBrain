@@ -1,9 +1,8 @@
 """LLM provider abstraction layer.
 
-Supports Anthropic (Claude) and Ollama (local open-source LLMs).
+Supports Anthropic (Claude), Ollama (Llama/local LLMs), and Q (Amazon Q IDE agent).
 The LLM serves as Sara's sensory interface — not the brain itself.
-Zero external dependencies (stdlib only).
-"""
+Zero external dependencies (stdlib only)."""
 
 from __future__ import annotations
 
@@ -140,19 +139,59 @@ class OllamaProvider(LLMProvider):
         return False
 
 
+class QProvider(LLMProvider):
+    """Amazon Q IDE agent — acts as cortex directly, no HTTP.
+
+    Q is already present in the IDE. It calls Sara's brain directly
+    through Python execution rather than HTTP API calls.
+    No API key, no URL, no proxy needed.
+    """
+
+    name = "q"
+
+    def build_endpoint_url(self, base_url: str) -> str:
+        return ""  # Q doesn't use HTTP
+
+    def build_headers(self, api_key: str | None) -> dict[str, str]:
+        return {}  # Q doesn't use HTTP
+
+    def build_chat_payload(
+        self,
+        model: str,
+        system: str | None,
+        messages: list[dict],
+        temperature: float,
+        max_tokens: int,
+    ) -> dict:
+        return {"system": system, "messages": messages}
+
+    def build_image_block(self, b64_data: str, media_type: str) -> dict:
+        return {}  # Q uses filesystem, not base64
+
+    def parse_text_response(self, body: dict) -> str | None:
+        return body.get("text")
+
+    def needs_api_key(self) -> bool:
+        return False
+
+
 DEFAULT_URLS: dict[str, str] = {
     "anthropic": "https://api.anthropic.com",
     "ollama": "http://localhost:11434",
+    "llama": "http://localhost:11434",
+    "q": "",
 }
 
 _PROVIDERS: dict[str, type[LLMProvider]] = {
     "anthropic": AnthropicProvider,
     "ollama": OllamaProvider,
+    "llama": OllamaProvider,
+    "q": QProvider,
 }
 
 
 def get_provider(name: str) -> LLMProvider:
-    """Factory: 'anthropic' | 'ollama' -> provider instance."""
+    """Factory: 'anthropic' | 'ollama' | 'llama' | 'q' -> provider instance."""
     cls = _PROVIDERS.get(name)
     if cls is None:
         raise ValueError(f"Unknown provider: {name!r}. Choose from: {', '.join(_PROVIDERS)}")

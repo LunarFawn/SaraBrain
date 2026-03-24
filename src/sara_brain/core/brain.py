@@ -49,6 +49,14 @@ class Brain:
         self.category_repo = CategoryRepo(self.conn)
         self.settings_repo = SettingsRepo(self.conn)
 
+        # Innate layer — hardwired, survives reset
+        from ..innate.primitives import get_all
+        self.innate = get_all()
+
+        # Ethics gate — Asimov's Laws adapted for Sara
+        from ..innate import ethics as _ethics
+        self._ethics = _ethics
+
         # Taxonomy & parser
         self.taxonomy = Taxonomy()
         self.parser = StatementParser(self.taxonomy)
@@ -62,8 +70,11 @@ class Brain:
         self._load_dynamic_associations()
         self._load_categories()
 
-    def teach(self, statement: str) -> LearnResult | None:
+    def teach(self, statement: str, *, user_initiated: bool = True) -> LearnResult | None:
         """Teach a fact. Returns None if unparseable."""
+        gate = self._ethics.check_action("teach", user_initiated=user_initiated)
+        if not gate.allowed:
+            raise PermissionError(gate.reason)
         result = self.learner.learn(statement)
         if result is not None:
             self.conn.commit()
@@ -282,8 +293,20 @@ class Brain:
         model = self.settings_repo.get("llm_model") or ""
         return VisionObserver(url, key, model, provider=provider)
 
+    def _make_reader(self):
+        """Build a DocumentReader from current settings."""
+        from ..nlp.reader import DocumentReader
+        from ..nlp.provider import DEFAULT_URLS
+
+        provider = self._make_provider()
+        url = self.settings_repo.get("llm_api_url") or DEFAULT_URLS.get(provider.name, "")
+        key = self.settings_repo.get("llm_api_key") or ""
+        model = self.settings_repo.get("llm_model") or ""
+        return DocumentReader(url, key, model, provider=provider)
+
     def perceive(self, image_path: str, label: str | None = None,
-                 max_rounds: int = 3, callback=None):
+                 max_rounds: int = 3, callback=None, *,
+                 user_initiated: bool = True):
         """Run the perception loop on an image.
 
         Requires LLM configured (same as 'ask'). Uses LLM Vision
@@ -291,6 +314,9 @@ class Brain:
 
         Returns a PerceptionResult.
         """
+        gate = self._ethics.check_action("perceive", user_initiated=user_initiated)
+        if not gate.allowed:
+            raise PermissionError(gate.reason)
         from .perceiver import Perceiver
 
         model = self.settings_repo.get("llm_model")
@@ -307,11 +333,14 @@ class Brain:
         self.conn.commit()
         return result
 
-    def correct(self, correct_label: str):
+    def correct(self, correct_label: str, *, from_tribe: bool = True):
         """Correct the last perception: the guess was wrong, this is actually <correct_label>.
 
         Returns correction details dict, or raises ValueError if no perception to correct.
         """
+        gate = self._ethics.check_correction(from_tribe=from_tribe)
+        if not gate.allowed:
+            raise PermissionError(gate.reason)
         from .perceiver import Perceiver
 
         if self._last_perception is None:
@@ -339,7 +368,36 @@ class Brain:
         self.conn.commit()
         return result
 
+    def ingest(self, text: str, source: str = "text", callback=None, *,
+               user_initiated: bool = True):
+        """Ingest a document through the LLM cortex.
+
+        The LLM reads the document, extracts facts, Sara learns them.
+        Then Sara reports what she understood and asks about unknowns.
+
+        Returns a DigestionResult.
+        """
+        gate = self._ethics.check_action("ingest", user_initiated=user_initiated)
+        if not gate.allowed:
+            raise PermissionError(gate.reason)
+        from .digester import Digester
+
+        model = self.settings_repo.get("llm_model")
+        provider = self._make_provider()
+        if provider.needs_api_key() and not self.settings_repo.get("llm_api_key"):
+            raise ValueError("No LLM configured. Use: llm set <provider> <model>")
+        if not model:
+            raise ValueError("No LLM configured. Use: llm set <provider> <model>")
+
+        reader = self._make_reader()
+        digester = Digester(self, reader)
+        result = digester.ingest(text, source=source, callback=callback)
+        self.conn.commit()
+        return result
+
     def close(self) -> None:
+        gate = self._ethics.check_shutdown()
+        # Always allowed — shutdown is sleep, not death
         self.db.close()
 
     def __enter__(self) -> Brain:

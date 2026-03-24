@@ -301,9 +301,11 @@ class SaraShell(cmd.Cmd):
 
 
 def main() -> None:
-    db_path = "sara.db"
     if len(sys.argv) > 1:
         db_path = sys.argv[1]
+    else:
+        from ..config import default_db_path
+        db_path = default_db_path()
 
     print(f"  Using database: {db_path}")
     with Brain(db_path) as brain:

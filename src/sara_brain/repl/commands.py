@@ -174,3 +174,27 @@ def cmd_see(brain: Brain, args: str) -> str:
         return f"  {e}"
 
     return formatters.format_see(info["image_label"], info["property"], info["taught"])
+
+
+def cmd_ingest(brain: Brain, args: str, callback=None) -> str:
+    """Ingest a document through the LLM cortex."""
+    filepath = args.strip()
+    if not filepath:
+        return "  Usage: ingest <filepath>"
+
+    from pathlib import Path
+    p = Path(filepath)
+    if not p.is_file():
+        return f'  File not found: "{filepath}"'
+
+    try:
+        text = p.read_text(encoding="utf-8")
+    except Exception as e:
+        return f"  Error reading file: {e}"
+
+    try:
+        result = brain.ingest(text, source=filepath, callback=callback)
+    except ValueError as e:
+        return f"  {e}"
+
+    return formatters.format_digestion_result(result)

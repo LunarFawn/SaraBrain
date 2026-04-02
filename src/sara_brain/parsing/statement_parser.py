@@ -1,9 +1,12 @@
 """Simple rule-based parser for teaching statements.
 
 Handles patterns like:
-  "apples are red"       → (apple, has_color, red)
-  "circles are round"    → (circle, has_shape, round)
-  "a dog is an animal"   → (dog, is_a, animal)
+  "apples are red"            → (apple, has_color, red)
+  "circles are round"         → (circle, has_shape, round)
+  "a dog is an animal"        → (dog, is_a, animal)
+  "qmse includes auditability"→ (qmse, includes, auditability)
+  "stem loop contains terminus" → (stem loop, contains, terminus)
+  "RNA requires equilibrium"  → (rna, requires, equilibrium)
 """
 
 from __future__ import annotations
@@ -11,6 +14,12 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from .taxonomy import Taxonomy
+from ..innate.primitives import get_relational
+
+# Verbs that use the taxonomy path (is_a / has_<type>)
+_COPULAS = frozenset({"is", "are"})
+# All relational primitives minus "is" (covered by copulas above)
+_RELATIONAL_VERBS = get_relational() - {"is"}
 
 
 @dataclass
@@ -39,12 +48,15 @@ class StatementParser:
         if len(words) < 3:
             return None
 
-        # Pattern: "<subject> is/are <object>"
-        # Find the verb
+        # Pattern: "<subject> <verb> <object>"
+        # Recognised verbs: copulas (is/are) + all innate RELATIONAL primitives
+        _ALL_VERBS = _COPULAS | _RELATIONAL_VERBS
         verb_idx = None
+        verb_word = None
         for i, w in enumerate(words):
-            if w in ("is", "are"):
+            if w in _ALL_VERBS:
                 verb_idx = i
+                verb_word = w
                 break
 
         if verb_idx is None or verb_idx == 0 or verb_idx >= len(words) - 1:
@@ -58,12 +70,15 @@ class StatementParser:
         obj_words = words[verb_idx + 1:]
         obj = " ".join(obj_words)
 
-        # Determine relation type from taxonomy
-        prop_type = self.taxonomy.property_type(obj)
-        if prop_type != "attribute":
-            relation = f"has_{prop_type}"
+        # Determine relation: copulas use taxonomy; relational primitives use the verb itself
+        if verb_word in _COPULAS:
+            prop_type = self.taxonomy.property_type(obj)
+            if prop_type != "attribute":
+                relation = f"has_{prop_type}"
+            else:
+                relation = "is_a"
         else:
-            relation = "is_a"
+            relation = verb_word
 
         return ParsedStatement(
             subject=subject,

@@ -134,6 +134,7 @@ class SaraShell(cmd.Cmd):
     def do_llm(self, args: str) -> None:
         """Configure LLM for natural language translation.
         llm set ollama <model> [url]         Local LLM (no API key needed)
+        llm set llama <model> [url]          Llama via Ollama (no API key needed)
         llm set claude <api_key> [model]     Anthropic Claude
         llm set <api_key> [model]            Legacy format (treated as claude)
         llm status
@@ -143,6 +144,7 @@ class SaraShell(cmd.Cmd):
         parts = args.strip().split()
         if not parts:
             print("  Usage: llm set ollama <model> [url]")
+            print("         llm set llama <model> [url]")
             print("         llm set claude <api_key> [model]")
             print("         llm set <api_key> [model]   (legacy, treated as claude)")
             print("         llm status")
@@ -153,26 +155,37 @@ class SaraShell(cmd.Cmd):
         if subcmd == "set":
             if len(parts) < 2:
                 print("  Usage: llm set ollama <model> [url]")
+                print("         llm set llama <model> [url]")
                 print("         llm set claude <api_key> [model]")
                 print("         llm set <api_key> [model]")
                 return
 
             arg1 = parts[1]
 
-            if arg1.lower() == "ollama":
-                # llm set ollama <model> [url]
+            if arg1.lower() == "q":
+                # llm set q — Q is the cortex, no HTTP needed
+                self.brain.settings_repo.set("llm_provider", "q")
+                self.brain.settings_repo.set("llm_api_url", "")
+                self.brain.settings_repo.set("llm_model", "q")
+                self.brain.settings_repo.delete("llm_api_key")
+                self.brain.conn.commit()
+                print("  LLM configured: Q (Amazon Q IDE agent — direct Python, no HTTP)")
+
+            elif arg1.lower() in ("ollama", "llama"):
+                # llm set ollama/llama <model> [url]
+                provider_name = arg1.lower()
                 if len(parts) < 3:
-                    print("  Usage: llm set ollama <model> [url]")
-                    print("  Example: llm set ollama llava")
+                    print(f"  Usage: llm set {provider_name} <model> [url]")
+                    print(f"  Example: llm set {provider_name} llama3.2-vision")
                     return
                 model = parts[2]
-                api_url = parts[3] if len(parts) >= 4 else DEFAULT_URLS["ollama"]
-                self.brain.settings_repo.set("llm_provider", "ollama")
+                api_url = parts[3] if len(parts) >= 4 else DEFAULT_URLS[provider_name]
+                self.brain.settings_repo.set("llm_provider", provider_name)
                 self.brain.settings_repo.set("llm_api_url", api_url)
                 self.brain.settings_repo.set("llm_model", model)
                 self.brain.settings_repo.delete("llm_api_key")
                 self.brain.conn.commit()
-                print(f"  LLM configured: ollama/{model} @ {api_url}")
+                print(f"  LLM configured: {provider_name}/{model} @ {api_url}")
 
             elif arg1.lower() == "claude":
                 # llm set claude <api_key> [model]
@@ -236,6 +249,23 @@ class SaraShell(cmd.Cmd):
             return None
         return LLMTranslator(url, key, model, provider=provider)
 
+    def do_ingest(self, args: str) -> None:
+        """Ingest a document: ingest /path/to/style_guide.md"""
+        if not args.strip():
+            print("  Usage: ingest <filepath>")
+            return
+
+        translator = self._get_translator()
+        if translator is None:
+            print("  No LLM configured. Use: llm set ollama <model>  or  llm set claude <api_key>")
+            return
+
+        from . import formatters
+        def _step_callback(step):
+            print(formatters.format_digestion_step(step))
+
+        print(commands.cmd_ingest(self.brain, args, callback=_step_callback))
+
     def do_save(self, args: str) -> None:
         """Force flush to disk"""
         self.brain.conn.commit()
@@ -271,9 +301,11 @@ class SaraShell(cmd.Cmd):
 
 
 def main() -> None:
-    db_path = "sara.db"
     if len(sys.argv) > 1:
         db_path = sys.argv[1]
+    else:
+        from ..config import default_db_path
+        db_path = default_db_path()
 
     print(f"  Using database: {db_path}")
     with Brain(db_path) as brain:

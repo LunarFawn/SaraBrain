@@ -103,6 +103,14 @@ class Learner:
         self.path_repo.add_step(PathStep(id=None, path_id=path.id, step_order=0, segment_id=seg1.id))
         self.path_repo.add_step(PathStep(id=None, path_id=path.id, step_order=1, segment_id=seg2.id))
 
+        # 7. Sub-concept linking: decompose multi-word labels into
+        #    individual word neurons with part_of segments so wavefronts
+        #    from any single word can reach the compound concept.
+        for neuron in (concept_neuron, prop_neuron):
+            nc, sc = self._link_sub_concepts(neuron)
+            neurons_created += nc
+            segments_created += sc
+
         path_label = f"{prop_neuron.label} → {relation_neuron.label} → {concept_neuron.label}"
 
         return LearnResult(
@@ -111,3 +119,32 @@ class Learner:
             neurons_created=neurons_created,
             path_id=path.id,
         )
+
+    def _link_sub_concepts(self, neuron) -> tuple[int, int]:
+        """If neuron label is multi-word, create word → compound segments.
+
+        Returns (neurons_created, segments_created).
+        """
+        words = neuron.label.split()
+        if len(words) < 2:
+            return 0, 0
+
+        neurons_created = 0
+        segments_created = 0
+        for word in words:
+            word = word.strip()
+            if not word:
+                continue
+            word_neuron, created = self.neuron_repo.get_or_create(
+                word, NeuronType.PROPERTY
+            )
+            if created:
+                neurons_created += 1
+            seg, created = self.segment_repo.get_or_create(
+                word_neuron.id, neuron.id, "part_of"
+            )
+            if created:
+                segments_created += 1
+            else:
+                self.segment_repo.strengthen(seg)
+        return neurons_created, segments_created

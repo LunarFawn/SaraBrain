@@ -200,6 +200,12 @@
     </div>
 
     <!-- App JS (module) -->
-    <script type="module" src="js/app.js?v=2"></script>
+    <script>
+      const APP_VERSION = Date.now();
+      const s = document.createElement('script');
+      s.type = 'module';
+      s.src = 'js/app.js?v=' + APP_VERSION;
+      document.body.appendChild(s);
+    </script>
   </body>
 </html>

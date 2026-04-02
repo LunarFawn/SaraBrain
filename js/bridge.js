@@ -76,7 +76,7 @@ export async function seedBrain() {
  * Fetches the JSON from the server and passes it to Python.
  */
 export async function seedWiki() {
-  const resp = await fetch("python/wiki_demo_brain.json?v=2");
+  const resp = await fetch(`python/wiki_demo_brain.json?v=${Date.now()}`);
   if (!resp.ok) throw new Error(`Failed to fetch wiki demo: ${resp.status}`);
   const jsonStr = await resp.text();
   pyodide.globals.set("_wiki_data", jsonStr);

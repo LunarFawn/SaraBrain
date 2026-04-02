@@ -12,6 +12,8 @@ import { initDocs, showDocs } from "./docs.js";
 
 // ── State ──
 
+const CACHE_BUST = `v=${Date.now()}`;
+
 let commandHistory = [];
 let historyIndex = -1;
 let isProcessing = false;
@@ -156,7 +158,7 @@ async function boot() {
 
     setProgress(60, "Initializing boot.py...");
     // Load and run boot.py
-    const bootResponse = await fetch("python/boot.py?v=2");
+    const bootResponse = await fetch(`python/boot.py?${CACHE_BUST}`);
     const bootCode = await bootResponse.text();
     await pyodide.runPythonAsync(bootCode);
 
@@ -260,7 +262,7 @@ async function mountSaraBrain(pyodide) {
   // Fetch all files in parallel
   const fetchPromises = files.map(async (filePath) => {
     const url = `${baseUrl}${filePath}`;
-    const resp = await fetch(`${url}?v=2`);
+    const resp = await fetch(`${url}?${CACHE_BUST}`);
     if (!resp.ok) {
       throw new Error(`Failed to fetch ${url}: ${resp.status}`);
     }

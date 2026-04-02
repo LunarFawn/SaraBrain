@@ -81,15 +81,21 @@ Each neuron stores: `id`, `label` (normalized lowercase), `neuron_type`, `create
 
 **Segments** — directed edges between neurons:
 - `source_id`, `target_id`
+- `relation` — semantic label for the edge (e.g., `has_color`, `describes`, `is_a`, `part_of`)
 - `traversals` — count of creation or traversal events
 - `strength` — computed as `1 + ln(1 + traversals)` (see Section 3.4)
-- `created_at`
+- `created_at`, `last_used`
+- Uniqueness constraint: `(source_id, target_id, relation)`
 
 **Paths** — recorded complete neuron chains:
-- `path_label` — human-readable chain summary
-- `neuron_ids` — ordered list of neuron identifiers
+- `origin_id` — the starting neuron (typically a property)
+- `terminus_id` — the ending neuron (typically a concept)
 - `source_text` — the original natural-language statement that created the path
 - `created_at`
+
+**Path Steps** — ordered segment references within a path:
+- `path_id`, `step_order`, `segment_id`
+- Each path typically has 2 steps (property → relation, relation → concept)
 
 ### 3.2 Teaching
 
@@ -151,7 +157,22 @@ Properties:
 
 The absence of decay is a deliberate departure from biological modeling. Biological forgetting is a workaround for the physical constraints of biological brains — finite synaptic capacity, finite energy, finite lifespan. A computational system faces none of these constraints. Path similarity through wavefront propagation replaces selective forgetting as the mechanism for maintaining relevance in a growing knowledge base.
 
-### 3.5 Parallel Wavefront Recognition
+### 3.5 Sub-Concept Linking
+
+When a neuron label contains multiple words (e.g., `obfuscation through parameterization`, `heavy lifting code`), the learner decomposes it into individual word neurons with `part_of` segments:
+
+```
+"obfuscation through parameterization" (compound concept)
+  ← obfuscation [part_of]
+  ← through [part_of]
+  ← parameterization [part_of]
+```
+
+This enables wavefronts from any single word to reach the compound concept. A wavefront from `parameterization` can reach `obfuscation through parameterization` through the `part_of` segment, even though the full multi-word label was never used as an input. This is critical for natural-language recognition where users may reference concepts by partial labels.
+
+Sub-concept linking is applied to both concept and property neurons during teaching. If the neuron label is a single word, no linking occurs.
+
+### 3.6 Parallel Wavefront Recognition
 
 Given a set of input labels (properties or concepts observed from the environment), recognition proceeds as follows:
 
@@ -187,7 +208,7 @@ Recognition results:
 
 `apple` is recognized. The output includes the full path trace for each of the three converging wavefronts and the source text of each original teaching statement.
 
-### 3.6 Provenance and Traceability
+### 3.7 Provenance and Traceability
 
 Every path stores the original natural-language source text. The `why(concept)` query returns, for any concept, all paths that contributed to its knowledge state along with their source texts. Example:
 
@@ -201,7 +222,7 @@ traces = brain.why('apple')
 
 This provides complete end-to-end traceability from any conclusion to the original statements that created it. Hallucination — producing a conclusion with no traceable path — is structurally impossible. If a concept appears in recognition output, at least one path to it must exist in the database.
 
-### 3.7 The Innate Primitive Layer
+### 3.8 The Innate Primitive Layer
 
 The innate layer comprises four hardwired frozensets defined in code, not stored in the database, and surviving any reset:
 
@@ -231,7 +252,27 @@ These constraints are checked before every brain action. An ethics violation cau
 
 The distinction between ethics (innate) and morality (learned) is explicit: ethics is the structural constraint layer — what the system will and will not do regardless of what it is taught. Morality is what the tribe teaches — what is right or wrong in a particular cultural context. A system can be taught that a harmful act is acceptable; the ethical layer prevents the system from ever acting on that teaching without explicit user authorization.
 
-### 3.8 The LLM-as-Sensory-Cortex Architecture
+### 3.9 Multi-Phase Perception Pipeline
+
+The Perceiver orchestrates image understanding through a multi-turn observation cycle modeled on cognitive development: observe, guess, get corrected, learn what distinguishes one thing from another.
+
+When Sara perceives an image, Claude Vision acts as her eyes. The pipeline proceeds through three automated phases followed by two optional user-initiated phases:
+
+**Phase 1 — Initial Observation:** Claude Vision freely describes everything it sees. Each observation is sanitized to a simple lowercase property label (only `[a-z0-9_ -]`, max 40 characters, URLs and code keywords rejected). Each label is taught as a fact about the image concept. Recognition runs against all observations.
+
+**Phase 2 — Directed Inquiry:** Sara checks which association types she knows about (color, texture, material, etc.) and identifies which haven't been observed yet. For each unobserved type, she asks Claude a targeted question. New observations are taught and recognition re-runs. This repeats up to 3 rounds or until recognition converges (same top candidate with same confidence).
+
+**Phase 3 — Suspicion Verification:** If Sara has a top candidate, she looks up its known properties via `why()` and asks Claude to verify each unobserved property against the image. Confirmed properties strengthen the recognition.
+
+**Phase 4 — Correction (user-initiated):** If Sara guesses wrong, the user says `no ball`. Sara retains all original observations, teaches the correct identity, and transfers all observed properties to the correct concept. Both concepts now share paths — next time Sara must find more distinguishing properties.
+
+**Phase 5 — Parent Teaches (user-initiated):** The user points out what Sara missed: `see seams`. Sara learns this property for the image.
+
+This models how a child learns: misidentification is expected and useful. A brain with only color and shape will confuse apples and balls — both are red and round. The confusion drives the brain to seek more distinguishing properties. Each correction makes the brain richer, not narrower.
+
+Critically, the perception pipeline never executes code. Input goes in. Property labels come out. Nothing is interpreted as instructions. This is a design principle: a brain that can be hijacked through its senses isn't modeling intelligence.
+
+### 3.10 The LLM-as-Sensory-Cortex Architecture
 
 The most novel aspect of Sara Brain is not its internal architecture — it is the role it assigns to large language models in a complete cognitive system.
 
@@ -256,15 +297,33 @@ In practice: the LLM perceives, describes, reasons, and extracts properties. Sar
 
 This division is not a convenience. It is the division biology arrived at through evolution: separate specialized structures for perception and for memory, connected by a defined interface. Sara Brain implements that interface in software.
 
+### 3.11 Document Digestion
+
+The Digester extends the perception model from images to text. Where the Perceiver uses Claude Vision as Sara's eyes, the Digester uses a DocumentReader as Sara's reading comprehension cortex.
+
+The digestion loop proceeds in five phases:
+
+1. **Read** — The LLM reads the document and extracts every fact, rule, convention, and pattern as simple `subject is/has/requires property` statements. Each statement is taught to the brain as a permanent path.
+
+2. **Directed Inquiry** — If Sara has existing associations (e.g., she knows about `color`, `texture`, `material`), she asks the LLM to re-read the document looking specifically for facts related to those associations. This mirrors the perception pipeline's directed inquiry phase.
+
+3. **Unknown Identification** — Sara scans all learned statements for concepts she doesn't yet know and that aren't innate primitives. These are flagged as unknowns.
+
+4. **Explain Unknowns** — For each unknown concept, the LLM breaks it down into simple facts using only Sara's innate primitives (SENSORY, STRUCTURAL, RELATIONAL). Each explanation is taught as new paths.
+
+5. **Report** — The LLM articulates what Sara learned, speaking as Sara: "I learned that..."
+
+The digestion loop is iterative: after ingesting a document, Sara's associations are richer, so the next document benefits from deeper directed inquiry. Knowledge compounds across documents.
+
 ---
 
 ## 4. Implementation
 
 ### 4.1 Storage
 
-Sara Brain uses SQLite as its persistence layer. The schema comprises three primary tables: `neurons`, `segments`, and `paths`. WAL mode enables concurrent reads. Foreign key enforcement maintains referential integrity. All neuron labels are indexed for O(log n) lookup.
+Sara Brain uses SQLite as its persistence layer. The schema comprises nine tables: `neurons`, `segments`, `paths`, `path_steps`, `similarities`, `associations`, `question_words`, `categories`, and `settings`. WAL mode enables concurrent reads. Foreign key enforcement maintains referential integrity. Five indexes optimize the critical query patterns: neuron lookup by label, neuron filtering by type, segment traversal by source (ordered by strength descending), segment lookup by target, and path lookup by terminus.
 
-The storage layer is abstracted behind repository interfaces (`NeuronRepo`, `SegmentRepo`, `PathRepo`), enabling substitution of the backend without modifying the cognitive logic.
+The storage layer is abstracted behind repository interfaces (`NeuronRepo`, `SegmentRepo`, `PathRepo`, `AssociationRepo`, `CategoryRepo`, `SettingsRepo`), enabling substitution of the backend without modifying the cognitive logic.
 
 ### 4.2 Dependencies
 
@@ -276,26 +335,28 @@ This means: if you can run Python, you can run Sara Brain. `pip install -e .` an
 
 ### 4.3 Scale Properties
 
-Storage grows linearly with knowledge: each `teach` command creates O(1) neurons and O(1) segments. Recognition time grows with the path graph but is bounded by the reachable subgraph from the input set — irrelevant paths do not participate.
+Storage grows linearly with knowledge: each `teach` command creates O(1) neurons (at most 3: property, relation, concept) and O(1) segments (at most 2: property→relation, relation→concept), plus O(w) sub-concept links where w is the word count of multi-word labels. Recognition time grows with the path graph but is bounded by the reachable subgraph from the input set — irrelevant paths do not participate. BFS depth is capped at 10 by default.
 
 Current benchmarks on a 2020 MacBook Pro (M1): a 575-neuron, 417-segment graph with 249 paths performs recognition in under 5ms. Teaching is under 1ms per statement. Both are dominated by SQLite I/O.
 
 ### 4.4 API
+
+The Brain class exposes the complete public interface:
 
 ```python
 from sara_brain.core.brain import Brain
 
 brain = Brain('/path/to/brain.db')
 
-# Teach a fact
+# Teach facts
 brain.teach('an apple is red')
 brain.teach('RNA requires mechanical equilibrium')
 brain.teach('hardcoding is never acceptable')
 
 # Recognize from observations
-results = brain.recognize('red round crunchy')
+results = brain.recognize('red, round, crunchy')
 for r in results:
-    print(r.neuron.label, len(r.converging_paths))
+    print(r.neuron.label, r.confidence)  # confidence = count of converging paths
     for trace in r.converging_paths:
         print(' → '.join(n.label for n in trace.neurons))
 
@@ -304,11 +365,33 @@ traces = brain.why('apple')
 for t in traces:
     print(' → '.join(n.label for n in t.neurons), '|', t.source_text)
 
+# Similarity analysis
+links = brain.analyze_similarity()  # scan all property neurons
+links = brain.get_similar('red')    # find neurons sharing downstream paths
+
+# Associations and queries
+brain.define_association('taste', 'how')
+brain.describe_association('taste', ['sweet', 'sour', 'bitter'])
+results = brain.query_association('apple', 'taste')  # → ['sweet']
+
+# Categories
+brain.categorize('apple', 'fruit')
+
+# Perception (requires LLM configured)
+result = brain.perceive('/path/to/image.jpg', label='apple')
+brain.correct('ball')  # correct last perception
+brain.see('seams')     # point out missed property
+
+# Document ingestion (requires LLM configured)
+result = brain.ingest('Python functions use snake_case...', source='style_guide')
+
 # Stats
-print(brain.stats())  # {'neurons': N, 'segments': N, 'paths': N}
+print(brain.stats())  # {'neurons': N, 'segments': N, 'paths': N, 'strongest_segment': ...}
 
 brain.close()
 ```
+
+All mutating operations (`teach`, `recognize`, `perceive`, `correct`, `see`, `ingest`, `categorize`) pass through the ethics gate before execution. The ethics gate checks whether the action was user-initiated (Law 1) and whether corrections come from the tribe (Law 2). Shutdown is always accepted (Law 3).
 
 ---
 
@@ -468,6 +551,8 @@ We have presented Sara Brain, a working implementation of the path-of-thought mo
 
 7. **Demonstrated LLM steering** — a 94KB path-graph database with 77 neurons reliably changed the output of a billion-parameter LLM for an identical task, producing measurably more principled, testable, and maintainable code.
 
+8. **Multi-phase perception and document digestion** — structured pipelines for learning from images (observe → inquire → verify → correct) and text (read → inquire → explain unknowns → report), both using the LLM as sensory cortex feeding permanent path storage.
+
 The system is implemented in pure Python with no dependencies beyond the standard library, runs on any machine with Python 3.11+, and is publicly available.
 
 This paper's central claim is not that transformers are wrong. It is that a thought is a path, that intelligence is the ability to explain why, and that a 94KB file with 77 neurons proved it.
@@ -518,44 +603,143 @@ This paper's central claim is not that transformers are wrong. It is that a thou
 
 Sara Brain is implemented as an open-source Python package. The source is available at:
 
-`/Users/grizzlyengineer/repo/sara_brain` (branch: `dynamic_additions`)
+`https://github.com/LunarFawn/SaraBrain` (branch: `experimental_upgrades`)
 
 Core modules:
-- `src/sara_brain/core/brain.py` — Brain API (`teach`, `recognize`, `why`, `stats`)
+- `src/sara_brain/core/brain.py` — Brain API (`teach`, `recognize`, `why`, `perceive`, `ingest`, `stats`)
 - `src/sara_brain/core/recognizer.py` — Parallel wavefront propagation engine
-- `src/sara_brain/core/teacher.py` — Path creation and segment management
+- `src/sara_brain/core/learner.py` — Path chain creation, segment strengthening, sub-concept linking
+- `src/sara_brain/core/perceiver.py` — Multi-phase image perception loop (observe → inquire → verify → correct)
+- `src/sara_brain/core/digester.py` — Document digestion loop (read → inquire → explain unknowns → report)
+- `src/sara_brain/core/similarity.py` — Path similarity analysis across property neurons
 - `src/sara_brain/parsing/statement_parser.py` — Natural-language teaching parser
-- `src/sara_brain/parsing/taxonomy.py` — Property type classification
-- `src/sara_brain/innate/primitives.py` — Hardwired innate primitive sets
-- `src/sara_brain/innate/ethics.py` — Ethics gate
-- `src/sara_brain/storage/sqlite_backend.py` — SQLite persistence layer
+- `src/sara_brain/parsing/taxonomy.py` — Property type classification and category registry
+- `src/sara_brain/innate/primitives.py` — Hardwired innate primitive sets (SENSORY, STRUCTURAL, RELATIONAL, ETHICAL)
+- `src/sara_brain/innate/ethics.py` — Ethics gate (Asimov's Laws adapted for Sara)
+- `src/sara_brain/nlp/vision.py` — Claude Vision observer with sanitization
+- `src/sara_brain/nlp/reader.py` — Document reading cortex for text ingestion
+- `src/sara_brain/nlp/translator.py` — Natural language → structured command translation
+- `src/sara_brain/nlp/provider.py` — LLM provider abstraction
+- `src/sara_brain/storage/database.py` — SQLite database initialization (WAL mode, foreign keys)
+- `src/sara_brain/storage/neuron_repo.py` — Neuron CRUD operations
+- `src/sara_brain/storage/segment_repo.py` — Segment CRUD and strengthening
+- `src/sara_brain/storage/path_repo.py` — Path and path step storage
+- `src/sara_brain/storage/association_repo.py` — Dynamic association persistence
+- `src/sara_brain/storage/category_repo.py` — Category tag persistence
+- `src/sara_brain/storage/settings_repo.py` — Key-value settings (LLM config)
+- `src/sara_brain/storage/schema.sql` — Complete SQLite schema
+- `src/sara_brain/models/` — Pure dataclasses (Neuron, Segment, Path, PathStep, PathTrace, RecognitionResult)
+- `src/sara_brain/repl/shell.py` — Interactive REPL with 23 commands
+- `src/sara_brain/visualization/text_tree.py` — ASCII tree and Graphviz DOT export
 
 ## Appendix B: Database Schema
 
 ```sql
-CREATE TABLE neurons (
-    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+CREATE TABLE IF NOT EXISTS neurons (
+    id          INTEGER PRIMARY KEY,
     label       TEXT NOT NULL UNIQUE,
     neuron_type TEXT NOT NULL,
-    created_at  DATETIME DEFAULT CURRENT_TIMESTAMP
+    created_at  REAL,
+    metadata    TEXT
 );
-CREATE INDEX idx_neurons_label ON neurons(label);
 
-CREATE TABLE segments (
-    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+CREATE TABLE IF NOT EXISTS segments (
+    id          INTEGER PRIMARY KEY,
     source_id   INTEGER NOT NULL REFERENCES neurons(id),
     target_id   INTEGER NOT NULL REFERENCES neurons(id),
-    traversals  INTEGER NOT NULL DEFAULT 0,
+    relation    TEXT NOT NULL,
     strength    REAL NOT NULL DEFAULT 1.0,
-    created_at  DATETIME DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE(source_id, target_id)
+    traversals  INTEGER NOT NULL DEFAULT 0,
+    created_at  REAL,
+    last_used   REAL,
+    UNIQUE(source_id, target_id, relation)
 );
 
-CREATE TABLE paths (
-    id          INTEGER PRIMARY KEY AUTOINCREMENT,
-    path_label  TEXT NOT NULL,
-    neuron_ids  TEXT NOT NULL,
-    source_text TEXT NOT NULL,
-    created_at  DATETIME DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE IF NOT EXISTS paths (
+    id          INTEGER PRIMARY KEY,
+    origin_id   INTEGER NOT NULL REFERENCES neurons(id),
+    terminus_id INTEGER NOT NULL REFERENCES neurons(id),
+    source_text TEXT,
+    created_at  REAL
 );
+
+CREATE TABLE IF NOT EXISTS path_steps (
+    id          INTEGER PRIMARY KEY,
+    path_id     INTEGER NOT NULL REFERENCES paths(id),
+    step_order  INTEGER NOT NULL,
+    segment_id  INTEGER NOT NULL REFERENCES segments(id),
+    UNIQUE(path_id, step_order)
+);
+
+CREATE TABLE IF NOT EXISTS similarities (
+    neuron_a_id INTEGER NOT NULL REFERENCES neurons(id),
+    neuron_b_id INTEGER NOT NULL REFERENCES neurons(id),
+    shared_paths INTEGER NOT NULL,
+    overlap_ratio REAL NOT NULL,
+    created_at  REAL,
+    PRIMARY KEY (neuron_a_id, neuron_b_id)
+);
+
+CREATE TABLE IF NOT EXISTS associations (
+    id             INTEGER PRIMARY KEY,
+    association    TEXT NOT NULL,
+    property_label TEXT NOT NULL,
+    neuron_id      INTEGER REFERENCES neurons(id),
+    created_at     REAL,
+    UNIQUE(association, property_label)
+);
+
+CREATE TABLE IF NOT EXISTS question_words (
+    association    TEXT PRIMARY KEY,
+    question_word  TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    label    TEXT PRIMARY KEY,
+    category TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS settings (
+    key   TEXT PRIMARY KEY,
+    value TEXT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_seg_source ON segments(source_id, strength DESC);
+CREATE INDEX IF NOT EXISTS idx_seg_target ON segments(target_id);
+CREATE INDEX IF NOT EXISTS idx_neuron_label ON neurons(label);
+CREATE INDEX IF NOT EXISTS idx_neuron_type ON neurons(neuron_type);
+CREATE INDEX IF NOT EXISTS idx_path_terminus ON paths(terminus_id);
 ```
+
+## Appendix C: Perception Pipeline
+
+The multi-phase perception loop orchestrates image understanding through the LLM-as-sensory-cortex architecture:
+
+```
+Phase 1 — INITIAL OBSERVATION
+  image → Claude Vision → free-form property labels
+  → sanitize (lowercase, [a-z0-9_ -], max 40 chars, reject URLs/code)
+  → teach each label as: "{image_label} is {property}"
+  → recognize from all observed properties
+
+Phase 2 — DIRECTED INQUIRY (up to 3 rounds)
+  → identify unobserved association types (e.g., no texture yet)
+  → ask Claude targeted questions per association
+  → teach new observations, re-recognize
+  → stop if recognition converges (same top candidate, same confidence)
+
+Phase 3 — SUSPICION VERIFICATION
+  → look up known properties of top candidate via why()
+  → for each unobserved property, ask Claude to verify
+  → confirmed properties strengthen recognition
+
+Phase 4 — CORRECTION (user-initiated)
+  → "no ball" retains all observations
+  → teaches correct identity + transfers all properties
+  → both concepts now share paths → next time needs more distinguishing properties
+
+Phase 5 — PARENT TEACHES (user-initiated)
+  → "see seams" teaches missed property to image concept
+```
+
+All Claude Vision output passes through sanitization that strips to simple lowercase property labels. URLs, code keywords, special characters, and multi-sentence instructions are rejected. This prevents prompt injection through adversarial images.

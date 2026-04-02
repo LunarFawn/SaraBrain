@@ -197,3 +197,35 @@ def format_see(image_label: str, property_label: str, taught: bool) -> str:
     if taught:
         return f"  Taught {image_label} is {property_label}."
     return f"  {image_label} already knows about {property_label}."
+
+
+def format_digestion_step(step) -> str:
+    """Format one phase of the digestion loop."""
+    lines = [f"  [{step.phase}]"]
+    if step.statements:
+        lines.append(f"    Extracted {len(step.statements)} statement{'s' if len(step.statements) != 1 else ''}:")
+        for stmt in step.statements[:10]:
+            lines.append(f"      {stmt}")
+        if len(step.statements) > 10:
+            lines.append(f"      ... and {len(step.statements) - 10} more")
+    if step.taught_count:
+        lines.append(f"    Taught {step.taught_count} fact{'s' if step.taught_count != 1 else ''}.")
+    if step.unknown_concepts:
+        lines.append(f"    Unknown concepts: {', '.join(step.unknown_concepts)}")
+    if step.summary:
+        lines.append(f"    {step.summary}")
+    return "\n".join(lines)
+
+
+def format_digestion_result(result) -> str:
+    """Format the final digestion summary."""
+    lines = [
+        f"  Digestion of {result.source}:",
+        f"    Total statements extracted: {len(result.all_statements)}",
+        f"    Total facts taught: {result.total_taught}",
+    ]
+    if result.unknown_concepts:
+        lines.append(f"    Unknown concepts explored: {', '.join(result.unknown_concepts)}")
+    if result.summary:
+        lines.append(f"    Summary: {result.summary}")
+    return "\n".join(lines)

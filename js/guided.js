@@ -87,6 +87,13 @@ const FLOWS = {
     submitLabel: "Teach",
     callback: "onSee",
   },
+  ask: {
+    title: "Ask Sara",
+    placeholder: "e.g., what is gravity",
+    hint: "Ask in plain English: what is, explain, how does, link between, equation for",
+    submitLabel: "Ask",
+    callback: "onAsk",
+  },
   neurons: {
     title: "List Neurons",
     placeholder: "",
@@ -126,6 +133,10 @@ export function initGuided(el, cbs) {
         <button class="guided-btn" data-flow="recognize" title="Recognize a concept from properties. e.g., 'red, round, sweet'">
           Recognize
           <span class="guided-btn-hint">Recognize a concept. e.g., "red, round"</span>
+        </button>
+        <button class="guided-btn" data-flow="ask" title="Ask Sara a question in plain English">
+          Ask Sara
+          <span class="guided-btn-hint">Ask in English. e.g., "what is gravity"</span>
         </button>
         <button class="guided-btn" data-action="perceive" title="Perceive an image and learn from it">
           Perceive

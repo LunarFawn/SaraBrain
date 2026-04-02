@@ -76,6 +76,9 @@ def run_command(command_line):
     if cmd == "see":
         return cmd_see_web(args.strip().lower())
 
+    if cmd == "ask":
+        return _ask_sara(args)
+
     if cmd == "help":
         return (
             "  Commands:\n"
@@ -85,6 +88,7 @@ def run_command(command_line):
             "    why <concept>               — Incoming paths to a concept\n"
             "    similar <neuron>            — Find similar neurons\n"
             "    analyze                     — Run full similarity analysis\n"
+            "    ask <question>              — Ask in plain English (no LLM needed)\n"
             "    define <assoc> <qword>      — Define association (e.g., define taste how)\n"
             "    describe <a> as <props>     — Register properties under an association\n"
             "    associations                — List all associations and properties\n"
@@ -100,7 +104,8 @@ def run_command(command_line):
             "    no <correct_label>          — Correct last perception: no ball\n"
             "    see <property>              — Point out a missed property: see seams\n"
             "    reset                       — Reset brain to empty\n"
-            "    seed                        — Load demo data\n"
+            "    seed                        — Load fruit demo data\n"
+            "    seed wiki                   — Load Wikipedia demo (Newton + Solar System)\n"
             "    help                        — Show this help"
         )
 
@@ -109,6 +114,8 @@ def run_command(command_line):
         return "  Brain reset to empty state."
 
     if cmd == "seed":
+        if args.strip().lower() == "wiki":
+            return _seed_wiki()
         return _seed_brain()
 
     handler = dispatch.get(cmd)
@@ -210,6 +217,252 @@ def _seed_brain():
         if result:
             lines.append(f"    taught: {stmt}")
     lines.append(f"  Done! Loaded {len(teachings)} facts.")
+    return "\n".join(lines)
+
+
+def _seed_wiki():
+    """Load the Wikipedia demo: Newton's Laws + Solar System."""
+    global brain
+
+    try:
+        # Fetch the pre-baked JSON from the server
+        from pyodide.http import open_url
+        raw = open_url("python/wiki_demo_brain.json").read()
+    except Exception:
+        return "  Error: could not load wiki_demo_brain.json"
+
+    result = import_db(raw)
+    return (
+        "  Loaded Wikipedia demo: Newton's Laws of Motion + Solar System\n"
+        "  Sources:\n"
+        "    https://en.wikipedia.org/wiki/Newton%27s_laws_of_motion\n"
+        "    https://en.wikipedia.org/wiki/Solar_System\n"
+        "  Content licensed under CC BY-SA 4.0.\n"
+        f"{result}\n"
+        "  Try: ask what is gravity  |  ask how does orbit work  |  ask link between force and orbit"
+    )
+
+
+def _ask_sara(question):
+    """Parse a natural language question into Sara brain commands. No LLM needed.
+
+    Patterns:
+      what is <concept>           -> why <concept>
+      explain <concept>           -> why <concept>
+      how does <concept> work     -> trace <concept>
+      where does <concept> lead   -> trace <concept>
+      link between <a> and <b>    -> recognize <a>, <b>
+      show link between <a> and <b> -> recognize <a>, <b>
+      compare <a> and <b>         -> similar <a> + similar <b>
+      what connects <a> and <b>   -> recognize <a>, <b>
+      what equation <concept>     -> why <concept> (filtered to equations)
+      equation for <concept>      -> why <concept> (filtered to equations)
+    """
+    global brain
+    if brain is None:
+        return "  Brain is empty. Try: seed wiki"
+
+    q = question.strip().lower()
+    if not q:
+        return (
+            "  Ask Sara a question:\n"
+            "    what is <concept>         — What Sara knows about it\n"
+            "    explain <concept>         — All paths leading to it\n"
+            "    how does <concept> work   — Where it leads\n"
+            "    link between <a> and <b>  — Find cross-domain connections\n"
+            "    compare <a> and <b>       — Find shared paths\n"
+            "    equation for <concept>    — Show equations\n"
+            "  Examples:\n"
+            "    ask what is gravity\n"
+            "    ask how does orbit work\n"
+            "    ask link between force and orbit\n"
+            "    ask equation for force"
+        )
+
+    # Strip trailing ? and common filler
+    q = q.rstrip("?!.")
+    for filler in ["can you ", "please ", "could you ", "tell me ", "show me "]:
+        if q.startswith(filler):
+            q = q[len(filler):]
+
+    # --- equation for <concept> ---
+    for prefix in ["equation for ", "what equation ", "what is the equation for ",
+                   "what is the equation of ", "equations for ", "formula for "]:
+        if q.startswith(prefix):
+            concept = q[len(prefix):].strip()
+            return _ask_equation(concept)
+
+    # --- link between <a> and <b> ---
+    for prefix in ["link between ", "show link between ", "show a link between ",
+                   "connection between ", "what connects ", "what links ",
+                   "how are ", "how is "]:
+        if q.startswith(prefix):
+            rest = q[len(prefix):]
+            # Handle "<a> and <b>" or "<a> to <b>" or "<a> related to <b>"
+            for sep in [" and ", " to ", " related to ", " connected to ", " with "]:
+                if sep in rest:
+                    parts = rest.split(sep, 1)
+                    a = parts[0].strip().rstrip(" related connected")
+                    b = parts[1].strip()
+                    return _ask_link(a, b)
+
+    # --- compare <a> and <b> ---
+    if q.startswith("compare "):
+        rest = q[8:]
+        if " and " in rest:
+            a, b = rest.split(" and ", 1)
+            return _ask_compare(a.strip(), b.strip())
+
+    # --- how does <concept> work ---
+    for prefix in ["how does ", "how do ", "where does ", "where do "]:
+        if q.startswith(prefix):
+            rest = q[len(prefix):]
+            for suffix in [" work", " lead", " connect", " flow"]:
+                if rest.endswith(suffix):
+                    rest = rest[:-len(suffix)]
+            return _ask_trace(rest.strip())
+
+    # --- what is / explain / describe / tell me about ---
+    for prefix in ["what is ", "what are ", "explain ", "describe ",
+                   "about ", "tell me about ", "what do you know about "]:
+        if q.startswith(prefix):
+            concept = q[len(prefix):].strip()
+            return _ask_why(concept)
+
+    # Fallback: treat the whole thing as a concept lookup
+    return _ask_why(q)
+
+
+def _ask_why(concept):
+    """What is <concept> — show all paths leading to it."""
+    from sara_brain.repl.formatters import format_why
+    traces = brain.why(concept)
+    if not traces:
+        # Try trace instead (maybe it's a property, not a concept)
+        traces = brain.trace(concept)
+        if not traces:
+            return f'  I don\'t know about "{concept}" yet. Try: teach {concept} is ...'
+        lines = [f'  What I know starting from "{concept}":']
+        for t in traces[:15]:
+            lines.append(f"    {t}")
+        if len(traces) > 15:
+            lines.append(f"    ... and {len(traces) - 15} more paths")
+        return "\n".join(lines)
+
+    lines = [f'  What I know about "{concept}":']
+    for t in traces:
+        src = ""
+        if t.source_text:
+            src = f"  (from: {t.source_text})"
+        lines.append(f"    {t}{src}")
+    return "\n".join(lines)
+
+
+def _ask_trace(concept):
+    """How does <concept> work — trace outgoing paths."""
+    traces = brain.trace(concept)
+    if not traces:
+        return f'  I don\'t know where "{concept}" leads. Try: teach {concept} is ...'
+    lines = [f'  How "{concept}" connects to other concepts:']
+    for t in traces[:20]:
+        lines.append(f"    {t}")
+    if len(traces) > 20:
+        lines.append(f"    ... and {len(traces) - 20} more paths")
+    return "\n".join(lines)
+
+
+def _ask_link(a, b):
+    """Link between <a> and <b> — recognize to find convergence."""
+    from sara_brain.repl.formatters import format_recognition
+    labels = [a.strip(), b.strip()]
+    results = brain.recognizer.recognize(labels)
+    brain.conn.commit()
+
+    # Cache for animation
+    global _last_recognition
+    output = []
+    for r in results:
+        paths_data = []
+        for trace in r.converging_paths:
+            paths_data.append([n.id for n in trace.neurons])
+        output.append({
+            "neuron_id": r.neuron.id,
+            "label": r.neuron.label,
+            "confidence": r.confidence,
+            "paths": paths_data,
+        })
+    _last_recognition = output
+
+    if not results:
+        return f'  No connection found between "{a}" and "{b}".'
+
+    # Filter to concept neurons with 2+ converging paths
+    strong = [r for r in results if r.confidence >= 2 and r.neuron.neuron_type.value == "concept"]
+    lines = [f'  Connections between "{a}" and "{b}":']
+    shown = strong if strong else results[:10]
+    for r in shown[:10]:
+        lines.append(f"    {r.neuron.label} ({r.confidence} converging paths)")
+        for t in r.converging_paths:
+            lines.append(f"      {t}")
+    if len(results) > 10:
+        lines.append(f"    ... and {len(results) - 10} more")
+    return "\n".join(lines)
+
+
+def _ask_compare(a, b):
+    """Compare <a> and <b> — find shared downstream paths."""
+    links_a = brain.get_similar(a)
+    links_b = brain.get_similar(b)
+    all_links = links_a + links_b
+    if not all_links:
+        # Run analyze first
+        brain.analyze_similarity()
+        links_a = brain.get_similar(a)
+        links_b = brain.get_similar(b)
+        all_links = links_a + links_b
+
+    if not all_links:
+        return f'  No similarity data for "{a}" or "{b}". Try: analyze'
+
+    lines = [f'  Comparing "{a}" and "{b}":']
+    seen = set()
+    for link in all_links:
+        key = (link.neuron_a_label, link.neuron_b_label)
+        if key in seen:
+            continue
+        seen.add(key)
+        lines.append(f"    {link.neuron_a_label} <-> {link.neuron_b_label} "
+                     f"(shared: {link.shared_paths}, overlap: {link.overlap_ratio:.0%})")
+    return "\n".join(lines)
+
+
+def _ask_equation(concept):
+    """Show equations related to a concept."""
+    traces = brain.why(concept)
+    # Also check trace (outgoing)
+    traces += brain.trace(concept)
+
+    equations = []
+    seen = set()
+    for t in traces:
+        src = t.source_text or ""
+        if "equation" in src.lower() or "equals" in src.lower() or "formula" in src.lower():
+            if src not in seen:
+                seen.add(src)
+                equations.append(src)
+        # Also check neuron labels for equation content
+        for n in t.neurons:
+            if "equals" in n.label or "equation" in n.label:
+                if n.label not in seen:
+                    seen.add(n.label)
+                    equations.append(n.label)
+
+    if not equations:
+        return f'  No equations found for "{concept}". Try: ask what is {concept}'
+
+    lines = [f'  Equations related to "{concept}":']
+    for eq in equations:
+        lines.append(f"    {eq}")
     return "\n".join(lines)
 
 

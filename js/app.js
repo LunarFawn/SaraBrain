@@ -195,7 +195,9 @@ async function mountSaraBrain(pyodide) {
   const dirs = [
     "/home/pyodide/sara_brain",
     "/home/pyodide/sara_brain/core",
+    "/home/pyodide/sara_brain/innate",
     "/home/pyodide/sara_brain/models",
+    "/home/pyodide/sara_brain/nlp",
     "/home/pyodide/sara_brain/parsing",
     "/home/pyodide/sara_brain/repl",
     "/home/pyodide/sara_brain/storage",
@@ -213,16 +215,27 @@ async function mountSaraBrain(pyodide) {
   // Map of files to fetch
   const files = [
     "sara_brain/__init__.py",
+    "sara_brain/config.py",
     "sara_brain/core/__init__.py",
     "sara_brain/core/brain.py",
+    "sara_brain/core/digester.py",
     "sara_brain/core/learner.py",
+    "sara_brain/core/perceiver.py",
     "sara_brain/core/recognizer.py",
     "sara_brain/core/similarity.py",
+    "sara_brain/innate/__init__.py",
+    "sara_brain/innate/ethics.py",
+    "sara_brain/innate/primitives.py",
     "sara_brain/models/__init__.py",
     "sara_brain/models/neuron.py",
     "sara_brain/models/segment.py",
     "sara_brain/models/path.py",
     "sara_brain/models/result.py",
+    "sara_brain/nlp/__init__.py",
+    "sara_brain/nlp/provider.py",
+    "sara_brain/nlp/reader.py",
+    "sara_brain/nlp/translator.py",
+    "sara_brain/nlp/vision.py",
     "sara_brain/parsing/__init__.py",
     "sara_brain/parsing/statement_parser.py",
     "sara_brain/parsing/taxonomy.py",
@@ -277,8 +290,8 @@ async function restoreSavedState() {
       appendOutput(result, "cmd-output");
       appendOutput("  (Restored from browser storage)", "welcome");
     } else {
-      // First visit — seed with demo data
-      const result = await seedBrain();
+      // First visit — seed with Wikipedia demo
+      const result = await runCommand("seed wiki");
       appendOutput(result, "cmd-output");
     }
   } catch (err) {
@@ -298,6 +311,7 @@ function initUI() {
 
   // Button handlers
   document.getElementById("btn-seed").addEventListener("click", handleSeed);
+  document.getElementById("btn-seed-wiki").addEventListener("click", handleSeedWiki);
   document.getElementById("btn-reset").addEventListener("click", handleReset);
   document.getElementById("btn-export").addEventListener("click", handleExport);
   document.getElementById("btn-import").addEventListener("click", handleImport);
@@ -352,6 +366,7 @@ function initUI() {
     onTrace: async (text) => { await executeCommand(`trace ${text}`); },
     onCorrect: async (text) => { await executeCommand(`no ${text}`); },
     onSee: async (text) => { await executeCommand(`see ${text}`); },
+    onAsk: async (text) => { await executeCommand(`ask ${text}`); },
     onAssociations: async () => { await executeCommand("associations"); },
     onDefine: async (text) => { await executeCommand(`define ${text}`); },
     onDescribe: async (text) => { await executeCommand(`describe ${text}`); },
@@ -460,6 +475,19 @@ async function executeCommand(line) {
         await persistState();
       }
 
+      // For ask with link/connect queries, check for cached recognition paths
+      if (cmd === "ask") {
+        const pathData = await getLastRecognitionPaths();
+        if (pathData.results && pathData.results.length > 0) {
+          await refreshGraph();
+          const allPaths = pathData.results.flatMap((r) => r.paths);
+          if (allPaths.length > 0) {
+            animateWavefront(allPaths);
+          }
+        }
+        showDetail(output);
+      }
+
       // Show detail for trace/why
       if (["trace", "why", "similar", "analyze"].includes(cmd)) {
         showDetail(output);
@@ -477,6 +505,10 @@ async function executeCommand(line) {
 
 async function handleSeed() {
   await executeCommand("seed");
+}
+
+async function handleSeedWiki() {
+  await executeCommand("seed wiki");
 }
 
 async function handleReset() {

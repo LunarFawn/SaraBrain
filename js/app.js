@@ -156,7 +156,7 @@ async function boot() {
 
     setProgress(60, "Initializing boot.py...");
     // Load and run boot.py
-    const bootResponse = await fetch("python/boot.py");
+    const bootResponse = await fetch("python/boot.py?v=2");
     const bootCode = await bootResponse.text();
     await pyodide.runPythonAsync(bootCode);
 
@@ -260,7 +260,7 @@ async function mountSaraBrain(pyodide) {
   // Fetch all files in parallel
   const fetchPromises = files.map(async (filePath) => {
     const url = `${baseUrl}${filePath}`;
-    const resp = await fetch(url);
+    const resp = await fetch(`${url}?v=2`);
     if (!resp.ok) {
       throw new Error(`Failed to fetch ${url}: ${resp.status}`);
     }

@@ -280,6 +280,43 @@ export function showFlow(flowName) {
     actionsArea.appendChild(whyBtn);
     actionsArea.appendChild(traceBtn);
     actionsArea.appendChild(cancelBtn);
+  } else if (flowName === "ask") {
+    // Show example suggestions as clickable chips
+    const examples = [
+      "what is gravity",
+      "how does orbit work",
+      "link between force and orbit",
+      "compare earth and mars",
+      "equation for force",
+      "explain newton",
+    ];
+    const suggestionsEl = document.createElement("div");
+    suggestionsEl.className = "guided-suggestions";
+    for (const ex of examples) {
+      const chip = document.createElement("button");
+      chip.className = "guided-suggestion-chip";
+      chip.textContent = ex;
+      chip.addEventListener("click", () => {
+        input.value = ex;
+        submitFlow(def.callback);
+      });
+      suggestionsEl.appendChild(chip);
+    }
+    actionsArea.appendChild(suggestionsEl);
+
+    const btnRow = document.createElement("div");
+    btnRow.style.marginTop = "8px";
+    const submitBtn = document.createElement("button");
+    submitBtn.className = "btn btn-accent";
+    submitBtn.textContent = def.submitLabel;
+    submitBtn.addEventListener("click", () => submitFlow(def.callback));
+    const cancelBtn = document.createElement("button");
+    cancelBtn.className = "btn";
+    cancelBtn.textContent = "Cancel";
+    cancelBtn.addEventListener("click", () => hideFlow());
+    btnRow.appendChild(submitBtn);
+    btnRow.appendChild(cancelBtn);
+    actionsArea.appendChild(btnRow);
   } else {
     const submitBtn = document.createElement("button");
     submitBtn.className = "btn btn-accent";

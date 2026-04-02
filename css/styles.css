@@ -1082,3 +1082,29 @@ body {
     font-size: 0.7rem;
   }
 }
+
+/* ── Ask Sara Suggestion Chips ── */
+
+.guided-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.guided-suggestion-chip {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--accent-dim);
+  border-radius: 12px;
+  background: rgba(31, 111, 235, 0.1);
+  color: var(--accent);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.guided-suggestion-chip:hover {
+  background: var(--accent-dim);
+  color: #fff;
+}

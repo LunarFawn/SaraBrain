@@ -2,7 +2,7 @@
  * app.js — Main entry point: load Pyodide, mount sara_brain, wire UI.
  */
 
-import { setPyodide, initBrain, runCommand, getGraphData, getLastRecognitionPaths, exportBrain, importBrain, seedBrain, getQuestionWords, getCandidateProperties, setPerceptionState } from "./bridge.js";
+import { setPyodide, initBrain, runCommand, getGraphData, getLastRecognitionPaths, exportBrain, importBrain, seedBrain, seedWiki, getQuestionWords, getCandidateProperties, setPerceptionState } from "./bridge.js";
 import { saveBrainState, loadBrainState, clearBrainState, downloadBrainExport, uploadBrainImport } from "./persistence.js";
 import { initGraph, updateGraph, animateWavefront } from "./graph.js";
 import { checkProxyHealth, runPerceptionLoop, generateLabel, sanitize, callVision } from "./vision.js";
@@ -291,7 +291,7 @@ async function restoreSavedState() {
       appendOutput("  (Restored from browser storage)", "welcome");
     } else {
       // First visit — seed with Wikipedia demo
-      const result = await runCommand("seed wiki");
+      const result = await seedWiki();
       appendOutput(result, "cmd-output");
     }
   } catch (err) {
@@ -466,7 +466,13 @@ async function executeCommand(line) {
         showDetail(formatRecognitionDetail(pathData));
       }
     } else {
-      const output = await runCommand(line);
+      let output = await runCommand(line);
+
+      // Intercept __SEED_WIKI__ marker: fetch JSON from JS and pass to Python
+      if (output === "__SEED_WIKI__") {
+        output = await seedWiki();
+      }
+
       appendOutput(output, "cmd-output");
 
       // Refresh graph after teach, reset, seed, import

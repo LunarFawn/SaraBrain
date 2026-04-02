@@ -115,7 +115,7 @@ def run_command(command_line):
 
     if cmd == "seed":
         if args.strip().lower() == "wiki":
-            return _seed_wiki()
+            return "__SEED_WIKI__"
         return _seed_brain()
 
     handler = dispatch.get(cmd)
@@ -220,18 +220,12 @@ def _seed_brain():
     return "\n".join(lines)
 
 
-def _seed_wiki():
-    """Load the Wikipedia demo: Newton's Laws + Solar System."""
-    global brain
+def _seed_wiki(json_str):
+    """Load the Wikipedia demo: Newton's Laws + Solar System.
 
-    try:
-        # Fetch the pre-baked JSON from the server
-        from pyodide.http import open_url
-        raw = open_url("python/wiki_demo_brain.json").read()
-    except Exception:
-        return "  Error: could not load wiki_demo_brain.json"
-
-    result = import_db(raw)
+    json_str is fetched by JS and passed in.
+    """
+    result = import_db(json_str)
     return (
         "  Loaded Wikipedia demo: Newton's Laws of Motion + Solar System\n"
         "  Sources:\n"

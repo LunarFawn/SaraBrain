@@ -72,6 +72,20 @@ export async function seedBrain() {
 }
 
 /**
+ * Seed the brain with Wikipedia demo data.
+ * Fetches the JSON from the server and passes it to Python.
+ */
+export async function seedWiki() {
+  const resp = await fetch("python/wiki_demo_brain.json");
+  if (!resp.ok) throw new Error(`Failed to fetch wiki demo: ${resp.status}`);
+  const jsonStr = await resp.text();
+  pyodide.globals.set("_wiki_data", jsonStr);
+  const result = await pyodide.runPythonAsync("_seed_wiki(_wiki_data)");
+  pyodide.globals.delete("_wiki_data");
+  return result;
+}
+
+/**
  * Get question words (association → question word mappings) as a JS object.
  */
 export async function getQuestionWords() {

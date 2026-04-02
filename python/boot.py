@@ -393,13 +393,11 @@ def _ask_link(a, b):
     # Filter to concept neurons with 2+ converging paths
     strong = [r for r in results if r.confidence >= 2 and r.neuron.neuron_type.value == "concept"]
     lines = [f'  Connections between "{a}" and "{b}":']
-    shown = strong if strong else results[:10]
-    for r in shown[:10]:
+    shown = strong if strong else results
+    for r in shown:
         lines.append(f"    {r.neuron.label} ({r.confidence} converging paths)")
         for t in r.converging_paths:
             lines.append(f"      {t}")
-    if len(results) > 10:
-        lines.append(f"    ... and {len(results) - 10} more")
     return "\n".join(lines)
 
 

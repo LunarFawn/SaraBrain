@@ -74,7 +74,7 @@ class AgentLoop:
             content = result["content"]
             tool_calls = result["tool_calls"]
 
-            # If the LLM responds with text (no tool calls) → done
+            # If the LLM responds with text and no tool calls → done
             if content and not tool_calls:
                 self.messages.append(
                     {"role": "assistant", "content": content}
@@ -82,24 +82,50 @@ class AgentLoop:
                 self._save_session()
                 return content
 
-            # If the LLM made tool calls → validate, execute, observe
+            # If tool calls were found (structured or parsed from text)
             if tool_calls:
-                # Append the assistant message with tool calls
-                assistant_msg: dict = {"role": "assistant"}
-                if content:
-                    assistant_msg["content"] = content
-                assistant_msg["tool_calls"] = tool_calls
-                self.messages.append(assistant_msg)
+                # Check if these were parsed from text (small model fallback)
+                is_text_parsed = any(
+                    tc.get("id", "").startswith("text_parsed_")
+                    for tc in tool_calls
+                )
 
-                for tc in tool_calls:
-                    tool_result = self._validate_and_execute(tc)
+                if is_text_parsed:
+                    # For text-parsed tool calls, execute and feed results
+                    # back as a user message (model doesn't expect tool role)
+                    if content:
+                        self.messages.append(
+                            {"role": "assistant", "content": content}
+                        )
+                    results = []
+                    for tc in tool_calls:
+                        name = tc.get("function", {}).get("name", "")
+                        tool_result = self._validate_and_execute(tc)
+                        results.append(f"[Tool: {name}]\n{tool_result}")
+                    combined = "\n\n".join(results)
                     self.messages.append(
                         {
-                            "role": "tool",
-                            "tool_call_id": tc.get("id", ""),
-                            "content": tool_result,
+                            "role": "user",
+                            "content": f"Tool results:\n\n{combined}\n\nNow respond to the user based on these results. Be concise.",
                         }
                     )
+                else:
+                    # Structured tool calls — standard flow
+                    assistant_msg: dict = {"role": "assistant"}
+                    if content:
+                        assistant_msg["content"] = content
+                    assistant_msg["tool_calls"] = tool_calls
+                    self.messages.append(assistant_msg)
+
+                    for tc in tool_calls:
+                        tool_result = self._validate_and_execute(tc)
+                        self.messages.append(
+                            {
+                                "role": "tool",
+                                "tool_call_id": tc.get("id", ""),
+                                "content": tool_result,
+                            }
+                        )
                 continue  # LLM sees tool results on next iteration
 
             # Edge case: no content and no tool calls

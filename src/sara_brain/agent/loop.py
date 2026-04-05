@@ -79,6 +79,8 @@ class AgentLoop:
                 self.messages.append(
                     {"role": "assistant", "content": content}
                 )
+                # Post-turn: Sara learns from the LLM's response
+                self._post_turn_observe(content)
                 self._save_session()
                 return content
 
@@ -151,6 +153,7 @@ class AgentLoop:
         result = ollama.extract_response(response)
         final = result["content"] or "Reached maximum rounds."
         self.messages.append({"role": "assistant", "content": final})
+        self._post_turn_observe(final)
         self._save_session()
         return final
 
@@ -201,29 +204,130 @@ class AgentLoop:
         if tool_name == "read_file":
             path = arguments.get("path", "")
             if "Error" not in result and "not found" not in result:
-                # Sara observes the file exists and its rough content
-                lines = result.split("\n")
-                if len(lines) > 1:
-                    header = lines[0]  # "File: /path (N lines total)"
-                    observations.append(f"{path} is a file")
+                # Extract filename for cleaner labels
+                from pathlib import Path as P
+                fname = P(path).stem
+                observations.append(f"{fname} is a document")
 
         elif tool_name == "write_file":
             path = arguments.get("path", "")
             if "Written:" in result:
-                observations.append(f"{path} was created")
+                from pathlib import Path as P
+                fname = P(path).stem
+                observations.append(f"{fname} was created")
 
         elif tool_name == "execute_python":
             if "return code: 0" in result:
-                observations.append("python code executed successfully")
+                observations.append("python code is successful")
             elif "return code:" in result:
-                observations.append("python code had errors")
+                observations.append("python code has errors")
 
         elif tool_name == "shell_command":
-            cmd = arguments.get("command", "")
-            if "return code: 0" in result:
-                observations.append(f"command {cmd.split()[0]} succeeded")
+            cmd = arguments.get("command", "").split()
+            if cmd and "return code: 0" in result:
+                observations.append(f"{cmd[0]} is successful")
 
         return observations
+
+    def _post_turn_observe(self, llm_response: str) -> None:
+        """After the LLM responds, extract key facts and teach Sara.
+
+        The LLM's summary of what it read/did contains the distilled knowledge.
+        Sara learns from the LLM's observations — like learning from a cortex
+        that just processed sensory input.
+        """
+        # Look through recent messages for tool results from this turn
+        # If the LLM just read a file and summarized it, the summary
+        # contains the key facts Sara should learn
+        recent_tools: list[tuple[str, str]] = []
+        for msg in reversed(self.messages):
+            if msg.get("role") == "user" and msg["content"].startswith("Tool results:"):
+                # Text-parsed tool results
+                recent_tools.append(("tool_results", msg["content"]))
+                break
+            if msg.get("role") == "tool":
+                recent_tools.append(("tool", msg.get("content", "")))
+            if msg.get("role") == "user" and not msg["content"].startswith("Tool"):
+                break  # Reached the user's original message
+
+        if not recent_tools:
+            return
+
+        # The LLM's response IS the processed observation.
+        # Extract sentences that look like facts and teach Sara.
+        facts = self._extract_facts_from_summary(llm_response)
+        for fact in facts:
+            self.bridge.observe(fact)
+
+    def _extract_facts_from_summary(self, text: str) -> list[str]:
+        """Extract teachable facts from the LLM's summary response.
+
+        Looks for sentences containing relation verbs the parser understands
+        (is, are, contains, includes, requires). Also extracts key noun phrases
+        as simpler "X is Y" statements when possible.
+        """
+        import re
+
+        facts = []
+        seen: set[str] = set()
+
+        def _clean(s: str) -> str:
+            """Strip markdown formatting but preserve hyphens in words."""
+            s = re.sub(r"\*\*|`|#+\s*", "", s)  # bold, code, headings
+            s = re.sub(r"^\s*[-*]\s+", "", s)    # bullet points
+            s = re.sub(r"^\s*\d+[.)]\s+", "", s) # numbered lists
+            return s.strip()
+
+        def _add(fact: str) -> None:
+            clean = _clean(fact)
+            if 10 < len(clean) < 120 and clean not in seen:
+                seen.add(clean)
+                facts.append(clean)
+
+        # Split into sentences
+        sentences = re.split(r"(?<=[.!?])\s+", text)
+
+        # Relation verbs the Sara parser understands
+        verbs = r"(?:is|are|contains|includes|requires|follows|excludes)"
+
+        for sentence in sentences:
+            sentence = sentence.strip().rstrip(".")
+            if not sentence:
+                continue
+
+            # Find "subject VERB object" — take the shortest subject
+            # before the verb (last 1-4 words)
+            match = re.search(
+                r"([\w][\w\s-]{1,40}?)\s+"       # subject (lazy)
+                rf"\b({verbs})\b\s+"               # verb
+                r"([\w][\w\s_-]+)",                # object (includes underscores)
+                sentence,
+                re.IGNORECASE,
+            )
+            if not match:
+                continue
+
+            subj = match.group(1).strip()
+            verb = match.group(2).strip().lower()
+            obj = match.group(3).strip()
+
+            # Trim subject to last 1-4 meaningful words
+            subj_words = subj.split()
+            if len(subj_words) > 4:
+                subj = " ".join(subj_words[-4:])
+
+            # Trim object at first comma/conjunction/relative clause
+            obj = re.split(r",|\band\b|\bbut\b|\bnot\b|\bwhich\b|\bthat\b|\bwhen\b", obj)[0].strip()
+
+            # Skip noise: pronouns, "here", "there", etc.
+            skip_subjects = {"here", "there", "it", "this", "that", "these", "those", "i", "you", "we"}
+            if subj.lower() in skip_subjects:
+                continue
+
+            if obj and len(obj) > 2:
+                _add(f"{subj} {verb} {obj}")
+
+        return facts[:10]  # Cap at 10 per turn
 
     def resume_session(self, session_id: str) -> bool:
         """Resume a previous session. Returns True if found."""

@@ -795,7 +795,15 @@ function pickImageFile() {
 
 // ── Init Graph & Boot ──
 
-document.addEventListener("DOMContentLoaded", () => {
+function startApp() {
   initGraph("graph-container");
   boot();
-});
+}
+
+// When loaded via dynamic <script type="module">, DOMContentLoaded may
+// have already fired by the time this module executes.
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", startApp);
+} else {
+  startApp();
+}

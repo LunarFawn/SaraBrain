@@ -5,13 +5,27 @@ from __future__ import annotations
 from .bridge import AgentBridge
 
 
-def build_system_prompt(bridge: AgentBridge, cwd: str) -> str:
+def build_system_prompt(bridge: AgentBridge, cwd: str, user_input: str = "") -> str:
     """Build the system prompt for the LLM.
 
     Designed to be concrete and directive so that even small models
     understand their role and actually use tools instead of describing them.
+
+    If user_input is provided, Sara's relevant knowledge is pre-injected
+    so the LLM doesn't need to call brain_context explicitly.
     """
     brain_summary = bridge.brain_summary()
+
+    # Pre-inject relevant knowledge from Sara based on user's input
+    relevant_knowledge = ""
+    if user_input:
+        context = bridge.context(user_input)
+        if not context.startswith("Sara has no knowledge"):
+            # Truncate to first 20 facts to stay within context limits
+            lines = context.split("\n")
+            if len(lines) > 22:
+                lines = lines[:22] + [f"  ... and {len(lines) - 22} more facts"]
+            relevant_knowledge = "\n".join(lines)
 
     return f"""\
 You are an assistant with tools. You MUST use your tools to complete tasks.
@@ -31,6 +45,11 @@ You are connected to Sara Brain, a persistent knowledge database.
 
 ## Sara's Current Knowledge
 {brain_summary}
+{f"""
+## Sara's Knowledge Relevant to This Query
+{relevant_knowledge}
+
+Use the facts above when responding. This is what Sara remembers.""" if relevant_knowledge else ""}
 
 ## CRITICAL RULES
 1. When asked to read something, call read_file. Do not explain how to read it.

@@ -10,7 +10,7 @@ jenpearl5@gmail.com
 
 **Keywords:** cognitive architecture, knowledge representation, path-of-thought, parallel wavefront recognition, neuron-chain graph, LLM steering, persistent memory, cortex-cerebellum architecture, resource allocation, AI training efficiency
 
-**License:** CC BY 4.0
+**License:** CC BY-NC-ND 4.0
 
 **Source code:** https://github.com/LunarFawn/SaraBrain
 

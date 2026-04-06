@@ -64,7 +64,10 @@ class AgentBridge:
         return "\n".join(lines)
 
     def context(self, keywords: str | list) -> str:
-        """Search brain for knowledge relevant to keywords."""
+        """Search brain for knowledge relevant to keywords.
+
+        Uses both exact and prefix matching so "planetary" finds "planet".
+        """
         if isinstance(keywords, list):
             keywords = " ".join(str(k) for k in keywords)
         words = [
@@ -75,15 +78,32 @@ class AgentBridge:
         all_traces = []
         checked: set[int] = set()
 
+        # Get all neurons once for prefix matching
+        all_neurons = self.brain.neuron_repo.list_all()
+
         for kw in words:
+            # Exact match first
             neuron = self.brain.neuron_repo.get_by_label(kw)
-            if neuron is None or neuron.id in checked:
-                continue
-            checked.add(neuron.id)
-            for t in self.brain.why(kw):
-                all_traces.append((kw, t))
-            for t in self.brain.trace(kw):
-                all_traces.append((kw, t))
+            if neuron and neuron.id not in checked:
+                checked.add(neuron.id)
+                for t in self.brain.why(kw):
+                    all_traces.append((kw, t))
+                for t in self.brain.trace(kw):
+                    all_traces.append((kw, t))
+
+            # Prefix/substring match — find neurons whose labels start with
+            # or contain the keyword (e.g., "planetary" matches "planet")
+            for n in all_neurons:
+                if n.id in checked:
+                    continue
+                label = n.label
+                # Match if: keyword starts with label, or label starts with keyword
+                if (label.startswith(kw) or kw.startswith(label)) and len(label) > 2:
+                    checked.add(n.id)
+                    for t in self.brain.why(label):
+                        all_traces.append((label, t))
+                    for t in self.brain.trace(label):
+                        all_traces.append((label, t))
 
         if not all_traces:
             return f"Sara has no knowledge about: {keywords}"

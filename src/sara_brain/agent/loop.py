@@ -58,7 +58,7 @@ class AgentLoop:
         """
         self.messages.append({"role": "user", "content": user_input})
 
-        system_prompt = build_system_prompt(self.bridge, self.cwd)
+        system_prompt = build_system_prompt(self.bridge, self.cwd, user_input)
         system_msg = {"role": "system", "content": system_prompt}
 
         for _round in range(self.max_tool_rounds):

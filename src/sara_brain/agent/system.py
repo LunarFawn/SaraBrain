@@ -17,15 +17,24 @@ def build_system_prompt(bridge: AgentBridge, cwd: str, user_input: str = "") -> 
     brain_summary = bridge.brain_summary()
 
     # Pre-inject relevant knowledge from Sara based on user's input
+    # Keep it compact — small models have limited context windows
     relevant_knowledge = ""
     if user_input:
         context = bridge.context(user_input)
         if not context.startswith("Sara has no knowledge"):
-            # Truncate to first 20 facts to stay within context limits
             lines = context.split("\n")
-            if len(lines) > 22:
-                lines = lines[:22] + [f"  ... and {len(lines) - 22} more facts"]
-            relevant_knowledge = "\n".join(lines)
+            # Only take short, direct facts (skip deep multi-hop paths)
+            compact = [lines[0]]  # header
+            for line in lines[1:]:
+                # Skip paths with more than 2 arrows (too deep)
+                if line.count("→") <= 2:
+                    compact.append(line)
+                if len(compact) >= 12:  # Cap at ~10 facts
+                    remaining = len(lines) - len(compact)
+                    if remaining > 0:
+                        compact.append(f"  ... and {remaining} more facts")
+                    break
+            relevant_knowledge = "\n".join(compact)
 
     return f"""\
 You are an assistant with tools. You MUST use your tools to complete tasks.

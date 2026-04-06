@@ -99,7 +99,25 @@ def extract_response(body: dict) -> dict:
         if parsed:
             return {"content": None, "tool_calls": parsed}
 
+        # Strip malformed tool call fragments from text
+        # e.g., {"name": brain_context} with no quotes/args
+        content = _strip_malformed_tool_calls(content)
+        if not content.strip():
+            content = None
+
     return {"content": content, "tool_calls": None}
+
+
+def _strip_malformed_tool_calls(text: str) -> str:
+    """Remove broken tool call JSON fragments from text output."""
+    import re
+    # Match {"name": tool_name} or {"name": "tool_name"} without arguments
+    cleaned = re.sub(
+        r'\{\s*"name"\s*:\s*"?\w+"?\s*\}',
+        "",
+        text,
+    )
+    return cleaned.strip()
 
 
 def _try_parse_text_tool_calls(text: str) -> list[dict] | None:
@@ -140,6 +158,17 @@ def _try_parse_text_tool_calls(text: str) -> list[dict] | None:
                 })
             except json.JSONDecodeError:
                 continue
+
+    # Also try: malformed JSON like {"name": brain_context} (no quotes, no args)
+    # Small models often output this. Match unquoted tool names.
+    if not found:
+        unquoted_pattern = re.compile(
+            r'\{\s*"name"\s*:\s*(' + "|".join(re.escape(t) for t in tool_names) + r')\s*\}'
+        )
+        for match in unquoted_pattern.finditer(text):
+            # Malformed call with no arguments — skip it, let the LLM retry
+            # by returning None (the response will be treated as text)
+            pass  # intentionally don't parse — these are broken calls
 
     # Also try: just a bare tool name and arguments on separate lines
     # e.g., the model says: I'll call read_file with path "/some/path"

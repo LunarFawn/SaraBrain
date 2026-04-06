@@ -556,7 +556,7 @@ The two systems together — LLM as cortex, Sara Brain as hippocampus — implem
 
 ### 8.2 Application Beyond Code: Scientific Computation
 
-The cortex-cerebellum architecture has been applied by the author — a peer-reviewed computational biologist specializing in RNA folding computations [19,20] — in a professional scientific context, where domain expertise in RNA dynamics was encoded as path-graph knowledge and used to steer LLM-generated code for a numerical energy modeling application. The details of this application are subject to non-disclosure agreement and cannot be reported here.
+The cortex-cerebellum architecture has been applied by the author — a peer-reviewed computational biologist specializing in RNA folding computations [19,20,21] — in a professional scientific context, where domain expertise in RNA dynamics was encoded as path-graph knowledge and used to steer LLM-generated code for a numerical energy modeling application. The details of this application are subject to non-disclosure agreement and cannot be reported here.
 
 However, the application demonstrates several points relevant to this paper's thesis:
 
@@ -655,6 +655,8 @@ This paper's central claim is not that transformers are wrong. It is that a thou
 [19] Pearl, J., et al. (2022). "Crowdsourced RNA design discovers diverse, reversible, efficient, self-contained molecular switches." *Proceedings of the National Academy of Sciences,* 119(18). https://doi.org/10.1073/pnas.2112979119
 
 [20] Pearl, J., et al. (2024). "Exploring the Accuracy of Ab Initio Prediction Methods for Viral Pseudoknotted RNA Structures: Retrospective Cohort Study." *JMIRx Bio.* https://doi.org/10.2196/58899
+
+[21] Tse, V., Guiterrez, M., Townley, J., Romano, J., Pearl, J., Chacaltana, G., Eterna Players, Das, R., Sanford, J.R., & Stone, M.D. (2025). "OpenASO: RNA Rescue — designing splice-modulating antisense oligonucleotides through community science." *RNA,* 31(8), 1091–1102. https://doi.org/10.1261/rna.080288.124
 
 ---
 

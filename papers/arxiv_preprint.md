@@ -554,7 +554,21 @@ The two systems together — LLM as cortex, Sara Brain as hippocampus — implem
 
 **Storage vs. compression.** Sara Brain stores every relationship explicitly. This makes everything inspectable but scales linearly with knowledge. A transformer's compressed representations store vastly more knowledge in less space. For covering the full breadth of human knowledge, path-graph storage is not competitive with compressed weights. For covering a specific domain with full traceability requirements, it is superior.
 
-### 8.2 Open Questions
+### 8.2 Application Beyond Code: Scientific Computation
+
+The cortex-cerebellum architecture has been applied by the author — a peer-reviewed computational biologist specializing in RNA folding computations [19,20] — in a professional scientific context, where domain expertise in RNA dynamics was encoded as path-graph knowledge and used to steer LLM-generated code for a numerical energy modeling application. The details of this application are subject to non-disclosure agreement and cannot be reported here.
+
+However, the application demonstrates several points relevant to this paper's thesis:
+
+1. The architecture extends beyond code style enforcement and factual retrieval into **domain-specific scientific computation**. The cerebellum stored the researcher's understanding of the physical system — thermodynamic rules, structural constraints, known empirical relationships — and the cortex translated that understanding into working numerical code.
+
+2. A domain expert's accumulated knowledge, encoded as path-graph facts, was sufficient to steer a general-purpose LLM toward producing a **specialized scientific tool** — without the LLM having been trained on the relevant scientific literature.
+
+3. The resulting code was functional and produced results consistent with the domain expert's expectations — suggesting that the path-graph representation is expressive enough to capture the kind of nuanced, experience-based knowledge that typically requires years of specialization to acquire.
+
+This represents the strongest form of the cortex-cerebellum thesis: not a language model that memorized facts during training, but a language model that *learned how to read and write code* during training, paired with a cerebellum that *knew the science*. The cortex contributed language competence. The cerebellum contributed domain expertise. The result was a working scientific tool that neither could have produced alone.
+
+### 8.3 Open Questions
 
 - Can a path graph with thousands of neurons steer a large model's architectural decisions on a 100,000-line codebase as effectively as it steered a function on a ten-line task?
 - What is the minimum path graph size to reliably steer a given class of LLM decisions?
@@ -637,6 +651,10 @@ This paper's central claim is not that transformers are wrong. It is that a thou
 [17] French, R.M. (1999). "Catastrophic forgetting in connectionist networks." *Trends in Cognitive Sciences,* 3(4), 128–135.
 
 [18] Kirkpatrick, J., et al. (2017). "Overcoming catastrophic forgetting in neural networks." *PNAS,* 114(13), 3521–3526.
+
+[19] Pearl, J., et al. (2022). "Crowdsourced RNA design discovers diverse, reversible, efficient, self-contained molecular switches." *Proceedings of the National Academy of Sciences,* 119(18). https://doi.org/10.1073/pnas.2112979119
+
+[20] Pearl, J., et al. (2024). "Exploring the Accuracy of Ab Initio Prediction Methods for Viral Pseudoknotted RNA Structures: Retrospective Cohort Study." *JMIRx Bio.* https://doi.org/10.2196/58899
 
 ---
 

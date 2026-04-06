@@ -23,8 +23,10 @@ class AgentBridge:
 
     # ── Query tools (LLM reads Sara's knowledge) ──
 
-    def query(self, topic: str) -> str:
+    def query(self, topic: str | list) -> str:
         """What does Sara know about a topic? Uses why + trace."""
+        if isinstance(topic, list):
+            topic = " ".join(str(t) for t in topic)
         label = topic.strip().lower()
         traces = self.brain.why(label)
         forward = self.brain.trace(label)
@@ -45,8 +47,10 @@ class AgentBridge:
                 lines.append(f"  {t}{src}")
         return "\n".join(lines)
 
-    def recognize(self, inputs: str) -> str:
+    def recognize(self, inputs: str | list) -> str:
         """Given properties, what does Sara recognize?"""
+        if isinstance(inputs, list):
+            inputs = ", ".join(str(i) for i in inputs)
         results = self.brain.recognize(inputs)
         if not results:
             return "Sara doesn't recognize anything from those inputs."
@@ -59,8 +63,10 @@ class AgentBridge:
                 lines.append(f"    path: {trace}")
         return "\n".join(lines)
 
-    def context(self, keywords: str) -> str:
+    def context(self, keywords: str | list) -> str:
         """Search brain for knowledge relevant to keywords."""
+        if isinstance(keywords, list):
+            keywords = " ".join(str(k) for k in keywords)
         words = [
             w.strip().lower()
             for w in keywords.split()
@@ -88,8 +94,10 @@ class AgentBridge:
             lines.append(f"  [{label}] {t}{src}")
         return "\n".join(lines)
 
-    def summarize(self, topic: str) -> str:
+    def summarize(self, topic: str | list) -> str:
         """Aggregate everything Sara knows about a topic."""
+        if isinstance(topic, list):
+            topic = " ".join(str(t) for t in topic)
         label = topic.strip().lower()
         traces = self.brain.why(label)
         similar = self.brain.get_similar(label)

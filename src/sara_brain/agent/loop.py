@@ -287,6 +287,22 @@ class AgentLoop:
         # Split into sentences
         sentences = re.split(r"(?<=[.!?])\s+", text)
 
+        # Normalize hedging language before extraction so
+        # "appears to be", "seems to be" etc. become "is"
+        hedge_map = [
+            (r"\bappears to be\b", "is"),
+            (r"\bseems to be\b", "is"),
+            (r"\bcan be considered\b", "is"),
+            (r"\bis considered\b", "is"),
+            (r"\bis primarily\b", "is"),
+            (r"\bare primarily\b", "are"),
+            (r"\bis essentially\b", "is"),
+            (r"\bare essentially\b", "are"),
+            (r"\bfocuses on\b", "includes"),
+            (r"\bhighlights\b", "includes"),
+            (r"\bstores\b", "contains"),
+        ]
+
         # Relation verbs the Sara parser understands
         verbs = r"(?:is|are|contains|includes|requires|follows|excludes)"
 
@@ -295,13 +311,18 @@ class AgentLoop:
             if not sentence:
                 continue
 
+            # Normalize hedging language
+            normalized = sentence
+            for pattern, replacement in hedge_map:
+                normalized = re.sub(pattern, replacement, normalized, flags=re.IGNORECASE)
+
             # Find "subject VERB object" — take the shortest subject
             # before the verb (last 1-4 words)
             match = re.search(
                 r"([\w][\w\s-]{1,40}?)\s+"       # subject (lazy)
                 rf"\b({verbs})\b\s+"               # verb
                 r"([\w][\w\s_-]+)",                # object (includes underscores)
-                sentence,
+                normalized,
                 re.IGNORECASE,
             )
             if not match:
@@ -319,9 +340,11 @@ class AgentLoop:
             # Trim object at first comma/conjunction/relative clause
             obj = re.split(r",|\band\b|\bbut\b|\bnot\b|\bwhich\b|\bthat\b|\bwhen\b", obj)[0].strip()
 
-            # Skip noise: pronouns, "here", "there", etc.
+            # Skip noise: pronouns, prepositions, filler words
             skip_subjects = {"here", "there", "it", "this", "that", "these", "those", "i", "you", "we"}
-            if subj.lower() in skip_subjects:
+            skip_starts = {"with", "from", "by", "for", "in", "on", "at", "to", "as", "if", "suggesting", "while"}
+            first_word = subj.split()[0].lower() if subj else ""
+            if subj.lower() in skip_subjects or first_word in skip_starts:
                 continue
 
             if obj and len(obj) > 2:

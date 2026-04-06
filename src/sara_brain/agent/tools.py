@@ -268,6 +268,24 @@ def get_tool_definitions() -> list[dict]:
 # ── Dispatch ──
 
 
+def _get_arg(arguments: dict, *keys: str) -> str:
+    """Get an argument by trying multiple key names.
+
+    Small models don't always use the exact parameter name from the schema.
+    Falls back to the first string value in the dict if no key matches.
+    """
+    for key in keys:
+        if key in arguments:
+            return arguments[key]
+    # Fallback: return the first string-like value
+    for v in arguments.values():
+        if isinstance(v, str):
+            return v
+        if isinstance(v, list):
+            return " ".join(str(x) for x in v)
+    return str(next(iter(arguments.values()), ""))
+
+
 def dispatch(
     tool_name: str,
     arguments: dict,
@@ -276,17 +294,17 @@ def dispatch(
     cwd: str,
 ) -> str:
     """Route a tool call to the correct handler. Returns string result."""
-    # Brain tools
+    # Brain tools — use _get_arg for flexible argument matching
     if tool_name == "brain_query":
-        return bridge.query(arguments["topic"])
+        return bridge.query(_get_arg(arguments, "topic", "query", "subject", "keywords"))
     if tool_name == "brain_recognize":
-        return bridge.recognize(arguments["inputs"])
+        return bridge.recognize(_get_arg(arguments, "inputs", "properties", "keywords"))
     if tool_name == "brain_context":
-        return bridge.context(arguments["keywords"])
+        return bridge.context(_get_arg(arguments, "keywords", "query", "topic", "context"))
     if tool_name == "brain_summarize":
-        return bridge.summarize(arguments["topic"])
+        return bridge.summarize(_get_arg(arguments, "topic", "query", "subject", "keywords"))
     if tool_name == "brain_import":
-        return bridge.import_brain(arguments["path"])
+        return bridge.import_brain(_get_arg(arguments, "path", "file", "file_path"))
 
     # Action tools
     if tool_name == "read_file":

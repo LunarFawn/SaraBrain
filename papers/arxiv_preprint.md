@@ -476,6 +476,42 @@ The asymmetry is not subtle. Adding one fact to a trained model requires a train
 
 This is not an argument against foundation model training. It is an argument that foundation model training has reached a point of diminishing returns for domain-specific quality, and that investment in persistent memory architectures would yield higher marginal returns per dollar spent.
 
+### 6.6 The Training Data Implication
+
+This analysis has a further consequence that strikes at the foundation of current AI development practice: **if facts belong in the cerebellum, not the cortex, then the cortex does not need to be trained on facts.**
+
+Current foundation model training ingests the entire internet — books, articles, code repositories, encyclopedias, forums, medical journals, legal filings. The model is expected to store all of this knowledge in its weights, compressed into billions of floating-point parameters. This requires scraping vast libraries of copyrighted and uncopyrighted material, raising legal questions that remain unresolved [3,4]. The training runs cost tens to hundreds of millions of dollars. The resulting models encode facts in a form that is not inspectable, not correctable, and not updatable without retraining.
+
+Sara Brain suggests an alternative: **train the cortex only on language competence — grammar, syntax, comprehension, instruction-following, reasoning structure. Do not train it on facts.** Facts are the cerebellum's job.
+
+What a cortex needs to learn:
+- How to parse natural language into structured meaning
+- How to generate coherent, grammatically correct output
+- How to follow instructions and maintain conversational context
+- How to reason about relationships between concepts presented to it
+
+What a cortex does *not* need to learn:
+- That Mercury is the closest planet to the Sun
+- That Python uses snake_case
+- That Kepler formulated three laws of planetary motion
+- Any specific factual claim about the world
+
+These facts belong in a persistent, inspectable, correctable memory structure — the cerebellum. The cortex only needs to be competent enough to read facts from the cerebellum and express them in natural language. A model trained for language competence, not encyclopedic knowledge, would require a fraction of the training data, a fraction of the compute, and a fraction of the cost.
+
+The implications cascade:
+
+**Training data volume.** If the model does not need to memorize facts, the training corpus shrinks from "the entire internet" to "enough text to learn language." This is a reduction of orders of magnitude. A child learns grammar from thousands of hours of speech — not from reading every book ever written.
+
+**Copyright and data scraping.** The legal controversy around AI training data centers on the use of copyrighted works to encode knowledge into model weights [3]. If factual knowledge is stored in an explicit, auditable database rather than compressed into opaque weights, the training corpus need not include copyrighted factual works. The model learns *how to read*, not *what the books say*. The books are read at runtime through the cerebellum.
+
+**Training cost.** A language-competence model requires less data, fewer parameters, and less compute. The 3B model in Experiment 2 already demonstrates that minimal parameter count is sufficient when paired with a cerebellum. A purpose-trained cortex — one explicitly designed for language competence rather than encyclopedic memorization — could potentially be smaller still.
+
+**Correctability.** When a fact stored in model weights is wrong, the only remedy is retraining or fine-tuning — both expensive and imprecise. When a fact stored in Sara Brain is wrong, it is correctable with a single database operation. The user says "no, dwarf planets do not need to clear their orbit" and the correction is permanent, traceable, and immediate.
+
+**Freshness.** Model weights encode the world as it was at training time. Sara Brain encodes the world as it is now — updated through `teach()` calls, not training runs. A model trained in 2024 does not know about events in 2026. Sara Brain can learn about them in microseconds.
+
+This is not a theoretical projection. Experiment 2 demonstrated it working: a 3B model with minimal domain knowledge in its weights, paired with a 500KB fact store, producing expert-level output. The model's contribution was language competence. Sara Brain's contribution was factual knowledge. Neither was doing the other's job. This is the biological division of labor, implemented in software, running on a consumer laptop.
+
 ---
 
 ## 7. Relationship to Transformer Architectures

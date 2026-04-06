@@ -277,7 +277,7 @@ The storage layer is abstracted behind repository interfaces (`NeuronRepo`, `Seg
 
 Sara Brain's cognitive core requires no dependencies beyond Python 3.11+ standard library. SQLite is built into Python. The strength formula uses `math.log`. The REPL uses `cmd.Cmd`. Storage uses `sqlite3`. No neural network frameworks, no graph database clients, no vector stores, no GPU.
 
-The only optional dependency is the Anthropic API for vision and LLM-assisted translation — and even this uses `urllib.request` from the standard library, not a third-party HTTP client.
+Sara Brain is LLM-agnostic. It connects to any language model through a Model Context Protocol (MCP) server or a direct agent loop. Supported cortex providers include Anthropic Claude, Amazon Q, Ollama (local open-weights models), and any MCP-compatible client. All LLM communication uses `urllib.request` from the standard library — no third-party HTTP clients, no vendor SDK dependencies.
 
 This means: if you can run Python, you can run Sara Brain. `pip install -e .` and done.
 

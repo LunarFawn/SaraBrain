@@ -89,6 +89,26 @@ BRAIN_TOOLS = [
     },
 ]
 
+BRAIN_MANAGEMENT_TOOLS = [
+    {
+        "type": "function",
+        "function": {
+            "name": "brain_import",
+            "description": "Import a JSON brain export file into Sara Brain. Use this when asked to load, import, or ingest a .json brain file.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Path to the JSON brain export file",
+                    }
+                },
+                "required": ["path"],
+            },
+        },
+    },
+]
+
 ACTION_TOOLS = [
     {
         "type": "function",
@@ -242,7 +262,7 @@ ACTION_TOOLS = [
 
 def get_tool_definitions() -> list[dict]:
     """Return all tool definitions for the Ollama chat API."""
-    return BRAIN_TOOLS + ACTION_TOOLS
+    return BRAIN_TOOLS + BRAIN_MANAGEMENT_TOOLS + ACTION_TOOLS
 
 
 # ── Dispatch ──
@@ -265,6 +285,8 @@ def dispatch(
         return bridge.context(arguments["keywords"])
     if tool_name == "brain_summarize":
         return bridge.summarize(arguments["topic"])
+    if tool_name == "brain_import":
+        return bridge.import_brain(arguments["path"])
 
     # Action tools
     if tool_name == "read_file":

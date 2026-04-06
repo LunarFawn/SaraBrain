@@ -9,6 +9,9 @@ Follows the QBridge pattern (nlp/q_bridge.py) — every method returns str.
 
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 from ..core.brain import Brain
 
 
@@ -156,3 +159,68 @@ class AgentBridge:
         if count > 0:
             self.brain.conn.commit()
         return count
+
+    # ── Import/Export ──
+
+    def import_brain(self, file_path: str) -> str:
+        """Import a JSON brain export into Sara's database."""
+        p = Path(file_path)
+        if not p.is_file():
+            return f"File not found: {file_path}"
+
+        try:
+            data = json.loads(p.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError) as e:
+            return f"Error reading {file_path}: {e}"
+
+        conn = self.brain.conn
+        conn.execute("PRAGMA foreign_keys=OFF")
+
+        counts = {"neurons": 0, "segments": 0, "paths": 0}
+        for n in data.get("neurons", []):
+            try:
+                conn.execute(
+                    "INSERT OR IGNORE INTO neurons (id,label,neuron_type,created_at,metadata) VALUES (?,?,?,?,?)",
+                    (n["id"], n["label"], n["neuron_type"], n.get("created_at", 0), None),
+                )
+                counts["neurons"] += 1
+            except Exception:
+                pass
+        for s in data.get("segments", []):
+            try:
+                conn.execute(
+                    "INSERT OR IGNORE INTO segments (id,source_id,target_id,relation,strength,traversals,created_at,last_used) VALUES (?,?,?,?,?,?,?,?)",
+                    (s["id"], s["source_id"], s["target_id"], s["relation"],
+                     s["strength"], s["traversals"], s.get("created_at", 0), s.get("last_used", 0)),
+                )
+                counts["segments"] += 1
+            except Exception:
+                pass
+        for p_rec in data.get("paths", []):
+            try:
+                conn.execute(
+                    "INSERT OR IGNORE INTO paths (id,origin_id,terminus_id,source_text,created_at) VALUES (?,?,?,?,?)",
+                    (p_rec["id"], p_rec["origin_id"], p_rec["terminus_id"],
+                     p_rec.get("source_text"), p_rec.get("created_at", 0)),
+                )
+                counts["paths"] += 1
+            except Exception:
+                pass
+        for ps in data.get("path_steps", []):
+            try:
+                conn.execute(
+                    "INSERT OR IGNORE INTO path_steps (id,path_id,step_order,segment_id) VALUES (?,?,?,?)",
+                    (ps["id"], ps["path_id"], ps["step_order"], ps["segment_id"]),
+                )
+            except Exception:
+                pass
+
+        conn.execute("PRAGMA foreign_keys=ON")
+        conn.commit()
+
+        stats = self.brain.stats()
+        return (
+            f"Imported from {p.name}: "
+            f"{counts['neurons']} neurons, {counts['segments']} segments, {counts['paths']} paths. "
+            f"Brain now has: {stats['neurons']} neurons, {stats['segments']} segments, {stats['paths']} paths."
+        )

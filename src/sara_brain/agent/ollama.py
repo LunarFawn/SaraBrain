@@ -115,6 +115,7 @@ def _try_parse_text_tool_calls(text: str) -> list[dict] | None:
     tool_names = {
         "brain_query", "brain_recognize", "brain_context", "brain_summarize",
         "brain_teach", "brain_observe", "brain_validate", "brain_stats",
+        "brain_import",
         "read_file", "write_file", "list_directory", "search_files",
         "search_content", "execute_python", "shell_command",
     }

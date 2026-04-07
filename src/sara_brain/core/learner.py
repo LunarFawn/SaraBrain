@@ -34,7 +34,8 @@ class Learner:
         self.segment_repo = segment_repo
         self.path_repo = path_repo
 
-    def learn(self, text: str) -> LearnResult | None:
+    def learn(self, text: str, account_id: int | None = None,
+              trust_status: str | None = None) -> LearnResult | None:
         """Parse a statement and build a 3-neuron path chain.
 
         Chain: property → relation → concept
@@ -43,9 +44,12 @@ class Learner:
         parsed = self.parser.parse(text)
         if parsed is None:
             return None
-        return self._build_chain(parsed)
+        return self._build_chain(parsed, account_id=account_id,
+                                 trust_status=trust_status)
 
-    def _build_chain(self, parsed: ParsedStatement) -> LearnResult:
+    def _build_chain(self, parsed: ParsedStatement,
+                     account_id: int | None = None,
+                     trust_status: str | None = None) -> LearnResult:
         neurons_created = 0
         segments_created = 0
 
@@ -96,6 +100,8 @@ class Learner:
             origin_id=prop_neuron.id,
             terminus_id=concept_neuron.id,
             source_text=parsed.original,
+            account_id=account_id,
+            trust_status=trust_status,
         )
         path = self.path_repo.create(path)
 

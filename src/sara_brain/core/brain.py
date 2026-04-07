@@ -13,9 +13,19 @@ from ..storage.path_repo import PathRepo
 from ..storage.association_repo import AssociationRepo
 from ..storage.category_repo import CategoryRepo
 from ..storage.settings_repo import SettingsRepo
+from ..storage.account_repo import AccountRepo
+from ..storage.interaction_repo import InteractionRepo
 from .learner import Learner, LearnResult
 from .recognizer import Recognizer
 from .similarity import SimilarityAnalyzer, SimilarityLink
+
+
+# Maps account role to trust status for paths
+_ROLE_TRUST_MAP: dict[str, str] = {
+    "reader": "observed",
+    "teacher": "taught",
+    "doctor": "verified",
+}
 
 
 # Default question words for built-in taxonomy property types
@@ -48,6 +58,8 @@ class Brain:
         self.association_repo = AssociationRepo(self.conn)
         self.category_repo = CategoryRepo(self.conn)
         self.settings_repo = SettingsRepo(self.conn)
+        self.account_repo = AccountRepo(self.conn)
+        self.interaction_repo = InteractionRepo(self.conn)
 
         # Innate layer — hardwired, survives reset
         from ..innate.primitives import get_all
@@ -70,12 +82,28 @@ class Brain:
         self._load_dynamic_associations()
         self._load_categories()
 
-    def teach(self, statement: str, *, user_initiated: bool = True) -> LearnResult | None:
-        """Teach a fact. Returns None if unparseable."""
+    def teach(self, statement: str, *, user_initiated: bool = True,
+              account_id: int | None = None) -> LearnResult | None:
+        """Teach a fact. Returns None if unparseable.
+
+        If account_id is provided, trust_status is set automatically
+        based on the account's role:
+          reader  -> 'observed'
+          teacher -> 'taught'
+          doctor  -> 'verified'
+        """
         gate = self._ethics.check_action("teach", user_initiated=user_initiated)
         if not gate.allowed:
             raise PermissionError(gate.reason)
-        result = self.learner.learn(statement)
+
+        trust_status = None
+        if account_id is not None:
+            account = self.account_repo.get_by_id(account_id)
+            if account is not None:
+                trust_status = _ROLE_TRUST_MAP.get(account.role)
+
+        result = self.learner.learn(statement, account_id=account_id,
+                                    trust_status=trust_status)
         if result is not None:
             self.conn.commit()
         return result

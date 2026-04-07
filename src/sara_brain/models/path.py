@@ -11,6 +11,9 @@ class Path:
     terminus_id: int
     source_text: str | None = None
     created_at: float = field(default_factory=time.time)
+    account_id: int | None = None
+    trust_status: str | None = None  # 'observed', 'taught', 'verified', 'contested'
+    repetition_count: int = 1
 
 
 @dataclass

@@ -5,6 +5,8 @@ from .path_repo import PathRepo
 from .association_repo import AssociationRepo
 from .category_repo import CategoryRepo
 from .settings_repo import SettingsRepo
+from .account_repo import AccountRepo
+from .interaction_repo import InteractionRepo
 
 __all__ = [
     "Database",
@@ -14,4 +16,6 @@ __all__ = [
     "AssociationRepo",
     "CategoryRepo",
     "SettingsRepo",
+    "AccountRepo",
+    "InteractionRepo",
 ]

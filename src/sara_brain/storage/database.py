@@ -20,6 +20,20 @@ class Database:
     def _apply_schema(self) -> None:
         schema_sql = _SCHEMA_PATH.read_text()
         self.conn.executescript(schema_sql)
+        self._migrate()
+
+    def _migrate(self) -> None:
+        """Add columns to existing tables if missing (safe for fresh DBs)."""
+        cols = {
+            r[1]
+            for r in self.conn.execute("PRAGMA table_info(paths)").fetchall()
+        }
+        if "account_id" not in cols:
+            self.conn.execute("ALTER TABLE paths ADD COLUMN account_id INTEGER REFERENCES accounts(id)")
+        if "trust_status" not in cols:
+            self.conn.execute("ALTER TABLE paths ADD COLUMN trust_status TEXT")
+        if "repetition_count" not in cols:
+            self.conn.execute("ALTER TABLE paths ADD COLUMN repetition_count INTEGER NOT NULL DEFAULT 1")
 
     def close(self) -> None:
         self.conn.close()

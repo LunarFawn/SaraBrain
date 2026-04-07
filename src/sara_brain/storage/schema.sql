@@ -19,11 +19,14 @@ CREATE TABLE IF NOT EXISTS segments (
 );
 
 CREATE TABLE IF NOT EXISTS paths (
-    id          INTEGER PRIMARY KEY,
-    origin_id   INTEGER NOT NULL REFERENCES neurons(id),
-    terminus_id INTEGER NOT NULL REFERENCES neurons(id),
-    source_text TEXT,
-    created_at  REAL
+    id               INTEGER PRIMARY KEY,
+    origin_id        INTEGER NOT NULL REFERENCES neurons(id),
+    terminus_id      INTEGER NOT NULL REFERENCES neurons(id),
+    source_text      TEXT,
+    created_at       REAL,
+    account_id       INTEGER REFERENCES accounts(id),
+    trust_status     TEXT,
+    repetition_count INTEGER NOT NULL DEFAULT 1
 );
 
 CREATE TABLE IF NOT EXISTS path_steps (
@@ -62,11 +65,36 @@ CREATE TABLE IF NOT EXISTS categories (
     category TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS accounts (
+    id          INTEGER PRIMARY KEY,
+    name        TEXT NOT NULL,
+    role        TEXT NOT NULL,
+    pin_hash    TEXT,
+    neuron_id   INTEGER REFERENCES neurons(id),
+    created_at  REAL,
+    is_active   INTEGER NOT NULL DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS interactions (
+    id               INTEGER PRIMARY KEY,
+    account_id       INTEGER NOT NULL REFERENCES accounts(id),
+    interaction_type TEXT NOT NULL,
+    content          TEXT NOT NULL,
+    response         TEXT,
+    path_ids         TEXT,
+    created_at       REAL NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS settings (
     key   TEXT PRIMARY KEY,
     value TEXT NOT NULL
 );
 
+CREATE INDEX IF NOT EXISTS idx_interaction_account ON interactions(account_id, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_interaction_type ON interactions(interaction_type, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_interaction_time ON interactions(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_path_trust ON paths(trust_status);
+CREATE INDEX IF NOT EXISTS idx_path_account ON paths(account_id);
 CREATE INDEX IF NOT EXISTS idx_seg_source ON segments(source_id, strength DESC);
 CREATE INDEX IF NOT EXISTS idx_seg_target ON segments(target_id);
 CREATE INDEX IF NOT EXISTS idx_neuron_label ON neurons(label);

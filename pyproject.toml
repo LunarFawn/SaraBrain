@@ -15,6 +15,7 @@ dev = ["pytest>=7.0", "pytest-asyncio>=0.21"]
 [project.scripts]
 sara = "sara_brain.repl.shell:main"
 sara-agent = "sara_brain.agent.cli:main"
+sara-care = "sara_brain.care.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

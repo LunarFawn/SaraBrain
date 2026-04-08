@@ -89,6 +89,26 @@ BRAIN_TOOLS = [
     },
 ]
 
+BRAIN_CLARIFY_TOOLS = [
+    {
+        "type": "function",
+        "function": {
+            "name": "brain_did_you_mean",
+            "description": "Check if a term has close matches in Sara Brain. Use this when a query returns no results — it may be a misspelling. Returns candidate matches with descriptions so you can ask the user 'did you mean X?'",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "term": {
+                        "type": "string",
+                        "description": "The term to check for close matches",
+                    }
+                },
+                "required": ["term"],
+            },
+        },
+    },
+]
+
 BRAIN_MANAGEMENT_TOOLS = [
     {
         "type": "function",
@@ -104,6 +124,23 @@ BRAIN_MANAGEMENT_TOOLS = [
                     }
                 },
                 "required": ["path"],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "brain_ingest",
+            "description": "Ingest a document into Sara Brain. Sara reads the document, extracts facts, learns them as paths, and reports what she understood. Works with local files (.txt, .md, .html) or URLs (http/https).",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "source": {
+                        "type": "string",
+                        "description": "File path or URL to ingest (e.g., '/path/to/doc.md' or 'https://en.wikipedia.org/wiki/RNA')",
+                    }
+                },
+                "required": ["source"],
             },
         },
     },
@@ -262,7 +299,7 @@ ACTION_TOOLS = [
 
 def get_tool_definitions() -> list[dict]:
     """Return all tool definitions for the Ollama chat API."""
-    return BRAIN_TOOLS + BRAIN_MANAGEMENT_TOOLS + ACTION_TOOLS
+    return BRAIN_TOOLS + BRAIN_CLARIFY_TOOLS + BRAIN_MANAGEMENT_TOOLS + ACTION_TOOLS
 
 
 # ── Dispatch ──
@@ -303,8 +340,12 @@ def dispatch(
         return bridge.context(_get_arg(arguments, "keywords", "query", "topic", "context"))
     if tool_name == "brain_summarize":
         return bridge.summarize(_get_arg(arguments, "topic", "query", "subject", "keywords"))
+    if tool_name == "brain_did_you_mean":
+        return bridge.did_you_mean(_get_arg(arguments, "term", "query", "word"))
     if tool_name == "brain_import":
         return bridge.import_brain(_get_arg(arguments, "path", "file", "file_path"))
+    if tool_name == "brain_ingest":
+        return bridge.ingest(_get_arg(arguments, "source", "path", "url", "file"))
 
     # Action tools
     if tool_name == "read_file":

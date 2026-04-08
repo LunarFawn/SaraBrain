@@ -24,7 +24,7 @@ class Recognizer:
         # Resolve input labels to neurons
         start_neurons: list[Neuron] = []
         for label in input_labels:
-            n = self.neuron_repo.get_by_label(label.strip().lower())
+            n = self.neuron_repo.resolve(label.strip().lower())
             if n is not None:
                 start_neurons.append(n)
 
@@ -110,7 +110,7 @@ class Recognizer:
 
     def trace(self, label: str) -> list[PathTrace]:
         """Trace all outgoing paths from a neuron."""
-        neuron = self.neuron_repo.get_by_label(label.strip().lower())
+        neuron = self.neuron_repo.resolve(label.strip().lower())
         if neuron is None:
             return []
 

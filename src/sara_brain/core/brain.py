@@ -93,7 +93,7 @@ class Brain:
 
     def why(self, label: str) -> list[PathTrace]:
         """Show all paths that lead TO a neuron (reverse lookup)."""
-        neuron = self.neuron_repo.get_by_label(label.strip().lower())
+        neuron = self.neuron_repo.resolve(label.strip().lower())
         if neuron is None:
             return []
 
@@ -117,6 +117,36 @@ class Brain:
             traces.append(PathTrace(neurons=neurons, source_text=p.source_text))
 
         return traces
+
+    def did_you_mean(self, label: str) -> list[dict]:
+        """Return disambiguation candidates for a fuzzy query.
+
+        Returns list of {label, type, distance, method, description} dicts.
+        Empty list if exact match found (no clarification needed).
+        """
+        candidates = self.neuron_repo.resolve_candidates(label.strip().lower())
+        if not candidates:
+            return []
+        # If exact/inflect/prefix match, no clarification needed
+        if candidates[0][2] in ("exact", "inflect", "prefix"):
+            return []
+        results = []
+        for neuron, dist, method in candidates:
+            # Get a brief description from paths leading to this neuron
+            paths = self.path_repo.get_paths_to(neuron.id)
+            desc = ""
+            for p in paths[:1]:
+                if p.source_text and not p.source_text.startswith("["):
+                    desc = p.source_text
+                    break
+            results.append({
+                "label": neuron.label,
+                "type": neuron.neuron_type.value,
+                "distance": dist,
+                "method": method,
+                "description": desc,
+            })
+        return results
 
     def analyze_similarity(self) -> list[SimilarityLink]:
         """Scan for path similarities across all property neurons."""

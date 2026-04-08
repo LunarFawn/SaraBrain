@@ -188,6 +188,97 @@ class AgentBridge:
             self.brain.conn.commit()
         return count
 
+    # ── Disambiguation ──
+
+    def did_you_mean(self, term: str) -> str:
+        """Check for close matches to a term. Returns candidates for disambiguation."""
+        candidates = self.brain.did_you_mean(term)
+        if not candidates:
+            # No fuzzy matches needed — either exact match exists or nothing close
+            n = self.brain.neuron_repo.resolve(term.strip().lower())
+            if n:
+                return f"'{term}' resolved to '{n.label}' (exact match)."
+            return f"No matches found for '{term}'."
+
+        lines = [f"Did you mean one of these? (searching for '{term}')"]
+        for c in candidates:
+            desc = f" — {c['description']}" if c['description'] else ""
+            lines.append(f"  - {c['label']} ({c['type']}){desc}")
+        return "\n".join(lines)
+
+    # ── Document Ingestion ──
+
+    def ingest(self, source: str) -> str:
+        """Ingest a document from a file path or URL into Sara Brain.
+
+        Sara reads the document via the LLM cortex, extracts facts,
+        learns them as paths, and reports what she understood.
+        """
+        source = source.strip()
+
+        # Determine if URL or file path
+        if source.startswith("http://") or source.startswith("https://"):
+            text = self._fetch_url(source)
+            if text.startswith("Error"):
+                return text
+            label = source
+        else:
+            p = Path(source)
+            if not p.is_file():
+                return f"File not found: {source}"
+            try:
+                text = p.read_text(encoding="utf-8")
+            except Exception as e:
+                return f"Error reading {source}: {e}"
+            label = p.name
+
+        if not text.strip():
+            return f"Empty document: {source}"
+
+        try:
+            result = self.brain.ingest(text, source=label)
+        except ValueError as e:
+            return f"Ingest error (is LLM configured?): {e}"
+
+        lines = [f"Ingested: {label}"]
+        lines.append(f"  Facts learned: {result.total_taught}")
+        if result.unknown_concepts:
+            lines.append(f"  Unknown concepts explored: {', '.join(result.unknown_concepts)}")
+        if result.summary:
+            lines.append(f"  Summary: {result.summary}")
+
+        stats = self.brain.stats()
+        lines.append(f"  Brain now: {stats['neurons']} neurons, {stats['segments']} segments, {stats['paths']} paths")
+        return "\n".join(lines)
+
+    @staticmethod
+    def _fetch_url(url: str) -> str:
+        """Fetch text content from a URL. Strips HTML tags for basic extraction."""
+        import re
+        import urllib.request
+
+        try:
+            req = urllib.request.Request(
+                url,
+                headers={"User-Agent": "SaraBrain/0.1 (document ingest)"},
+            )
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                raw = resp.read().decode("utf-8", errors="replace")
+        except Exception as e:
+            return f"Error fetching {url}: {e}"
+
+        # Strip HTML tags for basic text extraction
+        text = re.sub(r"<script[^>]*>.*?</script>", "", raw, flags=re.DOTALL)
+        text = re.sub(r"<style[^>]*>.*?</style>", "", text, flags=re.DOTALL)
+        text = re.sub(r"<[^>]+>", " ", text)
+        # Collapse whitespace
+        text = re.sub(r"\s+", " ", text).strip()
+
+        if len(text) > 50000:
+            text = text[:50000]
+
+        return text
+
     # ── Import/Export ──
 
     def import_brain(self, file_path: str) -> str:

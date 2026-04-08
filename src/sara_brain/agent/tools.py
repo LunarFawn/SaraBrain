@@ -109,6 +109,43 @@ BRAIN_CLARIFY_TOOLS = [
     },
 ]
 
+VOICE_TOOLS = [
+    {
+        "type": "function",
+        "function": {
+            "name": "voice_listen",
+            "description": "Record audio from the microphone and transcribe it to text using local speech recognition (whisper.cpp). Use this when the user wants to speak instead of type. Returns the transcribed text.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "duration": {
+                        "type": "number",
+                        "description": "Recording duration in seconds (default: 5)",
+                    }
+                },
+                "required": [],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "voice_transcribe",
+            "description": "Transcribe an existing audio file to text using local speech recognition (whisper.cpp). Supports WAV, MP3, and other common formats.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Path to the audio file",
+                    }
+                },
+                "required": ["path"],
+            },
+        },
+    },
+]
+
 BRAIN_MANAGEMENT_TOOLS = [
     {
         "type": "function",
@@ -299,7 +336,10 @@ ACTION_TOOLS = [
 
 def get_tool_definitions() -> list[dict]:
     """Return all tool definitions for the Ollama chat API."""
-    return BRAIN_TOOLS + BRAIN_CLARIFY_TOOLS + BRAIN_MANAGEMENT_TOOLS + ACTION_TOOLS
+    # Only include voice tools if whisper.cpp is available
+    from ..nlp.speech import is_available as _voice_available
+    voice = VOICE_TOOLS if _voice_available() else []
+    return BRAIN_TOOLS + BRAIN_CLARIFY_TOOLS + BRAIN_MANAGEMENT_TOOLS + voice + ACTION_TOOLS
 
 
 # ── Dispatch ──
@@ -346,6 +386,21 @@ def dispatch(
         return bridge.import_brain(_get_arg(arguments, "path", "file", "file_path"))
     if tool_name == "brain_ingest":
         return bridge.ingest(_get_arg(arguments, "source", "path", "url", "file"))
+
+    # Voice tools
+    if tool_name == "voice_listen":
+        from ..nlp.speech import record_and_transcribe
+        duration = float(arguments.get("duration", 5))
+        try:
+            return record_and_transcribe(duration=duration)
+        except Exception as e:
+            return f"Voice error: {e}"
+    if tool_name == "voice_transcribe":
+        from ..nlp.speech import transcribe
+        try:
+            return transcribe(_get_arg(arguments, "path", "file"))
+        except Exception as e:
+            return f"Transcribe error: {e}"
 
     # Action tools
     if tool_name == "read_file":

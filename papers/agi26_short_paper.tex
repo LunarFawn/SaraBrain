@@ -1,0 +1,144 @@
+\documentclass[runningheads]{llncs}
+
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{Path-of-Thought: A Persistent Memory Architecture\\for LLM Steering Through Neuron-Chain\\Knowledge Graphs}
+
+\author{Jennifer Pearl\orcidID{0009-0006-6083-384X}}
+
+\authorrunning{J. Pearl}
+
+\institute{University of Houston, Center for Nuclear Receptors and Cell Signaling\\
+\email{jenpearl5@gmail.com}}
+
+\maketitle
+
+\begin{abstract}
+We present Sara Brain, a cognitive architecture in which knowledge is stored as directed neuron-segment chains with full source-text provenance, and concept recognition is performed through parallel wavefront convergence. Concept-specific relation neurons structurally prevent cross-concept contamination. Knowledge accumulates monotonically under a logarithmic strength formula modeling biological long-term potentiation. The system implements a two-layer architecture pairing a stateless LLM (sensory cortex) with a persistent path graph (hippocampus). In experiments, a 94KB path graph (77 neurons) reliably steered a billion-parameter LLM toward principled code, and a 500KB graph (793 neurons) transformed a 3B-parameter model into a system producing domain-expert-level output on planetary physics. The entire system runs on Python 3.11+ standard library with zero dependencies.
+
+\keywords{cognitive architecture \and knowledge representation \and path-of-thought \and parallel wavefront recognition \and LLM steering \and persistent memory}
+\end{abstract}
+
+\section{Introduction}
+
+The dominant paradigm in artificial intelligence encodes knowledge implicitly in billions of floating-point parameters trained on large corpora. This produces capable systems that cannot explain their reasoning. When output is incorrect, there is no traceable path from input to error.
+
+This work starts from a different premise: a thought is a path through recorded knowledge, and recognition is the convergence of independent paths from simultaneous observations. This idea, originating in the 1990s, predates transformers and deep learning. We present Sara Brain, a working implementation that makes knowledge paths the primary data structure rather than an artifact to be recovered through interpretability techniques.
+
+The central contribution is not the path-graph architecture alone but its pairing with large language models: the LLM functions as stateless sensory cortex (feature extraction), while the path graph functions as persistent hippocampus (memory formation and retrieval). This mirrors the biological division between sensory processing and memory that evolved precisely because stateless perception is insufficient for intelligence.
+
+\section{Architecture}
+
+\subsection{Data Model}
+
+Knowledge is stored in three structures. \textbf{Neurons} are typed nodes: concept neurons (entities), property neurons (attributes), relation neurons (concept-specific connectors), and association neurons (inter-concept links). \textbf{Segments} are directed weighted edges between neurons, with strength computed as $1 + \ln(1 + \textit{traversals})$, modeling biological long-term potentiation~\cite{bliss1973}. Strength is strictly monotonically increasing---no decay exists. \textbf{Paths} are recorded neuron chains preserving the original natural-language source text.
+
+\subsection{Concept-Specific Relation Neurons}
+
+This is the central structural innovation. Teaching ``apple is red'' and ``banana is yellow'' creates distinct relation neurons:
+
+\smallskip
+\noindent\texttt{red $\rightarrow$ apple\_color $\rightarrow$ apple}\\
+\texttt{yellow $\rightarrow$ banana\_color $\rightarrow$ banana}
+\smallskip
+
+\noindent The relation label \texttt{\{subject\}\_\{property\_type\}} ensures no wavefront from \texttt{red} can propagate to \texttt{banana} through shared structure. Cross-concept contamination is structurally impossible, modeling hippocampal context-specific encoding that prevents interference between similar memories~\cite{yassa2011}.
+
+\subsection{Parallel Wavefront Recognition}
+
+Given input labels, one independent wavefront is launched per input simultaneously. Each performs breadth-first traversal through reachable segments. Any concept neuron reached by two or more independent wavefronts is a recognition candidate, ranked by convergence count. Recognition confidence is the count of independent lines of evidence---deterministic, not statistical.
+
+For inputs \{red, round, crunchy\}: the \texttt{red} wavefront reaches apple, ball, cherry; \texttt{round} reaches apple, ball; \texttt{crunchy} reaches only apple. Apple is recognized with confidence~3 (three converging wavefronts). Full path traces with source texts are returned.
+
+\subsection{The LLM-as-Sensory-Cortex Architecture}
+
+Transformer attention is parallel wavefront propagation encoded in weight matrices~\cite{ramsauer2021}. Sara Brain makes this mechanism explicit and persistent. The architectural division maps to biology: sensory cortex is stateless, extracts features without persistent storage, and does not learn from processing alone. LLMs share all three properties. The biological solution is the hippocampus---a separate structure forming permanent memories through Hebbian co-activation~\cite{hebb1949}. Sara Brain is the computational hippocampus: input passes through the LLM (feature extraction) into the path graph (permanent memory), mirroring the retina$\rightarrow$cortex$\rightarrow$hippocampus pipeline. A hardwired innate layer (SENSORY, STRUCTURAL, RELATIONAL, ETHICAL primitives) enforces behavioral constraints at the API level, surviving database reset.
+
+\section{Experiments}
+
+\subsection{Experiment 1: Code Quality Steering}
+
+A Sara Brain instance containing 77 neurons, 56 segments, and 31 paths encoding software engineering principles (94KB database) was connected to an Amazon Q Developer agent. The same agent without Sara Brain served as control. Both received an identical task: write a Python program adding animal group counts. With Sara Brain, the output was parameterized with defaults, separated into frontend/backend functions, and directly unit-testable. Without it, the output was a monolithic block with hardcoded \texttt{input()} calls requiring mock-based testing. Every difference traces to a specific stored path. The ratio of path-graph knowledge to model parameters is approximately 1:10,000,000.
+
+\subsection{Experiment 2: Minimal Model Augmentation}
+
+A 793-neuron, 500KB Sara Brain instance (knowledge from Wikipedia on Newton's laws and the solar system) was paired with \texttt{qwen2.5-coder:3b}---a 3B-parameter model running locally via Ollama. No fine-tuning, no RAG pipeline, no vector database.
+
+The 3B model produced structured, categorized output on planetary motion: correct three-class planet taxonomy, all three Kepler's laws with formal names and definitions, and gravitational force relationships. A naive 3B coding model lacks the parameter capacity for this domain knowledge. The knowledge came from Sara's paths; the language came from the model's weights. When a user corrected an error in the model's dwarf planet definition, the correction was accepted and recordable as a new path---demonstrating that user corrections override training data.
+
+\subsection{Resource Asymmetry}
+
+\begin{table}[h]
+\centering
+\caption{Resource comparison: scaling model parameters vs.\ persistent memory.}
+\label{tab:resources}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Resource & Large Model Approach & Sara Brain Approach \\
+\midrule
+Model size & 70B--400B+ parameters & 3B (smallest viable) \\
+Training cost & \$10M--\$100M+ & \$0 (no training) \\
+Add one fact & Retrain or fine-tune & One SQLite INSERT \\
+Persistence & Lost at session end & Permanent \\
+Traceability & Not inspectable & Full path provenance \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Discussion and Conclusion}
+
+Sara Brain demonstrates that a small, persistent, fully traceable knowledge base can reliably steer LLM output---without retraining, fine-tuning, or GPU infrastructure. The architecture makes catastrophic forgetting~\cite{french1999} structurally impossible: new learning creates new neurons and segments without modifying existing paths. The system has been applied in a professional computational biology context to steer LLM-generated scientific code for RNA dynamics modeling~\cite{pearl2022,pearl2024,tse2025}.
+
+We argue the AI industry is over-investing in cortex capacity and under-investing in memory architecture. Biological brains did not evolve by scaling the visual cortex until it could remember---they evolved a hippocampus. Sara Brain implements that insight: build the memory, not a bigger cortex. The system is implemented in pure Python with zero dependencies, is LLM-agnostic, and is available at \url{https://github.com/LunarFawn/SaraBrain}.
+
+\begin{thebibliography}{12}
+
+\bibitem{yassa2011}
+Yassa, M.A., Stark, C.E.L.: Pattern separation in the hippocampus. Trends in Neurosciences \textbf{34}(10), 515--525 (2011)
+
+\bibitem{bliss1973}
+Bliss, T.V.P., L{\o}mo, T.: Long-lasting potentiation of synaptic transmission in the dentate area of the anaesthetized rabbit following stimulation of the perforant path. Journal of Physiology \textbf{232}(2), 331--356 (1973)
+
+\bibitem{ramsauer2021}
+Ramsauer, H., et al.: Hopfield Networks is All You Need. In: ICLR 2021
+
+\bibitem{hebb1949}
+Hebb, D.O.: The Organization of Behavior. Wiley (1949)
+
+\bibitem{french1999}
+French, R.M.: Catastrophic forgetting in connectionist networks. Trends in Cognitive Sciences \textbf{3}(4), 128--135 (1999)
+
+\bibitem{pearl2022}
+Pearl, J., et al.: Crowdsourced RNA design discovers diverse, reversible, efficient, self-contained molecular switches. PNAS \textbf{119}(18) (2022)
+
+\bibitem{pearl2024}
+Pearl, J., et al.: Exploring the Accuracy of Ab Initio Prediction Methods for Viral Pseudoknotted RNA Structures: Retrospective Cohort Study. JMIRx Bio (2024)
+
+\bibitem{tse2025}
+Tse, V., et al.: OpenASO: RNA Rescue---designing splice-modulating antisense oligonucleotides through community science. RNA \textbf{31}(8), 1091--1102 (2025)
+
+\bibitem{vaswani2017}
+Vaswani, A., et al.: Attention Is All You Need. In: NeurIPS 2017
+
+\bibitem{elhage2021}
+Elhage, N., et al.: A Mathematical Framework for Transformer Circuits. Transformer Circuits Thread, Anthropic (2021)
+
+\bibitem{olsson2022}
+Olsson, C., et al.: In-context Learning and Induction Heads. Transformer Circuits Thread, Anthropic (2022)
+
+\bibitem{quiroga2005}
+Quiroga, R.Q., et al.: Invariant visual representation by single neurons in the human brain. Nature \textbf{435}(7045), 1102--1107 (2005)
+
+\bibitem{templeton2024}
+Templeton, A., et al.: Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet. Anthropic Research (2024)
+
+\end{thebibliography}
+
+\end{document}

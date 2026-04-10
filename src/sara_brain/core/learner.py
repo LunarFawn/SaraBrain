@@ -45,7 +45,25 @@ class Learner:
             return None
         return self._build_chain(parsed)
 
-    def _build_chain(self, parsed: ParsedStatement) -> LearnResult:
+    def unlearn(self, text: str) -> LearnResult | None:
+        """Refute a statement. Mirrors learn() but weakens segments
+        instead of strengthening them.
+
+        Sara never deletes — she marks the claim as known-to-be-false
+        by incrementing refutations on the segments. Strength can go
+        negative when refutations exceed validations. The path itself
+        is preserved so Sara remembers what was once claimed.
+        """
+        parsed = self.parser.parse(text)
+        if parsed is None:
+            return None
+        return self._build_chain(parsed, refute=True)
+
+    def _build_chain(
+        self,
+        parsed: ParsedStatement,
+        refute: bool = False,
+    ) -> LearnResult:
         neurons_created = 0
         segments_created = 0
 
@@ -74,12 +92,16 @@ class Learner:
             neurons_created += 1
 
         # 4. Build segments: property → relation → concept
+        # If refute=True, weaken existing or create-then-weaken so the
+        # segments record the refutation in their counters.
         seg1, created = self.segment_repo.get_or_create(
             prop_neuron.id, relation_neuron.id, parsed.relation
         )
         if created:
             segments_created += 1
-        else:
+        if refute:
+            self.segment_repo.weaken(seg1)
+        elif not created:
             self.segment_repo.strengthen(seg1)
 
         seg2, created = self.segment_repo.get_or_create(
@@ -87,15 +109,21 @@ class Learner:
         )
         if created:
             segments_created += 1
-        else:
+        if refute:
+            self.segment_repo.weaken(seg2)
+        elif not created:
             self.segment_repo.strengthen(seg2)
 
-        # 5. Record the path
+        # 5. Record the path. Refutations get a [refuted] prefix on
+        # source_text so provenance is preserved.
+        source_text = (
+            f"[refuted] {parsed.original}" if refute else parsed.original
+        )
         path = Path(
             id=None,
             origin_id=prop_neuron.id,
             terminus_id=concept_neuron.id,
-            source_text=parsed.original,
+            source_text=source_text,
         )
         path = self.path_repo.create(path)
 

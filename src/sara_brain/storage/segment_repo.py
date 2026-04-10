@@ -11,10 +11,11 @@ class SegmentRepo:
 
     def create(self, segment: Segment) -> Segment:
         cur = self.conn.execute(
-            "INSERT INTO segments (source_id, target_id, relation, strength, traversals, created_at, last_used) "
-            "VALUES (?, ?, ?, ?, ?, ?, ?)",
+            "INSERT INTO segments (source_id, target_id, relation, strength, traversals, refutations, created_at, last_used) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
             (segment.source_id, segment.target_id, segment.relation,
-             segment.strength, segment.traversals, segment.created_at, segment.last_used),
+             segment.strength, segment.traversals, segment.refutations,
+             segment.created_at, segment.last_used),
         )
         segment.id = cur.lastrowid
         return segment
@@ -62,6 +63,16 @@ class SegmentRepo:
             (segment.strength, segment.traversals, segment.last_used, segment.id),
         )
 
+    def weaken(self, segment: Segment) -> None:
+        """Refute a segment — increment refutations, decrease strength.
+        Path is never deleted; the refutation becomes part of the knowledge.
+        """
+        segment.weaken()
+        self.conn.execute(
+            "UPDATE segments SET strength = ?, refutations = ?, last_used = ? WHERE id = ?",
+            (segment.strength, segment.refutations, segment.last_used, segment.id),
+        )
+
     def list_all(self) -> list[Segment]:
         rows = self.conn.execute("SELECT * FROM segments ORDER BY id").fetchall()
         return [self._row_to_segment(r) for r in rows]
@@ -71,6 +82,16 @@ class SegmentRepo:
 
     @staticmethod
     def _row_to_segment(row: tuple) -> Segment:
+        # Schema: id, source_id, target_id, relation, strength, traversals,
+        #         refutations (new), created_at, last_used
+        # Backward compat: if refutations column missing, default to 0
+        if len(row) == 8:
+            # Old schema without refutations
+            return Segment(
+                id=row[0], source_id=row[1], target_id=row[2], relation=row[3],
+                strength=row[4], traversals=row[5], refutations=0,
+                created_at=row[6], last_used=row[7],
+            )
         return Segment(
             id=row[0],
             source_id=row[1],
@@ -78,6 +99,7 @@ class SegmentRepo:
             relation=row[3],
             strength=row[4],
             traversals=row[5],
-            created_at=row[6],
-            last_used=row[7],
+            refutations=row[6],
+            created_at=row[7],
+            last_used=row[8],
         )

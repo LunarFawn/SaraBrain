@@ -18,8 +18,28 @@ class Database:
         self._apply_schema()
 
     def _apply_schema(self) -> None:
+        # Migrate existing tables BEFORE running full schema,
+        # because schema may include indexes on new columns.
+        self._migrate()
         schema_sql = _SCHEMA_PATH.read_text()
         self.conn.executescript(schema_sql)
+
+    def _migrate(self) -> None:
+        """Add columns to existing tables if missing (safe for fresh DBs)."""
+        # Skip if segments table doesn't exist yet (fresh DB)
+        try:
+            cols = {
+                r[1]
+                for r in self.conn.execute("PRAGMA table_info(segments)").fetchall()
+            }
+        except sqlite3.OperationalError:
+            return
+        if not cols:
+            return
+        if "refutations" not in cols:
+            self.conn.execute(
+                "ALTER TABLE segments ADD COLUMN refutations INTEGER NOT NULL DEFAULT 0"
+            )
 
     def close(self) -> None:
         self.conn.close()

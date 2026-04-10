@@ -164,6 +164,30 @@ def brain_teach(statement: str) -> str:
 
 
 @mcp.tool()
+def brain_refute(statement: str) -> str:
+    """Refute a fact in Sara Brain. Sara never deletes — she marks the
+    claim as known-to-be-false. The path stays as evidence of what was
+    once claimed; its strength goes negative.
+
+    Use this when correcting a hallucination, marking a debunked claim,
+    or recording that something is no longer true.
+
+    Examples:
+        "the earth is flat"
+        "vitamin C cures the common cold"
+        "metformin is contraindicated with insulin"
+
+    Repeated refutation drives strength further negative. Recognition
+    will then weight this concept as actively-known-false.
+    """
+    brain = _get_brain()
+    result = brain.refute(statement)
+    if result is None:
+        return f"Could not parse: '{statement}'. Try 'X is/are Y' format."
+    return f"Refuted: {result.path_label} (path #{result.path_id}, marked as known-to-be-false)"
+
+
+@mcp.tool()
 def brain_did_you_mean(term: str) -> str:
     """Check for close matches to a term in Sara Brain.
 

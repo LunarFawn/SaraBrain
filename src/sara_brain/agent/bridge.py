@@ -188,6 +188,13 @@ class AgentBridge:
             self.brain.conn.commit()
         return count
 
+    def refute(self, statement: str) -> str:
+        """Refute a fact. Sara marks it as known-to-be-false but never deletes it."""
+        result = self.brain.refute(statement)
+        if result is None:
+            return f"Could not parse: '{statement}'"
+        return f"Refuted: {result.path_label} (now marked known-to-be-false)"
+
     # ── Disambiguation ──
 
     def did_you_mean(self, term: str) -> str:

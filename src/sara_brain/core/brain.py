@@ -80,6 +80,23 @@ class Brain:
             self.conn.commit()
         return result
 
+    def refute(self, statement: str, *, user_initiated: bool = True) -> LearnResult | None:
+        """Refute a fact. Sara never deletes — she marks the claim as
+        known-to-be-false by incrementing refutations on the segments.
+
+        The path is preserved with a [refuted] prefix in source_text so
+        Sara remembers what was once claimed and now knows is wrong.
+
+        Returns None if unparseable.
+        """
+        gate = self._ethics.check_action("teach", user_initiated=user_initiated)
+        if not gate.allowed:
+            raise PermissionError(gate.reason)
+        result = self.learner.unlearn(statement)
+        if result is not None:
+            self.conn.commit()
+        return result
+
     def recognize(self, inputs: str) -> list[RecognitionResult]:
         """Recognize from comma-separated input labels."""
         labels = [l.strip() for l in inputs.split(",") if l.strip()]
@@ -92,7 +109,12 @@ class Brain:
         return self.recognizer.trace(label)
 
     def why(self, label: str) -> list[PathTrace]:
-        """Show all paths that lead TO a neuron (reverse lookup)."""
+        """Show all paths that lead TO a neuron (reverse lookup).
+
+        Each PathTrace carries the signed weight of its segments. Refuted
+        paths (negative weight) are preserved — Sara remembers what was
+        once claimed and now knows is false.
+        """
         neuron = self.neuron_repo.resolve(label.strip().lower())
         if neuron is None:
             return []
@@ -102,11 +124,13 @@ class Brain:
         for p in paths:
             steps = self.path_repo.get_steps(p.id)
             neurons = []
+            seg_strengths: list[float] = []
             # Walk the segments to reconstruct the neuron chain
             for step in steps:
                 seg = self.segment_repo.get_by_id(step.segment_id)
                 if seg is None:
                     continue
+                seg_strengths.append(seg.strength)
                 if not neurons:
                     source = self.neuron_repo.get_by_id(seg.source_id)
                     if source:
@@ -114,7 +138,14 @@ class Brain:
                 target = self.neuron_repo.get_by_id(seg.target_id)
                 if target:
                     neurons.append(target)
-            traces.append(PathTrace(neurons=neurons, source_text=p.source_text))
+            weight = (
+                sum(seg_strengths) / len(seg_strengths)
+                if seg_strengths
+                else 0.0
+            )
+            traces.append(
+                PathTrace(neurons=neurons, source_text=p.source_text, weight=weight)
+            )
 
         return traces
 

@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS segments (
     relation    TEXT NOT NULL,
     strength    REAL NOT NULL DEFAULT 1.0,
     traversals  INTEGER NOT NULL DEFAULT 0,
+    refutations INTEGER NOT NULL DEFAULT 0,
     created_at  REAL,
     last_used   REAL,
     UNIQUE(source_id, target_id, relation)

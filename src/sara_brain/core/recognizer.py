@@ -51,17 +51,41 @@ class Recognizer:
             traces: list[PathTrace] = []
             for _source_id, path_lists in sources.items():
                 for path_neurons in path_lists:
-                    traces.append(PathTrace(neurons=path_neurons))
+                    weight = self._path_weight(path_neurons)
+                    traces.append(PathTrace(neurons=path_neurons, weight=weight))
 
             results.append(RecognitionResult(neuron=target_neuron, converging_paths=traces))
 
-        # Strengthen traversed segments
+        # Strengthen traversed segments (only for non-refuted recognitions)
         self._strengthen_traversed(wavefront_results)
 
-        # Sort by confidence (most converging paths first)
-        results.sort(key=lambda r: r.confidence, reverse=True)
+        # Sort by signed confidence (most strongly recognized first;
+        # refuted concepts sink to the bottom)
+        results.sort(key=lambda r: r.signed_confidence, reverse=True)
 
         return results
+
+    def _path_weight(self, path_neurons: list[Neuron]) -> float:
+        """Compute the signed weight of a path as the average of segment strengths.
+
+        A path of strong (positive) segments has positive weight.
+        A path of refuted (negative) segments has negative weight.
+        Mixed paths cancel proportionally.
+        """
+        if len(path_neurons) < 2:
+            return 0.0
+        total = 0.0
+        count = 0
+        for i in range(len(path_neurons) - 1):
+            src_id = path_neurons[i].id
+            tgt_id = path_neurons[i + 1].id
+            segments = self.segment_repo.get_outgoing(src_id)
+            for seg in segments:
+                if seg.target_id == tgt_id:
+                    total += seg.strength
+                    count += 1
+                    break
+        return total / count if count > 0 else 0.0
 
     def _propagate(self, start: Neuron) -> dict[int, list[list[Neuron]]]:
         """BFS wavefront from a single neuron. Returns {reached_id: [[path_neurons]]}."""
@@ -118,6 +142,7 @@ class Recognizer:
         traces: list[PathTrace] = []
         for _target_id, path_lists in reached.items():
             for path_neurons in path_lists:
-                traces.append(PathTrace(neurons=path_neurons))
+                weight = self._path_weight(path_neurons)
+                traces.append(PathTrace(neurons=path_neurons, weight=weight))
 
         return traces

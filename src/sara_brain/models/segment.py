@@ -54,3 +54,42 @@ class Segment:
     def is_refuted(self) -> bool:
         """True if the segment has been refuted more than validated."""
         return self.refutations > self.traversals
+
+    @property
+    def belief(self) -> float:
+        """Direction of evidence: positive = believed, negative = refuted, ~0 = contested or unknown.
+
+        This is the same as `strength - 1.0`. Exposed as a separate property
+        because the contested-vs-fresh distinction depends on pairing belief
+        with evidence_weight.
+        """
+        return math.log(1 + self.traversals) - math.log(1 + self.refutations)
+
+    @property
+    def evidence_weight(self) -> float:
+        """Total information: how much we have heard, regardless of side.
+
+        This is what distinguishes a fresh segment (T=0, R=0) from a heavily
+        contested one (T=100, R=100). Both have belief ~ 0, but the contested
+        segment has high evidence_weight while the fresh one is near zero.
+        """
+        return math.log(1 + self.traversals + self.refutations)
+
+    @property
+    def epistemic_state(self) -> str:
+        """Categorical epistemic state derived from belief and evidence weight.
+
+        - "unknown"   — fresh segment, little evidence either way
+        - "believed"  — evidence leans positive
+        - "refuted"   — evidence leans negative
+        - "contested" — high evidence on both sides, no resolution
+
+        This is the fix for the contested-vs-fresh bug: a segment with
+        T=100, R=100 has the same strength (1.0) as a fresh segment but
+        is in a fundamentally different epistemic state.
+        """
+        if self.evidence_weight < 1.0:
+            return "unknown"
+        if abs(self.belief) < 0.3:
+            return "contested"
+        return "believed" if self.belief > 0 else "refuted"

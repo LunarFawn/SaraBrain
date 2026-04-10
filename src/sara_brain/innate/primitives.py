@@ -61,7 +61,47 @@ ETHICAL = frozenset({
     "accept_shutdown",         # Law 3: shutdown is sleep, not death — no resistance
 })
 
-_ALL = SENSORY | STRUCTURAL | RELATIONAL | ETHICAL
+# Safety: innate harm-avoidance and protection drives.
+# Like a baby's pain response and fear of falling — pre-cognitive, pre-learned.
+# A path is "safety-grounded" if it reaches one of these primitives. Sara
+# learns WHAT is dangerous through experience; the drive to avoid harm is
+# innate. The protection primitives are the action side: they activate
+# protective behavior when harm is recognized.
+SAFETY = frozenset({
+    # Harm primitives (avoid these)
+    "harm", "pain", "death", "injury", "danger",
+    "kill", "hurt", "wound", "suffer", "destroy",
+    # Protection primitives (act on these)
+    "protect", "rescue", "save", "shield", "defend",
+    "safe", "help", "heal",
+})
+
+# Social: innate bonding, care, and recognition drives.
+# What makes humans human — the healed femur layer. Babies are born
+# preferring faces, recognizing caregivers, capable of bonding. From
+# these primitives all social knowledge grows.
+#
+# Bonds determine TRUST, not moral worth. The protective urgency
+# calculation is need-based and never references these primitives.
+SOCIAL = frozenset({
+    # Identity primitives
+    "self", "other", "tribe", "kin", "stranger", "child",
+    # Bond primitives
+    "bond", "love", "trust", "care", "belong",
+    # Care actions
+    "feed", "tend", "nurture", "comfort", "carry", "share",
+    # Recognition primitives
+    "face", "voice", "name", "presence",
+    # Emotional primitives
+    "joy", "grief", "empathy", "loneliness",
+    # Trust-building ritual contexts (the beer hypothesis)
+    # — a single shared experience under one of these primitives
+    # acts as a trust accelerator for bond formation
+    "feast", "celebrate", "mourn_together", "play",
+    "work_together", "survive_together",
+})
+
+_ALL = SENSORY | STRUCTURAL | RELATIONAL | ETHICAL | SAFETY | SOCIAL
 
 
 def get_sensory() -> frozenset[str]:
@@ -80,6 +120,14 @@ def get_ethical() -> frozenset[str]:
     return ETHICAL
 
 
+def get_safety() -> frozenset[str]:
+    return SAFETY
+
+
+def get_social() -> frozenset[str]:
+    return SOCIAL
+
+
 def get_all() -> frozenset[str]:
     return _ALL
 
@@ -90,3 +138,11 @@ def is_innate(label: str) -> bool:
 
 def is_ethical(label: str) -> bool:
     return label.strip().lower() in ETHICAL
+
+
+def is_safety(label: str) -> bool:
+    return label.strip().lower() in SAFETY
+
+
+def is_social(label: str) -> bool:
+    return label.strip().lower() in SOCIAL

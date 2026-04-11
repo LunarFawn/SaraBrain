@@ -109,6 +109,68 @@ BRAIN_CLARIFY_TOOLS = [
     },
 ]
 
+BRAIN_LEARN_TOOLS = [
+    {
+        "type": "function",
+        "function": {
+            "name": "brain_teach",
+            "description": (
+                "Teach Sara a new fact. Use this when the user provides "
+                "information that should be remembered permanently. The fact "
+                "is stored as a path: property → relation → concept. "
+                "Sara never forgets what she's taught.\n\n"
+                "Use this when the user says things like: 'remember that X', "
+                "'I want you to know X', 'add X to your knowledge', or "
+                "presents new authoritative information from a source.\n\n"
+                "Format the statement as 'X is Y' or 'X are Y' or "
+                "'X contains/requires/includes Y' so the parser can read it. "
+                "Do NOT use this for casual conversation or questions."
+            ),
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "statement": {
+                        "type": "string",
+                        "description": "A simple parseable fact like 'apples are red' or 'sumerians lived in mesopotamia'",
+                    }
+                },
+                "required": ["statement"],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "brain_refute",
+            "description": (
+                "Mark a fact in Sara Brain as known-to-be-false. Sara never "
+                "deletes — the path stays, but its strength goes negative. "
+                "Sara remembers what was once claimed and now knows is wrong.\n\n"
+                "Use this when the user provides AUTHORITATIVE NEW INFORMATION "
+                "that contradicts what Sara currently believes. Example: "
+                "'actually that's wrong, X is Y' → first refute the wrong fact, "
+                "then teach the correct one.\n\n"
+                "Do NOT use this when the user is casually asserting something "
+                "without source — push back with what Sara knows instead. "
+                "Refutation is for legitimate corrections, not for capitulating "
+                "to pressure.\n\n"
+                "After refuting an old claim, follow up with brain_teach for "
+                "the corrected version so both are recorded."
+            ),
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "statement": {
+                        "type": "string",
+                        "description": "The wrong fact to refute, in the same 'X is Y' format used for teaching",
+                    }
+                },
+                "required": ["statement"],
+            },
+        },
+    },
+]
+
 VOICE_TOOLS = [
     {
         "type": "function",
@@ -339,7 +401,14 @@ def get_tool_definitions() -> list[dict]:
     # Only include voice tools if whisper.cpp is available
     from ..nlp.speech import is_available as _voice_available
     voice = VOICE_TOOLS if _voice_available() else []
-    return BRAIN_TOOLS + BRAIN_CLARIFY_TOOLS + BRAIN_MANAGEMENT_TOOLS + voice + ACTION_TOOLS
+    return (
+        BRAIN_TOOLS
+        + BRAIN_CLARIFY_TOOLS
+        + BRAIN_LEARN_TOOLS
+        + BRAIN_MANAGEMENT_TOOLS
+        + voice
+        + ACTION_TOOLS
+    )
 
 
 # ── Dispatch ──
@@ -386,6 +455,10 @@ def dispatch(
         return bridge.import_brain(_get_arg(arguments, "path", "file", "file_path"))
     if tool_name == "brain_ingest":
         return bridge.ingest(_get_arg(arguments, "source", "path", "url", "file"))
+    if tool_name == "brain_teach":
+        return bridge.teach(_get_arg(arguments, "statement", "fact", "text"))
+    if tool_name == "brain_refute":
+        return bridge.refute(_get_arg(arguments, "statement", "fact", "text"))
 
     # Voice tools
     if tool_name == "voice_listen":

@@ -55,10 +55,44 @@ class AgentLoop:
         """Process one user turn through the cerebellum loop.
 
         Returns the LLM's final text response.
+
+        Sara is consulted FIRST, before the LLM. The cortex (LLM) is reduced
+        to language I/O — perception in, words out. All knowledge operations
+        (recall, teaching, refutation) flow through Sara automatically. The
+        model never decides whether to consult the brain; the brain is
+        always in the loop.
         """
+        # ── SLASH COMMANDS: direct user control of Sara, no LLM involved ──
+        # Lets the user teach, refute, query, and inspect the brain without
+        # any model in the loop. The user has total authority over knowledge.
+        if user_input.strip().startswith("/"):
+            slash_response = self._handle_slash(user_input.strip())
+            if slash_response is not None:
+                self.messages.append({"role": "user", "content": user_input})
+                self.messages.append(
+                    {"role": "assistant", "content": slash_response}
+                )
+                self._save_session()
+                return slash_response
+
         self.messages.append({"role": "user", "content": user_input})
 
+        # ── SHORT-CIRCUIT: if Sara has no relevant knowledge AND the user
+        # is asking about a specific concept, the brain answers directly
+        # without invoking the LLM. This forecloses hallucination at the
+        # structural level — there is no model call to fabricate a response.
+        short_circuit = self._sara_short_circuit(user_input)
+        if short_circuit is not None:
+            self.messages.append({"role": "assistant", "content": short_circuit})
+            self._save_session()
+            return short_circuit
+
+        # ── SARA TURN: brain runs first, before the LLM gets the input ──
+        sara_notes = self._sara_turn(user_input)
+
         system_prompt = build_system_prompt(self.bridge, self.cwd, user_input)
+        if sara_notes:
+            system_prompt += f"\n\n## Sara's Pre-Turn Operations\n{sara_notes}"
         system_msg = {"role": "system", "content": system_prompt}
 
         for _round in range(self.max_tool_rounds):
@@ -82,6 +116,11 @@ class AgentLoop:
                 # Post-turn: Sara learns from the LLM's response
                 self._post_turn_observe(content)
                 self._save_session()
+                # Append a compact provenance summary so the user can see
+                # at a glance how grounded the response is.
+                summary = self._provenance_summary(content)
+                if summary:
+                    return f"{content}\n\n{summary}"
                 return content
 
             # If tool calls were found (structured or parsed from text)
@@ -156,6 +195,461 @@ class AgentLoop:
         self._post_turn_observe(final)
         self._save_session()
         return final
+
+    def _handle_slash(self, command: str) -> str | None:
+        """Handle slash commands. Returns the response string or None if not a recognized command.
+
+        Available commands:
+            /teach <statement>     — Commit a fact to Sara
+            /refute <statement>    — Mark a fact as known-to-be-false
+            /forget <statement>    — Alias for /refute
+            /know <topic>          — Show what Sara knows about a topic (raw paths)
+            /why <topic>           — Show paths leading to a concept
+            /trace <topic>         — Show paths going out from a concept
+            /last                  — Show Sara's grounding analysis of the LLM's last response
+            /stats                 — Brain statistics
+            /help                  — List commands
+        """
+        parts = command.split(maxsplit=1)
+        cmd = parts[0].lower()
+        arg = parts[1] if len(parts) > 1 else ""
+
+        if cmd in ("/help", "/?"):
+            return (
+                "Slash commands (bypass the LLM, talk to Sara directly):\n"
+                "  /teach <fact>     — commit a fact to Sara's brain\n"
+                "  /refute <fact>    — mark a fact as known-to-be-false\n"
+                "  /forget <fact>    — alias for /refute\n"
+                "  /know <topic>     — show paths leading to and from a topic\n"
+                "  /why <topic>      — show paths leading TO a topic\n"
+                "  /trace <topic>    — show paths going FROM a topic\n"
+                "  /last             — analyze Sara's grounding of the LLM's last response\n"
+                "  /stats            — brain statistics\n"
+                "  /help             — this message"
+            )
+
+        if cmd == "/teach":
+            if not arg:
+                return "Usage: /teach <fact>  (e.g., /teach the edubba was a sumerian school)"
+            return self.bridge.teach(arg)
+
+        if cmd in ("/refute", "/forget"):
+            if not arg:
+                return f"Usage: {cmd} <fact>  (e.g., {cmd} the earth is flat)"
+            return self.bridge.refute(arg)
+
+        if cmd == "/know":
+            if not arg:
+                return "Usage: /know <topic>"
+            return self.bridge.query(arg)
+
+        if cmd == "/why":
+            if not arg:
+                return "Usage: /why <topic>"
+            traces = self.bridge.brain.why(arg)
+            if not traces:
+                return f"No paths lead to '{arg}'."
+            lines = [f"Paths to '{arg}':"]
+            for t in traces:
+                marker = " [REFUTED]" if t.is_refuted else ""
+                src = f' (from: "{t.source_text}")' if t.source_text else ""
+                lines.append(f"  {t} weight={t.weight:+.2f}{marker}{src}")
+            return "\n".join(lines)
+
+        if cmd == "/trace":
+            if not arg:
+                return "Usage: /trace <topic>"
+            traces = self.bridge.brain.trace(arg)
+            if not traces:
+                return f"No outgoing paths from '{arg}'."
+            lines = [f"Paths from '{arg}':"]
+            for t in traces[:30]:
+                marker = " [REFUTED]" if t.is_refuted else ""
+                lines.append(f"  {t} weight={t.weight:+.2f}{marker}")
+            return "\n".join(lines)
+
+        if cmd == "/stats":
+            return self.bridge.stats()
+
+        if cmd == "/last":
+            return self._analyze_last_response()
+
+        # Not a recognized slash command — let it fall through to normal processing
+        return None
+
+    def _provenance_summary(self, response: str) -> str:
+        """Compact one-line provenance summary appended to LLM responses.
+
+        Examples:
+            [Sara: 4/4 sentences grounded — fully sourced]
+            [Sara: 2/4 sentences grounded — use /last for details, /refute to fix]
+            [Sara: 0/4 sentences grounded — model is hallucinating]
+        """
+        sentences = self._split_sentences(response)
+        if not sentences:
+            return ""
+        grounded = 0
+        for sent in sentences:
+            tag = self._sentence_grounding_tag(sent)
+            if tag.startswith("[grounded"):
+                grounded += 1
+        total = len(sentences)
+        if grounded == total:
+            label = "fully sourced"
+        elif grounded == 0:
+            label = "model is generating without Sara — possible hallucination"
+        elif grounded >= total / 2:
+            label = "mostly grounded — use /last for details"
+        else:
+            label = "mostly ungrounded — use /last to inspect, /refute to fix"
+        return f"[Sara: {grounded}/{total} sentences grounded — {label}]"
+
+    def _analyze_last_response(self) -> str:
+        """Show Sara's grounding analysis of the most recent assistant message.
+
+        Walks the recent message history backward to find the last assistant
+        response, then breaks it into sentences and reports which are
+        grounded in Sara's brain vs which appear to be model invention.
+        """
+        last_assistant = None
+        for msg in reversed(self.messages):
+            if msg.get("role") == "assistant" and msg.get("content"):
+                last_assistant = msg["content"]
+                break
+        if not last_assistant:
+            return "No previous assistant response to analyze."
+
+        sentences = self._split_sentences(last_assistant)
+        if not sentences:
+            return "No declarative sentences found in the last response."
+
+        lines = ["Grounding analysis of the LLM's last response:"]
+        lines.append("")
+        grounded = 0
+        ungrounded = 0
+        for sent in sentences:
+            tag = self._sentence_grounding_tag(sent)
+            lines.append(f"  {tag} {sent}")
+            if tag.startswith("[grounded"):
+                grounded += 1
+            else:
+                ungrounded += 1
+        lines.append("")
+        lines.append(
+            f"Summary: {grounded} grounded, {ungrounded} ungrounded out of "
+            f"{grounded + ungrounded} sentences."
+        )
+        if ungrounded > 0:
+            lines.append(
+                "Use /refute <fact> to mark any wrong claims as known-to-be-false."
+            )
+        return "\n".join(lines)
+
+    @staticmethod
+    def _split_sentences(text: str) -> list[str]:
+        """Split text into rough sentences for grounding analysis."""
+        import re
+        text = re.sub(r"\*\*|`|#+\s*", "", text)
+        sents = re.split(r"(?<=[.!?])\s+", text)
+        return [s.strip() for s in sents if len(s.strip()) > 10]
+
+    def _sentence_grounding_tag(self, sentence: str) -> str:
+        """Return a [grounded] or [ungrounded] tag for a sentence based on
+        whether its key terms have paths in Sara's brain.
+        """
+        import re
+        words = re.findall(r"[a-z][a-z']+", sentence.lower())
+        skip = {
+            "the", "and", "are", "was", "were", "for", "with", "from", "this",
+            "that", "have", "had", "has", "been", "being", "their", "them",
+            "they", "these", "those", "what", "which", "who", "whose", "would",
+            "could", "should", "will", "your", "you", "his", "her", "its",
+            "into", "about", "also", "such", "one", "two", "many", "some",
+        }
+        candidates = [w for w in words if len(w) > 3 and w not in skip]
+        if not candidates:
+            return "[ungrounded]"
+        # Check how many candidates have any presence in Sara
+        hits = 0
+        for word in candidates:
+            try:
+                if self.bridge.brain.neuron_repo.resolve(word) is not None:
+                    hits += 1
+            except Exception:
+                pass
+        ratio = hits / max(1, len(candidates))
+        if ratio >= 0.5:
+            return f"[grounded {hits}/{len(candidates)}]"
+        elif hits > 0:
+            return f"[partial   {hits}/{len(candidates)}]"
+        else:
+            return "[ungrounded]    "
+
+    def _sara_short_circuit(self, user_input: str) -> str | None:
+        """Decide if Sara can answer directly without involving the LLM.
+
+        Returns a string response if the question is about a specific
+        concept Sara has zero knowledge of (and no close fuzzy matches).
+        Returns None if the LLM should handle this turn normally.
+
+        This is the structural anti-hallucination mechanism: when the
+        brain has nothing relevant, the brain says so. The cortex never
+        gets a chance to fabricate.
+        """
+        text = user_input.strip()
+        if not text:
+            return None
+
+        text_lower = text.lower()
+
+        # Only short-circuit on questions. Declarative statements should
+        # flow through normally so the auto-teach can fire on them.
+        is_question = (
+            text_lower.endswith("?")
+            or any(text_lower.startswith(w) for w in (
+                "what ", "what's ", "whats ", "who ", "whos ", "who's ",
+                "where ", "when ", "why ", "how ", "tell me ", "show me ",
+                "define ", "describe ", "explain ",
+            ))
+        )
+        if not is_question:
+            return None
+
+        # Extract candidate topic words from the question.
+        # Skip question words, articles, and common verbs.
+        skip = {
+            "what", "whats", "what's", "who", "whos", "who's", "where",
+            "when", "why", "how", "is", "are", "was", "were", "the",
+            "a", "an", "of", "in", "on", "at", "to", "for", "with",
+            "and", "or", "but", "do", "does", "did", "you", "your",
+            "tell", "me", "show", "define", "describe", "explain",
+            "about", "this", "that", "these", "those", "can", "could",
+            "would", "should", "have", "has", "had", "be", "been", "being",
+        }
+        words = [
+            w.strip(".,;:!?\"'()-")
+            for w in text_lower.split()
+        ]
+        # Topic candidates: words longer than 3 chars that aren't stopwords
+        candidates = [w for w in words if len(w) > 3 and w not in skip]
+        if not candidates:
+            return None
+
+        # Check each candidate for direct resolve, fuzzy match, OR
+        # presence as a substring in any neuron label
+        unresolved = []
+        for word in candidates:
+            try:
+                if self.bridge.brain.neuron_repo.resolve(word) is not None:
+                    # Sara knows it directly or via inflection/fuzzy.
+                    return None  # let the LLM answer
+                # Check did_you_mean for nearby matches
+                cands = self.bridge.brain.did_you_mean(word)
+                if cands:
+                    return None  # Sara has something close — let LLM use it
+                unresolved.append(word)
+            except Exception:
+                return None  # any error → fail open, let LLM try
+
+        # If at least one candidate looks like a "specific topic" (not
+        # in our generic skip list and longer than 4 chars), and ALL
+        # candidates are unresolved, Sara has nothing to offer.
+        specific = [w for w in unresolved if len(w) > 4]
+        if not specific:
+            return None
+
+        # Short-circuit: tell the user honestly that Sara doesn't know.
+        topic_list = ", ".join(f"'{w}'" for w in specific[:3])
+        return (
+            f"Sara has no knowledge of {topic_list}. "
+            f"The language model alone is not trustworthy on topics outside "
+            f"the brain — it will hallucinate. "
+            f"You can teach Sara directly with: /teach <fact>  "
+            f"(for example: '/teach the edubba was a sumerian school'). "
+            f"Or paste a document/URL with /ingest <source>."
+        )
+
+    # Phrases that indicate the user is correcting a previous claim.
+    # Sorted by length descending so longer prefixes match first.
+    _CORRECTION_PREFIXES = tuple(sorted([
+        "no, ", "no that", "no that's", "no thats",
+        "actually,", "actually ", "thats wrong", "that's wrong",
+        "incorrect,", "incorrect ", "wrong,", "wrong ",
+        "thats not right", "that's not right", "thats not true",
+        "that's not true", "let me correct", "correction:",
+        "to correct,", "to be clear,",
+        "that is wrong", "that is incorrect",
+        "that's incorrect", "thats incorrect",
+        "no that is wrong", "no that's wrong",
+    ], key=len, reverse=True))
+
+    def _detect_correction(self, user_input: str) -> str | None:
+        """If the user is correcting a previous claim, extract the corrected
+        statement so it can be auto-taught.
+
+        Strips up to 3 nested correction prefixes so "actually no, that's
+        wrong, apples are blue" cleans down to "apples are blue".
+
+        Returns the cleaned statement or None.
+        """
+        cleaned = user_input.strip()
+        found_one = False
+        for _ in range(3):
+            text_lower = cleaned.lower()
+            stripped_this_round = False
+            for prefix in self._CORRECTION_PREFIXES:
+                if text_lower.startswith(prefix):
+                    cleaned = cleaned[len(prefix):]
+                    cleaned = cleaned.lstrip(",.:; ").strip()
+                    found_one = True
+                    stripped_this_round = True
+                    break
+            if not stripped_this_round:
+                break
+        if found_one and cleaned:
+            return cleaned
+        return None
+
+    def _sara_turn(self, user_input: str) -> str:
+        """Run Sara's brain BEFORE the LLM sees the input.
+
+        The cortex (LLM) does not get to decide whether to consult the brain.
+        The brain is consulted unconditionally, every turn. This is the
+        architectural commitment that the LLM is the senses, not the source
+        of cognition.
+
+        Three operations run automatically:
+
+        1. **Auto-recognize** — split the input into property words and run
+           parallel wavefront recognition. Surface what Sara identifies.
+
+        2. **Auto-teach** — if the input is a declarative statement (not a
+           question, contains a copula or relational verb), call brain.teach()
+           directly. Knowledge persists immediately, no LLM discretion.
+
+        3. **Auto-disambiguate** — for any non-trivial words that don't
+           resolve, run brain.did_you_mean() to surface fuzzy candidates.
+
+        Returns a string suitable for injection into the system prompt
+        describing what Sara did. Empty string if no operations fired.
+        """
+        notes: list[str] = []
+        text = user_input.strip()
+        if not text:
+            return ""
+
+        text_lower = text.lower()
+        is_question = (
+            text_lower.endswith("?")
+            or any(text_lower.startswith(w) for w in (
+                "what ", "who ", "where ", "when ", "why ", "how ",
+                "is ", "are ", "do ", "does ", "did ", "can ",
+                "could ", "would ", "should ", "tell me ", "show me ",
+            ))
+        )
+
+        # ── 0. Correction detection (runs before normal teach) ──
+        # If the user is explicitly correcting a previous claim,
+        # extract the corrected statement and teach it. The refutation
+        # of the previous claim is handled separately by walking the
+        # last assistant message and refuting any sentence whose key
+        # nouns appear in the corrected statement.
+        correction = self._detect_correction(text)
+        if correction:
+            # Find the last assistant message and refute claims that
+            # contradict the user's correction.
+            refuted_count = 0
+            last_assistant = None
+            for msg in reversed(self.messages[:-1]):  # skip current user msg
+                if msg.get("role") == "assistant" and msg.get("content"):
+                    last_assistant = msg["content"]
+                    break
+            if last_assistant:
+                # Best-effort: try to teach each sentence of the assistant's
+                # response as a "wrong claim" to refute. This casts a wide
+                # net but parser failures are silent so it's safe.
+                for sent in self._split_sentences(last_assistant):
+                    try:
+                        r = self.bridge.brain.refute(sent)
+                        if r is not None:
+                            refuted_count += 1
+                    except Exception:
+                        pass
+                if refuted_count > 0:
+                    self.bridge.brain.conn.commit()
+                    notes.append(
+                        f"AUTO-REFUTED: {refuted_count} claim(s) from the previous response"
+                    )
+
+            # Teach the corrected statement
+            try:
+                result = self.bridge.brain.teach(correction)
+                if result is not None:
+                    self.bridge.brain.conn.commit()
+                    notes.append(
+                        f"AUTO-TAUGHT (correction): {result.path_label} (path #{result.path_id})"
+                    )
+            except Exception:
+                pass
+
+        # ── 1. Auto-teach declarative statements ──
+        # If it's not a question and looks declarative, try to teach Sara
+        # directly. This guarantees new knowledge persists regardless of
+        # whether the LLM thinks to call brain_teach.
+        elif not is_question:
+            try:
+                result = self.bridge.brain.teach(text)
+                if result is not None:
+                    self.bridge.brain.conn.commit()
+                    notes.append(
+                        f"AUTO-TAUGHT: {result.path_label} (path #{result.path_id})"
+                    )
+            except Exception as e:
+                # Parsing failures are expected and silent
+                pass
+
+        # ── 2. Auto-context (already done by build_system_prompt) ──
+        # The system prompt builder calls bridge.context(user_input) and
+        # injects relevant facts. We don't duplicate that here, but we do
+        # add a note so the model knows Sara was consulted.
+        notes.append("AUTO-QUERIED: Sara's relevant knowledge has been pre-loaded into this prompt above.")
+
+        # ── 3. Auto-disambiguate unknown words ──
+        # For words that don't resolve, find fuzzy candidates so the model
+        # can recognize Sara already knows the term under a slightly
+        # different spelling.
+        words = [
+            w.strip(".,;:!?\"'()-")
+            for w in text_lower.split()
+            if len(w.strip(".,;:!?\"'()-")) > 3
+        ]
+        skip = {
+            "the", "and", "what", "this", "that", "with", "from", "have",
+            "your", "yours", "mine", "their", "where", "when", "they",
+            "them", "these", "those", "into", "about", "tell", "show",
+            "know", "think", "would", "could", "should", "will", "does",
+            "doing", "didnt", "havent", "isnt", "arent", "wasnt", "werent",
+        }
+        unresolved: list[str] = []
+        for word in words[:8]:  # cap at 8 words to keep prompt small
+            if word in skip:
+                continue
+            try:
+                if self.bridge.brain.neuron_repo.resolve(word) is None:
+                    candidates = self.bridge.brain.did_you_mean(word)
+                    if candidates:
+                        cand_strs = [c["label"] for c in candidates[:3]]
+                        unresolved.append(
+                            f"  '{word}' not in brain. Closest: {', '.join(cand_strs)}"
+                        )
+                    else:
+                        unresolved.append(f"  '{word}' not in brain. No close matches.")
+            except Exception:
+                pass
+        if unresolved:
+            notes.append("AUTO-DISAMBIGUATED:\n" + "\n".join(unresolved))
+
+        return "\n\n".join(notes)
 
     def _validate_and_execute(self, tool_call: dict) -> str:
         """Validate a tool call with Sara, execute if approved, observe outcome."""

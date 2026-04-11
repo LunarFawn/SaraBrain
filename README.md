@@ -13,7 +13,7 @@ This is *not* a neural network, LLM, or activation-based system. Recognition fol
 
 Every essay I publish on Substack (at **Path of Thought**) or anywhere else is first committed to this repository, in the `substack/` directory, before it appears on the public venue. The git history is a timestamped, public record of everything I have written under the Path of Thought name.
 
-**If you see a post attributed to me that is not in this repository, it is not from me.** Screenshots can be faked. Substack accounts can be impersonated. AI-generated text can be attributed to anyone. But this repository has been visibly mine for a long time, with consistent work, published research, and real code — it cannot be spoofed by anyone who does not have years of my commit history behind them.
+**If any text appears attributed to me as a Path of Thought essay and is not in this repository, it is not from me.** Screenshots can be faked. Substack accounts can be impersonated. AI-generated text can be attributed to anyone. But this repository has been visibly mine for a long time, with consistent work, published research, and real code — it cannot be spoofed by anyone who does not have years of my commit history behind them.
 
 To verify a post: search this repository for a distinctive phrase from the post. If you find it, look at the commit that introduced it — the commit author will be me, and the timestamp will precede the Substack publication date. If you cannot find the text in this repository at all, the text did not come from me.
 

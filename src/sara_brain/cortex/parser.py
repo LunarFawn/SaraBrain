@@ -174,8 +174,12 @@ class EnhancedParser:
     def _extract_topics(self, text_lower: str) -> list[str]:
         """Pull candidate topic words from a question.
 
-        Returns content nouns (words that aren't stopwords or question words).
+        Returns content nouns (words that aren't stopwords, question words,
+        or typo'd articles). The article filter is critical: without it,
+        a query like "what is teh edubba" would treat "teh" as a topic and
+        return all the historical typo-pollution paths attached to it.
         """
+        from ..parsing.statement_parser import _ARTICLE_FORMS
         # Strip the leading question word
         words = text_lower.replace("?", "").split()
         if not words:
@@ -183,7 +187,7 @@ class EnhancedParser:
         # Drop the first word if it's a question word
         if words[0] in grammar.QUESTION_PREFIXES:
             words = words[1:]
-        # Drop stopwords and short words
+        # Drop stopwords, short words, AND typo'd article forms
         topics = []
         for w in words:
             w_clean = w.strip(".,;:!?\"'()-")
@@ -192,6 +196,7 @@ class EnhancedParser:
                 and len(w_clean) > 2
                 and w_clean not in grammar.STOPWORDS
                 and w_clean not in grammar.QUESTION_PREFIXES
+                and w_clean not in _ARTICLE_FORMS
             ):
                 topics.append(w_clean)
         return topics

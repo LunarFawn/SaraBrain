@@ -183,3 +183,57 @@ def test_synthesize_balanced_kinds():
     teach_count = kinds.count("teach")
     # Should be roughly 60% teach
     assert 100 < teach_count < 160
+
+
+# ── Disambiguation tests ──
+
+
+def test_disambiguation_fires_on_close_typo(brain):
+    """Teaching 'childen' when Sara knows 'children' should require disambiguation."""
+    # Pre-populate brain with a well-established neuron
+    cortex = Cortex(brain)
+    cortex.process("children are young")
+    cortex.process("children are humans")
+    cortex.process("children are small")
+
+    # Now try to teach a close-spelled (1 edit) typo
+    response = cortex.process("childen are happy")
+
+    # Should require disambiguation because of edit-distance match
+    assert response.requires_disambiguation
+    assert len(response.ambiguities) > 0
+    assert "childen" in response.text.lower() or "children" in response.text.lower()
+
+
+def test_disambiguation_ignored_for_exact_match(brain):
+    """Teaching the SAME term as an existing neuron is fine — no ambiguity."""
+    cortex = Cortex(brain)
+    cortex.process("apples are red")
+    response = cortex.process("apples are sweet")
+    # 'apples' and 'red' both already exist or are simple — no ambiguity needed
+    # 'sweet' is new but has no close match in the small brain
+    assert not response.requires_disambiguation
+
+
+def test_disambiguation_skipped_for_unrelated_terms(brain):
+    """Teaching a totally new concept with no close matches just commits."""
+    cortex = Cortex(brain)
+    response = cortex.process("xylophones are musical instruments")
+    assert not response.requires_disambiguation
+
+
+def test_disambiguation_does_not_commit_when_required(brain):
+    """When disambiguation is required, no path should be created yet."""
+    cortex = Cortex(brain)
+    cortex.process("children are young")
+    cortex.process("children are humans")
+    cortex.process("children are small")
+    initial_paths = brain.path_repo.count()
+
+    response = cortex.process("childen are happy")
+    if response.requires_disambiguation:
+        # No new path should have been committed
+        new_count = brain.path_repo.count()
+        assert new_count == initial_paths
+        # And no childen neuron should exist yet
+        assert brain.neuron_repo.get_by_label("childen") is None

@@ -35,11 +35,12 @@ The cortex returns a CortexResponse with:
 
 from .parser import EnhancedParser, ParsedTurn, TurnKind
 from .generator import TemplateGenerator
-from .router import Cortex, CortexResponse
+from .router import Cortex, CortexResponse, TeachAmbiguity
 
 __all__ = [
     "Cortex",
     "CortexResponse",
+    "TeachAmbiguity",
     "EnhancedParser",
     "ParsedTurn",
     "TurnKind",

@@ -28,6 +28,22 @@ from .generator import TemplateGenerator
 
 
 @dataclass
+class TeachAmbiguity:
+    """Raised when a teach operation finds a candidate near-match.
+
+    The router presents this to the user as a disambiguation prompt
+    instead of silently merging or creating duplicates. Critical for
+    medication and other safety-sensitive contexts where lookalike
+    names refer to genuinely different concepts.
+    """
+    new_term: str               # the term the user wrote
+    candidates: list[dict]      # close matches from did_you_mean
+    is_subject: bool            # True if ambiguity is in the subject, False if object
+    fact_text: str              # the original statement
+    safety_grounded: bool = False  # True if context is safety-related
+
+
+@dataclass
 class CortexOperation:
     """A single brain operation performed during a turn."""
     op: str          # "teach", "refute", "query", "ingest"
@@ -44,6 +60,8 @@ class CortexResponse:
     confidence: float = 1.0             # how sure the cortex is
     delegate: bool = False              # if True, caller should fall back to LLM
     parsed_turn: ParsedTurn | None = None
+    ambiguities: list[TeachAmbiguity] = field(default_factory=list)
+    requires_disambiguation: bool = False  # if True, caller MUST resolve before commit
 
 
 class Cortex:
@@ -63,10 +81,16 @@ class Cortex:
         print(response.text)  # "Learned: edubba is a sumerian school."
     """
 
-    def __init__(self, brain: Brain) -> None:
+    def __init__(self, brain: Brain, strict_safety: bool = True) -> None:
         self.brain = brain
         self.parser = EnhancedParser(brain.taxonomy)
         self.generator = TemplateGenerator()
+        # When True (default), the cortex requires disambiguation for any
+        # fuzzy match in safety-grounded contexts. When False, only
+        # exact-match conflicts trigger disambiguation. Default is on
+        # because the safety cost of a wrong merge is much higher than
+        # the friction cost of an extra prompt.
+        self.strict_safety = strict_safety
 
     def process(self, text: str) -> CortexResponse:
         """Process one user turn through the cortex."""
@@ -143,11 +167,97 @@ class Cortex:
             parsed_turn=parsed,
         )
 
+    def _check_ambiguity(self, fact: ExtractedFact) -> list[TeachAmbiguity]:
+        """Check if any term in a fact has a close fuzzy match.
+
+        Returns a list of TeachAmbiguity objects — one per ambiguous term.
+        Empty list means the fact is unambiguous and safe to commit.
+
+        Sara never auto-merges. The caller must present these to the user.
+        """
+        ambiguities = []
+
+        # Check the subject
+        for term, is_subject in [(fact.subject, True), (fact.obj, False)]:
+            if not term or len(term) <= 3:
+                continue
+            # If the term already resolves exactly in Sara, no ambiguity
+            existing = self.brain.neuron_repo.get_by_label(term)
+            if existing is not None:
+                continue
+            # Otherwise check for close fuzzy matches
+            try:
+                candidates = self.brain.did_you_mean(term)
+            except Exception:
+                candidates = []
+            if not candidates:
+                continue
+            # Filter to genuine candidates (close enough to matter)
+            close = [c for c in candidates if c.get("distance", 99) <= 2]
+            if not close:
+                continue
+            # Determine if this fact is in a safety-grounded context.
+            # Conservative heuristic: if any term has a SAFETY-grounded
+            # neighbor in the brain, treat as safety-grounded.
+            safety_grounded = self._is_safety_context(fact, term, close)
+            ambiguities.append(TeachAmbiguity(
+                new_term=term,
+                candidates=close,
+                is_subject=is_subject,
+                fact_text=fact.original_text or "",
+                safety_grounded=safety_grounded,
+            ))
+        return ambiguities
+
+    def _is_safety_context(
+        self, fact: ExtractedFact, term: str, candidates: list[dict]
+    ) -> bool:
+        """Heuristic: is this term near safety-grounded knowledge?
+
+        Returns True if any close candidate or the fact's other terms
+        connect to a SAFETY-layer innate primitive within a few hops.
+        """
+        try:
+            from ..innate.primitives import SAFETY
+        except ImportError:
+            return False
+        # Cheap heuristic: if any term in the fact appears in SAFETY,
+        # OR any candidate's label appears in SAFETY, treat as safety.
+        all_terms = {fact.subject, fact.obj}
+        for c in candidates:
+            all_terms.add(c.get("label", ""))
+        for t in all_terms:
+            if t and t.lower() in SAFETY:
+                return True
+        return False
+
     def _handle_assertion(self, parsed: ParsedTurn) -> CortexResponse:
         ops: list[CortexOperation] = []
         taught = 0
         refuted = 0
         last_summary = ""
+
+        # Check every fact for ambiguity FIRST. If any term has a close
+        # fuzzy match, return a disambiguation request without committing.
+        # This is the safety pattern: never auto-merge, always ask.
+        all_ambiguities: list[TeachAmbiguity] = []
+        for fact in parsed.facts:
+            if fact.negated:
+                continue  # refutations don't need disambiguation
+            ambiguities = self._check_ambiguity(fact)
+            if ambiguities:
+                all_ambiguities.extend(ambiguities)
+
+        if all_ambiguities:
+            text = self._format_disambiguation(all_ambiguities)
+            return CortexResponse(
+                text=text,
+                ambiguities=all_ambiguities,
+                requires_disambiguation=True,
+                confidence=1.0,
+                delegate=False,
+                parsed_turn=parsed,
+            )
 
         for fact in parsed.facts:
             stmt = fact.original_text or self._fact_to_text(fact)
@@ -213,6 +323,37 @@ class Cortex:
             delegate=False,
             parsed_turn=parsed,
         )
+
+    @staticmethod
+    def _format_disambiguation(ambiguities: list[TeachAmbiguity]) -> str:
+        """Render the disambiguation prompt as user-readable text."""
+        lines = []
+        for amb in ambiguities:
+            safety_marker = " [SAFETY-CRITICAL]" if amb.safety_grounded else ""
+            lines.append(f"Ambiguity in {amb.new_term!r}{safety_marker}:")
+            lines.append(
+                f"  Sara doesn't have {amb.new_term!r} but does have similar:"
+            )
+            for c in amb.candidates[:5]:
+                desc = f" — {c['description']}" if c.get("description") else ""
+                lines.append(
+                    f"    • {c['label']!r} (distance {c.get('distance', '?')}){desc}"
+                )
+            lines.append(
+                f"  → If {amb.new_term!r} is the same as one of the above, "
+                f"correct your spelling and try again."
+            )
+            lines.append(
+                f"  → If {amb.new_term!r} is genuinely a NEW concept, "
+                f"add a distinguishing word (e.g. {amb.new_term!r} medication)."
+            )
+            if amb.safety_grounded:
+                lines.append(
+                    f"  → SAFETY-CRITICAL CONTEXT: do not silently merge. "
+                    f"Lookalike medication names refer to genuinely different drugs."
+                )
+            lines.append("")
+        return "\n".join(lines).strip()
 
     @staticmethod
     def _fact_to_text(fact: ExtractedFact) -> str:

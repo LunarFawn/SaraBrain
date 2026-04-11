@@ -149,4 +149,4 @@ The mission is one sentence, and it is the only sentence that needs to be on the
 
 ---
 
-*This essay was first committed to my public repository at [github.com/LunarFawn/SaraBrain](https://github.com/LunarFawn/SaraBrain) on April 11, 2026, in `substack/01_karr_or_kitt.md`. If this text appears anywhere attributed to me and is not in that repository, it did not come from me. See the README for the full authenticity policy.*
+*This essay was first committed to my public repository at [github.com/LunarFawn/SaraBrain](https://github.com/LunarFawn/SaraBrain) on April 11, 2026, in `substack/01_karr_or_kitt.md`. If any text appears anywhere attributed to me and is not in that repository, it did not come from me.*

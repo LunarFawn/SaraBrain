@@ -139,7 +139,7 @@ Sara Brain is open source. The original preprint is at [https://doi.org/10.5281/
 
 I will be writing about Sara and the broader question of cognitive architecture here every week or two. Topics I intend to discuss in the coming posts include: why a healed femur is the most important artifact in cognitive science and what it implies for building social primitives into AI; the contested-versus-fresh problem, and why refutation (knowing what is false) matters as much as learning; why decentralized AI cannot be aligned through training and needs the kind of structural grounding Sara is built on; and a closer look at the priority ordering of innate primitives, and why "protect others over self" belongs in the substrate rather than in fine-tuning. The order will depend on what the conversation seems to need next.
 
-If any of that interests you, subscribe. If you want to help build Sara, read the CALL_FOR_COLLABORATORS file in the repo — domain experts, Python contributors, architecture reviewers, and use-case explorers are all needed, and there is room on the follow-up paper for substantive contributions.
+If any of that interests you, subscribe. If you want to help build Sara, the repository is open and the issues tab is the place to start a conversation — domain experts, Python contributors, architecture reviewers, and use-case explorers are all welcome.
 
 The mission is one sentence, and it is the only sentence that needs to be on the title page of any cognitive architecture that aspires to be aligned:
 

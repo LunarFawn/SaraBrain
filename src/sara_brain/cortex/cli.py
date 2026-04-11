@@ -126,6 +126,43 @@ def main() -> None:
 
             try:
                 response = cortex.process(user_input)
+
+                if response.requires_disambiguation:
+                    # Sara never auto-merges. Present the ambiguity to the
+                    # user and let them decide.
+                    print(f"\nsara> {response.text}\n")
+                    print(
+                        "  How do you want to handle this?\n"
+                        "    [c]orrect your spelling and re-enter\n"
+                        "    [n]ew concept — keep the new term as a separate neuron\n"
+                        "    [s]kip — discard this teaching\n"
+                    )
+                    choice = input("  > ").strip().lower()
+                    if choice == "n":
+                        # User insists this is a new concept — re-process
+                        # with strict_safety temporarily off
+                        old = cortex.strict_safety
+                        cortex.strict_safety = False
+                        # The cortex still checks but won't block on fuzzy
+                        # alone — the user has explicitly opted in.
+                        # For now, simplest approach: rerun the original
+                        # input bypassing the ambiguity check. We do this
+                        # by directly calling the underlying brain.teach.
+                        for fact in response.parsed_turn.facts:
+                            stmt = fact.original_text or user_input
+                            if fact.negated:
+                                cortex.brain.refute(stmt)
+                            else:
+                                cortex.brain.teach(stmt)
+                        cortex.brain.conn.commit()
+                        cortex.strict_safety = old
+                        print("\n  Committed as a new concept.\n")
+                    elif choice == "c":
+                        print("  Try again with the corrected spelling.\n")
+                    else:
+                        print("  Skipped.\n")
+                    continue
+
                 if response.delegate and fallback_loop is not None:
                     # Cortex couldn't handle confidently — defer to llama
                     print("\n  (cortex deferred to llama)")

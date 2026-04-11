@@ -17,6 +17,7 @@ mcp = ["mcp>=1.0"]
 sara = "sara_brain.repl.shell:main"
 sara-agent = "sara_brain.agent.cli:main"
 sara-mcp = "sara_brain.mcp_server:main"
+sara-cortex = "sara_brain.cortex.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

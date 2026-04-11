@@ -691,43 +691,60 @@ class AgentLoop:
                     pass
 
         # ── 1. Auto-teach OR auto-refute declarative statements ──
-        # If it's not a question and looks declarative, parse it to see
-        # whether it's positive ("X is Y") or negated ("X is not Y").
-        # Positive → teach. Negated → refute the underlying claim.
-        # This guarantees new knowledge persists regardless of whether
-        # the LLM thinks to call brain_teach or brain_refute.
+        # Uses the cortex EnhancedParser, which handles:
+        #   - Compound statements ("X is Y. A is B" → two facts)
+        #   - Source extraction ("according to wikipedia, X is Y")
+        #   - Negation in multiple forms ("X is not Y", "X did not Y")
+        #   - Pronoun rejection ("it was X" → no useless paths)
+        #   - Quantifier weighting
         elif not is_question:
             try:
-                parsed = self.bridge.brain.parser.parse(text)
-                if parsed is not None:
-                    if parsed.negated:
-                        # "X is not Y" → refute the positive form
-                        # Build a positive form so brain.refute can find/create
-                        # the same path as a positive teach would.
-                        positive = f"{parsed.subject} {parsed.relation.replace('_', ' ')} {parsed.obj}"
-                        if parsed.relation == "is_a":
-                            positive = f"{parsed.subject} is {parsed.obj}"
-                        elif parsed.relation.startswith("has_"):
-                            positive = f"{parsed.subject} is {parsed.obj}"
-                        elif parsed.relation == "has":
-                            positive = f"{parsed.subject} has {parsed.obj}"
+                from ..cortex.parser import EnhancedParser
+                cortex_parser = getattr(self, "_cortex_parser", None)
+                if cortex_parser is None:
+                    cortex_parser = EnhancedParser(self.bridge.brain.taxonomy)
+                    self._cortex_parser = cortex_parser
+
+                parsed_turn = cortex_parser.parse(text)
+                taught = 0
+                refuted = 0
+                for fact in parsed_turn.facts:
+                    stmt = fact.original_text or text
+                    if fact.negated:
+                        # Build a positive form to refute. The cortex uses
+                        # the same relation taxonomy so this round-trips.
+                        if fact.relation == "is_a":
+                            positive = f"{fact.subject} is {fact.obj}"
+                        elif fact.relation.startswith("has_"):
+                            positive = f"{fact.subject} is {fact.obj}"
+                        elif fact.relation == "has":
+                            positive = f"{fact.subject} has {fact.obj}"
+                        else:
+                            positive = f"{fact.subject} {fact.relation} {fact.obj}"
                         result = self.bridge.brain.refute(positive)
                         if result is not None:
                             self.bridge.brain.conn.commit()
                             self._recent_refutations.append(positive[:140])
                             self._recent_refutations = self._recent_refutations[-10:]
+                            refuted += 1
                             notes.append(
-                                f"AUTO-REFUTED (negation detected): "
-                                f"{result.path_label} (path #{result.path_id}, "
-                                f"marked known-to-be-false)"
+                                f"AUTO-REFUTED: {positive} "
+                                f"(path #{result.path_id})"
                             )
                     else:
-                        result = self.bridge.brain.teach(text)
+                        result = self.bridge.brain.teach(stmt)
                         if result is not None:
                             self.bridge.brain.conn.commit()
+                            taught += 1
                             notes.append(
-                                f"AUTO-TAUGHT: {result.path_label} (path #{result.path_id})"
+                                f"AUTO-TAUGHT: {result.path_label} "
+                                f"(path #{result.path_id})"
                             )
+                if taught + refuted > 1:
+                    notes.append(
+                        f"COMPOUND PARSED: {taught} teach + {refuted} refute "
+                        f"from one input"
+                    )
             except Exception:
                 # Parsing failures are expected and silent
                 pass

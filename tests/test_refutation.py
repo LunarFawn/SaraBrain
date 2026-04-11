@@ -220,3 +220,49 @@ def test_segment_strengthen_then_weaken(brain):
     expected = 1.0 + math.log(3) - math.log(2)
     assert abs(seg.strength - expected) < 0.001
     assert not seg.is_refuted  # still positive
+
+
+def test_parser_rejects_pronoun_subjects(brain):
+    """Subjects like 'it', 'they', 'this' must be rejected — they're meaningless."""
+    parser = brain.parser
+    for s in ["it was a school", "they are ancient", "this is wrong"]:
+        assert parser.parse(s) is None, f"should reject {s!r}"
+
+
+def test_parser_handles_auxiliary_verb_negation(brain):
+    """X did not Y / X does not Y / X don't Y should parse as refutation."""
+    parser = brain.parser
+
+    r = parser.parse("the edubba did not teach akkadian")
+    assert r is not None
+    assert r.negated
+    assert r.subject == "edubba"
+    assert "akkadian" in r.obj
+
+    r = parser.parse("apples do not contain protein")
+    assert r is not None
+    assert r.negated
+    assert r.subject == "apple"
+
+
+def test_parser_strips_typo_articles(brain):
+    """Common article typos like 'tteh' / 'teh' should be stripped."""
+    parser = brain.parser
+
+    r = parser.parse("tteh edubba was a sumerian school")
+    assert r is not None
+    assert r.subject == "edubba"
+
+    r = parser.parse("teh apple is red")
+    assert r is not None
+    assert r.subject == "apple"
+
+
+def test_parser_handles_typo_article_with_negation(brain):
+    """Combined: typo article + auxiliary negation."""
+    parser = brain.parser
+
+    r = parser.parse("tteh edubba did not teach akkadian")
+    assert r is not None
+    assert r.negated
+    assert r.subject == "edubba"

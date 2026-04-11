@@ -188,12 +188,33 @@ class AgentBridge:
             self.brain.conn.commit()
         return count
 
+    def teach(self, statement: str) -> str:
+        """Teach Sara a fact. Returns a string suitable for the LLM to read back.
+
+        Unlike `observe()` which returns None on parse failure, this returns
+        an explanatory string so the LLM knows what happened.
+        """
+        result = self.brain.teach(statement)
+        if result is None:
+            return (
+                f"Could not parse: '{statement}'. "
+                f"Try 'X is Y' or 'X are Y' or 'X contains/requires/includes Y'."
+            )
+        return f"Learned: {result.path_label} (path #{result.path_id})"
+
     def refute(self, statement: str) -> str:
         """Refute a fact. Sara marks it as known-to-be-false but never deletes it."""
         result = self.brain.refute(statement)
         if result is None:
-            return f"Could not parse: '{statement}'"
-        return f"Refuted: {result.path_label} (now marked known-to-be-false)"
+            return (
+                f"Could not parse: '{statement}'. "
+                f"Try 'X is Y' format."
+            )
+        return (
+            f"Refuted: {result.path_label} (path #{result.path_id}, "
+            f"marked as known-to-be-false; the path is preserved as evidence "
+            f"of what was once claimed)"
+        )
 
     # ── Disambiguation ──
 

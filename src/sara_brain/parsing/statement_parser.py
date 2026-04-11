@@ -17,9 +17,13 @@ from .taxonomy import Taxonomy
 from ..innate.primitives import get_relational
 
 # Verbs that use the taxonomy path (is_a / has_<type>)
-_COPULAS = frozenset({"is", "are"})
+# Includes past tense and possession verbs so historical and biographical
+# facts can be auto-taught: "the edubba was a school", "she had wisdom".
+_COPULAS = frozenset({"is", "are", "was", "were", "be", "been", "being"})
+# Possession verbs that should also use the taxonomy path
+_POSSESSION = frozenset({"has", "have", "had"})
 # All relational primitives minus "is" (covered by copulas above)
-_RELATIONAL_VERBS = get_relational() - {"is"}
+_RELATIONAL_VERBS = get_relational() - {"is", "has"}
 
 
 @dataclass
@@ -49,8 +53,9 @@ class StatementParser:
             return None
 
         # Pattern: "<subject> <verb> <object>"
-        # Recognised verbs: copulas (is/are) + all innate RELATIONAL primitives
-        _ALL_VERBS = _COPULAS | _RELATIONAL_VERBS
+        # Recognised verbs: copulas (is/are/was/were) + possession (has/have/had)
+        # + all innate RELATIONAL primitives
+        _ALL_VERBS = _COPULAS | _POSSESSION | _RELATIONAL_VERBS
         verb_idx = None
         verb_word = None
         for i, w in enumerate(words):
@@ -70,13 +75,17 @@ class StatementParser:
         obj_words = words[verb_idx + 1:]
         obj = " ".join(obj_words)
 
-        # Determine relation: copulas use taxonomy; relational primitives use the verb itself
+        # Determine relation: copulas use taxonomy (is_a / has_<type>);
+        # possession verbs use the "has" path (always); relational primitives
+        # use the verb itself.
         if verb_word in _COPULAS:
             prop_type = self.taxonomy.property_type(obj)
             if prop_type != "attribute":
                 relation = f"has_{prop_type}"
             else:
                 relation = "is_a"
+        elif verb_word in _POSSESSION:
+            relation = "has"
         else:
             relation = verb_word
 

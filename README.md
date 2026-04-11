@@ -9,6 +9,18 @@ A **path-of-thought** brain simulation. It learns facts expressed as natural-lan
 
 This is *not* a neural network, LLM, or activation-based system. Recognition follows actual recorded paths through neuron chains — no decay, no forgetting, no pattern matching.
 
+## Authenticity
+
+Every essay I publish on Substack (at **Path of Thought**) or anywhere else is first committed to this repository, in the `substack/` directory, before it appears on the public venue. The git history is a timestamped, public record of everything I have written under the Path of Thought name.
+
+**If you see a post attributed to me that is not in this repository, it is not from me.** Screenshots can be faked. Substack accounts can be impersonated. AI-generated text can be attributed to anyone. But this repository has been visibly mine for a long time, with consistent work, published research, and real code — it cannot be spoofed by anyone who does not have years of my commit history behind them.
+
+To verify a post: search this repository for a distinctive phrase from the post. If you find it, look at the commit that introduced it — the commit author will be me, and the timestamp will precede the Substack publication date. If you cannot find the text in this repository at all, the text did not come from me.
+
+This authenticity claim applies to written essays under the Path of Thought name. It does not mean every word I have ever written lives in this repo — private conversations, unpublished drafts, and work in other contexts are not required to be here. The claim is narrower and stronger: **anything I publish publicly as a Path of Thought essay will be committable-and-committed here first, and anything claimed to be a Path of Thought essay that is not here is not from me.**
+
+— Jennifer Pearl
+
 ## Core Principles
 
 1. **Path-of-thought, not activation levels** — Recognition traces real recorded paths, not spreading activation

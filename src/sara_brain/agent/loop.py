@@ -49,6 +49,10 @@ class AgentLoop:
         self.cwd = cwd or str(__import__("pathlib").Path.cwd())
         self.messages: list[dict] = []
         self.tools = get_tool_definitions()
+        # Recently-refuted claims that the LLM must DISREGARD on the next
+        # turn. Prevents context poisoning where the model anchors on its
+        # own previous wrong answers from chat history.
+        self._recent_refutations: list[str] = []
         self.session_id: str | None = None
 
     def turn(self, user_input: str) -> str:
@@ -93,6 +97,23 @@ class AgentLoop:
         system_prompt = build_system_prompt(self.bridge, self.cwd, user_input)
         if sara_notes:
             system_prompt += f"\n\n## Sara's Pre-Turn Operations\n{sara_notes}"
+
+        # ── ANTI-POISONING: inject refuted claims as DISREGARD instructions
+        # so the model can't anchor on its own previous wrong answers from
+        # chat history. Once the model has been told something is refuted,
+        # we keep telling it for the next 3 turns to make sure it sticks.
+        if self._recent_refutations:
+            disregard = "\n".join(f"  - {r}" for r in self._recent_refutations)
+            system_prompt += (
+                f"\n\n## CRITICAL: DISREGARD THESE REFUTED CLAIMS\n"
+                f"The following claims have been REFUTED by the user. They are "
+                f"KNOWN-TO-BE-FALSE and stored in Sara's brain with negative "
+                f"strength. You MUST NOT repeat them in your response. If they "
+                f"appear in the chat history above, treat them as poisoned "
+                f"context and ignore. Use ONLY Sara's currently-grounded paths.\n"
+                f"{disregard}"
+            )
+
         system_msg = {"role": "system", "content": system_prompt}
 
         for _round in range(self.max_tool_rounds):
@@ -471,29 +492,53 @@ class AgentLoop:
 
     # Phrases that indicate the user is correcting a previous claim.
     # Sorted by length descending so longer prefixes match first.
+    # The natural English ways someone says "you got that wrong."
     _CORRECTION_PREFIXES = tuple(sorted([
-        "no, ", "no that", "no that's", "no thats",
-        "actually,", "actually ", "thats wrong", "that's wrong",
-        "incorrect,", "incorrect ", "wrong,", "wrong ",
-        "thats not right", "that's not right", "thats not true",
-        "that's not true", "let me correct", "correction:",
-        "to correct,", "to be clear,",
-        "that is wrong", "that is incorrect",
-        "that's incorrect", "thats incorrect",
-        "no that is wrong", "no that's wrong",
+        # Direct refusals
+        "no, ", "no ", "nope, ", "nope ",
+        # That/this is wrong
+        "that's wrong", "thats wrong", "this is wrong", "that is wrong",
+        "this was wrong", "that was wrong",
+        "that's incorrect", "thats incorrect", "this is incorrect",
+        "that is incorrect", "this was incorrect", "that was incorrect",
+        "that's not right", "thats not right", "this is not right",
+        "that is not right", "that's not true", "thats not true",
+        "this is not true", "that is not true",
+        # You-statements
+        "you're wrong", "youre wrong", "you are wrong",
+        "you're incorrect", "youre incorrect", "you are incorrect",
+        "you said", "you keep saying", "stop saying",
+        "why do you keep", "why are you saying", "why do you say",
+        "you got that wrong", "you got it wrong", "you have it wrong",
+        # Actually patterns
+        "actually,", "actually ", "in fact,", "in fact ",
+        # Let me / to be patterns
+        "let me correct", "let me clarify", "let me be clear",
+        "to correct,", "to clarify,", "to be clear,", "to be precise,",
+        "correction:", "correction,", "clarification:",
+        # Imperative fixes
+        "this needs to be fixed", "that needs to be fixed",
+        "you need to fix", "fix this", "fix that",
+        # Disagreement markers
+        "not true", "not correct", "not accurate",
+        "thats false", "that's false", "that is false",
+        "false,", "wrong,", "incorrect,",
     ], key=len, reverse=True))
 
     def _detect_correction(self, user_input: str) -> str | None:
         """If the user is correcting a previous claim, extract the corrected
         statement so it can be auto-taught.
 
-        Strips up to 3 nested correction prefixes so "actually no, that's
-        wrong, apples are blue" cleans down to "apples are blue".
-
-        Returns the cleaned statement or None.
+        Strips nested correction prefixes. Looks past commas if the
+        leading fragment doesn't parse cleanly. Returns "" (empty string)
+        for refute-only corrections like "this is wrong" where the user
+        wants to refute the previous answer without providing a new one.
+        Returns None if not a correction at all.
         """
         cleaned = user_input.strip()
         found_one = False
+
+        # Strip up to 3 nested correction prefixes
         for _ in range(3):
             text_lower = cleaned.lower()
             stripped_this_round = False
@@ -506,9 +551,40 @@ class AgentLoop:
                     break
             if not stripped_this_round:
                 break
-        if found_one and cleaned:
-            return cleaned
-        return None
+
+        if not found_one:
+            return None
+
+        # Refute-only correction (no new statement provided)
+        if not cleaned:
+            return ""
+
+        # If what's left has a comma, the user might have written something
+        # like "you keep saying X, the truth is Y" — try to find the actual
+        # new statement by looking past commas. Prefer a comma-tail that
+        # parses cleanly over the full text, because the parser is too
+        # lenient and will accept "that, the edubba was for X" as a
+        # statement with subject "that, edubba".
+        if "," in cleaned:
+            parser = getattr(getattr(self, "bridge", None), "brain", None)
+            parser = getattr(parser, "parser", None) if parser else None
+            if parser is not None:
+                try:
+                    parts = cleaned.split(",")
+                    # Try each comma-separated tail, longest first
+                    for i in range(1, len(parts)):
+                        tail = ",".join(parts[i:]).strip()
+                        if not tail:
+                            continue
+                        parsed = parser.parse(tail)
+                        # Accept the tail if it parses AND the subject
+                        # doesn't contain a comma (that means it's clean)
+                        if parsed is not None and "," not in parsed.subject:
+                            return tail
+                except Exception:
+                    pass
+
+        return cleaned
 
     def _sara_turn(self, user_input: str) -> str:
         """Run Sara's brain BEFORE the LLM sees the input.
@@ -554,8 +630,10 @@ class AgentLoop:
         # of the previous claim is handled separately by walking the
         # last assistant message and refuting any sentence whose key
         # nouns appear in the corrected statement.
+        # Empty string means "refute-only" — user wants to refute the
+        # previous response without providing a new statement.
         correction = self._detect_correction(text)
-        if correction:
+        if correction is not None:
             # Find the last assistant message and refute claims that
             # contradict the user's correction.
             refuted_count = 0
@@ -565,14 +643,19 @@ class AgentLoop:
                     last_assistant = msg["content"]
                     break
             if last_assistant:
-                # Best-effort: try to teach each sentence of the assistant's
-                # response as a "wrong claim" to refute. This casts a wide
-                # net but parser failures are silent so it's safe.
+                # Best-effort: try to refute each sentence of the assistant's
+                # response. Sentences that contradict the user's correction
+                # get marked known-to-be-false. We also record them in
+                # _recent_refutations so the next turn's system prompt can
+                # tell the model to disregard them — preventing context
+                # poisoning where the model anchors on its own wrong answers.
                 for sent in self._split_sentences(last_assistant):
                     try:
                         r = self.bridge.brain.refute(sent)
                         if r is not None:
                             refuted_count += 1
+                            # Truncate the sentence for the disregard list
+                            self._recent_refutations.append(sent[:140])
                     except Exception:
                         pass
                 if refuted_count > 0:
@@ -580,31 +663,72 @@ class AgentLoop:
                     notes.append(
                         f"AUTO-REFUTED: {refuted_count} claim(s) from the previous response"
                     )
+                    # Cap the refutations list so it doesn't grow forever
+                    self._recent_refutations = self._recent_refutations[-10:]
 
-            # Teach the corrected statement
-            try:
-                result = self.bridge.brain.teach(correction)
-                if result is not None:
-                    self.bridge.brain.conn.commit()
-                    notes.append(
-                        f"AUTO-TAUGHT (correction): {result.path_label} (path #{result.path_id})"
-                    )
-            except Exception:
-                pass
+            # Teach the corrected statement (if one was provided)
+            if correction:  # non-empty means user gave a replacement
+                try:
+                    parsed = self.bridge.brain.parser.parse(correction)
+                    if parsed is not None and parsed.negated:
+                        # Even the correction itself can be negated
+                        positive = f"{parsed.subject} is {parsed.obj}"
+                        r = self.bridge.brain.refute(positive)
+                        if r is not None:
+                            self.bridge.brain.conn.commit()
+                            notes.append(
+                                f"AUTO-REFUTED (correction with negation): "
+                                f"{r.path_label} (path #{r.path_id})"
+                            )
+                    else:
+                        result = self.bridge.brain.teach(correction)
+                        if result is not None:
+                            self.bridge.brain.conn.commit()
+                            notes.append(
+                                f"AUTO-TAUGHT (correction): {result.path_label} (path #{result.path_id})"
+                            )
+                except Exception:
+                    pass
 
-        # ── 1. Auto-teach declarative statements ──
-        # If it's not a question and looks declarative, try to teach Sara
-        # directly. This guarantees new knowledge persists regardless of
-        # whether the LLM thinks to call brain_teach.
+        # ── 1. Auto-teach OR auto-refute declarative statements ──
+        # If it's not a question and looks declarative, parse it to see
+        # whether it's positive ("X is Y") or negated ("X is not Y").
+        # Positive → teach. Negated → refute the underlying claim.
+        # This guarantees new knowledge persists regardless of whether
+        # the LLM thinks to call brain_teach or brain_refute.
         elif not is_question:
             try:
-                result = self.bridge.brain.teach(text)
-                if result is not None:
-                    self.bridge.brain.conn.commit()
-                    notes.append(
-                        f"AUTO-TAUGHT: {result.path_label} (path #{result.path_id})"
-                    )
-            except Exception as e:
+                parsed = self.bridge.brain.parser.parse(text)
+                if parsed is not None:
+                    if parsed.negated:
+                        # "X is not Y" → refute the positive form
+                        # Build a positive form so brain.refute can find/create
+                        # the same path as a positive teach would.
+                        positive = f"{parsed.subject} {parsed.relation.replace('_', ' ')} {parsed.obj}"
+                        if parsed.relation == "is_a":
+                            positive = f"{parsed.subject} is {parsed.obj}"
+                        elif parsed.relation.startswith("has_"):
+                            positive = f"{parsed.subject} is {parsed.obj}"
+                        elif parsed.relation == "has":
+                            positive = f"{parsed.subject} has {parsed.obj}"
+                        result = self.bridge.brain.refute(positive)
+                        if result is not None:
+                            self.bridge.brain.conn.commit()
+                            self._recent_refutations.append(positive[:140])
+                            self._recent_refutations = self._recent_refutations[-10:]
+                            notes.append(
+                                f"AUTO-REFUTED (negation detected): "
+                                f"{result.path_label} (path #{result.path_id}, "
+                                f"marked known-to-be-false)"
+                            )
+                    else:
+                        result = self.bridge.brain.teach(text)
+                        if result is not None:
+                            self.bridge.brain.conn.commit()
+                            notes.append(
+                                f"AUTO-TAUGHT: {result.path_label} (path #{result.path_id})"
+                            )
+            except Exception:
                 # Parsing failures are expected and silent
                 pass
 

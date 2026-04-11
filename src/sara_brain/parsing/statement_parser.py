@@ -32,6 +32,7 @@ class ParsedStatement:
     relation: str
     obj: str
     original: str
+    negated: bool = False  # True if "X is not Y" form — caller should refute, not teach
 
 
 class StatementParser:
@@ -73,6 +74,23 @@ class StatementParser:
 
         # Object is everything after the verb
         obj_words = words[verb_idx + 1:]
+
+        # Negation detection: if the next word after the verb is "not",
+        # "never", or "no", strip it and mark the statement as negated.
+        # The caller (Brain.teach via the agent loop) will route negated
+        # statements to refute() instead of teach().
+        negated = False
+        if obj_words and obj_words[0] in ("not", "never", "no"):
+            negated = True
+            obj_words = obj_words[1:]
+        # Also handle "X did not Y" / "X does not Y" patterns where the
+        # verb extracted is the auxiliary (did/does) — those aren't in
+        # our verb list yet so this case is handled by the prefix check
+        # above on the post-verb tokens.
+
+        if not obj_words:
+            return None
+
         obj = " ".join(obj_words)
 
         # Determine relation: copulas use taxonomy (is_a / has_<type>);
@@ -94,6 +112,7 @@ class StatementParser:
             relation=relation,
             obj=obj,
             original=original,
+            negated=negated,
         )
 
     @staticmethod

@@ -199,18 +199,10 @@ def main() -> None:
         action="store_true",
         help="Show what would be refuted without making any changes.",
     )
-    parser.add_argument(
-        "--auto-articles",
-        action="store_true",
-        help="Auto-refute article-typo neurons without prompting "
-             "(safe — these are always pollution).",
-    )
-    parser.add_argument(
-        "--auto-pronouns",
-        action="store_true",
-        help="Auto-refute pronoun neurons without prompting "
-             "(safe — these are always pollution).",
-    )
+    # Note: there are NO --auto flags. Every refutation is per-item
+    # interactive. What looks like a typo in English may be a valid
+    # word in Haitian Creole, Jamaican Patois, AAVE, or other dialects.
+    # Sara has no authority to silently erase a user's language.
     parser.add_argument(
         "--show-typos",
         action="store_true",
@@ -248,19 +240,44 @@ def main() -> None:
         brain.close()
         return
 
-    # Refute article typos
-    if article_typos and (args.auto_articles or _confirm("Refute all article-typo paths?")):
-        total = 0
-        for c in article_typos:
-            total += refute_neuron_paths(brain, c)
-        print(f"\n  Refuted {total} path(s) from article-typo neurons.")
+    # Article-typo candidates: per-item review. NEVER bulk-refute.
+    # A user's "tteh" may be intentional in their dialect.
+    if article_typos:
+        print()
+        print("  Article-typo review (each requires explicit confirmation):")
+        for c in article_typos[:50]:
+            print()
+            print(f"    Candidate: {c.label!r} ({c.path_count} paths)")
+            print(f"    This may be a typo of an English article, OR it may")
+            print(f"    be a real word in your dialect.")
+            choice = input("    [r]efute paths / [k]eep / [s]kip / [q]uit: ").strip().lower()
+            if choice == "q":
+                break
+            if choice == "r":
+                refuted = refute_neuron_paths(brain, c)
+                print(f"    Refuted {refuted} path(s).")
+            elif choice == "k":
+                print("    Kept.")
+            else:
+                print("    Skipped.")
 
-    # Refute pronouns
-    if pronouns and (args.auto_pronouns or _confirm("Refute all pronoun-subject paths?")):
-        total = 0
-        for c in pronouns:
-            total += refute_neuron_paths(brain, c)
-        print(f"\n  Refuted {total} path(s) from pronoun neurons.")
+    # Pronoun candidates: per-item review. NEVER bulk-refute.
+    if pronouns:
+        print()
+        print("  Pronoun-subject review (each requires explicit confirmation):")
+        for c in pronouns[:50]:
+            print()
+            print(f"    Candidate: {c.label!r} ({c.path_count} paths)")
+            choice = input("    [r]efute paths / [k]eep / [s]kip / [q]uit: ").strip().lower()
+            if choice == "q":
+                break
+            if choice == "r":
+                refuted = refute_neuron_paths(brain, c)
+                print(f"    Refuted {refuted} path(s).")
+            elif choice == "k":
+                print("    Kept.")
+            else:
+                print("    Skipped.")
 
     # Suspected typos: ALWAYS interactive, NEVER auto
     if typos:

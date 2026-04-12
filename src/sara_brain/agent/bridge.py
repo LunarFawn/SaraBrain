@@ -259,40 +259,59 @@ class AgentBridge:
 
         return "\n".join(lines)
 
-    def cleanup_articles(self) -> str:
-        """Refute all article-typo paths. Always safe — the LLM may call this directly.
+    def list_article_candidates(self) -> str:
+        """List paths attached to neurons whose label looks like an article typo.
 
-        Sara never deletes — refuted paths stay with negative strength.
+        READ-ONLY. Sara cannot decide to clean these. The LLM presents
+        them to the user, who approves or rejects each one explicitly
+        via brain_refute. A user typing "tteh" in their dialect may
+        have meant exactly that — Sara has no authority to silently
+        erase their language.
         """
-        from ..cortex.cleanup import (
-            find_article_typo_neurons, refute_neuron_paths,
-        )
+        from ..cortex.cleanup import find_article_typo_neurons
         candidates = find_article_typo_neurons(self.brain)
         if not candidates:
-            return "No article-typo neurons found."
-        total = 0
-        for c in candidates:
-            total += refute_neuron_paths(self.brain, c)
-        return (
-            f"Refuted {total} path(s) from {len(candidates)} article-typo neurons. "
-            f"Paths are preserved as evidence — none deleted."
+            return "No article-typo candidates found."
+        lines = [
+            f"Found {len(candidates)} article-typo CANDIDATES (USER REVIEW REQUIRED):",
+            "Sara WILL NOT auto-clean these. Each one needs your approval.",
+            "What looks like 'teh' in English may be a real word in another dialect.",
+            "",
+        ]
+        for c in candidates[:50]:
+            lines.append(
+                f"  {c.label!r} ({c.path_count} paths attached)"
+            )
+        if len(candidates) > 50:
+            lines.append(f"  ... and {len(candidates) - 50} more")
+        lines.append("")
+        lines.append(
+            "To refute a specific one, the user must explicitly say "
+            "'refute X is Y' for each path they want marked false."
         )
+        return "\n".join(lines)
 
-    def cleanup_pronouns(self) -> str:
-        """Refute all pronoun-subject paths. Always safe — the LLM may call this directly."""
-        from ..cortex.cleanup import (
-            find_pronoun_neurons, refute_neuron_paths,
-        )
+    def list_pronoun_candidates(self) -> str:
+        """List paths attached to pronoun-subject neurons.
+
+        READ-ONLY. Same principle as list_article_candidates — Sara
+        presents candidates, the user decides per instance. Even pronouns
+        that Sara assumes are bugs may be intentional in some contexts.
+        """
+        from ..cortex.cleanup import find_pronoun_neurons
         candidates = find_pronoun_neurons(self.brain)
         if not candidates:
-            return "No pronoun-subject neurons found."
-        total = 0
-        for c in candidates:
-            total += refute_neuron_paths(self.brain, c)
-        return (
-            f"Refuted {total} path(s) from {len(candidates)} pronoun neurons. "
-            f"Paths are preserved as evidence — none deleted."
-        )
+            return "No pronoun-subject candidates found."
+        lines = [
+            f"Found {len(candidates)} pronoun-subject CANDIDATES (USER REVIEW REQUIRED):",
+            "Sara WILL NOT auto-clean these. Each one needs your approval.",
+            "",
+        ]
+        for c in candidates[:50]:
+            lines.append(f"  {c.label!r} ({c.path_count} paths attached)")
+        if len(candidates) > 50:
+            lines.append(f"  ... and {len(candidates) - 50} more")
+        return "\n".join(lines)
 
     def list_suspected_typos(self) -> str:
         """List suspected content-word typos for USER REVIEW.

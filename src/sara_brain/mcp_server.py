@@ -240,25 +240,26 @@ def brain_scan_pollution() -> str:
 
 
 @mcp.tool()
-def brain_cleanup_articles() -> str:
-    """Refute paths attached to article-typo neurons (teh, tteh, etc.).
+def brain_list_article_candidates() -> str:
+    """READ-ONLY list of paths attached to article-typo candidate neurons.
 
-    Always safe — these are definitionally pollution. Sara never
-    deletes; refuted paths stay with negative strength.
+    The LLM MUST present these to the user and ask for per-item
+    approval. What looks like a typo in English may be a valid word
+    in Haitian Creole, Jamaican Patois, AAVE, or other dialects.
+    Sara has no authority to silently erase a user's language.
     """
     from .agent.bridge import AgentBridge
-    return AgentBridge(_get_brain()).cleanup_articles()
+    return AgentBridge(_get_brain()).list_article_candidates()
 
 
 @mcp.tool()
-def brain_cleanup_pronouns() -> str:
-    """Refute paths attached to pronoun-subject neurons.
+def brain_list_pronoun_candidates() -> str:
+    """READ-ONLY list of paths attached to pronoun-subject candidate neurons.
 
-    Always safe — these were created by old parser versions that
-    accepted pronouns as subjects.
+    The LLM MUST present these to the user and ask for per-item approval.
     """
     from .agent.bridge import AgentBridge
-    return AgentBridge(_get_brain()).cleanup_pronouns()
+    return AgentBridge(_get_brain()).list_pronoun_candidates()
 
 
 @mcp.tool()

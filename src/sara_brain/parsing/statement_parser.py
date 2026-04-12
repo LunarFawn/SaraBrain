@@ -39,12 +39,20 @@ _PRONOUN_SUBJECTS = frozenset({
     "we", "us", "i", "me", "you", "your", "my", "our",
 })
 
-# Article forms — including common typos. We strip these aggressively
-# during normalization so subjects like "tteh edubba" become "edubba".
-# Adding a typo here is cheap and pays for itself the next time someone
-# fat-fingers the word.
+# Standard English articles, only used when strict_dialect=False.
+# In dialect-safe mode (the default for the cortex), Sara does NOT
+# silently strip even these — what looks like an English article may
+# be a content word in another language. Every assumption is the
+# user's to approve. See feedback_never_assume_dialect.md.
 _ARTICLE_FORMS = frozenset({
     "a", "an", "the",
+})
+
+# Known article typo variants. NEVER stripped automatically. Listed only
+# so the cleanup utility can present them to the user for explicit
+# per-instance review. A user typing "tteh" in their dialect may have
+# meant exactly that.
+_ARTICLE_TYPO_VARIANTS = frozenset({
     "tthe", "thte", "teh", "tteh", "het", "tha", "thr",
     "ann", "ane", "anne",
     "ah",
@@ -61,8 +69,24 @@ class ParsedStatement:
 
 
 class StatementParser:
-    def __init__(self, taxonomy: Taxonomy) -> None:
+    def __init__(self, taxonomy: Taxonomy, strict_dialect: bool = False) -> None:
+        """Construct a parser.
+
+        Args:
+            taxonomy: The brain's property/category taxonomy.
+            strict_dialect: When True, the parser makes ZERO assumptions
+                about word roles. No articles stripped, no canonicalization.
+                Use this for any context where the user may speak a creole,
+                pidgin, or non-standard dialect — what looks like a typo
+                may be the correct spelling in their language.
+
+                Default is False for backward compatibility with existing
+                tests and the bare REPL. The cortex defaults this to True
+                because it enforces "never assume" as a foundational
+                principle.
+        """
         self.taxonomy = taxonomy
+        self.strict_dialect = strict_dialect
 
     def parse(self, text: str) -> ParsedStatement | None:
         """Parse a natural-language teaching statement."""
@@ -71,9 +95,12 @@ class StatementParser:
             return None
 
         original = text
-        # Normalize: lowercase, strip articles (including common typos)
+        # Normalize: lowercase. In standard mode we also strip exact
+        # English articles ("the"/"a"/"an"). In strict_dialect mode we
+        # strip nothing — every word stays as the user typed it.
         words = text.lower().split()
-        words = [w for w in words if w not in _ARTICLE_FORMS]
+        if not self.strict_dialect:
+            words = [w for w in words if w not in _ARTICLE_FORMS]
 
         if len(words) < 3:
             return None

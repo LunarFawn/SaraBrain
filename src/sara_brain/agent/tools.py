@@ -115,11 +115,12 @@ BRAIN_CLEANUP_TOOLS = [
         "function": {
             "name": "brain_scan_pollution",
             "description": (
-                "Read-only scan of Sara's brain for pollution caused by past "
-                "parser bugs: article-typo neurons (teh/tteh), pronoun-subject "
-                "neurons (it/this), and suspected content-word typos. "
-                "Returns a summary. Does NOT modify anything. Safe to call "
-                "anytime the user asks 'is the brain clean?' or similar."
+                "READ-ONLY scan of Sara's brain for suspected pollution: "
+                "article-typo candidates, pronoun-subject candidates, and "
+                "content-word typo candidates. Returns a summary. Does NOT "
+                "modify anything. The LLM may call this freely. The LLM "
+                "MUST NOT then auto-clean — every refutation requires "
+                "explicit user approval per item."
             ),
             "parameters": {"type": "object", "properties": {}, "required": []},
         },
@@ -127,13 +128,15 @@ BRAIN_CLEANUP_TOOLS = [
     {
         "type": "function",
         "function": {
-            "name": "brain_cleanup_articles",
+            "name": "brain_list_article_candidates",
             "description": (
-                "Refute all paths attached to article-typo neurons (teh, "
-                "tteh, etc.). Always safe — these are definitionally pollution. "
-                "Sara never deletes; refuted paths stay with negative strength "
-                "as evidence of past parser mistakes. Call this when the user "
-                "asks to 'clean up the typos' or 'fix the brain'."
+                "READ-ONLY list of paths attached to neurons whose label "
+                "looks like an article typo (teh, tteh, etc.). The LLM "
+                "MUST present these to the user and ask for per-item "
+                "approval before refuting any of them. What looks like "
+                "an English typo may be a valid word in Haitian Creole, "
+                "Jamaican Patois, AAVE, or other dialects. Sara has no "
+                "authority to silently erase a user's language."
             ),
             "parameters": {"type": "object", "properties": {}, "required": []},
         },
@@ -141,11 +144,11 @@ BRAIN_CLEANUP_TOOLS = [
     {
         "type": "function",
         "function": {
-            "name": "brain_cleanup_pronouns",
+            "name": "brain_list_pronoun_candidates",
             "description": (
-                "Refute all paths attached to pronoun-subject neurons "
-                "(it, this, they, etc.). Always safe — these were created "
-                "by old parser versions that accepted pronouns as subjects."
+                "READ-ONLY list of paths attached to pronoun-subject "
+                "neurons. The LLM MUST present these to the user and ask "
+                "for per-item approval. Cannot trigger refutation directly."
             ),
             "parameters": {"type": "object", "properties": {}, "required": []},
         },
@@ -155,10 +158,11 @@ BRAIN_CLEANUP_TOOLS = [
         "function": {
             "name": "brain_list_suspected_typos",
             "description": (
-                "List suspected content-word typos for USER REVIEW. The LLM "
-                "MUST NOT decide to clean these — only the user can. Drug "
-                "names that look alike are different drugs. Always present "
-                "the list to the user and let them choose."
+                "READ-ONLY list of suspected content-word typos for USER "
+                "REVIEW. The LLM MUST NOT decide to clean these — only "
+                "the user can. Drug names that look alike are different "
+                "drugs. Lookalike words in any context may have distinct "
+                "meanings. Always present the list and let the user choose."
             ),
             "parameters": {"type": "object", "properties": {}, "required": []},
         },
@@ -518,10 +522,10 @@ def dispatch(
         return bridge.refute(_get_arg(arguments, "statement", "fact", "text"))
     if tool_name == "brain_scan_pollution":
         return bridge.scan_pollution()
-    if tool_name == "brain_cleanup_articles":
-        return bridge.cleanup_articles()
-    if tool_name == "brain_cleanup_pronouns":
-        return bridge.cleanup_pronouns()
+    if tool_name == "brain_list_article_candidates":
+        return bridge.list_article_candidates()
+    if tool_name == "brain_list_pronoun_candidates":
+        return bridge.list_pronoun_candidates()
     if tool_name == "brain_list_suspected_typos":
         return bridge.list_suspected_typos()
 

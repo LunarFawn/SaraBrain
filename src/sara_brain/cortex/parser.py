@@ -68,11 +68,23 @@ class ParsedTurn:
 
 
 class EnhancedParser:
-    """Cortex-level parser. Wraps StatementParser with more structure."""
+    """Cortex-level parser. Wraps StatementParser with more structure.
 
-    def __init__(self, taxonomy: Taxonomy | None = None) -> None:
+    The cortex defaults to strict_dialect=True. This means the parser
+    makes ZERO assumptions about word roles. Articles are not stripped,
+    spelling is not canonicalized, dialect words are preserved exactly.
+    The user is the sole authority on what their words mean. See
+    feedback_never_assume_dialect.md for the principle.
+    """
+
+    def __init__(
+        self,
+        taxonomy: Taxonomy | None = None,
+        strict_dialect: bool = True,
+    ) -> None:
         self.taxonomy = taxonomy or Taxonomy()
-        self.base = StatementParser(self.taxonomy)
+        self.base = StatementParser(self.taxonomy, strict_dialect=strict_dialect)
+        self.strict_dialect = strict_dialect
 
     def parse(self, text: str) -> ParsedTurn:
         """Analyze a user turn and return a structured ParsedTurn.

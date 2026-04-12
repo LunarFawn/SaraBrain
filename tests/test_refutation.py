@@ -245,24 +245,66 @@ def test_parser_handles_auxiliary_verb_negation(brain):
     assert r.subject == "apple"
 
 
-def test_parser_strips_typo_articles(brain):
-    """Common article typos like 'tteh' / 'teh' should be stripped."""
+def test_parser_preserves_typo_articles_by_default(brain):
+    """Typo'd articles are NEVER silently stripped.
+
+    What looks like 'teh' or 'tteh' to a Standard English speaker may
+    be a valid spelling in another dialect. Sara has no authority to
+    erase a user's language. The user must explicitly approve any
+    correction.
+    """
     parser = brain.parser
 
+    # tteh should be preserved as part of the subject
     r = parser.parse("tteh edubba was a sumerian school")
     assert r is not None
-    assert r.subject == "edubba"
+    assert r.subject == "tteh edubba"  # NOT stripped
 
+    # teh should also be preserved
     r = parser.parse("teh apple is red")
     assert r is not None
-    assert r.subject == "apple"
+    assert r.subject == "teh apple"  # NOT stripped
 
 
 def test_parser_handles_typo_article_with_negation(brain):
-    """Combined: typo article + auxiliary negation."""
+    """Typo articles preserved even when combined with negation."""
     parser = brain.parser
 
     r = parser.parse("tteh edubba did not teach akkadian")
     assert r is not None
     assert r.negated
-    assert r.subject == "edubba"
+    assert r.subject == "tteh edubba"  # NOT stripped
+
+
+def test_strict_dialect_mode_preserves_all_articles(brain):
+    """In strict_dialect mode the parser strips NOTHING.
+
+    Even standard English 'the'/'a'/'an' are preserved because the
+    user might be writing in a dialect where they have meaning. The
+    user is the sole authority on what their words mean.
+    """
+    from sara_brain.parsing.statement_parser import StatementParser
+    from sara_brain.parsing.taxonomy import Taxonomy
+
+    strict = StatementParser(Taxonomy(), strict_dialect=True)
+
+    # Standard "the" is NOT stripped in strict mode
+    r = strict.parse("the apple is red")
+    assert r is not None
+    assert r.subject == "the apple"  # NOT stripped in strict mode
+
+    # Backward compat: default mode still strips standard articles
+    standard = StatementParser(Taxonomy(), strict_dialect=False)
+    r = standard.parse("the apple is red")
+    assert r is not None
+    assert r.subject == "apple"  # stripped in standard mode
+
+
+def test_cortex_parser_defaults_to_strict_dialect(brain):
+    """The cortex parser defaults to strict_dialect=True for safety."""
+    from sara_brain.cortex.parser import EnhancedParser
+    from sara_brain.parsing.taxonomy import Taxonomy
+
+    cortex_parser = EnhancedParser(Taxonomy())
+    assert cortex_parser.strict_dialect is True
+    assert cortex_parser.base.strict_dialect is True

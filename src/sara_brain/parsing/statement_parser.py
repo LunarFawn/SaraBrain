@@ -156,6 +156,20 @@ class StatementParser:
         if subject.strip() in _PRONOUN_SUBJECTS:
             return None
 
+        # Reject subjects longer than 4 words — anything longer is almost
+        # certainly a parse failure where a sentence fragment got captured
+        # as the subject. Real concept names are at most 3-4 words
+        # ("green tea", "the edubba", "sickle cell anemia").
+        if len(subject.split()) > 4:
+            return None
+
+        # Reject subjects that CONTAIN a pronoun (not just ARE one).
+        # "for learning akkadian it" contains "it" as a buried pronoun
+        # and shouldn't be a subject.
+        subject_words_set = set(subject.split())
+        if subject_words_set & _PRONOUN_SUBJECTS:
+            return None
+
         # Object is everything after the verb
         # Special case: if we matched an auxiliary pattern, the verb_idx
         # points to the auxiliary, but we already extracted the main verb

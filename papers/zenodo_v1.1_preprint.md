@@ -144,9 +144,9 @@ The contested state is now a first-class concept. Sara can report which of her b
 
 ### 4.1 Design Principle: Categories Emerge from Grounding
 
-In the initial design of the v1.1 extensions, fact categories (SAFETY, EMPIRICAL, SOCIAL, PREFERENCE) were proposed as a hardcoded enum. This was rejected by the architect on the grounds that it does not match how biological cognition works. A baby is not born with category labels. A baby is born with drives — pain response, face preference, bonding instinct, fear of falling — and from these drives, all category-like knowledge is constructed through experience.
+Fact categories are not declared. They emerge from whether a learned path connects, within a bounded number of hops, to an innate primitive through graph traversal. A fact is "safety-relevant" because its path grounds out in a SAFETY primitive. A fact is "socially relevant" because its path grounds out in a SOCIAL primitive. The computation is performed at recognition time from the graph topology itself.
 
-The corrected design: categories are not declared. They emerge from whether a learned path connects, within a bounded number of hops, to an innate primitive through graph traversal. A fact is "safety-relevant" because its path grounds out in a SAFETY primitive. A fact is "socially relevant" because its path grounds out in a SOCIAL primitive. The computation is performed at recognition time from the graph topology itself. This is biologically accurate: babies have to learn what is dangerous through experience (touching the stove), but the drive to avoid pain is innate.
+This mirrors how biological cognition works. A baby is not born with category labels. A baby is born with drives — pain response, face preference, bonding instinct, fear of falling — and from these drives, all category-like knowledge is constructed through experience. The baby learns what is dangerous by touching the stove, but the drive to avoid pain is innate. The category "dangerous" is never declared; it emerges from the connection between the learned experience and the innate drive. Sara works the same way.
 
 ### 4.2 SAFETY — Harm-Avoidance and Protection Drives
 

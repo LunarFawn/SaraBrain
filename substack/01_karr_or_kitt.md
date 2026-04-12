@@ -149,4 +149,4 @@ The mission is one sentence, and it is the only sentence that needs to be on the
 
 ---
 
-*This essay was first committed to my public repository at [github.com/LunarFawn/SaraBrain](https://github.com/LunarFawn/SaraBrain) on April 11, 2026, in `substack/01_karr_or_kitt.md`. If any text appears anywhere attributed to me and is not in that repository, it did not come from me.*
+*This essay was first committed to my public repository at [github.com/LunarFawn/SaraBrain](https://github.com/LunarFawn/SaraBrain) on April 11, 2026, in `substack/01_karr_or_kitt.md`. The published version is at [pathofthought.substack.com/p/why-alignment-cannot-be-trained-the](https://pathofthought.substack.com/p/why-alignment-cannot-be-trained-the). If any text appears anywhere attributed to me and is not in that repository, it did not come from me.*

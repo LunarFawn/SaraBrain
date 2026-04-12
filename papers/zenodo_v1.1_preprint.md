@@ -40,7 +40,7 @@ We present the v1.1 extensions to Sara Brain, a path-of-thought cognitive archit
 
 **(6) Convergence thesis.** We argue that the requirements for safe AGI and the requirements for reliable offline small-model AI are the same requirements, and that both converge on the architecture described here. Safe AGI needs structural alignment, innate primitives, epistemic self-awareness, and refusal of harmful directives. Reliable offline AI needs deterministic reasoning, persistent memory, full provenance, and independence from cloud-based safety filters. These are the same properties. A 3-billion-parameter model on a consumer device with Sara Brain as its persistent memory is not a toy version of the AGI architecture — it *is* the AGI architecture, running at small scale.
 
-The system is implemented in pure Python 3.11+ with no dependencies beyond the standard library. All 257 tests pass. The architecture runs on consumer hardware including embedded ARM devices with 4GB of RAM.
+The system is implemented in pure Python 3.11+ with no dependencies beyond the standard library. All tests pass at time of writing. The architecture has been developed and tested on an M2 Mac Mini; its zero-dependency pure-Python design makes it suitable for embedded ARM devices, though embedded deployment has not yet been tested.
 
 ---
 

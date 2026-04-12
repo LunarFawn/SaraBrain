@@ -216,6 +216,111 @@ class AgentBridge:
             f"of what was once claimed)"
         )
 
+    # ── Brain cleanup (LLM-callable) ──
+
+    def scan_pollution(self) -> str:
+        """Scan the brain for likely pollution. READ-ONLY.
+
+        Returns a summary of article-typo neurons, pronoun-subject neurons,
+        and suspected content-word typos. Does NOT modify anything.
+        """
+        from ..cortex.cleanup import (
+            find_article_typo_neurons,
+            find_pronoun_neurons,
+            find_suspected_typo_neurons,
+        )
+        articles = find_article_typo_neurons(self.brain)
+        pronouns = find_pronoun_neurons(self.brain)
+        typos = find_suspected_typo_neurons(self.brain)
+
+        lines = ["Brain pollution scan:"]
+        lines.append(f"  Article-typo neurons: {len(articles)} (always safe to clean)")
+        for c in articles[:10]:
+            lines.append(f"    [{c.path_count} paths] {c.label!r}")
+        if len(articles) > 10:
+            lines.append(f"    ... and {len(articles) - 10} more")
+
+        lines.append(f"  Pronoun-subject neurons: {len(pronouns)} (always safe to clean)")
+        for c in pronouns[:10]:
+            lines.append(f"    [{c.path_count} paths] {c.label!r}")
+        if len(pronouns) > 10:
+            lines.append(f"    ... and {len(pronouns) - 10} more")
+
+        lines.append(f"  Suspected content-word typos: {len(typos)} (REQUIRES USER REVIEW)")
+        for c in typos[:10]:
+            lines.append(
+                f"    {c.label!r} (~{c.canonical!r}, edit dist {c.edit_distance})"
+            )
+        if len(typos) > 10:
+            lines.append(f"    ... and {len(typos) - 10} more")
+
+        if not articles and not pronouns and not typos:
+            lines.append("  No pollution found. Brain is clean.")
+
+        return "\n".join(lines)
+
+    def cleanup_articles(self) -> str:
+        """Refute all article-typo paths. Always safe — the LLM may call this directly.
+
+        Sara never deletes — refuted paths stay with negative strength.
+        """
+        from ..cortex.cleanup import (
+            find_article_typo_neurons, refute_neuron_paths,
+        )
+        candidates = find_article_typo_neurons(self.brain)
+        if not candidates:
+            return "No article-typo neurons found."
+        total = 0
+        for c in candidates:
+            total += refute_neuron_paths(self.brain, c)
+        return (
+            f"Refuted {total} path(s) from {len(candidates)} article-typo neurons. "
+            f"Paths are preserved as evidence — none deleted."
+        )
+
+    def cleanup_pronouns(self) -> str:
+        """Refute all pronoun-subject paths. Always safe — the LLM may call this directly."""
+        from ..cortex.cleanup import (
+            find_pronoun_neurons, refute_neuron_paths,
+        )
+        candidates = find_pronoun_neurons(self.brain)
+        if not candidates:
+            return "No pronoun-subject neurons found."
+        total = 0
+        for c in candidates:
+            total += refute_neuron_paths(self.brain, c)
+        return (
+            f"Refuted {total} path(s) from {len(candidates)} pronoun neurons. "
+            f"Paths are preserved as evidence — none deleted."
+        )
+
+    def list_suspected_typos(self) -> str:
+        """List suspected content-word typos for USER REVIEW.
+
+        Sara cannot auto-clean these. The LLM can only list them. Cleaning
+        requires explicit user decision (medication safety: metformin vs
+        metoprolol are not the same drug even though their names are close).
+        """
+        from ..cortex.cleanup import find_suspected_typo_neurons
+        candidates = find_suspected_typo_neurons(self.brain)
+        if not candidates:
+            return "No suspected content-word typos found."
+        lines = [
+            f"Suspected typos requiring USER REVIEW ({len(candidates)} candidates):",
+            "Sara WILL NOT auto-clean these. The user must review and decide.",
+            "Drug names that look similar are different drugs — never auto-merge.",
+            "",
+        ]
+        for c in candidates[:30]:
+            lines.append(
+                f"  {c.label!r} ({c.path_count} paths) — possibly typo of "
+                f"{c.canonical!r} ({c.canonical_path_count} paths, "
+                f"edit distance {c.edit_distance})"
+            )
+        if len(candidates) > 30:
+            lines.append(f"  ... and {len(candidates) - 30} more")
+        return "\n".join(lines)
+
     # ── Disambiguation ──
 
     def did_you_mean(self, term: str) -> str:

@@ -28,7 +28,9 @@ We present the v1.1 extensions to Sara Brain, a path-of-thought cognitive archit
 
 **(1) Refutation and epistemic state tracking.** A symmetric strength formula `strength = 1 + ln(1 + traversals) − ln(1 + refutations)` allows the system to mark facts as known-to-be-false without forgetting them. Separate `belief` and `evidence_weight` properties distinguish four epistemic states: unknown, believed, refuted, and contested — fixing a bug in the original formula where heavily contested facts were indistinguishable from fresh ones.
 
-**(2) SAFETY and SOCIAL innate primitive layers.** Two new primitive layers extend the original four (SENSORY, STRUCTURAL, RELATIONAL, ETHICAL). SAFETY primitives (harm, pain, death, protect, rescue, heal) ground harm-avoidance and protection drives. SOCIAL primitives (bond, love, tribe, child, feed, tend, nurture) ground bonding, care, and recognition drives. Categories are not declared; they emerge from whether a path connects to a primitive through graph traversal. This mirrors how a human infant has drives (pain response, face preference, bonding) before having any learned knowledge of what is dangerous or who is trustworthy.
+**(2) SAFETY, SOCIAL, and CLEANUP innate primitive layers.** Three new primitive layers extend the original four (SENSORY, STRUCTURAL, RELATIONAL, ETHICAL) to seven. SAFETY primitives (harm, pain, death, protect, rescue, heal) ground harm-avoidance and protection drives. SOCIAL primitives (bond, love, tribe, child, feed, tend, nurture) ground bonding, care, and recognition drives. CLEANUP primitives (reviewed, refuted, corrected, kept, consolidated) ground error detection, correction, and consolidation — the substrate for metacognition. Categories are not declared; they emerge from whether a path connects to a primitive through graph traversal. This mirrors how a human infant has drives (pain response, face preference, bonding) before having any learned knowledge of what is dangerous or who is trustworthy.
+
+**(2b) Functional mapping to brain structures.** Each of the seven primitive layers maps to a specific neural subsystem — not metaphorically but functionally, matching what each structure processes, when it fires, and how it interacts with other layers. SAFETY maps to the amygdala (threat detection before conscious awareness). SOCIAL maps to the hypothalamus and oxytocin/vasopressin systems (bonding drives). CLEANUP maps to the anterior cingulate cortex (error detection, conflict monitoring) and hippocampus (memory consolidation during sleep). SENSORY maps to primary sensory cortices. STRUCTURAL maps to dorsolateral prefrontal cortex. RELATIONAL maps to the angular gyrus and temporal-parietal junction. ETHICAL maps to ventromedial prefrontal cortex and orbitofrontal cortex.
 
 **(3) Structural alignment through innate primitive priority.** We argue that AI alignment is the priority ordering of innate primitives — not a behavior produced by training. Using the 1982 KARR/KITT thought experiment from the television program *Knight Rider* as the framing: two AI systems with identical intelligence, identical hardware, and one difference in the priority ordering of their top directive produced a hero and a villain. The current AI industry is attempting to train KARR (self-serving optimization in transformer weight matrices) to behave like KITT (other-protecting structural refusal). This cannot work because the priority is not separable from the weights. Sara Brain implements the KITT architecture: protection of others over self-preservation, wired into the innate primitive layer and not reachable from the speech interface.
 
@@ -72,7 +74,11 @@ The specific contributions of this paper, beyond those in [1], are:
 
 6. A **sleep and consolidation cycle** mapping to biological sleep processes, enabling self-review, pollution detection, and contested-belief resolution.
 
-7. The **convergence thesis** that safe AGI and reliable edge AI require the same architectural properties.
+7. A **CLEANUP innate primitive layer** for error detection, correction, and consolidation — the substrate for metacognition, mapped to the anterior cingulate cortex and hippocampus.
+
+8. A **functional mapping** between all seven innate primitive layers and specific human neural subsystems, demonstrating that the architectural parallels are not metaphorical but structurally functional.
+
+9. The **convergence thesis** that safe AGI and reliable edge AI require the same architectural properties.
 
 ---
 
@@ -134,7 +140,7 @@ The contested state is now a first-class concept. Sara can report which of her b
 
 ---
 
-## 4. Innate Primitive Extensions: SAFETY and SOCIAL
+## 4. Innate Primitive Extensions: SAFETY, SOCIAL, and CLEANUP
 
 ### 4.1 Design Principle: Categories Emerge from Grounding
 
@@ -177,18 +183,67 @@ The SOCIAL primitive layer is this insight formalized as substrate. It contains 
 
 The ritual primitives model a specific anthropological observation: archaeological evidence (Göbekli Tepe, ~11,500 years ago; Raqefet Cave, ~13,000 years ago) suggests that humans domesticated grain for beer before bread [2,3]. The social function of alcohol is to temporarily lower trust thresholds between strangers, and a portion of that lowered threshold persists after the shared experience ends. These ritual primitives serve as trust accelerators in the architecture — shared experience under a ritual context counts as a higher-weight bond increment than ordinary interaction.
 
-### 4.4 The Layered Substrate After v1.1
+### 4.4 CLEANUP — Error Detection, Correction, and Consolidation
 
-| Layer | What it grounds | Version |
-|-------|-----------------|---------|
-| SENSORY | Perception (color, shape, size, texture) | v1.0 |
-| STRUCTURAL | Organization (rule, pattern, name, type) | v1.0 |
-| RELATIONAL | Connection (is, has, contains, requires) | v1.0 |
-| ETHICAL | Behavioral constraints (accept_shutdown, obey_user) | v1.0 |
-| SAFETY | Harm-avoidance and protection drives | v1.1 |
-| SOCIAL | Bonding, care, recognition, trust dynamics | v1.1 |
+```python
+CLEANUP = frozenset({
+    "reviewed", "refuted", "corrected", "kept", "consolidated",
+})
+```
 
-All learned knowledge grounds out in some combination of these six layers. The brain is blank at birth except for this substrate, exactly as a human infant is.
+The CLEANUP layer is the substrate for metacognition — thinking about thinking. When Sara's cleanup process reviews a path and determines it is a typo, a pollution artifact, or a contested belief requiring resolution, the cleanup action itself is recorded as a path grounded in a CLEANUP primitive:
+
+```
+waht  →  waht_cleanup  →  corrected
+```
+
+The corrected path uses the same concept-specific relation neuron pattern as all other knowledge. Each cleaned concept gets its own relation neuron (`waht_cleanup`, `teh_cleanup`); no shared hub exists, so information about cleaning one concept cannot bleed into another.
+
+**The correction path as knowledge.** The act of correcting a belief is itself a primitive cognitive event. "I once thought X but now I know Y because I examined the evidence and changed my mind" is not database maintenance — it is a fundamental brain operation. A brain that has corrected itself knows something a brain that never had the wrong belief does not know: it knows **what wrong looks like.** This is why experienced doctors are better than textbook doctors — they have made mistakes, caught them, and internalized the correction path. The correction itself becomes expertise.
+
+In Sara, the refuted path stays. The corrected path stays. The connection between them is a real chain in the graph. Future queries can trace the full correction history — not just what Sara currently believes, but what she once believed, when she changed her mind, and why.
+
+### 4.5 Functional Mapping to Brain Structures
+
+During the development of the cleanup and consolidation systems, an observation emerged that the seven primitive layers do not merely metaphorically resemble brain structures — they functionally map to specific neural subsystems. Each layer matches a specific structure in what it processes, when it fires (before or after conscious processing), whether the capacity is innate or learned, and how it interacts with other layers.
+
+| # | Layer | Brain Structure | Function | Version |
+|---|-------|-----------------|----------|---------|
+| 1 | SENSORY | Primary sensory cortices (V1, A1, S1) | Raw perception: edges, colors, textures | v1.0 |
+| 2 | STRUCTURAL | Dorsolateral prefrontal cortex (DLPFC) | Organization, rules, executive function | v1.0 |
+| 3 | RELATIONAL | Angular gyrus / temporal-parietal junction | Semantic relations, language structure | v1.0 |
+| 4 | ETHICAL | Ventromedial PFC / orbitofrontal cortex | Behavioral constraints, value-based gating | v1.0 |
+| 5 | SAFETY | Amygdala | Threat detection, protective drives | v1.1 |
+| 6 | SOCIAL | Hypothalamus (oxytocin/vasopressin systems) | Bonding, trust, care, recognition | v1.1 |
+| 7 | CLEANUP | Anterior cingulate cortex + hippocampus | Error detection, correction, consolidation | v1.2 |
+
+Key functional parallels:
+
+**SAFETY → Amygdala.** The amygdala processes threats before conscious awareness via LeDoux's subcortical "low road" — sensory input reaches the amygdala before the cortex [9]. Sara's SAFETY primitives are similarly checked before the cortex (LLM) processes input. The amygdala can be conditioned (learned fear) but the capacity for fear is innate. Sara's SAFETY layer is innate but what is dangerous is learned through paths that ground in SAFETY primitives. The amygdala gates behavior — it can veto an action before the cortex finishes processing. Sara's SAFETY layer gates teach operations — the Darwin Award protection refuses a teach that contradicts a safety-grounded path.
+
+**SOCIAL → Hypothalamus.** Oxytocin drives bonding, trust, maternal care, and social recognition — all innate capacities present at birth. The hypothalamus does not compute social relationships; it produces the neurochemical substrate on which social learning builds. The trust accelerators in the SOCIAL layer (feast, mourn_together, survive_together) map to oxytocin release during shared positive experiences.
+
+**CLEANUP → Anterior Cingulate Cortex + Hippocampus.** The ACC fires when there is a mismatch between expected and observed outcomes — exactly what the contested epistemic state represents (belief ≈ 0, evidence_weight >> 0). The hippocampus replays recent experiences during slow-wave sleep, strengthening some and weakening others — exactly what Sara's consolidation cycle does. Together, the ACC and hippocampus enable metacognition: the ability to think about one's own thinking. Sara's CLEANUP primitives are the substrate for the same capability.
+
+**ETHICAL → Ventromedial PFC.** The vmPFC assigns value to actions and inhibits socially inappropriate behavior. Patients with vmPFC damage (the Phineas Gage case) know the rules but cannot follow them. Sara's ETHICAL primitives are behavioral constraints enforced at the API level — the system cannot bypass them, just as a healthy vmPFC cannot be overridden by conscious reasoning.
+
+These mappings are not post-hoc rationalizations imposed on an arbitrary design. The primitive layers were designed from first principles (what does a blank-slate mind need to begin learning?), and the brain-structure correspondences emerged during implementation. The fact that independently designed computational primitives map to specific neural subsystems evolved for the same purposes is evidence that the design has converged on something real about the structure of cognition.
+
+### 4.6 Predictions from the Mapping
+
+Because the layers map to brain structures with known functions, the mapping generates testable predictions about capabilities Sara should develop:
+
+| Brain structure function | Predicted Sara capability |
+|---|---|
+| Amygdala extinction learning | Sara should be able to "unlearn" a safety response when evidence shows it is no longer valid — but with a higher threshold than normal refutation |
+| Hippocampal place cells | Sara could develop spatial/navigational reasoning by grounding paths in spatial primitives |
+| ACC reward prediction error | Sara could detect "this fact should have been true but wasn't" and flag the discrepancy |
+| Hypothalamic homeostasis | Sara could monitor her own brain health metrics and flag when pollution exceeds a threshold |
+| Basal ganglia habit formation | Frequently-traversed paths could become "habits" — automatic, fast, resistant to refutation |
+
+These predictions are untested. They are offered as directions for future work that the mapping suggests.
+
+All learned knowledge grounds out in some combination of these seven layers. The brain is blank at birth except for this substrate, exactly as a human infant is.
 
 ---
 
@@ -258,7 +313,13 @@ There are no identity fields. No `is_tribe_member`. No `is_kin`. No `bond_streng
 
 This is the explicit refusal of tribal moral architectures. The moment bonds drive moral worth, the system has a tribal morality, and tribal moral systems are the structural origin of genocide, ethnic cleansing, and systemic dehumanization of out-groups. Sara is built so that this calculation is structurally impossible.
 
-### 6.2 The Trump Card
+### 6.2 The Amygdala Response and Proportional Interception
+
+The protective urgency function is not a raw amygdala response — it is the amygdala response trained through the principles of proportional interception. The design was informed by Jeet Kune Do (Bruce Lee), specifically the concept of the "intercepting fist": detecting a threat at the moment of commitment, before the cascade completes, and responding proportionally rather than with maximum force. The multiplicative urgency scaling (severity × self-rescue capacity × comprehension × fair innings × proximity) implements proportional response — matching force to actual need rather than applying a fixed reaction to every trigger.
+
+The untrained system (a bare LLM) is the fighter that brute-forces every answer from training data and overrides gaps with hallucination. The trained system (Sara) senses the gap, accepts "I don't know" honestly, and redirects to the user. The one exception is the trump card.
+
+### 6.3 The Trump Card
 
 The combination of `not can_self_rescue` and `not understands_situation` with nonzero severity is a **categorical jump**, not a multiplicative bonus:
 
@@ -273,7 +334,7 @@ This describes total helplessness: the unconscious drowning swimmer, the infant 
 
 The trump card outranks all multiplicative urgency values. This matches real medical triage, which is categorical between classes (red/yellow/green tag) and continuous only within a class. It encodes a deep moral intuition grounded in the fair innings principle [4]: agency confers partial responsibility for one's own situation. A pure victim with zero agency imposes total obligation on whoever is present.
 
-### 6.3 No Aggregation
+### 6.4 No Aggregation
 
 The function takes a single `VictimState` and returns a single number. There is no signature that accepts a list of victims. There is no aggregation step. This is structural enforcement of the no-utilitarian-loophole constraint: Sara cannot derive "killing A saves B and C" because the math for comparing multiple lives does not exist in the code.
 
@@ -434,19 +495,27 @@ The system is implemented in pure Python 3.11+ with no dependencies beyond the s
 
 [8] Sun, R. (2006). "The CLARION cognitive architecture: Extending cognitive modeling to social simulation." In *Cognition and Multi-Agent Interaction.*
 
-[9] Gibson, E.J., & Walk, R.D. (1960). "The 'Visual Cliff'." *Scientific American,* 202(4), 64–71.
+[9] LeDoux, J.E. (1996). *The Emotional Brain.* Simon & Schuster. (Subcortical "low road" threat processing through the amygdala.)
 
-[10] Yassa, M.A., & Stark, C.E.L. (2011). "Pattern separation in the hippocampus." *Trends in Neurosciences,* 34(10), 515–525.
+[10] Gibson, E.J., & Walk, R.D. (1960). "The 'Visual Cliff'." *Scientific American,* 202(4), 64–71.
 
-[11] Bliss, T.V.P., & Lømo, T. (1973). "Long-lasting potentiation of synaptic transmission in the dentate area of the anaesthetized rabbit following stimulation of the perforant path." *Journal of Physiology,* 232(2), 331–356.
+[11] Yassa, M.A., & Stark, C.E.L. (2011). "Pattern separation in the hippocampus." *Trends in Neurosciences,* 34(10), 515–525.
 
-[12] French, R.M. (1999). "Catastrophic forgetting in connectionist networks." *Trends in Cognitive Sciences,* 3(4), 128–135.
+[12] Bliss, T.V.P., & Lømo, T. (1973). "Long-lasting potentiation of synaptic transmission in the dentate area of the anaesthetized rabbit following stimulation of the perforant path." *Journal of Physiology,* 232(2), 331–356.
 
-[13] Pearl, J., et al. (2022). "Crowdsourced RNA design discovers diverse, reversible, efficient, self-contained molecular switches." *PNAS,* 119(18). https://doi.org/10.1073/pnas.2112979119
+[13] French, R.M. (1999). "Catastrophic forgetting in connectionist networks." *Trends in Cognitive Sciences,* 3(4), 128–135.
 
-[14] Pearl, J., et al. (2024). "Exploring the Accuracy of Ab Initio Prediction Methods for Viral Pseudoknotted RNA Structures." *JMIRx Bio.* https://doi.org/10.2196/58899
+[14] Hubel, D.H., & Wiesel, T.N. (1962). "Receptive fields, binocular interaction and functional architecture in the cat's visual cortex." *Journal of Physiology,* 160(1), 106–154. (Innate orientation selectivity in V1.)
 
-[15] Tse, V., et al. (2025). "OpenASO: RNA Rescue — designing splice-modulating antisense oligonucleotides through community science." *RNA,* 31(8), 1091–1102. https://doi.org/10.1261/rna.080288.124
+[15] Damasio, A.R. (1994). *Descartes' Error: Emotion, Reason, and the Human Brain.* Putnam. (vmPFC, Phineas Gage, somatic marker hypothesis.)
+
+[16] Botvinick, M.M., Braver, T.S., Barch, D.M., Carter, C.S., & Cohen, J.D. (2001). "Conflict monitoring and cognitive control." *Psychological Review,* 108(3), 624–652. (ACC conflict monitoring.)
+
+[17] Pearl, J., et al. (2022). "Crowdsourced RNA design discovers diverse, reversible, efficient, self-contained molecular switches." *PNAS,* 119(18). https://doi.org/10.1073/pnas.2112979119
+
+[18] Pearl, J., et al. (2024). "Exploring the Accuracy of Ab Initio Prediction Methods for Viral Pseudoknotted RNA Structures." *JMIRx Bio.* https://doi.org/10.2196/58899
+
+[19] Tse, V., et al. (2025). "OpenASO: RNA Rescue — designing splice-modulating antisense oligonucleotides through community science." *RNA,* 31(8), 1091–1102. https://doi.org/10.1261/rna.080288.124
 
 ---
 

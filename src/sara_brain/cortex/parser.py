@@ -30,6 +30,7 @@ from . import grammar
 class TurnKind(Enum):
     """The kind of turn the user just took."""
     QUESTION = "question"        # asking Sara about something
+    ASSOCIATION = "association"  # bare word or "what's associated with X"
     STATEMENT = "statement"      # asserting facts (teach)
     NEGATION = "negation"        # asserting facts are false (refute)
     CORRECTION = "correction"    # correcting a previous response
@@ -102,6 +103,20 @@ class EnhancedParser:
         if self._is_greeting(text_lower):
             return ParsedTurn(kind=TurnKind.GREETING, raw_text=text)
 
+        # ── Association request detection ──
+        # Two forms:
+        #   1. Bare word(s) — "edubba", "sumerian", "the apple"
+        #   2. Explicit phrasing — "what is associated with X",
+        #      "what relates to X", "what reminds you of X"
+        assoc_topics = self._is_association_request(text_lower)
+        if assoc_topics is not None:
+            return ParsedTurn(
+                kind=TurnKind.ASSOCIATION,
+                raw_text=text,
+                topics=assoc_topics,
+                confidence=1.0 if assoc_topics else 0.5,
+            )
+
         # ── Question detection ──
         if self._is_question(text_lower):
             topics = self._extract_topics(text_lower)
@@ -166,6 +181,70 @@ class EnhancedParser:
         )
 
     # ── helpers ──
+
+    _ASSOCIATION_PHRASES = (
+        "what is associated with ",
+        "what's associated with ",
+        "whats associated with ",
+        "what is related to ",
+        "what's related to ",
+        "whats related to ",
+        "what relates to ",
+        "what reminds you of ",
+        "what comes to mind for ",
+        "associations for ",
+        "associations with ",
+        "associations of ",
+        "tell me everything about ",
+    )
+
+    def _is_association_request(self, text_lower: str) -> list[str] | None:
+        """Detect if the input is asking for the cluster around a concept.
+
+        Returns the list of topic words to cluster around, or None if
+        the input is not an association request.
+
+        Triggers on:
+          1. Explicit phrasing: "what is associated with X"
+          2. Bare-word input: a single word or short multi-word phrase
+             with no verb. "edubba", "sumerian edubba", "the apple"
+        """
+        # Strip trailing punctuation
+        clean = text_lower.rstrip("?.!").strip()
+
+        # Form 1: explicit association phrase
+        for phrase in self._ASSOCIATION_PHRASES:
+            if clean.startswith(phrase):
+                rest = clean[len(phrase):].strip()
+                topics = [
+                    w.strip(".,;:!?\"'()-")
+                    for w in rest.split()
+                ]
+                topics = [
+                    w for w in topics
+                    if w and len(w) > 1 and w not in grammar.STOPWORDS
+                ]
+                return topics if topics else None
+
+        # Form 2: bare word(s) — no verb at all
+        # Heuristic: input is 1-4 words, no copula, no question word, no negation
+        words = clean.split()
+        if not 1 <= len(words) <= 4:
+            return None
+        if any(w in grammar.QUESTION_PREFIXES for w in words):
+            return None
+        # Check for any verb (copula or relational)
+        from ..parsing.statement_parser import _COPULAS, _POSSESSION
+        if any(w in _COPULAS or w in _POSSESSION for w in words):
+            return None
+        # Bare words — treat as topic list
+        topics = [
+            w.strip(".,;:!?\"'()-")
+            for w in words
+            if w.strip(".,;:!?\"'()-") not in grammar.STOPWORDS
+            and len(w.strip(".,;:!?\"'()-")) > 1
+        ]
+        return topics if topics else None
 
     @staticmethod
     def _is_greeting(text_lower: str) -> bool:

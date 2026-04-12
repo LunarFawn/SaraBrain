@@ -187,6 +187,111 @@ class Brain:
         """Get neurons that share downstream paths with the given neuron."""
         return self.similarity.get_similar(label)
 
+    def cluster_around(
+        self,
+        label: str,
+        depth: int = 2,
+        max_results: int = 30,
+    ) -> list[dict]:
+        """Find the cluster of neurons most strongly associated with a concept.
+
+        Walks the graph BFS from the given neuron and counts how many
+        distinct paths reach each neighbor. Higher count = more strongly
+        associated. Returns neurons ordered by association strength.
+
+        This is the brain-like "spreading activation" interface: say a
+        word, get the cloud of related concepts. Different from `why()`
+        and `trace()` which return paths — this returns *concepts*
+        ranked by how connected they are.
+
+        Maps to the neuroscience finding that concepts cluster spatially
+        in cortex (Huth et al. 2016 semantic maps), while still allowing
+        cross-cluster connections via the wavefront mechanism.
+
+        Args:
+            label: The concept to cluster around (fuzzy-resolved).
+            depth: Maximum hop distance to expand (default 2).
+            max_results: Maximum number of neighbors to return.
+
+        Returns:
+            List of dicts with keys:
+              label:       neighbor's label
+              type:        neuron type ('concept', 'property', etc.)
+              hops:        minimum hop distance from the start neuron
+              connections: number of distinct edges connecting them
+              direction:   'incoming' (paths to neighbor),
+                           'outgoing' (paths from neighbor),
+                           'both' (bidirectional in cluster)
+        """
+        start = self.neuron_repo.resolve(label.strip().lower())
+        if start is None:
+            return []
+
+        # BFS tracking hop distance and connection count per neighbor
+        visited: dict[int, dict] = {}  # neuron_id -> {hops, connections, in, out}
+        queue: list[tuple[int, int]] = [(start.id, 0)]
+        visited[start.id] = {"hops": 0, "connections": 0, "in": 0, "out": 0}
+
+        while queue:
+            current_id, hops = queue.pop(0)
+            if hops >= depth:
+                continue
+
+            # Outgoing edges from current
+            for seg in self.segment_repo.get_outgoing(current_id):
+                tgt = seg.target_id
+                if tgt not in visited:
+                    visited[tgt] = {
+                        "hops": hops + 1,
+                        "connections": 0,
+                        "in": 0,
+                        "out": 0,
+                    }
+                    queue.append((tgt, hops + 1))
+                visited[tgt]["connections"] += 1
+                visited[tgt]["in"] += 1  # incoming relative to target
+
+            # Incoming edges to current
+            for seg in self.segment_repo.get_incoming(current_id):
+                src = seg.source_id
+                if src not in visited:
+                    visited[src] = {
+                        "hops": hops + 1,
+                        "connections": 0,
+                        "in": 0,
+                        "out": 0,
+                    }
+                    queue.append((src, hops + 1))
+                visited[src]["connections"] += 1
+                visited[src]["out"] += 1  # outgoing relative to source
+
+        # Drop the start neuron itself, sort by connections, take top N
+        del visited[start.id]
+        ranked = sorted(
+            visited.items(),
+            key=lambda kv: (-kv[1]["connections"], kv[1]["hops"]),
+        )
+
+        results = []
+        for neuron_id, data in ranked[:max_results]:
+            n = self.neuron_repo.get_by_id(neuron_id)
+            if n is None:
+                continue
+            if data["in"] > 0 and data["out"] > 0:
+                direction = "both"
+            elif data["in"] > 0:
+                direction = "incoming"
+            else:
+                direction = "outgoing"
+            results.append({
+                "label": n.label,
+                "type": n.neuron_type.value,
+                "hops": data["hops"],
+                "connections": data["connections"],
+                "direction": direction,
+            })
+        return results
+
     def stats(self) -> dict:
         """Return brain statistics."""
         neurons = self.neuron_repo.count()

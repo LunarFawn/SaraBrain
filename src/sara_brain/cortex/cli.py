@@ -34,6 +34,155 @@ def _print_response(response, verbose: bool = False) -> None:
             print(f"      [{mark} {op.op}] {op.target} {op.detail}")
 
 
+def _handle_slash(brain, cortex, command: str) -> bool:
+    """Handle a slash command. Returns True if the command was recognized
+    and handled, False otherwise (so the input falls through to the cortex)."""
+    parts = command.split(maxsplit=1)
+    cmd = parts[0].lower()
+    arg = parts[1] if len(parts) > 1 else ""
+
+    if cmd in ("/help", "/?"):
+        print(
+            "\n  Slash commands:\n"
+            "    /cleanup            — interactive brain cleanup (per-item review)\n"
+            "    /scan               — read-only pollution scan\n"
+            "    /cluster <word>     — show cluster around a concept\n"
+            "    /teach <fact>       — teach a fact directly\n"
+            "    /refute <fact>      — refute a fact directly\n"
+            "    /stats              — brain statistics\n"
+            "    /help               — this message\n"
+        )
+        return True
+
+    if cmd == "/stats":
+        s = brain.stats()
+        print(
+            f"\n  Neurons: {s['neurons']}\n"
+            f"  Segments: {s['segments']}\n"
+            f"  Paths: {s['paths']}\n"
+        )
+        return True
+
+    if cmd == "/scan":
+        from ..agent.bridge import AgentBridge
+        print(f"\n{AgentBridge(brain).scan_pollution()}\n")
+        return True
+
+    if cmd == "/cluster":
+        if not arg:
+            print("\n  Usage: /cluster <word>\n")
+            return True
+        cluster = brain.cluster_around(arg)
+        if not cluster:
+            print(f"\n  Sara has no cluster for {arg!r}.\n")
+            return True
+        print(f"\n  Cluster for {arg!r}:")
+        for c in cluster[:20]:
+            print(f"    [{c['connections']:2d}] {c['label']!r} ({c['type']}, {c['hops']} hop)")
+        print()
+        return True
+
+    if cmd == "/teach":
+        if not arg:
+            print("\n  Usage: /teach <fact>\n")
+            return True
+        result = brain.teach(arg)
+        if result is None:
+            print(f"\n  Could not parse: {arg!r}. Try 'X is Y' format.\n")
+        else:
+            brain.conn.commit()
+            print(f"\n  Learned: {result.path_label}\n")
+        return True
+
+    if cmd == "/refute":
+        if not arg:
+            print("\n  Usage: /refute <fact>\n")
+            return True
+        result = brain.refute(arg)
+        if result is None:
+            print(f"\n  Could not parse: {arg!r}. Try 'X is Y' format.\n")
+        else:
+            brain.conn.commit()
+            print(f"\n  Refuted: {result.path_label}\n")
+        return True
+
+    if cmd == "/cleanup":
+        # Run the same interactive cleanup as the standalone CLI
+        from .cleanup import (
+            find_article_typo_neurons,
+            find_pronoun_neurons,
+            find_question_word_typos,
+            find_stopword_subject_neurons,
+            find_sentence_subject_neurons,
+            find_punctuation_artifact_neurons,
+            _review_category,
+        )
+        print()
+        print("  Brain cleanup — per-item review (Sara never bulk-refutes)")
+        print()
+
+        article_typos = find_article_typo_neurons(brain)
+        pronouns = find_pronoun_neurons(brain)
+        question_typos = find_question_word_typos(brain)
+        stopwords = find_stopword_subject_neurons(brain)
+        sentences = find_sentence_subject_neurons(brain)
+        punct = find_punctuation_artifact_neurons(brain)
+
+        total = (
+            len(article_typos) + len(pronouns) + len(question_typos)
+            + len(stopwords) + len(sentences) + len(punct)
+        )
+        if total == 0:
+            print("  No pollution candidates found. Brain is clean.\n")
+            return True
+
+        print(f"  Found {total} pollution candidates across categories:")
+        print(f"    article-typo:        {len(article_typos)}")
+        print(f"    pronoun:             {len(pronouns)}")
+        print(f"    question-word typo:  {len(question_typos)}")
+        print(f"    stopword subject:    {len(stopwords)}")
+        print(f"    sentence subject:    {len(sentences)}")
+        print(f"    punctuation artifact: {len(punct)}")
+        print()
+        confirm = input("  Start review? [y/N] ").strip().lower()
+        if confirm not in ("y", "yes"):
+            print("  Cleanup cancelled.\n")
+            return True
+
+        _review_category(
+            brain, article_typos, "article-typo",
+            "May be a typo OR a real word in your dialect.",
+        )
+        _review_category(
+            brain, pronouns, "pronoun-subject",
+            "Pronouns can never be standalone subjects — old parser bugs.",
+        )
+        _review_category(
+            brain, question_typos, "question-word typo",
+            "Typos of question words (waht/hwat) that became subjects.",
+        )
+        _review_category(
+            brain, stopwords, "stopword-subject",
+            "Bare stopwords (not/it/like) should never be standalone subjects.",
+        )
+        _review_category(
+            brain, sentences, "sentence-subject",
+            "Long phrases captured as a single neuron — usually digester errors.",
+        )
+        _review_category(
+            brain, punct, "punctuation-artifact",
+            "Sentence fragments with trailing punctuation that became subjects.",
+        )
+
+        s = brain.stats()
+        print()
+        print(f"  Cleanup complete. Brain: {s['neurons']} neurons, {s['paths']} paths.")
+        print()
+        return True
+
+    return False  # Not a recognized slash command
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         prog="sara-cortex",
@@ -120,6 +269,10 @@ def main() -> None:
 
             if not user_input:
                 continue
+            # Slash commands for direct brain operations
+            if user_input.startswith("/"):
+                if _handle_slash(brain, cortex, user_input):
+                    continue
             if user_input.lower() in ("exit", "quit", "bye"):
                 print("  Goodbye. Sara remembers everything.")
                 break

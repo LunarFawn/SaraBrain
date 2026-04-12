@@ -393,13 +393,21 @@ def _show_neuron_sources(brain: Brain, candidate: PollutionCandidate) -> None:
 
 
 def _typo_fix_neuron_paths(brain: Brain, candidate: PollutionCandidate) -> None:
-    """Walk each path attached to a candidate, refute the original, and
-    teach a corrected version supplied by the user.
+    """Fix typos in paths attached to a candidate neuron.
 
-    The user sees the original source_text and is prompted to enter the
-    corrected statement. Pressing Enter without typing skips that path.
-    Both the original (now refuted) and the new clean version are
-    preserved in the brain.
+    Two modes:
+
+    1. **Find-and-replace** (default) — the user provides word
+       replacements ("tteh→the", "sumnerian→sumerian") and Sara
+       applies them to every path's source_text in one pass. Fixes
+       2 typos in a 15-word sentence without retyping the whole thing.
+
+    2. **Full retype** — if the user types 'f' instead of replacements,
+       falls back to walking each path individually and asking for a
+       complete corrected version.
+
+    Both modes refute the original and teach the corrected version.
+    Both paths are preserved in the brain.
     """
     paths_to = brain.path_repo.get_paths_to(candidate.neuron_id)
     paths_from = brain.path_repo.get_paths_from(candidate.neuron_id)
@@ -409,9 +417,84 @@ def _typo_fix_neuron_paths(brain: Brain, candidate: PollutionCandidate) -> None:
         print("    No source texts to fix (all paths are already refuted or orphans).")
         return
 
-    print(f"    Walking {len(actionable)} path(s) attached to {candidate.label!r}.")
-    print("    For each one: original is shown, you provide a corrected version.")
-    print("    Press Enter (empty) to skip a path; type 'q' to stop.")
+    print(f"    {len(actionable)} path(s) attached to {candidate.label!r}.")
+    print()
+    print("    Enter word replacements as: wrong→right  (one per line)")
+    print("    Example:  tteh→the")
+    print("              sumnerian→sumerian")
+    print("    When done, press Enter on an empty line to apply.")
+    print("    Or type 'f' for full retype mode (one path at a time).")
+    print()
+
+    # Collect replacements
+    replacements: list[tuple[str, str]] = []
+    while True:
+        line = input("      replace: ").strip()
+        if not line:
+            break
+        if line.lower() == "f":
+            _typo_fix_full_retype(brain, actionable)
+            return
+        if line.lower() == "q":
+            print("    Cancelled.")
+            return
+        # Parse "wrong→right" or "wrong->right" or "wrong > right"
+        for sep in ("→", "->", ">"):
+            if sep in line:
+                parts = line.split(sep, 1)
+                old = parts[0].strip()
+                new = parts[1].strip()
+                if old and new:
+                    replacements.append((old, new))
+                    print(f"        {old!r} → {new!r}")
+                break
+        else:
+            print(f"      Could not parse: {line!r}. Use format: wrong→right")
+
+    if not replacements:
+        print("    No replacements provided. Skipping.")
+        return
+
+    # Preview
+    print()
+    print(f"    Applying {len(replacements)} replacement(s) to {len(actionable)} path(s):")
+    for old, new in replacements:
+        print(f"      {old!r} → {new!r}")
+
+    refuted = 0
+    taught = 0
+    for p in actionable:
+        corrected = p.source_text
+        for old, new in replacements:
+            corrected = corrected.replace(old, new)
+        if corrected == p.source_text:
+            continue  # no change for this path
+        print(f"      - {p.source_text[:70]}")
+        print(f"      + {corrected[:70]}")
+        try:
+            r = brain.refute(p.source_text)
+            if r is not None:
+                refuted += 1
+        except Exception:
+            pass
+        try:
+            t = brain.teach(corrected)
+            if t is not None:
+                taught += 1
+            else:
+                print(f"        warning: corrected version did not parse: {corrected!r}")
+        except Exception:
+            pass
+
+    if refuted > 0 or taught > 0:
+        brain.conn.commit()
+    print(f"    Refuted {refuted} path(s), taught {taught} corrected version(s).")
+
+
+def _typo_fix_full_retype(brain: Brain, actionable: list) -> None:
+    """Fallback: walk each path individually and ask for a full retype."""
+    print("    Full retype mode. For each path, type the corrected version.")
+    print("    Press Enter to skip, 'q' to stop.")
     refuted = 0
     taught = 0
     for i, p in enumerate(actionable, 1):
@@ -423,9 +506,8 @@ def _typo_fix_neuron_paths(brain: Brain, candidate: PollutionCandidate) -> None:
             print("        skipped.")
             continue
         if corrected.lower() == "q":
-            print("        stopping typo fix.")
+            print("        stopping.")
             break
-        # Refute the original, teach the corrected version
         try:
             r = brain.refute(p.source_text)
             if r is not None:

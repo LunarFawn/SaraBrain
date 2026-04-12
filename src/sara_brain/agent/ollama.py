@@ -125,72 +125,132 @@ def _try_parse_text_tool_calls(text: str) -> list[dict] | None:
 
     Small models that don't support structured tool calling will often
     output JSON blocks like: {"name": "read_file", "arguments": {"path": "..."}}
-    This function finds and parses those.
+    This function finds and parses those, including parameter-less tool
+    calls like {"name": "brain_scan_pollution", "arguments": {}}.
+
+    The list of known tool names is loaded dynamically from the tools
+    module so that new tools are automatically recognized.
     """
     import re
 
-    # Known tool names to look for
-    tool_names = {
-        "brain_query", "brain_recognize", "brain_context", "brain_summarize",
-        "brain_teach", "brain_observe", "brain_validate", "brain_stats",
-        "brain_import",
-        "read_file", "write_file", "list_directory", "search_files",
-        "search_content", "execute_python", "shell_command",
-    }
+    # Load known tool names dynamically from the tools registry
+    try:
+        from .tools import get_tool_definitions
+        tool_names = {
+            t["function"]["name"] for t in get_tool_definitions()
+        }
+    except Exception:
+        # Fallback list if the import fails
+        tool_names = {
+            "brain_query", "brain_recognize", "brain_context", "brain_summarize",
+            "brain_teach", "brain_refute", "brain_did_you_mean", "brain_ingest",
+            "brain_import", "brain_stats",
+            "brain_scan_pollution", "brain_cleanup_articles",
+            "brain_cleanup_pronouns", "brain_list_suspected_typos",
+            "read_file", "write_file", "list_directory", "search_files",
+            "search_content", "execute_python", "shell_command",
+            "voice_listen", "voice_transcribe",
+        }
 
-    # Look for JSON objects containing "name" and "arguments"
-    # Match patterns like {"name": "tool_name", "arguments": {...}}
-    json_pattern = re.compile(r'\{[^{}]*"name"\s*:\s*"(\w+)"[^{}]*"arguments"\s*:\s*(\{[^{}]*\})[^{}]*\}')
+    found: list[dict] = []
 
-    found = []
-    for match in json_pattern.finditer(text):
-        name = match.group(1)
-        if name in tool_names:
+    # Strategy 1: balanced-brace JSON object scan.
+    # Find every {...} block in the text (handling nested braces) and try
+    # to parse each one. If it has a "name" field matching a known tool,
+    # that's a tool call.
+    for obj_text in _find_balanced_braces(text):
+        try:
+            data = json.loads(obj_text)
+        except json.JSONDecodeError:
+            continue
+        if not isinstance(data, dict):
+            continue
+        name = data.get("name")
+        if not isinstance(name, str) or name not in tool_names:
+            continue
+        args = data.get("arguments", {})
+        if isinstance(args, str):
+            # Sometimes models nest a JSON string here
             try:
-                args = json.loads(match.group(2))
-                found.append({
-                    "id": f"text_parsed_{len(found)}",
-                    "type": "function",
-                    "function": {
-                        "name": name,
-                        "arguments": json.dumps(args),
-                    },
-                })
+                args = json.loads(args)
             except json.JSONDecodeError:
-                continue
+                args = {}
+        if not isinstance(args, dict):
+            args = {}
+        found.append({
+            "id": f"text_parsed_{len(found)}",
+            "type": "function",
+            "function": {
+                "name": name,
+                "arguments": json.dumps(args),
+            },
+        })
 
-    # Also try: malformed JSON like {"name": brain_context} (no quotes, no args)
-    # Small models often output this. Match unquoted tool names.
-    if not found:
-        unquoted_pattern = re.compile(
-            r'\{\s*"name"\s*:\s*(' + "|".join(re.escape(t) for t in tool_names) + r')\s*\}'
-        )
-        for match in unquoted_pattern.finditer(text):
-            # Malformed call with no arguments — skip it, let the LLM retry
-            # by returning None (the response will be treated as text)
-            pass  # intentionally don't parse — these are broken calls
-
-    # Also try: just a bare tool name and arguments on separate lines
-    # e.g., the model says: I'll call read_file with path "/some/path"
+    # Strategy 2: bare tool name mentioned in narrative text
+    # e.g., "I'll call read_file with path /tmp/foo"
     if not found:
         for tool_name in tool_names:
             if tool_name in text:
-                # Try to find a JSON block after mentioning the tool
                 after_mention = text[text.index(tool_name):]
-                brace_match = re.search(r'\{[^{}]+\}', after_mention)
+                brace_match = re.search(r'\{[^{}]*\}', after_mention)
                 if brace_match:
                     try:
                         args = json.loads(brace_match.group())
-                        found.append({
-                            "id": f"text_parsed_{len(found)}",
-                            "type": "function",
-                            "function": {
-                                "name": tool_name,
-                                "arguments": json.dumps(args),
-                            },
-                        })
-                        break  # Take the first match
+                        if isinstance(args, dict):
+                            found.append({
+                                "id": f"text_parsed_{len(found)}",
+                                "type": "function",
+                                "function": {
+                                    "name": tool_name,
+                                    "arguments": json.dumps(args),
+                                },
+                            })
+                            break
                     except json.JSONDecodeError:
                         continue
 
     return found if found else None
+
+
+def _find_balanced_braces(text: str) -> list[str]:
+    """Yield substrings of `text` that are balanced JSON objects.
+
+    Walks the text tracking brace depth so we can extract objects that
+    contain nested objects (e.g., {"name": "x", "arguments": {"y": 1}}).
+    Strings inside the objects are respected so that braces inside
+    string literals don't break balance counting.
+    """
+    results = []
+    i = 0
+    n = len(text)
+    while i < n:
+        if text[i] != "{":
+            i += 1
+            continue
+        # Found a {. Walk forward, tracking depth and string state.
+        start = i
+        depth = 0
+        in_string = False
+        escape = False
+        while i < n:
+            ch = text[i]
+            if escape:
+                escape = False
+            elif ch == "\\" and in_string:
+                escape = True
+            elif ch == '"':
+                in_string = not in_string
+            elif not in_string:
+                if ch == "{":
+                    depth += 1
+                elif ch == "}":
+                    depth -= 1
+                    if depth == 0:
+                        results.append(text[start:i + 1])
+                        i += 1
+                        break
+            i += 1
+        else:
+            # Reached end without closing — discard partial
+            break
+    return results

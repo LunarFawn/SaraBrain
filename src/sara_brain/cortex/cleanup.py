@@ -49,19 +49,36 @@ class PollutionCandidate:
     edit_distance: int = 0
 
 
+def _count_actionable_paths(brain: Brain, neuron_id: int) -> int:
+    """Count only non-refuted paths attached to a neuron.
+
+    Paths whose source_text starts with '[refuted]' have already been
+    cleaned in a previous run. They stay in the brain forever (Sara
+    never deletes) but they should NOT cause the cleanup tool to
+    re-present the same candidate on every run.
+    """
+    paths_to = brain.path_repo.get_paths_to(neuron_id)
+    paths_from = brain.path_repo.get_paths_from(neuron_id)
+    count = 0
+    for p in list(paths_to) + list(paths_from):
+        if p.source_text and not p.source_text.startswith("["):
+            count += 1
+    return count
+
+
 def find_article_typo_neurons(brain: Brain) -> list[PollutionCandidate]:
     """Find neurons whose label is a known article-typo form."""
     candidates = []
     for n in brain.neuron_repo.list_all():
         if n.label.strip() in _ARTICLE_FORMS:
-            paths_to = brain.path_repo.get_paths_to(n.id)
-            paths_from = brain.path_repo.get_paths_from(n.id)
-            candidates.append(PollutionCandidate(
-                neuron_id=n.id,
-                label=n.label,
-                kind="article_typo",
-                path_count=len(paths_to) + len(paths_from),
-            ))
+            count = _count_actionable_paths(brain, n.id)
+            if count > 0:
+                candidates.append(PollutionCandidate(
+                    neuron_id=n.id,
+                    label=n.label,
+                    kind="article_typo",
+                    path_count=count,
+                ))
     return sorted(candidates, key=lambda c: -c.path_count)
 
 
@@ -70,14 +87,14 @@ def find_pronoun_neurons(brain: Brain) -> list[PollutionCandidate]:
     candidates = []
     for n in brain.neuron_repo.list_all():
         if n.label.strip() in _PRONOUN_SUBJECTS:
-            paths_to = brain.path_repo.get_paths_to(n.id)
-            paths_from = brain.path_repo.get_paths_from(n.id)
-            candidates.append(PollutionCandidate(
-                neuron_id=n.id,
-                label=n.label,
-                kind="pronoun",
-                path_count=len(paths_to) + len(paths_from),
-            ))
+            count = _count_actionable_paths(brain, n.id)
+            if count > 0:
+                candidates.append(PollutionCandidate(
+                    neuron_id=n.id,
+                    label=n.label,
+                    kind="pronoun",
+                    path_count=count,
+                ))
     return sorted(candidates, key=lambda c: -c.path_count)
 
 
@@ -121,14 +138,14 @@ def find_question_word_typos(brain: Brain) -> list[PollutionCandidate]:
     for n in brain.neuron_repo.list_all():
         label = n.label.strip().lower()
         if label in _QUESTION_WORD_TYPOS:
-            paths_to = brain.path_repo.get_paths_to(n.id)
-            paths_from = brain.path_repo.get_paths_from(n.id)
-            candidates.append(PollutionCandidate(
-                neuron_id=n.id,
-                label=n.label,
-                kind="question_word_typo",
-                path_count=len(paths_to) + len(paths_from),
-            ))
+            count = _count_actionable_paths(brain, n.id)
+            if count > 0:
+                candidates.append(PollutionCandidate(
+                    neuron_id=n.id,
+                    label=n.label,
+                    kind="question_word_typo",
+                    path_count=count,
+                ))
     return sorted(candidates, key=lambda c: -c.path_count)
 
 
@@ -142,14 +159,14 @@ def find_stopword_subject_neurons(brain: Brain) -> list[PollutionCandidate]:
     for n in brain.neuron_repo.list_all():
         label = n.label.strip().lower()
         if label in _STOPWORD_SUBJECTS:
-            paths_to = brain.path_repo.get_paths_to(n.id)
-            paths_from = brain.path_repo.get_paths_from(n.id)
-            candidates.append(PollutionCandidate(
-                neuron_id=n.id,
-                label=n.label,
-                kind="stopword_subject",
-                path_count=len(paths_to) + len(paths_from),
-            ))
+            count = _count_actionable_paths(brain, n.id)
+            if count > 0:
+                candidates.append(PollutionCandidate(
+                    neuron_id=n.id,
+                    label=n.label,
+                    kind="stopword_subject",
+                    path_count=count,
+                ))
     return sorted(candidates, key=lambda c: -c.path_count)
 
 
@@ -168,14 +185,14 @@ def find_sentence_subject_neurons(
         label = n.label.strip()
         word_count = len(label.split())
         if word_count >= min_words:
-            paths_to = brain.path_repo.get_paths_to(n.id)
-            paths_from = brain.path_repo.get_paths_from(n.id)
-            candidates.append(PollutionCandidate(
-                neuron_id=n.id,
-                label=n.label,
-                kind="sentence_subject",
-                path_count=len(paths_to) + len(paths_from),
-            ))
+            count = _count_actionable_paths(brain, n.id)
+            if count > 0:
+                candidates.append(PollutionCandidate(
+                    neuron_id=n.id,
+                    label=n.label,
+                    kind="sentence_subject",
+                    path_count=count,
+                ))
     return sorted(candidates, key=lambda c: -len(c.label))
 
 
@@ -187,14 +204,14 @@ def find_punctuation_artifact_neurons(brain: Brain) -> list[PollutionCandidate]:
     for n in brain.neuron_repo.list_all():
         label = n.label.strip()
         if label and label[-1] in ".,:;!?":
-            paths_to = brain.path_repo.get_paths_to(n.id)
-            paths_from = brain.path_repo.get_paths_from(n.id)
-            candidates.append(PollutionCandidate(
-                neuron_id=n.id,
-                label=n.label,
-                kind="punctuation_artifact",
-                path_count=len(paths_to) + len(paths_from),
-            ))
+            count = _count_actionable_paths(brain, n.id)
+            if count > 0:
+                candidates.append(PollutionCandidate(
+                    neuron_id=n.id,
+                    label=n.label,
+                    kind="punctuation_artifact",
+                    path_count=count,
+                ))
     return sorted(candidates, key=lambda c: -c.path_count)
 
 

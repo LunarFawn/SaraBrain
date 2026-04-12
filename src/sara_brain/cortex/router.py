@@ -103,6 +103,9 @@ class Cortex:
         if parsed.kind == TurnKind.GREETING:
             return self._handle_greeting(parsed)
 
+        if parsed.kind == TurnKind.ASSOCIATION:
+            return self._handle_association(parsed)
+
         if parsed.kind == TurnKind.QUESTION:
             return self._handle_question(parsed)
 
@@ -125,6 +128,83 @@ class Cortex:
             confidence=1.0,
             parsed_turn=parsed,
         )
+
+    def _handle_association(self, parsed: ParsedTurn) -> CortexResponse:
+        """Spreading-activation query — return the cluster around a concept.
+
+        This is the brain-like 'say a word, get the cloud' interface.
+        Calls brain.cluster_around() to find concepts strongly connected
+        to the topic, then renders them grouped by hop distance and
+        connection strength.
+        """
+        ops: list[CortexOperation] = []
+        if not parsed.topics:
+            return CortexResponse(
+                text="Tell me a word and I'll show you what's associated with it.",
+                confidence=0.3,
+                delegate=False,
+                parsed_turn=parsed,
+            )
+
+        # Try the joined topic first ("sumerian edubba"), then individual words
+        candidates_to_try = [" ".join(parsed.topics)] + parsed.topics
+        for topic in candidates_to_try:
+            cluster = self.brain.cluster_around(topic, depth=2, max_results=30)
+            ops.append(CortexOperation(
+                op="cluster",
+                target=topic,
+                success=bool(cluster),
+                detail=f"{len(cluster)} associated concepts",
+            ))
+            if cluster:
+                text = self._render_association(topic, cluster)
+                return CortexResponse(
+                    text=text,
+                    operations=ops,
+                    confidence=1.0,
+                    delegate=False,
+                    parsed_turn=parsed,
+                )
+
+        # Nothing in the cluster — say so honestly
+        topic = parsed.topics[0]
+        return CortexResponse(
+            text=self.generator.no_knowledge(topic, with_hint=True),
+            operations=ops,
+            confidence=1.0,
+            delegate=False,
+            parsed_turn=parsed,
+        )
+
+    @staticmethod
+    def _render_association(topic: str, cluster: list[dict]) -> str:
+        """Render a cluster as a brain-like association cloud."""
+        if not cluster:
+            return f"Sara has no associations for {topic!r}."
+
+        # Group by hop distance: direct (1-hop) vs indirect (2+ hop)
+        direct = [c for c in cluster if c["hops"] == 1]
+        indirect = [c for c in cluster if c["hops"] >= 2]
+
+        lines = [f"Things associated with {topic!r} in Sara's brain:"]
+        if direct:
+            lines.append("")
+            lines.append("  Directly connected:")
+            for c in direct[:15]:
+                arrow = {"incoming": "←", "outgoing": "→", "both": "↔"}[c["direction"]]
+                lines.append(
+                    f"    {arrow} {c['label']} "
+                    f"({c['type']}, {c['connections']} edge(s))"
+                )
+        if indirect:
+            lines.append("")
+            lines.append("  Indirectly connected (via shared neighbors):")
+            for c in indirect[:10]:
+                lines.append(
+                    f"    · {c['label']} "
+                    f"({c['type']}, {c['connections']} edge(s))"
+                )
+        return "\n".join(lines)
 
     def _handle_question(self, parsed: ParsedTurn) -> CortexResponse:
         ops: list[CortexOperation] = []

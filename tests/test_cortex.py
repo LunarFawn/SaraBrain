@@ -222,6 +222,58 @@ def test_disambiguation_skipped_for_unrelated_terms(brain):
     assert not response.requires_disambiguation
 
 
+# ── Cluster / association tests ──
+
+
+def test_bare_word_triggers_association(brain):
+    """A single word with no verb should be classified as ASSOCIATION."""
+    from sara_brain.cortex.parser import EnhancedParser, TurnKind
+    p = EnhancedParser()
+    r = p.parse("edubba")
+    assert r.kind == TurnKind.ASSOCIATION
+    assert "edubba" in r.topics
+
+
+def test_explicit_association_phrase(brain):
+    """'what is associated with X' triggers ASSOCIATION."""
+    from sara_brain.cortex.parser import EnhancedParser, TurnKind
+    p = EnhancedParser()
+    r = p.parse("what is associated with sumerians")
+    assert r.kind == TurnKind.ASSOCIATION
+    assert "sumerians" in r.topics
+
+
+def test_question_does_not_trigger_association(brain):
+    """'what is the edubba' is a question, not an association request."""
+    from sara_brain.cortex.parser import EnhancedParser, TurnKind
+    p = EnhancedParser()
+    r = p.parse("what is the edubba")
+    assert r.kind == TurnKind.QUESTION
+
+
+def test_brain_cluster_around(brain):
+    """cluster_around returns connected neurons ranked by edge count."""
+    brain.teach("apples are red")
+    brain.teach("apples are sweet")
+    brain.teach("apples are round")
+    cluster = brain.cluster_around("apple")
+    assert len(cluster) > 0
+    labels = [c["label"] for c in cluster]
+    assert any("red" in l or "sweet" in l or "round" in l or "apple" in l for l in labels)
+
+
+def test_cortex_association_returns_cluster(brain):
+    """Bare-word input through the cortex returns cluster output."""
+    cortex = Cortex(brain)
+    cortex.process("apples are red")
+    cortex.process("apples are sweet")
+    cortex.process("apples are round")
+
+    response = cortex.process("apple")
+    assert "associated" in response.text.lower() or "connected" in response.text.lower()
+    assert not response.delegate
+
+
 def test_disambiguation_does_not_commit_when_required(brain):
     """When disambiguation is required, no path should be created yet."""
     cortex = Cortex(brain)

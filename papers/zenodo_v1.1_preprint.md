@@ -1,4 +1,4 @@
-# One Substrate, Many Drives: Structural Alignment, Refutation, and Sleep in a Path-Graph Cognitive Architecture
+# What Responsible AGI Needs: Structural Alignment Through Innate Primitives in a Path-Graph Cognitive Architecture
 
 **Jennifer Pearl**
 Volunteer Scientist, University of Houston Center for Nuclear Receptors and Cell Signaling

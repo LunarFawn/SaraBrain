@@ -109,6 +109,62 @@ BRAIN_CLARIFY_TOOLS = [
     },
 ]
 
+BRAIN_CLEANUP_TOOLS = [
+    {
+        "type": "function",
+        "function": {
+            "name": "brain_scan_pollution",
+            "description": (
+                "Read-only scan of Sara's brain for pollution caused by past "
+                "parser bugs: article-typo neurons (teh/tteh), pronoun-subject "
+                "neurons (it/this), and suspected content-word typos. "
+                "Returns a summary. Does NOT modify anything. Safe to call "
+                "anytime the user asks 'is the brain clean?' or similar."
+            ),
+            "parameters": {"type": "object", "properties": {}, "required": []},
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "brain_cleanup_articles",
+            "description": (
+                "Refute all paths attached to article-typo neurons (teh, "
+                "tteh, etc.). Always safe — these are definitionally pollution. "
+                "Sara never deletes; refuted paths stay with negative strength "
+                "as evidence of past parser mistakes. Call this when the user "
+                "asks to 'clean up the typos' or 'fix the brain'."
+            ),
+            "parameters": {"type": "object", "properties": {}, "required": []},
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "brain_cleanup_pronouns",
+            "description": (
+                "Refute all paths attached to pronoun-subject neurons "
+                "(it, this, they, etc.). Always safe — these were created "
+                "by old parser versions that accepted pronouns as subjects."
+            ),
+            "parameters": {"type": "object", "properties": {}, "required": []},
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "brain_list_suspected_typos",
+            "description": (
+                "List suspected content-word typos for USER REVIEW. The LLM "
+                "MUST NOT decide to clean these — only the user can. Drug "
+                "names that look alike are different drugs. Always present "
+                "the list to the user and let them choose."
+            ),
+            "parameters": {"type": "object", "properties": {}, "required": []},
+        },
+    },
+]
+
 BRAIN_LEARN_TOOLS = [
     {
         "type": "function",
@@ -405,6 +461,7 @@ def get_tool_definitions() -> list[dict]:
         BRAIN_TOOLS
         + BRAIN_CLARIFY_TOOLS
         + BRAIN_LEARN_TOOLS
+        + BRAIN_CLEANUP_TOOLS
         + BRAIN_MANAGEMENT_TOOLS
         + voice
         + ACTION_TOOLS
@@ -459,6 +516,14 @@ def dispatch(
         return bridge.teach(_get_arg(arguments, "statement", "fact", "text"))
     if tool_name == "brain_refute":
         return bridge.refute(_get_arg(arguments, "statement", "fact", "text"))
+    if tool_name == "brain_scan_pollution":
+        return bridge.scan_pollution()
+    if tool_name == "brain_cleanup_articles":
+        return bridge.cleanup_articles()
+    if tool_name == "brain_cleanup_pronouns":
+        return bridge.cleanup_pronouns()
+    if tool_name == "brain_list_suspected_typos":
+        return bridge.list_suspected_typos()
 
     # Voice tools
     if tool_name == "voice_listen":

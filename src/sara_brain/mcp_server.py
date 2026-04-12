@@ -229,6 +229,51 @@ def brain_ingest(source: str) -> str:
 
 
 @mcp.tool()
+def brain_scan_pollution() -> str:
+    """Read-only scan for pollution caused by past parser bugs.
+
+    Lists article-typo neurons, pronoun-subject neurons, and suspected
+    content-word typos. Does NOT modify anything.
+    """
+    from .agent.bridge import AgentBridge
+    return AgentBridge(_get_brain()).scan_pollution()
+
+
+@mcp.tool()
+def brain_cleanup_articles() -> str:
+    """Refute paths attached to article-typo neurons (teh, tteh, etc.).
+
+    Always safe — these are definitionally pollution. Sara never
+    deletes; refuted paths stay with negative strength.
+    """
+    from .agent.bridge import AgentBridge
+    return AgentBridge(_get_brain()).cleanup_articles()
+
+
+@mcp.tool()
+def brain_cleanup_pronouns() -> str:
+    """Refute paths attached to pronoun-subject neurons.
+
+    Always safe — these were created by old parser versions that
+    accepted pronouns as subjects.
+    """
+    from .agent.bridge import AgentBridge
+    return AgentBridge(_get_brain()).cleanup_pronouns()
+
+
+@mcp.tool()
+def brain_list_suspected_typos() -> str:
+    """List suspected content-word typos for USER REVIEW.
+
+    The LLM MUST NOT decide to clean these — only the user can.
+    Drug names that look alike are different drugs (metformin vs
+    metoprolol). Always present the list and let the user choose.
+    """
+    from .agent.bridge import AgentBridge
+    return AgentBridge(_get_brain()).list_suspected_typos()
+
+
+@mcp.tool()
 def brain_stats() -> str:
     """Get Sara Brain statistics — neuron count, segment count, path count."""
     brain = _get_brain()

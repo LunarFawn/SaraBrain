@@ -202,21 +202,34 @@ def find_suspected_typo_neurons(
     brain: Brain,
     min_canonical_paths: int = 5,
     max_typo_paths: int = 3,
+    min_typo_paths: int = 1,
 ) -> list[PollutionCandidate]:
     """Find neurons that are likely typos of better-established neurons.
 
     Heuristic:
-    - The candidate must have FEW paths (max_typo_paths or less)
-    - There must be another neuron within edit distance 2
-    - That other neuron must have MANY paths (min_canonical_paths or more)
-    - The candidate must be longer than 3 characters
+    - The candidate must have at least `min_typo_paths` paths (default 1).
+      Zero-path neurons came from sub-concept linking — they aren't
+      pollution that affects queries, and refuting them does nothing.
+    - The candidate must have at most `max_typo_paths` paths (default 3).
+    - There must be another neuron within edit distance 2.
+    - That other neuron must have at least `min_canonical_paths` paths.
+    - The proposed canonical form must NOT itself be in any known
+      pollution list (article typos, pronouns, question-word typos,
+      stopwords). Otherwise we'd be suggesting one typo as the
+      canonical form for another.
+    - The candidate must be longer than 3 characters.
 
-    This is conservative on purpose. We want to catch "choldren" → "children"
-    but NOT catch "metoprolol" → "metformin" because the latter would
-    typically have many paths in any real medication knowledge base.
+    Conservative on purpose. We want to catch "choldren" → "children"
+    but NOT catch "metoprolol" → "metformin".
     """
     repo = brain.neuron_repo
     all_neurons = repo.list_all()
+
+    # Set of labels we know are themselves pollution — never use as canonical.
+    pollution_labels = (
+        _ARTICLE_FORMS | _PRONOUN_SUBJECTS
+        | _QUESTION_WORD_TYPOS | _STOPWORD_SUBJECTS
+    )
 
     # Build a map of neuron → path count
     path_counts: dict[int, int] = {}
@@ -232,22 +245,29 @@ def find_suspected_typo_neurons(
     for n in all_neurons:
         if n.id is None or len(n.label) <= 3:
             continue
-        if path_counts.get(n.id, 0) > max_typo_paths:
+        path_count = path_counts.get(n.id, 0)
+        if path_count < min_typo_paths:
+            continue  # orphan neuron — nothing to refute
+        if path_count > max_typo_paths:
             continue  # too well-connected to be a typo
 
-        # Find well-connected neurons within edit distance 2
+        # Find well-connected neurons within edit distance 2 that are
+        # NOT themselves known pollution.
         for other in all_neurons:
             if other.id is None or other.id == n.id:
                 continue
             if path_counts.get(other.id, 0) < min_canonical_paths:
                 continue
+            other_label_lower = other.label.strip().lower()
+            if other_label_lower in pollution_labels:
+                continue  # canonical can't itself be pollution
             d = NeuronRepo._edit_distance(n.label, other.label, 2)
             if 0 < d <= 2:
                 candidates.append(PollutionCandidate(
                     neuron_id=n.id,
                     label=n.label,
                     kind="suspected_typo",
-                    path_count=path_counts.get(n.id, 0),
+                    path_count=path_count,
                     canonical=other.label,
                     canonical_path_count=path_counts.get(other.id, 0),
                     edit_distance=d,
@@ -290,13 +310,17 @@ def _review_category(
     """Walk through a category of pollution candidates with per-item review.
 
     Sara never bulk-refutes. Each item requires explicit user choice.
+    Orphan candidates (zero paths) are skipped silently — there's
+    nothing to refute.
     """
-    if not candidates:
+    # Skip orphan candidates upfront — refuting them does nothing
+    actionable = [c for c in candidates if c.path_count > 0]
+    if not actionable:
         return
     print()
     print(f"  {label} review (each requires explicit confirmation):")
     print(f"  {explanation}")
-    for c in candidates[:50]:
+    for c in actionable[:50]:
         print()
         print(f"    Candidate: {c.label!r} ({c.path_count} paths)")
         choice = input("    [r]efute paths / [k]eep / [s]kip / [q]uit category: ").strip().lower()
@@ -305,7 +329,10 @@ def _review_category(
             break
         if choice == "r":
             refuted = refute_neuron_paths(brain, c)
-            print(f"    Refuted {refuted} path(s).")
+            if refuted == 0:
+                print("    No paths to refute (orphan neuron).")
+            else:
+                print(f"    Refuted {refuted} path(s).")
         elif choice == "k":
             print("    Kept.")
         else:

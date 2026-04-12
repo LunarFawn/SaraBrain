@@ -312,6 +312,14 @@ def _review_category(
     Sara never bulk-refutes. Each item requires explicit user choice.
     Orphan candidates (zero paths) are skipped silently — there's
     nothing to refute.
+
+    Per-candidate options:
+        s — show the source texts of each path attached to this neuron
+        r — refute all attached paths (mark known-to-be-false)
+        t — refute AND re-teach a corrected version (typo fix)
+            walks each path: shows source, asks for corrected text
+        k — keep (do nothing)
+        q — quit this category
     """
     # Skip orphan candidates upfront — refuting them does nothing
     actionable = [c for c in candidates if c.path_count > 0]
@@ -323,20 +331,101 @@ def _review_category(
     for c in actionable[:50]:
         print()
         print(f"    Candidate: {c.label!r} ({c.path_count} paths)")
-        choice = input("    [r]efute paths / [k]eep / [s]kip / [q]uit category: ").strip().lower()
-        if choice == "q":
-            print("    Quitting this category.")
-            break
-        if choice == "r":
-            refuted = refute_neuron_paths(brain, c)
-            if refuted == 0:
-                print("    No paths to refute (orphan neuron).")
-            else:
-                print(f"    Refuted {refuted} path(s).")
-        elif choice == "k":
-            print("    Kept.")
-        else:
+        prompt = (
+            "    [s]how sources / [r]efute / [t]ypo fix (refute+reteach) / "
+            "[k]eep / [q]uit: "
+        )
+        # Loop on `s` so the user can show then decide
+        while True:
+            choice = input(prompt).strip().lower()
+            if choice == "q":
+                print("    Quitting this category.")
+                return
+            if choice == "s":
+                _show_neuron_sources(brain, c)
+                continue  # ask again
+            if choice == "r":
+                refuted = refute_neuron_paths(brain, c)
+                if refuted == 0:
+                    print("    No paths to refute (orphan neuron).")
+                else:
+                    print(f"    Refuted {refuted} path(s).")
+                break
+            if choice == "t":
+                _typo_fix_neuron_paths(brain, c)
+                break
+            if choice == "k":
+                print("    Kept.")
+                break
             print("    Skipped.")
+            break
+
+
+def _show_neuron_sources(brain: Brain, candidate: PollutionCandidate) -> None:
+    """Print every source_text attached to a candidate neuron."""
+    paths_to = brain.path_repo.get_paths_to(candidate.neuron_id)
+    paths_from = brain.path_repo.get_paths_from(candidate.neuron_id)
+    all_paths = list(paths_to) + list(paths_from)
+    actionable = [p for p in all_paths if p.source_text and not p.source_text.startswith("[")]
+    if not actionable:
+        print("    No source texts to show (all paths are already refuted or orphans).")
+        return
+    print(f"    Source texts attached to {candidate.label!r}:")
+    for i, p in enumerate(actionable, 1):
+        print(f"      {i}. {p.source_text}")
+
+
+def _typo_fix_neuron_paths(brain: Brain, candidate: PollutionCandidate) -> None:
+    """Walk each path attached to a candidate, refute the original, and
+    teach a corrected version supplied by the user.
+
+    The user sees the original source_text and is prompted to enter the
+    corrected statement. Pressing Enter without typing skips that path.
+    Both the original (now refuted) and the new clean version are
+    preserved in the brain.
+    """
+    paths_to = brain.path_repo.get_paths_to(candidate.neuron_id)
+    paths_from = brain.path_repo.get_paths_from(candidate.neuron_id)
+    all_paths = list(paths_to) + list(paths_from)
+    actionable = [p for p in all_paths if p.source_text and not p.source_text.startswith("[")]
+    if not actionable:
+        print("    No source texts to fix (all paths are already refuted or orphans).")
+        return
+
+    print(f"    Walking {len(actionable)} path(s) attached to {candidate.label!r}.")
+    print("    For each one: original is shown, you provide a corrected version.")
+    print("    Press Enter (empty) to skip a path; type 'q' to stop.")
+    refuted = 0
+    taught = 0
+    for i, p in enumerate(actionable, 1):
+        print()
+        print(f"      Path {i}/{len(actionable)}:")
+        print(f"        original: {p.source_text}")
+        corrected = input("        corrected: ").strip()
+        if not corrected:
+            print("        skipped.")
+            continue
+        if corrected.lower() == "q":
+            print("        stopping typo fix.")
+            break
+        # Refute the original, teach the corrected version
+        try:
+            r = brain.refute(p.source_text)
+            if r is not None:
+                refuted += 1
+        except Exception:
+            pass
+        try:
+            t = brain.teach(corrected)
+            if t is not None:
+                taught += 1
+            else:
+                print(f"        warning: corrected version did not parse: {corrected!r}")
+        except Exception:
+            pass
+    if refuted > 0 or taught > 0:
+        brain.conn.commit()
+    print(f"    Refuted {refuted} path(s), taught {taught} corrected version(s).")
 
 
 def _print_candidates(label: str, candidates: list[PollutionCandidate]) -> None:

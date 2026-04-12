@@ -101,7 +101,26 @@ SOCIAL = frozenset({
     "work_together", "survive_together",
 })
 
-_ALL = SENSORY | STRUCTURAL | RELATIONAL | ETHICAL | SAFETY | SOCIAL
+# Cleanup: innate self-maintenance and metacognition drives.
+# Maps to the anterior cingulate cortex (error detection, conflict
+# monitoring) and hippocampus (memory consolidation during sleep).
+# These are not learned — they are the pre-wired capacity for a brain
+# to examine its own state, detect its own errors, and correct them.
+# The CLEANUP layer is what makes Sara a cognitive system rather than
+# a knowledge store.
+CLEANUP = frozenset({
+    # Error detection (ACC)
+    "reviewed",         # examined during cleanup
+    "refuted",          # marked as known-to-be-false
+    # Re-encoding (hippocampus)
+    "corrected",        # typo-fixed or re-encoded cleanly
+    # Resolution (ACC)
+    "kept",             # examined and deliberately retained
+    # Consolidation (hippocampus + slow-wave sleep)
+    "consolidated",     # reviewed during sleep cycle
+})
+
+_ALL = SENSORY | STRUCTURAL | RELATIONAL | ETHICAL | SAFETY | SOCIAL | CLEANUP
 
 
 def get_sensory() -> frozenset[str]:
@@ -128,6 +147,10 @@ def get_social() -> frozenset[str]:
     return SOCIAL
 
 
+def get_cleanup() -> frozenset[str]:
+    return CLEANUP
+
+
 def get_all() -> frozenset[str]:
     return _ALL
 
@@ -146,3 +169,7 @@ def is_safety(label: str) -> bool:
 
 def is_social(label: str) -> bool:
     return label.strip().lower() in SOCIAL
+
+
+def is_cleanup(label: str) -> bool:
+    return label.strip().lower() in CLEANUP

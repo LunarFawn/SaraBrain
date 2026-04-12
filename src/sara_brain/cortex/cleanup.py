@@ -81,6 +81,123 @@ def find_pronoun_neurons(brain: Brain) -> list[PollutionCandidate]:
     return sorted(candidates, key=lambda c: -c.path_count)
 
 
+# Common question-word typos. NEVER stripped automatically — listed
+# only so the cleanup tool can present them to the user for review.
+_QUESTION_WORD_TYPOS = frozenset({
+    "waht", "hwat", "whta", "wht",
+    "wher", "wehre", "whree",
+    "wehn", "whne",
+    "hwy", "yhw",
+    "hwo", "owh",
+    "wich",
+    "thi", "ths", "tihs",     # singularized "this"
+    "thse", "tehse",
+    "thi_attribute",          # leftover from old singularize bugs
+})
+
+# Common stopwords that should never be standalone subject neurons.
+# These got into the brain when old parsers treated them as content.
+_STOPWORD_SUBJECTS = frozenset({
+    "not", "and", "or", "but", "if", "then", "than",
+    "for", "with", "from", "by", "as", "at", "in", "on", "of", "to",
+    "is", "are", "was", "were", "be", "been", "being",
+    "have", "has", "had",
+    "do", "does", "did",
+    "can", "could", "would", "should", "may", "might", "must",
+    "very", "just", "only", "also", "even", "still",
+    "more", "most", "less", "least", "much",
+    "some", "any", "all", "each", "every", "no",
+    "here", "there", "where", "when", "why", "how",
+    "yes", "no", "ok",
+    "type", "kind", "sort",
+    "thing", "stuff",
+    "like", "such",
+})
+
+
+def find_question_word_typos(brain: Brain) -> list[PollutionCandidate]:
+    """Find neurons whose label is a known typo of a question word."""
+    candidates = []
+    for n in brain.neuron_repo.list_all():
+        label = n.label.strip().lower()
+        if label in _QUESTION_WORD_TYPOS:
+            paths_to = brain.path_repo.get_paths_to(n.id)
+            paths_from = brain.path_repo.get_paths_from(n.id)
+            candidates.append(PollutionCandidate(
+                neuron_id=n.id,
+                label=n.label,
+                kind="question_word_typo",
+                path_count=len(paths_to) + len(paths_from),
+            ))
+    return sorted(candidates, key=lambda c: -c.path_count)
+
+
+def find_stopword_subject_neurons(brain: Brain) -> list[PollutionCandidate]:
+    """Find neurons whose label is a bare stopword.
+
+    Words like 'not', 'it', 'building', 'type' should never be standalone
+    subjects — they came from old parsers that treated them as content.
+    """
+    candidates = []
+    for n in brain.neuron_repo.list_all():
+        label = n.label.strip().lower()
+        if label in _STOPWORD_SUBJECTS:
+            paths_to = brain.path_repo.get_paths_to(n.id)
+            paths_from = brain.path_repo.get_paths_from(n.id)
+            candidates.append(PollutionCandidate(
+                neuron_id=n.id,
+                label=n.label,
+                kind="stopword_subject",
+                path_count=len(paths_to) + len(paths_from),
+            ))
+    return sorted(candidates, key=lambda c: -c.path_count)
+
+
+def find_sentence_subject_neurons(
+    brain: Brain,
+    min_words: int = 7,
+) -> list[PollutionCandidate]:
+    """Find neurons whose label is an entire sentence — almost always
+    a digester or auto-teach failure where the LLM swallowed a full
+    statement and gave it back as a single subject.
+
+    Heuristic: any neuron whose label has more than `min_words` words.
+    """
+    candidates = []
+    for n in brain.neuron_repo.list_all():
+        label = n.label.strip()
+        word_count = len(label.split())
+        if word_count >= min_words:
+            paths_to = brain.path_repo.get_paths_to(n.id)
+            paths_from = brain.path_repo.get_paths_from(n.id)
+            candidates.append(PollutionCandidate(
+                neuron_id=n.id,
+                label=n.label,
+                kind="sentence_subject",
+                path_count=len(paths_to) + len(paths_from),
+            ))
+    return sorted(candidates, key=lambda c: -len(c.label))
+
+
+def find_punctuation_artifact_neurons(brain: Brain) -> list[PollutionCandidate]:
+    """Find neurons whose label ends in punctuation — sentence fragments
+    that got captured as subjects (e.g., 'agriculture:', 'school.', 'too').
+    """
+    candidates = []
+    for n in brain.neuron_repo.list_all():
+        label = n.label.strip()
+        if label and label[-1] in ".,:;!?":
+            paths_to = brain.path_repo.get_paths_to(n.id)
+            paths_from = brain.path_repo.get_paths_from(n.id)
+            candidates.append(PollutionCandidate(
+                neuron_id=n.id,
+                label=n.label,
+                kind="punctuation_artifact",
+                path_count=len(paths_to) + len(paths_from),
+            ))
+    return sorted(candidates, key=lambda c: -c.path_count)
+
+
 def find_suspected_typo_neurons(
     brain: Brain,
     min_canonical_paths: int = 5,
@@ -164,6 +281,37 @@ def refute_neuron_paths(brain: Brain, candidate: PollutionCandidate) -> int:
     return refuted
 
 
+def _review_category(
+    brain: Brain,
+    candidates: list[PollutionCandidate],
+    label: str,
+    explanation: str,
+) -> None:
+    """Walk through a category of pollution candidates with per-item review.
+
+    Sara never bulk-refutes. Each item requires explicit user choice.
+    """
+    if not candidates:
+        return
+    print()
+    print(f"  {label} review (each requires explicit confirmation):")
+    print(f"  {explanation}")
+    for c in candidates[:50]:
+        print()
+        print(f"    Candidate: {c.label!r} ({c.path_count} paths)")
+        choice = input("    [r]efute paths / [k]eep / [s]kip / [q]uit category: ").strip().lower()
+        if choice == "q":
+            print("    Quitting this category.")
+            break
+        if choice == "r":
+            refuted = refute_neuron_paths(brain, c)
+            print(f"    Refuted {refuted} path(s).")
+        elif choice == "k":
+            print("    Kept.")
+        else:
+            print("    Skipped.")
+
+
 def _print_candidates(label: str, candidates: list[PollutionCandidate]) -> None:
     if not candidates:
         print(f"  No {label} candidates found.")
@@ -223,9 +371,17 @@ def main() -> None:
 
     article_typos = find_article_typo_neurons(brain)
     pronouns = find_pronoun_neurons(brain)
+    question_typos = find_question_word_typos(brain)
+    stopwords = find_stopword_subject_neurons(brain)
+    sentences = find_sentence_subject_neurons(brain)
+    punct = find_punctuation_artifact_neurons(brain)
 
     _print_candidates("article-typo", article_typos)
     _print_candidates("pronoun", pronouns)
+    _print_candidates("question-word typo (waht/hwat/etc)", question_typos)
+    _print_candidates("stopword-subject (not/it/like/etc)", stopwords)
+    _print_candidates("sentence-subject (long phrases)", sentences)
+    _print_candidates("punctuation-artifact (label ends in punct)", punct)
 
     typos: list[PollutionCandidate] = []
     if args.show_typos:
@@ -240,46 +396,35 @@ def main() -> None:
         brain.close()
         return
 
-    # Article-typo candidates: per-item review. NEVER bulk-refute.
+    # Per-category interactive review. Sara never bulk-refutes.
     # A user's "tteh" may be intentional in their dialect.
-    if article_typos:
-        print()
-        print("  Article-typo review (each requires explicit confirmation):")
-        for c in article_typos[:50]:
-            print()
-            print(f"    Candidate: {c.label!r} ({c.path_count} paths)")
-            print(f"    This may be a typo of an English article, OR it may")
-            print(f"    be a real word in your dialect.")
-            choice = input("    [r]efute paths / [k]eep / [s]kip / [q]uit: ").strip().lower()
-            if choice == "q":
-                break
-            if choice == "r":
-                refuted = refute_neuron_paths(brain, c)
-                print(f"    Refuted {refuted} path(s).")
-            elif choice == "k":
-                print("    Kept.")
-            else:
-                print("    Skipped.")
+    _review_category(
+        brain, article_typos, "article-typo",
+        "This may be a typo of an English article, OR it may be a real word in your dialect.",
+    )
 
-    # Pronoun candidates: per-item review. NEVER bulk-refute.
-    if pronouns:
-        print()
-        print("  Pronoun-subject review (each requires explicit confirmation):")
-        for c in pronouns[:50]:
-            print()
-            print(f"    Candidate: {c.label!r} ({c.path_count} paths)")
-            choice = input("    [r]efute paths / [k]eep / [s]kip / [q]uit: ").strip().lower()
-            if choice == "q":
-                break
-            if choice == "r":
-                refuted = refute_neuron_paths(brain, c)
-                print(f"    Refuted {refuted} path(s).")
-            elif choice == "k":
-                print("    Kept.")
-            else:
-                print("    Skipped.")
+    _review_category(
+        brain, pronouns, "pronoun-subject",
+        "Pronouns can never be standalone subjects — these are old parser bugs.",
+    )
+    _review_category(
+        brain, question_typos, "question-word typo",
+        "These are typos of question words (waht/hwat) that became subjects.",
+    )
+    _review_category(
+        brain, stopwords, "stopword-subject",
+        "Bare stopwords (not/it/like/type) should never be standalone subjects.",
+    )
+    _review_category(
+        brain, sentences, "sentence-subject",
+        "Long phrases that got captured as a single neuron — usually digester errors.",
+    )
+    _review_category(
+        brain, punct, "punctuation-artifact",
+        "Sentence fragments with trailing punctuation that became subjects.",
+    )
 
-    # Suspected typos: ALWAYS interactive, NEVER auto
+    # Suspected content typos: extra-careful review
     if typos:
         print()
         print("  Suspected typo review (each requires explicit confirmation):")

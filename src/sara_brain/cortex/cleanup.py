@@ -299,6 +299,12 @@ def refute_neuron_paths(brain: Brain, candidate: PollutionCandidate) -> int:
 
     Sara never deletes — the paths stay with [refuted] prefix and
     negative strength. The neuron itself stays in the graph too.
+
+    After refuting, the ORIGINAL path's source_text is prefixed with
+    "[cleaned] " so that future cleanup runs don't re-present it.
+    Without this mark, the original path would keep showing up as
+    an actionable candidate every time cleanup runs.
+
     Returns the number of paths refuted.
     """
     refuted = 0
@@ -306,11 +312,17 @@ def refute_neuron_paths(brain: Brain, candidate: PollutionCandidate) -> int:
     paths_from = brain.path_repo.get_paths_from(candidate.neuron_id)
     for p in list(paths_to) + list(paths_from):
         if p.source_text and not p.source_text.startswith("["):
-            # Reconstruct a positive form from the source_text and refute it
             try:
                 result = brain.refute(p.source_text)
                 if result is not None:
                     refuted += 1
+                    # Mark the ORIGINAL path as cleaned so the detector
+                    # skips it on future runs. The path stays in the brain
+                    # (Sara never deletes) — we're just adding a prefix.
+                    brain.conn.execute(
+                        "UPDATE paths SET source_text = ? WHERE id = ?",
+                        (f"[cleaned] {p.source_text}", p.id),
+                    )
             except Exception:
                 pass
     if refuted > 0:

@@ -165,14 +165,13 @@ def _handle_slash(brain, cortex, command: str) -> bool:
             brain, stopwords, "stopword-subject",
             "Bare stopwords (not/it/like) should never be standalone subjects.",
         )
-        _review_category(
-            brain, sentences, "sentence-subject",
-            "Long phrases captured as a single neuron — usually digester errors.",
-        )
-        _review_category(
-            brain, punct, "punctuation-artifact",
-            "Sentence fragments with trailing punctuation that became subjects.",
-        )
+        # Sentence-subjects and punctuation-artifacts are summary-only.
+        # Too numerous and noisy for per-item review. The parser now
+        # rejects subjects >4 words so new ones won't be created.
+        if sentences:
+            print(f"\n  {len(sentences)} sentence-subjects (summary only — old digester artifacts).")
+        if punct:
+            print(f"\n  {len(punct)} punctuation-artifacts (summary only).")
 
         s = brain.stats()
         print()

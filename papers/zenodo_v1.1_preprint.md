@@ -110,9 +110,9 @@ This was explicitly described as strictly monotonically increasing with no decay
 strength = 1 + ln(1 + traversals) − ln(1 + refutations)
 ```
 
-When `brain.refute(statement)` is called, the same path-building machinery as `teach()` operates, but the segments' refutation counters are incremented instead of their traversal counters. The path is preserved with a `[refuted]` prefix on its source text, so Sara remembers what was once claimed and now knows is wrong. Strength can go negative when refutations exceed traversals.
+When `brain.refute(statement)` is called, the same path-building machinery as `teach()` operates, but the segments' refutation counters are incremented instead of their traversal counters. The source text of the path is preserved exactly as originally taught — it is not modified, because the source text is provenance and provenance must not be contaminated. The refutation state is a property of the graph structure (the segment's refutation counter, the derived `belief` and `epistemic_state`), not a property of the text. Refutation is tracked through the same neuron-path machinery as everything else in Sara — the act of refuting a claim is recorded as a neuron-chain path grounded in the CLEANUP primitive layer, using the same concept-specific relation neuron pattern as all other knowledge. Strength can go negative when refutations exceed traversals.
 
-The no-forgetting principle is preserved differently than in v1.0: paths are never deleted, refutations are recorded as data, and the system can distinguish "I don't know" from "I know this is false." The history of belief is itself a piece of provenance.
+The no-forgetting principle is preserved differently than in v1.0: paths are never deleted, refutations are recorded as graph structure, and the system can distinguish "I don't know" from "I know this is false." The history of belief is itself a piece of provenance.
 
 ### 3.2 The Contested-vs-Fresh Bug
 
@@ -367,7 +367,7 @@ Sara's cleanup and consolidation processes are architecturally analogous to what
 | Hippocampal replay of recent memories | Walking through source_texts of recently-taught paths |
 | Strengthening memories that consolidate | Re-encoding clean paths from messy originals |
 | Synaptic downscaling of weak connections (Tononi & Cirelli, 2003 [5]) | Refuting pollution paths, pushing strength negative |
-| Preserving the trace even when weakened | Sara never deletes — refuted paths preserved with `[refuted]` prefix |
+| Preserving the trace even when weakened | Sara never deletes — refuted paths preserved with original source text intact, refutation tracked in graph structure |
 | Morning recall: cleaner, less noisy | Post-cleanup queries return cleaner recognition clusters |
 | REM emotional processing | Future: processing contested paths and surfacing them for review |
 | Sleep deprivation: accumulated noise, confusion | A brain that never runs consolidation accumulates pollution over time |

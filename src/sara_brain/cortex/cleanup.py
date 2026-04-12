@@ -545,7 +545,7 @@ def main() -> None:
         print(f"  Punctuation-artifacts ({len(punct)}) — shown in summary above.")
         print("  These are sentence fragments with trailing punctuation.")
 
-    # Suspected content typos: extra-careful review
+    # Suspected content typos: extra-careful review with full options
     if typos:
         print()
         print("  Suspected typo review (each requires explicit confirmation):")
@@ -556,16 +556,35 @@ def main() -> None:
             print(f"    Candidate: {c.label!r} ({c.path_count} paths)")
             print(f"    Likely canonical: {c.canonical!r} ({c.canonical_path_count} paths)")
             print(f"    Edit distance: {c.edit_distance}")
-            choice = input("    [r]efute typo paths / [k]eep both / [s]kip / [q]uit: ").strip().lower()
+            while True:
+                choice = input(
+                    "    [s]how sources / [r]efute / [t]ypo fix / [k]eep / [q]uit: "
+                ).strip().lower()
+                if choice == "q":
+                    print("    Quitting suspected typo review.")
+                    break
+                if choice == "s":
+                    _show_neuron_sources(brain, c)
+                    continue
+                if choice == "r":
+                    refuted = refute_neuron_paths(brain, c)
+                    if refuted == 0:
+                        print("    No paths to refute.")
+                    else:
+                        print(f"    Refuted {refuted} path(s).")
+                    break
+                if choice == "t":
+                    _typo_fix_neuron_paths(brain, c)
+                    break
+                if choice == "k":
+                    print("    Kept. Both neurons remain.")
+                    break
+                print("    Skipped.")
+                break
+            else:
+                continue
             if choice == "q":
                 break
-            if choice == "r":
-                refuted = refute_neuron_paths(brain, c)
-                print(f"    Refuted {refuted} path(s).")
-            elif choice == "k":
-                print("    Kept. Both neurons remain.")
-            else:
-                print("    Skipped.")
 
     print()
     s = brain.stats()

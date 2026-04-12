@@ -1,7 +1,7 @@
 # What Responsible AGI Needs: Structural Alignment Through Innate Primitives in a Path-Graph Cognitive Architecture
 
 **Jennifer Pearl**
-Volunteer Scientist, University of Houston Center for Nuclear Receptors and Cell Signaling
+Independent Researcher
 ORCID: [0009-0006-6083-384X](https://orcid.org/0009-0006-6083-384X)
 jenpearl5@gmail.com
 
@@ -474,6 +474,12 @@ We have presented the v1.1 extensions to Sara Brain, transforming the architectu
 5. **The mission constrains the architecture.** *Heal the world, not destroy it.* This is categorical, not optimizable. It is not "maximize healing minus destruction." It is "never destroy." Every architectural choice in Sara serves this constraint, and any choice that would violate it is refused at the design level.
 
 The system is implemented in pure Python 3.11+ with no dependencies beyond the standard library. All 257 tests pass. The architecture runs on consumer hardware including embedded ARM devices. The source code is publicly available.
+
+---
+
+## Acknowledgments
+
+The author donates her time and provides her services to the University of Houston Center for Nuclear Receptors and Cell Signaling as a member of the Eterna Massive Open Laboratory. She is not faculty or staff of the university. Her volunteer contributions consist of developing algorithms and providing consultation on RNA 2D structure prediction. Her peer-reviewed publications in *PNAS*, *RNA*, and *JMIRx Bio* were produced through her work with the Eterna community prior to her involvement with the University of Houston.
 
 ---
 

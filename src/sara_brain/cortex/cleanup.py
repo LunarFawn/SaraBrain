@@ -71,6 +71,8 @@ def find_article_typo_neurons(brain: Brain) -> list[PollutionCandidate]:
     candidates = []
     for n in brain.neuron_repo.list_all():
         if n.label.strip() in _ARTICLE_FORMS:
+            if _is_neuron_cleaned(brain, n.id):
+                continue
             count = _count_actionable_paths(brain, n.id)
             if count > 0:
                 candidates.append(PollutionCandidate(
@@ -87,6 +89,8 @@ def find_pronoun_neurons(brain: Brain) -> list[PollutionCandidate]:
     candidates = []
     for n in brain.neuron_repo.list_all():
         if n.label.strip() in _PRONOUN_SUBJECTS:
+            if _is_neuron_cleaned(brain, n.id):
+                continue
             count = _count_actionable_paths(brain, n.id)
             if count > 0:
                 candidates.append(PollutionCandidate(
@@ -138,6 +142,8 @@ def find_question_word_typos(brain: Brain) -> list[PollutionCandidate]:
     for n in brain.neuron_repo.list_all():
         label = n.label.strip().lower()
         if label in _QUESTION_WORD_TYPOS:
+            if _is_neuron_cleaned(brain, n.id):
+                continue
             count = _count_actionable_paths(brain, n.id)
             if count > 0:
                 candidates.append(PollutionCandidate(
@@ -150,15 +156,13 @@ def find_question_word_typos(brain: Brain) -> list[PollutionCandidate]:
 
 
 def find_stopword_subject_neurons(brain: Brain) -> list[PollutionCandidate]:
-    """Find neurons whose label is a bare stopword.
-
-    Words like 'not', 'it', 'building', 'type' should never be standalone
-    subjects — they came from old parsers that treated them as content.
-    """
+    """Find neurons whose label is a bare stopword."""
     candidates = []
     for n in brain.neuron_repo.list_all():
         label = n.label.strip().lower()
         if label in _STOPWORD_SUBJECTS:
+            if _is_neuron_cleaned(brain, n.id):
+                continue
             count = _count_actionable_paths(brain, n.id)
             if count > 0:
                 candidates.append(PollutionCandidate(
@@ -174,17 +178,14 @@ def find_sentence_subject_neurons(
     brain: Brain,
     min_words: int = 7,
 ) -> list[PollutionCandidate]:
-    """Find neurons whose label is an entire sentence — almost always
-    a digester or auto-teach failure where the LLM swallowed a full
-    statement and gave it back as a single subject.
-
-    Heuristic: any neuron whose label has more than `min_words` words.
-    """
+    """Find neurons whose label is an entire sentence."""
     candidates = []
     for n in brain.neuron_repo.list_all():
         label = n.label.strip()
         word_count = len(label.split())
         if word_count >= min_words:
+            if _is_neuron_cleaned(brain, n.id):
+                continue
             count = _count_actionable_paths(brain, n.id)
             if count > 0:
                 candidates.append(PollutionCandidate(
@@ -197,13 +198,13 @@ def find_sentence_subject_neurons(
 
 
 def find_punctuation_artifact_neurons(brain: Brain) -> list[PollutionCandidate]:
-    """Find neurons whose label ends in punctuation — sentence fragments
-    that got captured as subjects (e.g., 'agriculture:', 'school.', 'too').
-    """
+    """Find neurons whose label ends in punctuation."""
     candidates = []
     for n in brain.neuron_repo.list_all():
         label = n.label.strip()
         if label and label[-1] in ".,:;!?":
+            if _is_neuron_cleaned(brain, n.id):
+                continue
             count = _count_actionable_paths(brain, n.id)
             if count > 0:
                 candidates.append(PollutionCandidate(
@@ -294,16 +295,107 @@ def find_suspected_typo_neurons(
     return sorted(candidates, key=lambda c: (c.edit_distance, -c.canonical_path_count))
 
 
+def _is_neuron_cleaned(brain: Brain, neuron_id: int) -> bool:
+    """Check if a neuron has already been through cleanup.
+
+    Looks for an outgoing segment with relation 'cleanup_reviewed'.
+    This is a real edge in the graph — not a string prefix hack.
+    """
+    for seg in brain.segment_repo.get_outgoing(neuron_id):
+        if seg.relation == "cleanup_reviewed":
+            return True
+    return False
+
+
+def _mark_neuron_cleaned(
+    brain: Brain,
+    neuron_id: int,
+    action: str = "reviewed",
+    refuted_count: int = 0,
+) -> None:
+    """Record that a neuron has been through cleanup as a real path in the graph.
+
+    Creates a concept-specific 3-neuron chain, following the same pattern
+    as all other knowledge in Sara:
+
+        polluted_neuron → {label}_cleanup → {action}  (CLEANUP primitive)
+
+    No shared hub. No bleed-over. Each cleaned concept gets its own
+    relation neuron, just like apple_color is separate from banana_color.
+
+    Also links the cleanup relation neuron to the cluster's central concept
+    so the cleanup state is discoverable through normal cluster queries.
+    """
+    import time
+    from ..models.neuron import NeuronType
+    from ..models.path import Path as PathModel, PathStep
+
+    # Get or create the CLEANUP primitive neuron (e.g., "reviewed")
+    action_neuron, _ = brain.neuron_repo.get_or_create(
+        action, NeuronType.PROPERTY
+    )
+
+    # Get the polluted neuron's label for the concept-specific relation name
+    polluted = brain.neuron_repo.get_by_id(neuron_id)
+    if polluted is None:
+        return
+    relation_label = f"{polluted.label}_cleanup"
+
+    # Create the concept-specific cleanup relation neuron
+    relation_neuron, _ = brain.neuron_repo.get_or_create(
+        relation_label, NeuronType.RELATION
+    )
+
+    # Create segments: polluted → relation → primitive
+    seg1, _ = brain.segment_repo.get_or_create(
+        neuron_id, relation_neuron.id, "cleanup_reviewed"
+    )
+    seg2, _ = brain.segment_repo.get_or_create(
+        relation_neuron.id, action_neuron.id, "cleanup_action"
+    )
+
+    # Create the path recording the cleanup event
+    path = PathModel(
+        id=None,
+        origin_id=neuron_id,
+        terminus_id=action_neuron.id,
+        source_text=(
+            f"[cleanup] {polluted.label} {action} on "
+            f"{time.strftime('%Y-%m-%d %H:%M')} — "
+            f"{refuted_count} path(s) refuted"
+        ),
+    )
+    path = brain.path_repo.create(path)
+    brain.path_repo.add_step(
+        PathStep(id=None, path_id=path.id, step_order=0, segment_id=seg1.id)
+    )
+    brain.path_repo.add_step(
+        PathStep(id=None, path_id=path.id, step_order=1, segment_id=seg2.id)
+    )
+
+    # Cluster link: connect the cleanup relation neuron to the nearest
+    # cluster neighbor so the cleanup is discoverable through the cluster.
+    cluster = brain.cluster_around(polluted.label, depth=1, max_results=1)
+    if cluster:
+        center = brain.neuron_repo.get_by_label(cluster[0]["label"])
+        if center and center.id != neuron_id:
+            brain.segment_repo.get_or_create(
+                relation_neuron.id, center.id, "cleanup_cluster"
+            )
+
+
 def refute_neuron_paths(brain: Brain, candidate: PollutionCandidate) -> int:
     """Refute all paths involving a pollution candidate.
 
     Sara never deletes — the paths stay with [refuted] prefix and
-    negative strength. The neuron itself stays in the graph too.
+    negative strength. The neuron itself stays in the graph.
+    The original path's source_text is NEVER mutated.
 
-    After refuting, the ORIGINAL path's source_text is prefixed with
-    "[cleaned] " so that future cleanup runs don't re-present it.
-    Without this mark, the original path would keep showing up as
-    an actionable candidate every time cleanup runs.
+    After refuting, a concept-specific cleanup path is created:
+        polluted → {label}_cleanup → reviewed (CLEANUP primitive)
+    This is a real path in the graph — visible, queryable, uses the
+    same machinery as everything else. Future cleanup runs check for
+    the cleanup_reviewed segment and skip already-cleaned neurons.
 
     Returns the number of paths refuted.
     """
@@ -316,16 +408,10 @@ def refute_neuron_paths(brain: Brain, candidate: PollutionCandidate) -> int:
                 result = brain.refute(p.source_text)
                 if result is not None:
                     refuted += 1
-                    # Mark the ORIGINAL path as cleaned so the detector
-                    # skips it on future runs. The path stays in the brain
-                    # (Sara never deletes) — we're just adding a prefix.
-                    brain.conn.execute(
-                        "UPDATE paths SET source_text = ? WHERE id = ?",
-                        (f"[cleaned] {p.source_text}", p.id),
-                    )
             except Exception:
                 pass
     if refuted > 0:
+        _mark_neuron_cleaned(brain, candidate.neuron_id, "reviewed", refuted)
         brain.conn.commit()
     return refuted
 

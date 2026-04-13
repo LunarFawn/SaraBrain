@@ -15,6 +15,11 @@ class Database:
         self.conn = sqlite3.connect(db_path)
         self.conn.execute("PRAGMA journal_mode=WAL")
         self.conn.execute("PRAGMA foreign_keys=ON")
+        # Force checkpoint after every auto-commit so data lands in the
+        # main .db file immediately. Prevents data loss if the process
+        # crashes before the default 1000-page auto-checkpoint fires.
+        # Sara never forgets — the WAL must not be a memory hole.
+        self.conn.execute("PRAGMA wal_autocheckpoint=1")
         self._apply_schema()
 
     def _apply_schema(self) -> None:

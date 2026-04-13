@@ -626,7 +626,7 @@ class Brain:
         return result
 
     def ingest(self, text: str, source: str = "text", callback=None, *,
-               user_initiated: bool = True):
+               on_chunk=None, user_initiated: bool = True):
         """Ingest a document through the LLM cortex.
 
         The LLM reads the document, extracts facts, Sara learns them.
@@ -648,7 +648,8 @@ class Brain:
 
         reader = self._make_reader()
         digester = Digester(self, reader)
-        result = digester.ingest(text, source=source, callback=callback)
+        result = digester.ingest(text, source=source, callback=callback,
+                                 on_chunk=on_chunk)
         self.conn.commit()
         return result
 

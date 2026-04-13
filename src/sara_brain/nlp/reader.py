@@ -57,12 +57,10 @@ class DocumentReader:
             return None
 
     @staticmethod
-    def _chunk_text(text: str, max_chars: int = 1500) -> list[str]:
+    def _chunk_by_paragraphs(text: str, max_chars: int = 1500) -> list[str]:
         """Split text into chunks at paragraph boundaries.
 
-        Small enough that a 3B model can focus on each chunk without
-        dropping facts. Splits on double-newlines (paragraphs) first,
-        then on single newlines if a paragraph is still too long.
+        Default chunker for plain text and HTML-derived text.
         """
         paragraphs = text.split("\n\n")
         chunks: list[str] = []
@@ -75,7 +73,6 @@ class DocumentReader:
                 continue
             # If a single paragraph exceeds the limit, split on newlines
             if len(para) > max_chars:
-                # Flush what we have
                 if current:
                     chunks.append("\n\n".join(current))
                     current = []
@@ -105,11 +102,126 @@ class DocumentReader:
             chunks.append("\n\n".join(current))
         return chunks
 
-    def read(self, document_text: str) -> list[str]:
+    @staticmethod
+    def _chunk_markdown(text: str, max_chars: int = 1500) -> list[str]:
+        """Split markdown at heading boundaries.
+
+        Keeps each section together so the LLM gets coherent context.
+        Falls back to paragraph splitting within oversized sections.
+        """
+        import re
+        # Split on headings (##, ###, etc.) keeping the heading with its body
+        sections = re.split(r"(?=^#{1,6}\s)", text, flags=re.MULTILINE)
+        chunks: list[str] = []
+        current: list[str] = []
+        current_len = 0
+
+        for section in sections:
+            section = section.strip()
+            if not section:
+                continue
+            if len(section) > max_chars:
+                if current:
+                    chunks.append("\n\n".join(current))
+                    current = []
+                    current_len = 0
+                # Section too big — fall back to paragraph splitting
+                chunks.extend(
+                    DocumentReader._chunk_by_paragraphs(section, max_chars)
+                )
+                continue
+
+            if current_len + len(section) > max_chars and current:
+                chunks.append("\n\n".join(current))
+                current = []
+                current_len = 0
+            current.append(section)
+            current_len += len(section) + 2
+
+        if current:
+            chunks.append("\n\n".join(current))
+        return chunks
+
+    @staticmethod
+    def _chunk_code(text: str, max_chars: int = 2000) -> list[str]:
+        """Split source code at function/class boundaries.
+
+        Larger chunk size since code is denser and splitting mid-function
+        loses context.
+        """
+        import re
+        # Split on top-level def/class lines
+        parts = re.split(r"(?=^(?:def |class |async def ))", text, flags=re.MULTILINE)
+        chunks: list[str] = []
+        current: list[str] = []
+        current_len = 0
+
+        for part in parts:
+            part = part.rstrip()
+            if not part:
+                continue
+            if len(part) > max_chars:
+                if current:
+                    chunks.append("\n".join(current))
+                    current = []
+                    current_len = 0
+                # Single function too big — split on blank lines
+                chunks.extend(
+                    DocumentReader._chunk_by_paragraphs(part, max_chars)
+                )
+                continue
+
+            if current_len + len(part) > max_chars and current:
+                chunks.append("\n".join(current))
+                current = []
+                current_len = 0
+            current.append(part)
+            current_len += len(part) + 1
+
+        if current:
+            chunks.append("\n".join(current))
+        return chunks
+
+    @staticmethod
+    def _detect_format(text: str, source: str = "") -> str:
+        """Detect document format from source label or content."""
+        source_lower = source.lower()
+        if source_lower.endswith((".md", ".markdown")):
+            return "markdown"
+        if source_lower.endswith((".py", ".js", ".ts", ".go", ".rs", ".java", ".c", ".cpp", ".h")):
+            return "code"
+        # Heuristic: markdown headings in content
+        if text.lstrip().startswith("#") and "\n## " in text:
+            return "markdown"
+        # Heuristic: code signatures in content
+        if "\ndef " in text or "\nclass " in text:
+            return "code"
+        return "text"
+
+    @staticmethod
+    def _chunk_text(text: str, max_chars: int = 1500, source: str = "") -> list[str]:
+        """Split text into chunks using format-appropriate strategy.
+
+        Detects whether the content is markdown, source code, or plain
+        text and applies the right chunking method.
+        """
+        fmt = DocumentReader._detect_format(text, source)
+        if fmt == "markdown":
+            return DocumentReader._chunk_markdown(text, max_chars)
+        if fmt == "code":
+            return DocumentReader._chunk_code(text, max_chars)
+        return DocumentReader._chunk_by_paragraphs(text, max_chars)
+
+    def read(self, document_text: str, source: str = "",
+             on_chunk=None) -> list[str]:
         """Extract facts/rules from a document as teachable statements.
 
-        Chunks the document so small models can focus on each section
-        without dropping facts from dense or complex passages.
+        Chunks the document using format-appropriate splitting so small
+        models can focus on each section without dropping facts.
+
+        Args:
+            on_chunk: Optional callback(chunk_num, total_chunks, facts_so_far)
+                      called after each chunk is processed.
 
         Returns list of simple statements like:
             "python functions use snake_case"
@@ -128,12 +240,14 @@ class DocumentReader:
             "Simple words only. No explanations, no commentary."
         )
 
-        chunks = self._chunk_text(document_text)
+        chunks = self._chunk_text(document_text, source=source)
         all_statements: list[str] = []
-        for chunk in chunks:
+        for i, chunk in enumerate(chunks, 1):
             raw = self._call_api(system, chunk)
             if raw is not None:
                 all_statements.extend(self._parse_statements(raw))
+            if on_chunk is not None:
+                on_chunk(i, len(chunks), len(all_statements))
 
         # Deduplicate across chunks
         seen: set[str] = set()

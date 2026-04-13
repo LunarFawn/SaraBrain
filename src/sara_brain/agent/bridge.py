@@ -13,6 +13,7 @@ import json
 from pathlib import Path
 
 from ..core.brain import Brain
+from ..cortex.cleanup import STOPWORD_SUBJECTS
 
 
 class AgentBridge:
@@ -73,7 +74,7 @@ class AgentBridge:
         words = [
             w.strip().lower()
             for w in keywords.split()
-            if len(w.strip()) > 2
+            if len(w.strip()) > 2 and w.strip().lower() not in STOPWORD_SUBJECTS
         ]
         all_traces = []
         checked: set[int] = set()
@@ -107,6 +108,9 @@ class AgentBridge:
 
         if not all_traces:
             return f"Sara has no knowledge about: {keywords}"
+
+        # Strongest paths first so the most relevant facts survive truncation
+        all_traces.sort(key=lambda lt: lt[1].weight, reverse=True)
 
         lines = [f"Sara knows {len(all_traces)} relevant fact(s):"]
         for label, t in all_traces:
@@ -360,7 +364,7 @@ class AgentBridge:
 
     # ── Document Ingestion ──
 
-    def ingest(self, source: str) -> str:
+    def ingest(self, source: str, on_chunk=None) -> str:
         """Ingest a document from a file path or URL into Sara Brain.
 
         Sara reads the document via the LLM cortex, extracts facts,
@@ -388,7 +392,7 @@ class AgentBridge:
             return f"Empty document: {source}"
 
         try:
-            result = self.brain.ingest(text, source=label)
+            result = self.brain.ingest(text, source=label, on_chunk=on_chunk)
         except ValueError as e:
             return f"Ingest error (is LLM configured?): {e}"
 
@@ -422,9 +426,13 @@ class AgentBridge:
         # Strip HTML tags for basic text extraction
         text = re.sub(r"<script[^>]*>.*?</script>", "", raw, flags=re.DOTALL)
         text = re.sub(r"<style[^>]*>.*?</style>", "", text, flags=re.DOTALL)
+        # Convert block-level tags to paragraph breaks before stripping
+        text = re.sub(r"</?(p|div|br|h[1-6]|li|tr|td|th|blockquote|section|article)[^>]*>", "\n", text, flags=re.IGNORECASE)
         text = re.sub(r"<[^>]+>", " ", text)
-        # Collapse whitespace
-        text = re.sub(r"\s+", " ", text).strip()
+        # Collapse runs of whitespace within lines, preserve paragraph breaks
+        text = re.sub(r"[ \t]+", " ", text)
+        text = re.sub(r"\n[ \t]*\n[\n\s]*", "\n\n", text)
+        text = text.strip()
 
         if len(text) > 50000:
             text = text[:50000]

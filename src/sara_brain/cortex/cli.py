@@ -143,12 +143,15 @@ def _handle_slash(brain, cortex, command: str) -> bool:
             print("    /ingest /path/to/document.txt\n")
             return True
         print(f"\n  Ingesting: {arg}")
-        print("  (this may take a minute — the LLM extracts facts from the document)\n")
         try:
             from ..agent.bridge import AgentBridge
             bridge = AgentBridge(brain)
-            result = bridge.ingest(arg)
-            print(f"  {result}\n")
+
+            def _on_chunk(chunk_num, total, facts):
+                print(f"  Reading chunk {chunk_num}/{total}... ({facts} facts so far)")
+
+            result = bridge.ingest(arg, on_chunk=_on_chunk)
+            print(f"\n  {result}\n")
         except Exception as e:
             print(f"  Error: {e}\n")
         return True

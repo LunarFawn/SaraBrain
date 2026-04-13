@@ -137,8 +137,8 @@ class AgentLoop:
                 # Post-turn: Sara learns from the LLM's response
                 self._post_turn_observe(content)
                 self._save_session()
-                # Append a compact provenance summary so the user can see
-                # at a glance how grounded the response is.
+                # Mark ungrounded sentences inline and append summary
+                content = self._mark_ungrounded(content)
                 summary = self._provenance_summary(content)
                 if summary:
                     return f"{content}\n\n{summary}"
@@ -297,6 +297,28 @@ class AgentLoop:
 
         # Not a recognized slash command — let it fall through to normal processing
         return None
+
+    # ANSI escape codes for ungrounded sentence marking
+    _RED = "\033[31m"
+    _RESET = "\033[0m"
+
+    def _mark_ungrounded(self, response: str) -> str:
+        """Replace ungrounded sentences with red ANSI text inline.
+
+        Grounded sentences stay normal. Ungrounded sentences turn red
+        so the user can immediately see what the LLM invented.
+        """
+        sentences = self._split_sentences(response)
+        if not sentences:
+            return response
+        marked = response
+        for sent in sentences:
+            tag = self._sentence_grounding_tag(sent)
+            if not tag.startswith("[grounded"):
+                marked = marked.replace(
+                    sent, f"{self._RED}{sent}{self._RESET}", 1
+                )
+        return marked
 
     def _provenance_summary(self, response: str) -> str:
         """Compact one-line provenance summary appended to LLM responses.

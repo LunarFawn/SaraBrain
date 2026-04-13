@@ -416,48 +416,71 @@ class AgentLoop:
         if not word_pass:
             return "[ungrounded]    "
 
-        # ── Path check (new) ──
-        # Parse the sentence to extract subject and object, then check
-        # if a connecting path exists in Sara's graph.
+        # ── Path check (graph proximity) ──
+        # The brain-like check: are the key terms in this sentence
+        # NEIGHBORS in Sara's graph? If "edubba" and "sumerian" and
+        # "school" all appear within 2 hops of each other, the sentence
+        # is grounded — even if the LLM rephrased "school" as "center
+        # for education."
+        #
+        # This mirrors how a human brain validates a claim: "I know
+        # these three things are connected, so a sentence combining
+        # them sounds right." You don't check exact stored sentences —
+        # you check whether the pieces are near each other in your
+        # knowledge graph.
         path_pass = False
         try:
-            from ..cortex.parser import EnhancedParser
-            cortex_parser = getattr(self, "_cortex_parser", None)
-            if cortex_parser is None:
-                cortex_parser = EnhancedParser(self.bridge.brain.taxonomy)
-                self._cortex_parser = cortex_parser
+            # Get the content words that resolved in Sara (from word check above)
+            resolved_neurons = []
+            for word in candidates:
+                try:
+                    n = self.bridge.brain.neuron_repo.resolve(word)
+                    if n is not None:
+                        resolved_neurons.append(n)
+                except Exception:
+                    pass
 
-            parsed = cortex_parser.parse(sentence)
-            if parsed and parsed.facts:
-                for fact in parsed.facts:
-                    # Resolve subject and object in Sara's brain
-                    subj = self.bridge.brain.neuron_repo.resolve(
-                        fact.subject.strip().lower()
-                    )
-                    obj = self.bridge.brain.neuron_repo.resolve(
-                        fact.obj.strip().lower()
-                    )
-                    if subj is None or obj is None:
-                        continue
-
-                    # Check if a path connects them (either direction)
-                    paths_to_subj = self.bridge.brain.path_repo.get_paths_to(subj.id)
-                    for p in paths_to_subj:
-                        if p.origin_id == obj.id:
-                            path_pass = True
-                            break
-
-                    if not path_pass:
-                        paths_to_obj = self.bridge.brain.path_repo.get_paths_to(obj.id)
-                        for p in paths_to_obj:
-                            if p.origin_id == subj.id:
-                                path_pass = True
-                                break
-
+            if len(resolved_neurons) >= 2:
+                # Check if at least one PAIR of resolved neurons are
+                # connected within 2 hops (same cluster neighborhood).
+                # If any pair shares a path or is connected through an
+                # intermediate neuron, the sentence is grounded.
+                for i, n1 in enumerate(resolved_neurons):
                     if path_pass:
                         break
+                    for n2 in resolved_neurons[i + 1:]:
+                        # Direct connection: n1 → n2 or n2 → n1
+                        for seg in self.bridge.brain.segment_repo.get_outgoing(n1.id):
+                            if seg.target_id == n2.id:
+                                path_pass = True
+                                break
+                        if path_pass:
+                            break
+                        for seg in self.bridge.brain.segment_repo.get_outgoing(n2.id):
+                            if seg.target_id == n1.id:
+                                path_pass = True
+                                break
+                        if path_pass:
+                            break
+
+                        # 2-hop connection: n1 → X → n2 or n2 → X → n1
+                        n1_neighbors = {
+                            s.target_id
+                            for s in self.bridge.brain.segment_repo.get_outgoing(n1.id)
+                        }
+                        n2_neighbors = {
+                            s.target_id
+                            for s in self.bridge.brain.segment_repo.get_outgoing(n2.id)
+                        }
+                        # If they share a neighbor, they're 2-hop connected
+                        if n1_neighbors & n2_neighbors:
+                            path_pass = True
+                            break
+                        # Or if n1's neighbor reaches n2, or vice versa
+                        if n2.id in n1_neighbors or n1.id in n2_neighbors:
+                            path_pass = True
+                            break
         except Exception:
-            # If parsing fails, fall through — path check doesn't pass
             pass
 
         # Both must pass

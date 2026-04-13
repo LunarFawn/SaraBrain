@@ -44,11 +44,12 @@ def _handle_slash(brain, cortex, command: str) -> bool:
     if cmd in ("/help", "/?"):
         print(
             "\n  Slash commands:\n"
-            "    /cleanup            — interactive brain cleanup (per-item review)\n"
-            "    /scan               — read-only pollution scan\n"
-            "    /cluster <word>     — show cluster around a concept\n"
             "    /teach <fact>       — teach a fact directly\n"
             "    /refute <fact>      — refute a fact directly\n"
+            "    /ingest <source>    — ingest a file or URL into Sara\n"
+            "    /cluster <word>     — show cluster around a concept\n"
+            "    /cleanup            — interactive brain cleanup (per-item review)\n"
+            "    /scan               — read-only pollution scan\n"
             "    /stats              — brain statistics\n"
             "    /help               — this message\n"
         )
@@ -104,6 +105,24 @@ def _handle_slash(brain, cortex, command: str) -> bool:
         else:
             brain.conn.commit()
             print(f"\n  Refuted: {result.path_label}\n")
+        return True
+
+    if cmd == "/ingest":
+        if not arg:
+            print("\n  Usage: /ingest <file_or_url>\n")
+            print("  Examples:")
+            print("    /ingest https://en.wikipedia.org/wiki/Sumer")
+            print("    /ingest /path/to/document.txt\n")
+            return True
+        print(f"\n  Ingesting: {arg}")
+        print("  (this may take a minute — the LLM extracts facts from the document)\n")
+        try:
+            from ..agent.bridge import AgentBridge
+            bridge = AgentBridge(brain)
+            result = bridge.ingest(arg)
+            print(f"  {result}\n")
+        except Exception as e:
+            print(f"  Error: {e}\n")
         return True
 
     if cmd == "/cleanup":

@@ -240,6 +240,21 @@ def main() -> None:
     brain = Brain(db_path)
     cortex = Cortex(brain)
 
+    # Auto-configure LLM settings if the brain has none and Ollama is running.
+    # New brains start with empty settings — this saves the user from having
+    # to manually configure every new .db file.
+    if not args.no_llm and not brain.settings_repo.get("llm_provider"):
+        try:
+            from ..agent import ollama as _ollama_check
+            if _ollama_check.check_health(args.url):
+                model_name = args.model or "qwen2.5-coder:3b"
+                brain.settings_repo.set("llm_provider", "ollama")
+                brain.settings_repo.set("llm_model", model_name)
+                brain.settings_repo.set("llm_api_url", args.url)
+                brain.conn.commit()
+        except Exception:
+            pass
+
     # Optionally set up the llama fallback
     fallback_loop = None
     if not args.no_llm:

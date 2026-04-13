@@ -5,9 +5,24 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "sara-brain"
 version = "0.1.0"
-description = "Path-of-thought brain simulation"
+description = "Path-of-thought cognitive architecture with structural alignment through innate primitives"
 requires-python = ">=3.11"
 dependencies = []
+authors = [{name = "Jennifer Pearl", email = "jenpearl5@gmail.com"}]
+license = {text = "GPL-3.0-or-later"}
+readme = "README.md"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Operating System :: OS Independent",
+]
 
 [project.optional-dependencies]
 dev = ["pytest>=7.0", "pytest-asyncio>=0.21"]
@@ -19,6 +34,13 @@ sara-agent = "sara_brain.agent.cli:main"
 sara-mcp = "sara_brain.mcp_server:main"
 sara-cortex = "sara_brain.cortex.cli:main"
 sara-cleanup = "sara_brain.cortex.cleanup:main"
+
+[project.urls]
+Homepage = "https://github.com/LunarFawn/SaraBrain"
+Repository = "https://github.com/LunarFawn/SaraBrain"
+Issues = "https://github.com/LunarFawn/SaraBrain/issues"
+Paper = "https://doi.org/10.5281/zenodo.19436522"
+Substack = "https://pathofthought.substack.com"
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -142,6 +142,37 @@ TEMPLATES_BY_RELATION = {
 DEFAULT_TEMPLATE = "{subject} {relation} {object}."
 
 
+# ── Entity disambiguation context clues ──
+# Used by entity_resolver.py to determine if a term refers to a place,
+# people/ethnicity, or language. When context clues are detected, the
+# entity resolver qualifies the neuron label to prevent conflation.
+
+PLACE_CLUES = frozenset({
+    "in", "at", "from", "near", "of", "located",
+    "region", "city", "area", "territory", "land", "country",
+    "kingdom", "empire", "coast", "river", "valley", "plain",
+    "mesopotamia", "geography", "border", "capital",
+    "lived in", "located in", "region of", "city of", "part of",
+})
+
+PEOPLE_CLUES = frozenset({
+    "people", "peoples", "civilization", "culture", "society",
+    "tribe", "ethnic", "ethnicity", "population", "inhabitants",
+    "citizens", "nation", "community", "group",
+    "they", "their", "them", "who",
+    "built", "created", "invented", "developed", "established",
+    "conquered", "ruled", "governed", "migrated", "settled",
+})
+
+LANGUAGE_CLUES = frozenset({
+    "language", "tongue", "dialect", "script", "writing",
+    "cuneiform", "alphabet", "grammar", "vocabulary", "word",
+    "spoke", "spoken", "speak", "written", "wrote", "write",
+    "read", "taught", "learned", "translated", "text",
+    "literature", "poem", "epic", "hymn", "prayer", "tablet",
+})
+
+
 # ── Multi-fact response templates ──
 # When Sara has multiple paths about a topic, the generator joins them.
 

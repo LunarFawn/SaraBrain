@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from .bridge import AgentBridge
+from ..cortex.cleanup import STOPWORD_SUBJECTS
 
 
 def build_system_prompt(bridge: AgentBridge, cwd: str, user_input: str = "") -> str:
@@ -43,7 +44,7 @@ def build_system_prompt(bridge: AgentBridge, cwd: str, user_input: str = "") -> 
         keywords = [
             w.strip().lower()
             for w in user_input.split()
-            if len(w.strip()) > 3
+            if len(w.strip()) > 3 and w.strip().lower() not in STOPWORD_SUBJECTS
         ]
         seen_templates: set[str] = set()
         template_blocks = []

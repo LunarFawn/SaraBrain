@@ -118,7 +118,7 @@ _QUESTION_WORD_TYPOS = frozenset({
 
 # Common stopwords that should never be standalone subject neurons.
 # These got into the brain when old parsers treated them as content.
-_STOPWORD_SUBJECTS = frozenset({
+STOPWORD_SUBJECTS = frozenset({
     "not", "and", "or", "but", "if", "then", "than",
     "for", "with", "from", "by", "as", "at", "in", "on", "of", "to",
     "is", "are", "was", "were", "be", "been", "being",
@@ -160,7 +160,7 @@ def find_stopword_subject_neurons(brain: Brain) -> list[PollutionCandidate]:
     candidates = []
     for n in brain.neuron_repo.list_all():
         label = n.label.strip().lower()
-        if label in _STOPWORD_SUBJECTS:
+        if label in STOPWORD_SUBJECTS:
             if _is_neuron_cleaned(brain, n.id):
                 continue
             count = _count_actionable_paths(brain, n.id)
@@ -246,7 +246,7 @@ def find_suspected_typo_neurons(
     # Set of labels we know are themselves pollution — never use as canonical.
     pollution_labels = (
         _ARTICLE_FORMS | _PRONOUN_SUBJECTS
-        | _QUESTION_WORD_TYPOS | _STOPWORD_SUBJECTS
+        | _QUESTION_WORD_TYPOS | STOPWORD_SUBJECTS
     )
 
     # Build a map of neuron → path count

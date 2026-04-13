@@ -10,6 +10,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
 
+from ..cortex.cleanup import STOPWORD_SUBJECTS
 from ..innate.primitives import is_innate, get_all
 from ..nlp.reader import DocumentReader
 
@@ -57,6 +58,7 @@ class Digester:
         text: str,
         source: str = "text",
         callback: Callable[[DigestionStep], None] | None = None,
+        on_chunk: Callable[[int, int, int], None] | None = None,
     ) -> DigestionResult:
         """Run the full digestion loop on a document.
 
@@ -64,6 +66,7 @@ class Digester:
             text: The document content.
             source: Label for the source (filepath or description).
             callback: Called after each step for interactive display.
+            on_chunk: Called after each chunk(chunk_num, total, facts_so_far).
 
         Returns:
             DigestionResult with all steps and what was learned.
@@ -72,7 +75,7 @@ class Digester:
 
         # --- Phase 1: Read ---
         step = DigestionStep(phase="read")
-        statements = self.reader.read(text)
+        statements = self.reader.read(text, source=source, on_chunk=on_chunk)
         step.statements = statements
 
         # Temporal linker — connects facts to dates found in their source text
@@ -141,32 +144,14 @@ class Digester:
             result.steps.append(step)
 
         # --- Phase 3: Find unknowns ---
+        # Report unknown concepts but do NOT have the LLM explain them.
+        # The LLM is sensory cortex, not a knowledge source — it must
+        # never teach Sara. Unknown concepts stay unknown until the user
+        # or another authoritative source provides the knowledge.
         unknowns = self._find_unknown_concepts(result.all_statements)
         result.unknown_concepts = unknowns
 
-        # --- Phase 4: Explain unknowns via cortex ---
-        if unknowns:
-            step = DigestionStep(phase="explain")
-            step.unknown_concepts = unknowns
-            all_explanations: list[str] = []
-
-            for concept in unknowns:
-                explanations = self.reader.explain(concept)
-                for stmt in explanations:
-                    r = self.brain.teach(stmt)
-                    if r is not None:
-                        step.taught_count += 1
-                all_explanations.extend(explanations)
-
-            step.statements = all_explanations
-            result.total_taught += step.taught_count
-            result.all_statements.extend(all_explanations)
-
-            if callback:
-                callback(step)
-            result.steps.append(step)
-
-        # --- Phase 5: Report ---
+        # --- Phase 4: Report ---
         step = DigestionStep(phase="report")
         summary = self.reader.summarize(result.all_statements)
         step.summary = summary
@@ -206,11 +191,7 @@ class Digester:
     def _extract_concepts(statement: str) -> list[str]:
         """Pull potential concept words from a statement."""
         # Strip common relational words to find the nouns/concepts
-        skip = get_all() | {"a", "an", "the", "and", "or", "of", "to", "in",
-                            "for", "with", "at", "by", "from", "on", "are",
-                            "be", "been", "being", "was", "were", "will",
-                            "should", "must", "can", "could", "would", "may",
-                            "might", "shall", "do", "does", "did", "not", "no"}
+        skip = get_all() | STOPWORD_SUBJECTS | {"a", "an", "the", "will", "shall"}
         words: list[str] = []
         for word in statement.lower().split():
             cleaned = word.strip(".,;:!?\"'()-")

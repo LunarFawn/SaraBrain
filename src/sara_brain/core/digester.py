@@ -75,11 +75,26 @@ class Digester:
         statements = self.reader.read(text)
         step.statements = statements
 
+        # Temporal linker — connects facts to dates found in their source text
+        from .temporal import TemporalLinker
+        temporal = TemporalLinker(
+            self.brain.neuron_repo,
+            self.brain.segment_repo,
+            self.brain.path_repo,
+        )
+
         taught = 0
         for stmt in statements:
             r = self.brain.teach(stmt)
             if r is not None:
                 taught += 1
+                # If the statement mentions a date/era, link the fact
+                # to temporal neurons grounding in TEMPORAL primitives
+                concept = self.brain.neuron_repo.get_by_id(
+                    self.brain.path_repo.get_by_id(r.path_id).terminus_id
+                )
+                if concept:
+                    temporal.link_fact_to_time(concept.id, stmt)
         step.taught_count = taught
         result.total_taught += taught
         result.all_statements.extend(statements)

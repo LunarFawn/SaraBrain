@@ -375,10 +375,21 @@ class AgentLoop:
         return [s.strip() for s in sents if len(s.strip()) > 10]
 
     def _sentence_grounding_tag(self, sentence: str) -> str:
-        """Return a [grounded] or [ungrounded] tag for a sentence based on
-        whether its key terms have paths in Sara's brain.
+        """Return a [grounded] or [ungrounded] tag for a sentence.
+
+        BOTH checks must pass for a sentence to be marked grounded:
+
+        1. WORD CHECK — content words appear in Sara's neuron labels
+        2. PATH CHECK — the specific subject→object claim extracted from
+           the sentence exists as a path in Sara's graph
+
+        If either fails, the sentence is ungrounded. No partial credit.
+        A sentence that uses Sara's vocabulary to dress up an invented
+        claim will fail the path check and be correctly marked ungrounded.
         """
         import re
+
+        # ── Word check (existing) ──
         words = re.findall(r"[a-z][a-z']+", sentence.lower())
         skip = {
             "the", "and", "are", "was", "were", "for", "with", "from", "this",
@@ -390,19 +401,70 @@ class AgentLoop:
         candidates = [w for w in words if len(w) > 3 and w not in skip]
         if not candidates:
             return "[ungrounded]"
-        # Check how many candidates have any presence in Sara
-        hits = 0
+
+        word_hits = 0
         for word in candidates:
             try:
                 if self.bridge.brain.neuron_repo.resolve(word) is not None:
-                    hits += 1
+                    word_hits += 1
             except Exception:
                 pass
-        ratio = hits / max(1, len(candidates))
-        if ratio >= 0.5:
-            return f"[grounded {hits}/{len(candidates)}]"
-        elif hits > 0:
-            return f"[partial   {hits}/{len(candidates)}]"
+
+        word_ratio = word_hits / max(1, len(candidates))
+        word_pass = word_ratio >= 0.5
+
+        if not word_pass:
+            return "[ungrounded]    "
+
+        # ── Path check (new) ──
+        # Parse the sentence to extract subject and object, then check
+        # if a connecting path exists in Sara's graph.
+        path_pass = False
+        try:
+            from ..cortex.parser import EnhancedParser
+            cortex_parser = getattr(self, "_cortex_parser", None)
+            if cortex_parser is None:
+                cortex_parser = EnhancedParser(self.bridge.brain.taxonomy)
+                self._cortex_parser = cortex_parser
+
+            parsed = cortex_parser.parse(sentence)
+            if parsed and parsed.facts:
+                for fact in parsed.facts:
+                    # Resolve subject and object in Sara's brain
+                    subj = self.bridge.brain.neuron_repo.resolve(
+                        fact.subject.strip().lower()
+                    )
+                    obj = self.bridge.brain.neuron_repo.resolve(
+                        fact.obj.strip().lower()
+                    )
+                    if subj is None or obj is None:
+                        continue
+
+                    # Check if a path connects them (either direction)
+                    paths_to_subj = self.bridge.brain.path_repo.get_paths_to(subj.id)
+                    for p in paths_to_subj:
+                        if p.origin_id == obj.id:
+                            path_pass = True
+                            break
+
+                    if not path_pass:
+                        paths_to_obj = self.bridge.brain.path_repo.get_paths_to(obj.id)
+                        for p in paths_to_obj:
+                            if p.origin_id == subj.id:
+                                path_pass = True
+                                break
+
+                    if path_pass:
+                        break
+        except Exception:
+            # If parsing fails, fall through — path check doesn't pass
+            pass
+
+        # Both must pass
+        if word_pass and path_pass:
+            return f"[grounded {word_hits}/{len(candidates)}]"
+        elif word_pass and not path_pass:
+            return "[ungrounded]    "
         else:
             return "[ungrounded]    "
 

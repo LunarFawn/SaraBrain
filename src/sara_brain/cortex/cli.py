@@ -247,15 +247,17 @@ def main() -> None:
 
     stats = brain.stats()
     print()
-    print("  Sara Cortex — language layer over Sara Brain")
-    print(f"  Brain: {db_path} ({stats['neurons']} neurons, {stats['paths']} paths)")
-    if fallback_loop:
-        print(f"  Fallback: Ollama {fallback_loop.model}")
+    if args.no_llm:
+        print("  Sara Cortex — rule-based mode (no LLM)")
+        print(f"  Brain: {db_path} ({stats['neurons']} neurons, {stats['paths']} paths)")
+        print("  LLM: none — cortex handles I/O directly")
     else:
-        print("  Fallback: none — cortex only, Sara will say 'I don't know'")
+        model_name = fallback_loop.model if fallback_loop else "unavailable"
+        print("  Sara Brain — LLM as ears and mouth, Sara as the brain")
+        print(f"  Brain: {db_path} ({stats['neurons']} neurons, {stats['paths']} paths)")
+        print(f"  LLM: {model_name} (sensory + motor cortex)")
     print()
-    print("  Cortex handles natural language directly. No LLM gatekeeping.")
-    print("  Type 'exit' to quit.")
+    print("  Type 'exit' to quit. Slash commands: /help")
     print()
 
     try:
@@ -268,7 +270,7 @@ def main() -> None:
 
             if not user_input:
                 continue
-            # Slash commands for direct brain operations
+            # Slash commands always bypass both LLM and cortex
             if user_input.startswith("/"):
                 if _handle_slash(brain, cortex, user_input):
                     continue
@@ -277,50 +279,48 @@ def main() -> None:
                 break
 
             try:
-                response = cortex.process(user_input)
-
-                if response.requires_disambiguation:
-                    # Sara never auto-merges. Present the ambiguity to the
-                    # user and let them decide.
-                    print(f"\nsara> {response.text}\n")
-                    print(
-                        "  How do you want to handle this?\n"
-                        "    [c]orrect your spelling and re-enter\n"
-                        "    [n]ew concept — keep the new term as a separate neuron\n"
-                        "    [s]kip — discard this teaching\n"
-                    )
-                    choice = input("  > ").strip().lower()
-                    if choice == "n":
-                        # User insists this is a new concept — re-process
-                        # with strict_safety temporarily off
-                        old = cortex.strict_safety
-                        cortex.strict_safety = False
-                        # The cortex still checks but won't block on fuzzy
-                        # alone — the user has explicitly opted in.
-                        # For now, simplest approach: rerun the original
-                        # input bypassing the ambiguity check. We do this
-                        # by directly calling the underlying brain.teach.
-                        for fact in response.parsed_turn.facts:
-                            stmt = fact.original_text or user_input
-                            if fact.negated:
-                                cortex.brain.refute(stmt)
-                            else:
-                                cortex.brain.teach(stmt)
-                        cortex.brain.conn.commit()
-                        cortex.strict_safety = old
-                        print("\n  Committed as a new concept.\n")
-                    elif choice == "c":
-                        print("  Try again with the corrected spelling.\n")
-                    else:
-                        print("  Skipped.\n")
-                    continue
-
-                if response.delegate and fallback_loop is not None:
-                    # Cortex couldn't handle confidently — defer to llama
-                    print("\n  (cortex deferred to llama)")
+                if fallback_loop is not None and not args.no_llm:
+                    # ── LLM MODE (default) ──
+                    # The LLM is the entry point (ears) and exit point (mouth).
+                    # Sara Brain is the internal machinery consulted via tools.
+                    # The agent loop's _sara_turn auto-teaches declarative input,
+                    # the system prompt forces the LLM to defer to Sara's paths,
+                    # and the LLM renders the grounded output as fluent English.
                     text = fallback_loop.turn(user_input)
-                    print(f"\nsara(llm)> {text}\n")
+                    print(f"\nsara> {text}\n")
                 else:
+                    # ── CORTEX-ONLY MODE (--no-llm) ──
+                    # Rule-based cortex handles everything directly.
+                    # Less fluent output but zero hallucination possible.
+                    response = cortex.process(user_input)
+
+                    if response.requires_disambiguation:
+                        print(f"\nsara> {response.text}\n")
+                        print(
+                            "  How do you want to handle this?\n"
+                            "    [c]orrect your spelling and re-enter\n"
+                            "    [n]ew concept — keep the new term as a separate neuron\n"
+                            "    [s]kip — discard this teaching\n"
+                        )
+                        choice = input("  > ").strip().lower()
+                        if choice == "n":
+                            old = cortex.strict_safety
+                            cortex.strict_safety = False
+                            for fact in response.parsed_turn.facts:
+                                stmt = fact.original_text or user_input
+                                if fact.negated:
+                                    cortex.brain.refute(stmt)
+                                else:
+                                    cortex.brain.teach(stmt)
+                            cortex.brain.conn.commit()
+                            cortex.strict_safety = old
+                            print("\n  Committed as a new concept.\n")
+                        elif choice == "c":
+                            print("  Try again with the corrected spelling.\n")
+                        else:
+                            print("  Skipped.\n")
+                        continue
+
                     _print_response(response, verbose=args.verbose)
             except Exception as e:
                 print(f"\n  Error: {e}\n", file=sys.stderr)

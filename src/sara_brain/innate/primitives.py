@@ -120,7 +120,33 @@ CLEANUP = frozenset({
     "consolidated",     # reviewed during sleep cycle
 })
 
-_ALL = SENSORY | STRUCTURAL | RELATIONAL | ETHICAL | SAFETY | SOCIAL | CLEANUP
+# Temporal: innate time perception and sequencing.
+# Maps to hippocampal time cells (fire at specific moments in a
+# sequence), entorhinal cortex (encodes temporal context — the
+# "timestamp" on memories), and the suprachiasmatic nucleus (the
+# brain's master clock for circadian rhythms).
+#
+# A baby understands "before" and "after" before it knows what a
+# "Tuesday" is. The capacity for temporal reasoning is innate. The
+# calendar is culture. Days, years, centuries, BCE — these are all
+# LEARNED concepts that ground in these temporal primitives.
+#
+# When Sara ingests a document with dates, the temporal resolver
+# detects time references and creates paths grounding in these
+# primitives: "3500 BCE" → is_a → moment, "early sumerian period"
+# → is_a → era, "X happened before Y" → before (TEMPORAL primitive).
+TEMPORAL = frozenset({
+    # Sequence primitives (innate — babies understand cause precedes effect)
+    "before", "after", "during", "while", "until", "since",
+    # Ordering primitives
+    "first", "last", "next", "previous", "beginning", "ending",
+    # Duration primitives
+    "moment", "period", "era", "always", "never", "temporary", "permanent",
+    # Simultaneity primitives
+    "simultaneous", "concurrent",
+})
+
+_ALL = SENSORY | STRUCTURAL | RELATIONAL | ETHICAL | SAFETY | SOCIAL | CLEANUP | TEMPORAL
 
 
 def get_sensory() -> frozenset[str]:
@@ -173,3 +199,11 @@ def is_social(label: str) -> bool:
 
 def is_cleanup(label: str) -> bool:
     return label.strip().lower() in CLEANUP
+
+
+def get_temporal() -> frozenset[str]:
+    return TEMPORAL
+
+
+def is_temporal(label: str) -> bool:
+    return label.strip().lower() in TEMPORAL

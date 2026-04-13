@@ -1,11 +1,11 @@
 # Path-of-Thought: A Neuron-Chain Knowledge Representation System with Parallel Wavefront Recognition
 
 **Jennifer Pearl**
-Volunteer Scientist, University of Houston Center for Nuclear Receptors and Cell Signaling
+Independent Researcher
 ORCID: [0009-0006-6083-384X](https://orcid.org/0009-0006-6083-384X)
 jenpearl5@gmail.com
 
-**Date:** April 5, 2026 (revised)
+**Date:** April 12, 2026 (revised)
 **Original draft:** March 24, 2026
 
 **Keywords:** cognitive architecture, knowledge representation, path-of-thought, parallel wavefront recognition, neuron-chain graph, LLM steering, persistent memory, cortex-cerebellum architecture, resource allocation, AI training efficiency
@@ -618,6 +618,12 @@ We have presented Sara Brain, a working implementation of the path-of-thought mo
 The system is implemented in pure Python with no dependencies beyond the standard library, runs on any machine with Python 3.11+, and is publicly available.
 
 This paper's central claim is not that transformers are wrong. It is that a thought is a path, that intelligence is the ability to explain why, and that a 500KB file with 793 neurons and a 3B model proved it — while the industry spent billions training larger models to achieve the same goal less traceably.
+
+---
+
+## Acknowledgments
+
+The author donates her time and provides her services to the University of Houston Center for Nuclear Receptors and Cell Signaling as a member of the Eterna Massive Open Laboratory. She is not faculty or staff of the university. Her volunteer contributions consist of developing algorithms and providing consultation on RNA 2D structure prediction. Her peer-reviewed publications in *PNAS*, *RNA*, and *JMIRx Bio* were produced through her work with the Eterna community prior to her involvement with the University of Houston.
 
 ---
 

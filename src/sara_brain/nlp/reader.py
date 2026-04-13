@@ -56,8 +56,60 @@ class DocumentReader:
         except (urllib.error.URLError, KeyError, json.JSONDecodeError, TimeoutError):
             return None
 
+    @staticmethod
+    def _chunk_text(text: str, max_chars: int = 1500) -> list[str]:
+        """Split text into chunks at paragraph boundaries.
+
+        Small enough that a 3B model can focus on each chunk without
+        dropping facts. Splits on double-newlines (paragraphs) first,
+        then on single newlines if a paragraph is still too long.
+        """
+        paragraphs = text.split("\n\n")
+        chunks: list[str] = []
+        current: list[str] = []
+        current_len = 0
+
+        for para in paragraphs:
+            para = para.strip()
+            if not para:
+                continue
+            # If a single paragraph exceeds the limit, split on newlines
+            if len(para) > max_chars:
+                # Flush what we have
+                if current:
+                    chunks.append("\n\n".join(current))
+                    current = []
+                    current_len = 0
+                lines = para.split("\n")
+                line_buf: list[str] = []
+                line_len = 0
+                for line in lines:
+                    if line_len + len(line) > max_chars and line_buf:
+                        chunks.append("\n".join(line_buf))
+                        line_buf = []
+                        line_len = 0
+                    line_buf.append(line)
+                    line_len += len(line) + 1
+                if line_buf:
+                    chunks.append("\n".join(line_buf))
+                continue
+
+            if current_len + len(para) > max_chars and current:
+                chunks.append("\n\n".join(current))
+                current = []
+                current_len = 0
+            current.append(para)
+            current_len += len(para) + 2
+
+        if current:
+            chunks.append("\n\n".join(current))
+        return chunks
+
     def read(self, document_text: str) -> list[str]:
         """Extract facts/rules from a document as teachable statements.
+
+        Chunks the document so small models can focus on each section
+        without dropping facts from dense or complex passages.
 
         Returns list of simple statements like:
             "python functions use snake_case"
@@ -72,13 +124,26 @@ class DocumentReader:
             "Use the format: <subject> is/has/follows/requires <property>\n"
             f"Structural concepts you can use: {primitives}\n"
             "Be thorough. Extract everything. One fact per line.\n"
+            "Do not skip dates, numbers, or names.\n"
             "Simple words only. No explanations, no commentary."
         )
 
-        raw = self._call_api(system, document_text)
-        if raw is None:
-            return []
-        return self._parse_statements(raw)
+        chunks = self._chunk_text(document_text)
+        all_statements: list[str] = []
+        for chunk in chunks:
+            raw = self._call_api(system, chunk)
+            if raw is not None:
+                all_statements.extend(self._parse_statements(raw))
+
+        # Deduplicate across chunks
+        seen: set[str] = set()
+        result: list[str] = []
+        for s in all_statements:
+            lower = s.lower()
+            if lower not in seen:
+                seen.add(lower)
+                result.append(s)
+        return result
 
     def inquire(self, document_text: str,
                 associations: dict[str, list[str]]) -> list[str]:

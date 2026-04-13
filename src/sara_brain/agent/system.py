@@ -48,16 +48,24 @@ def build_system_prompt(bridge: AgentBridge, cwd: str, user_input: str = "") -> 
         seen_templates: set[str] = set()
         template_blocks = []
         for kw in keywords[:5]:
-            try:
-                templates = bridge.brain.get_templates(kw)
-                for t in templates:
-                    # Deduplicate by first 50 chars
-                    key = t[:50]
-                    if key not in seen_templates:
-                        seen_templates.add(key)
-                        template_blocks.append(t)
-            except Exception:
-                pass
+            # Try both hyphen and underscore variants so
+            # "data-squirrel" matches stored "data_squirrel" and vice versa
+            variants = {kw}
+            if "-" in kw:
+                variants.add(kw.replace("-", "_"))
+            if "_" in kw:
+                variants.add(kw.replace("_", "-"))
+            for variant in variants:
+                try:
+                    templates = bridge.brain.get_templates(variant)
+                    for t in templates:
+                        # Deduplicate by first 50 chars
+                        key = t[:50]
+                        if key not in seen_templates:
+                            seen_templates.add(key)
+                            template_blocks.append(t)
+                except Exception:
+                    pass
         if template_blocks:
             relevant_templates = "\n\n---\n\n".join(template_blocks[:3])
 

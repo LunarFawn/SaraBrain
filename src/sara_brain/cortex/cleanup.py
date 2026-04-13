@@ -50,18 +50,18 @@ class PollutionCandidate:
 
 
 def _count_actionable_paths(brain: Brain, neuron_id: int) -> int:
-    """Count only non-refuted paths attached to a neuron.
+    """Count paths attached to a neuron that haven't been cleaned.
 
-    Paths whose source_text starts with '[refuted]' have already been
-    cleaned in a previous run. They stay in the brain forever (Sara
-    never deletes) but they should NOT cause the cleanup tool to
-    re-present the same candidate on every run.
+    Skips paths whose source_text starts with '[cleanup]' (cleanup
+    event records). All other paths are actionable — refutation state
+    is tracked in the graph via CLEANUP primitives, not via string
+    prefixes on source_text.
     """
     paths_to = brain.path_repo.get_paths_to(neuron_id)
     paths_from = brain.path_repo.get_paths_from(neuron_id)
     count = 0
     for p in list(paths_to) + list(paths_from):
-        if p.source_text and not p.source_text.startswith("["):
+        if p.source_text and not p.source_text.startswith("[cleanup]"):
             count += 1
     return count
 
@@ -387,8 +387,9 @@ def _mark_neuron_cleaned(
 def refute_neuron_paths(brain: Brain, candidate: PollutionCandidate) -> int:
     """Refute all paths involving a pollution candidate.
 
-    Sara never deletes — the paths stay with [refuted] prefix and
-    negative strength. The neuron itself stays in the graph.
+    Sara never deletes — refuted paths stay with negative segment
+    strength. The neuron itself stays in the graph. Refutation state
+    is tracked via CLEANUP primitives, not source_text prefixes.
     The original path's source_text is NEVER mutated.
 
     After refuting, a concept-specific cleanup path is created:
@@ -403,7 +404,7 @@ def refute_neuron_paths(brain: Brain, candidate: PollutionCandidate) -> int:
     paths_to = brain.path_repo.get_paths_to(candidate.neuron_id)
     paths_from = brain.path_repo.get_paths_from(candidate.neuron_id)
     for p in list(paths_to) + list(paths_from):
-        if p.source_text and not p.source_text.startswith("["):
+        if p.source_text and not p.source_text.startswith("[cleanup]"):
             try:
                 result = brain.refute(p.source_text)
                 if result is not None:
@@ -481,7 +482,7 @@ def _show_neuron_sources(brain: Brain, candidate: PollutionCandidate) -> None:
     paths_to = brain.path_repo.get_paths_to(candidate.neuron_id)
     paths_from = brain.path_repo.get_paths_from(candidate.neuron_id)
     all_paths = list(paths_to) + list(paths_from)
-    actionable = [p for p in all_paths if p.source_text and not p.source_text.startswith("[")]
+    actionable = [p for p in all_paths if p.source_text and not p.source_text.startswith("[cleanup]")]
     if not actionable:
         print("    No source texts to show (all paths are already refuted or orphans).")
         return
@@ -510,7 +511,7 @@ def _typo_fix_neuron_paths(brain: Brain, candidate: PollutionCandidate) -> None:
     paths_to = brain.path_repo.get_paths_to(candidate.neuron_id)
     paths_from = brain.path_repo.get_paths_from(candidate.neuron_id)
     all_paths = list(paths_to) + list(paths_from)
-    actionable = [p for p in all_paths if p.source_text and not p.source_text.startswith("[")]
+    actionable = [p for p in all_paths if p.source_text and not p.source_text.startswith("[cleanup]")]
     if not actionable:
         print("    No source texts to fix (all paths are already refuted or orphans).")
         return

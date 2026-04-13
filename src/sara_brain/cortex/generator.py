@@ -30,7 +30,7 @@ class TemplateGenerator:
         """
         # If we have provenance text from the original teaching, that's
         # the most authentic English form — use it directly.
-        if trace.source_text and not trace.source_text.startswith("["):
+        if trace.source_text and not trace.source_text.startswith("[cleanup]"):
             return trace.source_text.rstrip(".") + "."
 
         # Otherwise reconstruct from neuron labels
@@ -54,22 +54,22 @@ class TemplateGenerator:
     def render_query(self, topic: str, traces: list[PathTrace]) -> str:
         """Render the answer to a query: what does Sara know about <topic>?
 
-        Groups paths by canonical source text (stripped of [refuted] prefix)
-        so that a fact that was both taught and refuted appears once with
-        a "contested" marker, not as two duplicate entries.
+        Groups paths by source text. Uses the PathTrace.is_refuted property
+        (which checks signed weight from segment strengths) to determine
+        whether a path is believed or refuted — NOT source_text prefixes.
         """
         if not traces:
             return grammar.NO_KNOWLEDGE_WITH_HINT.format(topic=topic)
 
-        # Group paths by canonical text. For each group, decide whether
-        # the fact is currently believed, refuted, or contested.
+        # Group paths by source text. For each group, categorize by
+        # signed weight (refuted = negative weight, believed = positive).
         groups: dict[str, dict] = {}
         for t in traces:
             canonical = self._canonical_text(t)
             if not canonical:
                 continue
             g = groups.setdefault(canonical, {"taught": 0, "refuted": 0, "trace": t})
-            if t.source_text and t.source_text.startswith("[refuted]"):
+            if t.is_refuted:
                 g["refuted"] += 1
             else:
                 g["taught"] += 1
@@ -81,15 +81,12 @@ class TemplateGenerator:
         for canonical, g in groups.items():
             sentence = canonical.rstrip(".") + "."
             if g["refuted"] > 0 and g["taught"] == 0:
-                # Pure refutation
                 sentences.append(grammar.LIST_REFUTED_PREFIX.format(sentence=sentence))
             elif g["refuted"] > 0 and g["taught"] > 0:
-                # Both — contested
                 sentences.append(
                     f"  • [contested: taught {g['taught']}x, refuted {g['refuted']}x] {sentence}"
                 )
             else:
-                # Pure teach
                 sentences.append(grammar.LIST_ITEM.format(sentence=sentence))
 
         intro = grammar.LIST_INTRO.format(topic=topic)
@@ -97,13 +94,13 @@ class TemplateGenerator:
 
     @staticmethod
     def _canonical_text(trace: PathTrace) -> str | None:
-        """Return the canonical English form of a path, stripped of refuted prefix."""
-        if trace.source_text:
-            text = trace.source_text
-            if text.startswith("[refuted]"):
-                text = text[len("[refuted]"):].strip()
-            return text
-        # Fall back to neuron-based reconstruction
+        """Return the canonical English form of a path's source text.
+
+        No prefix stripping needed — source_text is never prefixed.
+        Refutation state is in the graph, not the string.
+        """
+        if trace.source_text and not trace.source_text.startswith("[cleanup]"):
+            return trace.source_text
         if len(trace.neurons) >= 2:
             return f"{trace.neurons[0].label} → {trace.neurons[-1].label}"
         return None

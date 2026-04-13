@@ -114,22 +114,52 @@ class Learner:
         elif not created:
             self.segment_repo.strengthen(seg2)
 
-        # 5. Record the path. Refutations get a [refuted] prefix on
-        # source_text so provenance is preserved.
-        source_text = (
-            f"[refuted] {parsed.original}" if refute else parsed.original
-        )
+        # 5. Record the path. Source_text is NEVER prefixed or mutated.
+        # Refutation state is tracked in the graph via CLEANUP primitives,
+        # not via string hacks on source_text.
         path = Path(
             id=None,
             origin_id=prop_neuron.id,
             terminus_id=concept_neuron.id,
-            source_text=source_text,
+            source_text=parsed.original,
         )
         path = self.path_repo.create(path)
 
         # 6. Record path steps
         self.path_repo.add_step(PathStep(id=None, path_id=path.id, step_order=0, segment_id=seg1.id))
         self.path_repo.add_step(PathStep(id=None, path_id=path.id, step_order=1, segment_id=seg2.id))
+
+        # 7. If refuting, create a concept-specific refutation path
+        # grounding in the 'refuted' CLEANUP primitive:
+        #   concept → {concept}_refuted → refuted
+        # Same pattern as cleanup paths and fact paths. No shared hub.
+        if refute:
+            refuted_primitive, _ = self.neuron_repo.get_or_create(
+                "refuted", NeuronType.PROPERTY
+            )
+            refute_relation_label = f"{concept_neuron.label}_refuted"
+            refute_relation, _ = self.neuron_repo.get_or_create(
+                refute_relation_label, NeuronType.RELATION
+            )
+            seg_r1, _ = self.segment_repo.get_or_create(
+                concept_neuron.id, refute_relation.id, "refutation_of"
+            )
+            seg_r2, _ = self.segment_repo.get_or_create(
+                refute_relation.id, refuted_primitive.id, "refutation_status"
+            )
+            refute_path = Path(
+                id=None,
+                origin_id=concept_neuron.id,
+                terminus_id=refuted_primitive.id,
+                source_text=parsed.original,
+            )
+            refute_path = self.path_repo.create(refute_path)
+            self.path_repo.add_step(
+                PathStep(id=None, path_id=refute_path.id, step_order=0, segment_id=seg_r1.id)
+            )
+            self.path_repo.add_step(
+                PathStep(id=None, path_id=refute_path.id, step_order=1, segment_id=seg_r2.id)
+            )
 
         # 7. Sub-concept linking: decompose multi-word labels into
         #    individual word neurons with part_of segments so wavefronts

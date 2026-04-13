@@ -46,6 +46,7 @@ def _handle_slash(brain, cortex, command: str) -> bool:
             "\n  Slash commands:\n"
             "    /teach <fact>       — teach a fact directly\n"
             "    /refute <fact>      — refute a fact directly\n"
+            "    /template <topic>   — store a reference example for a topic\n"
             "    /ingest <source>    — ingest a file or URL into Sara\n"
             "    /cluster <word>     — show cluster around a concept\n"
             "    /cleanup            — interactive brain cleanup (per-item review)\n"
@@ -93,6 +94,34 @@ def _handle_slash(brain, cortex, command: str) -> bool:
         else:
             brain.conn.commit()
             print(f"\n  Learned: {result.path_label}\n")
+        return True
+
+    if cmd == "/template":
+        if not arg:
+            print("\n  Usage: /template <topic>")
+            print("  Then paste the template content. End with a blank line.\n")
+            print("  Example:")
+            print("    /template data_squirrel")
+            print("    [paste YAML schema example]")
+            print("    [blank line to finish]\n")
+            return True
+        print(f"\n  Storing template for {arg!r}.")
+        print("  Paste the template content below. End with a blank line.\n")
+        lines = []
+        while True:
+            try:
+                line = input()
+            except EOFError:
+                break
+            if line == "":
+                break
+            lines.append(line)
+        if not lines:
+            print("  No content provided. Template not stored.\n")
+            return True
+        content = "\n".join(lines)
+        path_id = brain.store_template(arg, content)
+        print(f"\n  Template stored for {arg!r} (path #{path_id}, {len(lines)} lines).\n")
         return True
 
     if cmd == "/refute":

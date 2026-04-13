@@ -70,6 +70,84 @@ class Brain:
         self._load_dynamic_associations()
         self._load_categories()
 
+    # ── Template storage ──
+
+    def store_template(self, topic: str, content: str) -> int:
+        """Store a template example for a topic.
+
+        Templates are complete examples that get injected into the LLM's
+        context when the topic comes up. Unlike declarative facts ("X is Y"),
+        templates are procedural knowledge ("here is what X looks like").
+
+        This is how you teach an autistic brain: not "the format has sections"
+        but "here is an example, make one like this."
+
+        The template is stored as a path: topic → {topic}_template → template
+        with the full content in source_text.
+        """
+        from .models.neuron import NeuronType
+        from .models.path import Path as PathModel, PathStep
+
+        topic_lower = topic.strip().lower()
+        topic_neuron, _ = self.neuron_repo.get_or_create(
+            topic_lower, NeuronType.CONCEPT
+        )
+        template_prim, _ = self.neuron_repo.get_or_create(
+            "template", NeuronType.PROPERTY
+        )
+        relation_label = f"{topic_lower}_template"
+        relation_neuron, _ = self.neuron_repo.get_or_create(
+            relation_label, NeuronType.RELATION
+        )
+
+        seg1, _ = self.segment_repo.get_or_create(
+            topic_neuron.id, relation_neuron.id, "has_template"
+        )
+        seg2, _ = self.segment_repo.get_or_create(
+            relation_neuron.id, template_prim.id, "template_type"
+        )
+
+        path = PathModel(
+            id=None,
+            origin_id=topic_neuron.id,
+            terminus_id=template_prim.id,
+            source_text=content,
+        )
+        path = self.path_repo.create(path)
+        self.path_repo.add_step(
+            PathStep(id=None, path_id=path.id, step_order=0, segment_id=seg1.id)
+        )
+        self.path_repo.add_step(
+            PathStep(id=None, path_id=path.id, step_order=1, segment_id=seg2.id)
+        )
+        self.conn.commit()
+        return path.id
+
+    def get_templates(self, topic: str) -> list[str]:
+        """Get all stored templates for a topic.
+
+        Returns a list of template content strings. These should be
+        injected into the LLM's context as reference examples.
+        """
+        topic_lower = topic.strip().lower()
+        neuron = self.neuron_repo.resolve(topic_lower)
+        if neuron is None:
+            return []
+
+        templates = []
+        for seg in self.segment_repo.get_outgoing(neuron.id):
+            if seg.relation == "has_template":
+                # Walk to terminus to find the template path
+                relation_segs = self.segment_repo.get_outgoing(seg.target_id)
+                for rs in relation_segs:
+                    if rs.relation == "template_type":
+                        # Find paths from topic to template primitive
+                        paths = self.path_repo.get_paths_to(rs.target_id)
+                        for p in paths:
+                            if p.origin_id == neuron.id and p.source_text:
+                                templates.append(p.source_text)
+        return templates
+
     def is_neuron_refuted(self, neuron_id: int) -> bool:
         """Check if a neuron has been refuted via graph state.
 

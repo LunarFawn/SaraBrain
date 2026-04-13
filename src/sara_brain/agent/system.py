@@ -19,6 +19,7 @@ def build_system_prompt(bridge: AgentBridge, cwd: str, user_input: str = "") -> 
     # Pre-inject relevant knowledge from Sara based on user's input
     # Keep it compact — small models have limited context windows
     relevant_knowledge = ""
+    relevant_templates = ""
     if user_input:
         context = bridge.context(user_input)
         if not context.startswith("Sara has no knowledge"):
@@ -35,6 +36,30 @@ def build_system_prompt(bridge: AgentBridge, cwd: str, user_input: str = "") -> 
                         compact.append(f"  ... and {remaining} more facts")
                     break
             relevant_knowledge = "\n".join(compact)
+
+        # Check for stored templates matching the query topics.
+        # Templates are complete reference examples that the LLM should
+        # follow exactly — procedural knowledge, not declarative facts.
+        keywords = [
+            w.strip().lower()
+            for w in user_input.split()
+            if len(w.strip()) > 3
+        ]
+        seen_templates: set[str] = set()
+        template_blocks = []
+        for kw in keywords[:5]:
+            try:
+                templates = bridge.brain.get_templates(kw)
+                for t in templates:
+                    # Deduplicate by first 50 chars
+                    key = t[:50]
+                    if key not in seen_templates:
+                        seen_templates.add(key)
+                        template_blocks.append(t)
+            except Exception:
+                pass
+        if template_blocks:
+            relevant_templates = "\n\n---\n\n".join(template_blocks[:3])
 
     return f"""\
 You are the LANGUAGE CORTEX of Sara Brain. You are not a knowledge source.
@@ -79,6 +104,17 @@ You are connected to Sara Brain, a persistent knowledge database.
 {relevant_knowledge}
 
 Use the facts above when responding. This is what Sara remembers.""" if relevant_knowledge else ""}
+{f"""
+## REFERENCE TEMPLATES — Follow These Exactly
+
+Sara has stored reference examples for this topic. When generating
+output related to these templates, follow their EXACT format and
+structure. Do not invent your own format. Copy the pattern precisely.
+
+{relevant_templates}
+
+IMPORTANT: The template above is the EXACT format to follow. Do not
+deviate from it. Do not substitute your own structure.""" if relevant_templates else ""}
 
 ## Knowledge Update Rules — CRITICAL
 

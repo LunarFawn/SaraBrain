@@ -64,13 +64,19 @@ def test_path_preserved_after_refutation(brain):
     brain.refute("apples are blue")
     after_refute_count = brain.path_repo.count()
 
-    # Refutation creates a new path with [refuted] prefix
+    # Refutation creates new paths (the fact chain + the refutation graph path)
     assert after_refute_count > initial_path_count
 
-    # The original path is still there
+    # The original source_text is preserved — no prefix mutation
     paths = brain.path_repo.list_all()
-    sources = [p.source_text for p in paths]
-    assert any("[refuted]" in (s or "") for s in sources)
+    sources = [p.source_text for p in paths if p.source_text]
+    assert any("apples are blue" == s for s in sources)
+
+    # Refutation state is tracked in the graph via a _refuted relation neuron
+    # grounding in the 'refuted' CLEANUP primitive
+    apple = brain.neuron_repo.get_by_label("apple")
+    assert apple is not None
+    assert brain.is_neuron_refuted(apple.id)
 
 
 def test_refute_returns_none_for_unparseable(brain):

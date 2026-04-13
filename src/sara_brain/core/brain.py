@@ -70,6 +70,17 @@ class Brain:
         self._load_dynamic_associations()
         self._load_categories()
 
+    def is_neuron_refuted(self, neuron_id: int) -> bool:
+        """Check if a neuron has been refuted via graph state.
+
+        Looks for an outgoing segment with relation 'refutation_of'.
+        This is a real edge in the graph, not a string prefix.
+        """
+        for seg in self.segment_repo.get_outgoing(neuron_id):
+            if seg.relation == "refutation_of":
+                return True
+        return False
+
     def teach(self, statement: str, *, user_initiated: bool = True) -> LearnResult | None:
         """Teach a fact. Returns None if unparseable."""
         gate = self._ethics.check_action("teach", user_initiated=user_initiated)
@@ -84,8 +95,10 @@ class Brain:
         """Refute a fact. Sara never deletes — she marks the claim as
         known-to-be-false by incrementing refutations on the segments.
 
-        The path is preserved with a [refuted] prefix in source_text so
-        Sara remembers what was once claimed and now knows is wrong.
+        Refutation state is tracked in the graph via a concept-specific
+        path grounding in the 'refuted' CLEANUP primitive:
+            concept → {concept}_refuted → refuted
+        The source_text is NEVER prefixed or mutated.
 
         Returns None if unparseable.
         """
@@ -167,7 +180,7 @@ class Brain:
             paths = self.path_repo.get_paths_to(neuron.id)
             desc = ""
             for p in paths[:1]:
-                if p.source_text and not p.source_text.startswith("["):
+                if p.source_text:
                     desc = p.source_text
                     break
             results.append({

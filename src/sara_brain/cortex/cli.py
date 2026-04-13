@@ -19,6 +19,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import readline  # noqa: F401 — enables arrow keys / history in input()
 import sys
 
 from ..config import default_db_path
@@ -106,14 +107,12 @@ def _handle_slash(brain, cortex, command: str) -> bool:
             print("    [blank line to finish]\n")
             return True
         print(f"\n  Storing template for {arg!r}.")
-        print("  Paste the template content below. End with a blank line.\n")
+        print("  Paste the template content below. Press Ctrl+D when done.\n")
         lines = []
         while True:
             try:
                 line = input()
             except EOFError:
-                break
-            if line == "":
                 break
             lines.append(line)
         if not lines:

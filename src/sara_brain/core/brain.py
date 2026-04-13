@@ -85,8 +85,8 @@ class Brain:
         The template is stored as a path: topic → {topic}_template → template
         with the full content in source_text.
         """
-        from .models.neuron import NeuronType
-        from .models.path import Path as PathModel, PathStep
+        from sara_brain.models.neuron import NeuronType
+        from sara_brain.models.path import Path as PathModel, PathStep
 
         topic_lower = topic.strip().lower()
         topic_neuron, _ = self.neuron_repo.get_or_create(

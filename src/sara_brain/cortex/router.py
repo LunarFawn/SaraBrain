@@ -248,19 +248,57 @@ class Cortex:
         )
 
     def _check_ambiguity(self, fact: ExtractedFact) -> list[TeachAmbiguity]:
-        """Check if any term in a fact has a close fuzzy match.
+        """Check if any term in a fact has a close fuzzy match OR
+        qualified variants (place/people/language homonyms).
 
         Returns a list of TeachAmbiguity objects — one per ambiguous term.
         Empty list means the fact is unambiguous and safe to commit.
 
         Sara never auto-merges. The caller must present these to the user.
         """
+        from .entity_resolver import find_qualified_variants
+
         ambiguities = []
 
         # Check the subject
         for term, is_subject in [(fact.subject, True), (fact.obj, False)]:
             if not term or len(term) <= 3:
                 continue
+
+            # Check for qualified variants first (homonym disambiguation)
+            # e.g., "sumerian" has variants "sumerian language", "sumerian people"
+            variants = find_qualified_variants(term, self.brain)
+            if len(variants) > 1:
+                # Multiple qualified variants exist — disambiguation needed
+                variant_candidates = []
+                for v in variants:
+                    n = self.brain.neuron_repo.get_by_label(v)
+                    if n:
+                        paths = self.brain.path_repo.get_paths_to(n.id)
+                        desc = ""
+                        for p in paths[:1]:
+                            if p.source_text:
+                                desc = p.source_text[:60]
+                                break
+                        variant_candidates.append({
+                            "label": v,
+                            "type": n.neuron_type.value,
+                            "description": desc,
+                            "distance": 0,
+                        })
+                if variant_candidates:
+                    safety_grounded = self._is_safety_context(
+                        fact, term, variant_candidates
+                    )
+                    ambiguities.append(TeachAmbiguity(
+                        new_term=term,
+                        candidates=variant_candidates,
+                        is_subject=is_subject,
+                        fact_text=fact.original_text or "",
+                        safety_grounded=safety_grounded,
+                    ))
+                    continue
+
             # If the term already resolves exactly in Sara, no ambiguity
             existing = self.brain.neuron_repo.get_by_label(term)
             if existing is not None:

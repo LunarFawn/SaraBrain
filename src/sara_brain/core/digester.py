@@ -83,8 +83,25 @@ class Digester:
             self.brain.path_repo,
         )
 
+        # Entity resolver — qualifies ambiguous terms (place/people/language)
+        from ..cortex.entity_resolver import qualify_term
+
         taught = 0
         for stmt in statements:
+            # Qualify ambiguous terms before teaching. If "sumerian"
+            # appears in a language context, it becomes "sumerian language".
+            # If in a people context, "sumerian people". This creates
+            # separate neurons for each meaning.
+            parsed = self.brain.parser.parse(stmt)
+            if parsed is not None:
+                qualified_subj = qualify_term(parsed.subject, stmt)
+                qualified_obj = qualify_term(parsed.obj, stmt)
+                if qualified_subj != parsed.subject or qualified_obj != parsed.obj:
+                    # Rebuild the statement with qualified terms
+                    stmt = stmt.replace(parsed.subject, qualified_subj, 1)
+                    if qualified_obj != parsed.obj:
+                        stmt = stmt.replace(parsed.obj, qualified_obj, 1)
+
             r = self.brain.teach(stmt)
             if r is not None:
                 taught += 1

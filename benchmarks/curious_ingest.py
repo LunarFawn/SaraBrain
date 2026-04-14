@@ -180,8 +180,12 @@ def pass1_skim(brain, text: str, model: str, base_url: str) -> int:
 
 
 def pass2_assess(brain, text: str) -> list[tuple[str, int]]:
-    """Find concepts in the text that Sara has below the floor on."""
-    mentioned = brain.concepts_mentioned(text)
+    """Find concepts in the text that Sara has below the floor on.
+
+    Uses seekable_only=True to skip verb fragments and nav artifacts —
+    no point doing directed reads on "gene can" or foreign-language text.
+    """
+    mentioned = brain.concepts_mentioned(text, seekable_only=True)
     gaps = []
     for concept in mentioned:
         d = brain.depth(concept)
@@ -241,13 +245,55 @@ def articulate_understanding(brain, text: str) -> str:
     return "\n".join(lines)
 
 
-def wikipedia_url_for(concept: str) -> str:
-    """Construct a likely Wikipedia URL for a concept."""
-    slug = concept.strip().replace(" ", "_")
-    # Capitalize first letter for Wikipedia convention
-    if slug and slug[0].islower():
-        slug = slug[0].upper() + slug[1:]
-    return f"https://en.wikipedia.org/wiki/{urllib.parse.quote(slug)}"
+def wikipedia_url_candidates(concept: str) -> list[str]:
+    """Generate candidate Wikipedia URLs for a concept.
+
+    Wikipedia is case-sensitive — "Rna_virus" 404s but "RNA_virus" works.
+    Try multiple capitalizations: Title Case, ALL CAPS on short first word,
+    and the raw form.
+    """
+    base = concept.strip()
+    # Strip trailing parentheticals like "(trna)"
+    import re
+    base = re.sub(r"\s*\([^)]+\)\s*$", "", base).strip()
+
+    candidates = []
+
+    # Variant 1: First-letter uppercase only (standard Wiki)
+    v1 = base[0].upper() + base[1:] if base else ""
+    candidates.append(v1.replace(" ", "_"))
+
+    # Variant 2: Title Case every word
+    v2 = " ".join(w.capitalize() for w in base.split())
+    candidates.append(v2.replace(" ", "_"))
+
+    # Variant 3: ALL-CAPS for short first word (RNA, DNA, ATP, etc.)
+    words = base.split()
+    if words and len(words[0]) <= 4:
+        v3_words = [words[0].upper()] + [w for w in words[1:]]
+        v3 = " ".join(v3_words)
+        candidates.append(v3.replace(" ", "_"))
+
+    # Deduplicate preserving order
+    seen = set()
+    result = []
+    for c in candidates:
+        if c and c not in seen:
+            seen.add(c)
+            result.append(f"https://en.wikipedia.org/wiki/{urllib.parse.quote(c)}")
+    return result
+
+
+def try_fetch_concept(concept: str) -> tuple[str | None, str | None]:
+    """Try to fetch a Wikipedia page for a concept. Returns (url, text) or (None, None)."""
+    for url in wikipedia_url_candidates(concept):
+        try:
+            text = fetch_url(url)
+            if len(text) >= 500:
+                return url, text
+        except Exception:
+            continue
+    return None, None
 
 
 def seek_gap_wikis(brain, initial_text: str, model: str, base_url: str,
@@ -406,16 +452,12 @@ def main():
 
             seek_total = 0
             for concept, depth in targets:
-                url = wikipedia_url_for(concept)
-                print(f"    ── {concept} ({depth} paths) — {url}")
-                try:
-                    new_text = fetch_url(url)
-                except Exception as e:
-                    print(f"      fetch failed: {e}")
+                print(f"    ── {concept} ({depth} paths)")
+                url, new_text = try_fetch_concept(concept)
+                if new_text is None:
+                    print(f"      no Wikipedia page found")
                     continue
-                if len(new_text) < 500:
-                    print(f"      page too short, skipping")
-                    continue
+                print(f"      fetched: {url}")
                 added = pass1_skim(brain, new_text, args.model, args.base_url)
                 new_depth = brain.depth(concept)
                 print(f"      +{added} facts → {concept} now {new_depth} paths")

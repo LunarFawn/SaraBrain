@@ -482,18 +482,23 @@ class Brain:
         """True if label looks like a real noun-concept we can seek info on.
 
         Filters out verb fragments ("genes can"), incomplete phrases
-        ("associated with"), and too-short labels.
+        ("associated with"), navigation junk (language names, slashes),
+        and too-short labels.
         """
         label = label.strip().lower()
         if len(label) < 4:
             return False
+        # Reject labels with slashes (usually nav/translation artifacts)
+        if "/" in label:
+            return False
+        # Reject labels with non-ASCII letters (foreign language nav)
+        if not all(ord(c) < 128 for c in label):
+            return False
         words = label.split()
         if not words:
             return False
-        # Trailing word must not be a function word
         if words[-1] in cls._NON_CONCEPT_TRAILING:
             return False
-        # Leading word must not be a function word
         if words[0] in cls._NON_CONCEPT_TRAILING:
             return False
         return True

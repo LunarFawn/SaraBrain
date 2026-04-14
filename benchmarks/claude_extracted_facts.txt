@@ -1,0 +1,88 @@
+# Organic Chemistry — chunks 001-015
+# Extracted by Claude Opus 4.6 from Wikipedia organic_chemistry chunks
+
+# Definition and scope
+organic chemistry is a subdiscipline of chemistry
+organic chemistry focuses on carbon compounds
+organic compounds contain carbon atoms
+organic chemistry studies the structure of organic compounds
+organic chemistry studies the properties of organic compounds
+organic chemistry studies the reactions of organic compounds
+organic chemistry includes the synthesis of natural products
+organic chemistry includes the synthesis of drugs
+organic chemistry includes the synthesis of polymers
+
+# Carbon properties
+carbon has a valence of four
+carbon forms single bonds
+carbon forms double bonds
+carbon forms triple bonds
+carbon is tetravalent
+tetravalent carbon atoms can link to form a carbon lattice
+
+# Representations
+line-angle representation implies carbon atoms at line termini and vertices
+line-angle representation implies hydrogen atoms fill remaining valences
+
+# Types of organic compounds
+hydrocarbons contain only carbon and hydrogen
+organic compounds may contain oxygen
+organic compounds may contain nitrogen
+organic compounds may contain sulfur
+organic compounds may contain phosphorus
+organic compounds may contain halogens
+organometallic chemistry studies compounds containing carbon-metal bonds
+
+# Related fields
+organic chemistry overlaps with biochemistry
+organic chemistry overlaps with medicinal chemistry
+organic chemistry overlaps with polymer chemistry
+organic chemistry overlaps with materials science
+biochemistry is closely related to organic chemistry
+
+# Applications
+organic compounds are used in pharmaceuticals
+organic compounds are used in petrochemicals
+organic compounds are used in plastics
+organic compounds are used in fuels
+organic compounds are used in explosives
+organic compounds are used in agrichemicals
+organic compounds are used in lubricants
+organic compounds are used in solvents
+plastics are products of organic chemistry
+synthetic rubber is a product of organic chemistry
+
+# History
+vitalism is the belief that organic compounds contain a vital force
+Michel Chevreul started studying soaps around 1816
+Friedrich Wöhler produced urea in 1828
+urea is a constituent of urine
+urea is also known as carbamide
+Wöhler synthesized urea from potassium cyanate and ammonium sulfate
+Wöhler's synthesis disproved vitalism
+Justus von Liebig is a principal founder of organic chemistry
+William Henry Perkin discovered Perkin's mauve in 1856
+Perkin was trying to manufacture quinine
+Perkin's mauve is an organic dye
+Friedrich August Kekulé developed the concept of chemical structure in 1858
+Archibald Scott Couper developed the concept of chemical structure in 1858
+Bayer first manufactured acetylsalicylic acid
+acetylsalicylic acid is commonly known as aspirin
+Paul Ehrlich developed arsphenamine in 1910
+arsphenamine is also known as Salvarsan
+arsphenamine was the first effective medicinal treatment of syphilis
+Ehrlich initiated the medical practice of chemotherapy
+Cefalotin is a synthetic antibiotic
+Adolf von Baeyer developed synthetic indigo
+synthetic indigo is produced from petrochemicals
+petroleum is of biological origin
+polymers are large organic molecules
+enzymes are large organic molecules
+
+# Steroid hormones
+5α-Dihydroprogesterone is a steroid hormone
+
+# Concepts
+total synthesis is the multiple-step synthesis of complex organic compounds
+biological organisms contain mostly carbon compounds
+the term biochemistry was coined at the start of the 20th century

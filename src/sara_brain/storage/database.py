@@ -46,6 +46,75 @@ class Database:
                 "ALTER TABLE segments ADD COLUMN refutations INTEGER NOT NULL DEFAULT 0"
             )
 
+    def create_region(self, name: str, description: str = "") -> None:
+        """Create a new brain region — its own set of tables."""
+        import time as _time
+        prefix = name.lower().replace("-", "_").replace(" ", "_")
+
+        # Create the region's tables (mirrors the core schema)
+        self.conn.executescript(f"""
+            CREATE TABLE IF NOT EXISTS {prefix}_neurons (
+                id          INTEGER PRIMARY KEY,
+                label       TEXT NOT NULL UNIQUE,
+                neuron_type TEXT NOT NULL,
+                created_at  REAL,
+                metadata    TEXT
+            );
+            CREATE TABLE IF NOT EXISTS {prefix}_segments (
+                id          INTEGER PRIMARY KEY,
+                source_id   INTEGER NOT NULL REFERENCES {prefix}_neurons(id),
+                target_id   INTEGER NOT NULL REFERENCES {prefix}_neurons(id),
+                relation    TEXT NOT NULL,
+                strength    REAL NOT NULL DEFAULT 1.0,
+                traversals  INTEGER NOT NULL DEFAULT 0,
+                refutations INTEGER NOT NULL DEFAULT 0,
+                created_at  REAL,
+                last_used   REAL,
+                UNIQUE(source_id, target_id, relation)
+            );
+            CREATE TABLE IF NOT EXISTS {prefix}_paths (
+                id          INTEGER PRIMARY KEY,
+                origin_id   INTEGER NOT NULL REFERENCES {prefix}_neurons(id),
+                terminus_id INTEGER NOT NULL REFERENCES {prefix}_neurons(id),
+                source_text TEXT,
+                created_at  REAL
+            );
+            CREATE TABLE IF NOT EXISTS {prefix}_path_steps (
+                id          INTEGER PRIMARY KEY,
+                path_id     INTEGER NOT NULL REFERENCES {prefix}_paths(id),
+                step_order  INTEGER NOT NULL,
+                segment_id  INTEGER NOT NULL REFERENCES {prefix}_segments(id),
+                UNIQUE(path_id, step_order)
+            );
+            CREATE INDEX IF NOT EXISTS idx_{prefix}_seg_source
+                ON {prefix}_segments(source_id, strength DESC);
+            CREATE INDEX IF NOT EXISTS idx_{prefix}_seg_target
+                ON {prefix}_segments(target_id);
+            CREATE INDEX IF NOT EXISTS idx_{prefix}_neuron_label
+                ON {prefix}_neurons(label);
+            CREATE INDEX IF NOT EXISTS idx_{prefix}_path_terminus
+                ON {prefix}_paths(terminus_id);
+        """)
+
+        # Register in the regions table
+        self.conn.execute(
+            "INSERT OR IGNORE INTO regions (name, description, created_at) "
+            "VALUES (?, ?, ?)",
+            (name, description, _time.time()),
+        )
+        self.conn.commit()
+
+    def list_regions(self) -> list[dict]:
+        """List all registered brain regions."""
+        try:
+            rows = self.conn.execute(
+                "SELECT name, description, created_at FROM regions ORDER BY name"
+            ).fetchall()
+            return [{"name": r[0], "description": r[1], "created_at": r[2]}
+                    for r in rows]
+        except Exception:
+            return []
+
     def close(self) -> None:
         self.conn.close()
 

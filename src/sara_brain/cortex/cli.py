@@ -50,11 +50,50 @@ def _handle_slash(brain, cortex, command: str) -> bool:
             "    /template <topic>   — store a reference example for a topic\n"
             "    /ingest <source>    — ingest a file or URL into Sara\n"
             "    /cluster <word>     — show cluster around a concept\n"
+            "    /depth <topic>      — how deep is Sara's knowledge on a topic\n"
+            "    /gaps               — concepts Sara wants more input on\n"
             "    /cleanup            — interactive brain cleanup (per-item review)\n"
             "    /scan               — read-only pollution scan\n"
             "    /stats              — brain statistics\n"
             "    /help               — this message\n"
         )
+        return True
+
+    if cmd == "/depth":
+        if not arg:
+            print("\n  Usage: /depth <topic>\n")
+            return True
+        d = brain.depth(arg)
+        threshold = brain.CURIOSITY_THRESHOLD
+        status = "satisfied" if d >= threshold else "curious — need more input"
+        print(f"\n  Depth on {arg!r}: {d} paths ({status})\n")
+        return True
+
+    if cmd == "/gaps":
+        gaps = brain.knowledge_gaps()
+        if not gaps:
+            print(f"\n  No gaps below threshold {brain.CURIOSITY_THRESHOLD}.\n")
+            return True
+        # Show concepts with some knowledge (1-threshold) first,
+        # then the empty ones
+        partial = [g for g in gaps if g[1] > 0]
+        empty = [g for g in gaps if g[1] == 0]
+        print(f"\n  Sara wants more input on {len(gaps)} concept(s) "
+              f"(threshold: {brain.CURIOSITY_THRESHOLD} paths)\n")
+        if partial:
+            print("  Thin knowledge (has some, wants more):")
+            for topic, d in partial[:20]:
+                print(f"    {d:4d} paths — {topic}")
+            if len(partial) > 20:
+                print(f"    ... and {len(partial) - 20} more")
+            print()
+        if empty:
+            print(f"  No knowledge yet: {len(empty)} concepts")
+            for topic, _ in empty[:10]:
+                print(f"    • {topic}")
+            if len(empty) > 10:
+                print(f"    ... and {len(empty) - 10} more")
+            print()
         return True
 
     if cmd == "/stats":

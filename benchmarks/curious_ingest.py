@@ -28,6 +28,7 @@ import json
 import os
 import re
 import time
+import urllib.parse
 import urllib.request
 
 
@@ -179,16 +180,13 @@ def pass1_skim(brain, text: str, model: str, base_url: str) -> int:
 
 
 def pass2_assess(brain, text: str) -> list[tuple[str, int]]:
-    """Find concepts in the text that Sara has thin paths on."""
-    # Get concepts Sara knows that appear in the text
+    """Find concepts in the text that Sara has below the floor on."""
     mentioned = brain.concepts_mentioned(text)
-    # Filter to those below the curiosity threshold
     gaps = []
     for concept in mentioned:
         d = brain.depth(concept)
-        if d < brain.CURIOSITY_THRESHOLD:
+        if d < brain.CURIOSITY_FLOOR:
             gaps.append((concept, d))
-    # Biggest gaps first (lowest depth)
     gaps.sort(key=lambda x: x[1])
     return gaps
 
@@ -229,7 +227,7 @@ def articulate_understanding(brain, text: str) -> str:
     """Sara articulates what she still doesn't fully understand from this doc."""
     mentioned = brain.concepts_mentioned(text)
     thin = [(c, brain.depth(c)) for c in mentioned
-            if brain.depth(c) < brain.CURIOSITY_THRESHOLD]
+            if brain.depth(c) < brain.CURIOSITY_FLOOR]
     thin.sort(key=lambda x: x[1])
 
     if not thin:
@@ -243,6 +241,63 @@ def articulate_understanding(brain, text: str) -> str:
     return "\n".join(lines)
 
 
+def wikipedia_url_for(concept: str) -> str:
+    """Construct a likely Wikipedia URL for a concept."""
+    slug = concept.strip().replace(" ", "_")
+    # Capitalize first letter for Wikipedia convention
+    if slug and slug[0].islower():
+        slug = slug[0].upper() + slug[1:]
+    return f"https://en.wikipedia.org/wiki/{urllib.parse.quote(slug)}"
+
+
+def seek_gap_wikis(brain, initial_text: str, model: str, base_url: str,
+                   max_seeks: int = 5) -> int:
+    """For remaining gaps, fetch dedicated Wikipedia pages.
+
+    Sara identifies concepts that are still below the FLOOR after the
+    directed reads, then goes out and fetches their own Wikipedia pages.
+    This is the autonomous seeking behavior.
+    """
+    import urllib.parse
+
+    # Find gaps that are still hungry (below FLOOR)
+    mentioned = brain.concepts_mentioned(initial_text)
+    hungry = [(c, brain.depth(c)) for c in mentioned
+              if brain.depth(c) < brain.CURIOSITY_FLOOR]
+    hungry.sort(key=lambda x: x[1])
+
+    if not hungry:
+        return 0
+
+    targets = hungry[:max_seeks]
+    print(f"  Seeking Wikipedia pages for top {len(targets)} gap concepts:")
+    for c, d in targets:
+        print(f"    {d:4d} paths — {c}")
+    print()
+
+    total = 0
+    for concept, depth in targets:
+        url = wikipedia_url_for(concept)
+        print(f"    ── Fetching {concept} — {url}")
+        try:
+            text = fetch_url(url)
+        except Exception as e:
+            print(f"      fetch failed: {e}")
+            continue
+
+        if len(text) < 500:
+            print(f"      page too short ({len(text)} chars), skipping")
+            continue
+
+        # Run one pass of skim on the new page
+        added = pass1_skim(brain, text, model, base_url)
+        new_depth = brain.depth(concept)
+        print(f"      +{added} facts → {concept} now has {new_depth} paths")
+        total += added
+
+    return total
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--db", required=True)
@@ -254,6 +309,9 @@ def main():
                         help="Max gap concepts to target in pass 3")
     parser.add_argument("--max-iterations", type=int, default=2,
                         help="Max rounds of gap-closing")
+    parser.add_argument("--seek-wikis", type=int, default=0,
+                        help="After directed reads, fetch Wikipedia pages for "
+                             "up to N remaining gap concepts")
     args = parser.parse_args()
 
     if not args.source and not args.url:
@@ -293,14 +351,17 @@ def main():
     p1_facts = pass1_skim(brain, text, args.model, args.base_url)
     print(f"  Pass 1 learned: {p1_facts} facts\n")
 
-    # ── Iterative Pass 2 + 3 ──
+    # ── Phase A: Reach the FLOOR (50 paths) using this document ──
+    # Iteratively do directed re-reads on gaps until no more progress.
     for iteration in range(args.max_iterations):
-        print(f"  ═══ PASS 2 (iter {iteration+1}): Self-assess ═══")
+        print(f"  ═══ PHASE A / PASS 2 (iter {iteration+1}): "
+              f"Self-assess (target: {brain.CURIOSITY_FLOOR} paths) ═══")
         gaps = pass2_assess(brain, text)
         if not gaps:
-            print("  No gaps found in this document's concepts.\n")
+            print("  No gaps in this document — reached floor on all concepts.\n")
             break
-        print(f"  Found {len(gaps)} gap concepts (below {brain.CURIOSITY_THRESHOLD} paths)")
+        print(f"  Found {len(gaps)} concepts below floor "
+              f"({brain.CURIOSITY_FLOOR} paths)")
         targets = gaps[:args.max_gaps]
         for c, d in targets[:5]:
             print(f"    {d:4d} paths — {c}")
@@ -308,7 +369,7 @@ def main():
             print(f"    ... and {len(targets) - 5} more")
         print()
 
-        print(f"  ═══ PASS 3 (iter {iteration+1}): Directed re-read ═══")
+        print(f"  ═══ PHASE A / PASS 3 (iter {iteration+1}): Directed re-read ═══")
         p3_total = 0
         for concept, depth in targets:
             print(f"    ── {concept} ({depth} paths) ── ", end="", flush=True)
@@ -317,11 +378,50 @@ def main():
             p3_total += added
             new_depth = brain.depth(concept)
             print(f"+{added} facts → now {new_depth} paths")
-        print(f"  Pass 3 learned: {p3_total} facts\n")
+        print(f"  Phase A learned: {p3_total} facts\n")
 
         if p3_total == 0:
-            print("  No new facts from directed reads. Stopping.\n")
+            print("  No new facts from directed reads. This doc is exhausted.\n")
             break
+
+    # ── Phase B: Reach the GOAL (100 paths) by seeking new sources ──
+    # Sara wants 100 paths to be satisfied. For any concept still below
+    # GOAL, she fetches dedicated Wikipedia pages and re-ingests.
+    if args.seek_wikis > 0:
+        print(f"  ═══ PHASE B: Seek new sources (target: "
+              f"{brain.CURIOSITY_GOAL} paths) ═══")
+        # seekable_only=True filters out verb fragments like "genes can"
+        # so we only try Wikipedia lookups on real noun-concepts
+        mentioned = brain.concepts_mentioned(text, seekable_only=True)
+        growing = [(c, brain.depth(c)) for c in mentioned
+                   if brain.depth(c) < brain.CURIOSITY_GOAL]
+        growing.sort(key=lambda x: x[1])
+
+        if not growing:
+            print("  All mentioned concepts have reached goal. Sara is satisfied.\n")
+        else:
+            targets = growing[:args.seek_wikis]
+            print(f"  {len(growing)} concepts below goal. "
+                  f"Seeking Wikipedia for top {len(targets)}:\n")
+
+            seek_total = 0
+            for concept, depth in targets:
+                url = wikipedia_url_for(concept)
+                print(f"    ── {concept} ({depth} paths) — {url}")
+                try:
+                    new_text = fetch_url(url)
+                except Exception as e:
+                    print(f"      fetch failed: {e}")
+                    continue
+                if len(new_text) < 500:
+                    print(f"      page too short, skipping")
+                    continue
+                added = pass1_skim(brain, new_text, args.model, args.base_url)
+                new_depth = brain.depth(concept)
+                print(f"      +{added} facts → {concept} now {new_depth} paths")
+                seek_total += added
+
+            print(f"\n  Phase B learned: {seek_total} facts\n")
 
     # ── Report ──
     print("  ═══ SELF-REPORT ═══")

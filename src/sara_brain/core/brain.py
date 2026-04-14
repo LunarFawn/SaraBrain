@@ -386,9 +386,15 @@ class Brain:
     # ── Curiosity API ──
     #
     # Johnny 5 principle: Sara must seek input when her knowledge is thin.
-    # Below CURIOSITY_THRESHOLD paths on a topic, she craves more input.
+    # Two tiers:
+    #   < CURIOSITY_FLOOR (50)  — hungry, actively seeking
+    #   < CURIOSITY_GOAL (100)  — satisfied but could grow
+    #   >= CURIOSITY_GOAL       — confident coverage
 
-    CURIOSITY_THRESHOLD = 50
+    CURIOSITY_FLOOR = 50
+    CURIOSITY_GOAL = 100
+    # Backward-compat alias
+    CURIOSITY_THRESHOLD = CURIOSITY_FLOOR
 
     def depth(self, topic: str) -> int:
         """Count how many paths Sara has that mention this topic.
@@ -406,19 +412,35 @@ class Brain:
         ).fetchone()
         return row[0] if row else 0
 
+    def depth_tier(self, topic: str) -> str:
+        """Return 'hungry', 'growing', or 'satisfied' for a topic."""
+        d = self.depth(topic)
+        if d < self.CURIOSITY_FLOOR:
+            return "hungry"
+        if d < self.CURIOSITY_GOAL:
+            return "growing"
+        return "satisfied"
+
     def has_depth(self, topic: str) -> bool:
-        """True if Sara's knowledge on this topic meets the curiosity threshold."""
-        return self.depth(topic) >= self.CURIOSITY_THRESHOLD
+        """True if Sara has crossed the curiosity floor on this topic."""
+        return self.depth(topic) >= self.CURIOSITY_FLOOR
+
+    def is_satisfied(self, topic: str) -> bool:
+        """True if Sara has reached confident coverage on this topic."""
+        return self.depth(topic) >= self.CURIOSITY_GOAL
 
     def knowledge_gaps(self, topics: list[str] | None = None,
                        threshold: int | None = None) -> list[tuple[str, int]]:
-        """Return (topic, depth) for topics below the curiosity threshold.
+        """Return (topic, depth) for topics below the threshold.
+
+        Default threshold is CURIOSITY_FLOOR (actively hungry).
+        Pass CURIOSITY_GOAL for topics below the satisfaction goal.
 
         If topics is None, uses all concept neurons. Results sorted by
         depth ascending (biggest gaps first).
         """
         if threshold is None:
-            threshold = self.CURIOSITY_THRESHOLD
+            threshold = self.CURIOSITY_FLOOR
         if topics is None:
             topics = [
                 n.label for n in self.neuron_repo.list_all()
@@ -432,18 +454,68 @@ class Brain:
         gaps.sort(key=lambda x: x[1])
         return gaps
 
-    def concepts_mentioned(self, text: str) -> list[str]:
+    # Words that indicate a concept label is actually a verb fragment
+    # or incomplete phrase, not a real noun-concept. Used to filter out
+    # garbage neurons like "eukaryotic genes can" or "alleles may".
+    _NON_CONCEPT_TRAILING = frozenset({
+        # modal verbs
+        "can", "may", "might", "must", "should", "would", "could",
+        "will", "shall",
+        # auxiliaries
+        "is", "are", "was", "were", "be", "been", "being",
+        "have", "has", "had",
+        "do", "does", "did",
+        # adverbs/connectors that shouldn't end a concept
+        "often", "usually", "sometimes", "always", "never",
+        "very", "just", "only", "also", "even", "still",
+        # prepositions
+        "of", "in", "to", "for", "with", "from", "by", "at", "on",
+        "as", "about", "into", "onto", "upon", "within", "without",
+        "through", "between", "among",
+        # conjunctions / pronouns
+        "and", "or", "but", "that", "which", "who", "whom", "whose",
+        "this", "these", "those",
+    })
+
+    @classmethod
+    def is_seekable_concept(cls, label: str) -> bool:
+        """True if label looks like a real noun-concept we can seek info on.
+
+        Filters out verb fragments ("genes can"), incomplete phrases
+        ("associated with"), and too-short labels.
+        """
+        label = label.strip().lower()
+        if len(label) < 4:
+            return False
+        words = label.split()
+        if not words:
+            return False
+        # Trailing word must not be a function word
+        if words[-1] in cls._NON_CONCEPT_TRAILING:
+            return False
+        # Leading word must not be a function word
+        if words[0] in cls._NON_CONCEPT_TRAILING:
+            return False
+        return True
+
+    def concepts_mentioned(self, text: str, seekable_only: bool = False) -> list[str]:
         """Find Sara's known concepts that appear in a text.
 
         Used after ingest to see what concepts a document touched on —
         so Sara can check her depth on each and identify gaps.
+
+        Args:
+            seekable_only: If True, filter to real noun-concepts only
+                (no verb fragments, no incomplete phrases).
         """
         text_lower = text.lower()
         found = []
         for n in self.neuron_repo.list_all():
             if n.neuron_type.value != "concept":
                 continue
-            if len(n.label) < 4:  # skip very short labels to avoid noise
+            if len(n.label) < 4:
+                continue
+            if seekable_only and not self.is_seekable_concept(n.label):
                 continue
             if n.label in text_lower:
                 found.append(n.label)

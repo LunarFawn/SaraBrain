@@ -6,12 +6,13 @@ from ..models.segment import Segment
 
 
 class SegmentRepo:
-    def __init__(self, conn: sqlite3.Connection) -> None:
+    def __init__(self, conn: sqlite3.Connection, prefix: str = "") -> None:
         self.conn = conn
+        self._t = f"{prefix}_segments" if prefix else "segments"
 
     def create(self, segment: Segment) -> Segment:
         cur = self.conn.execute(
-            "INSERT INTO segments (source_id, target_id, relation, strength, traversals, refutations, created_at, last_used) "
+            f"INSERT INTO {self._t} (source_id, target_id, relation, strength, traversals, refutations, created_at, last_used) "
             "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
             (segment.source_id, segment.target_id, segment.relation,
              segment.strength, segment.traversals, segment.refutations,
@@ -21,14 +22,14 @@ class SegmentRepo:
         return segment
 
     def get_by_id(self, segment_id: int) -> Segment | None:
-        row = self.conn.execute("SELECT * FROM segments WHERE id = ?", (segment_id,)).fetchone()
+        row = self.conn.execute(f"SELECT * FROM {self._t} WHERE id = ?", (segment_id,)).fetchone()
         if row is None:
             return None
         return self._row_to_segment(row)
 
     def find(self, source_id: int, target_id: int, relation: str) -> Segment | None:
         row = self.conn.execute(
-            "SELECT * FROM segments WHERE source_id = ? AND target_id = ? AND relation = ?",
+            f"SELECT * FROM {self._t} WHERE source_id = ? AND target_id = ? AND relation = ?",
             (source_id, target_id, relation),
         ).fetchone()
         if row is None:
@@ -44,14 +45,14 @@ class SegmentRepo:
 
     def get_outgoing(self, neuron_id: int) -> list[Segment]:
         rows = self.conn.execute(
-            "SELECT * FROM segments WHERE source_id = ? ORDER BY strength DESC",
+            f"SELECT * FROM {self._t} WHERE source_id = ? ORDER BY strength DESC",
             (neuron_id,),
         ).fetchall()
         return [self._row_to_segment(r) for r in rows]
 
     def get_incoming(self, neuron_id: int) -> list[Segment]:
         rows = self.conn.execute(
-            "SELECT * FROM segments WHERE target_id = ? ORDER BY strength DESC",
+            f"SELECT * FROM {self._t} WHERE target_id = ? ORDER BY strength DESC",
             (neuron_id,),
         ).fetchall()
         return [self._row_to_segment(r) for r in rows]
@@ -59,7 +60,7 @@ class SegmentRepo:
     def strengthen(self, segment: Segment) -> None:
         segment.strengthen()
         self.conn.execute(
-            "UPDATE segments SET strength = ?, traversals = ?, last_used = ? WHERE id = ?",
+            f"UPDATE {self._t} SET strength = ?, traversals = ?, last_used = ? WHERE id = ?",
             (segment.strength, segment.traversals, segment.last_used, segment.id),
         )
 
@@ -69,16 +70,16 @@ class SegmentRepo:
         """
         segment.weaken()
         self.conn.execute(
-            "UPDATE segments SET strength = ?, refutations = ?, last_used = ? WHERE id = ?",
+            f"UPDATE {self._t} SET strength = ?, refutations = ?, last_used = ? WHERE id = ?",
             (segment.strength, segment.refutations, segment.last_used, segment.id),
         )
 
     def list_all(self) -> list[Segment]:
-        rows = self.conn.execute("SELECT * FROM segments ORDER BY id").fetchall()
+        rows = self.conn.execute(f"SELECT * FROM {self._t} ORDER BY id").fetchall()
         return [self._row_to_segment(r) for r in rows]
 
     def count(self) -> int:
-        return self.conn.execute("SELECT COUNT(*) FROM segments").fetchone()[0]
+        return self.conn.execute(f"SELECT COUNT(*) FROM {self._t}").fetchone()[0]
 
     @staticmethod
     def _row_to_segment(row: tuple) -> Segment:

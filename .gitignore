@@ -17,3 +17,15 @@ venv/
 
 # Local dev symlink (created by web/serve_local.sh)
 web/python/sara_brain
+
+# Benchmark output files — regenerable
+benchmarks/*.taught
+benchmarks/sara_r*.json
+benchmarks/mmlu_*.json
+benchmarks/baseline_results.json
+benchmarks/chemistry_chunks/
+benchmarks/biology_chunks/
+*.ingest_progress
+*.p1_progress
+*.p2_progress
+*.claude_progress

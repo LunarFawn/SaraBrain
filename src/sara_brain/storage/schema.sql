@@ -73,3 +73,22 @@ CREATE INDEX IF NOT EXISTS idx_seg_target ON segments(target_id);
 CREATE INDEX IF NOT EXISTS idx_neuron_label ON neurons(label);
 CREATE INDEX IF NOT EXISTS idx_neuron_type ON neurons(neuron_type);
 CREATE INDEX IF NOT EXISTS idx_path_terminus ON paths(terminus_id);
+
+-- Region registry — tracks which brain regions exist
+CREATE TABLE IF NOT EXISTS regions (
+    name        TEXT PRIMARY KEY,
+    description TEXT,
+    created_at  REAL
+);
+
+-- Cross-region bridges — explicit links between neurons in different regions
+CREATE TABLE IF NOT EXISTS bridges (
+    id              INTEGER PRIMARY KEY,
+    source_region   TEXT NOT NULL,
+    source_neuron_id INTEGER NOT NULL,
+    target_region   TEXT NOT NULL,
+    target_neuron_id INTEGER NOT NULL,
+    relation        TEXT NOT NULL DEFAULT 'same_as',
+    created_at      REAL,
+    UNIQUE(source_region, source_neuron_id, target_region, target_neuron_id)
+);

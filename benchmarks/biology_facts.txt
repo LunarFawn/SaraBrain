@@ -1,0 +1,510 @@
+# MMLU Biology facts — extracted by Claude Opus 4.6 from Wikipedia
+# Only factually correct statements. Parsed into simple "X is Y" format.
+
+# === GENE ===
+a gene is a sequence of DNA that determines traits in an organism
+a gene is a basic unit of heredity
+a molecular gene is a sequence of nucleotides in DNA
+a gene is transcribed to produce RNA
+protein-coding genes produce proteins
+non-coding genes produce functional RNA molecules
+gene expression is the synthesis of RNA or protein from a gene
+DNA is copied into RNA during transcription
+RNA can be directly functional
+RNA can be a template for protein synthesis
+genes determine the phenotype of an organism
+phenotype is the physical traits of an organism
+genotype is the total amount of DNA in an organism
+an allele is a variant of a gene
+alleles can encode different versions of a gene
+alleles can be expressed as different phenotypic traits
+populations evolve when allele frequencies shift
+natural selection shifts allele frequencies
+genetic drift shifts allele frequencies
+messenger RNA is mRNA
+transfer RNA is tRNA
+ribosomal RNA is rRNA
+tRNA is a non-coding RNA
+rRNA is a non-coding RNA
+an open reading frame is an ORF
+RNA polymerase transcribes DNA into messenger RNA
+a true gene is transcribed and translated
+mammalian protein-coding genes are about 62000 base pairs in length
+humans have about 20000 protein-coding genes
+human genes occupy about 35 to 40 percent of the genome
+introns were discovered in the 1970s
+RNA viruses have RNA genomes instead of DNA
+bacterial operons are multiple protein-coding regions transcribed into single mRNAs
+alternative splicing allows one genomic region to encode multiple products
+human DNA can have up to 500 million base pairs
+chromosomes contain packaged DNA
+DNA base pairs encode genes
+
+# === EVOLUTION ===
+evolution is the change in heritable traits of populations over generations
+evolution requires genetic variation
+genetic drift is a mechanism of evolution
+natural selection is a mechanism of evolution
+mutation is a source of genetic variation
+gene flow is a source of genetic variation
+sexual reproduction reshuffles genes
+Charles Darwin conceived the theory of evolution by natural selection
+Alfred Russel Wallace conceived the theory of evolution by natural selection
+Darwin published On the Origin of Species
+On the Origin of Species describes evolution by natural selection
+evolution by natural selection requires that more offspring are produced than can survive
+evolution by natural selection requires that traits vary among individuals
+evolution by natural selection requires that different traits confer different survival rates
+evolution by natural selection requires that traits are heritable
+differential fitness means different traits have different survival rates
+modern evolutionary theory combines evolution with Mendelian inheritance
+modern evolutionary theory combines evolution with population genetics
+DNA is the basis for heredity
+natural selection changes DNA in a population
+genetic drift changes DNA in a population
+mutation changes DNA in a population
+gene flow changes DNA in a population
+all life on Earth shares a last universal common ancestor
+the last universal common ancestor lived about 3.5 to 3.8 billion years ago
+speciation is the formation of new species
+anagenesis is change within a species
+extinction is the loss of a species
+species that share a recent common ancestor have similar morphological traits
+species that share a recent common ancestor have similar biochemical traits
+phylogenetic trees show relationships between species
+inherited traits are controlled by genes
+a genome is the complete set of genes in an organism
+phenotype is the complete set of observable traits of an organism
+genotype is the complete set of genes in an organism
+phenotype results from genotype and environment
+DNA is a long biopolymer
+DNA is composed of four types of bases
+a chromosome is a long strand of DNA
+a locus is the specific location of a DNA sequence within a chromosome
+alleles are different forms of a DNA sequence at a locus
+mutations produce new alleles
+albinism is an inherited trait
+mutations are changes in the DNA sequence
+mutations are the source of genetic variation
+about half of mutations in coding regions are deleterious
+about half of mutations in coding regions are neutral
+fixation is when an allele replaces the ancestral allele
+fixation is when an allele disappears from a population
+
+# === CELL BIOLOGY ===
+a cell is the basic unit of life
+a cell is the basic structural unit of organisms
+a cell is the basic functional unit of organisms
+a biological cell has a semipermeable cell membrane
+a biological cell has cytoplasm
+a biological cell contains genetic material
+most cells are only visible under a microscope
+cells emerged on Earth about four billion years ago
+prokaryotes are single-celled organisms
+eukaryotes can be single-celled or multicellular
+archaea are prokaryotes
+bacteria are prokaryotes
+protists are eukaryotes
+plants are eukaryotes
+animals are eukaryotes
+fungi are eukaryotes
+somatic cells are diploid
+gametes are haploid
+prokaryotes lack a membrane-bound nucleus
+prokaryotes have a nucleoid
+eukaryotic cells have a nucleus enclosed in a nuclear membrane
+mitochondria provide energy for cell functions
+chloroplasts create sugars by photosynthesis
+ribosomes are non-membrane-bound organelles
+ribosomes are present in prokaryotes and eukaryotes
+Robert Hooke discovered cells in 1665
+Matthias Jakob Schleiden developed cell theory in 1839
+Theodor Schwann developed cell theory in 1839
+cell theory states that all organisms are composed of cells
+cell theory states that cells are the fundamental unit of life
+cell theory states that all cells come from pre-existing cells
+bacteria divide by binary fission
+archaea divide by binary fission
+prokaryotic cells were likely the first form of life on Earth
+prokaryotic cells are simpler than eukaryotic cells
+prokaryotic cells are smaller than eukaryotic cells
+prokaryotes range from 0.5 to 2.0 micrometers in diameter
+
+# === DNA ===
+DNA is deoxyribonucleic acid
+DNA is a polymer of two polynucleotide chains
+DNA forms a double helix
+DNA carries genetic instructions
+DNA is a nucleic acid
+RNA is a nucleic acid
+nucleic acids are essential macromolecules
+proteins are essential macromolecules
+lipids are essential macromolecules
+polysaccharides are essential macromolecules
+DNA is composed of nucleotides
+a nucleotide is composed of a nucleobase
+a nucleotide contains deoxyribose
+a nucleotide contains a phosphate group
+DNA has four nucleobases
+cytosine is a DNA base
+guanine is a DNA base
+adenine is a DNA base
+thymine is a DNA base
+DNA has a sugar-phosphate backbone
+adenine pairs with thymine
+cytosine pairs with guanine
+base pairs are held together by hydrogen bonds
+cytosine is a pyrimidine
+thymine is a pyrimidine
+adenine is a purine
+guanine is a purine
+pyrimidines are single-ringed
+purines are double-ringed
+DNA strands are antiparallel
+transcription creates RNA from DNA
+RNA substitutes uracil for thymine
+translation uses RNA to make proteins
+DNA is organized into chromosomes
+chromosomes are duplicated before cell division
+eukaryotes store DNA in the nucleus
+eukaryotes store some DNA in mitochondria
+plants store some DNA in chloroplasts
+prokaryotes store DNA in the cytoplasm
+prokaryotes have circular chromosomes
+histones compact and organize DNA
+a nucleoside is a nucleobase linked to a sugar
+a polynucleotide is a polymer of nucleotides
+
+# === NATURAL SELECTION ===
+natural selection is a mechanism of evolution
+natural selection is differential survival and reproduction
+natural selection is based on differences in fitness
+Charles Darwin popularized the term natural selection
+artificial selection is intentional
+natural selection is not intentional
+variation of traits exists in all populations
+traits that aid survival are more likely to be passed on
+sexual selection favors traits preferred by mating partners
+fecundity selection favors traits that reduce cost to reproduction
+Darwin and Wallace published natural selection in 1858
+Darwin published On the Origin of Species in 1859
+natural selection is analogous to artificial selection
+genetic drift is random
+natural selection is the primary explanation for adaptive evolution
+microevolution is small-scale evolution within a niche
+macroevolution is large-scale evolution from broad environmental changes
+
+# === PROTEIN ===
+proteins are large biomolecules
+proteins are macromolecules
+proteins are chains of amino acid residues
+proteins catalyze metabolic reactions
+proteins perform DNA replication
+proteins respond to stimuli
+proteins provide structure to cells
+proteins transport molecules
+a polypeptide is a linear chain of amino acid residues
+a protein contains at least one polypeptide
+peptides are short polypeptides
+amino acid residues are bonded by peptide bonds
+the genetic code specifies 20 standard amino acids
+protein sequence is defined by gene sequence
+selenocysteine is a non-standard amino acid
+pyrrolysine is a non-standard amino acid in some archaea
+post-translational modification alters protein properties
+prosthetic groups are non-peptide groups attached to proteins
+cofactors are non-peptide groups attached to proteins
+protein complexes are stable protein associations
+protein turnover is the process of protein degradation and recycling
+the average protein lifespan in mammalian cells is 1 to 2 days
+misfolded proteins are degraded rapidly
+enzymes are proteins that catalyze biochemical reactions
+enzymes are vital to metabolism
+actin is a structural protein in muscle
+myosin is a structural protein in muscle
+proteins are needed in the animal diet for essential amino acids
+digestion breaks proteins down for metabolic use
+proteins were named by Berzelius in 1838
+protein is derived from the Greek word proteios
+proteios means primary
+
+# === RNA ===
+RNA is ribonucleic acid
+RNA is a polymeric molecule
+RNA is essential for most biological functions
+messenger RNA forms a template for protein production
+non-coding RNA performs functions directly
+RNA is a nucleic acid
+RNA is assembled as a chain of nucleotides
+cellular organisms use messenger RNA to convey genetic information
+RNA has four nucleobases
+guanine is an RNA base
+uracil is an RNA base
+adenine is an RNA base
+cytosine is an RNA base
+many viruses encode their genetic information using an RNA genome
+RNA molecules can catalyze biological reactions
+RNA molecules can control gene expression
+protein synthesis uses RNA
+transfer RNA delivers amino acids to the ribosome
+ribosomal RNA links amino acids together to form proteins
+the ribosome is a ribozyme
+a ribozyme is an RNA enzyme
+the RNA world hypothesis states that RNA existed before DNA
+RNA contains ribose sugar
+ribose has a hydroxyl group at the 2 position
+deoxyribose lacks a hydroxyl group at the 2 position
+RNA is usually single-stranded
+double-stranded RNA can form
+RNA can form intrastrand double helixes
+uracil pairs with adenine in RNA
+guanine and uracil can form a wobble base pair
+RNA is more chemically labile than DNA
+
+# === MEIOSIS ===
+meiosis is a cell division producing haploid gametes
+meiosis occurs in germ cells
+meiosis occurs in sexually reproducing organisms
+meiosis produces sperm cells
+meiosis produces egg cells
+meiosis has two rounds of division
+meiosis I is the first division
+meiosis II is the second division
+meiosis I exchanges genetic information through crossover
+chromosomal crossover creates new combinations of genes
+homologous chromosomes exchange genetic information during meiosis I
+sister chromatids are separated in meiosis II
+meiosis produces four haploid cells
+fertilization fuses two gametes
+a zygote is a diploid cell formed by fertilization
+aneuploidy is an abnormal number of chromosomes
+aneuploidy is the leading known cause of miscarriage
+aneuploidy is the most frequent genetic cause of developmental disabilities
+chiasmata are physical links between homologous chromosomes
+genetic recombination allows DNA to be cut and repaired
+diploid human cells contain 23 pairs of chromosomes
+human cells have 46 total chromosomes
+human gametes have 23 chromosomes
+
+# === MITOSIS ===
+mitosis is cell division producing two identical cells
+mitosis occurs in eukaryotic cells
+mitosis separates replicated chromosomes into two nuclei
+mitosis maintains chromosome number
+mitosis is preceded by S phase
+S phase is when DNA replication occurs
+cytokinesis divides the cytoplasm into two cells
+prophase is a stage of mitosis
+metaphase is a stage of mitosis
+anaphase is a stage of mitosis
+telophase is a stage of mitosis
+prometaphase is a stage of mitosis
+chromosomes condense during mitosis
+spindle fibers pull chromosome copies to opposite sides of the cell
+mitosis produces genetically identical daughter nuclei
+animal cells undergo open mitosis
+fungal cells undergo closed mitosis
+open mitosis breaks down the nuclear envelope
+closed mitosis keeps the nuclear envelope intact
+most human cells are produced by mitotic cell division
+gametes are produced by meiosis
+prokaryotes divide by binary fission
+binary fission is different from mitosis
+
+# === MITOCHONDRION ===
+mitochondria are organelles in eukaryotic cells
+mitochondria are responsible for respiration
+mitochondria have a double membrane structure
+mitochondria use aerobic respiration
+mitochondria generate adenosine triphosphate
+ATP is a source of chemical energy
+mitochondria were discovered by Albert von Kölliker in 1857
+Carl Benda coined the term mitochondrion in 1898
+mitochondria are the powerhouse of the cell
+mature mammalian red blood cells lack mitochondria
+mitochondria contain outer and inner membranes
+mitochondrial membranes are composed of phospholipid bilayers
+the mitochondrial matrix is a fluid space inside the inner membrane
+cristae are infoldings of the inner mitochondrial membrane
+mitochondria have their own genome
+the mitochondrial genome is similar to bacterial genomes
+endosymbiotic theory says mitochondria evolved from bacteria
+mitochondria are involved in signaling
+mitochondria are involved in cellular differentiation
+mitochondria are involved in cell death
+a liver cell can have more than 2000 mitochondria
+mitochondria are implicated in mitochondrial diseases
+
+# === ATP ===
+adenosine triphosphate is ATP
+ATP is an energy-carrying molecule
+ATP provides free energy of about 58 kJ per mol
+ATP is found in all known forms of life
+ATP is the molecular unit of currency for intracellular energy transfer
+ATP drives muscle contraction
+ATP drives nerve impulse propagation
+ATP drives chemical synthesis
+ATP converts to ADP when consumed
+ATP converts to AMP when consumed
+ADP is adenosine diphosphate
+AMP is adenosine monophosphate
+oxidative phosphorylation regenerates ATP
+substrate-level phosphorylation regenerates ATP
+ATP is a precursor to DNA
+ATP is a precursor to RNA
+ATP is used as a coenzyme
+ATP consists of adenine
+ATP consists of ribose
+ATP consists of a triphosphate group
+ATP is a nucleoside triphosphate
+ATP is stable in aqueous solutions between pH 6.8 and 7.4
+ATP hydrolyzes to ADP and phosphate at extreme pH
+ATP binds metal cations
+ATP binds magnesium
+
+# === PHOTOSYNTHESIS ===
+photosynthesis converts light energy into chemical energy
+photosynthesis occurs in plants
+photosynthesis occurs in algae
+photosynthesis occurs in cyanobacteria
+oxygenic photosynthesis releases oxygen as a byproduct
+oxygenic photosynthesis splits water
+photosynthetic organisms store energy in carbohydrates
+glucose is a carbohydrate
+fructose is a carbohydrate
+sucrose is a carbohydrate
+starch is a carbohydrate
+cellulose is a carbohydrate
+photosynthesis produces oxygen in Earth's atmosphere
+photosynthesis supplies biological energy for complex life
+anoxygenic photosynthesis does not produce oxygen
+purple bacteria use bacteriochlorophyll
+purple bacteria split hydrogen sulfide as a reductant
+chlorophyll absorbs red light
+chlorophyll absorbs blue light
+chlorophyll reflects green light
+chlorophylls are held inside chloroplasts
+chloroplasts are abundant in leaf cells
+light-dependent reactions strip electrons from water
+light-dependent reactions produce oxygen gas
+light-dependent reactions produce NADPH
+light-dependent reactions produce ATP
+the Calvin cycle is a light-independent reaction
+the Calvin cycle incorporates atmospheric carbon dioxide
+the Calvin cycle uses ATP and NADPH
+ribulose bisphosphate is RuBP
+the Calvin cycle produces glucose
+
+# === CELLULAR RESPIRATION ===
+cellular respiration oxidizes biological fuels
+cellular respiration produces ATP
+cellular respiration uses an inorganic electron acceptor
+aerobic respiration uses oxygen as the electron acceptor
+anaerobic respiration uses non-oxygen electron acceptors
+fermentation does not use an external electron acceptor
+respiration is a catabolic process
+catabolic reactions break large molecules into smaller ones
+sugar is a respiration fuel
+amino acids are respiration fuels
+fatty acids are respiration fuels
+aerobic respiration requires oxygen
+glycolysis produces pyruvate
+glycolysis produces NADH
+pyruvate is transported to mitochondria
+the citric acid cycle oxidizes pyruvate
+aerobic respiration produces carbon dioxide
+aerobic respiration produces water
+aerobic respiration produces ATP through substrate-level phosphorylation
+aerobic respiration produces NADH
+aerobic respiration produces FADH2
+
+# === ENZYME ===
+an enzyme is a biological macromolecule
+an enzyme is usually a protein
+an enzyme acts as a biological catalyst
+enzymes accelerate chemical reactions
+enzymes are not consumed in reactions
+substrates are molecules that enzymes act on
+substrates are converted into products
+nearly all metabolic processes depend on enzyme catalysis
+a metabolic pathway is a series of enzyme-catalyzed steps
+enzymology is the study of enzymes
+enzymes catalyze over 5000 types of biochemical reactions
+ribozymes are catalytic RNA molecules
+enzymes lower activation energy
+enzymes have high specificity
+enzymes are regenerated at the end of each cycle
+enzymes are sensitive to temperature
+enzymes are sensitive to pH
+activators enhance enzyme activity
+inhibitors diminish enzyme activity
+denaturation causes loss of enzyme structure
+denaturation causes loss of enzyme function
+Anselme Payen discovered the first enzyme in 1833
+diastase was the first enzyme discovered
+
+# === CELL MEMBRANE ===
+the cell membrane is the plasma membrane
+the cell membrane is a semipermeable membrane
+the cell membrane separates the cell interior from the outside environment
+the cell membrane is a lipid bilayer
+the cell membrane consists of phospholipids
+the cell membrane consists of glycolipids
+eukaryotes have sterols in their membranes
+cholesterol is a sterol in animal cell membranes
+sterols maintain membrane fluidity
+integral membrane proteins span the membrane
+peripheral proteins attach to the membrane surface
+integral proteins serve as transporters
+the cell membrane is selectively permeable
+the cell membrane controls movement of substances
+the cell membrane is involved in cell adhesion
+the cell membrane is involved in cell signaling
+the cell membrane is involved in ion conductivity
+the cytoskeleton is an intracellular network of protein fibers
+Ernest Overton proposed cell membranes are lipids in 1895
+
+# === TRANSCRIPTION ===
+transcription copies a segment of DNA into RNA
+transcription produces messenger RNA
+transcription produces non-coding RNAs
+RNA polymerase catalyzes transcription
+a primary transcript is the initial RNA product
+transcription produces an RNA complement
+uracil replaces thymine in RNA
+only one DNA strand serves as a template for transcription
+the antisense strand is read during transcription
+the coding strand has the same sequence as the RNA transcript
+transcription has lower copying fidelity than DNA replication
+transcription has initiation phase
+transcription has elongation phase
+transcription has termination phase
+enhancers increase gene transcription
+silencers decrease gene transcription
+transcription factors regulate transcription
+
+# === TRANSLATION ===
+translation produces proteins using RNA as a template
+translation occurs in ribosomes
+translation is performed by ribosomes
+ribosomes are complexes of RNA and proteins
+translation occurs outside the nucleus
+a polypeptide is a chain of amino acids
+the genetic code matches nucleotide triples to amino acids
+each codon is three nucleotides
+tRNA anticodons bind mRNA codons
+tRNA carries specific amino acids
+tRNAs have an amino acid attachment site
+tRNAs have an anticodon site
+translation has initiation phase
+translation has elongation phase
+translation has termination phase
+the ribosome has a small subunit
+the ribosome has a large subunit
+the eukaryotic small subunit is 40S
+the eukaryotic large subunit is 60S
+translation is amine-to-carboxyl directed
+
+
+
+

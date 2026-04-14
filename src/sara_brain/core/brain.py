@@ -383,6 +383,72 @@ class Brain:
             })
         return results
 
+    # ── Curiosity API ──
+    #
+    # Johnny 5 principle: Sara must seek input when her knowledge is thin.
+    # Below CURIOSITY_THRESHOLD paths on a topic, she craves more input.
+
+    CURIOSITY_THRESHOLD = 50
+
+    def depth(self, topic: str) -> int:
+        """Count how many paths Sara has that mention this topic.
+
+        A simple but meaningful measure of knowledge depth — paths whose
+        source_text contains the topic substring. More paths = deeper
+        coverage.
+        """
+        topic_lower = topic.strip().lower()
+        cursor = self.conn.cursor()
+        row = cursor.execute(
+            "SELECT COUNT(*) FROM paths "
+            "WHERE source_text IS NOT NULL AND LOWER(source_text) LIKE ?",
+            (f"%{topic_lower}%",),
+        ).fetchone()
+        return row[0] if row else 0
+
+    def has_depth(self, topic: str) -> bool:
+        """True if Sara's knowledge on this topic meets the curiosity threshold."""
+        return self.depth(topic) >= self.CURIOSITY_THRESHOLD
+
+    def knowledge_gaps(self, topics: list[str] | None = None,
+                       threshold: int | None = None) -> list[tuple[str, int]]:
+        """Return (topic, depth) for topics below the curiosity threshold.
+
+        If topics is None, uses all concept neurons. Results sorted by
+        depth ascending (biggest gaps first).
+        """
+        if threshold is None:
+            threshold = self.CURIOSITY_THRESHOLD
+        if topics is None:
+            topics = [
+                n.label for n in self.neuron_repo.list_all()
+                if n.neuron_type.value == "concept"
+            ]
+        gaps = []
+        for t in topics:
+            d = self.depth(t)
+            if d < threshold:
+                gaps.append((t, d))
+        gaps.sort(key=lambda x: x[1])
+        return gaps
+
+    def concepts_mentioned(self, text: str) -> list[str]:
+        """Find Sara's known concepts that appear in a text.
+
+        Used after ingest to see what concepts a document touched on —
+        so Sara can check her depth on each and identify gaps.
+        """
+        text_lower = text.lower()
+        found = []
+        for n in self.neuron_repo.list_all():
+            if n.neuron_type.value != "concept":
+                continue
+            if len(n.label) < 4:  # skip very short labels to avoid noise
+                continue
+            if n.label in text_lower:
+                found.append(n.label)
+        return found
+
     def stats(self) -> dict:
         """Return brain statistics."""
         neurons = self.neuron_repo.count()

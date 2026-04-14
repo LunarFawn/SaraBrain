@@ -6,25 +6,26 @@ from ..models.neuron import Neuron, NeuronType
 
 
 class NeuronRepo:
-    def __init__(self, conn: sqlite3.Connection) -> None:
+    def __init__(self, conn: sqlite3.Connection, prefix: str = "") -> None:
         self.conn = conn
+        self._t = f"{prefix}_neurons" if prefix else "neurons"
 
     def create(self, neuron: Neuron) -> Neuron:
         cur = self.conn.execute(
-            "INSERT INTO neurons (label, neuron_type, created_at, metadata) VALUES (?, ?, ?, ?)",
+            f"INSERT INTO {self._t} (label, neuron_type, created_at, metadata) VALUES (?, ?, ?, ?)",
             (neuron.label, neuron.neuron_type.value, neuron.created_at, neuron.metadata_json()),
         )
         neuron.id = cur.lastrowid
         return neuron
 
     def get_by_id(self, neuron_id: int) -> Neuron | None:
-        row = self.conn.execute("SELECT * FROM neurons WHERE id = ?", (neuron_id,)).fetchone()
+        row = self.conn.execute(f"SELECT * FROM {self._t} WHERE id = ?", (neuron_id,)).fetchone()
         if row is None:
             return None
         return self._row_to_neuron(row)
 
     def get_by_label(self, label: str) -> Neuron | None:
-        row = self.conn.execute("SELECT * FROM neurons WHERE label = ?", (label,)).fetchone()
+        row = self.conn.execute(f"SELECT * FROM {self._t} WHERE label = ?", (label,)).fetchone()
         if row is None:
             return None
         return self._row_to_neuron(row)
@@ -77,7 +78,7 @@ class NeuronRepo:
 
         # 3. Prefix match — 'sumer' matches 'sumerian'
         rows = self.conn.execute(
-            "SELECT * FROM neurons WHERE label LIKE ? ORDER BY length(label) LIMIT ?",
+            f"SELECT * FROM {self._t} WHERE label LIKE ? ORDER BY length(label) LIMIT ?",
             (label + "%", max_results),
         ).fetchall()
         for row in rows:
@@ -87,7 +88,7 @@ class NeuronRepo:
 
         # 4. Contains — 'sumer' found inside 'ancient sumerian'
         rows = self.conn.execute(
-            "SELECT * FROM neurons WHERE label LIKE ? ORDER BY length(label) LIMIT ?",
+            f"SELECT * FROM {self._t} WHERE label LIKE ? ORDER BY length(label) LIMIT ?",
             ("%" + label + "%", max_results),
         ).fetchall()
         for row in rows:
@@ -98,7 +99,7 @@ class NeuronRepo:
         # 5. Edit distance — handles misspellings
         max_dist = max(2, len(label) // 3)
         candidates: list[tuple[tuple, int]] = []
-        all_neurons = self.conn.execute("SELECT * FROM neurons").fetchall()
+        all_neurons = self.conn.execute(f"SELECT * FROM {self._t}").fetchall()
         for row in all_neurons:
             stored = row[1]
             # Check direct edit distance
@@ -181,11 +182,11 @@ class NeuronRepo:
         return self.create(neuron), True
 
     def list_all(self) -> list[Neuron]:
-        rows = self.conn.execute("SELECT * FROM neurons ORDER BY id").fetchall()
+        rows = self.conn.execute(f"SELECT * FROM {self._t} ORDER BY id").fetchall()
         return [self._row_to_neuron(r) for r in rows]
 
     def count(self) -> int:
-        return self.conn.execute("SELECT COUNT(*) FROM neurons").fetchone()[0]
+        return self.conn.execute(f"SELECT COUNT(*) FROM {self._t}").fetchone()[0]
 
     @staticmethod
     def _row_to_neuron(row: tuple) -> Neuron:

@@ -232,7 +232,8 @@ class Brain:
             pass
 
     def propagate_into(self, seed_labels: list[str], short_term,
-                       min_strength: float | None = None) -> None:
+                       min_strength: float | None = None,
+                       exact_only: bool = True) -> None:
         """Launch wavefronts from seed labels into a ShortTerm scratchpad.
 
         Read-only. No graph mutation, no segment strengthening. This is
@@ -240,9 +241,14 @@ class Brain:
         Multiple seeds propagate in parallel; convergence accumulates in
         short_term where multi-wavefront intersections can be inspected
         via short_term.intersections().
+
+        By default, seed label matching is EXACT — fuzzy matching belongs
+        in ingest/disambiguation, not in quiet query paths.
         """
         self.recognizer.propagate_into(
-            seed_labels, short_term, min_strength=min_strength
+            seed_labels, short_term,
+            min_strength=min_strength,
+            exact_only=exact_only,
         )
 
     def trace(self, label: str,

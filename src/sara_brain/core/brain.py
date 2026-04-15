@@ -2,6 +2,10 @@
 
 from __future__ import annotations
 
+import time
+from contextlib import contextmanager
+from typing import Iterator
+
 from ..models.neuron import NeuronType
 from ..models.result import RecognitionResult, PathTrace
 from ..parsing.statement_parser import StatementParser
@@ -200,6 +204,46 @@ class Brain:
         results = self.recognizer.recognize(labels, min_strength=min_strength)
         self.conn.commit()
         return results
+
+    @contextmanager
+    def short_term(self, event_type: str = "query") -> Iterator:
+        """Open a short-term (working memory) scratchpad for an event.
+
+        The returned ShortTerm holds wavefront convergence maps, tentative
+        observations, and significance markers for the current event. It
+        is NOT committed to the long-term graph. On context exit it is
+        discarded.
+
+        Consolidation (write-back to long-term based on significance
+        markers) is a future feature. For now, short-term exists only as
+        working memory — the substrate the cortex reasons over without
+        polluting the graph.
+        """
+        from .short_term import ShortTerm
+        st = ShortTerm(
+            event_id=f"{event_type}-{time.time():.3f}",
+            event_type=event_type,
+        )
+        try:
+            yield st
+        finally:
+            # V1: discard. Future V2 will inspect st.significance and
+            # consolidate qualifying entries into long-term here.
+            pass
+
+    def propagate_into(self, seed_labels: list[str], short_term,
+                       min_strength: float | None = None) -> None:
+        """Launch wavefronts from seed labels into a ShortTerm scratchpad.
+
+        Read-only. No graph mutation, no segment strengthening. This is
+        the query path that respects 'looking does not strengthen'.
+        Multiple seeds propagate in parallel; convergence accumulates in
+        short_term where multi-wavefront intersections can be inspected
+        via short_term.intersections().
+        """
+        self.recognizer.propagate_into(
+            seed_labels, short_term, min_strength=min_strength
+        )
 
     def trace(self, label: str,
               min_strength: float | None = None) -> list[PathTrace]:

@@ -177,3 +177,44 @@ class Recognizer:
                 traces.append(PathTrace(neurons=path_neurons, weight=weight))
 
         return traces
+
+    def propagate_into(self, seed_labels: list[str], short_term,
+                       min_strength: float | None = None) -> None:
+        """Launch wavefronts from each seed, accumulate convergence into short_term.
+
+        READ-ONLY: does not call _strengthen_traversed. Segments are not
+        mutated. This is the query path that respects the principle
+        "just looking at a path should not strengthen it; only being
+        told something is right should."
+
+        The short_term argument is a ShortTerm instance — each
+        (target, seed) reachability is recorded via short_term.add_convergence.
+        Neurons reached from multiple distinct seeds show up as real
+        intersections in short_term.intersections().
+        """
+        # Resolve seeds to neurons
+        seeds = []
+        for label in seed_labels:
+            n = self.neuron_repo.resolve(label.strip().lower())
+            if n is not None:
+                seeds.append(n)
+        if not seeds:
+            return
+
+        effective_min = (
+            self.min_strength if min_strength is None else min_strength
+        )
+
+        # Each seed independently propagates; the short_term accumulates
+        # the union. No strengthening, no mutation.
+        for seed in seeds:
+            reached = self._propagate(seed, min_strength=effective_min)
+            for target_id, path_lists in reached.items():
+                if target_id == seed.id:
+                    continue
+                # Use the best path weight from this seed to this target.
+                # Multiple paths may exist; keep the strongest.
+                best_weight = max(
+                    self._path_weight(p) for p in path_lists
+                )
+                short_term.add_convergence(target_id, best_weight, seed.id)

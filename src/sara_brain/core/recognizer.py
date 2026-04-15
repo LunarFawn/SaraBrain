@@ -179,7 +179,8 @@ class Recognizer:
         return traces
 
     def propagate_into(self, seed_labels: list[str], short_term,
-                       min_strength: float | None = None) -> None:
+                       min_strength: float | None = None,
+                       exact_only: bool = True) -> None:
         """Launch wavefronts from each seed, accumulate convergence into short_term.
 
         READ-ONLY: does not call _strengthen_traversed. Segments are not
@@ -187,15 +188,27 @@ class Recognizer:
         "just looking at a path should not strengthen it; only being
         told something is right should."
 
+        Args:
+            seed_labels: concept labels to launch wavefronts from
+            short_term: ShortTerm instance to accumulate convergence into
+            min_strength: override for pruning weak edges
+            exact_only: when True (default for queries), seed labels must
+                match exactly. Fuzzy/prefix/contains matching at query
+                time creates false signal — "anther" silently becoming
+                "another" poisons the convergence. Fuzzy belongs in
+                ingest and disambiguation, not in quiet query paths.
+
         The short_term argument is a ShortTerm instance — each
         (target, seed) reachability is recorded via short_term.add_convergence.
         Neurons reached from multiple distinct seeds show up as real
         intersections in short_term.intersections().
         """
-        # Resolve seeds to neurons
+        # Resolve seeds to neurons (exact match by default at query time)
         seeds = []
         for label in seed_labels:
-            n = self.neuron_repo.resolve(label.strip().lower())
+            n = self.neuron_repo.resolve(
+                label.strip().lower(), exact_only=exact_only
+            )
             if n is not None:
                 seeds.append(n)
         if not seeds:

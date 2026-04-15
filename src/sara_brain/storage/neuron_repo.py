@@ -30,13 +30,21 @@ class NeuronRepo:
             return None
         return self._row_to_neuron(row)
 
-    def resolve(self, label: str) -> Neuron | None:
-        """Fuzzy neuron lookup — returns best match or None.
+    def resolve(self, label: str, exact_only: bool = False) -> Neuron | None:
+        """Neuron lookup — returns best match or None.
 
-        For queries where only one result is needed. If the match required
-        edit distance (misspelling), use resolve_candidates() instead to
-        let the user confirm.
+        Args:
+            exact_only: If True, only exact-label matches are returned.
+                Use this at QUERY TIME — fuzzy/prefix/contains/inflect
+                matching during a query creates false signal. "Anther"
+                should NOT silently become "another" when Sara is
+                answering a question. Fuzzy matching belongs in INGEST
+                (where the user can correct typos) and in disambiguation
+                flows (where the user explicitly confirms), never in
+                quiet query paths.
         """
+        if exact_only:
+            return self.get_by_label(label.strip().lower())
         candidates = self.resolve_candidates(label)
         if not candidates:
             return None

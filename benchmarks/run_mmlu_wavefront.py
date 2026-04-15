@@ -52,53 +52,108 @@ def extract_concepts(text: str, stopwords: set[str]) -> list[str]:
     return [w for w in words if len(w) >= 4 and w not in stopwords]
 
 
-def resolve_to_ids(brain, labels: list[str]) -> list[int]:
-    """Resolve concept labels to neuron IDs. Skips unresolvable labels."""
-    ids = []
-    for lbl in labels:
-        n = brain.neuron_repo.resolve(lbl)
-        if n is not None:
-            ids.append(n.id)
-    return ids
-
-
 def answer_question(brain, question: str, choices: list[str],
-                    stopwords: set[str]) -> tuple[int, list[dict]]:
-    """Answer a multiple-choice question by wavefront convergence.
+                    stopwords: set[str]) -> tuple[int, list[dict], dict]:
+    """Answer a multiple-choice question by wavefront TERRITORY overlap.
 
-    Step 1: Build convergence map from the question alone (no choices
-            biasing it).
-    Step 2: Score each choice by how well its concepts align with the
-            question's convergence map.
-    Step 3: Pick the highest-aligned choice — least wrong among options.
+    The question launches wavefronts that build a convergence map.
+    Each choice ALSO launches its own wavefronts into its own scratchpad.
+    The answer is the choice whose territory overlaps most with the
+    question's territory — where their wavefronts meet.
+
+    This catches "shoot tip → meristem ← mitosis" style connections
+    where the concepts themselves don't match but their surrounding
+    territory does.
+
+    Read-only throughout. Exact-only label resolution.
     """
-    # Step 1: build convergence from question concepts
-    with brain.short_term(event_type="mmlu_question") as st:
+    # Step 1: build the question's convergence territory
+    with brain.short_term(event_type="mmlu_question") as q_st:
         q_concepts = extract_concepts(question, stopwords)
-        brain.propagate_into(q_concepts, st)
+        brain.propagate_into(q_concepts, q_st, exact_only=True)
 
-        # Step 2: evaluate each choice against the convergence map
-        scores = []
+        q_territory = set(q_st.convergence_map.keys())
+        q_total_converged = len(q_territory)
+        q_intersections = len(q_st.intersections(min_sources=2))
+
+        # Step 2: build each choice's territory and compute raw overlap
+        choice_territories: list[set[int]] = []
+        choice_scratchpads = []  # kept alive for reading convergence_map
+        c_concept_ids_per_choice: list[set[int]] = []
+
         for choice in choices:
+            c_st_cm = brain.short_term(event_type="mmlu_choice")
+            c_st = c_st_cm.__enter__()
+            choice_scratchpads.append((c_st_cm, c_st))
+
             c_concepts = extract_concepts(choice, stopwords)
-            c_ids = resolve_to_ids(brain, c_concepts)
-            weight, hits = st.align_score(c_ids)
+            brain.propagate_into(c_concepts, c_st, exact_only=True)
+            choice_territories.append(set(c_st.convergence_map.keys()))
+
+            # Also track which choice-concept neurons appear in q_territory
+            # (direct hits, for tie-breaking)
+            direct_ids = set()
+            for lbl in c_concepts:
+                n = brain.neuron_repo.resolve(lbl, exact_only=True)
+                if n is not None and n.id in q_territory:
+                    direct_ids.add(n.id)
+            c_concept_ids_per_choice.append(direct_ids)
+
+        # Differential signal: concepts that appear in THIS choice's
+        # overlap with the question but NOT in all other choices. This
+        # strips out the generic biology noise (cell, organism, etc.)
+        # that every choice shares with the question.
+        all_choice_overlaps = [q_territory & ct for ct in choice_territories]
+        # baseline = neurons overlapping with question across ALL choices
+        baseline = set.intersection(*all_choice_overlaps) if all_choice_overlaps else set()
+
+        scores = []
+        for i, (choice, c_territory) in enumerate(zip(choices, choice_territories)):
+            _, c_st = choice_scratchpads[i]
+            raw_overlap = all_choice_overlaps[i]
+            # Unique overlap: what's in THIS choice's overlap minus what
+            # EVERY other choice also has. This is the choice-specific signal.
+            unique_overlap = raw_overlap - baseline
+            unique_weight = sum(
+                q_st.convergence_map[nid] + c_st.convergence_map[nid]
+                for nid in unique_overlap
+            )
+            raw_weight = sum(
+                q_st.convergence_map[nid] + c_st.convergence_map[nid]
+                for nid in raw_overlap
+            )
+            direct_ids = c_concept_ids_per_choice[i]
+            direct_weight = sum(
+                q_st.convergence_map[nid] for nid in direct_ids
+            )
+
             scores.append({
-                "weight": weight,
-                "hits": hits,
-                "concepts_extracted": len(c_concepts),
-                "concepts_resolved": len(c_ids),
+                "raw_overlap": len(raw_overlap),
+                "raw_weight": raw_weight,
+                "unique_overlap": len(unique_overlap),
+                "unique_weight": unique_weight,
+                "direct_hits": len(direct_ids),
+                "direct_weight": direct_weight,
+                "c_territory": len(c_territory),
+                "concepts_extracted": len(extract_concepts(choice, stopwords)),
             })
 
-        # Also record question-side stats for debugging
-        q_total_converged = len(st.convergence_map)
-        q_intersections = len(st.intersections(min_sources=2))
+        # Close the choice scratchpads
+        for c_st_cm, _ in choice_scratchpads:
+            c_st_cm.__exit__(None, None, None)
 
-        # Step 3: pick the choice with highest alignment weight,
-        # tie-break on hit count, then on choice index
+        # Step 3: pick least wrong — DIFFERENTIAL signal is what matters.
+        # Primary: unique_weight (how much does THIS choice share with
+        #   the question that OTHERS don't — the choice-specific signal)
+        # Tie-break: direct_weight (explicit concept hits), then raw_weight,
+        #   then choice index
         best_idx = max(
             range(len(scores)),
-            key=lambda i: (scores[i]["weight"], scores[i]["hits"])
+            key=lambda i: (
+                scores[i]["unique_weight"],
+                scores[i]["direct_weight"],
+                scores[i]["raw_weight"],
+            ),
         )
 
         meta = {
@@ -146,8 +201,10 @@ def run_benchmark(questions: list[dict], brain) -> dict:
             })
             continue
 
-        # No-signal: all choices got zero alignment
-        if all(s["weight"] == 0 for s in scores):
+        # No-signal: no choice has any UNIQUE overlap with the question
+        # (all choices share the same generic territory — Sara can't
+        # differentiate, so any pick is guessing)
+        if all(s["unique_weight"] == 0 for s in scores):
             results["no_signal"] += 1
 
         correct_idx = q['answer_idx']
@@ -175,11 +232,13 @@ def run_benchmark(questions: list[dict], brain) -> dict:
         accuracy = results["correct"] / (i + 1) * 100
         avg = total_elapsed / (i + 1)
         remaining = avg * (len(questions) - i - 1)
+        best = scores[best_idx]
         print(
             f"  [{i+1}/{len(questions)}] Q{q['id']}: {status} "
-            f"(chose {letter} w={scores[best_idx]['weight']:.1f}/h={scores[best_idx]['hits']}, "
+            f"(chose {letter} uw={best['unique_weight']:.1f}/"
+            f"uo={best['unique_overlap']}/dh={best['direct_hits']}, "
             f"correct {correct_letter}) "
-            f"[q_conv={meta['q_total_converged']}, isect={meta['q_intersections']}] "
+            f"[q_conv={meta['q_total_converged']}] "
             f"— {accuracy:.1f}% — {elapsed:.2f}s (~{remaining/60:.0f}m left)",
             flush=True
         )

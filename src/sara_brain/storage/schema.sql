@@ -74,6 +74,19 @@ CREATE INDEX IF NOT EXISTS idx_neuron_label ON neurons(label);
 CREATE INDEX IF NOT EXISTS idx_neuron_type ON neurons(neuron_type);
 CREATE INDEX IF NOT EXISTS idx_path_terminus ON paths(terminus_id);
 
+-- Per-segment source provenance. A segment taught from two DIFFERENT
+-- source_labels has two witnesses — the two-witness principle.
+-- Re-teaching the same fact from the same source is a no-op (UNIQUE
+-- constraint) and does NOT inflate the witness count.
+CREATE TABLE IF NOT EXISTS segment_sources (
+    id           INTEGER PRIMARY KEY,
+    segment_id   INTEGER NOT NULL REFERENCES segments(id) ON DELETE CASCADE,
+    source_label TEXT NOT NULL,
+    created_at   REAL,
+    UNIQUE(segment_id, source_label)
+);
+CREATE INDEX IF NOT EXISTS idx_seg_sources_segment ON segment_sources(segment_id);
+
 -- Region registry — tracks which brain regions exist
 CREATE TABLE IF NOT EXISTS regions (
     name        TEXT PRIMARY KEY,

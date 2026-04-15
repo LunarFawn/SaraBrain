@@ -52,6 +52,9 @@ class Brain:
         self.association_repo = AssociationRepo(self.conn)
         self.category_repo = CategoryRepo(self.conn)
         self.settings_repo = SettingsRepo(self.conn)
+        # Multi-source provenance — two-witness confirmation
+        from ..storage.segment_source_repo import SegmentSourceRepo
+        self.segment_source_repo = SegmentSourceRepo(self.conn)
 
         # Innate layer — hardwired, survives reset
         from ..innate.primitives import get_all
@@ -66,7 +69,10 @@ class Brain:
         self.parser = StatementParser(self.taxonomy)
 
         # Core algorithms
-        self.learner = Learner(self.parser, self.neuron_repo, self.segment_repo, self.path_repo)
+        self.learner = Learner(
+            self.parser, self.neuron_repo, self.segment_repo,
+            self.path_repo, segment_source_repo=self.segment_source_repo,
+        )
         self.recognizer = Recognizer(self.neuron_repo, self.segment_repo)
         self.similarity = SimilarityAnalyzer(self.neuron_repo, self.segment_repo, self.conn)
 
@@ -164,14 +170,115 @@ class Brain:
         return False
 
     def teach(self, statement: str, *, user_initiated: bool = True) -> LearnResult | None:
-        """Teach a fact. Returns None if unparseable."""
+        """Teach a fact. Returns None if unparseable.
+
+        User-initiated teaching defaults to CONFIDENT (strength 1.0) and
+        bypasses the pollution filter — the user is always a trusted
+        source. Use teach_tentative for ingest-time writes that should
+        require a second witness before becoming visible.
+        """
         gate = self._ethics.check_action("teach", user_initiated=user_initiated)
         if not gate.allowed:
             raise PermissionError(gate.reason)
-        result = self.learner.learn(statement)
+        result = self.learner.learn(statement, apply_filter=False)
         if result is not None:
             self.conn.commit()
         return result
+
+    def teach_confident(self, statement: str, *,
+                        user_initiated: bool = True) -> LearnResult | None:
+        """Confident teach — same as teach. Explicit name for ingest
+        pipelines that want to distinguish tentative vs confident writes.
+        """
+        return self.teach(statement, user_initiated=user_initiated)
+
+    def teach_tentative(self, statement: str,
+                        source_label: str | None = None,
+                        *, user_initiated: bool = True) -> LearnResult | None:
+        """Teach a fact at TENTATIVE strength (below the query floor).
+
+        Segments are written at strength 0.4 — invisible to recognize()
+        until a DIFFERENT source confirms the same fact (second witness
+        triggers strengthen() via the log formula, lifting segments
+        above the 0.5 visibility floor).
+
+        The pollution filter runs first, so citations, DOIs, stopword
+        subjects, etc. are rejected before the graph is touched.
+
+        Args:
+            statement: the fact
+            source_label: where this observation came from (URL,
+                filename, "user"). Required for the two-witness upgrade
+                to work — same source re-teaching is a no-op.
+        """
+        gate = self._ethics.check_action(
+            "teach", user_initiated=user_initiated
+        )
+        if not gate.allowed:
+            raise PermissionError(gate.reason)
+        result = self.learner.learn(
+            statement,
+            initial_strength=0.4,
+            source_label=source_label,
+            apply_filter=True,
+        )
+        if result is not None:
+            self.conn.commit()
+        return result
+
+    def witness_count(self, statement: str) -> int:
+        """How many distinct sources have taught this fact?
+
+        Returns the minimum distinct source count across the fact's
+        segments (weakest link). 0 = unknown or legacy (no provenance
+        recorded), 1 = tentative, 2+ = confirmed.
+        """
+        parsed = self.parser.parse(statement)
+        if parsed is None:
+            return 0
+        # Resolve the segments that make up this fact
+        prop_n = self.neuron_repo.get_by_label(parsed.obj)
+        concept_n = self.neuron_repo.get_by_label(parsed.subject)
+        if prop_n is None or concept_n is None:
+            return 0
+        relation_label = self.parser.taxonomy.relation_label(
+            parsed.subject, parsed.obj
+        )
+        rel_n = self.neuron_repo.get_by_label(relation_label)
+        if rel_n is None:
+            return 0
+        seg1 = self.segment_repo.find(prop_n.id, rel_n.id, parsed.relation)
+        seg2 = self.segment_repo.find(rel_n.id, concept_n.id, "describes")
+        if seg1 is None or seg2 is None:
+            return 0
+        return self.segment_source_repo.count_distinct_for_segments(
+            [seg1.id, seg2.id]
+        )
+
+    def sources_for(self, statement: str) -> list[str]:
+        """Return the distinct source labels that have taught this fact.
+
+        Used to inspect provenance — answers "where did Sara learn this?"
+        """
+        parsed = self.parser.parse(statement)
+        if parsed is None:
+            return []
+        prop_n = self.neuron_repo.get_by_label(parsed.obj)
+        concept_n = self.neuron_repo.get_by_label(parsed.subject)
+        if prop_n is None or concept_n is None:
+            return []
+        relation_label = self.parser.taxonomy.relation_label(
+            parsed.subject, parsed.obj
+        )
+        rel_n = self.neuron_repo.get_by_label(relation_label)
+        if rel_n is None:
+            return []
+        seg1 = self.segment_repo.find(prop_n.id, rel_n.id, parsed.relation)
+        if seg1 is None:
+            return []
+        # Sources from the first segment (property → relation) — the
+        # "subject side" of the claim. Sufficient as a provenance read.
+        return self.segment_source_repo.list_sources(seg1.id)
 
     def refute(self, statement: str, *, user_initiated: bool = True) -> LearnResult | None:
         """Refute a fact. Sara never deletes — she marks the claim as
@@ -456,15 +563,23 @@ class Brain:
     # ── Curiosity API ──
     #
     # Johnny 5 principle: Sara must seek input when her knowledge is thin.
-    # Two tiers:
-    #   < CURIOSITY_FLOOR (50)  — hungry, actively seeking
-    #   < CURIOSITY_GOAL (100)  — satisfied but could grow
-    #   >= CURIOSITY_GOAL       — confident coverage
+    # Dual-signal thresholds — both depth (how many times seen) AND
+    # connectivity (how many distinct neighbors) must clear the bar.
+    #
+    # A concept mentioned 100 times in one context is still shallow; a
+    # concept mentioned 10 times across 5 different contexts is deep.
+    # Connectivity captures the polymath signal — knowing something
+    # well means using it in many contexts, not repeating it often.
 
-    CURIOSITY_FLOOR = 50
-    CURIOSITY_GOAL = 100
-    # Backward-compat alias
-    CURIOSITY_THRESHOLD = CURIOSITY_FLOOR
+    CURIOSITY_DEPTH_FLOOR = 3          # seen at least a few times
+    CURIOSITY_DEPTH_GOAL = 10          # seen enough times to feel solid
+    CURIOSITY_CONNECTIVITY_FLOOR = 2   # at least 2 distinct neighbors
+    CURIOSITY_CONNECTIVITY_GOAL = 5    # at least 5 distinct neighbors
+
+    # Backward-compat aliases (old depth-only thresholds)
+    CURIOSITY_FLOOR = CURIOSITY_DEPTH_FLOOR
+    CURIOSITY_GOAL = CURIOSITY_DEPTH_GOAL
+    CURIOSITY_THRESHOLD = CURIOSITY_DEPTH_FLOOR
 
     def depth(self, topic: str) -> int:
         """Count how many paths Sara has that mention this topic.
@@ -482,35 +597,85 @@ class Brain:
         ).fetchone()
         return row[0] if row else 0
 
+    def connectivity(self, topic: str) -> int:
+        """Count distinct neighbors connected to this topic neuron.
+
+        A concept's connectivity is the number of DISTINCT other
+        neurons it shares a segment with (incoming or outgoing). This
+        measures how embedded the concept is in the graph — true
+        depth of understanding is about connections across contexts,
+        not repetition count. A concept that connects to 10 different
+        neighbors is richer than one mentioned 100 times in a row.
+        """
+        n = self.neuron_repo.resolve(topic.strip().lower(), exact_only=True)
+        if n is None:
+            return 0
+        neighbors: set[int] = set()
+        for seg in self.segment_repo.get_outgoing(n.id):
+            neighbors.add(seg.target_id)
+        for seg in self.segment_repo.get_incoming(n.id):
+            neighbors.add(seg.source_id)
+        # Don't count self-loops
+        neighbors.discard(n.id)
+        return len(neighbors)
+
     def depth_tier(self, topic: str) -> str:
-        """Return 'hungry', 'growing', or 'satisfied' for a topic."""
+        """DEPTH-ONLY tier (kept for backward compat).
+
+        New code should use curiosity_tier() which uses both depth AND
+        connectivity signals.
+        """
         d = self.depth(topic)
-        if d < self.CURIOSITY_FLOOR:
+        if d < self.CURIOSITY_DEPTH_FLOOR:
             return "hungry"
-        if d < self.CURIOSITY_GOAL:
+        if d < self.CURIOSITY_DEPTH_GOAL:
             return "growing"
         return "satisfied"
 
+    def curiosity_tier(self, topic: str) -> str:
+        """Dual-signal tier: 'hungry' | 'growing' | 'satisfied'.
+
+        Hungry: depth < FLOOR OR connectivity < FLOOR
+            (haven't seen this enough OR don't know enough about it)
+        Satisfied: depth >= GOAL AND connectivity >= GOAL
+            (both seen plenty of times AND connected to many concepts)
+        Growing: anywhere between.
+        """
+        d = self.depth(topic)
+        c = self.connectivity(topic)
+        if (d < self.CURIOSITY_DEPTH_FLOOR or
+                c < self.CURIOSITY_CONNECTIVITY_FLOOR):
+            return "hungry"
+        if (d >= self.CURIOSITY_DEPTH_GOAL and
+                c >= self.CURIOSITY_CONNECTIVITY_GOAL):
+            return "satisfied"
+        return "growing"
+
     def has_depth(self, topic: str) -> bool:
-        """True if Sara has crossed the curiosity floor on this topic."""
-        return self.depth(topic) >= self.CURIOSITY_FLOOR
+        """True if Sara has crossed both curiosity floors (depth + connectivity)."""
+        return (
+            self.depth(topic) >= self.CURIOSITY_DEPTH_FLOOR
+            and self.connectivity(topic) >= self.CURIOSITY_CONNECTIVITY_FLOOR
+        )
 
     def is_satisfied(self, topic: str) -> bool:
-        """True if Sara has reached confident coverage on this topic."""
-        return self.depth(topic) >= self.CURIOSITY_GOAL
+        """True if Sara has reached confident coverage (both signals at GOAL)."""
+        return self.curiosity_tier(topic) == "satisfied"
 
     def knowledge_gaps(self, topics: list[str] | None = None,
                        threshold: int | None = None) -> list[tuple[str, int]]:
         """Return (topic, depth) for topics below the threshold.
 
-        Default threshold is CURIOSITY_FLOOR (actively hungry).
-        Pass CURIOSITY_GOAL for topics below the satisfaction goal.
+        Default threshold is CURIOSITY_DEPTH_FLOOR (actively hungry on
+        depth signal). For the dual-signal gap list, use
+        `curiosity_gaps()` instead which checks both depth and
+        connectivity.
 
         If topics is None, uses all concept neurons. Results sorted by
         depth ascending (biggest gaps first).
         """
         if threshold is None:
-            threshold = self.CURIOSITY_FLOOR
+            threshold = self.CURIOSITY_DEPTH_FLOOR
         if topics is None:
             topics = [
                 n.label for n in self.neuron_repo.list_all()

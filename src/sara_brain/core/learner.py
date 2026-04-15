@@ -28,22 +28,51 @@ class Learner:
         neuron_repo: NeuronRepo,
         segment_repo: SegmentRepo,
         path_repo: PathRepo,
+        segment_source_repo=None,
     ) -> None:
         self.parser = parser
         self.neuron_repo = neuron_repo
         self.segment_repo = segment_repo
         self.path_repo = path_repo
+        # Optional — present when multi-source provenance is enabled
+        self.segment_source_repo = segment_source_repo
 
-    def learn(self, text: str) -> LearnResult | None:
+    def learn(self, text: str, initial_strength: float | None = None,
+              source_label: str | None = None,
+              apply_filter: bool = True) -> LearnResult | None:
         """Parse a statement and build a 3-neuron path chain.
 
         Chain: property → relation → concept
         E.g.: red → fruit_color → apple
+
+        Args:
+            initial_strength: when set, newly-created segments have
+                their strength overridden to this value. Used by
+                tentative teaching (0.4 is below the query visibility
+                floor of 0.5). None means use the default (1.0).
+            source_label: provenance tag (URL, filename, "user"). When
+                provided and SegmentSourceRepo is available, segments
+                are linked to this source. Same-source re-teach becomes
+                a no-op for segment strengthening — two DIFFERENT
+                sources are required for the two-witness upgrade.
+            apply_filter: run the pollution filter before parsing.
+                Default True. Set False only for trusted teachers
+                (the user via CLI) where filtering is unwanted.
         """
+        if apply_filter:
+            from .filters import is_polluting_statement
+            rejected, _reason = is_polluting_statement(text)
+            if rejected:
+                return None
+
         parsed = self.parser.parse(text)
         if parsed is None:
             return None
-        return self._build_chain(parsed)
+        return self._build_chain(
+            parsed,
+            initial_strength=initial_strength,
+            source_label=source_label,
+        )
 
     def unlearn(self, text: str) -> LearnResult | None:
         """Refute a statement. Mirrors learn() but weakens segments
@@ -63,6 +92,8 @@ class Learner:
         self,
         parsed: ParsedStatement,
         refute: bool = False,
+        initial_strength: float | None = None,
+        source_label: str | None = None,
     ) -> LearnResult:
         neurons_created = 0
         segments_created = 0
@@ -94,25 +125,40 @@ class Learner:
         # 4. Build segments: property → relation → concept
         # If refute=True, weaken existing or create-then-weaken so the
         # segments record the refutation in their counters.
+        #
+        # Source-gated strengthening: when source_label is provided, only
+        # strengthen an existing segment if the source is a NEW witness.
+        # Same source re-teaching the same fact is a no-op. Two distinct
+        # sources is the confirmation signal.
         seg1, created = self.segment_repo.get_or_create(
             prop_neuron.id, relation_neuron.id, parsed.relation
         )
         if created:
             segments_created += 1
+            if initial_strength is not None:
+                self._set_initial_strength(seg1, initial_strength)
+        is_new_witness_1 = self._record_source(seg1, source_label)
         if refute:
             self.segment_repo.weaken(seg1)
         elif not created:
-            self.segment_repo.strengthen(seg1)
+            # Strengthen only if this is a new witness (or no source
+            # tracking is in use — legacy/user teaching path).
+            if source_label is None or is_new_witness_1:
+                self.segment_repo.strengthen(seg1)
 
         seg2, created = self.segment_repo.get_or_create(
             relation_neuron.id, concept_neuron.id, "describes"
         )
         if created:
             segments_created += 1
+            if initial_strength is not None:
+                self._set_initial_strength(seg2, initial_strength)
+        is_new_witness_2 = self._record_source(seg2, source_label)
         if refute:
             self.segment_repo.weaken(seg2)
         elif not created:
-            self.segment_repo.strengthen(seg2)
+            if source_label is None or is_new_witness_2:
+                self.segment_repo.strengthen(seg2)
 
         # 5. Record the path. Source_text is NEVER prefixed or mutated.
         # Refutation state is tracked in the graph via CLEANUP primitives,
@@ -177,6 +223,31 @@ class Learner:
             neurons_created=neurons_created,
             path_id=path.id,
         )
+
+    def _set_initial_strength(self, segment, strength: float) -> None:
+        """Override a newly-created segment's strength.
+
+        Used by tentative teaching to write segments below the query
+        visibility floor. Reuses the same UPDATE pattern as
+        brain.describe_association.
+        """
+        self.segment_repo.conn.execute(
+            f"UPDATE {self.segment_repo._t} SET strength = ? WHERE id = ?",
+            (strength, segment.id),
+        )
+        segment.strength = strength
+
+    def _record_source(self, segment, source_label: str | None) -> bool:
+        """Record a source for a segment. Returns True if it's a new witness.
+
+        No-op when source tracking isn't configured or source_label is
+        None. When enabled, UNIQUE(segment_id, source_label) in the
+        segment_sources table makes same-source re-teach a no-op —
+        returns False, which the caller uses to skip strengthen().
+        """
+        if self.segment_source_repo is None or not source_label:
+            return False
+        return self.segment_source_repo.add(segment.id, source_label)
 
     def _link_sub_concepts(self, neuron) -> tuple[int, int]:
         """If neuron label is multi-word, create word → compound segments.

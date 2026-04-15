@@ -188,18 +188,26 @@ class Brain:
             self.conn.commit()
         return result
 
-    def recognize(self, inputs: str) -> list[RecognitionResult]:
-        """Recognize from comma-separated input labels."""
+    def recognize(self, inputs: str,
+                  min_strength: float | None = None) -> list[RecognitionResult]:
+        """Recognize from comma-separated input labels.
+
+        min_strength: override the recognizer's default pruning threshold.
+            Pass 0.0 to include all segments (including weak associations
+            and refuted edges) for debugging.
+        """
         labels = [l.strip() for l in inputs.split(",") if l.strip()]
-        results = self.recognizer.recognize(labels)
+        results = self.recognizer.recognize(labels, min_strength=min_strength)
         self.conn.commit()
         return results
 
-    def trace(self, label: str) -> list[PathTrace]:
+    def trace(self, label: str,
+              min_strength: float | None = None) -> list[PathTrace]:
         """Trace all outgoing paths from a neuron."""
-        return self.recognizer.trace(label)
+        return self.recognizer.trace(label, min_strength=min_strength)
 
-    def why(self, label: str) -> list[PathTrace]:
+    def why(self, label: str,
+            min_strength: float | None = None) -> list[PathTrace]:
         """Show all paths that lead TO a neuron (reverse lookup).
 
         Each PathTrace carries the signed weight of its segments. Refuted
@@ -210,17 +218,25 @@ class Brain:
         if neuron is None:
             return []
 
+        effective_min = (
+            self.recognizer.min_strength if min_strength is None
+            else min_strength
+        )
+
         paths = self.path_repo.get_paths_to(neuron.id)
         traces: list[PathTrace] = []
         for p in paths:
             steps = self.path_repo.get_steps(p.id)
             neurons = []
             seg_strengths: list[float] = []
+            has_weak_segment = False
             # Walk the segments to reconstruct the neuron chain
             for step in steps:
                 seg = self.segment_repo.get_by_id(step.segment_id)
                 if seg is None:
                     continue
+                if seg.strength < effective_min:
+                    has_weak_segment = True
                 seg_strengths.append(seg.strength)
                 if not neurons:
                     source = self.neuron_repo.get_by_id(seg.source_id)
@@ -229,6 +245,10 @@ class Brain:
                 target = self.neuron_repo.get_by_id(seg.target_id)
                 if target:
                     neurons.append(target)
+            # Drop paths that traverse any segment below threshold — a path
+            # is only as strong as its weakest link for traversal purposes
+            if has_weak_segment:
+                continue
             weight = (
                 sum(seg_strengths) / len(seg_strengths)
                 if seg_strengths
@@ -581,8 +601,20 @@ class Brain:
             # Get or create PROPERTY neuron
             prop_neuron, _ = self.neuron_repo.get_or_create(prop_label, NeuronType.PROPERTY)
 
-            # Create segment: property → association (relation: "is_a")
-            self.segment_repo.get_or_create(prop_neuron.id, assoc_neuron.id, "is_a")
+            # Create segment: property → association (relation: "is_a").
+            # Associations are weak on purpose — they're visible in the graph
+            # but must not dominate wavefront propagation. A battery cell
+            # and a biological cell can both associate with "energy" but
+            # that shared association must not make them look similar.
+            seg, created = self.segment_repo.get_or_create(
+                prop_neuron.id, assoc_neuron.id, "is_a"
+            )
+            if created:
+                self.conn.execute(
+                    f"UPDATE {self.segment_repo._t} SET strength = ? WHERE id = ?",
+                    (0.1, seg.id),
+                )
+                seg.strength = 0.1
 
             # Register in taxonomy
             self.taxonomy.register_property(prop_label, name)

@@ -13,13 +13,27 @@ class Recognizer:
         self,
         neuron_repo: NeuronRepo,
         segment_repo: SegmentRepo,
-        max_depth: int = 10,
+        max_depth: int = 3,
+        min_strength: float = 0.5,
     ) -> None:
+        """Propagation engine for path-of-thought recognition.
+
+        max_depth: BFS hop limit. Shallow is the right default — biological
+            signals converge in a few hops. Large max_depth floods a dense
+            graph and makes every concept appear to intersect with every
+            other one (the transformer attention problem).
+        min_strength: Segments below this are pruned from traversal. Weak
+            associations (0.1) and refuted segments (<0) get filtered out
+            by default. Pass 0.0 to include everything (useful for
+            debugging or querying with full context).
+        """
         self.neuron_repo = neuron_repo
         self.segment_repo = segment_repo
         self.max_depth = max_depth
+        self.min_strength = min_strength
 
-    def recognize(self, input_labels: list[str]) -> list[RecognitionResult]:
+    def recognize(self, input_labels: list[str],
+                  min_strength: float | None = None) -> list[RecognitionResult]:
         """Launch parallel wavefronts from all input neurons, find intersections."""
         # Resolve input labels to neurons
         start_neurons: list[Neuron] = []
@@ -31,10 +45,15 @@ class Recognizer:
         if not start_neurons:
             return []
 
+        # Effective min_strength: caller override, else instance default
+        effective_min = self.min_strength if min_strength is None else min_strength
+
         # Launch parallel wavefronts (each independently explores the graph)
         wavefront_results: dict[int, dict[int, list[list[Neuron]]]] = {}
         for neuron in start_neurons:
-            wavefront_results[neuron.id] = self._propagate(neuron)
+            wavefront_results[neuron.id] = self._propagate(
+                neuron, min_strength=effective_min
+            )
 
         # Find intersections: neurons reached by 2+ wavefronts
         all_reached: dict[int, dict[int, list[list[Neuron]]]] = {}
@@ -87,8 +106,17 @@ class Recognizer:
                     break
         return total / count if count > 0 else 0.0
 
-    def _propagate(self, start: Neuron) -> dict[int, list[list[Neuron]]]:
-        """BFS wavefront from a single neuron. Returns {reached_id: [[path_neurons]]}."""
+    def _propagate(self, start: Neuron,
+                   min_strength: float | None = None) -> dict[int, list[list[Neuron]]]:
+        """BFS wavefront from a single neuron. Returns {reached_id: [[path_neurons]]}.
+
+        Segments with strength < min_strength are pruned from traversal.
+        This keeps wavefronts from flooding dense graphs via weak
+        association edges.
+        """
+        if min_strength is None:
+            min_strength = self.min_strength
+
         reached: dict[int, list[list[Neuron]]] = {}
         # Queue: (current_neuron, path_so_far)
         queue: list[tuple[Neuron, list[Neuron]]] = [(start, [start])]
@@ -100,6 +128,8 @@ class Recognizer:
             for current, path in queue:
                 segments = self.segment_repo.get_outgoing(current.id)
                 for seg in segments:
+                    if seg.strength < min_strength:
+                        continue
                     if seg.target_id in visited:
                         continue
                     target = self.neuron_repo.get_by_id(seg.target_id)
@@ -132,13 +162,14 @@ class Recognizer:
                             if seg.target_id == pair[1]:
                                 self.segment_repo.strengthen(seg)
 
-    def trace(self, label: str) -> list[PathTrace]:
+    def trace(self, label: str,
+              min_strength: float | None = None) -> list[PathTrace]:
         """Trace all outgoing paths from a neuron."""
         neuron = self.neuron_repo.resolve(label.strip().lower())
         if neuron is None:
             return []
 
-        reached = self._propagate(neuron)
+        reached = self._propagate(neuron, min_strength=min_strength)
         traces: list[PathTrace] = []
         for _target_id, path_lists in reached.items():
             for path_neurons in path_lists:

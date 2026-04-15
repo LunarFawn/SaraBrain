@@ -141,10 +141,14 @@ Rules:
 - If the text has nothing about {concept}, output NONE."""
 
 
-def pass1_skim(brain, text: str, model: str, base_url: str) -> int:
-    """Skim the whole source for general facts."""
-    # Break very long texts into large chunks (2500 chars)
-    # to fit in context but keep them big enough to have context
+def pass1_skim(brain, text: str, model: str, base_url: str,
+               source_label: str | None = None) -> int:
+    """Skim the whole source for general facts.
+
+    Facts are written TENTATIVELY — they stay below the query visibility
+    floor until a second DIFFERENT source confirms them. source_label
+    tags the provenance so same-source re-teaching is a no-op.
+    """
     chunks = []
     current = []
     current_len = 0
@@ -162,6 +166,7 @@ def pass1_skim(brain, text: str, model: str, base_url: str) -> int:
         chunks.append("\n\n".join(current))
 
     total_facts = 0
+    rejected = 0
     for i, chunk in enumerate(chunks):
         print(f"    chunk {i+1}/{len(chunks)}... ", end="", flush=True)
         raw = call_ollama(chunk, SKIM_SYSTEM, model, base_url)
@@ -171,11 +176,14 @@ def pass1_skim(brain, text: str, model: str, base_url: str) -> int:
         facts = parse_facts(raw)
         added = 0
         for fact in facts:
-            if brain.teach(fact) is not None:
+            result = brain.teach_tentative(fact, source_label=source_label)
+            if result is not None:
                 added += 1
+            else:
+                rejected += 1
         brain.conn.commit()
         total_facts += added
-        print(f"+{added} facts")
+        print(f"+{added} facts (filtered {rejected} so far)")
     return total_facts
 
 
@@ -196,12 +204,17 @@ def pass2_assess(brain, text: str) -> list[tuple[str, int]]:
 
 
 def pass3_directed(brain, text: str, gap: tuple[str, int],
-                   model: str, base_url: str, max_sections: int = 5) -> int:
-    """Directed re-read focused on one gap concept."""
+                   model: str, base_url: str, max_sections: int = 5,
+                   source_label: str | None = None) -> int:
+    """Directed re-read focused on one gap concept.
+
+    Same source_label as pass1_skim for this document — so targeted
+    re-reads of the SAME source don't self-confirm (still needs a
+    different source for witness upgrade).
+    """
     concept, depth = gap
     concept_lower = concept.lower()
 
-    # Find paragraphs that mention the concept
     paragraphs = text.split("\n\n")
     relevant = [p for p in paragraphs if concept_lower in p.lower()
                 and len(p.strip()) > 30]
@@ -209,7 +222,6 @@ def pass3_directed(brain, text: str, gap: tuple[str, int],
     if not relevant:
         return 0
 
-    # Take the most relevant sections (longest ones are usually substantive)
     relevant = sorted(relevant, key=len, reverse=True)[:max_sections]
     combined = "\n\n".join(relevant)
 
@@ -221,7 +233,7 @@ def pass3_directed(brain, text: str, gap: tuple[str, int],
     facts = parse_facts(raw)
     added = 0
     for fact in facts:
-        if brain.teach(fact) is not None:
+        if brain.teach_tentative(fact, source_label=source_label) is not None:
             added += 1
     brain.conn.commit()
     return added
@@ -392,9 +404,15 @@ def main():
 
     start = time.time()
 
+    # Source label for THIS document — same-source re-teaching is a
+    # no-op, so all passes over this doc share the same label. A second
+    # document will provide the second witness for cross-confirmation.
+    this_source = source_label
+
     # ── Pass 1: Skim ──
     print("  ═══ PASS 1: Skim ═══")
-    p1_facts = pass1_skim(brain, text, args.model, args.base_url)
+    p1_facts = pass1_skim(brain, text, args.model, args.base_url,
+                          source_label=this_source)
     print(f"  Pass 1 learned: {p1_facts} facts\n")
 
     # ── Phase A: Reach the FLOOR (50 paths) using this document ──
@@ -420,7 +438,8 @@ def main():
         for concept, depth in targets:
             print(f"    ── {concept} ({depth} paths) ── ", end="", flush=True)
             added = pass3_directed(brain, text, (concept, depth),
-                                    args.model, args.base_url)
+                                    args.model, args.base_url,
+                                    source_label=this_source)
             p3_total += added
             new_depth = brain.depth(concept)
             print(f"+{added} facts → now {new_depth} paths")
@@ -458,7 +477,11 @@ def main():
                     print(f"      no Wikipedia page found")
                     continue
                 print(f"      fetched: {url}")
-                added = pass1_skim(brain, new_text, args.model, args.base_url)
+                # Seeking a different page = a DIFFERENT source.
+                # Its label is the URL itself — providing the second
+                # witness for any fact already tentative from pass 1.
+                added = pass1_skim(brain, new_text, args.model,
+                                    args.base_url, source_label=url)
                 new_depth = brain.depth(concept)
                 print(f"      +{added} facts → {concept} now {new_depth} paths")
                 seek_total += added

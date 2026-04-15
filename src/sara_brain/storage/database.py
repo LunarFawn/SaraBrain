@@ -86,6 +86,13 @@ class Database:
                 segment_id  INTEGER NOT NULL REFERENCES {prefix}_segments(id),
                 UNIQUE(path_id, step_order)
             );
+            CREATE TABLE IF NOT EXISTS {prefix}_segment_sources (
+                id           INTEGER PRIMARY KEY,
+                segment_id   INTEGER NOT NULL REFERENCES {prefix}_segments(id) ON DELETE CASCADE,
+                source_label TEXT NOT NULL,
+                created_at   REAL,
+                UNIQUE(segment_id, source_label)
+            );
             CREATE INDEX IF NOT EXISTS idx_{prefix}_seg_source
                 ON {prefix}_segments(source_id, strength DESC);
             CREATE INDEX IF NOT EXISTS idx_{prefix}_seg_target
@@ -94,6 +101,8 @@ class Database:
                 ON {prefix}_neurons(label);
             CREATE INDEX IF NOT EXISTS idx_{prefix}_path_terminus
                 ON {prefix}_paths(terminus_id);
+            CREATE INDEX IF NOT EXISTS idx_{prefix}_seg_sources_segment
+                ON {prefix}_segment_sources(segment_id);
         """)
 
         # Register in the regions table

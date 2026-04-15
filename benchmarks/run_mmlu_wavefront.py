@@ -52,21 +52,61 @@ def extract_concepts(text: str, stopwords: set[str]) -> list[str]:
     return [w for w in words if len(w) >= 4 and w not in stopwords]
 
 
+def _build_keyword_map(brain, neuron_ids_with_weight) -> dict[str, float]:
+    """Pull neuron labels from a list of (id, weight, ...) tuples or a
+    dict of {id: weight}. Filter to labels >= 3 chars. Keep max weight."""
+    keywords: dict[str, float] = {}
+    if isinstance(neuron_ids_with_weight, dict):
+        items = neuron_ids_with_weight.items()
+    else:
+        items = [(t[0], t[1]) for t in neuron_ids_with_weight]
+    for nid, weight in items:
+        n = brain.neuron_repo.get_by_id(nid)
+        if n is None:
+            continue
+        label = n.label.lower().strip()
+        if len(label) < 3:
+            continue
+        if label not in keywords or weight > keywords[label]:
+            keywords[label] = weight
+    return keywords
+
+
+def _match_keywords_in_text(keywords: dict[str, float],
+                            text_lower: str) -> tuple[list[str], float]:
+    """Word-boundary match keywords against text. Return (matched, weight)."""
+    matched: list[str] = []
+    total = 0.0
+    for kw, w in keywords.items():
+        pattern = rf"\b{re.escape(kw)}\b"
+        if re.search(pattern, text_lower):
+            matched.append(kw)
+            total += w
+    return matched, total
+
+
 def answer_question(brain, question: str, choices: list[str],
-                    stopwords: set[str]) -> tuple[int, list[dict], dict]:
-    """Answer a multiple-choice question by closest keyword match.
+                    stopwords: set[str]) -> tuple[int | None, list[dict], dict]:
+    """Answer multiple-choice by intersection-keyword match — or abstain.
 
-    The question launches wavefronts that propagate into a ShortTerm.
-    The INTERSECTIONS (neurons reached by >= 2 independent wavefronts)
-    are the signal — that's what Sara thinks the question is really
-    about. Each intersection neuron's label becomes a keyword.
+    The question propagates into a ShortTerm. Only the INTERSECTIONS
+    (neurons reached by >= 2 independent wavefronts) count as signal.
+    Those are the concepts Sara thinks the question is really about.
 
-    For each choice, count how many of those signal keywords appear in
-    the choice's TEXT (word-boundary match). Highest weighted match wins.
+    For each choice, word-boundary match the intersection keywords
+    against the choice's text. If ANY choice has a keyword hit, Sara
+    picks the choice with the highest weighted match.
 
-    Read-only throughout. Exact-only label resolution. No territory
-    overlap, no per-choice propagation. Just "which choice's text
-    contains the most of the keywords Sara identified from the question."
+    If NO choice has a keyword hit, Sara ABSTAINS (returns None). She
+    doesn't have the knowledge to answer this question. This is
+    architecturally honest: defaulting would dress up ignorance as an
+    answer. A doctor doesn't guess outside their specialty.
+
+    This separates two metrics:
+        - Coverage: does Sara have knowledge for this question?
+        - Scored accuracy: when Sara has knowledge, is she right?
+
+    Read-only throughout. Exact-only label resolution.
     """
     with brain.short_term(event_type="mmlu_question") as q_st:
         q_concepts = extract_concepts(question, stopwords)
@@ -75,54 +115,38 @@ def answer_question(brain, question: str, choices: list[str],
         q_total_converged = len(q_st.convergence_map)
         q_intersections = q_st.intersections(min_sources=2)
 
-        # Build signal keyword → weight map from intersections.
-        # Only multi-wavefront neurons carry real signal; single-hit
-        # neurons are noise from the 500–1000 neuron convergence.
-        signal_keywords: dict[str, float] = {}
-        for nid, weight, _sources in q_intersections:
-            n = brain.neuron_repo.get_by_id(nid)
-            if n is None:
-                continue
-            label = n.label.lower().strip()
-            # Skip very short labels and labels containing multiple words
-            # — multi-word labels rarely appear verbatim in choice text
-            if len(label) < 3:
-                continue
-            # Keep the strongest occurrence if the same label appears twice
-            if label not in signal_keywords or weight > signal_keywords[label]:
-                signal_keywords[label] = weight
+        # Signal keywords from intersection neurons
+        signal_kw = _build_keyword_map(brain, q_intersections)
 
         # Score each choice by keyword text overlap
         scores = []
         for choice in choices:
             choice_lower = choice.lower()
-            matched: list[str] = []
-            total_weight = 0.0
-            for kw, w in signal_keywords.items():
-                # Word-boundary match so "ant" doesn't hit "anther"
-                # Use re.escape to handle any regex-special chars in labels
-                pattern = rf"\b{re.escape(kw)}\b"
-                if re.search(pattern, choice_lower):
-                    matched.append(kw)
-                    total_weight += w
+            matched, total_weight = _match_keywords_in_text(
+                signal_kw, choice_lower
+            )
             scores.append({
                 "matched_keywords": matched,
                 "match_count": len(matched),
                 "match_weight": total_weight,
             })
 
-        # Pick the closest: highest weighted match, tie-break on count
-        best_idx = max(
-            range(len(scores)),
-            key=lambda i: (scores[i]["match_weight"],
-                           scores[i]["match_count"]),
-        )
+        # If NO choice matched any signal keyword, Sara abstains.
+        # She doesn't have the knowledge. Don't pretend otherwise.
+        if all(s["match_weight"] == 0 for s in scores):
+            best_idx = None
+        else:
+            best_idx = max(
+                range(len(scores)),
+                key=lambda i: (scores[i]["match_weight"],
+                               scores[i]["match_count"]),
+            )
 
         meta = {
             "q_concepts_extracted": len(q_concepts),
             "q_total_converged": q_total_converged,
             "q_intersections": len(q_intersections),
-            "signal_keywords_count": len(signal_keywords),
+            "signal_keywords_count": len(signal_kw),
         }
 
     return best_idx, scores, meta
@@ -138,11 +162,11 @@ def run_benchmark(questions: list[dict], brain) -> dict:
     }
 
     results = {
-        "mode": "sara wavefront (ShortTerm, read-only)",
+        "mode": "sara wavefront (ShortTerm, read-only, honest-abstain)",
         "total": len(questions),
-        "correct": 0,
-        "incorrect": 0,
-        "no_signal": 0,
+        "correct": 0,       # correct among answered questions
+        "incorrect": 0,     # wrong among answered questions
+        "abstained": 0,     # questions where Sara had no knowledge
         "answers": [],
     }
 
@@ -160,20 +184,46 @@ def run_benchmark(questions: list[dict], brain) -> dict:
             results["answers"].append({
                 "id": q['id'], "model_answer": None,
                 "correct_letter": chr(65 + q['answer_idx']),
-                "is_correct": False, "error": str(e),
+                "is_correct": False, "abstained": False,
+                "error": str(e),
             })
             continue
 
-        # No-signal: no choice contains any of Sara's signal keywords
-        # (the convergence found intersections, but none of them appear
-        # in any choice's text — Sara can't differentiate)
-        if all(s["match_weight"] == 0 for s in scores):
-            results["no_signal"] += 1
-
         correct_idx = q['answer_idx']
+        correct_letter = chr(65 + correct_idx)
+
+        if best_idx is None:
+            # Sara abstained — no signal. Not wrong, not right — unknown.
+            results["abstained"] += 1
+            results["answers"].append({
+                "id": q['id'],
+                "model_answer": None,
+                "correct_letter": correct_letter,
+                "is_correct": False,
+                "abstained": True,
+                "scores": scores,
+                "meta": meta,
+            })
+            elapsed = time.time() - q_start
+            total_elapsed = time.time() - bench_start
+            answered = results["correct"] + results["incorrect"]
+            scored_acc = (results["correct"] / answered * 100
+                          if answered else 0.0)
+            coverage = ((i + 1) - results["abstained"]) / (i + 1) * 100
+            avg = total_elapsed / (i + 1)
+            remaining = avg * (len(questions) - i - 1)
+            print(
+                f"  [{i+1}/{len(questions)}] Q{q['id']}: ABSTAIN "
+                f"(no signal, correct would be {correct_letter}) "
+                f"[isect={meta['q_intersections']}/kw={meta['signal_keywords_count']}] "
+                f"— scored {scored_acc:.1f}% (cov {coverage:.1f}%) "
+                f"— {elapsed:.2f}s (~{remaining/60:.0f}m left)",
+                flush=True
+            )
+            continue
+
         is_correct = best_idx == correct_idx
         letter = chr(65 + best_idx)
-        correct_letter = chr(65 + correct_idx)
 
         if is_correct:
             results["correct"] += 1
@@ -185,6 +235,7 @@ def run_benchmark(questions: list[dict], brain) -> dict:
             "model_answer": letter,
             "correct_letter": correct_letter,
             "is_correct": is_correct,
+            "abstained": False,
             "scores": scores,
             "meta": meta,
         })
@@ -192,11 +243,13 @@ def run_benchmark(questions: list[dict], brain) -> dict:
         elapsed = time.time() - q_start
         total_elapsed = time.time() - bench_start
         status = "CORRECT" if is_correct else "WRONG"
-        accuracy = results["correct"] / (i + 1) * 100
+        answered = results["correct"] + results["incorrect"]
+        scored_acc = (results["correct"] / answered * 100
+                      if answered else 0.0)
+        coverage = ((i + 1) - results["abstained"]) / (i + 1) * 100
         avg = total_elapsed / (i + 1)
         remaining = avg * (len(questions) - i - 1)
         best = scores[best_idx]
-        # Show the top 4 matched keywords for the chosen option
         kw_preview = ",".join(best["matched_keywords"][:4])
         if len(best["matched_keywords"]) > 4:
             kw_preview += f"+{len(best['matched_keywords']) - 4}"
@@ -205,13 +258,27 @@ def run_benchmark(questions: list[dict], brain) -> dict:
             f"(chose {letter} w={best['match_weight']:.1f}/"
             f"hits={best['match_count']} [{kw_preview}], "
             f"correct {correct_letter}) "
-            f"[sig_kw={meta['signal_keywords_count']}/isect={meta['q_intersections']}] "
-            f"— {accuracy:.1f}% — {elapsed:.2f}s (~{remaining/60:.0f}m left)",
+            f"[sig_kw={meta['signal_keywords_count']}] "
+            f"— scored {scored_acc:.1f}% (cov {coverage:.1f}%) "
+            f"— {elapsed:.2f}s (~{remaining/60:.0f}m left)",
             flush=True
         )
 
     total_time = time.time() - bench_start
-    results["accuracy"] = results["correct"] / results["total"] * 100
+    answered = results["correct"] + results["incorrect"]
+    # scored_accuracy: correct among questions Sara answered
+    results["scored_accuracy"] = (
+        results["correct"] / answered * 100 if answered else 0.0
+    )
+    # coverage: fraction of questions Sara had knowledge for
+    results["coverage"] = (
+        (results["total"] - results["abstained"]) / results["total"] * 100
+    )
+    # overall_accuracy: correct / total (abstentions count as incorrect
+    # for cross-system comparison — but this is NOT Sara's honest metric)
+    results["overall_accuracy"] = (
+        results["correct"] / results["total"] * 100 if results["total"] else 0.0
+    )
     results["total_time_sec"] = total_time
     return results
 
@@ -257,18 +324,31 @@ def main():
 
     print()
     print(f"  {'='*60}")
-    print(f"  MMLU Biology — Sara wavefront (ShortTerm)")
+    print(f"  MMLU Biology — Sara wavefront (ShortTerm, honest-abstain)")
     print(f"  {'='*60}")
-    print(f"  Total:      {results['total']}")
-    print(f"  Correct:    {results['correct']} ({results['accuracy']:.1f}%)")
-    print(f"  Incorrect:  {results['incorrect']}")
-    print(f"  No signal:  {results['no_signal']}")
-    print(f"  Time:       {results['total_time_sec']/60:.1f} min")
-    print(f"  Read-only:  {'YES ✓' if unchanged else f'VIOLATED ({changed_count} segments mutated)'}")
+    print(f"  Total questions:  {results['total']}")
+    print(f"  Answered:         {results['correct'] + results['incorrect']}"
+          f" (coverage {results['coverage']:.1f}%)")
+    print(f"  Abstained:        {results['abstained']}"
+          f" (no knowledge — Sara honestly said so)")
+    print(f"  ")
+    print(f"  Scored accuracy:  {results['correct']} / "
+          f"{results['correct'] + results['incorrect']}"
+          f" = {results['scored_accuracy']:.1f}%"
+          f"   ← the honest metric")
+    print(f"  Overall accuracy: {results['correct']} / {results['total']}"
+          f" = {results['overall_accuracy']:.1f}%"
+          f"   ← for cross-system comparison")
+    print(f"  ")
+    print(f"  Time:             {results['total_time_sec']/60:.1f} min")
+    print(f"  Read-only:        {'YES ✓' if unchanged else f'VIOLATED ({changed_count} segments)'}")
     print(f"  {'='*60}")
     print()
-    print(f"  Reference:")
-    print(f"    Random:           25.0%")
+    print(f"  Scored accuracy = 'when Sara has knowledge, how often is she right?'")
+    print(f"  Coverage        = 'on what fraction of questions does Sara have knowledge?'")
+    print()
+    print(f"  Reference (overall accuracy, forced to answer):")
+    print(f"    Random guess:     25.0%")
     print(f"    qwen 3B alone:    58.4%")
     print(f"    GPT-3.5:          ~70%")
     print()

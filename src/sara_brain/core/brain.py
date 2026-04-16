@@ -226,6 +226,38 @@ class Brain:
             self.conn.commit()
         return result
 
+    def teach_from_error(self, statement: str, error_context: str = "",
+                         *, user_initiated: bool = True) -> LearnResult | None:
+        """Teach a fact that Sara learned by getting something WRONG.
+
+        Error corrections are the strongest form of learning. They get
+        initial strength 2.0 (above normal 1.0) and carry a significance
+        marker so they dominate when the same territory is queried.
+
+        The error_context describes what went wrong: "Q12: picked A,
+        correct D — missing concept: gel electrophoresis separates by size"
+
+        Strength hierarchy:
+            0.1  — association edges (present but weak)
+            0.4  — tentative (single-source ingest, below query floor)
+            1.0  — confident (user-taught or two-witness confirmed)
+            2.0  — error correction (Sara was wrong and learned why)
+        """
+        gate = self._ethics.check_action(
+            "teach", user_initiated=user_initiated
+        )
+        if not gate.allowed:
+            raise PermissionError(gate.reason)
+        result = self.learner.learn(
+            statement,
+            initial_strength=2.0,
+            source_label="error_correction",
+            apply_filter=False,
+        )
+        if result is not None:
+            self.conn.commit()
+        return result
+
     def witness_count(self, statement: str) -> int:
         """How many distinct sources have taught this fact?
 

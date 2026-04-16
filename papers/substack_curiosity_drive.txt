@@ -1,0 +1,36 @@
+A Curiosity-Trained Brain Lifted a 3B Model by 10 Points on Its Studied Topic
+
+I ran a small experiment to see whether a curious knowledge graph can help a small language model answer questions better. The answer is yes — on the topics it studied. Here's exactly what happened and what it means.
+
+The model was qwen2.5-coder 3B, the smallest coding model I consider viable. The benchmark was MMLU High School Biology. The question sample I tested on was a 30-question subset weighted toward genetics and molecular biology.
+
+Before any knowledge injection, the 3B model scored 63.3% on that sample. That's the baseline — what the model knows from its training weights alone.
+
+I connected it to Sara Brain, the cognitive architecture I've been building. Sara is a persistent knowledge graph — facts stored as directed neuron chains in SQLite, with full provenance and zero forgetting. The small model acts as sensory cortex; the graph acts as memory. They're architecturally separate.
+
+For this experiment, I deliberately trained Sara on a single Wikipedia article: the page on "Gene." I did not train her on ecology, immunology, physiology, or any other topic. The experimental variable was deliberately narrow: does focused study on one topic help the model on that topic?
+
+The training method was the curiosity loop I built into Sara. Here's the principle: when Sara has fewer than 50 paths on a concept, she's hungry and actively wants more input. At 100 paths, she's satisfied. Between those thresholds, she's growing.
+
+The ingest pipeline runs in two phases. Phase A reads the current document and self-assesses — which concepts did this document mention that Sara has thin paths on? Go back into the same document with a directed prompt focused on filling those specific gaps. Repeat until every concept reaches the floor or the document is exhausted.
+
+Phase B is the Johnny 5 behavior. For concepts still below the goal after Phase A, Sara autonomously fetches dedicated Wikipedia pages and ingests them. She decides what to learn next based on her own gaps.
+
+On the Gene page, Sara ran Phase A twice and then autonomously fetched Karyotype and Promoter_region in Phase B. Final brain state: 1,637 neurons, 219 paths. Small by design. She studied one topic the way a student would study it.
+
+Benchmark score after this focused training: 73.3%. Ten points above the baseline.
+
+That's the result. On the topic Sara studied — genes, DNA, chromosomes, heredity, transcription — she lifted a 3B model by 10 points. The architecture does what the paper claims: a focused knowledge graph steers a small model toward correct answers on the domain it covers.
+
+I want to be clear about what this does not claim. Sara did not study immunology, ecology, or physiology. On the full 310-question MMLU biology benchmark, she scores lower than baseline, because she has zero knowledge on most of the other topics and her context injection on unfamiliar areas adds noise rather than signal. A physics professor doesn't "fail" because they can't answer literature questions. The experiment was designed to isolate one topic; the off-topic results are not part of the claim.
+
+The practical implication is that cortex-cerebellum systems need to match training coverage to inference domain. A brain with deep knowledge on the relevant domain helps. A brain with shallow coverage across many domains hurts. This is consistent with how human expertise works — depth on a topic is what lets you reason about it.
+
+The architectural implication is bigger. If a 3B model with a curious graph can match or exceed much larger models on studied topics, the economic argument for datacenter-scale inference collapses. You don't need a hundred-billion-parameter model to answer biology questions. You need a small model with access to a graph that knows biology. The graph fits on a Raspberry Pi. The small model runs on the same Pi. No cloud required.
+
+Next up: test on additional studied topics to confirm the pattern scales, then publish a formal preprint with full methodology. If a single curious study session gets 10 points, what does deliberate, directed coverage of a full textbook look like?
+
+The brain doesn't need a GPU. It needs to be curious about the right things.
+
+Sara Brain paper: https://doi.org/10.5281/zenodo.19436522
+Source code: https://github.com/LunarFawn/SaraBrain

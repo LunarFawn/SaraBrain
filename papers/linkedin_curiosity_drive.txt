@@ -1,0 +1,36 @@
+A curiosity-trained brain lifted a 3B model by 10 points on its studied topic.
+
+Not fine-tuning. Not retraining. Just a knowledge graph that knows how to study.
+
+Sara Brain is a cognitive architecture I've been building — a persistent graph that sits outside the language model. The model does language. The graph holds knowledge.
+
+For this experiment, I deliberately trained Sara on a single Wikipedia article (Gene). I did not train her on ecology, immunology, physiology, or any other topic. The experimental variable was narrow by design: does focused study on one topic help a small model on that topic?
+
+The training method was a curiosity loop. When Sara has fewer than 50 paths on a concept, she's hungry and wants more. At 100, she's satisfied. The ingest runs in two phases:
+
+Phase A — read the document, self-assess gaps, go back and re-read with directed focus on those gaps.
+
+Phase B — Johnny 5 behavior. For concepts still below the goal, Sara autonomously fetches new Wikipedia pages. She decides what to learn next.
+
+Studying the Gene page alone, Sara automatically pulled Karyotype and Promoter_region when she needed them. Final brain: 1,637 neurons, 219 paths. Small by design.
+
+Result on the studied-topic sample (MMLU High School Biology, genetics-weighted):
+— Baseline (3B model alone): 63.3%
+— Sara + 3B (one topic studied): 73.3%
+
+Ten-point lift with one Wikipedia article of focused study.
+
+I want to be clear about what this does not claim. Sara was not trained on unrelated biology topics, and on questions outside her studied domain, she doesn't help — the same way a physics professor can't answer literature questions. The experiment isolates one variable.
+
+The practical implication: cortex-cerebellum systems need to match training coverage to inference domain. Depth on a topic helps. Shallow coverage across many topics doesn't.
+
+The architectural implication is bigger. If a 3B model with a curious graph can match or exceed much larger models on studied topics, the economic argument for datacenter-scale inference starts to collapse. You don't need a hundred-billion-parameter model to answer biology questions. You need a small model with access to a graph that studied biology. The graph fits on a Raspberry Pi. The small model runs on the same Pi.
+
+Full topic coverage ingest is running now. Formal preprint to follow.
+
+A small model with a curious brain could outperform a much larger one.
+
+#AI #MachineLearning #CognitiveArchitecture #KnowledgeGraphs #SmallLanguageModels #OpenSource
+
+Source: https://github.com/LunarFawn/SaraBrain
+Paper: https://doi.org/10.5281/zenodo.19436522

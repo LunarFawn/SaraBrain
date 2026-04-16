@@ -1,0 +1,59 @@
+# Facts for 10 MMLU questions — all in "X is Y" format for parser
+
+# Q0: directional selection
+directional selection is selection for one extreme phenotype
+stabilizing selection is selection for the average phenotype
+disruptive selection is selection for both extreme phenotypes
+sexual selection is selection for traits preferred by mates
+
+# Q2: electron transport chain → ATP
+ATP is produced by the electron transport chain
+the electron transport chain is a series of proteins in the mitochondria
+oxidative phosphorylation is the process that produces ATP from electron transport
+
+# Q4: convergent evolution
+convergent evolution is evolution producing similar structures in unrelated organisms
+analogous structures are similar structures in unrelated organisms
+insect wings are analogous to bird wings
+homologous structures are similar structures inherited from a common ancestor
+pectoral fins are homologous to front legs
+
+# Q5: mitosis in shoot tips
+meristems are regions of active cell division
+shoot tips are locations of meristematic tissue
+meristematic tissue is tissue that undergoes mitosis
+muscle tissue is tissue that does not actively divide
+mitosis is cell division producing identical daughter cells
+
+# Q8: wildfire benefits
+periodic wildfires are events that remove dead and decaying plant matter
+removal of dead plant matter is a process that reduces fuel for future fires
+reduced fuel is a condition that leads to less intense wildfires
+
+# Q10: immune memory cells
+memory cells are immune cells that remember previously encountered pathogens
+memory cells are responsible for rapid immune response on second exposure
+helper T cells are immune cells that activate other immune cells
+plasma cells are immune cells that produce antibodies
+cytotoxic T cells are immune cells that kill infected cells
+
+# Q12: DNA gel electrophoresis
+smaller DNA fragments are fragments that migrate faster in gel electrophoresis
+larger DNA fragments are fragments that migrate slower in gel electrophoresis
+osmosis is the movement of water from hypotonic to hypertonic solutions
+
+# Q15: Darwin and Galapagos
+adaptation is the modification of populations to fit their environment
+the Galapagos Islands are islands that showed Darwin how populations adapt
+natural selection is the mechanism by which populations adapt
+
+# Q20: vaccination
+vaccination is a process that increases lymphocytes with receptors for a specific pathogen
+vaccines are substances that contain antigens triggering immune response
+vaccination is a process that produces memory cells
+
+# Q25: Barr body
+a Barr body is an inactivated X chromosome
+X-inactivation is a process occurring in female mammals
+females are organisms with two X chromosomes
+X-inactivation is a process that equalizes gene dosage between males and females

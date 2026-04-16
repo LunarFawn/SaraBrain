@@ -107,18 +107,22 @@ class Recognizer:
         return total / count if count > 0 else 0.0
 
     def _propagate(self, start: Neuron,
-                   min_strength: float | None = None) -> dict[int, list[list[Neuron]]]:
+                   min_strength: float | None = None,
+                   bidirectional: bool = False) -> dict[int, list[list[Neuron]]]:
         """BFS wavefront from a single neuron. Returns {reached_id: [[path_neurons]]}.
 
         Segments with strength < min_strength are pruned from traversal.
-        This keeps wavefronts from flooding dense graphs via weak
-        association edges.
+
+        When bidirectional=True, each step follows BOTH outgoing AND
+        incoming edges. This lets wavefronts that start from concept
+        neurons (which are path termini with no outgoing edges) discover
+        their connected property neurons by walking backward. Thoughts
+        ping in both directions.
         """
         if min_strength is None:
             min_strength = self.min_strength
 
         reached: dict[int, list[list[Neuron]]] = {}
-        # Queue: (current_neuron, path_so_far)
         queue: list[tuple[Neuron, list[Neuron]]] = [(start, [start])]
         visited: set[int] = {start.id}
 
@@ -126,8 +130,8 @@ class Recognizer:
         while queue and depth < self.max_depth:
             next_queue: list[tuple[Neuron, list[Neuron]]] = []
             for current, path in queue:
-                segments = self.segment_repo.get_outgoing(current.id)
-                for seg in segments:
+                # Outgoing edges: property → relation → concept
+                for seg in self.segment_repo.get_outgoing(current.id):
                     if seg.strength < min_strength:
                         continue
                     if seg.target_id in visited:
@@ -139,6 +143,20 @@ class Recognizer:
                     new_path = path + [target]
                     reached.setdefault(target.id, []).append(new_path)
                     next_queue.append((target, new_path))
+                # Incoming edges: concept ← relation ← property
+                if bidirectional:
+                    for seg in self.segment_repo.get_incoming(current.id):
+                        if seg.strength < min_strength:
+                            continue
+                        if seg.source_id in visited:
+                            continue
+                        source = self.neuron_repo.get_by_id(seg.source_id)
+                        if source is None:
+                            continue
+                        visited.add(source.id)
+                        new_path = path + [source]
+                        reached.setdefault(source.id, []).append(new_path)
+                        next_queue.append((source, new_path))
             queue = next_queue
             depth += 1
 
@@ -231,3 +249,81 @@ class Recognizer:
                     self._path_weight(p) for p in path_lists
                 )
                 short_term.add_convergence(target_id, best_weight, seed.id)
+
+    def propagate_echo(self, seed_labels: list[str], short_term,
+                       max_rounds: int = 3,
+                       min_strength: float | None = None,
+                       exact_only: bool = True) -> None:
+        """Spreading activation — thought pinging around the graph.
+
+        Iterative bidirectional propagation that echoes back and forth
+        until it settles. Each round takes neurons discovered in the
+        PREVIOUS round (that haven't been used as seeds yet) and
+        propagates them bidirectionally. Everything accumulates in the
+        same ShortTerm scratchpad.
+
+        This models how thoughts ping around a brain: "baseballs → I
+        like balls → balls are round → I want an orange." Each
+        convergence triggers a new wave. The echo settles when no new
+        neurons are discovered or max_rounds is reached.
+
+        READ-ONLY: no segment strengthening.
+
+        Args:
+            seed_labels: initial concepts to start the echo from
+                (question words + choice words typically)
+            short_term: ShortTerm scratchpad to accumulate into
+            max_rounds: how many echo bounces before stopping
+            min_strength: edge threshold for this echo
+            exact_only: exact label matching (default for queries)
+        """
+        effective_min = (
+            self.min_strength if min_strength is None else min_strength
+        )
+
+        # Resolve initial seeds
+        used_ids: set[int] = set()
+        current_seeds: list[Neuron] = []
+        for label in seed_labels:
+            n = self.neuron_repo.resolve(
+                label.strip().lower(), exact_only=exact_only
+            )
+            if n is not None and n.id not in used_ids:
+                current_seeds.append(n)
+                used_ids.add(n.id)
+
+        if not current_seeds:
+            return
+
+        for _round in range(max_rounds):
+            new_neurons_this_round: list[Neuron] = []
+
+            for seed in current_seeds:
+                reached = self._propagate(
+                    seed,
+                    min_strength=effective_min,
+                    bidirectional=True,
+                )
+                for target_id, path_lists in reached.items():
+                    if target_id == seed.id:
+                        continue
+                    best_weight = max(
+                        self._path_weight(p) for p in path_lists
+                    )
+                    short_term.add_convergence(
+                        target_id, best_weight, seed.id
+                    )
+                    # If this neuron is new, queue it as a seed for the
+                    # next round — the thought pings forward
+                    if target_id not in used_ids:
+                        used_ids.add(target_id)
+                        target_n = self.neuron_repo.get_by_id(target_id)
+                        if target_n is not None:
+                            new_neurons_this_round.append(target_n)
+
+            # If nothing new was discovered, the echo has settled
+            if not new_neurons_this_round:
+                break
+
+            # Next round's seeds are the newly discovered neurons
+            current_seeds = new_neurons_this_round

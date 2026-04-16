@@ -358,6 +358,25 @@ class Brain:
             exact_only=exact_only,
         )
 
+    def propagate_echo(self, seed_labels: list[str], short_term,
+                       max_rounds: int = 3,
+                       min_strength: float | None = None,
+                       exact_only: bool = True) -> None:
+        """Spreading activation — thought pinging around the graph.
+
+        Bidirectional, iterative echo propagation. Each round takes
+        newly discovered neurons and propagates them in both directions.
+        Everything accumulates in the same ShortTerm scratchpad.
+
+        Read-only. No graph mutation.
+        """
+        self.recognizer.propagate_echo(
+            seed_labels, short_term,
+            max_rounds=max_rounds,
+            min_strength=min_strength,
+            exact_only=exact_only,
+        )
+
     def trace(self, label: str,
               min_strength: float | None = None) -> list[PathTrace]:
         """Trace all outgoing paths from a neuron."""

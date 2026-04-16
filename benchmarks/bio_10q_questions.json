@@ -1,0 +1,112 @@
+[
+  {
+    "id": 0,
+    "question": "In a population of giraffes, an environmental change occurs that favors individuals that are tallest. As a result, more of the taller individuals are able to obtain nutrients and survive to pass along their genetic information. This is an example of",
+    "choices": [
+      "directional selection.",
+      "stabilizing selection.",
+      "sexual selection.",
+      "disruptive selection."
+    ],
+    "answer_idx": 0
+  },
+  {
+    "id": 2,
+    "question": "The energy given up by electrons as they move through the electron transport chain is used to",
+    "choices": [
+      "break down glucose",
+      "make glucose",
+      "produce ATP",
+      "make NADH"
+    ],
+    "answer_idx": 2
+  },
+  {
+    "id": 4,
+    "question": "Convergent evolution is best exemplified by which of the following?",
+    "choices": [
+      "The pectoral fins of fish and the front legs of cats",
+      "The presence of a notochord in all chordate embryos",
+      "The wings of an insect and the wings of a bird",
+      "The leaves of an oak tree and the spines of a cactus"
+    ],
+    "answer_idx": 2
+  },
+  {
+    "id": 5,
+    "question": "Which of the following would most likely provide examples of mitotic cell divisions?",
+    "choices": [
+      "cross section of muscle tissue",
+      "cross section of an anther (site of pollen production in a flower)",
+      "longitudinal section of a shoot tip",
+      "cross section of a leaf"
+    ],
+    "answer_idx": 2
+  },
+  {
+    "id": 8,
+    "question": "Which of the following is the most likely benefit of periodic natural wildfires in some forest ecosystems?",
+    "choices": [
+      "The fires remove dead and decaying plant matter, reducing the risk of more intense and destructive fires.",
+      "The fires leach nutrients from the soil\u201a preventing the germination of plants that might compete with native species.",
+      "The fires drive off herbivores whose plant-based diets reduce the amount of vegetation.",
+      "The fires dry out the soil and decrease the chance of flooding after heavy rains."
+    ],
+    "answer_idx": 0
+  },
+  {
+    "id": 10,
+    "question": "A man contracts the same flu strain for the second time in a single winter season. The second time he experiences fewer symptoms and recovers more quickly. Which cells are responsible for this rapid recovery?",
+    "choices": [
+      "Helper T cells",
+      "Cytotoxic T cells",
+      "Memory cells",
+      "Plasma cells"
+    ],
+    "answer_idx": 2
+  },
+  {
+    "id": 12,
+    "question": "Which of the following statements is correct?",
+    "choices": [
+      "Water flows from hypertonic to hypotonic.",
+      "Germinating seeds use less oxygen than do nongerminating seeds.",
+      "The rate of transpiration decreases with an increase in air movement.",
+      "Smaller DNA fragments migrate more rapidly than do larger DNA fragments on gel electrophoresis."
+    ],
+    "answer_idx": 3
+  },
+  {
+    "id": 15,
+    "question": "If the HMS Beagle had completely bypassed the Galapagos Islands, Darwin would have had a much poorer understanding of the",
+    "choices": [
+      "relative stability of a well-adapted population's numbers over many generations.",
+      "ability of populations to undergo modification as they adapt to a particular environment.",
+      "tendency of organisms to produce the exact number of offspring that the environment can support.",
+      "unlimited resources that support population growth in most natural environments."
+    ],
+    "answer_idx": 1
+  },
+  {
+    "id": 20,
+    "question": "Which of the following is correct about vaccination?",
+    "choices": [
+      "It increases the number of different receptors that recognize a particular pathogen.",
+      "It increases the number of different macrophages specific to the antigen.",
+      "It increases the number of epitopes that the immune system can recognize.",
+      "It increases the number of lymphocytes with receptors that can recognize and bind to the antigen."
+    ],
+    "answer_idx": 3
+  },
+  {
+    "id": 25,
+    "question": "Which of the following statements best describes what a Barr body is and its significance?",
+    "choices": [
+      "It is an inactivated Y chromosome and results in a man being sterile.",
+      "It is an inactivated Y chromosome, and the person who has it appears female.",
+      "It is an inactivated X chromosome and results in females with half their cells having one X inactivated and the other half of their cells having the other X inactivated.",
+      "It is an inactivated X chromosome and results in females who are sterile."
+    ],
+    "answer_idx": 2
+  }
+]

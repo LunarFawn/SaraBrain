@@ -191,12 +191,12 @@ def main():
             c_words = extract_words(choice)
             seeds = q_words + c_words
 
-            # Dictionary: expand ONLY words that don't exist in any domain
-            # layer. Like a student who looks up words they don't know —
-            # don't look up words you already understand.
-            expanded_seeds = list(seeds)
+            # Dictionary: 2-hop synonym lookup PER WORD.
+            # "rapidly" → hop1 ["apace",...] → hop2 ["fast",...]
+            # Only expand words unknown to domain layers.
+            # ~200 neurons per word, not 62K graph flood.
+            expanded = set(seeds)
             for seed in seeds:
-                # Skip if any domain layer already knows this word
                 known = (
                     vocab_brain.neuron_repo.resolve(seed, exact_only=True)
                     or science_brain.neuron_repo.resolve(seed, exact_only=True)
@@ -204,16 +204,25 @@ def main():
                 )
                 if known:
                     continue
-                # Unknown word — look up synonyms
                 n = dict_neuron_repo.resolve(seed, exact_only=True)
                 if n is None:
                     continue
+                # Hop 1: direct synonyms
+                hop1_ids = []
                 for seg in dict_segment_repo.get_outgoing(n.id):
                     if seg.relation == "synonym_of":
+                        hop1_ids.append(seg.target_id)
                         syn = dict_neuron_repo.get_by_id(seg.target_id)
-                        if syn and syn.label not in expanded_seeds:
-                            expanded_seeds.append(syn.label)
-            seeds = expanded_seeds
+                        if syn:
+                            expanded.add(syn.label)
+                # Hop 2: synonyms of synonyms
+                for tid in hop1_ids:
+                    for seg2 in dict_segment_repo.get_outgoing(tid):
+                        if seg2.relation == "synonym_of":
+                            syn2 = dict_neuron_repo.get_by_id(seg2.target_id)
+                            if syn2:
+                                expanded.add(syn2.label)
+            seeds = list(expanded)
             # Other layers: full multi-threshold echo
             vocab_kw = multi_threshold_echo(vocab_brain, seeds)
             science_kw = multi_threshold_echo(science_brain, seeds)

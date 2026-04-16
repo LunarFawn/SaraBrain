@@ -1,0 +1,131 @@
+[
+  {
+    "round": 1,
+    "accuracy": 25.0,
+    "correct": 5,
+    "wrong_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      9,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "regression_ids": [],
+    "facts_taught": 13,
+    "distinctions": 0
+  },
+  {
+    "round": 2,
+    "accuracy": 25.0,
+    "correct": 5,
+    "wrong_ids": [
+      1,
+      3,
+      4,
+      5,
+      6,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "regression_ids": [
+      5,
+      10,
+      18,
+      19
+    ],
+    "facts_taught": 10,
+    "distinctions": 2
+  },
+  {
+    "round": 3,
+    "accuracy": 50.0,
+    "correct": 10,
+    "wrong_ids": [
+      1,
+      4,
+      5,
+      6,
+      9,
+      10,
+      12,
+      15,
+      16,
+      17
+    ],
+    "regression_ids": [
+      9
+    ],
+    "facts_taught": 4,
+    "distinctions": 1
+  },
+  {
+    "round": 4,
+    "accuracy": 60.0,
+    "correct": 12,
+    "wrong_ids": [
+      0,
+      1,
+      3,
+      4,
+      5,
+      12,
+      16,
+      17
+    ],
+    "regression_ids": [
+      0,
+      3
+    ],
+    "facts_taught": 4,
+    "distinctions": 1
+  },
+  {
+    "round": 5,
+    "accuracy": 35.0,
+    "correct": 7,
+    "wrong_ids": [
+      1,
+      3,
+      4,
+      5,
+      6,
+      9,
+      10,
+      11,
+      13,
+      15,
+      16,
+      17,
+      18
+    ],
+    "regression_ids": [
+      6,
+      9,
+      10,
+      11,
+      13,
+      15,
+      18
+    ],
+    "facts_taught": 4,
+    "distinctions": 7
+  }
+]

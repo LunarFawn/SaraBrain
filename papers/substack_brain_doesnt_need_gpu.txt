@@ -1,0 +1,26 @@
+The Brain Doesn't Need a GPU
+
+The AI industry has a hardware problem it doesn't know it has.
+
+Everything goes on the GPU because everything lives in the transformer. Your knowledge, your facts, your memories — compressed into billions of floating-point weights, retrieved through matrix multiplication. That architecture demands datacenters. It demands cloud subscriptions. It demands that your data lives on someone else's server.
+
+But what if knowledge and language were separate systems?
+
+Sara Brain is a cognitive architecture where the brain — a persistent knowledge graph — is structurally separate from the cortex — the language model. The brain stores knowledge as traceable paths in a SQLite database. The cortex translates between natural language and the brain's operations.
+
+The brain is graph traversal. Integer lookups on indexed tables. It runs on a Raspberry Pi.
+
+The cortex is transformer inference. Matrix multiplication across billions of parameters. It needs a GPU.
+
+They don't belong on the same hardware.
+
+Put the brain on a $50 Pi with a micro SD card. Put the cortex on a GPU box. Connect them over your local network. Your knowledge lives on your desk, not in a datacenter. Swap the Pi when you need a new brain. The GPU box never needs to be touched.
+
+This changes the economics. You don't rent intelligence from the cloud — you own it on an SD card. No subscription. No data leaving your house. HIPAA compliance for free because patient data never touches a server.
+
+It changes the market too. The cloud model exists because the industry put everything in the transformer. Separate the brain from the cortex and the personal computer matters again. The market is forced to refocus on personal hardware — local machines you own — and away from cloud dependency. When intelligence runs on your desk, the value shifts from renting compute to building better local machines. That's a hardware renaissance, not a cloud migration.
+
+The brain doesn't need a GPU. It never did. We just forgot to separate it from the part that does.
+
+Sara Brain paper: https://doi.org/10.5281/zenodo.19436522
+Source code: https://github.com/LunarFawn/SaraBrain

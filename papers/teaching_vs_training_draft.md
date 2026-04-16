@@ -1,7 +1,7 @@
 # Teaching vs. Training: Empirical Evidence That 45 Human-Verified Facts Outperform Trillions of Tokens on a Standard Biology Benchmark
 
 **Jennifer Pearl**
-Volunteer Scientist, University of Houston Center for Nuclear Receptors and Cell Signaling
+Independent Researcher
 ORCID: 0009-0006-6083-384X
 jenpearl5@gmail.com
 

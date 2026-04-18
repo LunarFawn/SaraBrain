@@ -40,6 +40,10 @@ STRUCTURAL = frozenset({
 })
 
 # Relational: how things connect to each other
+# Includes causal verbs — "causes" and "prevents" are as innate as
+# "is" and "has." A baby understands cause-before-effect before it
+# has words for either. The dictionary expands these roots: "triggers"
+# → synonym of "causes", "inhibits" → synonym of "prevents".
 RELATIONAL = frozenset({
     "is",
     "has",
@@ -49,6 +53,8 @@ RELATIONAL = frozenset({
     "precedes",
     "requires",
     "excludes",
+    "causes",
+    "prevents",
 })
 
 # Ethical: behavioral constraints (Asimov's Three Laws adapted for Sara)
@@ -146,7 +152,28 @@ TEMPORAL = frozenset({
     "simultaneous", "concurrent",
 })
 
-_ALL = SENSORY | STRUCTURAL | RELATIONAL | ETHICAL | SAFETY | SOCIAL | CLEANUP | TEMPORAL
+# Pattern: the innate capacity to detect regularity, repetition, and
+# analogy. A baby notices "every time I cry, someone picks me up" before
+# it has words for any of those concepts. Pattern detection precedes
+# language. PATTERN is meta — it operates ON the other primitives.
+# You detect a pattern IN temporal sequences, IN structural
+# relationships, IN sensory observations.
+PATTERN = frozenset({
+    # Repetition
+    "repeats", "alternates", "cycles",
+    # Analogy
+    "similar", "analogous", "mirrors",
+    # Trends
+    "increases", "decreases", "constant",
+    # Correlation
+    "correlates", "proportional", "inverse",
+    # Frequency
+    "always", "never", "sometimes",
+    # Rules
+    "rule", "exception", "conditional",
+})
+
+_ALL = SENSORY | STRUCTURAL | RELATIONAL | ETHICAL | SAFETY | SOCIAL | CLEANUP | TEMPORAL | PATTERN
 
 
 def get_sensory() -> frozenset[str]:
@@ -207,3 +234,11 @@ def get_temporal() -> frozenset[str]:
 
 def is_temporal(label: str) -> bool:
     return label.strip().lower() in TEMPORAL
+
+
+def get_pattern() -> frozenset[str]:
+    return PATTERN
+
+
+def is_pattern(label: str) -> bool:
+    return label.strip().lower() in PATTERN

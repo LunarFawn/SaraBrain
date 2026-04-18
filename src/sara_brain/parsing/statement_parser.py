@@ -105,6 +105,42 @@ class StatementParser:
         if len(words) < 3:
             return None
 
+        # ── Multi-word temporal/causal pattern normalization ──
+        # Before verb splitting, replace multi-word phrases with
+        # canonical single verbs. The dictionary handles single-verb
+        # synonyms (triggers → causes). These patterns handle
+        # multi-word phrases the dictionary can't resolve.
+        text_joined = " ".join(words)
+        _MULTI_PATTERNS = [
+            # "comes before" / "occurs before" / "happens before" → precedes
+            (r"\b(\w+)\s+comes\s+before\s+", r"\1 precedes "),
+            (r"\b(\w+)\s+occurs\s+before\s+", r"\1 precedes "),
+            (r"\b(\w+)\s+happens\s+before\s+", r"\1 precedes "),
+            # "comes after" / "occurs after" / "happens after" → follows
+            (r"\b(\w+)\s+comes\s+after\s+", r"\1 follows "),
+            (r"\b(\w+)\s+occurs\s+after\s+", r"\1 follows "),
+            (r"\b(\w+)\s+happens\s+after\s+", r"\1 follows "),
+            # "results in" / "leads to" → causes
+            (r"\bresults\s+in\b", "causes"),
+            (r"\bleads\s+to\b", "causes"),
+            # "is followed by X" → X follows (swap handled by verb logic)
+            (r"\bis\s+followed\s+by\b", "precedes"),
+            # "is caused by" / "is triggered by" → swap + causes
+            (r"\bis\s+caused\s+by\b", "caused_by"),
+            (r"\bis\s+triggered\s+by\b", "caused_by"),
+            # "first X then Y" → X precedes Y
+            (r"\bfirst\s+(.+?)\s+then\s+", r"\1 precedes "),
+            # "X and then Y" → X precedes Y
+            (r"\band\s+then\b", "precedes"),
+        ]
+        import re as _re
+        for pattern, replacement in _MULTI_PATTERNS:
+            text_joined = _re.sub(pattern, replacement, text_joined)
+        words = text_joined.split()
+
+        if len(words) < 3:
+            return None
+
         # Pattern: "<subject> <verb> <object>"
         # Recognised verbs: copulas (is/are/was/were) + possession (has/have/had)
         # + all innate RELATIONAL primitives

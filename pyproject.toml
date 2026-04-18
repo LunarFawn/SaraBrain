@@ -34,6 +34,7 @@ sara-agent = "sara_brain.agent.cli:main"
 sara-mcp = "sara_brain.mcp_server:main"
 sara-cortex = "sara_brain.cortex.cli:main"
 sara-cleanup = "sara_brain.cortex.cleanup:main"
+sara-shell = "sara_brain.sensory.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/LunarFawn/SaraBrain"

@@ -1,0 +1,365 @@
+[
+  {
+    "id": 5,
+    "question": "Which of the following would most likely provide examples of mitotic cell divisions?",
+    "choices": [
+      "cross section of muscle tissue",
+      "cross section of an anther (site of pollen production in a flower)",
+      "longitudinal section of a shoot tip",
+      "cross section of a leaf"
+    ],
+    "answer_idx": 2
+  },
+  {
+    "id": 22,
+    "question": "Mules are relatively long-lived and hardy organisms that cannot, generally speaking, perform successful meiosis. Consequently, which statement about mules is true?",
+    "choices": [
+      "They have a relative evolutionary fitness of zero.",
+      "Their offspring have less genetic variation than the parents.",
+      "Mutations cannot occur in their genomes.",
+      "If crossing-over happens in mules, then it must be limited to prophase of mitosis."
+    ],
+    "answer_idx": 0
+  },
+  {
+    "id": 25,
+    "question": "Which of the following statements best describes what a Barr body is and its significance?",
+    "choices": [
+      "It is an inactivated Y chromosome and results in a man being sterile.",
+      "It is an inactivated Y chromosome, and the person who has it appears female.",
+      "It is an inactivated X chromosome and results in females with half their cells having one X inactivated and the other half of their cells having the other X inactivated.",
+      "It is an inactivated X chromosome and results in females who are sterile."
+    ],
+    "answer_idx": 2
+  },
+  {
+    "id": 31,
+    "question": "The development of an egg without fertilization is known as",
+    "choices": [
+      "meiosis",
+      "parthenogenesis",
+      "embryogenesis",
+      "vegetative propagation"
+    ],
+    "answer_idx": 1
+  },
+  {
+    "id": 37,
+    "question": "Which of the following contributes the MOST to genetic variability in a population?",
+    "choices": [
+      "Sporulation",
+      "Binary fission",
+      "Vegetative propagation",
+      "Mutation"
+    ],
+    "answer_idx": 3
+  },
+  {
+    "id": 48,
+    "question": "In humans, fertilization normally occurs in the",
+    "choices": [
+      "ovary",
+      "fallopian tube",
+      "uterus",
+      "placenta"
+    ],
+    "answer_idx": 1
+  },
+  {
+    "id": 54,
+    "question": "During which phase of the cell cycle does the quantity of DNA in a eukaryotic cell typically double?",
+    "choices": [
+      "G_1",
+      "G_2",
+      "M",
+      "S"
+    ],
+    "answer_idx": 3
+  },
+  {
+    "id": 61,
+    "question": "Crossover would most likely occur in which situation?",
+    "choices": [
+      "Two genes (1 and 2) are located right next to each other on chromosome A.",
+      "Gene 1 is located on chromosome A, and gene 2 is on chromosome B.",
+      "Genes 1 and 2 are located near each other on the X chromosome.",
+      "Gene 1 is located on chromosome A; gene 2 is located far away but on the same chromosome."
+    ],
+    "answer_idx": 3
+  },
+  {
+    "id": 73,
+    "question": "In modern terminology, diversity is understood to be a result of genetic variation. Sources of variation for evolution include all of the following except",
+    "choices": [
+      "mistakes in translation of structural genes.",
+      "mistakes in DNA replication.",
+      "translocations and mistakes in meiosis.",
+      "recombination at fertilization."
+    ],
+    "answer_idx": 0
+  },
+  {
+    "id": 84,
+    "question": "All of the following are modes of asexual reproduction EXCEPT",
+    "choices": [
+      "sporulation",
+      "fission",
+      "budding",
+      "meiosis"
+    ],
+    "answer_idx": 3
+  },
+  {
+    "id": 95,
+    "question": "Imagine an organism whose 2n = 96. Meiosis would leave this organism\u2019s cells with how many chromosomes?",
+    "choices": [
+      "192",
+      "96",
+      "48",
+      "24"
+    ],
+    "answer_idx": 2
+  },
+  {
+    "id": 102,
+    "question": "Which of the following is NOT a characteristic of asexual reproduction in animals?",
+    "choices": [
+      "Daughter cells have the same number of chromosomes as the parent cell.",
+      "Daughter cells are identical to the parent cell.",
+      "The parent cell produces diploid cells.",
+      "The daughter cells fuse to form a zygote."
+    ],
+    "answer_idx": 3
+  },
+  {
+    "id": 107,
+    "question": "Crossing-over during meiosis permits scientists to determine",
+    "choices": [
+      "the chance for variation in zygotes",
+      "the rate of mutations",
+      "the distance between genes on a chromosome",
+      "which traits are dominant or recessive"
+    ],
+    "answer_idx": 2
+  },
+  {
+    "id": 117,
+    "question": "Which of the following statements is NOT correct about apoptosis?",
+    "choices": [
+      "Apoptosis, a special type of cell division, requires multiple cell signaling.",
+      "The fact that apoptosis is widespread across several kingdoms is evidence that it evolved early in the evolution of eukaryotes.",
+      "Apoptosis plays a crucial role in the development of fingers in embryonic development.",
+      "Apoptosis prevents an aging and dying cell from damaging neighboring cells."
+    ],
+    "answer_idx": 0
+  },
+  {
+    "id": 124,
+    "question": "Females with Turner's syndrome have a high incidence of hemophilia, a recessive, X-linked trait. Based on this information, it can be inferred that females with this condition",
+    "choices": [
+      "have an extra X chromosome",
+      "have an extra Y chromosome",
+      "lack an X chromosome",
+      "have red blood cells that clump"
+    ],
+    "answer_idx": 2
+  },
+  {
+    "id": 132,
+    "question": "Regarding meiosis and mitosis, one difference between the two forms of cellular reproduction is that in meiosis",
+    "choices": [
+      "there is one round of cell division, whereas in mitosis there are two rounds of cell division",
+      "separation of sister chromatids occurs during the second division, whereas in mitosis separation of sister chromatids occurs during the first division",
+      "chromosomes are replicated during interphase, whereas in mitosis chromosomes are replicated during prophase",
+      "spindle fibers form during prophase, whereas in mitosis the spindle fibers form during metaphase"
+    ],
+    "answer_idx": 1
+  },
+  {
+    "id": 133,
+    "question": "Which of the following about meiosis is NOT true?",
+    "choices": [
+      "Meiosis produces two haploid gametes.",
+      "Homologous chromosomes join during synapsis.",
+      "Sister chromatids separate during meiosis I.",
+      "Crossing-over increases genetic variation in gametes."
+    ],
+    "answer_idx": 2
+  },
+  {
+    "id": 170,
+    "question": "Which of the following statements about meiosis is correct?",
+    "choices": [
+      "The daughter cells are genetically identical to the parent cells.",
+      "Homologues pair during prophase II.",
+      "DNA replication occurs before meiosis I and meiosis II.",
+      "The number of chromosomes is reduced."
+    ],
+    "answer_idx": 3
+  },
+  {
+    "id": 179,
+    "question": "Microtubules are protein filaments assembled from tubulin protein subunits. The chemical colchicine prevents the assembly of microtubules by binding to tubulin protein subunits. Which of the following cellular processes would be most impaired by the application of colchicine?",
+    "choices": [
+      "the alignment and separation of chromosomes during mitosis",
+      "the coordination of ribosomes and mRNA during protein synthesis",
+      "the movement of substances across the plasma membrane",
+      "the accumulation of protons inside the thylakoids of chloroplasts during chemiosmosis"
+    ],
+    "answer_idx": 0
+  },
+  {
+    "id": 182,
+    "question": "Recently, seasonal dead zones in low-oxygen waters have been occurring annually in the Gulf of Mexico near the mouth of the Mississippi River. The dead zones result from the rapid growth of photosynthetic phytoplankton (algal blooms) and their subsequent decay by oxygen-depleting microbes in the water column. Which of the following factors most likely triggers the algal blooms and the associated dead zones?",
+    "choices": [
+      "A decrease in the light level in surface waters as day length starts to shorten after the summer solstice",
+      "Increased predation by marine larvae and other zooplankton during the summer months",
+      "A summer influx of nutrients derived from chemical fertilizers that are high in nitrogen and phosphorus",
+      "Decreased competition from other marine phytoplankton during the summer months"
+    ],
+    "answer_idx": 2
+  },
+  {
+    "id": 184,
+    "question": "In a hypothetical population's gene pool, an autosomal gene, which had previously been fixed, undergoes a mutation that introduces a new allele, one inherited according to incomplete dominance. Natural selection then causes stabilizing selection at this locus. Consequently, what should happen over the course of many generations?",
+    "choices": [
+      "The proportions of both types of homozygote should decrease.",
+      "The proportion of the population that is heterozygous at this locus should remain constant.",
+      "The population's average heterozygosity should increase.",
+      "Both A and C"
+    ],
+    "answer_idx": 3
+  },
+  {
+    "id": 191,
+    "question": "The geneticist Mary Lyon hypothesized the existence of structures visible just under the nuclear membrane in mammals, which were later named Barr bodies. Which of the following statement is NOT correct about Barr bodies?",
+    "choices": [
+      "In the early female embryo, one copy of the X chromosome becomes inactivated in every body cell.",
+      "The same chromosome in every cell of a normal female is inactivated.",
+      "A male with the XXY genotype will have one Barr body.",
+      "Barr bodies consist of highly methylated DNA."
+    ],
+    "answer_idx": 1
+  },
+  {
+    "id": 196,
+    "question": "If two modern organisms are distantly related in an evolutionary sense, then one should expect that",
+    "choices": [
+      "they live in very different habitats.",
+      "they should share fewer homologous structures than two more closely related organisms.",
+      "their chromosomes should be very similar.",
+      "they shared a common ancestor relatively recently."
+    ],
+    "answer_idx": 1
+  },
+  {
+    "id": 207,
+    "question": "Heterozygote advantage should be most closely linked to which of the following?",
+    "choices": [
+      "sexual selection",
+      "stabilizing selection",
+      "random selection",
+      "directional selection"
+    ],
+    "answer_idx": 1
+  },
+  {
+    "id": 211,
+    "question": "All of the following support the endosymbiotic theory that ancestors of mitochondria and chloroplasts were once independent, free-living prokaryotes EXCEPT:",
+    "choices": [
+      "Mitochondria and chloroplasts divide independently of the eukaryotic host cell by a process similar to binary fission.",
+      "Mitochondria and chloroplasts have ribosomes that more closely resemble those of bacteria than of eukaryotic cells.",
+      "Mitochondria and chloroplasts function independently from the eukaryotic host cell.",
+      "Mitochondria, chloroplasts, and bacteria have a single, circular chromosome without histones or proteins."
+    ],
+    "answer_idx": 2
+  },
+  {
+    "id": 216,
+    "question": "Which of the following disorders will most likely result from X chromosome aneuploidy in women?",
+    "choices": [
+      "Cystic fibrosis",
+      "Hemophilia",
+      "Turner syndrome",
+      "Tay-Sachs disease"
+    ],
+    "answer_idx": 2
+  },
+  {
+    "id": 226,
+    "question": "The acrosome and cortical reactions that occur immediately after fertilization ensure which of the following?",
+    "choices": [
+      "The sperm will fertilize the ovum.",
+      "The zygote will begin to divide normally.",
+      "One and only one sperm will fertilize the egg.",
+      "The zygote will not divide into two embryos, producing twins."
+    ],
+    "answer_idx": 2
+  },
+  {
+    "id": 227,
+    "question": "snRNPs are most closely associated with which of the following?",
+    "choices": [
+      "Cell division",
+      "Apoptosis",
+      "Replication of DNA",
+      "RNA processing"
+    ],
+    "answer_idx": 3
+  },
+  {
+    "id": 229,
+    "question": "Which of the following statements best explains why Mendel's principle of segregation was deemed a law?",
+    "choices": [
+      "Mendel's work with pea plants and his conclusions have been described in many sources.",
+      "The patterns of trait inheritance observed in pea plants were repeatedly demonstrated in other eukaryotes.",
+      "Chromosomes were found to contain the genetic information for traits.",
+      "The discovery of the structure of D N A supported Mendel's observations and laws."
+    ],
+    "answer_idx": 1
+  },
+  {
+    "id": 251,
+    "question": "Some strains of viruses can change normal mammalian cells into cancer cells in vitro. This transformation of the mammalian cell is usually associated with the",
+    "choices": [
+      "formation of a pilus between the mammalian cell and the virus",
+      "incorporation of the viral genome into the mammalian cell's nuclear DNA",
+      "conversion of the host's genome into the viral DNA",
+      "release of spores into the mammalian cell"
+    ],
+    "answer_idx": 1
+  },
+  {
+    "id": 278,
+    "question": "Crossing-over occurs during which of the following phases in meiosis?",
+    "choices": [
+      "Prophase I",
+      "Metaphase I",
+      "Anaphase I",
+      "Prophase II"
+    ],
+    "answer_idx": 0
+  },
+  {
+    "id": 291,
+    "question": "Compared to DNA viral replication, RNA viral replication is more susceptible to mutation because",
+    "choices": [
+      "RNA replication takes place in the cytoplasm, whereas DNA replication takes place in the nucleus.",
+      "RNA viruses replicate much faster than DNA viruses.",
+      "RNA viruses use uracil instead of thymine.",
+      "RNA replication lacks the proofreading functions characteristic of DNA replication."
+    ],
+    "answer_idx": 3
+  },
+  {
+    "id": 305,
+    "question": "Which is a true statement concerning genetic variation?",
+    "choices": [
+      "It is created by the direct action of natural selection.",
+      "It arises in response to changes in the environment.",
+      "It must be present in a population before natural selection can act upon the population.",
+      "It tends to be reduced by the processes involved when diploid organisms produce gametes."
+    ],
+    "answer_idx": 2
+  }
+]

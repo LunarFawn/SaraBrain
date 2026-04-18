@@ -1,0 +1,33 @@
+45 Facts Beat a Trillion Tokens
+
+I ran a simple experiment. I took the smallest viable language model — qwen2.5-coder at 3 billion parameters — and gave it a high school biology test. It scored 58%. Not bad for a coding model taking a biology exam.
+
+Then I connected it to Sara Brain, the cognitive architecture I've been building. Sara is a persistent knowledge graph — facts stored as traceable paths in SQLite, not compressed into neural network weights. I hand-taught Sara 45 biology facts in about 30 minutes. Things like "directional selection is selection for one extreme phenotype" and "memory cells are immune cells that remember previously encountered pathogens."
+
+Score with Sara: 80%.
+
+That beats GPT-3.5, which scores around 70% on the same benchmark. GPT-3.5 has roughly 175 billion parameters trained on trillions of tokens. Sara has 45 sentences in a database file smaller than a profile photo.
+
+I also tried the automated approach. I had the 3B model read Wikipedia and extract biology facts on its own. It ingested 28,000 neurons worth of knowledge. The score dropped to 51%. More knowledge made it worse.
+
+Why? Because the 3B model hallucinated during extraction. It read "CH4 (one carbon atom bonded to four hydrogen atoms)" and extracted "methane has 4 carbon atoms." Sara stored it faithfully. One wrong fact in the right context is worse than no fact at all.
+
+Then I built a teacher loop. Sara takes the test, sees what she got wrong, examines her own activation patterns, and tries to teach herself the gap. Starting from zero she climbed to 60% — then crashed to 35% when the accumulated bad corrections overwhelmed the good ones. The 3B model generated things like "transmitted using muscle cells" as correction facts. The automated teacher poisoned the student.
+
+The human-taught version never had this problem. Every fact was correct because a human who understood the subject wrote it. The architecture was identical in every experiment. The only variable was who did the teaching.
+
+This is the paper's argument in one line: AI systems need teachers, not training data.
+
+Training compresses trillions of tokens into opaque weight matrices. No individual fact is inspectable or correctable. Hallucinations are structural — pattern collisions from lossy compression. You cannot fix them by adding more data. More data means more patterns, more collisions, more hallucination surface area.
+
+Teaching stores one fact at a time as an explicit, traceable path. Wrong facts are diagnosable and fixable. "Methane has 4 carbon atoms" can be found, traced to its source, and removed. In a trained model, the same error is invisible — distributed across billions of parameters with no address.
+
+The second paper is on Zenodo now. Two papers in ten days. Both built on a Mac Mini with no GPU, using the smallest viable model, as an independent researcher.
+
+The brain doesn't need a GPU. It doesn't need a datacenter. It doesn't need a trillion tokens.
+
+It needs a teacher.
+
+Paper 1 — Path-of-Thought architecture: https://doi.org/10.5281/zenodo.19436522
+Paper 2 — Teaching vs Training benchmark: https://doi.org/10.5281/zenodo.19623813
+Source code: https://github.com/LunarFawn/SaraBrain

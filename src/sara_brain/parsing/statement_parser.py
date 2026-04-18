@@ -176,6 +176,42 @@ class StatementParser:
                     verb_word = w
                     break
 
+        # ── Fallback 1: temporal/locational preposition split ──
+        # "chromosomes condense DURING prophase" → split on "during"
+        # The preposition marks where subject+action ends and context begins.
+        if verb_idx is None:
+            _TEMPORAL_PREPS = frozenset({
+                "during", "within", "throughout", "through",
+            })
+            for i, w in enumerate(words):
+                if w in _TEMPORAL_PREPS and i > 1 and i < len(words) - 1:
+                    verb_idx = i
+                    verb_word = w
+                    break
+
+        # ── Fallback 2: any-verb heuristic (verb suffixes) ──
+        # "apoptosis eliminateS damaged cells" — verb ends in -s/-es/-ed/-ing
+        # Only fires when both verb scan AND preposition scan failed.
+        if verb_idx is None:
+            _VERB_SUFFIXES = (
+                "tes", "ses", "zes", "ges", "ces", "ves", "nes",
+                "des", "kes", "les", "mes", "pes", "res",
+                "ms", "ns", "rs", "ts", "ls", "ds", "gs", "ks", "ps",
+                "ed", "ing",
+            )
+            _NOT_VERBS = frozenset({
+                "cells", "molecules", "proteins", "organisms",
+                "genes", "chromosomes", "species", "processes",
+                "tissues", "structures", "phases", "stages",
+                "things", "names", "ones", "types", "kinds",
+            })
+            for i, w in enumerate(words):
+                if i > 0 and i < len(words) - 1 and len(w) > 3:
+                    if w not in _NOT_VERBS and w.endswith(_VERB_SUFFIXES):
+                        verb_idx = i
+                        verb_word = w
+                        break
+
         if verb_idx is None or verb_idx == 0 or verb_idx >= len(words) - 1:
             return None
 

@@ -246,23 +246,54 @@ def content_lemmas(doc) -> list[str]:
     ]
     is_very_short = len(content_tokens) <= 1
 
+    # Pre-pass: does this choice have exactly one Roman numeral / ordinal?
+    # Singleton ordinal = crisp phase marker ("meiosis I"), which should
+    # bypass the POS filter even when spaCy tags it as PRON. Multiple
+    # ordinals = compound claim ("meiosis I and meiosis II"), keep the
+    # strict POS filter so Q170-style inflation does not recur.
+    ordinal_markers_in_doc = 0
     for tok in doc:
         if tok.is_punct or tok.is_space:
             continue
-        if tok.pos_ not in {"NOUN", "PROPN", "VERB", "ADJ", "NUM", "X", "SYM"}:
+        lem = tok.lemma_.lower().strip().rstrip(".,;:!?\"')]}")
+        if lem in _ORDINAL_MARKERS:
+            ordinal_markers_in_doc += 1
+    allow_ordinal_pos_bypass = ordinal_markers_in_doc == 1
+
+    for tok in doc:
+        if tok.is_punct or tok.is_space:
             continue
         lemma = tok.lemma_.lower().strip()
+        # Strip trailing punctuation — spaCy sometimes includes a
+        # trailing period in a lemma (e.g. "I." at end of sentence)
+        # which prevents critical-token matching.
+        lemma = lemma.rstrip(".,;:!?\"')]}")
+        if not lemma:
+            continue
+        is_critical = lemma in _CRITICAL_TOKENS
+        pos_ok = tok.pos_ in {
+            "NOUN", "PROPN", "VERB", "ADJ", "NUM", "X", "SYM"
+        }
+        # POS bypass: only for a lone ordinal that is attached to a
+        # content noun. Guard against:
+        #   - non-singleton ordinals (Q170 compound claim)
+        #   - standalone "I" (first-person pronoun)
+        if not pos_ok:
+            if not (is_critical and allow_ordinal_pos_bypass):
+                continue
+            prev_tok = doc[tok.i - 1] if tok.i > 0 else None
+            if prev_tok is None or prev_tok.pos_ not in {
+                "NOUN", "PROPN", "ADJ"
+            }:
+                continue
         if lemma in STOP:
             continue
         # Normally filter short tokens as noise. Two exceptions:
         #   - when the entire choice is a short token (e.g. "S", "48");
         #   - when the token is semantically critical (Roman numerals,
         #     ordinals, chromosome-arm symbols) — these distinguish
-        #     concepts like "meiosis I" vs "meiosis II" when spaCy
-        #     tags them with a content POS.
-        if (len(lemma) < 3
-                and not is_very_short
-                and lemma not in _CRITICAL_TOKENS):
+        #     concepts like "meiosis I" vs "meiosis II".
+        if len(lemma) < 3 and not is_very_short and not is_critical:
             continue
         _add(lemma)
 

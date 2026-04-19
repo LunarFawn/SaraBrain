@@ -1,11 +1,11 @@
 {
-  "accuracy_of_answered": 0.9545454545454546,
+  "accuracy_of_answered": 1.0,
   "coverage": 0.6666666666666665,
-  "correct": 21,
-  "wrong": 1,
+  "correct": 22,
+  "wrong": 0,
   "abstained": 11,
   "total": 33,
-  "seconds": 1.143622875213623,
+  "seconds": 1.1357009410858154,
   "abstain_threshold": 1.0,
   "results": [
     {
@@ -1758,10 +1758,10 @@
       "question": "Which of the following about meiosis is NOT true?",
       "correct": "C",
       "correct_text": "Sister chromatids separate during meiosis I.",
-      "pick": "A",
-      "outcome": "wrong",
-      "best_score": 1.0,
-      "gap_pct": 100.0,
+      "pick": "C",
+      "outcome": "correct",
+      "best_score": 3.5,
+      "gap_pct": 71.4,
       "regions": [
         "meiosis",
         "cell_division",
@@ -1780,7 +1780,9 @@
         "chromatid",
         "separate",
         "meiosis",
-        "meiosi"
+        "meiosi",
+        "i",
+        "first"
       ],
       "choices": [
         {
@@ -1826,15 +1828,31 @@
         {
           "letter": "C",
           "text": "Sister chromatids separate during meiosis I.",
-          "score": 0.0,
+          "score": 3.5,
           "scored_by": "property",
-          "property_score": 0.0,
+          "property_score": 3.5,
           "temp": 0.0,
           "topic_relevant_paths": 17,
-          "polarity_skips": 13,
+          "polarity_skips": 11,
           "c_neg": false,
           "q_neg": true,
-          "best_path": null
+          "best_path": {
+            "source": "sister chromatids separate during meiosis II",
+            "property_hits": [
+              "chromatid",
+              "separate",
+              "sister"
+            ],
+            "terminus_words": [
+              "chromatid",
+              "chromatids",
+              "separate",
+              "sister"
+            ],
+            "path_negated": false,
+            "choice_negated": false,
+            "near_miss": true
+          }
         },
         {
           "letter": "D",
@@ -3381,7 +3399,7 @@
       "pick": "A",
       "outcome": "correct",
       "best_score": 3.0,
-      "gap_pct": 66.7,
+      "gap_pct": 33.3,
       "regions": [
         "cell_cycle",
         "meiosis",
@@ -3452,15 +3470,29 @@
         {
           "letter": "C",
           "text": "Anaphase I",
-          "score": 0.0,
+          "score": 2.0,
           "scored_by": "property",
-          "property_score": 0.0,
+          "property_score": 2.0,
           "temp": 0.0,
           "topic_relevant_paths": 2,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "best_path": null
+          "best_path": {
+            "source": "crossing-over occurs during prophase I of meiosis",
+            "property_hits": [
+              "first",
+              "i"
+            ],
+            "terminus_words": [
+              "crossing",
+              "occur",
+              "over"
+            ],
+            "path_negated": false,
+            "choice_negated": false,
+            "near_miss": false
+          }
         },
         {
           "letter": "D",

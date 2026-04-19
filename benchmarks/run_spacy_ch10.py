@@ -119,6 +119,33 @@ def load_region_paths(brain, region: str, nlp=None) -> list[dict]:
         # Track words that identify the path's terminus (the concept).
         if tgt_id == term_id:
             entry["terminus_words"].update(path_words(tl, nlp))
+
+    # Augment word-bags with the full source_text lemmas. Relation
+    # verbs live on segment edges, not on neurons, so reading just
+    # from neuron labels misses content like "lacking" in the path
+    # "Turner syndrome is caused by lacking an X chromosome". The
+    # source_text is the ground truth of what was taught — use its
+    # content lemmas as the authoritative word-bag.
+    for p in paths.values():
+        src = p.get("source_text") or ""
+        if src and nlp is not None:
+            for tok in nlp(src):
+                if tok.is_punct or tok.is_space:
+                    continue
+                if tok.pos_ not in {
+                    "NOUN", "PROPN", "VERB", "ADJ", "NUM", "ADP"
+                }:
+                    # ADP (prepositions) kept because "by", "of" etc.
+                    # don't matter here but we strip them via STOP check.
+                    continue
+                lemma = tok.lemma_.lower().strip()
+                if not lemma or lemma in STOP:
+                    continue
+                if _WORD_RE.fullmatch(lemma):
+                    p["words"].add(lemma)
+                    s = _singularize_fallback(lemma)
+                    if s:
+                        p["words"].add(s)
     return list(paths.values())
 CAUSAL_LEMMAS = {"because", "cause", "therefore", "thus", "result",
                  "produce", "lead"}
@@ -254,68 +281,114 @@ def temporal_signal(doc) -> dict:
 
 
 def extract_topic(doc) -> set[str]:
-    """Extract the question's topic concept(s).
+    """Extract the question's topic concept(s) — multi-subject aware.
 
-    The topic is what the question is ASKING ABOUT, separate from its
-    grammatical subject. For property-match scoring, we need to know
-    which concept in Sara's graph the question targets so we can filter
-    to paths that describe it.
+    The topic is what the question is ASKING ABOUT. For property-match
+    scoring we need the *set* of concepts the question targets so we can
+    filter to paths that describe any of them. Real-world MC questions
+    routinely carry the subject matter inside prep phrases or noun
+    modifiers, not just in the grammatical subject.
 
-    Strategies, in order:
-      1. 'about X' prepositional phrase — X is the topic.
-      2. The main root verb's subject when it is a content NOUN/PROPN.
-      3. The first content NOUN/PROPN in the doc (last resort).
+    Strategies are all applied (no early-return) and accumulate into a
+    single set, capped at a reasonable ceiling to avoid inflation:
 
-    Returns an empty set when no reasonable topic is found; the caller
-    should then fall back to path-mode scoring for that question.
+      1. 'about X' preposition chains.
+      2. nsubj / nsubjpass content nouns + their compound/amod chains.
+      3. Prep-phrase objects hanging off any nsubj (with/of/regarding
+         X — where the real subject matter sits in medical questions
+         like "Females with Turner's syndrome").
+      4. Conjunctions anchored to already-added topics ("X and Y").
+      5. Noun-chunk fallback when 1-4 found nothing substantive.
+
+    Meta-reference nouns (statement, following, option, ...) are
+    excluded — they're question-framing words, not topics.
     """
     out: set[str] = set()
 
     def _add(lemma: str) -> None:
         lemma = lemma.lower().strip()
-        if not lemma:
+        if not lemma or lemma in _META_TERMS:
+            return
+        if len(out) >= _MAX_TOPICS:
             return
         out.add(lemma)
         s = _singularize_fallback(lemma)
-        if s:
+        if s and s not in _META_TERMS:
             out.add(s)
+
+    def _add_np_chain(tok) -> None:
+        """Add a noun and its compound/amod/poss modifier chain.
+
+        Short-circuits when the head noun is a meta-term (statement,
+        following, etc.) — modifiers of a meta-term are also question-
+        framing and should not contaminate the topic set.
+        """
+        head_lemma = tok.lemma_.lower().strip()
+        if head_lemma in _META_TERMS:
+            return
+        if tok.pos_ in {"NOUN", "PROPN"}:
+            _add(tok.lemma_)
+        for child in tok.children:
+            if child.dep_ in {"compound", "amod", "poss"} and child.pos_ in {
+                "NOUN", "PROPN", "ADJ"}:
+                _add(child.lemma_)
 
     # 1. 'about X' preposition → pobj child
     for tok in doc:
         if tok.text.lower() == "about" and tok.dep_ == "prep":
             for child in tok.children:
                 if child.dep_ == "pobj" and child.pos_ in {"NOUN", "PROPN"}:
-                    _add(child.lemma_)
-                    # Compound noun-phrase modifiers ('mitotic cell divisions')
-                    for gc in child.children:
-                        if gc.dep_ in {"compound", "amod"} and gc.pos_ in {
-                            "NOUN", "PROPN", "ADJ"}:
-                            _add(gc.lemma_)
-            if out:
-                return out
+                    _add_np_chain(child)
 
-    # 2. Root verb's nsubj
+    # 2. Root verb's nsubj + 3. its prep-phrase objects
     for tok in doc:
-        if tok.dep_ == "ROOT":
-            for child in tok.children:
-                if child.dep_ in {"nsubj", "nsubjpass"} and child.pos_ in {
-                    "NOUN", "PROPN"}:
-                    _add(child.lemma_)
-                    for gc in child.children:
-                        if gc.dep_ in {"compound", "amod"} and gc.pos_ in {
-                            "NOUN", "PROPN", "ADJ"}:
-                            _add(gc.lemma_)
-            if out:
-                return out
+        if tok.dep_ != "ROOT":
+            continue
+        for child in tok.children:
+            if child.dep_ in {"nsubj", "nsubjpass"} and child.pos_ in {
+                "NOUN", "PROPN"}:
+                _add_np_chain(child)
+                # Prep phrases MODIFYING the nsubj (e.g. "with Turner's
+                # syndrome") — walk prep → pobj → NP chain.
+                for prep in child.children:
+                    if prep.dep_ == "prep":
+                        for pobj in prep.children:
+                            if pobj.dep_ == "pobj" and pobj.pos_ in {
+                                "NOUN", "PROPN"}:
+                                _add_np_chain(pobj)
 
-    # 3. First content NOUN/PROPN
+    # 4. Conjunctions anchored to any token already added as a topic.
     for tok in doc:
-        if tok.pos_ in {"NOUN", "PROPN"}:
-            _add(tok.lemma_)
-            if out:
-                return out
+        if tok.dep_ == "conj" and tok.pos_ in {"NOUN", "PROPN"}:
+            head_lemma = tok.head.lemma_.lower().strip()
+            if head_lemma in out:
+                _add_np_chain(tok)
+
+    # 5. Noun-chunk fallback — when 1-4 produced nothing (or only
+    #    meta-terms got filtered out), iterate doc.noun_chunks and add
+    #    the head noun of each chunk. Provides topics for questions
+    #    whose grammatical subject is a meta-reference noun like
+    #    "following", "statement", "information".
+    if not out:
+        for chunk in doc.noun_chunks:
+            _add_np_chain(chunk.root)
 
     return out
+
+
+# Meta-reference nouns that frame questions without being topics.
+# When nsubj or a noun chunk surfaces one of these, we discard it so
+# the topic set doesn't get contaminated by question-framing words.
+_META_TERMS = frozenset({
+    "statement", "following", "option", "answer", "choice",
+    "information", "example", "case", "situation", "item", "scenario",
+})
+
+# Cap on topics accumulated from a single question. Six is enough for
+# any plausible multi-subject question; beyond that we're adding noise
+# that dilutes the property-match signal (every added topic removes
+# one more word from the property phrase during scoring).
+_MAX_TOPICS = 6
 
 
 def score_choice_by_property(q_topic: set[str], c_lemmas: set[str],

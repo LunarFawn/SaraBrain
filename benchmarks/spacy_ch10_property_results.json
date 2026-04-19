@@ -1,11 +1,11 @@
 {
-  "accuracy_of_answered": 0.85,
-  "coverage": 0.6060606060606061,
-  "correct": 17,
+  "accuracy_of_answered": 0.8636363636363636,
+  "coverage": 0.6666666666666665,
+  "correct": 19,
   "wrong": 3,
-  "abstained": 13,
+  "abstained": 11,
   "total": 33,
-  "seconds": 1.0849111080169678,
+  "seconds": 1.071676254272461,
   "abstain_threshold": 1.0,
   "results": [
     {
@@ -43,79 +43,74 @@
           "letter": "A",
           "text": "cross section of muscle tissue",
           "score": 1.0,
-          "scored_by": "path-fallback",
-          "path": 1.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 30,
+          "polarity_skips": 3,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "metastasis is the spread of cancer cells to other tissues",
-              "q_hits": [
-                "cell"
-              ],
-              "c_hits": [
-                "tissue"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "metastasis is the spread of cancer cells to other tissues",
+            "property_hits": [
+              "tissue"
+            ],
+            "terminus_words": [
+              "metastasi"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "B",
           "text": "cross section of an anther (site of pollen production in a flower)",
           "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 30,
+          "polarity_skips": 3,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": null
         },
         {
           "letter": "C",
           "text": "longitudinal section of a shoot tip",
           "score": 2.0,
-          "scored_by": "path-fallback",
-          "path": 1.0,
-          "terminus": 1.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 30,
+          "polarity_skips": 3,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "shoot tips contain actively dividing cells",
-              "q_hits": [
-                "cell"
-              ],
-              "c_hits": [
-                "shoot"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "shoot tips contain actively dividing cells",
+            "property_hits": [
+              "shoot",
+              "tip"
+            ],
+            "terminus_words": [
+              "shoot"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "D",
           "text": "cross section of a leaf",
           "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 30,
+          "polarity_skips": 3,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": null
         }
       ]
     },
@@ -326,7 +321,7 @@
       "correct_text": "parthenogenesis",
       "pick": "-",
       "outcome": "tie",
-      "best_score": 1.0,
+      "best_score": 2.0,
       "gap_pct": 0.0,
       "regions": [
         "reproduction",
@@ -357,7 +352,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 2,
+          "topic_relevant_paths": 5,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -366,18 +361,19 @@
         {
           "letter": "B",
           "text": "parthenogenesis",
-          "score": 1.0,
+          "score": 2.0,
           "scored_by": "property",
-          "property_score": 1.0,
+          "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 2,
+          "topic_relevant_paths": 5,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
           "best_path": {
             "source": "parthenogenesis is development of an egg without fertilization",
             "property_hits": [
-              "parthenogenesi"
+              "parthenogenesi",
+              "parthenogenesis"
             ],
             "terminus_words": [
               "parthenogenesi"
@@ -389,18 +385,19 @@
         {
           "letter": "C",
           "text": "embryogenesis",
-          "score": 1.0,
+          "score": 2.0,
           "scored_by": "property",
-          "property_score": 1.0,
+          "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 2,
+          "topic_relevant_paths": 5,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
           "best_path": {
             "source": "embryogenesis is development of an embryo after fertilization",
             "property_hits": [
-              "embryogenesi"
+              "embryogenesi",
+              "embryogenesis"
             ],
             "terminus_words": [
               "embryogenesi"
@@ -416,7 +413,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 2,
+          "topic_relevant_paths": 5,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -431,7 +428,7 @@
       "correct_text": "Mutation",
       "pick": "D",
       "outcome": "correct",
-      "best_score": 2.0,
+      "best_score": 1.0,
       "gap_pct": 100.0,
       "regions": [
         "genetics",
@@ -456,69 +453,63 @@
           "letter": "A",
           "text": "Sporulation",
           "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 5,
+          "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": null
         },
         {
           "letter": "B",
           "text": "Binary fission",
           "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 5,
+          "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": null
         },
         {
           "letter": "C",
           "text": "Vegetative propagation",
           "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 5,
+          "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": null
         },
         {
           "letter": "D",
           "text": "Mutation",
-          "score": 2.0,
-          "scored_by": "path-fallback",
-          "path": 1.0,
-          "terminus": 1.0,
+          "score": 1.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 5,
+          "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "mutation is the greatest source of genetic variability",
-              "q_hits": [
-                "genetic",
-                "variability"
-              ],
-              "c_hits": [
-                "mutation"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "mutation is the greatest source of genetic variability",
+            "property_hits": [
+              "mutation"
+            ],
+            "terminus_words": [
+              "mutation"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         }
       ]
     },
@@ -611,7 +602,7 @@
       "correct_text": "S",
       "pick": "D",
       "outcome": "correct",
-      "best_score": 6.0,
+      "best_score": 1.0,
       "gap_pct": 100.0,
       "regions": [
         "cell_cycle",
@@ -641,89 +632,64 @@
           "letter": "A",
           "text": "G_1",
           "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 29,
+          "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": null
         },
         {
           "letter": "B",
           "text": "G_2",
           "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 29,
+          "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": null
         },
         {
           "letter": "C",
           "text": "M",
           "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 29,
+          "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": null
         },
         {
           "letter": "D",
           "text": "S",
-          "score": 6.0,
-          "scored_by": "path-fallback",
-          "path": 4.0,
-          "terminus": 2.0,
+          "score": 1.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 29,
+          "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "S phase is when DNA is synthesized and replicated",
-              "q_hits": [
-                "dna",
-                "phase"
-              ],
-              "c_hits": [
-                "s"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "G1 precedes S phase",
-              "q_hits": [
-                "phase"
-              ],
-              "c_hits": [
-                "s"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "S phase precedes G2",
-              "q_hits": [
-                "phase"
-              ],
-              "c_hits": [
-                "s"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "S phase is when DNA is synthesized and replicated",
+            "property_hits": [
+              "s"
+            ],
+            "terminus_words": [
+              "phase",
+              "s"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         }
       ]
     },
@@ -861,10 +827,10 @@
       "question": "In modern terminology, diversity is understood to be a result of genetic variation. Sources of variation for evolution include all of the following except",
       "correct": "A",
       "correct_text": "mistakes in translation of structural genes.",
-      "pick": "C",
+      "pick": "B",
       "outcome": "wrong",
-      "best_score": 7.0,
-      "gap_pct": 14.3,
+      "best_score": 3.0,
+      "gap_pct": 33.3,
       "regions": [
         "genetics",
         "cell_division",
@@ -898,166 +864,106 @@
         {
           "letter": "A",
           "text": "mistakes in translation of structural genes.",
-          "score": 5.0,
-          "scored_by": "path-fallback",
-          "path": 3.0,
-          "terminus": 2.0,
+          "score": 1.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 7,
+          "polarity_skips": 2,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "translation mistakes are not a source of genetic variation for evolution",
-              "q_hits": [
-                "evolution",
-                "genetic",
-                "source",
-                "variation"
-              ],
-              "c_hits": [
-                "mistake",
-                "translation"
-              ],
-              "path_negated": true
-            },
-            {
-              "source": "DNA replication mistakes are a source of genetic variation",
-              "q_hits": [
-                "genetic",
-                "source",
-                "variation"
-              ],
-              "c_hits": [
-                "mistake"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "DNA replication mistakes are a source of genetic variation",
+            "property_hits": [
+              "mistake"
+            ],
+            "terminus_words": [
+              "dna",
+              "mistake",
+              "replication"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "B",
           "text": "mistakes in DNA replication.",
-          "score": 6.0,
-          "scored_by": "path-fallback",
-          "path": 4.0,
-          "terminus": 2.0,
+          "score": 3.0,
+          "scored_by": "property",
+          "property_score": 3.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 7,
+          "polarity_skips": 2,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "translation mistakes are not a source of genetic variation for evolution",
-              "q_hits": [
-                "evolution",
-                "genetic",
-                "source",
-                "variation"
-              ],
-              "c_hits": [
-                "mistake"
-              ],
-              "path_negated": true
-            },
-            {
-              "source": "DNA replication mistakes are a source of genetic variation",
-              "q_hits": [
-                "genetic",
-                "source",
-                "variation"
-              ],
-              "c_hits": [
-                "dna",
-                "mistake",
-                "replication"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "DNA replication mistakes are a source of genetic variation",
+            "property_hits": [
+              "dna",
+              "mistake",
+              "replication"
+            ],
+            "terminus_words": [
+              "dna",
+              "mistake",
+              "replication"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "C",
           "text": "translocations and mistakes in meiosis.",
-          "score": 7.0,
-          "scored_by": "path-fallback",
-          "path": 4.0,
-          "terminus": 3.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 7,
+          "polarity_skips": 2,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "translation mistakes are not a source of genetic variation for evolution",
-              "q_hits": [
-                "evolution",
-                "genetic",
-                "source",
-                "variation"
-              ],
-              "c_hits": [
-                "mistake"
-              ],
-              "path_negated": true
-            },
-            {
-              "source": "DNA replication mistakes are a source of genetic variation",
-              "q_hits": [
-                "genetic",
-                "source",
-                "variation"
-              ],
-              "c_hits": [
-                "mistake"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "meiosis errors are a source of genetic variation",
-              "q_hits": [
-                "genetic",
-                "source",
-                "variation"
-              ],
-              "c_hits": [
-                "meiosi",
-                "meiosis"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "meiosis errors are a source of genetic variation",
+            "property_hits": [
+              "meiosi",
+              "meiosis"
+            ],
+            "terminus_words": [
+              "error",
+              "meiosi",
+              "meiosis"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "D",
           "text": "recombination at fertilization.",
-          "score": 3.0,
-          "scored_by": "path-fallback",
-          "path": 2.0,
-          "terminus": 1.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 7,
+          "polarity_skips": 2,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "recombination at fertilization is a source of genetic variation",
-              "q_hits": [
-                "genetic",
-                "source",
-                "variation"
-              ],
-              "c_hits": [
-                "fertilization",
-                "recombination"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "recombination at fertilization is a source of genetic variation",
+            "property_hits": [
+              "fertilization",
+              "recombination"
+            ],
+            "terminus_words": [
+              "at",
+              "fertilization",
+              "recombination"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         }
       ]
     },
@@ -1094,70 +1000,64 @@
           "letter": "A",
           "text": "sporulation",
           "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "polarity_skips": 2,
+          "topic_relevant_paths": 11,
+          "polarity_skips": 9,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": null
         },
         {
           "letter": "B",
           "text": "fission",
           "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "polarity_skips": 1,
+          "topic_relevant_paths": 11,
+          "polarity_skips": 9,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": null
         },
         {
           "letter": "C",
           "text": "budding",
           "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "polarity_skips": 1,
+          "topic_relevant_paths": 11,
+          "polarity_skips": 9,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": null
         },
         {
           "letter": "D",
           "text": "meiosis",
           "score": 2.0,
-          "scored_by": "path-fallback",
-          "path": 1.0,
-          "terminus": 1.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "polarity_skips": 2,
+          "topic_relevant_paths": 11,
+          "polarity_skips": 9,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": [
-            {
-              "source": "meiosis is not a mode of asexual reproduction",
-              "q_hits": [
-                "asexual",
-                "mode",
-                "reproduction"
-              ],
-              "c_hits": [
-                "meiosi"
-              ],
-              "path_negated": true
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "meiosis is not a mode of asexual reproduction",
+            "property_hits": [
+              "meiosi",
+              "meiosis"
+            ],
+            "terminus_words": [
+              "meiosi"
+            ],
+            "path_negated": true,
+            "choice_negated": false
+          }
         }
       ]
     },
@@ -1284,57 +1184,53 @@
           "letter": "A",
           "text": "Daughter cells have the same number of chromosomes as the parent cell.",
           "score": 0.0,
-          "scored_by": "path-fallback",
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
           "polarity_skips": 2,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "convergent_paths": []
         },
         {
           "letter": "B",
           "text": "Daughter cells are identical to the parent cell.",
           "score": 0.0,
-          "scored_by": "path-fallback",
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
           "polarity_skips": 2,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "convergent_paths": []
         },
         {
           "letter": "C",
           "text": "The parent cell produces diploid cells.",
           "score": 0.0,
-          "scored_by": "path-fallback",
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
           "polarity_skips": 2,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "convergent_paths": []
         },
         {
           "letter": "D",
           "text": "The daughter cells fuse to form a zygote.",
           "score": 0.0,
-          "scored_by": "path-fallback",
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
           "polarity_skips": 2,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "convergent_paths": []
         }
       ]
     },
@@ -1556,10 +1452,10 @@
       "question": "Females with Turner's syndrome have a high incidence of hemophilia, a recessive, X-linked trait. Based on this information, it can be inferred that females with this condition",
       "correct": "C",
       "correct_text": "lack an X chromosome",
-      "pick": "D",
-      "outcome": "wrong",
-      "best_score": 1.0,
-      "gap_pct": 100.0,
+      "pick": "C",
+      "outcome": "correct",
+      "best_score": 2.0,
+      "gap_pct": 50.0,
       "regions": [
         "genetics",
         "cell_division",
@@ -1592,41 +1488,75 @@
         {
           "letter": "A",
           "text": "have an extra X chromosome",
-          "score": 0.0,
+          "score": 1.0,
           "scored_by": "property",
-          "property_score": 0.0,
+          "property_score": 1.0,
           "temp": 0.0,
-          "topic_relevant_paths": 2,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "best_path": null
+          "best_path": {
+            "source": "Turner syndrome is caused by lacking an X chromosome",
+            "property_hits": [
+              "chromosome"
+            ],
+            "terminus_words": [
+              "syndrome",
+              "turner"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "B",
           "text": "have an extra Y chromosome",
-          "score": 0.0,
+          "score": 1.0,
           "scored_by": "property",
-          "property_score": 0.0,
+          "property_score": 1.0,
           "temp": 0.0,
-          "topic_relevant_paths": 2,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "best_path": null
+          "best_path": {
+            "source": "Turner syndrome is caused by lacking an X chromosome",
+            "property_hits": [
+              "chromosome"
+            ],
+            "terminus_words": [
+              "syndrome",
+              "turner"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "C",
           "text": "lack an X chromosome",
-          "score": 0.0,
+          "score": 2.0,
           "scored_by": "property",
-          "property_score": 0.0,
+          "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 2,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "best_path": null
+          "best_path": {
+            "source": "Turner syndrome is caused by lacking an X chromosome",
+            "property_hits": [
+              "chromosome",
+              "lack"
+            ],
+            "terminus_words": [
+              "syndrome",
+              "turner"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "D",
@@ -1635,7 +1565,7 @@
           "scored_by": "property",
           "property_score": 1.0,
           "temp": 0.0,
-          "topic_relevant_paths": 2,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -1659,10 +1589,10 @@
       "question": "Regarding meiosis and mitosis, one difference between the two forms of cellular reproduction is that in meiosis",
       "correct": "B",
       "correct_text": "separation of sister chromatids occurs during the second division, whereas in mitosis separation of sister chromatids occurs during the first division",
-      "pick": "-",
-      "outcome": "tie",
-      "best_score": 33.0,
-      "gap_pct": 3.0,
+      "pick": "D",
+      "outcome": "wrong",
+      "best_score": 2.0,
+      "gap_pct": 50.0,
       "regions": [
         "cell_cycle",
         "meiosis",
@@ -1701,204 +1631,79 @@
         {
           "letter": "A",
           "text": "there is one round of cell division, whereas in mitosis there are two rounds of cell division",
-          "score": 32.0,
-          "scored_by": "path-fallback",
-          "path": 26.0,
-          "terminus": 6.0,
+          "score": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
+          "topic_relevant_paths": 1,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "the cell cycle has two major phases interphase and mitotic phase",
-              "q_hits": [
-                "two"
-              ],
-              "c_hits": [
-                "cell",
-                "two"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "G2 phase is the second gap where the cell prepares for mitosis",
-              "q_hits": [
-                "mitosi",
-                "mitosis"
-              ],
-              "c_hits": [
-                "cell",
-                "mitosi",
-                "mitosis"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "G2 precedes mitosis",
-              "q_hits": [
-                "mitosi",
-                "mitosis"
-              ],
-              "c_hits": [
-                "mitosi",
-                "mitosis"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": null
         },
         {
           "letter": "B",
           "text": "separation of sister chromatids occurs during the second division, whereas in mitosis separation of sister chromatids occurs during the first division",
-          "score": 30.0,
-          "scored_by": "path-fallback",
-          "path": 24.0,
-          "terminus": 6.0,
+          "score": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
+          "topic_relevant_paths": 1,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "G2 phase is the second gap where the cell prepares for mitosis",
-              "q_hits": [
-                "mitosi",
-                "mitosis"
-              ],
-              "c_hits": [
-                "mitosi",
-                "mitosis",
-                "second"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "G2 precedes mitosis",
-              "q_hits": [
-                "mitosi",
-                "mitosis"
-              ],
-              "c_hits": [
-                "mitosi",
-                "mitosis"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "mitosis is division of the nucleus into two daughter nuclei",
-              "q_hits": [
-                "mitosi",
-                "two"
-              ],
-              "c_hits": [
-                "division",
-                "mitosi"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": null
         },
         {
           "letter": "C",
           "text": "chromosomes are replicated during interphase, whereas in mitosis chromosomes are replicated during prophase",
-          "score": 33.0,
-          "scored_by": "path-fallback",
-          "path": 26.0,
-          "terminus": 7.0,
+          "score": 1.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
+          "topic_relevant_paths": 1,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "the cell cycle has two major phases interphase and mitotic phase",
-              "q_hits": [
-                "two"
-              ],
-              "c_hits": [
-                "interphase"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "G2 phase is the second gap where the cell prepares for mitosis",
-              "q_hits": [
-                "mitosi",
-                "mitosis"
-              ],
-              "c_hits": [
-                "mitosi",
-                "mitosis"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "G2 precedes mitosis",
-              "q_hits": [
-                "mitosi",
-                "mitosis"
-              ],
-              "c_hits": [
-                "mitosi",
-                "mitosis"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "the mitotic spindle forms during prophase",
+            "property_hits": [
+              "prophase"
+            ],
+            "terminus_words": [
+              "form",
+              "mitotic",
+              "spindle"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "D",
           "text": "spindle fibers form during prophase, whereas in mitosis the spindle fibers form during metaphase",
-          "score": 22.0,
-          "scored_by": "path-fallback",
-          "path": 17.0,
-          "terminus": 5.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
+          "topic_relevant_paths": 1,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "G2 phase is the second gap where the cell prepares for mitosis",
-              "q_hits": [
-                "mitosi",
-                "mitosis"
-              ],
-              "c_hits": [
-                "mitosi",
-                "mitosis"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "G2 precedes mitosis",
-              "q_hits": [
-                "mitosi",
-                "mitosis"
-              ],
-              "c_hits": [
-                "mitosi",
-                "mitosis"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "mitosis is division of the nucleus into two daughter nuclei",
-              "q_hits": [
-                "mitosi",
-                "two"
-              ],
-              "c_hits": [
-                "mitosi"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "the mitotic spindle forms during prophase",
+            "property_hits": [
+              "prophase",
+              "spindle"
+            ],
+            "terminus_words": [
+              "form",
+              "mitotic",
+              "spindle"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         }
       ]
     },
@@ -2006,7 +1811,7 @@
       "correct_text": "The number of chromosomes is reduced.",
       "pick": "-",
       "outcome": "tie",
-      "best_score": 2.0,
+      "best_score": 3.0,
       "gap_pct": 0.0,
       "regions": [
         "meiosis",
@@ -2080,9 +1885,9 @@
         {
           "letter": "C",
           "text": "DNA replication occurs before meiosis I and meiosis II.",
-          "score": 2.0,
+          "score": 3.0,
           "scored_by": "property",
-          "property_score": 2.0,
+          "property_score": 3.0,
           "temp": 0.0,
           "topic_relevant_paths": 17,
           "polarity_skips": 4,
@@ -2092,6 +1897,7 @@
             "source": "DNA replication occurs before meiosis I only",
             "property_hits": [
               "dna",
+              "occur",
               "replication"
             ],
             "terminus_words": [
@@ -2105,9 +1911,9 @@
         {
           "letter": "D",
           "text": "The number of chromosomes is reduced.",
-          "score": 2.0,
+          "score": 3.0,
           "scored_by": "property",
-          "property_score": 2.0,
+          "property_score": 3.0,
           "temp": 0.0,
           "topic_relevant_paths": 17,
           "polarity_skips": 4,
@@ -2117,7 +1923,8 @@
             "source": "meiosis reduces chromosome number by half",
             "property_hits": [
               "chromosome",
-              "number"
+              "number",
+              "reduce"
             ],
             "terminus_words": [
               "meiosi"
@@ -2907,57 +2714,53 @@
           "letter": "A",
           "text": "Mitochondria and chloroplasts divide independently of the eukaryotic host cell by a process similar to binary fission.",
           "score": 0.0,
-          "scored_by": "path-fallback",
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
           "polarity_skips": 2,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "convergent_paths": []
         },
         {
           "letter": "B",
           "text": "Mitochondria and chloroplasts have ribosomes that more closely resemble those of bacteria than of eukaryotic cells.",
           "score": 0.0,
-          "scored_by": "path-fallback",
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
           "polarity_skips": 1,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "convergent_paths": []
         },
         {
           "letter": "C",
           "text": "Mitochondria and chloroplasts function independently from the eukaryotic host cell.",
           "score": 0.0,
-          "scored_by": "path-fallback",
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
           "polarity_skips": 1,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "convergent_paths": []
         },
         {
           "letter": "D",
           "text": "Mitochondria, chloroplasts, and bacteria have a single, circular chromosome without histones or proteins.",
           "score": 0.0,
-          "scored_by": "path-fallback",
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
           "polarity_skips": 3,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "convergent_paths": []
         }
       ]
     },
@@ -2998,69 +2801,65 @@
           "letter": "A",
           "text": "Cystic fibrosis",
           "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 14,
+          "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": null
         },
         {
           "letter": "B",
           "text": "Hemophilia",
           "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 14,
+          "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": null
         },
         {
           "letter": "C",
           "text": "Turner syndrome",
           "score": 2.0,
-          "scored_by": "path-fallback",
-          "path": 1.0,
-          "terminus": 1.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 14,
+          "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "Turner syndrome is caused by lacking an X chromosome",
-              "q_hits": [
-                "chromosome"
-              ],
-              "c_hits": [
-                "syndrome",
-                "turner"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "Turner syndrome is caused by lacking an X chromosome",
+            "property_hits": [
+              "syndrome",
+              "turner"
+            ],
+            "terminus_words": [
+              "syndrome",
+              "turner"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "D",
           "text": "Tay-Sachs disease",
           "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 14,
+          "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": null
         }
       ]
     },
@@ -3103,97 +2902,74 @@
           "letter": "A",
           "text": "The sperm will fertilize the ovum.",
           "score": 1.0,
-          "scored_by": "path-fallback-all-zero",
-          "path": 1.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "polyspermy is fertilization by more than one sperm",
-              "q_hits": [
-                "fertilization"
-              ],
-              "c_hits": [
-                "sperm"
-              ],
-              "path_negated": false
-            }
-          ]
+          "best_path": {
+            "source": "polyspermy is fertilization by more than one sperm",
+            "property_hits": [
+              "sperm"
+            ],
+            "terminus_words": [
+              "polyspermy"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "B",
           "text": "The zygote will begin to divide normally.",
           "score": 0.0,
-          "scored_by": "path-fallback-all-zero",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": []
+          "best_path": null
         },
         {
           "letter": "C",
           "text": "One and only one sperm will fertilize the egg.",
           "score": 2.0,
-          "scored_by": "path-fallback-all-zero",
-          "path": 2.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "parthenogenesis is development of an egg without fertilization",
-              "q_hits": [
-                "fertilization"
-              ],
-              "c_hits": [
-                "egg"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "polyspermy is fertilization by more than one sperm",
-              "q_hits": [
-                "fertilization"
-              ],
-              "c_hits": [
-                "one",
-                "sperm"
-              ],
-              "path_negated": false
-            }
-          ]
+          "best_path": {
+            "source": "polyspermy is fertilization by more than one sperm",
+            "property_hits": [
+              "one",
+              "sperm"
+            ],
+            "terminus_words": [
+              "polyspermy"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "D",
           "text": "The zygote will not divide into two embryos, producing twins.",
-          "score": 1.0,
-          "scored_by": "path-fallback-all-zero",
-          "path": 1.0,
-          "terminus": 0.0,
+          "score": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 4,
+          "polarity_skips": 4,
           "c_neg": true,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "embryogenesis is development of an embryo after fertilization",
-              "q_hits": [
-                "fertilization"
-              ],
-              "c_hits": [
-                "embryo"
-              ],
-              "path_negated": false
-            }
-          ]
+          "best_path": null
         }
       ]
     },
@@ -3297,7 +3073,7 @@
       "correct_text": "The patterns of trait inheritance observed in pea plants were repeatedly demonstrated in other eukaryotes.",
       "pick": "-",
       "outcome": "tie",
-      "best_score": 3.0,
+      "best_score": 1.0,
       "gap_pct": 0.0,
       "regions": [
         "genetics",
@@ -3333,102 +3109,80 @@
         {
           "letter": "A",
           "text": "Mendel's work with pea plants and his conclusions have been described in many sources.",
-          "score": 3.0,
-          "scored_by": "path-fallback",
-          "path": 2.0,
-          "terminus": 1.0,
+          "score": 1.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
+          "topic_relevant_paths": 1,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "Mendel principle of segregation is a law because it was demonstrated in many organisms",
-              "q_hits": [
-                "law",
-                "mendel",
-                "principle",
-                "segregation"
-              ],
-              "c_hits": [
-                "many",
-                "mendel"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "Mendel principle of segregation is a law because it was demonstrated in many organisms",
+            "property_hits": [
+              "many"
+            ],
+            "terminus_words": [
+              "mendel",
+              "of",
+              "principle",
+              "segregation"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "B",
           "text": "The patterns of trait inheritance observed in pea plants were repeatedly demonstrated in other eukaryotes.",
           "score": 1.0,
-          "scored_by": "path-fallback",
-          "path": 1.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
+          "topic_relevant_paths": 1,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "Mendel principle of segregation is a law because it was demonstrated in many organisms",
-              "q_hits": [
-                "law",
-                "mendel",
-                "principle",
-                "segregation"
-              ],
-              "c_hits": [
-                "demonstrate"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "Mendel principle of segregation is a law because it was demonstrated in many organisms",
+            "property_hits": [
+              "demonstrate"
+            ],
+            "terminus_words": [
+              "mendel",
+              "of",
+              "principle",
+              "segregation"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "C",
           "text": "Chromosomes were found to contain the genetic information for traits.",
           "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
+          "topic_relevant_paths": 1,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": null
         },
         {
           "letter": "D",
           "text": "The discovery of the structure of D N A supported Mendel's observations and laws.",
-          "score": 3.0,
-          "scored_by": "path-fallback",
-          "path": 2.0,
-          "terminus": 1.0,
+          "score": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
+          "topic_relevant_paths": 1,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "Mendel principle of segregation is a law because it was demonstrated in many organisms",
-              "q_hits": [
-                "law",
-                "mendel",
-                "principle",
-                "segregation"
-              ],
-              "c_hits": [
-                "law",
-                "mendel"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": null
         }
       ]
     },
@@ -3439,8 +3193,8 @@
       "correct_text": "incorporation of the viral genome into the mammalian cell's nuclear DNA",
       "pick": "-",
       "outcome": "tie",
-      "best_score": 29.0,
-      "gap_pct": 3.4,
+      "best_score": 2.0,
+      "gap_pct": 0.0,
       "regions": [
         "cell_division",
         "cell_cycle",
@@ -3476,175 +3230,76 @@
         {
           "letter": "A",
           "text": "formation of a pilus between the mammalian cell and the virus",
-          "score": 28.0,
-          "scored_by": "path-fallback",
-          "path": 23.0,
-          "terminus": 5.0,
+          "score": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 23,
+          "polarity_skips": 3,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "the cell cycle is an orderly sequence of events in cell reproduction",
-              "q_hits": [
-                "cell"
-              ],
-              "c_hits": [
-                "cell"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "a genome is a cell DNA packaged as double-stranded molecule",
-              "q_hits": [
-                "cell"
-              ],
-              "c_hits": [
-                "cell"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "human somatic cells have 46 chromosomes",
-              "q_hits": [
-                "cell"
-              ],
-              "c_hits": [
-                "cell"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": null
         },
         {
           "letter": "B",
           "text": "incorporation of the viral genome into the mammalian cell's nuclear DNA",
-          "score": 29.0,
-          "scored_by": "path-fallback",
-          "path": 23.0,
-          "terminus": 6.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 23,
+          "polarity_skips": 3,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "the cell cycle is an orderly sequence of events in cell reproduction",
-              "q_hits": [
-                "cell"
-              ],
-              "c_hits": [
-                "cell"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "a genome is a cell DNA packaged as double-stranded molecule",
-              "q_hits": [
-                "cell"
-              ],
-              "c_hits": [
-                "cell",
-                "dna",
-                "genome"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "human somatic cells have 46 chromosomes",
-              "q_hits": [
-                "cell"
-              ],
-              "c_hits": [
-                "cell"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "a genome is a cell DNA packaged as double-stranded molecule",
+            "property_hits": [
+              "dna",
+              "genome"
+            ],
+            "terminus_words": [
+              "genome"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "C",
           "text": "conversion of the host's genome into the viral DNA",
-          "score": 3.0,
-          "scored_by": "path-fallback",
-          "path": 2.0,
-          "terminus": 1.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 23,
+          "polarity_skips": 3,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "a genome is a cell DNA packaged as double-stranded molecule",
-              "q_hits": [
-                "cell"
-              ],
-              "c_hits": [
-                "dna",
-                "genome"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "interphase is the phase where the cell grows and DNA is replicated",
-              "q_hits": [
-                "cell"
-              ],
-              "c_hits": [
-                "dna"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "a genome is a cell DNA packaged as double-stranded molecule",
+            "property_hits": [
+              "dna",
+              "genome"
+            ],
+            "terminus_words": [
+              "genome"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "D",
           "text": "release of spores into the mammalian cell",
-          "score": 28.0,
-          "scored_by": "path-fallback",
-          "path": 23.0,
-          "terminus": 5.0,
+          "score": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 23,
+          "polarity_skips": 3,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "the cell cycle is an orderly sequence of events in cell reproduction",
-              "q_hits": [
-                "cell"
-              ],
-              "c_hits": [
-                "cell"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "a genome is a cell DNA packaged as double-stranded molecule",
-              "q_hits": [
-                "cell"
-              ],
-              "c_hits": [
-                "cell"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "human somatic cells have 46 chromosomes",
-              "q_hits": [
-                "cell"
-              ],
-              "c_hits": [
-                "cell"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": null
         }
       ]
     },
@@ -3768,8 +3423,8 @@
       "correct_text": "RNA replication lacks the proofreading functions characteristic of DNA replication.",
       "pick": "D",
       "outcome": "correct",
-      "best_score": 2.0,
-      "gap_pct": 50.0,
+      "best_score": 4.0,
+      "gap_pct": 75.0,
       "regions": [
         "genetics",
         "cell_division",
@@ -3877,9 +3532,9 @@
         {
           "letter": "D",
           "text": "RNA replication lacks the proofreading functions characteristic of DNA replication.",
-          "score": 2.0,
+          "score": 4.0,
           "scored_by": "property",
-          "property_score": 2.0,
+          "property_score": 4.0,
           "temp": 0.0,
           "topic_relevant_paths": 5,
           "polarity_skips": 0,
@@ -3889,6 +3544,8 @@
             "source": "RNA replication lacks proofreading functions",
             "property_hits": [
               "function",
+              "lack",
+              "proofreading",
               "rna"
             ],
             "terminus_words": [
@@ -3906,10 +3563,10 @@
       "question": "Which is a true statement concerning genetic variation?",
       "correct": "C",
       "correct_text": "It must be present in a population before natural selection can act upon the population.",
-      "pick": "-",
-      "outcome": "tie",
+      "pick": "C",
+      "outcome": "correct",
       "best_score": 4.0,
-      "gap_pct": 0.0,
+      "gap_pct": 50.0,
       "regions": [
         "evolution",
         "cell_division",
@@ -3936,109 +3593,82 @@
         {
           "letter": "A",
           "text": "It is created by the direct action of natural selection.",
-          "score": 4.0,
-          "scored_by": "path-fallback",
-          "path": 3.0,
-          "terminus": 1.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "genetic variation must be present before natural selection can act",
-              "q_hits": [
-                "genetic",
-                "variation"
-              ],
-              "c_hits": [
-                "natural",
-                "selection"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "natural selection requires existing variation in a population",
-              "q_hits": [
-                "variation"
-              ],
-              "c_hits": [
-                "natural",
-                "selection"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "genetic variation must be present before natural selection can act",
+            "property_hits": [
+              "natural",
+              "selection"
+            ],
+            "terminus_words": [
+              "genetic",
+              "must",
+              "variation"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "B",
           "text": "It arises in response to changes in the environment.",
           "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": null
         },
         {
           "letter": "C",
           "text": "It must be present in a population before natural selection can act upon the population.",
           "score": 4.0,
-          "scored_by": "path-fallback",
-          "path": 3.0,
-          "terminus": 1.0,
+          "scored_by": "property",
+          "property_score": 4.0,
           "temp": 0.0,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [
-            {
-              "source": "genetic variation must be present before natural selection can act",
-              "q_hits": [
-                "genetic",
-                "variation"
-              ],
-              "c_hits": [
-                "act",
-                "natural",
-                "present",
-                "selection"
-              ],
-              "path_negated": false
-            },
-            {
-              "source": "natural selection requires existing variation in a population",
-              "q_hits": [
-                "variation"
-              ],
-              "c_hits": [
-                "natural",
-                "population",
-                "selection"
-              ],
-              "path_negated": false
-            }
-          ],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "genetic variation must be present before natural selection can act",
+            "property_hits": [
+              "act",
+              "natural",
+              "present",
+              "selection"
+            ],
+            "terminus_words": [
+              "genetic",
+              "must",
+              "variation"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "D",
           "text": "It tends to be reduced by the processes involved when diploid organisms produce gametes.",
           "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": null
         }
       ]
     }

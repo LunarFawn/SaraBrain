@@ -1,0 +1,4078 @@
+{
+  "accuracy_of_answered": 0.5789473684210527,
+  "coverage": 0.5757575757575758,
+  "correct": 11,
+  "wrong": 8,
+  "abstained": 14,
+  "total": 33,
+  "seconds": 1.631619930267334,
+  "abstain_threshold": 1.0,
+  "results": [
+    {
+      "id": 5,
+      "question": "Which of the following would most likely provide examples of mitotic cell divisions?",
+      "correct": "C",
+      "correct_text": "longitudinal section of a shoot tip",
+      "pick": "A",
+      "outcome": "wrong",
+      "best_score": 1.0,
+      "gap_pct": 100.0,
+      "regions": [
+        "cell_cycle",
+        "cell_cycle_control",
+        "cancer"
+      ],
+      "q_lemmas": [
+        "provide",
+        "mitotic",
+        "cell",
+        "division"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "longitudinal",
+        "section",
+        "shoot",
+        "tip"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "cross section of muscle tissue",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "metastasis is the spread of cancer cells to other tissues",
+              "q_hits": [
+                "cell"
+              ],
+              "c_hits": [
+                "tissue"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "cross section of an anther (site of pollen production in a flower)",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "C",
+          "text": "longitudinal section of a shoot tip",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "D",
+          "text": "cross section of a leaf",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "question": "Mules are relatively long-lived and hardy organisms that cannot, generally speaking, perform successful meiosis. Consequently, which statement about mules is true?",
+      "correct": "A",
+      "correct_text": "They have a relative evolutionary fitness of zero.",
+      "pick": "D",
+      "outcome": "wrong",
+      "best_score": 5.0,
+      "gap_pct": 40.0,
+      "regions": [
+        "meiosis",
+        "cell_division",
+        "genetics"
+      ],
+      "q_lemmas": [
+        "mule",
+        "live",
+        "hardy",
+        "organism",
+        "speak",
+        "perform",
+        "successful",
+        "meiosis",
+        "meiosi",
+        "statement"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "relative",
+        "evolutionary",
+        "fitness",
+        "zero"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "They have a relative evolutionary fitness of zero.",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "B",
+          "text": "Their offspring have less genetic variation than the parents.",
+          "score": 3.0,
+          "path": 3.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "daughter cells from meiosis are not identical to parent cells",
+              "q_hits": [
+                "meiosi"
+              ],
+              "c_hits": [
+                "parent"
+              ]
+            },
+            {
+              "source": "meiosis errors are a source of genetic variation",
+              "q_hits": [
+                "meiosi",
+                "meiosis"
+              ],
+              "c_hits": [
+                "genetic",
+                "variation"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "Mutations cannot occur in their genomes.",
+          "score": 2.0,
+          "path": 1.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "crossing-over occurs during prophase I of meiosis",
+              "q_hits": [
+                "meiosi",
+                "meiosis"
+              ],
+              "c_hits": [
+                "occur"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "If crossing-over happens in mules, then it must be limited to prophase of mitosis.",
+          "score": 5.0,
+          "path": 3.0,
+          "terminus": 2.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "mules are organisms that cannot perform meiosis",
+              "q_hits": [
+                "meiosi",
+                "meiosis",
+                "mule",
+                "organism",
+                "perform"
+              ],
+              "c_hits": [
+                "mule"
+              ]
+            },
+            {
+              "source": "crossing-over occurs during prophase I of meiosis",
+              "q_hits": [
+                "meiosi",
+                "meiosis"
+              ],
+              "c_hits": [
+                "crossing",
+                "over",
+                "prophase"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "question": "Which of the following statements best describes what a Barr body is and its significance?",
+      "correct": "C",
+      "correct_text": "It is an inactivated X chromosome and results in females with half their cells having one X inactivated and the other half of their cells having the other X inactivated.",
+      "pick": "-",
+      "outcome": "abstain",
+      "best_score": 0.0,
+      "gap_pct": 0.0,
+      "regions": [
+        "genetics",
+        "cell_division",
+        "cell_cycle_control"
+      ],
+      "q_lemmas": [
+        "follow",
+        "statement",
+        "good",
+        "describe",
+        "barr",
+        "body",
+        "significance"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "inactivated",
+        "chromosome",
+        "result",
+        "female",
+        "cell",
+        "one",
+        "inactivate",
+        "other",
+        "half"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "It is an inactivated Y chromosome and results in a man being sterile.",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "B",
+          "text": "It is an inactivated Y chromosome, and the person who has it appears female.",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "C",
+          "text": "It is an inactivated X chromosome and results in females with half their cells having one X inactivated and the other half of their cells having the other X inactivated.",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "D",
+          "text": "It is an inactivated X chromosome and results in females who are sterile.",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "question": "The development of an egg without fertilization is known as",
+      "correct": "B",
+      "correct_text": "parthenogenesis",
+      "pick": "-",
+      "outcome": "tie",
+      "best_score": 2.0,
+      "gap_pct": 0.0,
+      "regions": [
+        "reproduction",
+        "genetics",
+        "meiosis"
+      ],
+      "q_lemmas": [
+        "development",
+        "egg",
+        "fertilization",
+        "know"
+      ],
+      "q_temporal": {
+        "preps": [
+          "as"
+        ],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "parthenogenesis",
+        "parthenogenesi"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "meiosis",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "B",
+          "text": "parthenogenesis",
+          "score": 2.0,
+          "path": 1.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "parthenogenesis is development of an egg without fertilization",
+              "q_hits": [
+                "development",
+                "egg",
+                "fertilization"
+              ],
+              "c_hits": [
+                "parthenogenesi"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "embryogenesis",
+          "score": 2.0,
+          "path": 1.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "embryogenesis is development of an embryo after fertilization",
+              "q_hits": [
+                "development",
+                "fertilization"
+              ],
+              "c_hits": [
+                "embryogenesi"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "vegetative propagation",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "question": "Which of the following contributes the MOST to genetic variability in a population?",
+      "correct": "D",
+      "correct_text": "Mutation",
+      "pick": "D",
+      "outcome": "correct",
+      "best_score": 2.0,
+      "gap_pct": 100.0,
+      "regions": [
+        "genetics",
+        "reproduction",
+        "prokaryotic_division"
+      ],
+      "q_lemmas": [
+        "contribute",
+        "genetic",
+        "variability",
+        "population"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "mutation"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Sporulation",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "B",
+          "text": "Binary fission",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "C",
+          "text": "Vegetative propagation",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "D",
+          "text": "Mutation",
+          "score": 2.0,
+          "path": 1.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "mutation is the greatest source of genetic variability",
+              "q_hits": [
+                "genetic",
+                "variability"
+              ],
+              "c_hits": [
+                "mutation"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "question": "In humans, fertilization normally occurs in the",
+      "correct": "B",
+      "correct_text": "fallopian tube",
+      "pick": "-",
+      "outcome": "abstain",
+      "best_score": 0.0,
+      "gap_pct": 0.0,
+      "regions": [
+        "reproduction",
+        "cell_division",
+        "prokaryotic_division"
+      ],
+      "q_lemmas": [
+        "human",
+        "fertilization",
+        "occur"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "fallopian",
+        "tube"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "ovary",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "B",
+          "text": "fallopian tube",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "C",
+          "text": "uterus",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "D",
+          "text": "placenta",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "question": "During which phase of the cell cycle does the quantity of DNA in a eukaryotic cell typically double?",
+      "correct": "D",
+      "correct_text": "S",
+      "pick": "D",
+      "outcome": "correct",
+      "best_score": 5.0,
+      "gap_pct": 100.0,
+      "regions": [
+        "cell_cycle",
+        "cell_division",
+        "cell_cycle_control"
+      ],
+      "q_lemmas": [
+        "phase",
+        "cell",
+        "cycle",
+        "quantity",
+        "dna",
+        "eukaryotic",
+        "double"
+      ],
+      "q_temporal": {
+        "preps": [
+          "during"
+        ],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "s"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "G_1",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "B",
+          "text": "G_2",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "C",
+          "text": "M",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "D",
+          "text": "S",
+          "score": 5.0,
+          "path": 3.0,
+          "terminus": 2.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "S phase is when DNA is synthesized and replicated",
+              "q_hits": [
+                "dna",
+                "phase"
+              ],
+              "c_hits": [
+                "s"
+              ]
+            },
+            {
+              "source": "G1 precedes S phase",
+              "q_hits": [
+                "phase"
+              ],
+              "c_hits": [
+                "s"
+              ]
+            },
+            {
+              "source": "S phase precedes G2",
+              "q_hits": [
+                "phase"
+              ],
+              "c_hits": [
+                "s"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "question": "Crossover would most likely occur in which situation?",
+      "correct": "D",
+      "correct_text": "Gene 1 is located on chromosome A; gene 2 is located far away but on the same chromosome.",
+      "pick": "-",
+      "outcome": "tie",
+      "best_score": 1.0,
+      "gap_pct": 0.0,
+      "regions": [
+        "cell_division",
+        "meiosis",
+        "prokaryotic_division"
+      ],
+      "q_lemmas": [
+        "crossover",
+        "occur",
+        "situation"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "gene",
+        "locate",
+        "chromosome",
+        "same"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Two genes (1 and 2) are located right next to each other on chromosome A.",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "crossover is more likely between genes that are far apart on the same chromosome",
+              "q_hits": [
+                "crossover"
+              ],
+              "c_hits": [
+                "chromosome",
+                "gene"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "Gene 1 is located on chromosome A, and gene 2 is on chromosome B.",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "crossover is more likely between genes that are far apart on the same chromosome",
+              "q_hits": [
+                "crossover"
+              ],
+              "c_hits": [
+                "chromosome",
+                "gene"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "Genes 1 and 2 are located near each other on the X chromosome.",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "crossover is more likely between genes that are far apart on the same chromosome",
+              "q_hits": [
+                "crossover"
+              ],
+              "c_hits": [
+                "chromosome",
+                "gene"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "Gene 1 is located on chromosome A; gene 2 is located far away but on the same chromosome.",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "crossover is more likely between genes that are far apart on the same chromosome",
+              "q_hits": [
+                "crossover"
+              ],
+              "c_hits": [
+                "chromosome",
+                "gene",
+                "same"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "question": "In modern terminology, diversity is understood to be a result of genetic variation. Sources of variation for evolution include all of the following except",
+      "correct": "A",
+      "correct_text": "mistakes in translation of structural genes.",
+      "pick": "C",
+      "outcome": "wrong",
+      "best_score": 7.0,
+      "gap_pct": 14.3,
+      "regions": [
+        "genetics",
+        "cell_division",
+        "reproduction"
+      ],
+      "q_lemmas": [
+        "modern",
+        "terminology",
+        "diversity",
+        "understand",
+        "result",
+        "genetic",
+        "variation",
+        "source",
+        "evolution",
+        "include"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": [
+          "result"
+        ]
+      },
+      "correct_lemmas": [
+        "mistake",
+        "translation",
+        "structural",
+        "gene"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "mistakes in translation of structural genes.",
+          "score": 5.0,
+          "path": 3.0,
+          "terminus": 2.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "translation mistakes are not a source of genetic variation for evolution",
+              "q_hits": [
+                "evolution",
+                "genetic",
+                "source",
+                "variation"
+              ],
+              "c_hits": [
+                "mistake",
+                "translation"
+              ]
+            },
+            {
+              "source": "DNA replication mistakes are a source of genetic variation",
+              "q_hits": [
+                "genetic",
+                "source",
+                "variation"
+              ],
+              "c_hits": [
+                "mistake"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "mistakes in DNA replication.",
+          "score": 6.0,
+          "path": 4.0,
+          "terminus": 2.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "translation mistakes are not a source of genetic variation for evolution",
+              "q_hits": [
+                "evolution",
+                "genetic",
+                "source",
+                "variation"
+              ],
+              "c_hits": [
+                "mistake"
+              ]
+            },
+            {
+              "source": "DNA replication mistakes are a source of genetic variation",
+              "q_hits": [
+                "genetic",
+                "source",
+                "variation"
+              ],
+              "c_hits": [
+                "dna",
+                "mistake",
+                "replication"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "translocations and mistakes in meiosis.",
+          "score": 7.0,
+          "path": 4.0,
+          "terminus": 3.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "translation mistakes are not a source of genetic variation for evolution",
+              "q_hits": [
+                "evolution",
+                "genetic",
+                "source",
+                "variation"
+              ],
+              "c_hits": [
+                "mistake"
+              ]
+            },
+            {
+              "source": "DNA replication mistakes are a source of genetic variation",
+              "q_hits": [
+                "genetic",
+                "source",
+                "variation"
+              ],
+              "c_hits": [
+                "mistake"
+              ]
+            },
+            {
+              "source": "meiosis errors are a source of genetic variation",
+              "q_hits": [
+                "genetic",
+                "source",
+                "variation"
+              ],
+              "c_hits": [
+                "meiosi",
+                "meiosis"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "recombination at fertilization.",
+          "score": 3.0,
+          "path": 2.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "recombination at fertilization is a source of genetic variation",
+              "q_hits": [
+                "genetic",
+                "source",
+                "variation"
+              ],
+              "c_hits": [
+                "fertilization",
+                "recombination"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "question": "All of the following are modes of asexual reproduction EXCEPT",
+      "correct": "D",
+      "correct_text": "meiosis",
+      "pick": "D",
+      "outcome": "correct",
+      "best_score": 6.0,
+      "gap_pct": 33.3,
+      "regions": [
+        "reproduction",
+        "genetics",
+        "meiosis"
+      ],
+      "q_lemmas": [
+        "mode",
+        "asexual",
+        "reproduction",
+        "except"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "meiosis",
+        "meiosi"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "sporulation",
+          "score": 4.0,
+          "path": 2.0,
+          "terminus": 2.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "sporulation is a mode of asexual reproduction",
+              "q_hits": [
+                "asexual",
+                "mode",
+                "reproduction"
+              ],
+              "c_hits": [
+                "sporulation"
+              ]
+            },
+            {
+              "source": "sporulation is a form of asexual reproduction",
+              "q_hits": [
+                "asexual",
+                "reproduction"
+              ],
+              "c_hits": [
+                "sporulation"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "fission",
+          "score": 2.0,
+          "path": 1.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "fission is a mode of asexual reproduction",
+              "q_hits": [
+                "asexual",
+                "mode",
+                "reproduction"
+              ],
+              "c_hits": [
+                "fission"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "budding",
+          "score": 2.0,
+          "path": 1.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "budding is a mode of asexual reproduction",
+              "q_hits": [
+                "asexual",
+                "mode",
+                "reproduction"
+              ],
+              "c_hits": [
+                "bud"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "meiosis",
+          "score": 6.0,
+          "path": 3.0,
+          "terminus": 3.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "meiosis is not a mode of asexual reproduction",
+              "q_hits": [
+                "asexual",
+                "mode",
+                "reproduction"
+              ],
+              "c_hits": [
+                "meiosi"
+              ]
+            },
+            {
+              "source": "meiosis is sexual reproduction",
+              "q_hits": [
+                "reproduction"
+              ],
+              "c_hits": [
+                "meiosi"
+              ]
+            },
+            {
+              "source": "meiosis is required for sexual reproduction",
+              "q_hits": [
+                "reproduction"
+              ],
+              "c_hits": [
+                "meiosi"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "question": "Imagine an organism whose 2n = 96. Meiosis would leave this organism\u2019s cells with how many chromosomes?",
+      "correct": "C",
+      "correct_text": "48",
+      "pick": "-",
+      "outcome": "abstain",
+      "best_score": 0.0,
+      "gap_pct": 0.0,
+      "regions": [
+        "genetics",
+        "meiosis",
+        "cell_division"
+      ],
+      "q_lemmas": [
+        "imagine",
+        "organism",
+        "meiosis",
+        "meiosi",
+        "leave",
+        "cell",
+        "many",
+        "chromosome"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "48"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "192",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "B",
+          "text": "96",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "C",
+          "text": "48",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "D",
+          "text": "24",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "question": "Which of the following is NOT a characteristic of asexual reproduction in animals?",
+      "correct": "D",
+      "correct_text": "The daughter cells fuse to form a zygote.",
+      "pick": "-",
+      "outcome": "tie",
+      "best_score": 3.0,
+      "gap_pct": 0.0,
+      "regions": [
+        "meiosis",
+        "cell_division",
+        "cell_cycle"
+      ],
+      "q_lemmas": [
+        "characteristic",
+        "asexual",
+        "reproduction",
+        "animal"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "daughter",
+        "cell",
+        "fuse",
+        "form",
+        "zygote"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Daughter cells have the same number of chromosomes as the parent cell.",
+          "score": 3.0,
+          "path": 2.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "the cell cycle is an orderly sequence of events in cell reproduction",
+              "q_hits": [
+                "reproduction"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            },
+            {
+              "source": "a cleavage furrow is an actin ring that pinches animal cells in two",
+              "q_hits": [
+                "animal"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "Daughter cells are identical to the parent cell.",
+          "score": 3.0,
+          "path": 2.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "the cell cycle is an orderly sequence of events in cell reproduction",
+              "q_hits": [
+                "reproduction"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            },
+            {
+              "source": "a cleavage furrow is an actin ring that pinches animal cells in two",
+              "q_hits": [
+                "animal"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "The parent cell produces diploid cells.",
+          "score": 3.0,
+          "path": 2.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "the cell cycle is an orderly sequence of events in cell reproduction",
+              "q_hits": [
+                "reproduction"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            },
+            {
+              "source": "a cleavage furrow is an actin ring that pinches animal cells in two",
+              "q_hits": [
+                "animal"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "The daughter cells fuse to form a zygote.",
+          "score": 3.0,
+          "path": 2.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "the cell cycle is an orderly sequence of events in cell reproduction",
+              "q_hits": [
+                "reproduction"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            },
+            {
+              "source": "a cleavage furrow is an actin ring that pinches animal cells in two",
+              "q_hits": [
+                "animal"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 107,
+      "question": "Crossing-over during meiosis permits scientists to determine",
+      "correct": "C",
+      "correct_text": "the distance between genes on a chromosome",
+      "pick": "C",
+      "outcome": "correct",
+      "best_score": 7.0,
+      "gap_pct": 85.7,
+      "regions": [
+        "genetics",
+        "meiosis",
+        "cell_division"
+      ],
+      "q_lemmas": [
+        "crossing",
+        "meiosis",
+        "meiosi",
+        "permit",
+        "scientist",
+        "determine"
+      ],
+      "q_temporal": {
+        "preps": [
+          "during"
+        ],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "distance",
+        "gene",
+        "chromosome"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "the chance for variation in zygotes",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "meiosis errors are a source of genetic variation",
+              "q_hits": [
+                "meiosi",
+                "meiosis"
+              ],
+              "c_hits": [
+                "variation"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "the rate of mutations",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "C",
+          "text": "the distance between genes on a chromosome",
+          "score": 7.0,
+          "path": 5.0,
+          "terminus": 2.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "crossing-over frequency is proportional to distance between genes",
+              "q_hits": [
+                "crossing"
+              ],
+              "c_hits": [
+                "distance",
+                "gene"
+              ]
+            },
+            {
+              "source": "meiosis reduces chromosome number by half",
+              "q_hits": [
+                "meiosi"
+              ],
+              "c_hits": [
+                "chromosome"
+              ]
+            },
+            {
+              "source": "homologous chromosomes separate during meiosis I",
+              "q_hits": [
+                "meiosi",
+                "meiosis"
+              ],
+              "c_hits": [
+                "chromosome"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "which traits are dominant or recessive",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        }
+      ]
+    },
+    {
+      "id": 117,
+      "question": "Which of the following statements is NOT correct about apoptosis?",
+      "correct": "A",
+      "correct_text": "Apoptosis, a special type of cell division, requires multiple cell signaling.",
+      "pick": "-",
+      "outcome": "tie",
+      "best_score": 8.0,
+      "gap_pct": 0.0,
+      "regions": [
+        "cancer",
+        "cell_division",
+        "cell_cycle"
+      ],
+      "q_lemmas": [
+        "follow",
+        "statement",
+        "apoptosis",
+        "apoptosi"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "apoptosis",
+        "apoptosi",
+        "special",
+        "type",
+        "cell",
+        "division",
+        "require",
+        "multiple",
+        "signal"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Apoptosis, a special type of cell division, requires multiple cell signaling.",
+          "score": 8.0,
+          "path": 4.0,
+          "terminus": 4.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "apoptosis is programmed cell death",
+              "q_hits": [
+                "apoptosi"
+              ],
+              "c_hits": [
+                "apoptosi",
+                "cell"
+              ]
+            },
+            {
+              "source": "apoptosis is a normal process that eliminates damaged cells",
+              "q_hits": [
+                "apoptosi"
+              ],
+              "c_hits": [
+                "apoptosi",
+                "cell"
+              ]
+            },
+            {
+              "source": "apoptosis is not a type of cell division",
+              "q_hits": [
+                "apoptosi"
+              ],
+              "c_hits": [
+                "apoptosi",
+                "cell",
+                "division",
+                "type"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "The fact that apoptosis is widespread across several kingdoms is evidence that it evolved early in the evolution of eukaryotes.",
+          "score": 8.0,
+          "path": 4.0,
+          "terminus": 4.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "apoptosis is programmed cell death",
+              "q_hits": [
+                "apoptosi"
+              ],
+              "c_hits": [
+                "apoptosi"
+              ]
+            },
+            {
+              "source": "apoptosis is a normal process that eliminates damaged cells",
+              "q_hits": [
+                "apoptosi"
+              ],
+              "c_hits": [
+                "apoptosi"
+              ]
+            },
+            {
+              "source": "apoptosis is not a type of cell division",
+              "q_hits": [
+                "apoptosi"
+              ],
+              "c_hits": [
+                "apoptosi"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "Apoptosis plays a crucial role in the development of fingers in embryonic development.",
+          "score": 8.0,
+          "path": 4.0,
+          "terminus": 4.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "apoptosis is programmed cell death",
+              "q_hits": [
+                "apoptosi"
+              ],
+              "c_hits": [
+                "apoptosi"
+              ]
+            },
+            {
+              "source": "apoptosis is a normal process that eliminates damaged cells",
+              "q_hits": [
+                "apoptosi"
+              ],
+              "c_hits": [
+                "apoptosi"
+              ]
+            },
+            {
+              "source": "apoptosis is not a type of cell division",
+              "q_hits": [
+                "apoptosi"
+              ],
+              "c_hits": [
+                "apoptosi"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "Apoptosis prevents an aging and dying cell from damaging neighboring cells.",
+          "score": 8.0,
+          "path": 4.0,
+          "terminus": 4.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "apoptosis is programmed cell death",
+              "q_hits": [
+                "apoptosi"
+              ],
+              "c_hits": [
+                "apoptosi",
+                "cell"
+              ]
+            },
+            {
+              "source": "apoptosis is a normal process that eliminates damaged cells",
+              "q_hits": [
+                "apoptosi"
+              ],
+              "c_hits": [
+                "apoptosi",
+                "cell",
+                "damage"
+              ]
+            },
+            {
+              "source": "apoptosis is not a type of cell division",
+              "q_hits": [
+                "apoptosi"
+              ],
+              "c_hits": [
+                "apoptosi",
+                "cell"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 124,
+      "question": "Females with Turner's syndrome have a high incidence of hemophilia, a recessive, X-linked trait. Based on this information, it can be inferred that females with this condition",
+      "correct": "C",
+      "correct_text": "lack an X chromosome",
+      "pick": "-",
+      "outcome": "tie",
+      "best_score": 1.0,
+      "gap_pct": 0.0,
+      "regions": [
+        "genetics",
+        "cell_division",
+        "cell_cycle_control"
+      ],
+      "q_lemmas": [
+        "female",
+        "turner",
+        "syndrome",
+        "high",
+        "incidence",
+        "hemophilia",
+        "recessive",
+        "link",
+        "trait",
+        "base",
+        "information",
+        "infer",
+        "condition"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "lack",
+        "chromosome"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "have an extra X chromosome",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "Turner syndrome is caused by lacking an X chromosome",
+              "q_hits": [
+                "syndrome",
+                "turner"
+              ],
+              "c_hits": [
+                "chromosome"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "have an extra Y chromosome",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "Turner syndrome is caused by lacking an X chromosome",
+              "q_hits": [
+                "syndrome",
+                "turner"
+              ],
+              "c_hits": [
+                "chromosome"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "lack an X chromosome",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "Turner syndrome is caused by lacking an X chromosome",
+              "q_hits": [
+                "syndrome",
+                "turner"
+              ],
+              "c_hits": [
+                "chromosome"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "have red blood cells that clump",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "X-inactivation is random in each cell of a female embryo",
+              "q_hits": [
+                "female"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 132,
+      "question": "Regarding meiosis and mitosis, one difference between the two forms of cellular reproduction is that in meiosis",
+      "correct": "B",
+      "correct_text": "separation of sister chromatids occurs during the second division, whereas in mitosis separation of sister chromatids occurs during the first division",
+      "pick": "A",
+      "outcome": "wrong",
+      "best_score": 26.0,
+      "gap_pct": 15.4,
+      "regions": [
+        "cell_cycle",
+        "cell_division",
+        "prokaryotic_division"
+      ],
+      "q_lemmas": [
+        "regard",
+        "meiosis",
+        "meiosi",
+        "mitosis",
+        "mitosi",
+        "one",
+        "difference",
+        "two",
+        "form",
+        "cellular",
+        "reproduction"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "separation",
+        "sister",
+        "chromatids",
+        "chromatid",
+        "occur",
+        "second",
+        "division",
+        "mitosis",
+        "mitosi",
+        "first"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "there is one round of cell division, whereas in mitosis there are two rounds of cell division",
+          "score": 26.0,
+          "path": 22.0,
+          "terminus": 4.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "the cell cycle has two major phases interphase and mitotic phase",
+              "q_hits": [
+                "two"
+              ],
+              "c_hits": [
+                "cell",
+                "two"
+              ]
+            },
+            {
+              "source": "G2 phase is the second gap where the cell prepares for mitosis",
+              "q_hits": [
+                "mitosi",
+                "mitosis"
+              ],
+              "c_hits": [
+                "cell",
+                "mitosi",
+                "mitosis"
+              ]
+            },
+            {
+              "source": "G2 precedes mitosis",
+              "q_hits": [
+                "mitosi",
+                "mitosis"
+              ],
+              "c_hits": [
+                "mitosi",
+                "mitosis"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "separation of sister chromatids occurs during the second division, whereas in mitosis separation of sister chromatids occurs during the first division",
+          "score": 20.0,
+          "path": 17.0,
+          "terminus": 3.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "G2 phase is the second gap where the cell prepares for mitosis",
+              "q_hits": [
+                "mitosi",
+                "mitosis"
+              ],
+              "c_hits": [
+                "mitosi",
+                "mitosis",
+                "second"
+              ]
+            },
+            {
+              "source": "G2 precedes mitosis",
+              "q_hits": [
+                "mitosi",
+                "mitosis"
+              ],
+              "c_hits": [
+                "mitosi",
+                "mitosis"
+              ]
+            },
+            {
+              "source": "mitosis is division of the nucleus into two daughter nuclei",
+              "q_hits": [
+                "mitosi",
+                "two"
+              ],
+              "c_hits": [
+                "division",
+                "mitosi"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "chromosomes are replicated during interphase, whereas in mitosis chromosomes are replicated during prophase",
+          "score": 22.0,
+          "path": 19.0,
+          "terminus": 3.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "the cell cycle has two major phases interphase and mitotic phase",
+              "q_hits": [
+                "two"
+              ],
+              "c_hits": [
+                "interphase"
+              ]
+            },
+            {
+              "source": "G2 phase is the second gap where the cell prepares for mitosis",
+              "q_hits": [
+                "mitosi",
+                "mitosis"
+              ],
+              "c_hits": [
+                "mitosi",
+                "mitosis"
+              ]
+            },
+            {
+              "source": "G2 precedes mitosis",
+              "q_hits": [
+                "mitosi",
+                "mitosis"
+              ],
+              "c_hits": [
+                "mitosi",
+                "mitosis"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "spindle fibers form during prophase, whereas in mitosis the spindle fibers form during metaphase",
+          "score": 20.0,
+          "path": 16.0,
+          "terminus": 4.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "G2 phase is the second gap where the cell prepares for mitosis",
+              "q_hits": [
+                "mitosi",
+                "mitosis"
+              ],
+              "c_hits": [
+                "mitosi",
+                "mitosis"
+              ]
+            },
+            {
+              "source": "G2 precedes mitosis",
+              "q_hits": [
+                "mitosi",
+                "mitosis"
+              ],
+              "c_hits": [
+                "mitosi",
+                "mitosis"
+              ]
+            },
+            {
+              "source": "mitosis is division of the nucleus into two daughter nuclei",
+              "q_hits": [
+                "mitosi",
+                "two"
+              ],
+              "c_hits": [
+                "mitosi"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 133,
+      "question": "Which of the following about meiosis is NOT true?",
+      "correct": "C",
+      "correct_text": "Sister chromatids separate during meiosis I.",
+      "pick": "C",
+      "outcome": "correct",
+      "best_score": 26.0,
+      "gap_pct": 11.5,
+      "regions": [
+        "meiosis",
+        "cell_division",
+        "genetics"
+      ],
+      "q_lemmas": [
+        "meiosis",
+        "meiosi"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "sister",
+        "chromatid",
+        "separate",
+        "meiosis",
+        "meiosi"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Meiosis produces two haploid gametes.",
+          "score": 23.0,
+          "path": 17.0,
+          "terminus": 6.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "mules are organisms that cannot perform meiosis",
+              "q_hits": [
+                "meiosi",
+                "meiosis"
+              ],
+              "c_hits": [
+                "meiosi",
+                "meiosis"
+              ]
+            },
+            {
+              "source": "meiosis is required for sexual reproduction",
+              "q_hits": [
+                "meiosi"
+              ],
+              "c_hits": [
+                "meiosi"
+              ]
+            },
+            {
+              "source": "meiosis reduces chromosome number by half",
+              "q_hits": [
+                "meiosi"
+              ],
+              "c_hits": [
+                "meiosi"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "Homologous chromosomes join during synapsis.",
+          "score": 8.0,
+          "path": 6.0,
+          "terminus": 2.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "meiosis reduces chromosome number by half",
+              "q_hits": [
+                "meiosi"
+              ],
+              "c_hits": [
+                "chromosome"
+              ]
+            },
+            {
+              "source": "homologous chromosomes separate during meiosis I",
+              "q_hits": [
+                "meiosi",
+                "meiosis"
+              ],
+              "c_hits": [
+                "chromosome",
+                "homologou",
+                "homologous"
+              ]
+            },
+            {
+              "source": "homologous chromosomes separate during meiosis I",
+              "q_hits": [
+                "meiosi",
+                "meiosis"
+              ],
+              "c_hits": [
+                "chromosome",
+                "homologou",
+                "homologous"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "Sister chromatids separate during meiosis I.",
+          "score": 26.0,
+          "path": 17.0,
+          "terminus": 9.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "mules are organisms that cannot perform meiosis",
+              "q_hits": [
+                "meiosi",
+                "meiosis"
+              ],
+              "c_hits": [
+                "meiosi",
+                "meiosis"
+              ]
+            },
+            {
+              "source": "meiosis is required for sexual reproduction",
+              "q_hits": [
+                "meiosi"
+              ],
+              "c_hits": [
+                "meiosi"
+              ]
+            },
+            {
+              "source": "meiosis reduces chromosome number by half",
+              "q_hits": [
+                "meiosi"
+              ],
+              "c_hits": [
+                "meiosi"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "Crossing-over increases genetic variation in gametes.",
+          "score": 5.0,
+          "path": 4.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "meiosis produces four haploid gametes",
+              "q_hits": [
+                "meiosi"
+              ],
+              "c_hits": [
+                "gamete"
+              ]
+            },
+            {
+              "source": "crossing-over occurs during prophase I of meiosis",
+              "q_hits": [
+                "meiosi",
+                "meiosis"
+              ],
+              "c_hits": [
+                "crossing"
+              ]
+            },
+            {
+              "source": "meiosis errors are a source of genetic variation",
+              "q_hits": [
+                "meiosi",
+                "meiosis"
+              ],
+              "c_hits": [
+                "genetic",
+                "variation"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 170,
+      "question": "Which of the following statements about meiosis is correct?",
+      "correct": "D",
+      "correct_text": "The number of chromosomes is reduced.",
+      "pick": "C",
+      "outcome": "wrong",
+      "best_score": 24.0,
+      "gap_pct": 75.0,
+      "regions": [
+        "meiosis",
+        "cell_division",
+        "genetics"
+      ],
+      "q_lemmas": [
+        "follow",
+        "statement",
+        "meiosis",
+        "meiosi"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "number",
+        "chromosome",
+        "reduce"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "The daughter cells are genetically identical to the parent cells.",
+          "score": 2.0,
+          "path": 1.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "daughter cells from meiosis are not identical to parent cells",
+              "q_hits": [
+                "meiosi"
+              ],
+              "c_hits": [
+                "cell",
+                "daughter",
+                "identical",
+                "parent"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "Homologues pair during prophase II.",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "crossing-over occurs during prophase I of meiosis",
+              "q_hits": [
+                "meiosi",
+                "meiosis"
+              ],
+              "c_hits": [
+                "prophase"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "DNA replication occurs before meiosis I and meiosis II.",
+          "score": 24.0,
+          "path": 17.0,
+          "terminus": 7.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "mules are organisms that cannot perform meiosis",
+              "q_hits": [
+                "meiosi",
+                "meiosis"
+              ],
+              "c_hits": [
+                "meiosi",
+                "meiosis"
+              ]
+            },
+            {
+              "source": "meiosis is required for sexual reproduction",
+              "q_hits": [
+                "meiosi"
+              ],
+              "c_hits": [
+                "meiosi"
+              ]
+            },
+            {
+              "source": "meiosis reduces chromosome number by half",
+              "q_hits": [
+                "meiosi"
+              ],
+              "c_hits": [
+                "meiosi"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "The number of chromosomes is reduced.",
+          "score": 6.0,
+          "path": 4.0,
+          "terminus": 2.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "meiosis reduces chromosome number by half",
+              "q_hits": [
+                "meiosi"
+              ],
+              "c_hits": [
+                "chromosome",
+                "number"
+              ]
+            },
+            {
+              "source": "homologous chromosomes separate during meiosis I",
+              "q_hits": [
+                "meiosi",
+                "meiosis"
+              ],
+              "c_hits": [
+                "chromosome"
+              ]
+            },
+            {
+              "source": "homologous chromosomes separate during meiosis I",
+              "q_hits": [
+                "meiosi",
+                "meiosis"
+              ],
+              "c_hits": [
+                "chromosome"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 179,
+      "question": "Microtubules are protein filaments assembled from tubulin protein subunits. The chemical colchicine prevents the assembly of microtubules by binding to tubulin protein subunits. Which of the following cellular processes would be most impaired by the application of colchicine?",
+      "correct": "A",
+      "correct_text": "the alignment and separation of chromosomes during mitosis",
+      "pick": "B",
+      "outcome": "wrong",
+      "best_score": 5.0,
+      "gap_pct": 80.0,
+      "regions": [
+        "cell_cycle",
+        "cell_division",
+        "prokaryotic_division"
+      ],
+      "q_lemmas": [
+        "microtubule",
+        "protein",
+        "filament",
+        "assemble",
+        "tubulin",
+        "subunit",
+        "chemical",
+        "colchicine",
+        "prevent",
+        "assembly",
+        "bind",
+        "follow",
+        "cellular",
+        "process",
+        "impair",
+        "application"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "alignment",
+        "separation",
+        "chromosome",
+        "mitosis",
+        "mitosi"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "the alignment and separation of chromosomes during mitosis",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "genes are functional units of chromosomes that code for proteins",
+              "q_hits": [
+                "protein"
+              ],
+              "c_hits": [
+                "chromosome"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "the coordination of ribosomes and mRNA during protein synthesis",
+          "score": 5.0,
+          "path": 4.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "genes are functional units of chromosomes that code for proteins",
+              "q_hits": [
+                "protein"
+              ],
+              "c_hits": [
+                "protein"
+              ]
+            },
+            {
+              "source": "a nucleosome is DNA wrapped around eight histone proteins",
+              "q_hits": [
+                "protein"
+              ],
+              "c_hits": [
+                "protein"
+              ]
+            },
+            {
+              "source": "cohesin proteins are proteins that hold sister chromatids together",
+              "q_hits": [
+                "protein"
+              ],
+              "c_hits": [
+                "protein"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "the movement of substances across the plasma membrane",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "D",
+          "text": "the accumulation of protons inside the thylakoids of chloroplasts during chemiosmosis",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        }
+      ]
+    },
+    {
+      "id": 182,
+      "question": "Recently, seasonal dead zones in low-oxygen waters have been occurring annually in the Gulf of Mexico near the mouth of the Mississippi River. The dead zones result from the rapid growth of photosynthetic phytoplankton (algal blooms) and their subsequent decay by oxygen-depleting microbes in the water column. Which of the following factors most likely triggers the algal blooms and the associated dead zones?",
+      "correct": "C",
+      "correct_text": "A summer influx of nutrients derived from chemical fertilizers that are high in nitrogen and phosphorus",
+      "pick": "-",
+      "outcome": "abstain",
+      "best_score": 0.0,
+      "gap_pct": 0.0,
+      "regions": [
+        "cancer",
+        "cell_cycle_control",
+        "prokaryotic_division"
+      ],
+      "q_lemmas": [
+        "seasonal",
+        "dead",
+        "zone",
+        "low",
+        "oxygen",
+        "water",
+        "occur",
+        "gulf",
+        "mexico",
+        "mouth",
+        "mississippi",
+        "river",
+        "result",
+        "rapid",
+        "growth",
+        "photosynthetic",
+        "phytoplankton",
+        "algal",
+        "bloom",
+        "subsequent",
+        "decay",
+        "deplete",
+        "microbe",
+        "column",
+        "follow",
+        "factor",
+        "likely",
+        "trigger",
+        "associated"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": [
+          "result"
+        ]
+      },
+      "correct_lemmas": [
+        "summer",
+        "influx",
+        "nutrient",
+        "derive",
+        "chemical",
+        "fertilizer",
+        "high",
+        "nitrogen",
+        "phosphorus",
+        "phosphoru"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "A decrease in the light level in surface waters as day length starts to shorten after the summer solstice",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "B",
+          "text": "Increased predation by marine larvae and other zooplankton during the summer months",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "C",
+          "text": "A summer influx of nutrients derived from chemical fertilizers that are high in nitrogen and phosphorus",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "D",
+          "text": "Decreased competition from other marine phytoplankton during the summer months",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        }
+      ]
+    },
+    {
+      "id": 184,
+      "question": "In a hypothetical population's gene pool, an autosomal gene, which had previously been fixed, undergoes a mutation that introduces a new allele, one inherited according to incomplete dominance. Natural selection then causes stabilizing selection at this locus. Consequently, what should happen over the course of many generations?",
+      "correct": "D",
+      "correct_text": "Both A and C",
+      "pick": "B",
+      "outcome": "wrong",
+      "best_score": 3.0,
+      "gap_pct": 66.7,
+      "regions": [
+        "cell_division",
+        "genetics",
+        "cancer"
+      ],
+      "q_lemmas": [
+        "hypothetical",
+        "population",
+        "gene",
+        "pool",
+        "autosomal",
+        "fix",
+        "undergo",
+        "mutation",
+        "introduce",
+        "new",
+        "allele",
+        "inherit",
+        "accord",
+        "incomplete",
+        "dominance",
+        "natural",
+        "selection",
+        "cause",
+        "stabilize",
+        "locus",
+        "locu",
+        "happen",
+        "course",
+        "many",
+        "generation"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": [
+          "cause"
+        ]
+      },
+      "correct_lemmas": [
+        "both"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "The proportions of both types of homozygote should decrease.",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "new alleles decrease homozygote proportions",
+              "q_hits": [
+                "new"
+              ],
+              "c_hits": [
+                "decrease",
+                "homozygote",
+                "proportion"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "The proportion of the population that is heterozygous at this locus should remain constant.",
+          "score": 3.0,
+          "path": 2.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "a locus is the location of a gene on a chromosome",
+              "q_hits": [
+                "gene",
+                "locu"
+              ],
+              "c_hits": [
+                "locu"
+              ]
+            },
+            {
+              "source": "new alleles decrease homozygote proportions",
+              "q_hits": [
+                "new"
+              ],
+              "c_hits": [
+                "proportion"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "The population's average heterozygosity should increase.",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "D",
+          "text": "Both A and C",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        }
+      ]
+    },
+    {
+      "id": 191,
+      "question": "The geneticist Mary Lyon hypothesized the existence of structures visible just under the nuclear membrane in mammals, which were later named Barr bodies. Which of the following statement is NOT correct about Barr bodies?",
+      "correct": "B",
+      "correct_text": "The same chromosome in every cell of a normal female is inactivated.",
+      "pick": "-",
+      "outcome": "tie",
+      "best_score": 2.0,
+      "gap_pct": 0.0,
+      "regions": [
+        "genetics",
+        "cell_division",
+        "cell_cycle"
+      ],
+      "q_lemmas": [
+        "geneticist",
+        "mary",
+        "lyon",
+        "hypothesize",
+        "existence",
+        "structure",
+        "visible",
+        "nuclear",
+        "membrane",
+        "mammal",
+        "name",
+        "barr",
+        "body",
+        "follow",
+        "statement"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "same",
+        "chromosome",
+        "cell",
+        "normal",
+        "female",
+        "inactivate"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "In the early female embryo, one copy of the X chromosome becomes inactivated in every body cell.",
+          "score": 2.0,
+          "path": 1.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "a cell plate is a structure that divides plant cells",
+              "q_hits": [
+                "structure"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "The same chromosome in every cell of a normal female is inactivated.",
+          "score": 2.0,
+          "path": 1.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "a cell plate is a structure that divides plant cells",
+              "q_hits": [
+                "structure"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "A male with the XXY genotype will have one Barr body.",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "D",
+          "text": "Barr bodies consist of highly methylated DNA.",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        }
+      ]
+    },
+    {
+      "id": 196,
+      "question": "If two modern organisms are distantly related in an evolutionary sense, then one should expect that",
+      "correct": "B",
+      "correct_text": "they should share fewer homologous structures than two more closely related organisms.",
+      "pick": "B",
+      "outcome": "correct",
+      "best_score": 6.0,
+      "gap_pct": 66.7,
+      "regions": [
+        "cell_division",
+        "cell_cycle",
+        "meiosis"
+      ],
+      "q_lemmas": [
+        "two",
+        "modern",
+        "organism",
+        "related",
+        "evolutionary",
+        "sense",
+        "expect"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "share",
+        "few",
+        "homologous",
+        "homologou",
+        "structure",
+        "two",
+        "relate",
+        "organism"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "they live in very different habitats.",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "B",
+          "text": "they should share fewer homologous structures than two more closely related organisms.",
+          "score": 6.0,
+          "path": 6.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "diploid is two sets of chromosomes designated 2n",
+              "q_hits": [
+                "two"
+              ],
+              "c_hits": [
+                "two"
+              ]
+            },
+            {
+              "source": "sister chromatids are two identical copies of a replicated chromosome",
+              "q_hits": [
+                "two"
+              ],
+              "c_hits": [
+                "two"
+              ]
+            },
+            {
+              "source": "the cell cycle has two major phases interphase and mitotic phase",
+              "q_hits": [
+                "two"
+              ],
+              "c_hits": [
+                "two"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "their chromosomes should be very similar.",
+          "score": 2.0,
+          "path": 2.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "diploid is two sets of chromosomes designated 2n",
+              "q_hits": [
+                "two"
+              ],
+              "c_hits": [
+                "chromosome"
+              ]
+            },
+            {
+              "source": "sister chromatids are two identical copies of a replicated chromosome",
+              "q_hits": [
+                "two"
+              ],
+              "c_hits": [
+                "chromosome"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "they shared a common ancestor relatively recently.",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        }
+      ]
+    },
+    {
+      "id": 207,
+      "question": "Heterozygote advantage should be most closely linked to which of the following?",
+      "correct": "B",
+      "correct_text": "stabilizing selection",
+      "pick": "B",
+      "outcome": "correct",
+      "best_score": 2.0,
+      "gap_pct": 50.0,
+      "regions": [
+        "evolution",
+        "meiosis",
+        "genetics"
+      ],
+      "q_lemmas": [
+        "heterozygote",
+        "advantage",
+        "link"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "stabilize",
+        "selection"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "sexual selection",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "heterozygote advantage is linked to stabilizing selection",
+              "q_hits": [
+                "advantage",
+                "heterozygote",
+                "link"
+              ],
+              "c_hits": [
+                "selection"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "stabilizing selection",
+          "score": 2.0,
+          "path": 2.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "heterozygote advantage is linked to stabilizing selection",
+              "q_hits": [
+                "advantage",
+                "heterozygote",
+                "link"
+              ],
+              "c_hits": [
+                "selection",
+                "stabilize"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "random selection",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "heterozygote advantage is linked to stabilizing selection",
+              "q_hits": [
+                "advantage",
+                "heterozygote",
+                "link"
+              ],
+              "c_hits": [
+                "selection"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "directional selection",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "heterozygote advantage is linked to stabilizing selection",
+              "q_hits": [
+                "advantage",
+                "heterozygote",
+                "link"
+              ],
+              "c_hits": [
+                "selection"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 211,
+      "question": "All of the following support the endosymbiotic theory that ancestors of mitochondria and chloroplasts were once independent, free-living prokaryotes EXCEPT:",
+      "correct": "C",
+      "correct_text": "Mitochondria and chloroplasts function independently from the eukaryotic host cell.",
+      "pick": "-",
+      "outcome": "tie",
+      "best_score": 4.0,
+      "gap_pct": 0.0,
+      "regions": [
+        "cell_division",
+        "prokaryotic_division",
+        "cell_cycle_control"
+      ],
+      "q_lemmas": [
+        "support",
+        "endosymbiotic",
+        "theory",
+        "ancestor",
+        "mitochondria",
+        "chloroplast",
+        "independent",
+        "free",
+        "live",
+        "prokaryote",
+        "except"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "mitochondria",
+        "chloroplast",
+        "function",
+        "eukaryotic",
+        "host",
+        "cell"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Mitochondria and chloroplasts divide independently of the eukaryotic host cell by a process similar to binary fission.",
+          "score": 4.0,
+          "path": 2.0,
+          "terminus": 2.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "mitochondria have their own circular DNA like bacteria",
+              "q_hits": [
+                "mitochondria"
+              ],
+              "c_hits": [
+                "mitochondria"
+              ]
+            },
+            {
+              "source": "binary fission is how prokaryotes divide",
+              "q_hits": [
+                "prokaryote"
+              ],
+              "c_hits": [
+                "binary",
+                "divide",
+                "fission"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "Mitochondria and chloroplasts have ribosomes that more closely resemble those of bacteria than of eukaryotic cells.",
+          "score": 2.0,
+          "path": 1.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "mitochondria have their own circular DNA like bacteria",
+              "q_hits": [
+                "mitochondria"
+              ],
+              "c_hits": [
+                "bacteria",
+                "mitochondria"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "Mitochondria and chloroplasts function independently from the eukaryotic host cell.",
+          "score": 2.0,
+          "path": 1.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "mitochondria have their own circular DNA like bacteria",
+              "q_hits": [
+                "mitochondria"
+              ],
+              "c_hits": [
+                "mitochondria"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "Mitochondria, chloroplasts, and bacteria have a single, circular chromosome without histones or proteins.",
+          "score": 4.0,
+          "path": 3.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "mitochondria have their own circular DNA like bacteria",
+              "q_hits": [
+                "mitochondria"
+              ],
+              "c_hits": [
+                "bacteria",
+                "circular",
+                "mitochondria"
+              ]
+            },
+            {
+              "source": "prokaryotes have a single circular chromosome",
+              "q_hits": [
+                "prokaryote"
+              ],
+              "c_hits": [
+                "chromosome",
+                "circular",
+                "single"
+              ]
+            },
+            {
+              "source": "FtsZ is a protein that forms the division ring in prokaryotes",
+              "q_hits": [
+                "prokaryote"
+              ],
+              "c_hits": [
+                "protein"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 216,
+      "question": "Which of the following disorders will most likely result from X chromosome aneuploidy in women?",
+      "correct": "C",
+      "correct_text": "Turner syndrome",
+      "pick": "C",
+      "outcome": "correct",
+      "best_score": 2.0,
+      "gap_pct": 100.0,
+      "regions": [
+        "genetics",
+        "cell_division",
+        "cell_cycle_control"
+      ],
+      "q_lemmas": [
+        "follow",
+        "disorder",
+        "result",
+        "chromosome",
+        "aneuploidy",
+        "woman"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": [
+          "result"
+        ]
+      },
+      "correct_lemmas": [
+        "turner",
+        "syndrome"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Cystic fibrosis",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "B",
+          "text": "Hemophilia",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "C",
+          "text": "Turner syndrome",
+          "score": 2.0,
+          "path": 1.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "Turner syndrome is caused by lacking an X chromosome",
+              "q_hits": [
+                "chromosome"
+              ],
+              "c_hits": [
+                "syndrome",
+                "turner"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "Tay-Sachs disease",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        }
+      ]
+    },
+    {
+      "id": 226,
+      "question": "The acrosome and cortical reactions that occur immediately after fertilization ensure which of the following?",
+      "correct": "C",
+      "correct_text": "One and only one sperm will fertilize the egg.",
+      "pick": "C",
+      "outcome": "correct",
+      "best_score": 2.0,
+      "gap_pct": 50.0,
+      "regions": [
+        "reproduction",
+        "cell_cycle",
+        "prokaryotic_division"
+      ],
+      "q_lemmas": [
+        "acrosome",
+        "cortical",
+        "reaction",
+        "occur",
+        "fertilization",
+        "ensure"
+      ],
+      "q_temporal": {
+        "preps": [
+          "after"
+        ],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "one",
+        "sperm",
+        "fertilize",
+        "egg"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "The sperm will fertilize the ovum.",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "polyspermy is fertilization by more than one sperm",
+              "q_hits": [
+                "fertilization"
+              ],
+              "c_hits": [
+                "sperm"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "The zygote will begin to divide normally.",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "C",
+          "text": "One and only one sperm will fertilize the egg.",
+          "score": 2.0,
+          "path": 2.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "parthenogenesis is development of an egg without fertilization",
+              "q_hits": [
+                "fertilization"
+              ],
+              "c_hits": [
+                "egg"
+              ]
+            },
+            {
+              "source": "polyspermy is fertilization by more than one sperm",
+              "q_hits": [
+                "fertilization"
+              ],
+              "c_hits": [
+                "one",
+                "sperm"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "The zygote will not divide into two embryos, producing twins.",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "embryogenesis is development of an embryo after fertilization",
+              "q_hits": [
+                "fertilization"
+              ],
+              "c_hits": [
+                "embryo"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 227,
+      "question": "snRNPs are most closely associated with which of the following?",
+      "correct": "D",
+      "correct_text": "RNA processing",
+      "pick": "D",
+      "outcome": "correct",
+      "best_score": 1.0,
+      "gap_pct": 100.0,
+      "regions": [
+        "genetics",
+        "cancer",
+        "cell_division"
+      ],
+      "q_lemmas": [
+        "snrnps",
+        "snrnp",
+        "associate"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "rna",
+        "processing"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Cell division",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "B",
+          "text": "Apoptosis",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "C",
+          "text": "Replication of DNA",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "D",
+          "text": "RNA processing",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "snRNPs are involved in RNA processing",
+              "q_hits": [
+                "snrnp"
+              ],
+              "c_hits": [
+                "processing",
+                "rna"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 229,
+      "question": "Which of the following statements best explains why Mendel's principle of segregation was deemed a law?",
+      "correct": "B",
+      "correct_text": "The patterns of trait inheritance observed in pea plants were repeatedly demonstrated in other eukaryotes.",
+      "pick": "-",
+      "outcome": "tie",
+      "best_score": 3.0,
+      "gap_pct": 0.0,
+      "regions": [
+        "genetics",
+        "cell_division",
+        "cell_cycle"
+      ],
+      "q_lemmas": [
+        "follow",
+        "statement",
+        "explain",
+        "mendel",
+        "principle",
+        "segregation",
+        "deem",
+        "law"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "pattern",
+        "trait",
+        "inheritance",
+        "observe",
+        "pea",
+        "plant",
+        "demonstrate",
+        "other",
+        "eukaryote"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Mendel's work with pea plants and his conclusions have been described in many sources.",
+          "score": 3.0,
+          "path": 2.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "Mendel principle of segregation is a law because it was demonstrated in many organisms",
+              "q_hits": [
+                "law",
+                "mendel",
+                "principle",
+                "segregation"
+              ],
+              "c_hits": [
+                "many",
+                "mendel"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "The patterns of trait inheritance observed in pea plants were repeatedly demonstrated in other eukaryotes.",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "Mendel principle of segregation is a law because it was demonstrated in many organisms",
+              "q_hits": [
+                "law",
+                "mendel",
+                "principle",
+                "segregation"
+              ],
+              "c_hits": [
+                "demonstrate"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "Chromosomes were found to contain the genetic information for traits.",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "D",
+          "text": "The discovery of the structure of D N A supported Mendel's observations and laws.",
+          "score": 3.0,
+          "path": 2.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "Mendel principle of segregation is a law because it was demonstrated in many organisms",
+              "q_hits": [
+                "law",
+                "mendel",
+                "principle",
+                "segregation"
+              ],
+              "c_hits": [
+                "law",
+                "mendel"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 251,
+      "question": "Some strains of viruses can change normal mammalian cells into cancer cells in vitro. This transformation of the mammalian cell is usually associated with the",
+      "correct": "B",
+      "correct_text": "incorporation of the viral genome into the mammalian cell's nuclear DNA",
+      "pick": "-",
+      "outcome": "tie",
+      "best_score": 27.0,
+      "gap_pct": 3.7,
+      "regions": [
+        "cell_division",
+        "cell_cycle",
+        "cancer"
+      ],
+      "q_lemmas": [
+        "strain",
+        "virus",
+        "viru",
+        "change",
+        "normal",
+        "mammalian",
+        "cell",
+        "cancer",
+        "vitro",
+        "transformation",
+        "associate"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "incorporation",
+        "viral",
+        "genome",
+        "mammalian",
+        "cell",
+        "nuclear",
+        "dna"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "formation of a pilus between the mammalian cell and the virus",
+          "score": 26.0,
+          "path": 21.0,
+          "terminus": 5.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "the cell cycle is an orderly sequence of events in cell reproduction",
+              "q_hits": [
+                "cell"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            },
+            {
+              "source": "a genome is a cell DNA packaged as double-stranded molecule",
+              "q_hits": [
+                "cell"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            },
+            {
+              "source": "human somatic cells have 46 chromosomes",
+              "q_hits": [
+                "cell"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "incorporation of the viral genome into the mammalian cell's nuclear DNA",
+          "score": 27.0,
+          "path": 21.0,
+          "terminus": 6.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "the cell cycle is an orderly sequence of events in cell reproduction",
+              "q_hits": [
+                "cell"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            },
+            {
+              "source": "a genome is a cell DNA packaged as double-stranded molecule",
+              "q_hits": [
+                "cell"
+              ],
+              "c_hits": [
+                "cell",
+                "dna",
+                "genome"
+              ]
+            },
+            {
+              "source": "human somatic cells have 46 chromosomes",
+              "q_hits": [
+                "cell"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "conversion of the host's genome into the viral DNA",
+          "score": 3.0,
+          "path": 2.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "a genome is a cell DNA packaged as double-stranded molecule",
+              "q_hits": [
+                "cell"
+              ],
+              "c_hits": [
+                "dna",
+                "genome"
+              ]
+            },
+            {
+              "source": "interphase is the phase where the cell grows and DNA is replicated",
+              "q_hits": [
+                "cell"
+              ],
+              "c_hits": [
+                "dna"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "release of spores into the mammalian cell",
+          "score": 26.0,
+          "path": 21.0,
+          "terminus": 5.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "the cell cycle is an orderly sequence of events in cell reproduction",
+              "q_hits": [
+                "cell"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            },
+            {
+              "source": "a genome is a cell DNA packaged as double-stranded molecule",
+              "q_hits": [
+                "cell"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            },
+            {
+              "source": "human somatic cells have 46 chromosomes",
+              "q_hits": [
+                "cell"
+              ],
+              "c_hits": [
+                "cell"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 278,
+      "question": "Crossing-over occurs during which of the following phases in meiosis?",
+      "correct": "A",
+      "correct_text": "Prophase I",
+      "pick": "A",
+      "outcome": "correct",
+      "best_score": 4.0,
+      "gap_pct": 75.0,
+      "regions": [
+        "meiosis",
+        "cell_cycle",
+        "reproduction"
+      ],
+      "q_lemmas": [
+        "crossing",
+        "over",
+        "occur",
+        "follow",
+        "phase",
+        "meiosis",
+        "meiosi"
+      ],
+      "q_temporal": {
+        "preps": [
+          "during"
+        ],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "prophase",
+        "i"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Prophase I",
+          "score": 4.0,
+          "path": 4.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "homologous chromosomes separate during meiosis I",
+              "q_hits": [
+                "meiosi",
+                "meiosis"
+              ],
+              "c_hits": [
+                "i"
+              ]
+            },
+            {
+              "source": "homologous chromosomes separate during meiosis I",
+              "q_hits": [
+                "meiosi",
+                "meiosis"
+              ],
+              "c_hits": [
+                "i"
+              ]
+            },
+            {
+              "source": "crossing-over occurs during prophase I of meiosis",
+              "q_hits": [
+                "crossing",
+                "meiosi",
+                "meiosis",
+                "occur",
+                "over"
+              ],
+              "c_hits": [
+                "i",
+                "prophase"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "Metaphase I",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "C",
+          "text": "Anaphase I",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "D",
+          "text": "Prophase II",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "crossing-over occurs during prophase I of meiosis",
+              "q_hits": [
+                "crossing",
+                "meiosi",
+                "meiosis",
+                "occur",
+                "over"
+              ],
+              "c_hits": [
+                "prophase"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 291,
+      "question": "Compared to DNA viral replication, RNA viral replication is more susceptible to mutation because",
+      "correct": "D",
+      "correct_text": "RNA replication lacks the proofreading functions characteristic of DNA replication.",
+      "pick": "-",
+      "outcome": "tie",
+      "best_score": 25.0,
+      "gap_pct": 0.0,
+      "regions": [
+        "genetics",
+        "cell_division",
+        "prokaryotic_division"
+      ],
+      "q_lemmas": [
+        "compare",
+        "dna",
+        "viral",
+        "replication",
+        "rna",
+        "susceptible",
+        "mutation"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": [
+          "because"
+        ]
+      },
+      "correct_lemmas": [
+        "rna",
+        "replication",
+        "lack",
+        "proofreading",
+        "function",
+        "characteristic",
+        "dna"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "RNA replication takes place in the cytoplasm, whereas DNA replication takes place in the nucleus.",
+          "score": 25.0,
+          "path": 19.0,
+          "terminus": 6.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "DNA replication mistakes are a source of genetic variation",
+              "q_hits": [
+                "dna",
+                "replication"
+              ],
+              "c_hits": [
+                "dna",
+                "replication"
+              ]
+            },
+            {
+              "source": "snRNPs are involved in RNA processing",
+              "q_hits": [
+                "rna"
+              ],
+              "c_hits": [
+                "rna"
+              ]
+            },
+            {
+              "source": "RNA replication lacks proofreading functions",
+              "q_hits": [
+                "replication",
+                "rna"
+              ],
+              "c_hits": [
+                "replication",
+                "rna"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "RNA viruses replicate much faster than DNA viruses.",
+          "score": 19.0,
+          "path": 14.0,
+          "terminus": 5.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "DNA replication mistakes are a source of genetic variation",
+              "q_hits": [
+                "dna",
+                "replication"
+              ],
+              "c_hits": [
+                "dna"
+              ]
+            },
+            {
+              "source": "snRNPs are involved in RNA processing",
+              "q_hits": [
+                "rna"
+              ],
+              "c_hits": [
+                "rna"
+              ]
+            },
+            {
+              "source": "RNA replication lacks proofreading functions",
+              "q_hits": [
+                "replication",
+                "rna"
+              ],
+              "c_hits": [
+                "rna"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "RNA viruses use uracil instead of thymine.",
+          "score": 3.0,
+          "path": 2.0,
+          "terminus": 1.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "snRNPs are involved in RNA processing",
+              "q_hits": [
+                "rna"
+              ],
+              "c_hits": [
+                "rna"
+              ]
+            },
+            {
+              "source": "RNA replication lacks proofreading functions",
+              "q_hits": [
+                "replication",
+                "rna"
+              ],
+              "c_hits": [
+                "rna"
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "RNA replication lacks the proofreading functions characteristic of DNA replication.",
+          "score": 25.0,
+          "path": 19.0,
+          "terminus": 6.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "DNA replication mistakes are a source of genetic variation",
+              "q_hits": [
+                "dna",
+                "replication"
+              ],
+              "c_hits": [
+                "dna",
+                "replication"
+              ]
+            },
+            {
+              "source": "snRNPs are involved in RNA processing",
+              "q_hits": [
+                "rna"
+              ],
+              "c_hits": [
+                "rna"
+              ]
+            },
+            {
+              "source": "RNA replication lacks proofreading functions",
+              "q_hits": [
+                "replication",
+                "rna"
+              ],
+              "c_hits": [
+                "function",
+                "replication",
+                "rna"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 305,
+      "question": "Which is a true statement concerning genetic variation?",
+      "correct": "C",
+      "correct_text": "It must be present in a population before natural selection can act upon the population.",
+      "pick": "D",
+      "outcome": "wrong",
+      "best_score": 1.0,
+      "gap_pct": 100.0,
+      "regions": [
+        "cell_division",
+        "meiosis",
+        "genetics"
+      ],
+      "q_lemmas": [
+        "statement",
+        "concern",
+        "genetic",
+        "variation"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "correct_lemmas": [
+        "present",
+        "population",
+        "natural",
+        "selection",
+        "act"
+      ],
+      "choices": [
+        {
+          "letter": "A",
+          "text": "It is created by the direct action of natural selection.",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "B",
+          "text": "It arises in response to changes in the environment.",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "C",
+          "text": "It must be present in a population before natural selection can act upon the population.",
+          "score": 0.0,
+          "path": 0.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": []
+        },
+        {
+          "letter": "D",
+          "text": "It tends to be reduced by the processes involved when diploid organisms produce gametes.",
+          "score": 1.0,
+          "path": 1.0,
+          "terminus": 0.0,
+          "temp": 0.0,
+          "convergent_paths": [
+            {
+              "source": "vegetative propagation is asexual and produces no variation",
+              "q_hits": [
+                "variation"
+              ],
+              "c_hits": [
+                "produce"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

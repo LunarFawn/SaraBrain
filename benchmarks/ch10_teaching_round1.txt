@@ -1,0 +1,10 @@
+# Ch10 teaching round 1 — 2026-04-18
+# Claude-surrogate teaching per feedback_claude_as_teacher_surrogate.md
+# Source: OpenStax Biology 2e, Ch10
+#
+# Only genuine teaching gaps after verification against existing paths.
+# Infrastructure bugs (region routing, letter-answer filter, plural lemmas)
+# are tracked separately.
+
+# Q278 — meiosis region
+crossing-over occurs during prophase I of meiosis

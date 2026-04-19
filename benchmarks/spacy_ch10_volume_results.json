@@ -1,0 +1,5052 @@
+{
+  "accuracy_of_answered": 0.391304347826087,
+  "coverage": 0.696969696969697,
+  "correct": 9,
+  "wrong": 14,
+  "abstained": 10,
+  "total": 33,
+  "seconds": 6.176133155822754,
+  "abstain_threshold": 1.0,
+  "results": [
+    {
+      "id": 5,
+      "question": "Which of the following would most likely provide examples of mitotic cell divisions?",
+      "correct": "C",
+      "pick": "-",
+      "outcome": "abstain",
+      "best_score": 0.0,
+      "regions": [
+        "cell_cycle",
+        "cell_cycle_control"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "cross section of muscle tissue",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "cell",
+              54.0
+            ],
+            [
+              "phase where cell grows and dna is replicated",
+              50.5
+            ],
+            [
+              "s phase",
+              47.371392080157094
+            ],
+            [
+              "two major phases interphase and mitotic phase",
+              45.346573590279974
+            ],
+            [
+              "cell cycle",
+              44.166666666666664
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "cross section of an anther (site of pollen production in a flower)",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "cell",
+              54.0
+            ],
+            [
+              "phase where cell grows and dna is replicated",
+              50.5
+            ],
+            [
+              "s phase",
+              47.371392080157094
+            ],
+            [
+              "two major phases interphase and mitotic phase",
+              45.346573590279974
+            ],
+            [
+              "cell cycle",
+              44.166666666666664
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "longitudinal section of a shoot tip",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "cell",
+              54.0
+            ],
+            [
+              "phase where cell grows and dna is replicated",
+              50.5
+            ],
+            [
+              "s phase",
+              47.371392080157094
+            ],
+            [
+              "two major phases interphase and mitotic phase",
+              45.346573590279974
+            ],
+            [
+              "cell cycle",
+              44.166666666666664
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "cross section of a leaf",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "cell",
+              54.0
+            ],
+            [
+              "phase where cell grows and dna is replicated",
+              50.5
+            ],
+            [
+              "s phase",
+              47.371392080157094
+            ],
+            [
+              "two major phases interphase and mitotic phase",
+              45.346573590279974
+            ],
+            [
+              "cell cycle",
+              44.166666666666664
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "question": "Mules are relatively long-lived and hardy organisms that cannot, generally speaking, perform successful meiosis. Consequently, which statement about mules is true?",
+      "correct": "A",
+      "pick": "B",
+      "outcome": "wrong",
+      "best_score": 54.58,
+      "regions": [
+        "meiosis",
+        "genetics"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "They have a relative evolutionary fitness of zero.",
+          "score": 10.0,
+          "act": 10.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "fitness",
+            "evolutionary"
+          ],
+          "top_activation": [
+            [
+              "meiosis i",
+              16.891751034759537
+            ],
+            [
+              "mule_attribute",
+              14.0
+            ],
+            [
+              "meiosis",
+              12.693147180559945
+            ],
+            [
+              "organisms that cannot perform meiosis",
+              12.346573590279974
+            ],
+            [
+              "mule",
+              12.333333333333332
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "Their offspring have less genetic variation than the parents.",
+          "score": 54.58,
+          "act": 54.58,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "parent",
+            "offspring",
+            "variation",
+            "genetic"
+          ],
+          "top_activation": [
+            [
+              "source of genetic variation",
+              43.77502119602597
+            ],
+            [
+              "meiosis error_attribute",
+              34.5423675876746
+            ],
+            [
+              "dna replication mistake_attribute",
+              33.5423675876746
+            ],
+            [
+              "recombination at fertilization_attribute",
+              32.5423675876746
+            ],
+            [
+              "form of asexual reproduction",
+              26.647918433002168
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "Mutations cannot occur in their genomes.",
+          "score": 12.33,
+          "act": 12.33,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "mutation"
+          ],
+          "top_activation": [
+            [
+              "meiosis i",
+              16.891751034759537
+            ],
+            [
+              "source of genetic variation",
+              15.591673732008664
+            ],
+            [
+              "dna replication mistake_attribute",
+              14.197224577336222
+            ],
+            [
+              "recombination at fertilization_attribute",
+              14.197224577336222
+            ],
+            [
+              "mule_attribute",
+              14.0
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "If crossing-over happens in mules, then it must be limited to prophase of mitosis.",
+          "score": 12.23,
+          "act": 12.33,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.1,
+          "hits": [
+            "mule"
+          ],
+          "top_activation": [
+            [
+              "meiosis i",
+              16.891751034759537
+            ],
+            [
+              "mule_attribute",
+              14.0
+            ],
+            [
+              "meiosis",
+              12.693147180559945
+            ],
+            [
+              "organisms that cannot perform meiosis",
+              12.346573590279974
+            ],
+            [
+              "mule",
+              12.333333333333332
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "question": "Which of the following statements best describes what a Barr body is and its significance?",
+      "correct": "C",
+      "pick": "C",
+      "outcome": "correct",
+      "best_score": 74.5,
+      "regions": [
+        "cell_division"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "It is an inactivated Y chromosome and results in a man being sterile.",
+          "score": 21.5,
+          "act": 21.5,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "chromosome"
+          ],
+          "top_activation": [
+            [
+              "locu_attribute",
+              24.666666666666668
+            ],
+            [
+              "sister chromatid_attribute",
+              24.5
+            ],
+            [
+              "location of gene on chromosome",
+              23.0
+            ],
+            [
+              "two identical copies of replicated chromosome",
+              22.5
+            ],
+            [
+              "chromosome",
+              21.5
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "It is an inactivated Y chromosome, and the person who has it appears female.",
+          "score": 21.5,
+          "act": 21.5,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "chromosome"
+          ],
+          "top_activation": [
+            [
+              "locu_attribute",
+              24.666666666666668
+            ],
+            [
+              "sister chromatid_attribute",
+              24.5
+            ],
+            [
+              "location of gene on chromosome",
+              23.0
+            ],
+            [
+              "two identical copies of replicated chromosome",
+              22.5
+            ],
+            [
+              "chromosome",
+              21.5
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "It is an inactivated X chromosome and results in females with half their cells having one X inactivated and the other half of their cells having the other X inactivated.",
+          "score": 74.5,
+          "act": 74.5,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "one",
+            "chromosome",
+            "cell"
+          ],
+          "top_activation": [
+            [
+              "smaller loops of dna in prokaryotes",
+              48.0
+            ],
+            [
+              "orderly sequence of events in cell reproduction",
+              45.5
+            ],
+            [
+              "two sets of chromosomes designated 2n",
+              38.0
+            ],
+            [
+              "location of gene on chromosome",
+              37.0
+            ],
+            [
+              "one set of chromosomes designated 1n",
+              37.0
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "It is an inactivated X chromosome and results in females who are sterile.",
+          "score": 21.5,
+          "act": 21.5,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "chromosome"
+          ],
+          "top_activation": [
+            [
+              "locu_attribute",
+              24.666666666666668
+            ],
+            [
+              "sister chromatid_attribute",
+              24.5
+            ],
+            [
+              "location of gene on chromosome",
+              23.0
+            ],
+            [
+              "two identical copies of replicated chromosome",
+              22.5
+            ],
+            [
+              "chromosome",
+              21.5
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "question": "The development of an egg without fertilization is known as",
+      "correct": "B",
+      "pick": "D",
+      "outcome": "wrong",
+      "best_score": 20.0,
+      "regions": [
+        "reproduction",
+        "genetics"
+      ],
+      "q_temporal": {
+        "preps": [
+          "as"
+        ],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "meiosis",
+          "score": 5.0,
+          "act": 5.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "meiosis"
+          ],
+          "top_activation": [
+            [
+              "mode of asexual reproduction",
+              22.090354888959126
+            ],
+            [
+              "fertilization",
+              19.0
+            ],
+            [
+              "development of embryo after fertilization",
+              18.0
+            ],
+            [
+              "development of egg without fertilization",
+              17.0
+            ],
+            [
+              "fertilization by more than one sperm",
+              16.0
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "parthenogenesis",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "mode of asexual reproduction",
+              22.090354888959126
+            ],
+            [
+              "fertilization",
+              19.0
+            ],
+            [
+              "development of embryo after fertilization",
+              18.0
+            ],
+            [
+              "development of egg without fertilization",
+              17.0
+            ],
+            [
+              "fertilization by more than one sperm",
+              16.0
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "embryogenesis",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "mode of asexual reproduction",
+              22.090354888959126
+            ],
+            [
+              "fertilization",
+              19.0
+            ],
+            [
+              "development of embryo after fertilization",
+              18.0
+            ],
+            [
+              "development of egg without fertilization",
+              17.0
+            ],
+            [
+              "fertilization by more than one sperm",
+              16.0
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "vegetative propagation",
+          "score": 20.0,
+          "act": 20.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "propagation",
+            "vegetative"
+          ],
+          "top_activation": [
+            [
+              "mode of asexual reproduction",
+              26.862943611198908
+            ],
+            [
+              "fertilization",
+              19.0
+            ],
+            [
+              "development of embryo after fertilization",
+              18.0
+            ],
+            [
+              "development of egg without fertilization",
+              17.0
+            ],
+            [
+              "fertilization by more than one sperm",
+              16.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "question": "Which of the following contributes the MOST to genetic variability in a population?",
+      "correct": "D",
+      "pick": "D",
+      "outcome": "correct",
+      "best_score": 12.33,
+      "regions": [
+        "genetics",
+        "cell_division"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Sporulation",
+          "score": 10.67,
+          "act": 10.67,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "sporulation"
+          ],
+          "top_activation": [
+            [
+              "source of genetic variation",
+              40.22571505169192
+            ],
+            [
+              "dna replication mistake_attribute",
+              33.5423675876746
+            ],
+            [
+              "meiosis error_attribute",
+              32.5423675876746
+            ],
+            [
+              "recombination at fertilization_attribute",
+              32.5423675876746
+            ],
+            [
+              "genetic",
+              28.788898309344884
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "Binary fission",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "dna replication mistake_attribute",
+              33.5423675876746
+            ],
+            [
+              "source of genetic variation",
+              33.47918433002165
+            ],
+            [
+              "meiosis error_attribute",
+              32.5423675876746
+            ],
+            [
+              "recombination at fertilization_attribute",
+              32.5423675876746
+            ],
+            [
+              "genetic",
+              28.788898309344884
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "Vegetative propagation",
+          "score": 10.0,
+          "act": 10.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "propagation",
+            "vegetative"
+          ],
+          "top_activation": [
+            [
+              "source of genetic variation",
+              35.57779661868976
+            ],
+            [
+              "dna replication mistake_attribute",
+              33.5423675876746
+            ],
+            [
+              "meiosis error_attribute",
+              32.5423675876746
+            ],
+            [
+              "recombination at fertilization_attribute",
+              32.5423675876746
+            ],
+            [
+              "genetic",
+              28.788898309344884
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "Mutation",
+          "score": 12.33,
+          "act": 12.33,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "mutation"
+          ],
+          "top_activation": [
+            [
+              "dna replication mistake_attribute",
+              33.5423675876746
+            ],
+            [
+              "source of genetic variation",
+              33.47918433002165
+            ],
+            [
+              "meiosis error_attribute",
+              32.5423675876746
+            ],
+            [
+              "recombination at fertilization_attribute",
+              32.5423675876746
+            ],
+            [
+              "genetic",
+              28.788898309344884
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "question": "In humans, fertilization normally occurs in the",
+      "correct": "B",
+      "pick": "-",
+      "outcome": "abstain",
+      "best_score": 0.0,
+      "regions": [
+        "cell_division",
+        "prokaryotic_division"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "ovary",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "binary fission",
+              20.14329272856253
+            ],
+            [
+              "binary fission_attribute",
+              16.5
+            ],
+            [
+              "how prokaryotes divide",
+              14.5
+            ],
+            [
+              "simpler than mitosis",
+              14.5
+            ],
+            [
+              "human",
+              14.0
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "fallopian tube",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "binary fission",
+              20.14329272856253
+            ],
+            [
+              "binary fission_attribute",
+              16.5
+            ],
+            [
+              "how prokaryotes divide",
+              14.5
+            ],
+            [
+              "simpler than mitosis",
+              14.5
+            ],
+            [
+              "human",
+              14.0
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "uterus",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "binary fission",
+              20.14329272856253
+            ],
+            [
+              "binary fission_attribute",
+              16.5
+            ],
+            [
+              "how prokaryotes divide",
+              14.5
+            ],
+            [
+              "simpler than mitosis",
+              14.5
+            ],
+            [
+              "human",
+              14.0
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "placenta",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "binary fission",
+              20.14329272856253
+            ],
+            [
+              "binary fission_attribute",
+              16.5
+            ],
+            [
+              "how prokaryotes divide",
+              14.5
+            ],
+            [
+              "simpler than mitosis",
+              14.5
+            ],
+            [
+              "human",
+              14.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "question": "During which phase of the cell cycle does the quantity of DNA in a eukaryotic cell typically double?",
+      "correct": "D",
+      "pick": "-",
+      "outcome": "abstain",
+      "best_score": 0.0,
+      "regions": [
+        "cell_division",
+        "cell_cycle"
+      ],
+      "q_temporal": {
+        "preps": [
+          "during"
+        ],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "G_1",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "cell",
+              76.0
+            ],
+            [
+              "dna",
+              74.0
+            ],
+            [
+              "cell cycle",
+              71.66666666666667
+            ],
+            [
+              "cell cycle_attribute",
+              66.56438239351998
+            ],
+            [
+              "phase where cell grows and dna is replicated",
+              59.39587973461403
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "G_2",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "cell",
+              76.0
+            ],
+            [
+              "dna",
+              74.0
+            ],
+            [
+              "cell cycle",
+              71.66666666666667
+            ],
+            [
+              "cell cycle_attribute",
+              66.56438239351998
+            ],
+            [
+              "phase where cell grows and dna is replicated",
+              59.39587973461403
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "M",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "cell",
+              76.0
+            ],
+            [
+              "dna",
+              74.0
+            ],
+            [
+              "cell cycle",
+              71.66666666666667
+            ],
+            [
+              "cell cycle_attribute",
+              66.56438239351998
+            ],
+            [
+              "phase where cell grows and dna is replicated",
+              59.39587973461403
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "S",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "cell",
+              76.0
+            ],
+            [
+              "dna",
+              74.0
+            ],
+            [
+              "cell cycle",
+              71.66666666666667
+            ],
+            [
+              "cell cycle_attribute",
+              66.56438239351998
+            ],
+            [
+              "phase where cell grows and dna is replicated",
+              59.39587973461403
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "question": "Crossover would most likely occur in which situation?",
+      "correct": "D",
+      "pick": "D",
+      "outcome": "correct",
+      "best_score": 38.0,
+      "regions": [
+        "prokaryotic_division",
+        "meiosis"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Two genes (1 and 2) are located right next to each other on chromosome A.",
+          "score": 25.0,
+          "act": 25.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "chromosome"
+          ],
+          "top_activation": [
+            [
+              "chromosome",
+              25.0
+            ],
+            [
+              "chromosome number by half",
+              24.0
+            ],
+            [
+              "crossover_attribute",
+              23.0
+            ],
+            [
+              "crossover",
+              22.333333333333336
+            ],
+            [
+              "binary fission",
+              20.14329272856253
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "Gene 1 is located on chromosome A, and gene 2 is on chromosome B.",
+          "score": 25.0,
+          "act": 25.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "chromosome"
+          ],
+          "top_activation": [
+            [
+              "chromosome",
+              25.0
+            ],
+            [
+              "chromosome number by half",
+              24.0
+            ],
+            [
+              "crossover_attribute",
+              23.0
+            ],
+            [
+              "crossover",
+              22.333333333333336
+            ],
+            [
+              "binary fission",
+              20.14329272856253
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "Genes 1 and 2 are located near each other on the X chromosome.",
+          "score": 25.0,
+          "act": 25.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "chromosome"
+          ],
+          "top_activation": [
+            [
+              "chromosome",
+              25.0
+            ],
+            [
+              "chromosome number by half",
+              24.0
+            ],
+            [
+              "crossover_attribute",
+              23.0
+            ],
+            [
+              "crossover",
+              22.333333333333336
+            ],
+            [
+              "binary fission",
+              20.14329272856253
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "Gene 1 is located on chromosome A; gene 2 is located far away but on the same chromosome.",
+          "score": 38.0,
+          "act": 38.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "chromosome",
+            "same"
+          ],
+          "top_activation": [
+            [
+              "chromosome",
+              25.0
+            ],
+            [
+              "chromosome number by half",
+              24.0
+            ],
+            [
+              "crossover_attribute",
+              23.0
+            ],
+            [
+              "crossover",
+              22.333333333333336
+            ],
+            [
+              "binary fission",
+              20.14329272856253
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "question": "In modern terminology, diversity is understood to be a result of genetic variation. Sources of variation for evolution include all of the following except",
+      "correct": "A",
+      "pick": "B",
+      "outcome": "wrong",
+      "best_score": 102.0,
+      "regions": [
+        "genetics",
+        "cell_division"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": [
+          "result"
+        ]
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "mistakes in translation of structural genes.",
+          "score": 48.67,
+          "act": 48.67,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "translation",
+            "mistake",
+            "gene"
+          ],
+          "top_activation": [
+            [
+              "source of genetic variation",
+              44.77502119602597
+            ],
+            [
+              "dna replication mistake_attribute",
+              38.5423675876746
+            ],
+            [
+              "orderly sequence of events in cell reproduction",
+              34.0
+            ],
+            [
+              "smaller loops of dna in prokaryotes",
+              34.0
+            ],
+            [
+              "meiosis error_attribute",
+              32.5423675876746
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "mistakes in DNA replication.",
+          "score": 102.0,
+          "act": 102.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "mistake",
+            "dna",
+            "replication"
+          ],
+          "top_activation": [
+            [
+              "dna replication",
+              61.5
+            ],
+            [
+              "dna",
+              59.0
+            ],
+            [
+              "smaller loops of dna in prokaryotes",
+              59.0
+            ],
+            [
+              "linker dna",
+              48.83333333333333
+            ],
+            [
+              "cell dna packaged as double-stranded molecule",
+              48.0
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "translocations and mistakes in meiosis.",
+          "score": 18.0,
+          "act": 18.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "mistake",
+            "meiosis"
+          ],
+          "top_activation": [
+            [
+              "source of genetic variation",
+              46.77502119602597
+            ],
+            [
+              "dna replication mistake_attribute",
+              38.5423675876746
+            ],
+            [
+              "meiosis error_attribute",
+              34.5423675876746
+            ],
+            [
+              "recombination at fertilization_attribute",
+              32.5423675876746
+            ],
+            [
+              "genetic",
+              28.788898309344884
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "recombination at fertilization.",
+          "score": 12.0,
+          "act": 12.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "fertilization",
+            "recombination"
+          ],
+          "top_activation": [
+            [
+              "source of genetic variation",
+              44.77502119602597
+            ],
+            [
+              "recombination at fertilization_attribute",
+              35.5423675876746
+            ],
+            [
+              "dna replication mistake_attribute",
+              33.5423675876746
+            ],
+            [
+              "meiosis error_attribute",
+              32.5423675876746
+            ],
+            [
+              "genetic",
+              28.788898309344884
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "question": "All of the following are modes of asexual reproduction EXCEPT",
+      "correct": "D",
+      "pick": "A",
+      "outcome": "wrong",
+      "best_score": 29.18,
+      "regions": [
+        "reproduction",
+        "genetics"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "sporulation",
+          "score": 29.18,
+          "act": 29.18,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "sporulation"
+          ],
+          "top_activation": [
+            [
+              "sporulation_attribute",
+              52.04517744447957
+            ],
+            [
+              "meiosi_attribute",
+              35.04517744447957
+            ],
+            [
+              "asexual",
+              34.317766166719345
+            ],
+            [
+              "fission_attribute",
+              33.54517744447957
+            ],
+            [
+              "budding_attribute",
+              33.54517744447957
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "fission",
+          "score": 18.52,
+          "act": 18.52,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "fission"
+          ],
+          "top_activation": [
+            [
+              "sporulation_attribute",
+              52.04517744447957
+            ],
+            [
+              "meiosi_attribute",
+              35.04517744447957
+            ],
+            [
+              "asexual",
+              34.317766166719345
+            ],
+            [
+              "fission_attribute",
+              33.54517744447957
+            ],
+            [
+              "budding_attribute",
+              33.54517744447957
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "budding",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "sporulation_attribute",
+              52.04517744447957
+            ],
+            [
+              "meiosi_attribute",
+              35.04517744447957
+            ],
+            [
+              "asexual",
+              34.317766166719345
+            ],
+            [
+              "fission_attribute",
+              33.54517744447957
+            ],
+            [
+              "budding_attribute",
+              33.54517744447957
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "meiosis",
+          "score": 5.0,
+          "act": 5.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "meiosis"
+          ],
+          "top_activation": [
+            [
+              "sporulation_attribute",
+              52.04517744447957
+            ],
+            [
+              "meiosi_attribute",
+              35.04517744447957
+            ],
+            [
+              "source of genetic variation",
+              34.38057204135354
+            ],
+            [
+              "asexual",
+              34.317766166719345
+            ],
+            [
+              "fission_attribute",
+              33.54517744447957
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "question": "Imagine an organism whose 2n = 96. Meiosis would leave this organism\u2019s cells with how many chromosomes?",
+      "correct": "C",
+      "pick": "-",
+      "outcome": "abstain",
+      "best_score": 0.0,
+      "regions": [
+        "genetics",
+        "cell_division"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "192",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "cell",
+              54.0
+            ],
+            [
+              "smaller loops of dna in prokaryotes",
+              42.0
+            ],
+            [
+              "orderly sequence of events in cell reproduction",
+              39.5
+            ],
+            [
+              "plasmid_attribute",
+              32.0
+            ],
+            [
+              "location of gene on chromosome",
+              31.0
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "96",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "cell",
+              54.0
+            ],
+            [
+              "smaller loops of dna in prokaryotes",
+              42.0
+            ],
+            [
+              "orderly sequence of events in cell reproduction",
+              39.5
+            ],
+            [
+              "plasmid_attribute",
+              32.0
+            ],
+            [
+              "location of gene on chromosome",
+              31.0
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "48",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "cell",
+              54.0
+            ],
+            [
+              "smaller loops of dna in prokaryotes",
+              42.0
+            ],
+            [
+              "orderly sequence of events in cell reproduction",
+              39.5
+            ],
+            [
+              "plasmid_attribute",
+              32.0
+            ],
+            [
+              "location of gene on chromosome",
+              31.0
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "24",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "cell",
+              54.0
+            ],
+            [
+              "smaller loops of dna in prokaryotes",
+              42.0
+            ],
+            [
+              "orderly sequence of events in cell reproduction",
+              39.5
+            ],
+            [
+              "plasmid_attribute",
+              32.0
+            ],
+            [
+              "location of gene on chromosome",
+              31.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "question": "Which of the following is NOT a characteristic of asexual reproduction in animals?",
+      "correct": "D",
+      "pick": "A",
+      "outcome": "wrong",
+      "best_score": 38.0,
+      "regions": [
+        "genetics",
+        "reproduction"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Daughter cells have the same number of chromosomes as the parent cell.",
+          "score": 38.0,
+          "act": 38.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "chromosome",
+            "cell",
+            "daughter",
+            "same"
+          ],
+          "top_activation": [
+            [
+              "sporulation_attribute",
+              52.04517744447957
+            ],
+            [
+              "source of genetic variation",
+              43.77502119602597
+            ],
+            [
+              "asexual reproduction",
+              35.130075659799054
+            ],
+            [
+              "meiosi_attribute",
+              35.04517744447957
+            ],
+            [
+              "asexual",
+              34.317766166719345
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "Daughter cells are identical to the parent cell.",
+          "score": 25.0,
+          "act": 25.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "identical",
+            "cell",
+            "daughter"
+          ],
+          "top_activation": [
+            [
+              "sporulation_attribute",
+              52.04517744447957
+            ],
+            [
+              "source of genetic variation",
+              43.77502119602597
+            ],
+            [
+              "asexual reproduction",
+              35.130075659799054
+            ],
+            [
+              "meiosi_attribute",
+              35.04517744447957
+            ],
+            [
+              "asexual",
+              34.317766166719345
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "The parent cell produces diploid cells.",
+          "score": 20.0,
+          "act": 20.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "cell",
+            "diploid"
+          ],
+          "top_activation": [
+            [
+              "sporulation_attribute",
+              52.04517744447957
+            ],
+            [
+              "source of genetic variation",
+              43.77502119602597
+            ],
+            [
+              "meiosi_attribute",
+              35.04517744447957
+            ],
+            [
+              "asexual",
+              34.317766166719345
+            ],
+            [
+              "asexual reproduction",
+              33.56569326627907
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "The daughter cells fuse to form a zygote.",
+          "score": 31.0,
+          "act": 31.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "form",
+            "cell",
+            "daughter"
+          ],
+          "top_activation": [
+            [
+              "sporulation_attribute",
+              52.04517744447957
+            ],
+            [
+              "source of genetic variation",
+              43.775021196025975
+            ],
+            [
+              "asexual reproduction",
+              35.130075659799054
+            ],
+            [
+              "meiosi_attribute",
+              35.04517744447957
+            ],
+            [
+              "asexual",
+              34.317766166719345
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 107,
+      "question": "Crossing-over during meiosis permits scientists to determine",
+      "correct": "C",
+      "pick": "C",
+      "outcome": "correct",
+      "best_score": 38.0,
+      "regions": [
+        "meiosis",
+        "genetics"
+      ],
+      "q_temporal": {
+        "preps": [
+          "during"
+        ],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "the chance for variation in zygotes",
+          "score": 22.79,
+          "act": 22.79,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "variation"
+          ],
+          "top_activation": [
+            [
+              "source of genetic variation",
+              38.577796618689746
+            ],
+            [
+              "meiosis error_attribute",
+              34.5423675876746
+            ],
+            [
+              "dna replication mistake_attribute",
+              33.5423675876746
+            ],
+            [
+              "recombination at fertilization_attribute",
+              32.5423675876746
+            ],
+            [
+              "form of asexual reproduction",
+              23.647918433002168
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "the rate of mutations",
+          "score": 12.33,
+          "act": 12.33,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "mutation"
+          ],
+          "top_activation": [
+            [
+              "meiosis i",
+              16.891751034759537
+            ],
+            [
+              "source of genetic variation",
+              15.591673732008664
+            ],
+            [
+              "dna replication mistake_attribute",
+              14.197224577336222
+            ],
+            [
+              "recombination at fertilization_attribute",
+              14.197224577336222
+            ],
+            [
+              "mule_attribute",
+              14.0
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "the distance between genes on a chromosome",
+          "score": 38.0,
+          "act": 38.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "chromosome",
+            "distance"
+          ],
+          "top_activation": [
+            [
+              "chromosome",
+              31.0
+            ],
+            [
+              "more likely between genes that are far apart on same chromosome",
+              27.0
+            ],
+            [
+              "chromosome number by half",
+              24.0
+            ],
+            [
+              "organisms that cannot perform meiosis",
+              23.346573590279974
+            ],
+            [
+              "crossover_attribute",
+              23.0
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "which traits are dominant or recessive",
+          "score": 4.0,
+          "act": 4.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "trait",
+            "recessive"
+          ],
+          "top_activation": [
+            [
+              "meiosis i",
+              16.891751034759537
+            ],
+            [
+              "mule_attribute",
+              14.0
+            ],
+            [
+              "meiosis",
+              12.693147180559945
+            ],
+            [
+              "organisms that cannot perform meiosis",
+              12.346573590279974
+            ],
+            [
+              "mule",
+              12.333333333333332
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 117,
+      "question": "Which of the following statements is NOT correct about apoptosis?",
+      "correct": "A",
+      "pick": "-",
+      "outcome": "tie",
+      "best_score": 37.9,
+      "regions": [
+        "cell_division"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Apoptosis, a special type of cell division, requires multiple cell signaling.",
+          "score": 37.9,
+          "act": 37.0,
+          "svo": 1.0,
+          "temp": 0.0,
+          "penalty": 0.1,
+          "hits": [
+            "cell"
+          ],
+          "top_activation": [
+            [
+              "cell",
+              37.0
+            ],
+            [
+              "plasmid_attribute",
+              32.0
+            ],
+            [
+              "smaller loops of dna in prokaryotes",
+              31.0
+            ],
+            [
+              "cell dna packaged as double-stranded molecule",
+              29.0
+            ],
+            [
+              "orderly sequence of events in cell reproduction",
+              28.5
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "The fact that apoptosis is widespread across several kingdoms is evidence that it evolved early in the evolution of eukaryotes.",
+          "score": 11.9,
+          "act": 11.0,
+          "svo": 1.0,
+          "temp": 0.0,
+          "penalty": 0.1,
+          "hits": [
+            "several"
+          ],
+          "top_activation": [
+            [
+              "eukaryotic genome_attribute",
+              20.0
+            ],
+            [
+              "prokaryotic genome_attribute",
+              18.0
+            ],
+            [
+              "genome_attribute",
+              17.5
+            ],
+            [
+              "plasmid_attribute",
+              15.5
+            ],
+            [
+              "nucleosome_attribute",
+              15.5
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "Apoptosis plays a crucial role in the development of fingers in embryonic development.",
+          "score": 0.9,
+          "act": 0.0,
+          "svo": 1.0,
+          "temp": 0.0,
+          "penalty": 0.1,
+          "hits": [],
+          "top_activation": []
+        },
+        {
+          "letter": "D",
+          "text": "Apoptosis prevents an aging and dying cell from damaging neighboring cells.",
+          "score": 37.9,
+          "act": 37.0,
+          "svo": 1.0,
+          "temp": 0.0,
+          "penalty": 0.1,
+          "hits": [
+            "cell"
+          ],
+          "top_activation": [
+            [
+              "cell",
+              37.0
+            ],
+            [
+              "plasmid_attribute",
+              32.0
+            ],
+            [
+              "smaller loops of dna in prokaryotes",
+              31.0
+            ],
+            [
+              "cell dna packaged as double-stranded molecule",
+              29.0
+            ],
+            [
+              "orderly sequence of events in cell reproduction",
+              28.5
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 124,
+      "question": "Females with Turner's syndrome have a high incidence of hemophilia, a recessive, X-linked trait. Based on this information, it can be inferred that females with this condition",
+      "correct": "C",
+      "pick": "D",
+      "outcome": "wrong",
+      "best_score": 54.0,
+      "regions": [
+        "genetics",
+        "cell_division"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "have an extra X chromosome",
+          "score": 29.5,
+          "act": 29.5,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "chromosome"
+          ],
+          "top_activation": [
+            [
+              "chromosome",
+              29.5
+            ],
+            [
+              "x-inactivation_attribute",
+              27.5
+            ],
+            [
+              "source of genetic variation",
+              26.084735175349216
+            ],
+            [
+              "location of gene on chromosome",
+              26.0
+            ],
+            [
+              "two identical copies of replicated chromosome",
+              25.5
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "have an extra Y chromosome",
+          "score": 29.5,
+          "act": 29.5,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "chromosome"
+          ],
+          "top_activation": [
+            [
+              "chromosome",
+              29.5
+            ],
+            [
+              "x-inactivation_attribute",
+              27.5
+            ],
+            [
+              "source of genetic variation",
+              26.084735175349216
+            ],
+            [
+              "location of gene on chromosome",
+              26.0
+            ],
+            [
+              "two identical copies of replicated chromosome",
+              25.5
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "lack an X chromosome",
+          "score": 29.5,
+          "act": 29.5,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "chromosome"
+          ],
+          "top_activation": [
+            [
+              "chromosome",
+              29.5
+            ],
+            [
+              "x-inactivation_attribute",
+              27.5
+            ],
+            [
+              "source of genetic variation",
+              26.084735175349216
+            ],
+            [
+              "location of gene on chromosome",
+              26.0
+            ],
+            [
+              "two identical copies of replicated chromosome",
+              25.5
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "have red blood cells that clump",
+          "score": 54.0,
+          "act": 54.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "cell"
+          ],
+          "top_activation": [
+            [
+              "cell",
+              54.0
+            ],
+            [
+              "smaller loops of dna in prokaryotes",
+              34.0
+            ],
+            [
+              "plasmid_attribute",
+              32.0
+            ],
+            [
+              "orderly sequence of events in cell reproduction",
+              31.5
+            ],
+            [
+              "cell dna packaged as double-stranded molecule",
+              29.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 132,
+      "question": "Regarding meiosis and mitosis, one difference between the two forms of cellular reproduction is that in meiosis",
+      "correct": "B",
+      "pick": "A",
+      "outcome": "wrong",
+      "best_score": 187.05,
+      "regions": [
+        "cell_division",
+        "cell_cycle"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "there is one round of cell division, whereas in mitosis there are two rounds of cell division",
+          "score": 187.05,
+          "act": 187.35,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.3,
+          "hits": [
+            "two",
+            "one",
+            "cell",
+            "mitosis",
+            "division"
+          ],
+          "top_activation": [
+            [
+              "cell",
+              76.0
+            ],
+            [
+              "cell cycle",
+              71.66666666666667
+            ],
+            [
+              "cell cycle_attribute",
+              66.56438239351998
+            ],
+            [
+              "two",
+              56.346573590279974
+            ],
+            [
+              "two major phases interphase and mitotic phase",
+              54.19314718055995
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "separation of sister chromatids occurs during the second division, whereas in mitosis separation of sister chromatids occurs during the first division",
+          "score": 110.9,
+          "act": 111.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.1,
+          "hits": [
+            "first",
+            "second",
+            "chromatids",
+            "sister",
+            "mitosis",
+            "division"
+          ],
+          "top_activation": [
+            [
+              "cell cycle_attribute",
+              64.56438239351998
+            ],
+            [
+              "two",
+              56.346573590279974
+            ],
+            [
+              "cell",
+              52.0
+            ],
+            [
+              "cell cycle",
+              51.66666666666667
+            ],
+            [
+              "two major phases interphase and mitotic phase",
+              51.19314718055995
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "chromosomes are replicated during interphase, whereas in mitosis chromosomes are replicated during prophase",
+          "score": 118.04,
+          "act": 118.14,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.1,
+          "hits": [
+            "chromosome",
+            "mitosis",
+            "interphase",
+            "prophase"
+          ],
+          "top_activation": [
+            [
+              "cell cycle_attribute",
+              64.56438239351998
+            ],
+            [
+              "two major phases interphase and mitotic phase",
+              59.242453324894
+            ],
+            [
+              "two",
+              56.346573590279974
+            ],
+            [
+              "four stages prophase metaphase anaphase and telophase",
+              54.91095598379995
+            ],
+            [
+              "cell cycle",
+              53.66666666666667
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "spindle fibers form during prophase, whereas in mitosis the spindle fibers form during metaphase",
+          "score": 104.84,
+          "act": 105.04,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.2,
+          "hits": [
+            "form",
+            "spindle",
+            "metaphase",
+            "mitosis",
+            "prophase"
+          ],
+          "top_activation": [
+            [
+              "cell cycle_attribute",
+              64.56438239351998
+            ],
+            [
+              "two",
+              56.346573590279974
+            ],
+            [
+              "two major phases interphase and mitotic phase",
+              51.69314718055995
+            ],
+            [
+              "cell cycle",
+              49.66666666666667
+            ],
+            [
+              "cell",
+              49.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 133,
+      "question": "Which of the following about meiosis is NOT true?",
+      "correct": "C",
+      "pick": "D",
+      "outcome": "wrong",
+      "best_score": 43.58,
+      "regions": [
+        "meiosis",
+        "genetics"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Meiosis produces two haploid gametes.",
+          "score": 32.59,
+          "act": 31.69,
+          "svo": 1.0,
+          "temp": 0.0,
+          "penalty": 0.1,
+          "hits": [
+            "meiosis",
+            "produce",
+            "haploid"
+          ],
+          "top_activation": [
+            [
+              "meiosi",
+              20.340608898186197
+            ],
+            [
+              "meiosi_attribute",
+              20.0
+            ],
+            [
+              "meiosis i",
+              16.891751034759537
+            ],
+            [
+              "number of chromosomes",
+              16.846573590279974
+            ],
+            [
+              "chromosome number by half",
+              16.5
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "Homologous chromosomes join during synapsis.",
+          "score": 41.16,
+          "act": 41.16,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "chromosome",
+            "homologous"
+          ],
+          "top_activation": [
+            [
+              "chromosome",
+              31.0
+            ],
+            [
+              "chromosome number by half",
+              25.5
+            ],
+            [
+              "organisms that cannot perform meiosis",
+              23.346573590279974
+            ],
+            [
+              "more likely between genes that are far apart on same chromosome",
+              23.0
+            ],
+            [
+              "crossover_attribute",
+              23.0
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "Sister chromatids separate during meiosis I.",
+          "score": 34.06,
+          "act": 34.16,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.1,
+          "hits": [
+            "separate",
+            "sister",
+            "meiosis"
+          ],
+          "top_activation": [
+            [
+              "meiosis i",
+              21.97119257643938
+            ],
+            [
+              "homologous chromosomes separate",
+              19.77804539587943
+            ],
+            [
+              "homologous chromosomes separate_attribute",
+              16.931471805599454
+            ],
+            [
+              "sister chromatids separate",
+              15.373054104173253
+            ],
+            [
+              "separate",
+              14.465735902799727
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "Crossing-over increases genetic variation in gametes.",
+          "score": 43.58,
+          "act": 43.58,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "variation",
+            "genetic"
+          ],
+          "top_activation": [
+            [
+              "source of genetic variation",
+              43.77502119602597
+            ],
+            [
+              "meiosis error_attribute",
+              34.5423675876746
+            ],
+            [
+              "dna replication mistake_attribute",
+              33.5423675876746
+            ],
+            [
+              "recombination at fertilization_attribute",
+              32.5423675876746
+            ],
+            [
+              "form of asexual reproduction",
+              26.647918433002168
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 170,
+      "question": "Which of the following statements about meiosis is correct?",
+      "correct": "D",
+      "pick": "D",
+      "outcome": "correct",
+      "best_score": 46.0,
+      "regions": [
+        "meiosis",
+        "genetics"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "The daughter cells are genetically identical to the parent cells.",
+          "score": 35.69,
+          "act": 35.69,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "parent",
+            "identical",
+            "cell",
+            "daughter"
+          ],
+          "top_activation": [
+            [
+              "source of genetic variation",
+              28.084735175349213
+            ],
+            [
+              "x-inactivation_attribute",
+              27.5
+            ],
+            [
+              "random in each cell of female embryo",
+              21.0
+            ],
+            [
+              "dna replication mistake_attribute",
+              20.345143010338383
+            ],
+            [
+              "recombination at fertilization_attribute",
+              20.345143010338383
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "Homologues pair during prophase II.",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "meiosis i",
+              16.891751034759537
+            ],
+            [
+              "mule_attribute",
+              14.0
+            ],
+            [
+              "meiosis",
+              12.693147180559945
+            ],
+            [
+              "organisms that cannot perform meiosis",
+              12.346573590279974
+            ],
+            [
+              "mule",
+              12.333333333333332
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "DNA replication occurs before meiosis I and meiosis II.",
+          "score": 41.59,
+          "act": 41.69,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.1,
+          "hits": [
+            "meiosis",
+            "dna",
+            "replication"
+          ],
+          "top_activation": [
+            [
+              "replication",
+              17.0
+            ],
+            [
+              "meiosis i",
+              16.891751034759537
+            ],
+            [
+              "dna replication mistake",
+              16.0
+            ],
+            [
+              "mule_attribute",
+              14.0
+            ],
+            [
+              "rna replication",
+              14.0
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "The number of chromosomes is reduced.",
+          "score": 46.0,
+          "act": 46.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "chromosome",
+            "number"
+          ],
+          "top_activation": [
+            [
+              "chromosome",
+              31.0
+            ],
+            [
+              "chromosome number by half",
+              30.5
+            ],
+            [
+              "meiosi_attribute",
+              24.5
+            ],
+            [
+              "meiosi",
+              23.726903259306084
+            ],
+            [
+              "organisms that cannot perform meiosis",
+              23.346573590279974
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 179,
+      "question": "Microtubules are protein filaments assembled from tubulin protein subunits. The chemical colchicine prevents the assembly of microtubules by binding to tubulin protein subunits. Which of the following cellular processes would be most impaired by the application of colchicine?",
+      "correct": "A",
+      "pick": "A",
+      "outcome": "correct",
+      "best_score": 22.0,
+      "regions": [
+        "cell_cycle",
+        "cancer"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "the alignment and separation of chromosomes during mitosis",
+          "score": 22.0,
+          "act": 22.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "mitosis"
+          ],
+          "top_activation": [
+            [
+              "cytokinesi_attribute",
+              34.0
+            ],
+            [
+              "apoptosi_attribute",
+              30.846573590279974
+            ],
+            [
+              "programmed cell death not cell division",
+              29.891751034759537
+            ],
+            [
+              "g2_attribute",
+              29.5
+            ],
+            [
+              "g2 phase_attribute",
+              27.0
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "the coordination of ribosomes and mRNA during protein synthesis",
+          "score": -0.1,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.1,
+          "hits": [],
+          "top_activation": [
+            [
+              "apoptosi_attribute",
+              30.846573590279974
+            ],
+            [
+              "programmed cell death not cell division",
+              29.891751034759537
+            ],
+            [
+              "type of cell division",
+              26.0
+            ],
+            [
+              "apoptosi",
+              25.753383773199364
+            ],
+            [
+              "normal process that eliminates damaged cells",
+              24.846573590279974
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "the movement of substances across the plasma membrane",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "apoptosi_attribute",
+              30.846573590279974
+            ],
+            [
+              "programmed cell death not cell division",
+              29.891751034759537
+            ],
+            [
+              "type of cell division",
+              26.0
+            ],
+            [
+              "apoptosi",
+              25.753383773199364
+            ],
+            [
+              "normal process that eliminates damaged cells",
+              24.846573590279974
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "the accumulation of protons inside the thylakoids of chloroplasts during chemiosmosis",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "apoptosi_attribute",
+              30.846573590279974
+            ],
+            [
+              "programmed cell death not cell division",
+              29.891751034759537
+            ],
+            [
+              "type of cell division",
+              26.0
+            ],
+            [
+              "apoptosi",
+              25.753383773199364
+            ],
+            [
+              "normal process that eliminates damaged cells",
+              24.846573590279974
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 182,
+      "question": "Recently, seasonal dead zones in low-oxygen waters have been occurring annually in the Gulf of Mexico near the mouth of the Mississippi River. The dead zones result from the rapid growth of photosynthetic phytoplankton (algal blooms) and their subsequent decay by oxygen-depleting microbes in the water column. Which of the following factors most likely triggers the algal blooms and the associated dead zones?",
+      "correct": "C",
+      "pick": "-",
+      "outcome": "tie",
+      "best_score": 14.5,
+      "regions": [
+        "cell_cycle_control",
+        "cancer"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": [
+          "result"
+        ]
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "A decrease in the light level in surface waters as day length starts to shorten after the summer solstice",
+          "score": -0.1,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.1,
+          "hits": [],
+          "top_activation": [
+            [
+              "programmed cell death not cell division",
+              32.664339756999325
+            ],
+            [
+              "type of cell division",
+              27.0
+            ],
+            [
+              "that",
+              26.5
+            ],
+            [
+              "cancer caused_by_attribute",
+              26.5
+            ],
+            [
+              "apoptosi_attribute",
+              26.346573590279974
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "Increased predation by marine larvae and other zooplankton during the summer months",
+          "score": 14.5,
+          "act": 14.5,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "other"
+          ],
+          "top_activation": [
+            [
+              "programmed cell death not cell division",
+              34.164339756999325
+            ],
+            [
+              "type of cell division",
+              33.5
+            ],
+            [
+              "normal process that eliminates damaged cells",
+              31.846573590279974
+            ],
+            [
+              "mutated proto-oncogenes that promote cancer",
+              28.666666666666668
+            ],
+            [
+              "cancer_attribute",
+              28.0
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "A summer influx of nutrients derived from chemical fertilizers that are high in nitrogen and phosphorus",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "programmed cell death not cell division",
+              32.664339756999325
+            ],
+            [
+              "type of cell division",
+              27.0
+            ],
+            [
+              "that",
+              26.5
+            ],
+            [
+              "cancer caused_by_attribute",
+              26.5
+            ],
+            [
+              "apoptosi_attribute",
+              26.346573590279974
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "Decreased competition from other marine phytoplankton during the summer months",
+          "score": 14.4,
+          "act": 14.5,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.1,
+          "hits": [
+            "other"
+          ],
+          "top_activation": [
+            [
+              "programmed cell death not cell division",
+              34.164339756999325
+            ],
+            [
+              "type of cell division",
+              33.5
+            ],
+            [
+              "normal process that eliminates damaged cells",
+              31.846573590279974
+            ],
+            [
+              "mutated proto-oncogenes that promote cancer",
+              28.666666666666668
+            ],
+            [
+              "cancer_attribute",
+              28.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 184,
+      "question": "In a hypothetical population's gene pool, an autosomal gene, which had previously been fixed, undergoes a mutation that introduces a new allele, one inherited according to incomplete dominance. Natural selection then causes stabilizing selection at this locus. Consequently, what should happen over the course of many generations?",
+      "correct": "D",
+      "pick": "A",
+      "outcome": "wrong",
+      "best_score": 4.0,
+      "regions": [
+        "genetics",
+        "cell_division"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": [
+          "cause"
+        ]
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "The proportions of both types of homozygote should decrease.",
+          "score": 4.0,
+          "act": 4.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "decrease",
+            "homozygote"
+          ],
+          "top_activation": [
+            [
+              "gene",
+              29.666666666666675
+            ],
+            [
+              "gene_attribute",
+              29.0
+            ],
+            [
+              "two identical copies of replicated chromosome",
+              27.0
+            ],
+            [
+              "location of gene on chromosome",
+              26.5
+            ],
+            [
+              "orderly sequence of events in cell reproduction",
+              26.0
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "The proportion of the population that is heterozygous at this locus should remain constant.",
+          "score": -0.2,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.2,
+          "hits": [],
+          "top_activation": [
+            [
+              "gene",
+              29.666666666666675
+            ],
+            [
+              "gene_attribute",
+              29.0
+            ],
+            [
+              "two identical copies of replicated chromosome",
+              27.0
+            ],
+            [
+              "location of gene on chromosome",
+              26.5
+            ],
+            [
+              "orderly sequence of events in cell reproduction",
+              26.0
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "The population's average heterozygosity should increase.",
+          "score": -0.1,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.1,
+          "hits": [],
+          "top_activation": [
+            [
+              "gene",
+              29.666666666666675
+            ],
+            [
+              "gene_attribute",
+              29.0
+            ],
+            [
+              "two identical copies of replicated chromosome",
+              27.0
+            ],
+            [
+              "location of gene on chromosome",
+              26.5
+            ],
+            [
+              "orderly sequence of events in cell reproduction",
+              26.0
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "Both A and C",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "gene",
+              29.666666666666675
+            ],
+            [
+              "gene_attribute",
+              29.0
+            ],
+            [
+              "two identical copies of replicated chromosome",
+              27.0
+            ],
+            [
+              "location of gene on chromosome",
+              26.5
+            ],
+            [
+              "orderly sequence of events in cell reproduction",
+              26.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 191,
+      "question": "The geneticist Mary Lyon hypothesized the existence of structures visible just under the nuclear membrane in mammals, which were later named Barr bodies. Which of the following statement is NOT correct about Barr bodies?",
+      "correct": "B",
+      "pick": "-",
+      "outcome": "tie",
+      "best_score": 39.0,
+      "regions": [
+        "cell_cycle"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "In the early female embryo, one copy of the X chromosome becomes inactivated in every body cell.",
+          "score": 38.9,
+          "act": 39.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.1,
+          "hits": [
+            "cell"
+          ],
+          "top_activation": [
+            [
+              "phase where cell grows and dna is replicated",
+              43.0
+            ],
+            [
+              "cell plate",
+              41.83333333333333
+            ],
+            [
+              "s phase",
+              39.12486135848682
+            ],
+            [
+              "cell",
+              39.0
+            ],
+            [
+              "quiescent state where cells exit cell cycle",
+              38.0
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "The same chromosome in every cell of a normal female is inactivated.",
+          "score": 39.0,
+          "act": 39.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "cell"
+          ],
+          "top_activation": [
+            [
+              "phase where cell grows and dna is replicated",
+              43.0
+            ],
+            [
+              "cell plate",
+              41.83333333333333
+            ],
+            [
+              "s phase",
+              39.12486135848682
+            ],
+            [
+              "cell",
+              39.0
+            ],
+            [
+              "quiescent state where cells exit cell cycle",
+              38.0
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "A male with the XXY genotype will have one Barr body.",
+          "score": 0.8,
+          "act": 0.0,
+          "svo": 1.0,
+          "temp": 0.0,
+          "penalty": 0.2,
+          "hits": [],
+          "top_activation": [
+            [
+              "cell plate_attribute",
+              14.0
+            ],
+            [
+              "cell plate",
+              13.333333333333332
+            ],
+            [
+              "quiescent state where cells exit cell cycle",
+              10.5
+            ],
+            [
+              "cleavage furrow_attribute",
+              9.5
+            ],
+            [
+              "actin ring that pinches animal cells in two",
+              9.0
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "Barr bodies consist of highly methylated DNA.",
+          "score": 27.8,
+          "act": 27.0,
+          "svo": 1.0,
+          "temp": 0.0,
+          "penalty": 0.2,
+          "hits": [
+            "dna"
+          ],
+          "top_activation": [
+            [
+              "s phase",
+              39.74771275651123
+            ],
+            [
+              "interphase_attribute",
+              37.0
+            ],
+            [
+              "phase where cell grows and dna is replicated",
+              35.846573590279974
+            ],
+            [
+              "two major phases interphase and mitotic phase",
+              32.19314718055995
+            ],
+            [
+              "s phase_attribute",
+              31.894449154672444
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 196,
+      "question": "If two modern organisms are distantly related in an evolutionary sense, then one should expect that",
+      "correct": "B",
+      "pick": "B",
+      "outcome": "correct",
+      "best_score": 70.15,
+      "regions": [
+        "cell_division",
+        "cell_cycle"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "they live in very different habitats.",
+          "score": 13.5,
+          "act": 13.5,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "different"
+          ],
+          "top_activation": [
+            [
+              "two",
+              56.346573590279974
+            ],
+            [
+              "cell cycle_attribute",
+              48.56438239351998
+            ],
+            [
+              "two major phases interphase and mitotic phase",
+              35.346573590279974
+            ],
+            [
+              "s phase",
+              30.0299210542973
+            ],
+            [
+              "cell",
+              30.0
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "they should share fewer homologous structures than two more closely related organisms.",
+          "score": 70.15,
+          "act": 70.35,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.2,
+          "hits": [
+            "two",
+            "structure",
+            "homologous"
+          ],
+          "top_activation": [
+            [
+              "two",
+              56.346573590279974
+            ],
+            [
+              "cell cycle_attribute",
+              49.56438239351998
+            ],
+            [
+              "two major phases interphase and mitotic phase",
+              35.346573590279974
+            ],
+            [
+              "cell",
+              32.0
+            ],
+            [
+              "actin ring that pinches animal cells in two",
+              31.0
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "their chromosomes should be very similar.",
+          "score": 21.5,
+          "act": 21.5,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "chromosome"
+          ],
+          "top_activation": [
+            [
+              "two",
+              56.346573590279974
+            ],
+            [
+              "cell cycle_attribute",
+              48.56438239351998
+            ],
+            [
+              "two major phases interphase and mitotic phase",
+              35.346573590279974
+            ],
+            [
+              "s phase",
+              30.0299210542973
+            ],
+            [
+              "cell",
+              30.0
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "they shared a common ancestor relatively recently.",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "two",
+              56.346573590279974
+            ],
+            [
+              "cell cycle_attribute",
+              48.56438239351998
+            ],
+            [
+              "two major phases interphase and mitotic phase",
+              35.346573590279974
+            ],
+            [
+              "s phase",
+              30.0299210542973
+            ],
+            [
+              "cell",
+              30.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 207,
+      "question": "Heterozygote advantage should be most closely linked to which of the following?",
+      "correct": "B",
+      "pick": "-",
+      "outcome": "tie",
+      "best_score": 7.0,
+      "regions": [
+        "evolution"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "sexual selection",
+          "score": 7.0,
+          "act": 7.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "selection"
+          ],
+          "top_activation": [
+            [
+              "heterozygote advantage",
+              12.666666666666666
+            ],
+            [
+              "heterozygote advantage_attribute",
+              11.5
+            ],
+            [
+              "stabilizing selection",
+              10.0
+            ],
+            [
+              "linked to stabilizing selection",
+              8.5
+            ],
+            [
+              "stabilizing",
+              7.0
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "stabilizing selection",
+          "score": 7.0,
+          "act": 7.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "selection"
+          ],
+          "top_activation": [
+            [
+              "heterozygote advantage",
+              12.666666666666666
+            ],
+            [
+              "heterozygote advantage_attribute",
+              11.5
+            ],
+            [
+              "stabilizing selection",
+              10.0
+            ],
+            [
+              "linked to stabilizing selection",
+              8.5
+            ],
+            [
+              "stabilizing",
+              7.0
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "random selection",
+          "score": 7.0,
+          "act": 7.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "selection"
+          ],
+          "top_activation": [
+            [
+              "heterozygote advantage",
+              12.666666666666666
+            ],
+            [
+              "heterozygote advantage_attribute",
+              11.5
+            ],
+            [
+              "stabilizing selection",
+              10.0
+            ],
+            [
+              "linked to stabilizing selection",
+              8.5
+            ],
+            [
+              "stabilizing",
+              7.0
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "directional selection",
+          "score": 7.0,
+          "act": 7.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "selection"
+          ],
+          "top_activation": [
+            [
+              "heterozygote advantage",
+              12.666666666666666
+            ],
+            [
+              "heterozygote advantage_attribute",
+              11.5
+            ],
+            [
+              "stabilizing selection",
+              10.0
+            ],
+            [
+              "linked to stabilizing selection",
+              8.5
+            ],
+            [
+              "stabilizing",
+              7.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 211,
+      "question": "All of the following support the endosymbiotic theory that ancestors of mitochondria and chloroplasts were once independent, free-living prokaryotes EXCEPT:",
+      "correct": "C",
+      "pick": "D",
+      "outcome": "wrong",
+      "best_score": 107.3,
+      "regions": [
+        "cell_division",
+        "prokaryotic_division"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Mitochondria and chloroplasts divide independently of the eukaryotic host cell by a process similar to binary fission.",
+          "score": 86.99,
+          "act": 86.19,
+          "svo": 1.0,
+          "temp": 0.0,
+          "penalty": 0.2,
+          "hits": [
+            "divide",
+            "binary",
+            "eukaryotic",
+            "cell",
+            "mitochondria",
+            "fission"
+          ],
+          "top_activation": [
+            [
+              "smaller loops of dna in prokaryotes",
+              38.0
+            ],
+            [
+              "cell",
+              37.0
+            ],
+            [
+              "cell dna packaged as double-stranded molecule",
+              36.0
+            ],
+            [
+              "plasmid_attribute",
+              32.0
+            ],
+            [
+              "genome_attribute",
+              30.5
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "Mitochondria and chloroplasts have ribosomes that more closely resemble those of bacteria than of eukaryotic cells.",
+          "score": 72.3,
+          "act": 71.5,
+          "svo": 1.0,
+          "temp": 0.0,
+          "penalty": 0.2,
+          "hits": [
+            "bacteria",
+            "eukaryotic",
+            "cell",
+            "mitochondria"
+          ],
+          "top_activation": [
+            [
+              "smaller loops of dna in prokaryotes",
+              38.0
+            ],
+            [
+              "cell",
+              37.0
+            ],
+            [
+              "cell dna packaged as double-stranded molecule",
+              36.0
+            ],
+            [
+              "plasmid_attribute",
+              32.0
+            ],
+            [
+              "genome_attribute",
+              30.5
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "Mitochondria and chloroplasts function independently from the eukaryotic host cell.",
+          "score": 59.3,
+          "act": 58.5,
+          "svo": 1.0,
+          "temp": 0.0,
+          "penalty": 0.2,
+          "hits": [
+            "eukaryotic",
+            "cell",
+            "mitochondria"
+          ],
+          "top_activation": [
+            [
+              "smaller loops of dna in prokaryotes",
+              38.0
+            ],
+            [
+              "cell",
+              37.0
+            ],
+            [
+              "cell dna packaged as double-stranded molecule",
+              36.0
+            ],
+            [
+              "plasmid_attribute",
+              32.0
+            ],
+            [
+              "genome_attribute",
+              30.5
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "Mitochondria, chloroplasts, and bacteria have a single, circular chromosome without histones or proteins.",
+          "score": 107.3,
+          "act": 106.5,
+          "svo": 1.0,
+          "temp": 0.0,
+          "penalty": 0.2,
+          "hits": [
+            "circular",
+            "histone",
+            "single",
+            "chromosome",
+            "bacteria",
+            "mitochondria",
+            "protein"
+          ],
+          "top_activation": [
+            [
+              "smaller loops of dna in prokaryotes",
+              44.0
+            ],
+            [
+              "plasmid_attribute",
+              29.0
+            ],
+            [
+              "dna wrapped around eight histone proteins",
+              28.0
+            ],
+            [
+              "functional units of chromosomes that code for proteins",
+              28.0
+            ],
+            [
+              "cell dna packaged as double-stranded molecule",
+              26.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 216,
+      "question": "Which of the following disorders will most likely result from X chromosome aneuploidy in women?",
+      "correct": "C",
+      "pick": "-",
+      "outcome": "abstain",
+      "best_score": 0.0,
+      "regions": [
+        "cell_division",
+        "cell_cycle_control"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": [
+          "result"
+        ]
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Cystic fibrosis",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "chromosome",
+              33.0
+            ],
+            [
+              "locu_attribute",
+              24.666666666666668
+            ],
+            [
+              "sister chromatid_attribute",
+              24.5
+            ],
+            [
+              "location of gene on chromosome",
+              23.0
+            ],
+            [
+              "two identical copies of replicated chromosome",
+              22.5
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "Hemophilia",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "chromosome",
+              33.0
+            ],
+            [
+              "locu_attribute",
+              24.666666666666668
+            ],
+            [
+              "sister chromatid_attribute",
+              24.5
+            ],
+            [
+              "location of gene on chromosome",
+              23.0
+            ],
+            [
+              "two identical copies of replicated chromosome",
+              22.5
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "Turner syndrome",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "chromosome",
+              33.0
+            ],
+            [
+              "locu_attribute",
+              24.666666666666668
+            ],
+            [
+              "sister chromatid_attribute",
+              24.5
+            ],
+            [
+              "location of gene on chromosome",
+              23.0
+            ],
+            [
+              "two identical copies of replicated chromosome",
+              22.5
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "Tay-Sachs disease",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "chromosome",
+              33.0
+            ],
+            [
+              "locu_attribute",
+              24.666666666666668
+            ],
+            [
+              "sister chromatid_attribute",
+              24.5
+            ],
+            [
+              "location of gene on chromosome",
+              23.0
+            ],
+            [
+              "two identical copies of replicated chromosome",
+              22.5
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 226,
+      "question": "The acrosome and cortical reactions that occur immediately after fertilization ensure which of the following?",
+      "correct": "C",
+      "pick": "C",
+      "outcome": "correct",
+      "best_score": 21.0,
+      "regions": [
+        "reproduction",
+        "prokaryotic_division"
+      ],
+      "q_temporal": {
+        "preps": [
+          "after"
+        ],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "The sperm will fertilize the ovum.",
+          "score": 7.0,
+          "act": 7.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "sperm"
+          ],
+          "top_activation": [
+            [
+              "mode of asexual reproduction",
+              22.090354888959126
+            ],
+            [
+              "binary fission",
+              20.14329272856253
+            ],
+            [
+              "development of embryo after fertilization",
+              18.0
+            ],
+            [
+              "development of egg without fertilization",
+              17.0
+            ],
+            [
+              "binary fission_attribute",
+              16.5
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "The zygote will begin to divide normally.",
+          "score": 7.0,
+          "act": 7.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "divide"
+          ],
+          "top_activation": [
+            [
+              "binary fission",
+              25.241905017230643
+            ],
+            [
+              "binary fission_attribute",
+              22.5
+            ],
+            [
+              "mode of asexual reproduction",
+              22.090354888959126
+            ],
+            [
+              "simpler than mitosis",
+              19.0
+            ],
+            [
+              "how prokaryotes divide",
+              18.5
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "One and only one sperm will fertilize the egg.",
+          "score": 21.0,
+          "act": 21.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "sperm",
+            "egg",
+            "one"
+          ],
+          "top_activation": [
+            [
+              "mode of asexual reproduction",
+              22.090354888959126
+            ],
+            [
+              "binary fission",
+              20.14329272856253
+            ],
+            [
+              "development of embryo after fertilization",
+              18.0
+            ],
+            [
+              "development of egg without fertilization",
+              17.0
+            ],
+            [
+              "binary fission_attribute",
+              16.5
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "The zygote will not divide into two embryos, producing twins.",
+          "score": 17.0,
+          "act": 17.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "embryo",
+            "divide"
+          ],
+          "top_activation": [
+            [
+              "binary fission",
+              25.241905017230643
+            ],
+            [
+              "binary fission_attribute",
+              22.5
+            ],
+            [
+              "mode of asexual reproduction",
+              22.090354888959126
+            ],
+            [
+              "development of embryo after fertilization",
+              21.0
+            ],
+            [
+              "simpler than mitosis",
+              19.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 227,
+      "question": "snRNPs are most closely associated with which of the following?",
+      "correct": "D",
+      "pick": "C",
+      "outcome": "wrong",
+      "best_score": 60.0,
+      "regions": [
+        "cell_division"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Cell division",
+          "score": 37.0,
+          "act": 37.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "cell"
+          ],
+          "top_activation": [
+            [
+              "cell",
+              37.0
+            ],
+            [
+              "plasmid_attribute",
+              32.0
+            ],
+            [
+              "smaller loops of dna in prokaryotes",
+              31.0
+            ],
+            [
+              "cell dna packaged as double-stranded molecule",
+              29.0
+            ],
+            [
+              "orderly sequence of events in cell reproduction",
+              28.5
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "Apoptosis",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": []
+        },
+        {
+          "letter": "C",
+          "text": "Replication of DNA",
+          "score": 60.0,
+          "act": 60.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "dna",
+            "replication"
+          ],
+          "top_activation": [
+            [
+              "smaller loops of dna in prokaryotes",
+              54.0
+            ],
+            [
+              "linker dna",
+              48.83333333333333
+            ],
+            [
+              "dna replication",
+              48.5
+            ],
+            [
+              "cell dna packaged as double-stranded molecule",
+              48.0
+            ],
+            [
+              "dna",
+              47.0
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "RNA processing",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": []
+        }
+      ]
+    },
+    {
+      "id": 229,
+      "question": "Which of the following statements best explains why Mendel's principle of segregation was deemed a law?",
+      "correct": "B",
+      "pick": "A",
+      "outcome": "wrong",
+      "best_score": 43.69,
+      "regions": [
+        "genetics"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Mendel's work with pea plants and his conclusions have been described in many sources.",
+          "score": 43.69,
+          "act": 43.79,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.1,
+          "hits": [
+            "source",
+            "mendel",
+            "many"
+          ],
+          "top_activation": [
+            [
+              "source of genetic variation",
+              41.72571505169192
+            ],
+            [
+              "mendel principle of segregation",
+              40.31458509966884
+            ],
+            [
+              "random in each cell of female embryo",
+              36.14791843300216
+            ],
+            [
+              "dna replication mistake_attribute",
+              33.542367587674605
+            ],
+            [
+              "meiosis error_attribute",
+              32.542367587674605
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "The patterns of trait inheritance observed in pea plants were repeatedly demonstrated in other eukaryotes.",
+          "score": 2.0,
+          "act": 2.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "trait"
+          ],
+          "top_activation": [
+            [
+              "mendel principle of segregation_attribute",
+              27.5
+            ],
+            [
+              "mendel principle of segregation",
+              26.666666666666675
+            ],
+            [
+              "source of genetic variation",
+              22.936816742347048
+            ],
+            [
+              "random in each cell of female embryo",
+              22.5
+            ],
+            [
+              "snrnp_attribute",
+              19.0
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "Chromosomes were found to contain the genetic information for traits.",
+          "score": 30.79,
+          "act": 30.79,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "chromosome",
+            "trait",
+            "genetic"
+          ],
+          "top_activation": [
+            [
+              "source of genetic variation",
+              41.72571505169192
+            ],
+            [
+              "mendel principle of segregation",
+              40.31458509966884
+            ],
+            [
+              "random in each cell of female embryo",
+              37.14791843300216
+            ],
+            [
+              "dna replication mistake_attribute",
+              33.542367587674605
+            ],
+            [
+              "meiosis error_attribute",
+              32.542367587674605
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "The discovery of the structure of D N A supported Mendel's observations and laws.",
+          "score": 22.8,
+          "act": 23.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.2,
+          "hits": [
+            "mendel",
+            "law"
+          ],
+          "top_activation": [
+            [
+              "mendel principle of segregation_attribute",
+              27.5
+            ],
+            [
+              "mendel principle of segregation",
+              26.666666666666675
+            ],
+            [
+              "source of genetic variation",
+              22.936816742347048
+            ],
+            [
+              "random in each cell of female embryo",
+              22.5
+            ],
+            [
+              "snrnp_attribute",
+              19.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 251,
+      "question": "Some strains of viruses can change normal mammalian cells into cancer cells in vitro. This transformation of the mammalian cell is usually associated with the",
+      "correct": "B",
+      "pick": "B",
+      "outcome": "correct",
+      "best_score": 127.8,
+      "regions": [
+        "cancer",
+        "cell_division"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "formation of a pilus between the mammalian cell and the virus",
+          "score": 56.7,
+          "act": 57.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.3,
+          "hits": [
+            "cell"
+          ],
+          "top_activation": [
+            [
+              "cell",
+              57.0
+            ],
+            [
+              "normal process that eliminates damaged cells",
+              46.846573590279974
+            ],
+            [
+              "programmed cell death not cell division",
+              46.20406052783925
+            ],
+            [
+              "type of cell division",
+              45.5
+            ],
+            [
+              "mutated proto-oncogenes that promote cancer",
+              38.66666666666667
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "incorporation of the viral genome into the mammalian cell's nuclear DNA",
+          "score": 127.8,
+          "act": 128.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.2,
+          "hits": [
+            "genome",
+            "cell",
+            "dna"
+          ],
+          "top_activation": [
+            [
+              "smaller loops of dna in prokaryotes",
+              59.0
+            ],
+            [
+              "cell dna packaged as double-stranded molecule",
+              58.0
+            ],
+            [
+              "cell",
+              57.0
+            ],
+            [
+              "linker dna",
+              48.83333333333333
+            ],
+            [
+              "dna replication",
+              48.5
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "conversion of the host's genome into the viral DNA",
+          "score": 71.0,
+          "act": 71.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "genome",
+            "dna"
+          ],
+          "top_activation": [
+            [
+              "smaller loops of dna in prokaryotes",
+              59.0
+            ],
+            [
+              "cell dna packaged as double-stranded molecule",
+              58.0
+            ],
+            [
+              "cell",
+              57.0
+            ],
+            [
+              "linker dna",
+              48.83333333333333
+            ],
+            [
+              "dna replication",
+              48.5
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "release of spores into the mammalian cell",
+          "score": 56.8,
+          "act": 57.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.2,
+          "hits": [
+            "cell"
+          ],
+          "top_activation": [
+            [
+              "cell",
+              57.0
+            ],
+            [
+              "normal process that eliminates damaged cells",
+              46.846573590279974
+            ],
+            [
+              "programmed cell death not cell division",
+              46.20406052783925
+            ],
+            [
+              "type of cell division",
+              45.5
+            ],
+            [
+              "mutated proto-oncogenes that promote cancer",
+              38.66666666666667
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 278,
+      "question": "Crossing-over occurs during which of the following phases in meiosis?",
+      "correct": "A",
+      "pick": "D",
+      "outcome": "wrong",
+      "best_score": 34.04,
+      "regions": [
+        "cell_cycle",
+        "prokaryotic_division"
+      ],
+      "q_temporal": {
+        "preps": [
+          "during"
+        ],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Prophase I",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "s phase",
+              53.009725139665115
+            ],
+            [
+              "interphase_attribute",
+              47.33333333333333
+            ],
+            [
+              "phase",
+              41.13833305950803
+            ],
+            [
+              "phase where cell grows and dna is replicated",
+              39.89587973461403
+            ],
+            [
+              "and",
+              39.0
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "Metaphase I",
+          "score": 31.0,
+          "act": 31.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "metaphase"
+          ],
+          "top_activation": [
+            [
+              "s phase",
+              54.55903128399917
+            ],
+            [
+              "and",
+              53.346573590279974
+            ],
+            [
+              "phase where cell grows and dna is replicated",
+              49.39587973461403
+            ],
+            [
+              "interphase_attribute",
+              48.83333333333333
+            ],
+            [
+              "two major phases interphase and mitotic phase",
+              46.242453324894
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "Anaphase I",
+          "score": 24.35,
+          "act": 24.35,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "anaphase"
+          ],
+          "top_activation": [
+            [
+              "s phase",
+              54.55903128399917
+            ],
+            [
+              "and",
+              53.346573590279974
+            ],
+            [
+              "interphase_attribute",
+              48.83333333333333
+            ],
+            [
+              "phase where cell grows and dna is replicated",
+              47.39587973461403
+            ],
+            [
+              "two major phases interphase and mitotic phase",
+              45.242453324894
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "Prophase II",
+          "score": 34.04,
+          "act": 34.04,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "prophase"
+          ],
+          "top_activation": [
+            [
+              "s phase",
+              54.55903128399917
+            ],
+            [
+              "and",
+              53.346573590279974
+            ],
+            [
+              "phase where cell grows and dna is replicated",
+              49.39587973461403
+            ],
+            [
+              "interphase_attribute",
+              48.83333333333333
+            ],
+            [
+              "two major phases interphase and mitotic phase",
+              48.242453324894
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 291,
+      "question": "Compared to DNA viral replication, RNA viral replication is more susceptible to mutation because",
+      "correct": "D",
+      "pick": "-",
+      "outcome": "tie",
+      "best_score": 108.7,
+      "regions": [
+        "genetics",
+        "cell_division"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": [
+          "because"
+        ]
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "RNA replication takes place in the cytoplasm, whereas DNA replication takes place in the nucleus.",
+          "score": 105.7,
+          "act": 104.0,
+          "svo": 2.0,
+          "temp": 0.0,
+          "penalty": 0.3,
+          "hits": [
+            "rna",
+            "dna",
+            "replication"
+          ],
+          "top_activation": [
+            [
+              "dna replication",
+              61.5
+            ],
+            [
+              "dna",
+              59.0
+            ],
+            [
+              "smaller loops of dna in prokaryotes",
+              54.0
+            ],
+            [
+              "linker dna",
+              48.83333333333333
+            ],
+            [
+              "cell dna packaged as double-stranded molecule",
+              48.0
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "RNA viruses replicate much faster than DNA viruses.",
+          "score": 73.8,
+          "act": 74.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.2,
+          "hits": [
+            "rna",
+            "dna"
+          ],
+          "top_activation": [
+            [
+              "dna replication",
+              61.5
+            ],
+            [
+              "dna",
+              59.0
+            ],
+            [
+              "smaller loops of dna in prokaryotes",
+              54.0
+            ],
+            [
+              "linker dna",
+              48.83333333333333
+            ],
+            [
+              "cell dna packaged as double-stranded molecule",
+              48.0
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "RNA viruses use uracil instead of thymine.",
+          "score": 14.9,
+          "act": 15.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.1,
+          "hits": [
+            "rna"
+          ],
+          "top_activation": [
+            [
+              "dna replication",
+              61.5
+            ],
+            [
+              "dna",
+              59.0
+            ],
+            [
+              "smaller loops of dna in prokaryotes",
+              54.0
+            ],
+            [
+              "linker dna",
+              48.83333333333333
+            ],
+            [
+              "cell dna packaged as double-stranded molecule",
+              48.0
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "RNA replication lacks the proofreading functions characteristic of DNA replication.",
+          "score": 108.7,
+          "act": 108.0,
+          "svo": 1.0,
+          "temp": 0.0,
+          "penalty": 0.3,
+          "hits": [
+            "replication",
+            "rna",
+            "dna",
+            "proofreading"
+          ],
+          "top_activation": [
+            [
+              "dna replication",
+              68.16666666666667
+            ],
+            [
+              "dna",
+              59.0
+            ],
+            [
+              "smaller loops of dna in prokaryotes",
+              54.0
+            ],
+            [
+              "linker dna",
+              48.83333333333333
+            ],
+            [
+              "cell dna packaged as double-stranded molecule",
+              48.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 305,
+      "question": "Which is a true statement concerning genetic variation?",
+      "correct": "C",
+      "pick": "D",
+      "outcome": "wrong",
+      "best_score": 20.0,
+      "regions": [
+        "genetics",
+        "cell_division"
+      ],
+      "q_temporal": {
+        "preps": [],
+        "causals": []
+      },
+      "choices": [
+        {
+          "letter": "A",
+          "text": "It is created by the direct action of natural selection.",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "source of genetic variation",
+              41.775021196025975
+            ],
+            [
+              "dna replication mistake_attribute",
+              33.5423675876746
+            ],
+            [
+              "meiosis error_attribute",
+              32.5423675876746
+            ],
+            [
+              "recombination at fertilization_attribute",
+              32.5423675876746
+            ],
+            [
+              "genetic",
+              28.788898309344884
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "text": "It arises in response to changes in the environment.",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "source of genetic variation",
+              41.775021196025975
+            ],
+            [
+              "dna replication mistake_attribute",
+              33.5423675876746
+            ],
+            [
+              "meiosis error_attribute",
+              32.5423675876746
+            ],
+            [
+              "recombination at fertilization_attribute",
+              32.5423675876746
+            ],
+            [
+              "genetic",
+              28.788898309344884
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "text": "It must be present in a population before natural selection can act upon the population.",
+          "score": 0.0,
+          "act": 0.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [],
+          "top_activation": [
+            [
+              "source of genetic variation",
+              41.775021196025975
+            ],
+            [
+              "dna replication mistake_attribute",
+              33.5423675876746
+            ],
+            [
+              "meiosis error_attribute",
+              32.5423675876746
+            ],
+            [
+              "recombination at fertilization_attribute",
+              32.5423675876746
+            ],
+            [
+              "genetic",
+              28.788898309344884
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "text": "It tends to be reduced by the processes involved when diploid organisms produce gametes.",
+          "score": 20.0,
+          "act": 20.0,
+          "svo": 0.0,
+          "temp": 0.0,
+          "penalty": 0.0,
+          "hits": [
+            "diploid",
+            "gamete"
+          ],
+          "top_activation": [
+            [
+              "source of genetic variation",
+              41.775021196025975
+            ],
+            [
+              "dna replication mistake_attribute",
+              33.5423675876746
+            ],
+            [
+              "meiosis error_attribute",
+              32.5423675876746
+            ],
+            [
+              "recombination at fertilization_attribute",
+              32.5423675876746
+            ],
+            [
+              "genetic",
+              28.788898309344884
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

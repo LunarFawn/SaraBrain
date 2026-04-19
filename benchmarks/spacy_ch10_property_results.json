@@ -1,11 +1,11 @@
 {
   "accuracy_of_answered": 1.0,
-  "coverage": 0.8181818181818182,
-  "correct": 27,
+  "coverage": 0.8484848484848484,
+  "correct": 28,
   "wrong": 0,
-  "abstained": 6,
+  "abstained": 5,
   "total": 33,
-  "seconds": 1.0072240829467773,
+  "seconds": 0.9729609489440918,
   "abstain_threshold": 1.0,
   "results": [
     {
@@ -274,7 +274,7 @@
           "scored_by": "property",
           "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 2,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -302,7 +302,7 @@
           "scored_by": "property",
           "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 2,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -330,7 +330,7 @@
           "scored_by": "property",
           "property_score": 5.0,
           "temp": 0.0,
-          "topic_relevant_paths": 2,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -361,7 +361,7 @@
           "scored_by": "property",
           "property_score": 4.0,
           "temp": 0.0,
-          "topic_relevant_paths": 2,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -424,7 +424,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 7,
+          "topic_relevant_paths": 9,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -437,7 +437,7 @@
           "scored_by": "property",
           "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 7,
+          "topic_relevant_paths": 9,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -464,7 +464,7 @@
           "scored_by": "property",
           "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 7,
+          "topic_relevant_paths": 9,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -491,7 +491,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 7,
+          "topic_relevant_paths": 9,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -629,7 +629,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 4,
+          "topic_relevant_paths": 6,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -642,7 +642,7 @@
           "scored_by": "property",
           "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 4,
+          "topic_relevant_paths": 6,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -670,7 +670,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 4,
+          "topic_relevant_paths": 6,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -683,7 +683,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 4,
+          "topic_relevant_paths": 6,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -1105,8 +1105,8 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 13,
-          "polarity_skips": 9,
+          "topic_relevant_paths": 18,
+          "polarity_skips": 10,
           "c_neg": false,
           "q_neg": true,
           "best_path": null
@@ -1118,8 +1118,8 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 13,
-          "polarity_skips": 9,
+          "topic_relevant_paths": 18,
+          "polarity_skips": 10,
           "c_neg": false,
           "q_neg": true,
           "best_path": null
@@ -1131,8 +1131,8 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 13,
-          "polarity_skips": 9,
+          "topic_relevant_paths": 18,
+          "polarity_skips": 10,
           "c_neg": false,
           "q_neg": true,
           "best_path": null
@@ -1144,8 +1144,8 @@
           "scored_by": "property",
           "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 13,
-          "polarity_skips": 9,
+          "topic_relevant_paths": 18,
+          "polarity_skips": 10,
           "c_neg": false,
           "q_neg": true,
           "best_path": {
@@ -1178,7 +1178,7 @@
       "regions": [
         "meiosis",
         "genetics",
-        "cell_division"
+        "reproduction"
       ],
       "q_lemmas": [
         "imagine",
@@ -1258,14 +1258,14 @@
       "question": "Which of the following is NOT a characteristic of asexual reproduction in animals?",
       "correct": "D",
       "correct_text": "The daughter cells fuse to form a zygote.",
-      "pick": "-",
-      "outcome": "abstain",
-      "best_score": 0.0,
-      "gap_pct": 0.0,
+      "pick": "D",
+      "outcome": "correct",
+      "best_score": 3.0,
+      "gap_pct": 33.3,
       "regions": [
         "meiosis",
         "cell_division",
-        "cell_cycle"
+        "reproduction"
       ],
       "q_lemmas": [
         "characteristic",
@@ -1288,54 +1288,114 @@
         {
           "letter": "A",
           "text": "Daughter cells have the same number of chromosomes as the parent cell.",
-          "score": 0.0,
-          "scored_by": "path-fallback-all-zero",
-          "path": 0.0,
-          "terminus": 0.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "polarity_skips": 2,
+          "topic_relevant_paths": 18,
+          "polarity_skips": 11,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": []
+          "best_path": {
+            "source": "daughter cells do not fuse in asexual reproduction",
+            "property_hits": [
+              "cell",
+              "daughter"
+            ],
+            "terminus_words": [
+              "cell",
+              "daughter"
+            ],
+            "path_negated": true,
+            "choice_negated": false,
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
+          }
         },
         {
           "letter": "B",
           "text": "Daughter cells are identical to the parent cell.",
-          "score": 0.0,
-          "scored_by": "path-fallback-all-zero",
-          "path": 0.0,
-          "terminus": 0.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "polarity_skips": 2,
+          "topic_relevant_paths": 18,
+          "polarity_skips": 11,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": []
+          "best_path": {
+            "source": "daughter cells do not fuse in asexual reproduction",
+            "property_hits": [
+              "cell",
+              "daughter"
+            ],
+            "terminus_words": [
+              "cell",
+              "daughter"
+            ],
+            "path_negated": true,
+            "choice_negated": false,
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
+          }
         },
         {
           "letter": "C",
           "text": "The parent cell produces diploid cells.",
-          "score": 0.0,
-          "scored_by": "path-fallback-all-zero",
-          "path": 0.0,
-          "terminus": 0.0,
+          "score": 1.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
-          "polarity_skips": 2,
+          "topic_relevant_paths": 18,
+          "polarity_skips": 11,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": []
+          "best_path": {
+            "source": "asexual reproduction does not involve the fusion of cells",
+            "property_hits": [
+              "cell"
+            ],
+            "terminus_words": [
+              "asexual",
+              "reproduction"
+            ],
+            "path_negated": true,
+            "choice_negated": false,
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
+          }
         },
         {
           "letter": "D",
           "text": "The daughter cells fuse to form a zygote.",
-          "score": 0.0,
-          "scored_by": "path-fallback-all-zero",
-          "path": 0.0,
-          "terminus": 0.0,
+          "score": 3.0,
+          "scored_by": "property",
+          "property_score": 3.0,
           "temp": 0.0,
-          "polarity_skips": 2,
+          "topic_relevant_paths": 18,
+          "polarity_skips": 11,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": []
+          "best_path": {
+            "source": "daughter cells do not fuse in asexual reproduction",
+            "property_hits": [
+              "cell",
+              "daughter",
+              "fuse"
+            ],
+            "terminus_words": [
+              "cell",
+              "daughter"
+            ],
+            "path_negated": true,
+            "choice_negated": false,
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
+          }
         }
       ]
     },
@@ -1771,8 +1831,8 @@
           "scored_by": "property",
           "property_score": 4.0,
           "temp": 0.0,
-          "topic_relevant_paths": 26,
-          "polarity_skips": 4,
+          "topic_relevant_paths": 28,
+          "polarity_skips": 6,
           "c_neg": false,
           "q_neg": false,
           "best_path": {
@@ -1800,8 +1860,8 @@
           "scored_by": "property",
           "property_score": 5.0,
           "temp": 0.0,
-          "topic_relevant_paths": 26,
-          "polarity_skips": 4,
+          "topic_relevant_paths": 28,
+          "polarity_skips": 6,
           "c_neg": false,
           "q_neg": false,
           "best_path": {
@@ -1833,8 +1893,8 @@
           "scored_by": "property",
           "property_score": 1.0,
           "temp": 0.0,
-          "topic_relevant_paths": 26,
-          "polarity_skips": 4,
+          "topic_relevant_paths": 28,
+          "polarity_skips": 6,
           "c_neg": false,
           "q_neg": false,
           "best_path": {
@@ -1859,8 +1919,8 @@
           "scored_by": "property",
           "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 26,
-          "polarity_skips": 4,
+          "topic_relevant_paths": 28,
+          "polarity_skips": 6,
           "c_neg": false,
           "q_neg": false,
           "best_path": {
@@ -1920,7 +1980,7 @@
           "scored_by": "property",
           "property_score": 1.0,
           "temp": 0.0,
-          "topic_relevant_paths": 18,
+          "topic_relevant_paths": 20,
           "polarity_skips": 13,
           "c_neg": false,
           "q_neg": true,
@@ -1949,7 +2009,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 18,
+          "topic_relevant_paths": 20,
           "polarity_skips": 13,
           "c_neg": false,
           "q_neg": true,
@@ -1962,7 +2022,7 @@
           "scored_by": "property",
           "property_score": 3.5,
           "temp": 0.0,
-          "topic_relevant_paths": 18,
+          "topic_relevant_paths": 20,
           "polarity_skips": 11,
           "c_neg": false,
           "q_neg": true,
@@ -1993,7 +2053,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 18,
+          "topic_relevant_paths": 20,
           "polarity_skips": 13,
           "c_neg": false,
           "q_neg": true,
@@ -2013,7 +2073,7 @@
       "regions": [
         "meiosis",
         "cell_cycle",
-        "cell_division"
+        "reproduction"
       ],
       "q_lemmas": [
         "follow",
@@ -2038,8 +2098,8 @@
           "scored_by": "property",
           "property_score": 1.0,
           "temp": 0.0,
-          "topic_relevant_paths": 16,
-          "polarity_skips": 4,
+          "topic_relevant_paths": 20,
+          "polarity_skips": 7,
           "c_neg": false,
           "q_neg": false,
           "best_path": {
@@ -2064,8 +2124,8 @@
           "scored_by": "property",
           "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 16,
-          "polarity_skips": 4,
+          "topic_relevant_paths": 20,
+          "polarity_skips": 7,
           "c_neg": false,
           "q_neg": false,
           "best_path": {
@@ -2094,8 +2154,8 @@
           "scored_by": "property",
           "property_score": 3.0,
           "temp": 0.0,
-          "topic_relevant_paths": 16,
-          "polarity_skips": 4,
+          "topic_relevant_paths": 20,
+          "polarity_skips": 7,
           "c_neg": false,
           "q_neg": false,
           "best_path": {
@@ -2123,8 +2183,8 @@
           "scored_by": "property",
           "property_score": 3.0,
           "temp": 0.0,
-          "topic_relevant_paths": 16,
-          "polarity_skips": 4,
+          "topic_relevant_paths": 20,
+          "polarity_skips": 7,
           "c_neg": false,
           "q_neg": false,
           "best_path": {
@@ -2569,7 +2629,7 @@
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "polarity_skips": 2,
+          "polarity_skips": 4,
           "c_neg": false,
           "q_neg": true,
           "convergent_paths": []
@@ -2582,7 +2642,7 @@
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "polarity_skips": 2,
+          "polarity_skips": 4,
           "c_neg": false,
           "q_neg": true,
           "convergent_paths": []
@@ -2595,7 +2655,7 @@
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "polarity_skips": 2,
+          "polarity_skips": 4,
           "c_neg": false,
           "q_neg": true,
           "convergent_paths": []
@@ -2608,7 +2668,7 @@
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "polarity_skips": 2,
+          "polarity_skips": 4,
           "c_neg": false,
           "q_neg": true,
           "convergent_paths": []
@@ -3079,7 +3139,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 16,
+          "topic_relevant_paths": 18,
           "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
@@ -3092,7 +3152,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 16,
+          "topic_relevant_paths": 18,
           "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
@@ -3105,7 +3165,7 @@
           "scored_by": "property",
           "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 16,
+          "topic_relevant_paths": 18,
           "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
@@ -3133,7 +3193,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 16,
+          "topic_relevant_paths": 18,
           "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
@@ -3183,7 +3243,7 @@
           "scored_by": "property",
           "property_score": 1.0,
           "temp": 0.0,
-          "topic_relevant_paths": 5,
+          "topic_relevant_paths": 7,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -3209,7 +3269,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 5,
+          "topic_relevant_paths": 7,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -3222,7 +3282,7 @@
           "scored_by": "property",
           "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 5,
+          "topic_relevant_paths": 7,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -3249,8 +3309,8 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 5,
-          "polarity_skips": 5,
+          "topic_relevant_paths": 7,
+          "polarity_skips": 7,
           "c_neg": true,
           "q_neg": false,
           "best_path": null

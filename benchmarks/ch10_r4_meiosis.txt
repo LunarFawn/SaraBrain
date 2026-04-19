@@ -1,0 +1,5 @@
+# Ch10 round 4 — meiosis region
+# Q170: need to refute choice C "DNA replication occurs before meiosis
+# I and meiosis II" — Sara currently has "DNA replication occurs before
+# meiosis I only" which under lemma overlap ties with choice C.
+DNA replication does not occur before meiosis II

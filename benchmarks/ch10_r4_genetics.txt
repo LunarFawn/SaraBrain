@@ -1,0 +1,7 @@
+# Ch10 round 4 — genetics region
+# Q191: Barr body paths exist but "inactivated" (adj lemma) in Sara's
+# paths doesn't lemma-match "inactivate" (verb lemma) in the choices.
+# Teach with "inactivate" verb form to bridge.
+a Barr body forms when an X chromosome is inactivate
+X chromosome inactivation creates a Barr body
+the inactivation of an X chromosome produces a Barr body

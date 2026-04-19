@@ -149,6 +149,9 @@ def load_region_paths(brain, region: str, nlp=None) -> list[dict]:
                     s = _singularize_fallback(lemma)
                     if s:
                         p["words"].add(s)
+                    r = _ordinal_roman_equiv(lemma)
+                    if r:
+                        p["words"].add(r)
     return list(paths.values())
 CAUSAL_LEMMAS = {"because", "cause", "therefore", "thus", "result",
                  "produce", "lead"}
@@ -228,6 +231,12 @@ def content_lemmas(doc) -> list[str]:
             s = _singularize_fallback(lemma)
             if s:
                 _add(s)
+            # Ordinal ↔ Roman equivalence: "second" also emits "ii",
+            # "ii" also emits "second". Lets "meiosis II" and "second
+            # division" match on a shared marker.
+            r = _ordinal_roman_equiv(lemma)
+            if r:
+                _add(r)
 
     # Count content-worthy tokens to detect very short choices.
     content_tokens = [
@@ -249,8 +258,8 @@ def content_lemmas(doc) -> list[str]:
         #   - when the entire choice is a short token (e.g. "S", "48");
         #   - when the token is semantically critical (Roman numerals,
         #     ordinals, chromosome-arm symbols) — these distinguish
-        #     concepts like "meiosis I" vs "meiosis II" and must
-        #     survive the length filter.
+        #     concepts like "meiosis I" vs "meiosis II" when spaCy
+        #     tags them with a content POS.
         if (len(lemma) < 3
                 and not is_very_short
                 and lemma not in _CRITICAL_TOKENS):
@@ -436,6 +445,70 @@ _CRITICAL_TOKENS = frozenset({
     "n",
 })
 
+# Ordinal ↔ Roman numeral equivalence. "second division" and
+# "meiosis II" are semantically the same marker; emitting both forms
+# whenever either appears lets the scorer match across the two ways
+# biology text expresses phase order. Applied symmetrically at lemma
+# extraction time in both content_lemmas and the path-loader.
+_ORDINAL_ROMAN = {
+    "first":   "i",
+    "second":  "ii",
+    "third":   "iii",
+    "fourth":  "iv",
+    "fifth":   "v",
+    "sixth":   "vi",
+    "seventh": "vii",
+    "eighth":  "viii",
+    "ninth":   "ix",
+    "tenth":   "x",
+}
+_ROMAN_ORDINAL = {v: k for k, v in _ORDINAL_ROMAN.items()}
+
+
+def _ordinal_roman_equiv(lemma: str) -> str | None:
+    """Return the equivalent ordinal form for a Roman numeral, or the
+    equivalent Roman numeral for an ordinal. None when neither."""
+    if lemma in _ORDINAL_ROMAN:
+        return _ORDINAL_ROMAN[lemma]
+    if lemma in _ROMAN_ORDINAL:
+        return _ROMAN_ORDINAL[lemma]
+    return None
+
+
+# Lemmas that count as ordinal markers — any appearance of one is a
+# phase/order identifier. Used by the near-miss-swap detector.
+_ORDINAL_MARKERS = frozenset(_ORDINAL_ROMAN) | frozenset(_ROMAN_ORDINAL)
+
+
+def _is_ordinal_near_miss(c_lemmas: set[str], path_words: set[str],
+                          topic: set[str]) -> bool:
+    """Detect that the choice contradicts the path only in its ordinal.
+
+    "sister chromatids separate during meiosis I" vs Sara's taught
+    path "sister chromatids separate during meiosis II" — the non-
+    topic, non-ordinal content is identical, and both carry ordinal
+    markers that don't overlap. Under a NOT-true question, this is
+    the target answer: a proposition whose taught counterpart says
+    something different in exactly the key position.
+
+    Requires:
+      - Both sides carry at least one ordinal marker.
+      - The ordinal markers are disjoint (different phase).
+      - Non-topic, non-ordinal content overlap is strong (>= 2).
+    """
+    c_ord = c_lemmas & _ORDINAL_MARKERS
+    p_ord = path_words & _ORDINAL_MARKERS
+    if not c_ord or not p_ord:
+        return False
+    if c_ord & p_ord:
+        # Shared ordinal → same phase, not a contradiction.
+        return False
+    c_content = c_lemmas - topic - _ORDINAL_MARKERS
+    p_content = path_words - topic - _ORDINAL_MARKERS
+    if len(c_content & p_content) < 2:
+        return False
+    return True
+
 
 def score_choice_by_property(q_topic: set[str], c_lemmas: set[str],
                              region_paths: list[list[dict]],
@@ -486,13 +559,31 @@ def score_choice_by_property(q_topic: set[str], c_lemmas: set[str],
             #     (the choice says what the graph says is false — it IS
             #     the false statement the question wants)
             p_neg = p.get("negated", False)
-            if (c_neg != p_neg) != q_neg:
-                polarity_skips += 1
-                continue
+            polarity_ok = (c_neg != p_neg) == q_neg
+            is_near_miss = False
+
+            if not polarity_ok:
+                # Near-miss escape for NOT-true questions: when the
+                # choice is nearly the path but swaps only its ordinal
+                # (meiosis I vs meiosis II, first division vs second
+                # division), the choice is the false-variant — exactly
+                # what a q_neg=True question is asking for. Let this
+                # match count even though the straight polarity rule
+                # rejected it.
+                if q_neg and _is_ordinal_near_miss(c_lemmas, words, q_topic):
+                    is_near_miss = True
+                else:
+                    polarity_skips += 1
+                    continue
 
             property_words = words - q_topic
             hits = c_lemmas & property_words
+            # For near-miss hits, count shared content — the ordinal
+            # mismatch is the signal, not the overlap. Add a small bonus
+            # to break ties in favour of the contradicting choice.
             score = float(len(hits))
+            if is_near_miss:
+                score += 0.5
             if score > best_score:
                 best_score = score
                 best_path_info = {
@@ -501,6 +592,7 @@ def score_choice_by_property(q_topic: set[str], c_lemmas: set[str],
                     "terminus_words": sorted(term_words),
                     "path_negated": p_neg,
                     "choice_negated": c_neg,
+                    "near_miss": is_near_miss,
                 }
 
     # Temporal/causal fit — kept as a small side-signal for parity with

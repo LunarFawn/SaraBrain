@@ -1,11 +1,11 @@
 {
-  "accuracy_of_answered": 0.9090909090909091,
+  "accuracy_of_answered": 0.9545454545454546,
   "coverage": 0.6666666666666665,
-  "correct": 20,
-  "wrong": 2,
+  "correct": 21,
+  "wrong": 1,
   "abstained": 11,
   "total": 33,
-  "seconds": 0.9483640193939209,
+  "seconds": 1.143622875213623,
   "abstain_threshold": 1.0,
   "results": [
     {
@@ -59,7 +59,8 @@
               "metastasi"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -96,7 +97,8 @@
               "shoot"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -173,7 +175,8 @@
               "mule"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -247,6 +250,7 @@
       "correct_lemmas": [
         "inactivated",
         "x",
+        "tenth",
         "chromosome",
         "result",
         "female",
@@ -380,7 +384,8 @@
               "parthenogenesi"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -404,7 +409,8 @@
               "embryogenesi"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -509,7 +515,8 @@
               "mutation"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         }
       ]
@@ -689,7 +696,8 @@
               "s"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         }
       ]
@@ -745,7 +753,8 @@
               "crossover"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -769,7 +778,8 @@
               "crossover"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -793,7 +803,8 @@
               "crossover"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -818,7 +829,8 @@
               "crossover"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         }
       ]
@@ -884,7 +896,8 @@
               "translation"
             ],
             "path_negated": true,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -908,7 +921,8 @@
               "translation"
             ],
             "path_negated": true,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -932,7 +946,8 @@
               "translation"
             ],
             "path_negated": true,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -1039,7 +1054,8 @@
               "meiosi"
             ],
             "path_negated": true,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         }
       ]
@@ -1300,7 +1316,8 @@
               "over"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -1376,7 +1393,8 @@
               "apoptosi"
             ],
             "path_negated": true,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -1425,7 +1443,8 @@
               "apoptosi"
             ],
             "path_negated": true,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         }
       ]
@@ -1437,8 +1456,8 @@
       "correct_text": "lack an X chromosome",
       "pick": "C",
       "outcome": "correct",
-      "best_score": 3.0,
-      "gap_pct": 33.3,
+      "best_score": 4.0,
+      "gap_pct": 25.0,
       "regions": [
         "genetics",
         "cell_division",
@@ -1453,6 +1472,7 @@
         "hemophilia",
         "recessive",
         "x",
+        "tenth",
         "link",
         "trait",
         "base",
@@ -1467,15 +1487,16 @@
       "correct_lemmas": [
         "lack",
         "x",
+        "tenth",
         "chromosome"
       ],
       "choices": [
         {
           "letter": "A",
           "text": "have an extra X chromosome",
-          "score": 2.0,
+          "score": 3.0,
           "scored_by": "property",
-          "property_score": 2.0,
+          "property_score": 3.0,
           "temp": 0.0,
           "topic_relevant_paths": 4,
           "polarity_skips": 0,
@@ -1485,6 +1506,7 @@
             "source": "Turner syndrome is caused by lacking an X chromosome",
             "property_hits": [
               "chromosome",
+              "tenth",
               "x"
             ],
             "terminus_words": [
@@ -1492,7 +1514,8 @@
               "turner"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -1516,15 +1539,16 @@
               "turner"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
           "letter": "C",
           "text": "lack an X chromosome",
-          "score": 3.0,
+          "score": 4.0,
           "scored_by": "property",
-          "property_score": 3.0,
+          "property_score": 4.0,
           "temp": 0.0,
           "topic_relevant_paths": 4,
           "polarity_skips": 0,
@@ -1535,6 +1559,7 @@
             "property_hits": [
               "chromosome",
               "lack",
+              "tenth",
               "x"
             ],
             "terminus_words": [
@@ -1542,7 +1567,8 @@
               "turner"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -1566,7 +1592,8 @@
               "x"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         }
       ]
@@ -1576,13 +1603,13 @@
       "question": "Regarding meiosis and mitosis, one difference between the two forms of cellular reproduction is that in meiosis",
       "correct": "B",
       "correct_text": "separation of sister chromatids occurs during the second division, whereas in mitosis separation of sister chromatids occurs during the first division",
-      "pick": "A",
-      "outcome": "wrong",
-      "best_score": 4.0,
-      "gap_pct": 25.0,
+      "pick": "B",
+      "outcome": "correct",
+      "best_score": 5.0,
+      "gap_pct": 20.0,
       "regions": [
-        "cell_cycle",
         "meiosis",
+        "cell_cycle",
         "cell_division"
       ],
       "q_lemmas": [
@@ -1609,10 +1636,12 @@
         "chromatid",
         "occur",
         "second",
+        "ii",
         "division",
         "mitosis",
         "mitosi",
-        "first"
+        "first",
+        "i"
       ],
       "choices": [
         {
@@ -1638,15 +1667,16 @@
               "meiosi"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
           "letter": "B",
           "text": "separation of sister chromatids occurs during the second division, whereas in mitosis separation of sister chromatids occurs during the first division",
-          "score": 3.0,
+          "score": 5.0,
           "scored_by": "property",
-          "property_score": 3.0,
+          "property_score": 5.0,
           "temp": 0.0,
           "topic_relevant_paths": 26,
           "polarity_skips": 4,
@@ -1657,6 +1687,8 @@
             "property_hits": [
               "chromatid",
               "chromatids",
+              "ii",
+              "second",
               "sister"
             ],
             "terminus_words": [
@@ -1666,7 +1698,8 @@
               "sister"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -1681,15 +1714,16 @@
           "c_neg": false,
           "q_neg": false,
           "best_path": {
-            "source": "mitosis has four stages prophase metaphase anaphase and telophase",
+            "source": "meiosis reduces chromosome number by half",
             "property_hits": [
-              "prophase"
+              "chromosome"
             ],
             "terminus_words": [
-              "mitosi"
+              "meiosi"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -1713,7 +1747,8 @@
               "mitosi"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         }
       ]
@@ -1771,7 +1806,8 @@
               "produce"
             ],
             "path_negated": true,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -1826,8 +1862,8 @@
       "gap_pct": 0.0,
       "regions": [
         "meiosis",
-        "cell_division",
-        "genetics"
+        "cell_cycle",
+        "cell_division"
       ],
       "q_lemmas": [
         "follow",
@@ -1852,7 +1888,7 @@
           "scored_by": "property",
           "property_score": 1.0,
           "temp": 0.0,
-          "topic_relevant_paths": 17,
+          "topic_relevant_paths": 16,
           "polarity_skips": 4,
           "c_neg": false,
           "q_neg": false,
@@ -1865,24 +1901,26 @@
               "meiosi"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
           "letter": "B",
           "text": "Homologues pair during prophase II.",
-          "score": 1.0,
+          "score": 2.0,
           "scored_by": "property",
-          "property_score": 1.0,
+          "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 17,
+          "topic_relevant_paths": 16,
           "polarity_skips": 4,
           "c_neg": false,
           "q_neg": false,
           "best_path": {
             "source": "sister chromatids separate during meiosis II",
             "property_hits": [
-              "ii"
+              "ii",
+              "second"
             ],
             "terminus_words": [
               "chromatid",
@@ -1891,7 +1929,8 @@
               "sister"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -1901,7 +1940,7 @@
           "scored_by": "property",
           "property_score": 3.0,
           "temp": 0.0,
-          "topic_relevant_paths": 17,
+          "topic_relevant_paths": 16,
           "polarity_skips": 4,
           "c_neg": false,
           "q_neg": false,
@@ -1917,7 +1956,8 @@
               "replication"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -1927,7 +1967,7 @@
           "scored_by": "property",
           "property_score": 3.0,
           "temp": 0.0,
-          "topic_relevant_paths": 17,
+          "topic_relevant_paths": 16,
           "polarity_skips": 4,
           "c_neg": false,
           "q_neg": false,
@@ -1942,7 +1982,8 @@
               "meiosi"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         }
       ]
@@ -2016,7 +2057,8 @@
               "microtubules"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -2267,7 +2309,8 @@
               "selection"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -2291,7 +2334,8 @@
               "selection"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -2604,7 +2648,8 @@
               "heterozygote"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -2629,7 +2674,8 @@
               "heterozygote"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -2653,7 +2699,8 @@
               "heterozygote"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -2677,7 +2724,8 @@
               "heterozygote"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         }
       ]
@@ -2795,6 +2843,7 @@
         "disorder",
         "result",
         "x",
+        "tenth",
         "chromosome",
         "aneuploidy",
         "woman"
@@ -2858,7 +2907,8 @@
               "turner"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -2931,7 +2981,8 @@
               "polyspermy"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -2968,7 +3019,8 @@
               "polyspermy"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -3074,7 +3126,8 @@
               "snrnp"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         }
       ]
@@ -3142,7 +3195,8 @@
               "segregation"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -3168,7 +3222,8 @@
               "segregation"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -3274,7 +3329,8 @@
               "genome"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -3298,7 +3354,8 @@
               "genome"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -3323,11 +3380,11 @@
       "correct_text": "Prophase I",
       "pick": "A",
       "outcome": "correct",
-      "best_score": 2.0,
-      "gap_pct": 50.0,
+      "best_score": 3.0,
+      "gap_pct": 66.7,
       "regions": [
-        "meiosis",
         "cell_cycle",
+        "meiosis",
         "reproduction"
       ],
       "q_lemmas": [
@@ -3347,15 +3404,16 @@
       },
       "correct_lemmas": [
         "prophase",
-        "i"
+        "i",
+        "first"
       ],
       "choices": [
         {
           "letter": "A",
           "text": "Prophase I",
-          "score": 2.0,
+          "score": 3.0,
           "scored_by": "property",
-          "property_score": 2.0,
+          "property_score": 3.0,
           "temp": 0.0,
           "topic_relevant_paths": 2,
           "polarity_skips": 0,
@@ -3364,6 +3422,7 @@
           "best_path": {
             "source": "crossing-over occurs during prophase I of meiosis",
             "property_hits": [
+              "first",
               "i",
               "prophase"
             ],
@@ -3373,7 +3432,8 @@
               "over"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -3424,7 +3484,8 @@
               "over"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         }
       ]
@@ -3490,7 +3551,8 @@
               "replication"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -3515,7 +3577,8 @@
               "replication"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -3539,7 +3602,8 @@
               "rna"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -3566,7 +3630,8 @@
               "rna"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         }
       ]
@@ -3626,7 +3691,8 @@
               "variation"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {
@@ -3667,7 +3733,8 @@
               "variation"
             ],
             "path_negated": false,
-            "choice_negated": false
+            "choice_negated": false,
+            "near_miss": false
           }
         },
         {

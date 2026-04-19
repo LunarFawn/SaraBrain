@@ -51,12 +51,16 @@ def _build_regional_learner(brain: Brain, region: str):
 
 def _region_stats(brain: Brain, region: str | None) -> tuple[int, int]:
     cur = brain.conn.cursor()
-    if region:
-        n = cur.execute(f"SELECT COUNT(*) FROM {region}_neurons").fetchone()[0]
-        p = cur.execute(f"SELECT COUNT(*) FROM {region}_paths").fetchone()[0]
-    else:
-        n = cur.execute("SELECT COUNT(*) FROM neurons").fetchone()[0]
-        p = cur.execute("SELECT COUNT(*) FROM paths").fetchone()[0]
+    try:
+        if region:
+            n = cur.execute(f"SELECT COUNT(*) FROM {region}_neurons").fetchone()[0]
+            p = cur.execute(f"SELECT COUNT(*) FROM {region}_paths").fetchone()[0]
+        else:
+            n = cur.execute("SELECT COUNT(*) FROM neurons").fetchone()[0]
+            p = cur.execute("SELECT COUNT(*) FROM paths").fetchone()[0]
+    except Exception:
+        # Region tables may not exist yet (fresh region) — treat as empty.
+        return 0, 0
     return n, p
 
 

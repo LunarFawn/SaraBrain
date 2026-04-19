@@ -1,0 +1,3 @@
+# Ch10 round 2 — evolution region
+genetic variation must be present before natural selection can act
+natural selection requires existing variation in a population

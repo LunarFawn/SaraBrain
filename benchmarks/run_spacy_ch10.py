@@ -204,6 +204,134 @@ def temporal_signal(doc) -> dict:
     return {"preps": preps, "causals": causals}
 
 
+def extract_topic(doc) -> set[str]:
+    """Extract the question's topic concept(s).
+
+    The topic is what the question is ASKING ABOUT, separate from its
+    grammatical subject. For property-match scoring, we need to know
+    which concept in Sara's graph the question targets so we can filter
+    to paths that describe it.
+
+    Strategies, in order:
+      1. 'about X' prepositional phrase — X is the topic.
+      2. The main root verb's subject when it is a content NOUN/PROPN.
+      3. The first content NOUN/PROPN in the doc (last resort).
+
+    Returns an empty set when no reasonable topic is found; the caller
+    should then fall back to path-mode scoring for that question.
+    """
+    out: set[str] = set()
+
+    def _add(lemma: str) -> None:
+        lemma = lemma.lower().strip()
+        if not lemma:
+            return
+        out.add(lemma)
+        s = _singularize_fallback(lemma)
+        if s:
+            out.add(s)
+
+    # 1. 'about X' preposition → pobj child
+    for tok in doc:
+        if tok.text.lower() == "about" and tok.dep_ == "prep":
+            for child in tok.children:
+                if child.dep_ == "pobj" and child.pos_ in {"NOUN", "PROPN"}:
+                    _add(child.lemma_)
+                    # Compound noun-phrase modifiers ('mitotic cell divisions')
+                    for gc in child.children:
+                        if gc.dep_ in {"compound", "amod"} and gc.pos_ in {
+                            "NOUN", "PROPN", "ADJ"}:
+                            _add(gc.lemma_)
+            if out:
+                return out
+
+    # 2. Root verb's nsubj
+    for tok in doc:
+        if tok.dep_ == "ROOT":
+            for child in tok.children:
+                if child.dep_ in {"nsubj", "nsubjpass"} and child.pos_ in {
+                    "NOUN", "PROPN"}:
+                    _add(child.lemma_)
+                    for gc in child.children:
+                        if gc.dep_ in {"compound", "amod"} and gc.pos_ in {
+                            "NOUN", "PROPN", "ADJ"}:
+                            _add(gc.lemma_)
+            if out:
+                return out
+
+    # 3. First content NOUN/PROPN
+    for tok in doc:
+        if tok.pos_ in {"NOUN", "PROPN"}:
+            _add(tok.lemma_)
+            if out:
+                return out
+
+    return out
+
+
+def score_choice_by_property(q_topic: set[str], c_lemmas: set[str],
+                             region_paths: list[list[dict]],
+                             choice_doc, q_temporal: dict,
+                             ) -> tuple[float, dict]:
+    """Topic-filtered property match, MAX-over-paths.
+
+    Defeats vocabulary echo by:
+      1. Filtering to paths whose subject matter is the question's topic
+         (either terminus_words or path words intersect the topic).
+      2. Removing topic words from the path's word-bag so the 'content'
+         of the path is what remains — the property phrase.
+      3. Counting choice lemma coverage of that property content.
+      4. Taking the MAX across topic-relevant paths rather than the sum,
+         so a choice cannot win by lightly touching many paths.
+
+    Returns (score, detail_dict). Detail includes the best-matching path's
+    source_text so the verbose output is inspectable. A score of 0 with
+    zero topic-relevant paths signals the caller to fall back to path-mode.
+    """
+    best_score = 0.0
+    best_path_info: dict | None = None
+    topic_relevant_count = 0
+
+    for paths in region_paths:
+        for p in paths:
+            words = p["words"]
+            term_words = p.get("terminus_words", set())
+            # Topic-relevant: path's terminus names the topic, OR the
+            # topic is present anywhere in the path's word-bag.
+            if not (q_topic & term_words) and not (q_topic & words):
+                continue
+            topic_relevant_count += 1
+
+            property_words = words - q_topic
+            hits = c_lemmas & property_words
+            score = float(len(hits))
+            if score > best_score:
+                best_score = score
+                best_path_info = {
+                    "source": p["source_text"],
+                    "property_hits": sorted(hits),
+                    "terminus_words": sorted(term_words),
+                }
+
+    # Temporal/causal fit — kept as a small side-signal for parity with
+    # path mode; never enough to outweigh a property match.
+    c_temp = temporal_signal(choice_doc)
+    temp_score = 0.0
+    if q_temporal["preps"] and c_temp["preps"]:
+        temp_score += 0.5 * len(q_temporal["preps"] & c_temp["preps"])
+    if q_temporal["causals"] and c_temp["causals"]:
+        temp_score += 0.5 * len(q_temporal["causals"] & c_temp["causals"])
+
+    total = best_score + temp_score
+    detail = {
+        "property_score": round(best_score, 2),
+        "temp": round(temp_score, 2),
+        "topic_relevant_paths": topic_relevant_count,
+        "best_path": best_path_info,
+    }
+    return total, detail
+
+
 # ── Region selection ──
 
 def select_regions(lemmas: list[str], brain: Brain,
@@ -568,10 +696,15 @@ def main():
     ap.add_argument("--report-gaps", action="store_true",
                     help="After the exam, print a per-question teaching-gap "
                          "report for wrong and abstained answers.")
-    ap.add_argument("--mode", choices=["volume", "path"], default="path",
+    ap.add_argument("--mode", choices=["volume", "path", "property"],
+                    default="property",
                     help="Scoring mode. 'volume' = sum activation magnitudes "
-                         "(old LLM-style). 'path' = property-path convergence "
-                         "(apple = red ∧ round ∧ juicy). Default: path.")
+                         "(old LLM-style). 'path' = property-path "
+                         "convergence (apple = red ∧ round ∧ juicy). "
+                         "'property' = topic-filtered property match, "
+                         "max-over-paths (defeats vocabulary echo; falls "
+                         "through to path-mode when topic has no matching "
+                         "paths). Default: property.")
     args = ap.parse_args()
 
     with open(args.questions) as f:
@@ -596,9 +729,10 @@ def main():
 
     nlp = spacy.load("en_core_web_sm")
 
-    # Preload per-region path bags for path-mode scoring (cheap: < 200 paths total).
+    # Preload per-region path bags for path/property-mode scoring
+    # (cheap: < 200 paths total across all regions).
     region_paths_cache: dict[str, list[dict]] = {}
-    if args.mode == "path":
+    if args.mode in {"path", "property"}:
         for region in regions:
             region_paths_cache[region] = load_region_paths(brain, region, nlp)
     labels = ["A", "B", "C", "D"]
@@ -615,6 +749,7 @@ def main():
         q_doc = nlp(q["question"])
         q_lemmas = content_lemmas(q_doc)
         q_temporal = temporal_signal(q_doc)
+        q_topic = extract_topic(q_doc) if args.mode == "property" else set()
 
         # Route using question + all choices combined — the correct region
         # for an MC question is often driven by choice vocabulary.
@@ -632,8 +767,45 @@ def main():
             c_lemmas = content_lemmas(c_doc)
             c_lemmas_set = set(c_lemmas)
 
-            if args.mode == "path":
-                selected_path_bags = [region_paths_cache[r] for r in selected]
+            selected_path_bags = (
+                [region_paths_cache[r] for r in selected]
+                if args.mode in {"path", "property"} else []
+            )
+            if args.mode == "property":
+                # Try property first; detail + score computed once. We
+                # may still fall through later if the whole choice-set
+                # scored zero (handled after the per-choice loop).
+                if q_topic:
+                    score, detail = score_choice_by_property(
+                        q_topic, c_lemmas_set, selected_path_bags,
+                        c_doc, q_temporal,
+                    )
+                    scored_by = "property"
+                    if detail["topic_relevant_paths"] == 0:
+                        # No topic-matching paths at all — use path-mode now.
+                        p_score, p_detail = score_choice_by_path(
+                            q_lemmas_set, c_lemmas_set,
+                            selected_path_bags, q_temporal, c_doc,
+                        )
+                        score = p_score
+                        detail = {**p_detail, "fallback": "no-topic-paths"}
+                        scored_by = "path-fallback"
+                else:
+                    # No topic extractable — fall back to path-mode.
+                    score, detail = score_choice_by_path(
+                        q_lemmas_set, c_lemmas_set,
+                        selected_path_bags, q_temporal, c_doc,
+                    )
+                    detail = {**detail, "fallback": "no-topic"}
+                    scored_by = "path-fallback"
+                per_choice_detail.append({
+                    "letter": labels[i],
+                    "text": choice,
+                    "score": round(score, 2),
+                    "scored_by": scored_by,
+                    **detail,
+                })
+            elif args.mode == "path":
                 score, detail = score_choice_by_path(
                     q_lemmas_set, c_lemmas_set,
                     selected_path_bags, q_temporal, c_doc,
@@ -657,6 +829,34 @@ def main():
                                               key=lambda x: -x[1])[:5],
                 })
             choice_scores.append(score)
+
+        # Property-mode whole-question fallback: if topic filtering produced
+        # all-zero scores across every choice, the topic filter was too
+        # restrictive for this question. Fall back to path-mode so we get
+        # some signal — and if path-mode also scores all zero, the abstain
+        # logic below handles it honestly.
+        if (args.mode == "property"
+                and max(choice_scores) == 0
+                and any(d.get("scored_by") == "property"
+                        for d in per_choice_detail)):
+            choice_scores = []
+            per_choice_detail = []
+            for i, choice in enumerate(q["choices"]):
+                c_doc = nlp(choice)
+                c_lemmas_set = set(content_lemmas(c_doc))
+                score, detail = score_choice_by_path(
+                    q_lemmas_set, c_lemmas_set,
+                    [region_paths_cache[r] for r in selected],
+                    q_temporal, c_doc,
+                )
+                choice_scores.append(score)
+                per_choice_detail.append({
+                    "letter": labels[i],
+                    "text": choice,
+                    "score": round(score, 2),
+                    "scored_by": "path-fallback-all-zero",
+                    **detail,
+                })
 
         best_idx = max(range(len(choice_scores)), key=lambda i: choice_scores[i])
         best_score = choice_scores[best_idx]
@@ -705,10 +905,29 @@ def main():
               flush=True)
 
         if args.verbose or not is_correct:
+            if args.mode == "property":
+                print(f"      topic={sorted(q_topic) if q_topic else '(none)'}")
             for d in per_choice_detail:
                 marker = "←CORRECT" if d["letter"] == correct_letter else ""
                 pick = "←PICK" if d["letter"] == answer else ""
-                if args.mode == "path":
+                if args.mode == "property" and d.get("scored_by") == "property":
+                    bp = d.get("best_path")
+                    print(f"      {d['letter']}. score={d['score']:.2f} "
+                          f"prop={d['property_score']} temp={d['temp']} "
+                          f"topic_paths={d['topic_relevant_paths']} "
+                          f"{marker}{pick}")
+                    if bp:
+                        print(f"         ↳ {bp['source'][:80]}  "
+                              f"property_hits={bp['property_hits']}")
+                elif args.mode == "property" and d.get("scored_by", "").startswith("path-fallback"):
+                    conv = d.get("convergent_paths", [])
+                    print(f"      {d['letter']}. score={d['score']:.2f} "
+                          f"[{d.get('scored_by','path-fallback')}] "
+                          f"paths={len(conv)} {marker}{pick}")
+                    for p in conv:
+                        print(f"         • {p['source'][:80]}  "
+                              f"q={p['q_hits']} c={p['c_hits']}")
+                elif args.mode == "path":
                     conv = d.get("convergent_paths", [])
                     print(f"      {d['letter']}. score={d['score']:.2f} "
                           f"path={d['path']} terminus={d['terminus']} "

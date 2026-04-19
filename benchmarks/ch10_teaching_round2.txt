@@ -1,0 +1,35 @@
+# Ch10 teaching round 2 — 2026-04-18
+# Claude-surrogate teaching per feedback_claude_as_teacher_surrogate.md
+# Source: OpenStax Biology 2e, Ch10 + standard cell-biology knowledge
+#
+# Each fact is verified as NOT already taught and targets a specific
+# benchmark failure from run_spacy_ch10.py (Ch10 exam, 8 wrong answers).
+# Region assignments chosen to match where Sara's existing related
+# knowledge already lives.
+
+# Q5 — cell_cycle region (active mitotic tissues)
+shoot tips contain actively dividing cells
+meristems are regions of active cell division in plants
+
+# Q22 — meiosis region (mules, fitness)
+mules have evolutionary fitness of zero
+mules cannot produce offspring because they cannot perform meiosis
+
+# Q132 — meiosis region (meiosis vs mitosis division count)
+meiosis has two rounds of cell division
+mitosis has one round of cell division
+meiosis I separates homologous chromosomes
+meiosis II separates sister chromatids
+
+# Q170 — meiosis region (DNA replication timing)
+DNA replication occurs before meiosis I only
+DNA replication does not occur between meiosis I and meiosis II
+
+# Q179 — cell_cycle region (microtubule function)
+microtubules align chromosomes during mitosis
+microtubules separate chromosomes during anaphase
+the mitotic spindle is made of microtubules
+
+# Q305 — evolution region (prerequisite for natural selection)
+genetic variation must be present before natural selection can act
+natural selection requires existing variation in a population

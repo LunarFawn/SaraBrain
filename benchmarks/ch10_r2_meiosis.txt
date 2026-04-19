@@ -1,0 +1,9 @@
+# Ch10 round 2 — meiosis region
+mules have evolutionary fitness of zero
+mules cannot produce offspring because they cannot perform meiosis
+meiosis has two rounds of cell division
+mitosis has one round of cell division
+meiosis I separates homologous chromosomes
+meiosis II separates sister chromatids
+DNA replication occurs before meiosis I only
+DNA replication does not occur between meiosis I and meiosis II

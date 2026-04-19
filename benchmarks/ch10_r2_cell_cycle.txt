@@ -1,0 +1,6 @@
+# Ch10 round 2 — cell_cycle region
+shoot tips contain actively dividing cells
+meristems are regions of active cell division in plants
+microtubules align chromosomes during mitosis
+microtubules separate chromosomes during anaphase
+the mitotic spindle is made of microtubules

@@ -1,11 +1,11 @@
 {
-  "accuracy_of_answered": 0.75,
-  "coverage": 0.48484848484848486,
-  "correct": 12,
-  "wrong": 4,
-  "abstained": 17,
+  "accuracy_of_answered": 0.8421052631578947,
+  "coverage": 0.5757575757575758,
+  "correct": 16,
+  "wrong": 3,
+  "abstained": 14,
   "total": 33,
-  "seconds": 0.9685900211334229,
+  "seconds": 0.9486980438232422,
   "abstain_threshold": 1.0,
   "results": [
     {
@@ -43,6 +43,7 @@
           "letter": "A",
           "text": "cross section of muscle tissue",
           "score": 1.0,
+          "scored_by": "path-fallback",
           "path": 1.0,
           "terminus": 0.0,
           "temp": 0.0,
@@ -56,21 +57,25 @@
                 "tissue"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "B",
           "text": "cross section of an anther (site of pollen production in a flower)",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "C",
           "text": "longitudinal section of a shoot tip",
           "score": 2.0,
+          "scored_by": "path-fallback",
           "path": 1.0,
           "terminus": 1.0,
           "temp": 0.0,
@@ -84,16 +89,19 @@
                 "shoot"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "D",
           "text": "cross section of a leaf",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         }
       ]
     },
@@ -102,10 +110,10 @@
       "question": "Mules are relatively long-lived and hardy organisms that cannot, generally speaking, perform successful meiosis. Consequently, which statement about mules is true?",
       "correct": "A",
       "correct_text": "They have a relative evolutionary fitness of zero.",
-      "pick": "D",
-      "outcome": "wrong",
-      "best_score": 9.0,
-      "gap_pct": 66.7,
+      "pick": "A",
+      "outcome": "correct",
+      "best_score": 3.0,
+      "gap_pct": 100.0,
       "regions": [
         "meiosis",
         "cell_division",
@@ -137,117 +145,52 @@
         {
           "letter": "A",
           "text": "They have a relative evolutionary fitness of zero.",
-          "score": 1.0,
-          "path": 1.0,
-          "terminus": 0.0,
+          "score": 3.0,
+          "scored_by": "property",
+          "property_score": 3.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "mules have evolutionary fitness of zero",
-              "q_hits": [
-                "mule"
-              ],
-              "c_hits": [
-                "evolutionary",
-                "fitness",
-                "zero"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 3,
+          "best_path": {
+            "source": "mules have evolutionary fitness of zero",
+            "property_hits": [
+              "evolutionary",
+              "fitness",
+              "zero"
+            ],
+            "terminus_words": [
+              "mule"
+            ]
+          }
         },
         {
           "letter": "B",
           "text": "Their offspring have less genetic variation than the parents.",
-          "score": 3.0,
-          "path": 3.0,
-          "terminus": 0.0,
+          "score": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "daughter cells from meiosis are not identical to parent cells",
-              "q_hits": [
-                "meiosi"
-              ],
-              "c_hits": [
-                "parent"
-              ]
-            },
-            {
-              "source": "meiosis errors are a source of genetic variation",
-              "q_hits": [
-                "meiosi",
-                "meiosis"
-              ],
-              "c_hits": [
-                "genetic",
-                "variation"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 3,
+          "best_path": null
         },
         {
           "letter": "C",
           "text": "Mutations cannot occur in their genomes.",
-          "score": 2.0,
-          "path": 1.0,
-          "terminus": 1.0,
+          "score": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "crossing-over occurs during prophase I of meiosis",
-              "q_hits": [
-                "meiosi",
-                "meiosis"
-              ],
-              "c_hits": [
-                "occur"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 3,
+          "best_path": null
         },
         {
           "letter": "D",
           "text": "If crossing-over happens in mules, then it must be limited to prophase of mitosis.",
-          "score": 9.0,
-          "path": 5.0,
-          "terminus": 4.0,
+          "score": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "mules are organisms that cannot perform meiosis",
-              "q_hits": [
-                "meiosi",
-                "meiosis",
-                "mule",
-                "organism",
-                "perform"
-              ],
-              "c_hits": [
-                "mule"
-              ]
-            },
-            {
-              "source": "crossing-over occurs during prophase I of meiosis",
-              "q_hits": [
-                "meiosi",
-                "meiosis"
-              ],
-              "c_hits": [
-                "crossing",
-                "over",
-                "prophase"
-              ]
-            },
-            {
-              "source": "mules have evolutionary fitness of zero",
-              "q_hits": [
-                "mule"
-              ],
-              "c_hits": [
-                "mule"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 3,
+          "best_path": null
         }
       ]
     },
@@ -294,37 +237,45 @@
           "letter": "A",
           "text": "It is an inactivated Y chromosome and results in a man being sterile.",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "B",
           "text": "It is an inactivated Y chromosome, and the person who has it appears female.",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "C",
           "text": "It is an inactivated X chromosome and results in females with half their cells having one X inactivated and the other half of their cells having the other X inactivated.",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "D",
           "text": "It is an inactivated X chromosome and results in females who are sterile.",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         }
       ]
     },
@@ -335,7 +286,7 @@
       "correct_text": "parthenogenesis",
       "pick": "-",
       "outcome": "tie",
-      "best_score": 2.0,
+      "best_score": 1.0,
       "gap_pct": 0.0,
       "regions": [
         "reproduction",
@@ -363,60 +314,57 @@
           "letter": "A",
           "text": "meiosis",
           "score": 0.0,
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "topic_relevant_paths": 2,
+          "best_path": null
         },
         {
           "letter": "B",
           "text": "parthenogenesis",
-          "score": 2.0,
-          "path": 1.0,
-          "terminus": 1.0,
+          "score": 1.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "parthenogenesis is development of an egg without fertilization",
-              "q_hits": [
-                "development",
-                "egg",
-                "fertilization"
-              ],
-              "c_hits": [
-                "parthenogenesi"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 2,
+          "best_path": {
+            "source": "parthenogenesis is development of an egg without fertilization",
+            "property_hits": [
+              "parthenogenesi"
+            ],
+            "terminus_words": [
+              "parthenogenesi"
+            ]
+          }
         },
         {
           "letter": "C",
           "text": "embryogenesis",
-          "score": 2.0,
-          "path": 1.0,
-          "terminus": 1.0,
+          "score": 1.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "embryogenesis is development of an embryo after fertilization",
-              "q_hits": [
-                "development",
-                "fertilization"
-              ],
-              "c_hits": [
-                "embryogenesi"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 2,
+          "best_path": {
+            "source": "embryogenesis is development of an embryo after fertilization",
+            "property_hits": [
+              "embryogenesi"
+            ],
+            "terminus_words": [
+              "embryogenesi"
+            ]
+          }
         },
         {
           "letter": "D",
           "text": "vegetative propagation",
           "score": 0.0,
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "topic_relevant_paths": 2,
+          "best_path": null
         }
       ]
     },
@@ -452,33 +400,40 @@
           "letter": "A",
           "text": "Sporulation",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "B",
           "text": "Binary fission",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "C",
           "text": "Vegetative propagation",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "D",
           "text": "Mutation",
           "score": 2.0,
+          "scored_by": "path-fallback",
           "path": 1.0,
           "terminus": 1.0,
           "temp": 0.0,
@@ -493,7 +448,8 @@
                 "mutation"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         }
       ]
     },
@@ -529,6 +485,7 @@
           "letter": "A",
           "text": "ovary",
           "score": 0.0,
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
@@ -538,6 +495,7 @@
           "letter": "B",
           "text": "fallopian tube",
           "score": 0.0,
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
@@ -547,6 +505,7 @@
           "letter": "C",
           "text": "uterus",
           "score": 0.0,
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
@@ -556,6 +515,7 @@
           "letter": "D",
           "text": "placenta",
           "score": 0.0,
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
@@ -600,33 +560,40 @@
           "letter": "A",
           "text": "G_1",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "B",
           "text": "G_2",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "C",
           "text": "M",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "D",
           "text": "S",
           "score": 5.0,
+          "scored_by": "path-fallback",
           "path": 3.0,
           "terminus": 2.0,
           "temp": 0.0,
@@ -659,7 +626,8 @@
                 "s"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         }
       ]
     },
@@ -668,10 +636,10 @@
       "question": "Crossover would most likely occur in which situation?",
       "correct": "D",
       "correct_text": "Gene 1 is located on chromosome A; gene 2 is located far away but on the same chromosome.",
-      "pick": "-",
-      "outcome": "tie",
-      "best_score": 1.0,
-      "gap_pct": 0.0,
+      "pick": "D",
+      "outcome": "correct",
+      "best_score": 3.0,
+      "gap_pct": 33.3,
       "regions": [
         "cell_division",
         "meiosis",
@@ -696,83 +664,79 @@
         {
           "letter": "A",
           "text": "Two genes (1 and 2) are located right next to each other on chromosome A.",
-          "score": 1.0,
-          "path": 1.0,
-          "terminus": 0.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "crossover is more likely between genes that are far apart on the same chromosome",
-              "q_hits": [
-                "crossover"
-              ],
-              "c_hits": [
-                "chromosome",
-                "gene"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 1,
+          "best_path": {
+            "source": "crossover is more likely between genes that are far apart on the same chromosome",
+            "property_hits": [
+              "chromosome",
+              "gene"
+            ],
+            "terminus_words": [
+              "crossover"
+            ]
+          }
         },
         {
           "letter": "B",
           "text": "Gene 1 is located on chromosome A, and gene 2 is on chromosome B.",
-          "score": 1.0,
-          "path": 1.0,
-          "terminus": 0.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "crossover is more likely between genes that are far apart on the same chromosome",
-              "q_hits": [
-                "crossover"
-              ],
-              "c_hits": [
-                "chromosome",
-                "gene"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 1,
+          "best_path": {
+            "source": "crossover is more likely between genes that are far apart on the same chromosome",
+            "property_hits": [
+              "chromosome",
+              "gene"
+            ],
+            "terminus_words": [
+              "crossover"
+            ]
+          }
         },
         {
           "letter": "C",
           "text": "Genes 1 and 2 are located near each other on the X chromosome.",
-          "score": 1.0,
-          "path": 1.0,
-          "terminus": 0.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "crossover is more likely between genes that are far apart on the same chromosome",
-              "q_hits": [
-                "crossover"
-              ],
-              "c_hits": [
-                "chromosome",
-                "gene"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 1,
+          "best_path": {
+            "source": "crossover is more likely between genes that are far apart on the same chromosome",
+            "property_hits": [
+              "chromosome",
+              "gene"
+            ],
+            "terminus_words": [
+              "crossover"
+            ]
+          }
         },
         {
           "letter": "D",
           "text": "Gene 1 is located on chromosome A; gene 2 is located far away but on the same chromosome.",
-          "score": 1.0,
-          "path": 1.0,
-          "terminus": 0.0,
+          "score": 3.0,
+          "scored_by": "property",
+          "property_score": 3.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "crossover is more likely between genes that are far apart on the same chromosome",
-              "q_hits": [
-                "crossover"
-              ],
-              "c_hits": [
-                "chromosome",
-                "gene",
-                "same"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 1,
+          "best_path": {
+            "source": "crossover is more likely between genes that are far apart on the same chromosome",
+            "property_hits": [
+              "chromosome",
+              "gene",
+              "same"
+            ],
+            "terminus_words": [
+              "crossover"
+            ]
+          }
         }
       ]
     },
@@ -819,6 +783,7 @@
           "letter": "A",
           "text": "mistakes in translation of structural genes.",
           "score": 5.0,
+          "scored_by": "path-fallback",
           "path": 3.0,
           "terminus": 2.0,
           "temp": 0.0,
@@ -847,12 +812,14 @@
                 "mistake"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "B",
           "text": "mistakes in DNA replication.",
           "score": 6.0,
+          "scored_by": "path-fallback",
           "path": 4.0,
           "terminus": 2.0,
           "temp": 0.0,
@@ -882,12 +849,14 @@
                 "replication"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "C",
           "text": "translocations and mistakes in meiosis.",
           "score": 7.0,
+          "scored_by": "path-fallback",
           "path": 4.0,
           "terminus": 3.0,
           "temp": 0.0,
@@ -927,12 +896,14 @@
                 "meiosis"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "D",
           "text": "recombination at fertilization.",
           "score": 3.0,
+          "scored_by": "path-fallback",
           "path": 2.0,
           "terminus": 1.0,
           "temp": 0.0,
@@ -949,7 +920,8 @@
                 "recombination"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         }
       ]
     },
@@ -986,6 +958,7 @@
           "letter": "A",
           "text": "sporulation",
           "score": 4.0,
+          "scored_by": "path-fallback",
           "path": 2.0,
           "terminus": 2.0,
           "temp": 0.0,
@@ -1011,12 +984,14 @@
                 "sporulation"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "B",
           "text": "fission",
           "score": 2.0,
+          "scored_by": "path-fallback",
           "path": 1.0,
           "terminus": 1.0,
           "temp": 0.0,
@@ -1032,12 +1007,14 @@
                 "fission"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "C",
           "text": "budding",
           "score": 2.0,
+          "scored_by": "path-fallback",
           "path": 1.0,
           "terminus": 1.0,
           "temp": 0.0,
@@ -1053,12 +1030,14 @@
                 "bud"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "D",
           "text": "meiosis",
           "score": 6.0,
+          "scored_by": "path-fallback",
           "path": 3.0,
           "terminus": 3.0,
           "temp": 0.0,
@@ -1092,7 +1071,8 @@
                 "meiosi"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         }
       ]
     },
@@ -1132,6 +1112,7 @@
           "letter": "A",
           "text": "192",
           "score": 0.0,
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
@@ -1141,6 +1122,7 @@
           "letter": "B",
           "text": "96",
           "score": 0.0,
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
@@ -1150,6 +1132,7 @@
           "letter": "C",
           "text": "48",
           "score": 0.0,
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
@@ -1159,6 +1142,7 @@
           "letter": "D",
           "text": "24",
           "score": 0.0,
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
@@ -1202,6 +1186,7 @@
           "letter": "A",
           "text": "Daughter cells have the same number of chromosomes as the parent cell.",
           "score": 3.0,
+          "scored_by": "path-fallback",
           "path": 2.0,
           "terminus": 1.0,
           "temp": 0.0,
@@ -1224,12 +1209,14 @@
                 "cell"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "B",
           "text": "Daughter cells are identical to the parent cell.",
           "score": 3.0,
+          "scored_by": "path-fallback",
           "path": 2.0,
           "terminus": 1.0,
           "temp": 0.0,
@@ -1252,12 +1239,14 @@
                 "cell"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "C",
           "text": "The parent cell produces diploid cells.",
           "score": 3.0,
+          "scored_by": "path-fallback",
           "path": 2.0,
           "terminus": 1.0,
           "temp": 0.0,
@@ -1280,12 +1269,14 @@
                 "cell"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "D",
           "text": "The daughter cells fuse to form a zygote.",
           "score": 3.0,
+          "scored_by": "path-fallback",
           "path": 2.0,
           "terminus": 1.0,
           "temp": 0.0,
@@ -1308,7 +1299,8 @@
                 "cell"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         }
       ]
     },
@@ -1319,8 +1311,8 @@
       "correct_text": "the distance between genes on a chromosome",
       "pick": "C",
       "outcome": "correct",
-      "best_score": 7.0,
-      "gap_pct": 85.7,
+      "best_score": 2.0,
+      "gap_pct": 100.0,
       "regions": [
         "genetics",
         "meiosis",
@@ -1349,79 +1341,53 @@
         {
           "letter": "A",
           "text": "the chance for variation in zygotes",
-          "score": 1.0,
-          "path": 1.0,
-          "terminus": 0.0,
+          "score": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "meiosis errors are a source of genetic variation",
-              "q_hits": [
-                "meiosi",
-                "meiosis"
-              ],
-              "c_hits": [
-                "variation"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 2,
+          "best_path": null
         },
         {
           "letter": "B",
           "text": "the rate of mutations",
           "score": 0.0,
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "topic_relevant_paths": 2,
+          "best_path": null
         },
         {
           "letter": "C",
           "text": "the distance between genes on a chromosome",
-          "score": 7.0,
-          "path": 5.0,
-          "terminus": 2.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "crossing-over frequency is proportional to distance between genes",
-              "q_hits": [
-                "crossing"
-              ],
-              "c_hits": [
-                "distance",
-                "gene"
-              ]
-            },
-            {
-              "source": "meiosis reduces chromosome number by half",
-              "q_hits": [
-                "meiosi"
-              ],
-              "c_hits": [
-                "chromosome"
-              ]
-            },
-            {
-              "source": "homologous chromosomes separate during meiosis I",
-              "q_hits": [
-                "meiosi",
-                "meiosis"
-              ],
-              "c_hits": [
-                "chromosome"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 2,
+          "best_path": {
+            "source": "crossing-over frequency is proportional to distance between genes",
+            "property_hits": [
+              "distance",
+              "gene"
+            ],
+            "terminus_words": [
+              "crossing",
+              "frequency",
+              "over"
+            ]
+          }
         },
         {
           "letter": "D",
           "text": "which traits are dominant or recessive",
           "score": 0.0,
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "topic_relevant_paths": 2,
+          "best_path": null
         }
       ]
     },
@@ -1430,10 +1396,10 @@
       "question": "Which of the following statements is NOT correct about apoptosis?",
       "correct": "A",
       "correct_text": "Apoptosis, a special type of cell division, requires multiple cell signaling.",
-      "pick": "-",
-      "outcome": "tie",
-      "best_score": 8.0,
-      "gap_pct": 0.0,
+      "pick": "A",
+      "outcome": "correct",
+      "best_score": 3.0,
+      "gap_pct": 33.3,
       "regions": [
         "cancer",
         "cell_division",
@@ -1464,159 +1430,61 @@
         {
           "letter": "A",
           "text": "Apoptosis, a special type of cell division, requires multiple cell signaling.",
-          "score": 8.0,
-          "path": 4.0,
-          "terminus": 4.0,
+          "score": 3.0,
+          "scored_by": "property",
+          "property_score": 3.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "apoptosis is programmed cell death",
-              "q_hits": [
-                "apoptosi"
-              ],
-              "c_hits": [
-                "apoptosi",
-                "cell"
-              ]
-            },
-            {
-              "source": "apoptosis is a normal process that eliminates damaged cells",
-              "q_hits": [
-                "apoptosi"
-              ],
-              "c_hits": [
-                "apoptosi",
-                "cell"
-              ]
-            },
-            {
-              "source": "apoptosis is not a type of cell division",
-              "q_hits": [
-                "apoptosi"
-              ],
-              "c_hits": [
-                "apoptosi",
-                "cell",
-                "division",
-                "type"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 4,
+          "best_path": {
+            "source": "apoptosis is not a type of cell division",
+            "property_hits": [
+              "cell",
+              "division",
+              "type"
+            ],
+            "terminus_words": [
+              "apoptosi"
+            ]
+          }
         },
         {
           "letter": "B",
           "text": "The fact that apoptosis is widespread across several kingdoms is evidence that it evolved early in the evolution of eukaryotes.",
-          "score": 8.0,
-          "path": 4.0,
-          "terminus": 4.0,
+          "score": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "apoptosis is programmed cell death",
-              "q_hits": [
-                "apoptosi"
-              ],
-              "c_hits": [
-                "apoptosi"
-              ]
-            },
-            {
-              "source": "apoptosis is a normal process that eliminates damaged cells",
-              "q_hits": [
-                "apoptosi"
-              ],
-              "c_hits": [
-                "apoptosi"
-              ]
-            },
-            {
-              "source": "apoptosis is not a type of cell division",
-              "q_hits": [
-                "apoptosi"
-              ],
-              "c_hits": [
-                "apoptosi"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 4,
+          "best_path": null
         },
         {
           "letter": "C",
           "text": "Apoptosis plays a crucial role in the development of fingers in embryonic development.",
-          "score": 8.0,
-          "path": 4.0,
-          "terminus": 4.0,
+          "score": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "apoptosis is programmed cell death",
-              "q_hits": [
-                "apoptosi"
-              ],
-              "c_hits": [
-                "apoptosi"
-              ]
-            },
-            {
-              "source": "apoptosis is a normal process that eliminates damaged cells",
-              "q_hits": [
-                "apoptosi"
-              ],
-              "c_hits": [
-                "apoptosi"
-              ]
-            },
-            {
-              "source": "apoptosis is not a type of cell division",
-              "q_hits": [
-                "apoptosi"
-              ],
-              "c_hits": [
-                "apoptosi"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 4,
+          "best_path": null
         },
         {
           "letter": "D",
           "text": "Apoptosis prevents an aging and dying cell from damaging neighboring cells.",
-          "score": 8.0,
-          "path": 4.0,
-          "terminus": 4.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "apoptosis is programmed cell death",
-              "q_hits": [
-                "apoptosi"
-              ],
-              "c_hits": [
-                "apoptosi",
-                "cell"
-              ]
-            },
-            {
-              "source": "apoptosis is a normal process that eliminates damaged cells",
-              "q_hits": [
-                "apoptosi"
-              ],
-              "c_hits": [
-                "apoptosi",
-                "cell",
-                "damage"
-              ]
-            },
-            {
-              "source": "apoptosis is not a type of cell division",
-              "q_hits": [
-                "apoptosi"
-              ],
-              "c_hits": [
-                "apoptosi",
-                "cell"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 4,
+          "best_path": {
+            "source": "apoptosis is a normal process that eliminates damaged cells",
+            "property_hits": [
+              "cell",
+              "damage"
+            ],
+            "terminus_words": [
+              "apoptosi"
+            ]
+          }
         }
       ]
     },
@@ -1625,10 +1493,10 @@
       "question": "Females with Turner's syndrome have a high incidence of hemophilia, a recessive, X-linked trait. Based on this information, it can be inferred that females with this condition",
       "correct": "C",
       "correct_text": "lack an X chromosome",
-      "pick": "-",
-      "outcome": "tie",
+      "pick": "D",
+      "outcome": "wrong",
       "best_score": 1.0,
-      "gap_pct": 0.0,
+      "gap_pct": 100.0,
       "regions": [
         "genetics",
         "cell_division",
@@ -1661,81 +1529,51 @@
         {
           "letter": "A",
           "text": "have an extra X chromosome",
-          "score": 1.0,
-          "path": 1.0,
-          "terminus": 0.0,
+          "score": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "Turner syndrome is caused by lacking an X chromosome",
-              "q_hits": [
-                "syndrome",
-                "turner"
-              ],
-              "c_hits": [
-                "chromosome"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 2,
+          "best_path": null
         },
         {
           "letter": "B",
           "text": "have an extra Y chromosome",
-          "score": 1.0,
-          "path": 1.0,
-          "terminus": 0.0,
+          "score": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "Turner syndrome is caused by lacking an X chromosome",
-              "q_hits": [
-                "syndrome",
-                "turner"
-              ],
-              "c_hits": [
-                "chromosome"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 2,
+          "best_path": null
         },
         {
           "letter": "C",
           "text": "lack an X chromosome",
-          "score": 1.0,
-          "path": 1.0,
-          "terminus": 0.0,
+          "score": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "Turner syndrome is caused by lacking an X chromosome",
-              "q_hits": [
-                "syndrome",
-                "turner"
-              ],
-              "c_hits": [
-                "chromosome"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 2,
+          "best_path": null
         },
         {
           "letter": "D",
           "text": "have red blood cells that clump",
           "score": 1.0,
-          "path": 1.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "X-inactivation is random in each cell of a female embryo",
-              "q_hits": [
-                "female"
-              ],
-              "c_hits": [
-                "cell"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 2,
+          "best_path": {
+            "source": "X-inactivation is random in each cell of a female embryo",
+            "property_hits": [
+              "cell"
+            ],
+            "terminus_words": [
+              "inactivation",
+              "x"
+            ]
+          }
         }
       ]
     },
@@ -1787,6 +1625,7 @@
           "letter": "A",
           "text": "there is one round of cell division, whereas in mitosis there are two rounds of cell division",
           "score": 32.0,
+          "scored_by": "path-fallback",
           "path": 26.0,
           "terminus": 6.0,
           "temp": 0.0,
@@ -1824,12 +1663,14 @@
                 "mitosis"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "B",
           "text": "separation of sister chromatids occurs during the second division, whereas in mitosis separation of sister chromatids occurs during the first division",
           "score": 30.0,
+          "scored_by": "path-fallback",
           "path": 24.0,
           "terminus": 6.0,
           "temp": 0.0,
@@ -1868,12 +1709,14 @@
                 "mitosi"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "C",
           "text": "chromosomes are replicated during interphase, whereas in mitosis chromosomes are replicated during prophase",
           "score": 32.0,
+          "scored_by": "path-fallback",
           "path": 25.0,
           "terminus": 7.0,
           "temp": 0.0,
@@ -1909,12 +1752,14 @@
                 "mitosis"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "D",
           "text": "spindle fibers form during prophase, whereas in mitosis the spindle fibers form during metaphase",
           "score": 22.0,
+          "scored_by": "path-fallback",
           "path": 17.0,
           "terminus": 5.0,
           "temp": 0.0,
@@ -1951,7 +1796,8 @@
                 "mitosi"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         }
       ]
     },
@@ -1960,10 +1806,10 @@
       "question": "Which of the following about meiosis is NOT true?",
       "correct": "C",
       "correct_text": "Sister chromatids separate during meiosis I.",
-      "pick": "C",
-      "outcome": "correct",
-      "best_score": 37.0,
-      "gap_pct": 5.4,
+      "pick": "-",
+      "outcome": "tie",
+      "best_score": 3.0,
+      "gap_pct": 0.0,
       "regions": [
         "meiosis",
         "cell_division",
@@ -1988,163 +1834,88 @@
         {
           "letter": "A",
           "text": "Meiosis produces two haploid gametes.",
-          "score": 35.0,
-          "path": 26.0,
-          "terminus": 9.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "mules are organisms that cannot perform meiosis",
-              "q_hits": [
-                "meiosi",
-                "meiosis"
-              ],
-              "c_hits": [
-                "meiosi",
-                "meiosis"
-              ]
-            },
-            {
-              "source": "meiosis is required for sexual reproduction",
-              "q_hits": [
-                "meiosi"
-              ],
-              "c_hits": [
-                "meiosi"
-              ]
-            },
-            {
-              "source": "meiosis reduces chromosome number by half",
-              "q_hits": [
-                "meiosi"
-              ],
-              "c_hits": [
-                "meiosi"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 16,
+          "best_path": {
+            "source": "meiosis produces four haploid gametes",
+            "property_hits": [
+              "gamete",
+              "haploid"
+            ],
+            "terminus_words": [
+              "meiosi"
+            ]
+          }
         },
         {
           "letter": "B",
           "text": "Homologous chromosomes join during synapsis.",
-          "score": 8.0,
-          "path": 6.0,
-          "terminus": 2.0,
+          "score": 3.0,
+          "scored_by": "property",
+          "property_score": 3.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "meiosis reduces chromosome number by half",
-              "q_hits": [
-                "meiosi"
-              ],
-              "c_hits": [
-                "chromosome"
-              ]
-            },
-            {
-              "source": "homologous chromosomes separate during meiosis I",
-              "q_hits": [
-                "meiosi",
-                "meiosis"
-              ],
-              "c_hits": [
-                "chromosome",
-                "homologou",
-                "homologous"
-              ]
-            },
-            {
-              "source": "homologous chromosomes separate during meiosis I",
-              "q_hits": [
-                "meiosi",
-                "meiosis"
-              ],
-              "c_hits": [
-                "chromosome",
-                "homologou",
-                "homologous"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 16,
+          "best_path": {
+            "source": "homologous chromosomes separate during meiosis I",
+            "property_hits": [
+              "chromosome",
+              "homologou",
+              "homologous"
+            ],
+            "terminus_words": [
+              "chromosome",
+              "homologou",
+              "homologous",
+              "separate"
+            ]
+          }
         },
         {
           "letter": "C",
           "text": "Sister chromatids separate during meiosis I.",
-          "score": 37.0,
-          "path": 26.0,
-          "terminus": 11.0,
+          "score": 3.0,
+          "scored_by": "property",
+          "property_score": 3.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "mules are organisms that cannot perform meiosis",
-              "q_hits": [
-                "meiosi",
-                "meiosis"
-              ],
-              "c_hits": [
-                "meiosi",
-                "meiosis"
-              ]
-            },
-            {
-              "source": "meiosis is required for sexual reproduction",
-              "q_hits": [
-                "meiosi"
-              ],
-              "c_hits": [
-                "meiosi"
-              ]
-            },
-            {
-              "source": "meiosis reduces chromosome number by half",
-              "q_hits": [
-                "meiosi"
-              ],
-              "c_hits": [
-                "meiosi"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 16,
+          "best_path": {
+            "source": "sister chromatids separate during meiosis II",
+            "property_hits": [
+              "chromatid",
+              "separate",
+              "sister"
+            ],
+            "terminus_words": [
+              "chromatid",
+              "chromatids",
+              "separate",
+              "sister"
+            ]
+          }
         },
         {
           "letter": "D",
           "text": "Crossing-over increases genetic variation in gametes.",
-          "score": 5.0,
-          "path": 4.0,
-          "terminus": 1.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "meiosis produces four haploid gametes",
-              "q_hits": [
-                "meiosi"
-              ],
-              "c_hits": [
-                "gamete"
-              ]
-            },
-            {
-              "source": "crossing-over occurs during prophase I of meiosis",
-              "q_hits": [
-                "meiosi",
-                "meiosis"
-              ],
-              "c_hits": [
-                "crossing"
-              ]
-            },
-            {
-              "source": "meiosis errors are a source of genetic variation",
-              "q_hits": [
-                "meiosi",
-                "meiosis"
-              ],
-              "c_hits": [
-                "genetic",
-                "variation"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 16,
+          "best_path": {
+            "source": "meiosis errors are a source of genetic variation",
+            "property_hits": [
+              "genetic",
+              "variation"
+            ],
+            "terminus_words": [
+              "error",
+              "meiosi",
+              "meiosis"
+            ]
+          }
         }
       ]
     },
@@ -2153,10 +1924,10 @@
       "question": "Which of the following statements about meiosis is correct?",
       "correct": "D",
       "correct_text": "The number of chromosomes is reduced.",
-      "pick": "C",
+      "pick": "A",
       "outcome": "wrong",
-      "best_score": 37.0,
-      "gap_pct": 83.8,
+      "best_score": 4.0,
+      "gap_pct": 50.0,
       "regions": [
         "meiosis",
         "cell_division",
@@ -2181,132 +1952,85 @@
         {
           "letter": "A",
           "text": "The daughter cells are genetically identical to the parent cells.",
-          "score": 3.0,
-          "path": 2.0,
-          "terminus": 1.0,
+          "score": 4.0,
+          "scored_by": "property",
+          "property_score": 4.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "daughter cells from meiosis are not identical to parent cells",
-              "q_hits": [
-                "meiosi"
-              ],
-              "c_hits": [
-                "cell",
-                "daughter",
-                "identical",
-                "parent"
-              ]
-            },
-            {
-              "source": "meiosis has two rounds of cell division",
-              "q_hits": [
-                "meiosi"
-              ],
-              "c_hits": [
-                "cell"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 16,
+          "best_path": {
+            "source": "daughter cells from meiosis are not identical to parent cells",
+            "property_hits": [
+              "cell",
+              "daughter",
+              "identical",
+              "parent"
+            ],
+            "terminus_words": [
+              "cell",
+              "daughter",
+              "from",
+              "meiosi"
+            ]
+          }
         },
         {
           "letter": "B",
           "text": "Homologues pair during prophase II.",
           "score": 1.0,
-          "path": 1.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "crossing-over occurs during prophase I of meiosis",
-              "q_hits": [
-                "meiosi",
-                "meiosis"
-              ],
-              "c_hits": [
-                "prophase"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 16,
+          "best_path": {
+            "source": "crossing-over occurs during prophase I of meiosis",
+            "property_hits": [
+              "prophase"
+            ],
+            "terminus_words": [
+              "crossing",
+              "occur",
+              "over"
+            ]
+          }
         },
         {
           "letter": "C",
           "text": "DNA replication occurs before meiosis I and meiosis II.",
-          "score": 37.0,
-          "path": 26.0,
-          "terminus": 11.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "mules are organisms that cannot perform meiosis",
-              "q_hits": [
-                "meiosi",
-                "meiosis"
-              ],
-              "c_hits": [
-                "meiosi",
-                "meiosis"
-              ]
-            },
-            {
-              "source": "meiosis is required for sexual reproduction",
-              "q_hits": [
-                "meiosi"
-              ],
-              "c_hits": [
-                "meiosi"
-              ]
-            },
-            {
-              "source": "meiosis reduces chromosome number by half",
-              "q_hits": [
-                "meiosi"
-              ],
-              "c_hits": [
-                "meiosi"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 16,
+          "best_path": {
+            "source": "DNA replication occurs before meiosis I only",
+            "property_hits": [
+              "dna",
+              "replication"
+            ],
+            "terminus_words": [
+              "dna",
+              "replication"
+            ]
+          }
         },
         {
           "letter": "D",
           "text": "The number of chromosomes is reduced.",
-          "score": 6.0,
-          "path": 4.0,
-          "terminus": 2.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "meiosis reduces chromosome number by half",
-              "q_hits": [
-                "meiosi"
-              ],
-              "c_hits": [
-                "chromosome",
-                "number"
-              ]
-            },
-            {
-              "source": "homologous chromosomes separate during meiosis I",
-              "q_hits": [
-                "meiosi",
-                "meiosis"
-              ],
-              "c_hits": [
-                "chromosome"
-              ]
-            },
-            {
-              "source": "homologous chromosomes separate during meiosis I",
-              "q_hits": [
-                "meiosi",
-                "meiosis"
-              ],
-              "c_hits": [
-                "chromosome"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 16,
+          "best_path": {
+            "source": "meiosis reduces chromosome number by half",
+            "property_hits": [
+              "chromosome",
+              "number"
+            ],
+            "terminus_words": [
+              "meiosi"
+            ]
+          }
         }
       ]
     },
@@ -2315,10 +2039,10 @@
       "question": "Microtubules are protein filaments assembled from tubulin protein subunits. The chemical colchicine prevents the assembly of microtubules by binding to tubulin protein subunits. Which of the following cellular processes would be most impaired by the application of colchicine?",
       "correct": "A",
       "correct_text": "the alignment and separation of chromosomes during mitosis",
-      "pick": "-",
-      "outcome": "tie",
-      "best_score": 5.0,
-      "gap_pct": 0.0,
+      "pick": "A",
+      "outcome": "correct",
+      "best_score": 3.0,
+      "gap_pct": 100.0,
       "regions": [
         "cell_cycle",
         "cell_division",
@@ -2357,96 +2081,55 @@
         {
           "letter": "A",
           "text": "the alignment and separation of chromosomes during mitosis",
-          "score": 5.0,
-          "path": 3.0,
-          "terminus": 2.0,
+          "score": 3.0,
+          "scored_by": "property",
+          "property_score": 3.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "microtubules align chromosomes during mitosis",
-              "q_hits": [
-                "microtubule"
-              ],
-              "c_hits": [
-                "chromosome",
-                "mitosi",
-                "mitosis"
-              ]
-            },
-            {
-              "source": "microtubules separate chromosomes during anaphase",
-              "q_hits": [
-                "microtubule"
-              ],
-              "c_hits": [
-                "chromosome"
-              ]
-            },
-            {
-              "source": "genes are functional units of chromosomes that code for proteins",
-              "q_hits": [
-                "protein"
-              ],
-              "c_hits": [
-                "chromosome"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 4,
+          "best_path": {
+            "source": "microtubules align chromosomes during mitosis",
+            "property_hits": [
+              "chromosome",
+              "mitosi",
+              "mitosis"
+            ],
+            "terminus_words": [
+              "align",
+              "chromosome",
+              "microtubule",
+              "microtubules"
+            ]
+          }
         },
         {
           "letter": "B",
           "text": "the coordination of ribosomes and mRNA during protein synthesis",
-          "score": 5.0,
-          "path": 4.0,
-          "terminus": 1.0,
+          "score": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "genes are functional units of chromosomes that code for proteins",
-              "q_hits": [
-                "protein"
-              ],
-              "c_hits": [
-                "protein"
-              ]
-            },
-            {
-              "source": "a nucleosome is DNA wrapped around eight histone proteins",
-              "q_hits": [
-                "protein"
-              ],
-              "c_hits": [
-                "protein"
-              ]
-            },
-            {
-              "source": "cohesin proteins are proteins that hold sister chromatids together",
-              "q_hits": [
-                "protein"
-              ],
-              "c_hits": [
-                "protein"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 4,
+          "best_path": null
         },
         {
           "letter": "C",
           "text": "the movement of substances across the plasma membrane",
           "score": 0.0,
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "topic_relevant_paths": 4,
+          "best_path": null
         },
         {
           "letter": "D",
           "text": "the accumulation of protons inside the thylakoids of chloroplasts during chemiosmosis",
           "score": 0.0,
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "topic_relevant_paths": 4,
+          "best_path": null
         }
       ]
     },
@@ -2518,37 +2201,45 @@
           "letter": "A",
           "text": "A decrease in the light level in surface waters as day length starts to shorten after the summer solstice",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "B",
           "text": "Increased predation by marine larvae and other zooplankton during the summer months",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "C",
           "text": "A summer influx of nutrients derived from chemical fertilizers that are high in nitrogen and phosphorus",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "D",
           "text": "Decreased competition from other marine phytoplankton during the summer months",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         }
       ]
     },
@@ -2557,10 +2248,10 @@
       "question": "In a hypothetical population's gene pool, an autosomal gene, which had previously been fixed, undergoes a mutation that introduces a new allele, one inherited according to incomplete dominance. Natural selection then causes stabilizing selection at this locus. Consequently, what should happen over the course of many generations?",
       "correct": "D",
       "correct_text": "Both A and C",
-      "pick": "B",
-      "outcome": "wrong",
-      "best_score": 4.0,
-      "gap_pct": 75.0,
+      "pick": "-",
+      "outcome": "tie",
+      "best_score": 1.0,
+      "gap_pct": 0.0,
       "regions": [
         "cell_division",
         "genetics",
@@ -2606,93 +2297,60 @@
         {
           "letter": "A",
           "text": "The proportions of both types of homozygote should decrease.",
-          "score": 1.0,
-          "path": 1.0,
-          "terminus": 0.0,
+          "score": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "new alleles decrease homozygote proportions",
-              "q_hits": [
-                "new"
-              ],
-              "c_hits": [
-                "decrease",
-                "homozygote",
-                "proportion"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 4,
+          "best_path": null
         },
         {
           "letter": "B",
           "text": "The proportion of the population that is heterozygous at this locus should remain constant.",
-          "score": 4.0,
-          "path": 3.0,
-          "terminus": 1.0,
+          "score": 1.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "a locus is the location of a gene on a chromosome",
-              "q_hits": [
-                "gene",
-                "locu"
-              ],
-              "c_hits": [
-                "locu"
-              ]
-            },
-            {
-              "source": "new alleles decrease homozygote proportions",
-              "q_hits": [
-                "new"
-              ],
-              "c_hits": [
-                "proportion"
-              ]
-            },
-            {
-              "source": "natural selection requires existing variation in a population",
-              "q_hits": [
-                "natural",
-                "population",
-                "selection"
-              ],
-              "c_hits": [
-                "population"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 4,
+          "best_path": {
+            "source": "natural selection requires existing variation in a population",
+            "property_hits": [
+              "population"
+            ],
+            "terminus_words": [
+              "natural",
+              "selection"
+            ]
+          }
         },
         {
           "letter": "C",
           "text": "The population's average heterozygosity should increase.",
           "score": 1.0,
-          "path": 1.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "natural selection requires existing variation in a population",
-              "q_hits": [
-                "natural",
-                "population",
-                "selection"
-              ],
-              "c_hits": [
-                "population"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 4,
+          "best_path": {
+            "source": "natural selection requires existing variation in a population",
+            "property_hits": [
+              "population"
+            ],
+            "terminus_words": [
+              "natural",
+              "selection"
+            ]
+          }
         },
         {
           "letter": "D",
           "text": "Both A and C",
           "score": 0.0,
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "topic_relevant_paths": 4,
+          "best_path": null
         }
       ]
     },
@@ -2744,37 +2402,45 @@
           "letter": "A",
           "text": "In the early female embryo, one copy of the X chromosome becomes inactivated in every body cell.",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "B",
           "text": "The same chromosome in every cell of a normal female is inactivated.",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "C",
           "text": "A male with the XXY genotype will have one Barr body.",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "D",
           "text": "Barr bodies consist of highly methylated DNA.",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         }
       ]
     },
@@ -2820,6 +2486,7 @@
           "letter": "A",
           "text": "they live in very different habitats.",
           "score": 0.0,
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
@@ -2829,6 +2496,7 @@
           "letter": "B",
           "text": "they should share fewer homologous structures than two more closely related organisms.",
           "score": 7.0,
+          "scored_by": "path-fallback-all-zero",
           "path": 7.0,
           "terminus": 0.0,
           "temp": 0.0,
@@ -2866,6 +2534,7 @@
           "letter": "C",
           "text": "their chromosomes should be very similar.",
           "score": 2.0,
+          "scored_by": "path-fallback-all-zero",
           "path": 2.0,
           "terminus": 0.0,
           "temp": 0.0,
@@ -2894,6 +2563,7 @@
           "letter": "D",
           "text": "they shared a common ancestor relatively recently.",
           "score": 0.0,
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
@@ -2933,86 +2603,78 @@
           "letter": "A",
           "text": "sexual selection",
           "score": 1.0,
-          "path": 1.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "heterozygote advantage is linked to stabilizing selection",
-              "q_hits": [
-                "advantage",
-                "heterozygote",
-                "link"
-              ],
-              "c_hits": [
-                "selection"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 1,
+          "best_path": {
+            "source": "heterozygote advantage is linked to stabilizing selection",
+            "property_hits": [
+              "selection"
+            ],
+            "terminus_words": [
+              "advantage",
+              "heterozygote"
+            ]
+          }
         },
         {
           "letter": "B",
           "text": "stabilizing selection",
           "score": 2.0,
-          "path": 2.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "heterozygote advantage is linked to stabilizing selection",
-              "q_hits": [
-                "advantage",
-                "heterozygote",
-                "link"
-              ],
-              "c_hits": [
-                "selection",
-                "stabilize"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 1,
+          "best_path": {
+            "source": "heterozygote advantage is linked to stabilizing selection",
+            "property_hits": [
+              "selection",
+              "stabilize"
+            ],
+            "terminus_words": [
+              "advantage",
+              "heterozygote"
+            ]
+          }
         },
         {
           "letter": "C",
           "text": "random selection",
           "score": 1.0,
-          "path": 1.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "heterozygote advantage is linked to stabilizing selection",
-              "q_hits": [
-                "advantage",
-                "heterozygote",
-                "link"
-              ],
-              "c_hits": [
-                "selection"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 1,
+          "best_path": {
+            "source": "heterozygote advantage is linked to stabilizing selection",
+            "property_hits": [
+              "selection"
+            ],
+            "terminus_words": [
+              "advantage",
+              "heterozygote"
+            ]
+          }
         },
         {
           "letter": "D",
           "text": "directional selection",
           "score": 1.0,
-          "path": 1.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "heterozygote advantage is linked to stabilizing selection",
-              "q_hits": [
-                "advantage",
-                "heterozygote",
-                "link"
-              ],
-              "c_hits": [
-                "selection"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 1,
+          "best_path": {
+            "source": "heterozygote advantage is linked to stabilizing selection",
+            "property_hits": [
+              "selection"
+            ],
+            "terminus_words": [
+              "advantage",
+              "heterozygote"
+            ]
+          }
         }
       ]
     },
@@ -3060,6 +2722,7 @@
           "letter": "A",
           "text": "Mitochondria and chloroplasts divide independently of the eukaryotic host cell by a process similar to binary fission.",
           "score": 4.0,
+          "scored_by": "path-fallback",
           "path": 2.0,
           "terminus": 2.0,
           "temp": 0.0,
@@ -3084,12 +2747,14 @@
                 "fission"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "B",
           "text": "Mitochondria and chloroplasts have ribosomes that more closely resemble those of bacteria than of eukaryotic cells.",
           "score": 2.0,
+          "scored_by": "path-fallback",
           "path": 1.0,
           "terminus": 1.0,
           "temp": 0.0,
@@ -3104,12 +2769,14 @@
                 "mitochondria"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "C",
           "text": "Mitochondria and chloroplasts function independently from the eukaryotic host cell.",
           "score": 2.0,
+          "scored_by": "path-fallback",
           "path": 1.0,
           "terminus": 1.0,
           "temp": 0.0,
@@ -3123,12 +2790,14 @@
                 "mitochondria"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "D",
           "text": "Mitochondria, chloroplasts, and bacteria have a single, circular chromosome without histones or proteins.",
           "score": 4.0,
+          "scored_by": "path-fallback",
           "path": 3.0,
           "terminus": 1.0,
           "temp": 0.0,
@@ -3164,7 +2833,8 @@
                 "protein"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         }
       ]
     },
@@ -3205,24 +2875,29 @@
           "letter": "A",
           "text": "Cystic fibrosis",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "B",
           "text": "Hemophilia",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "C",
           "text": "Turner syndrome",
           "score": 2.0,
+          "scored_by": "path-fallback",
           "path": 1.0,
           "terminus": 1.0,
           "temp": 0.0,
@@ -3237,16 +2912,19 @@
                 "turner"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "D",
           "text": "Tay-Sachs disease",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         }
       ]
     },
@@ -3289,6 +2967,7 @@
           "letter": "A",
           "text": "The sperm will fertilize the ovum.",
           "score": 1.0,
+          "scored_by": "path-fallback-all-zero",
           "path": 1.0,
           "terminus": 0.0,
           "temp": 0.0,
@@ -3308,6 +2987,7 @@
           "letter": "B",
           "text": "The zygote will begin to divide normally.",
           "score": 0.0,
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
@@ -3317,6 +2997,7 @@
           "letter": "C",
           "text": "One and only one sperm will fertilize the egg.",
           "score": 2.0,
+          "scored_by": "path-fallback-all-zero",
           "path": 2.0,
           "terminus": 0.0,
           "temp": 0.0,
@@ -3346,6 +3027,7 @@
           "letter": "D",
           "text": "The zygote will not divide into two embryos, producing twins.",
           "score": 1.0,
+          "scored_by": "path-fallback-all-zero",
           "path": 1.0,
           "terminus": 0.0,
           "temp": 0.0,
@@ -3370,7 +3052,7 @@
       "correct_text": "RNA processing",
       "pick": "D",
       "outcome": "correct",
-      "best_score": 1.0,
+      "best_score": 2.0,
       "gap_pct": 100.0,
       "regions": [
         "genetics",
@@ -3395,48 +3077,50 @@
           "letter": "A",
           "text": "Cell division",
           "score": 0.0,
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "topic_relevant_paths": 2,
+          "best_path": null
         },
         {
           "letter": "B",
           "text": "Apoptosis",
           "score": 0.0,
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "topic_relevant_paths": 2,
+          "best_path": null
         },
         {
           "letter": "C",
           "text": "Replication of DNA",
           "score": 0.0,
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "topic_relevant_paths": 2,
+          "best_path": null
         },
         {
           "letter": "D",
           "text": "RNA processing",
-          "score": 1.0,
-          "path": 1.0,
-          "terminus": 0.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "snRNPs are involved in RNA processing",
-              "q_hits": [
-                "snrnp"
-              ],
-              "c_hits": [
-                "processing",
-                "rna"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 2,
+          "best_path": {
+            "source": "snRNPs are involved in RNA processing",
+            "property_hits": [
+              "processing",
+              "rna"
+            ],
+            "terminus_words": [
+              "snrnp"
+            ]
+          }
         }
       ]
     },
@@ -3484,6 +3168,7 @@
           "letter": "A",
           "text": "Mendel's work with pea plants and his conclusions have been described in many sources.",
           "score": 3.0,
+          "scored_by": "path-fallback",
           "path": 2.0,
           "terminus": 1.0,
           "temp": 0.0,
@@ -3501,12 +3186,14 @@
                 "mendel"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "B",
           "text": "The patterns of trait inheritance observed in pea plants were repeatedly demonstrated in other eukaryotes.",
           "score": 1.0,
+          "scored_by": "path-fallback",
           "path": 1.0,
           "terminus": 0.0,
           "temp": 0.0,
@@ -3523,21 +3210,25 @@
                 "demonstrate"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "C",
           "text": "Chromosomes were found to contain the genetic information for traits.",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "D",
           "text": "The discovery of the structure of D N A supported Mendel's observations and laws.",
           "score": 3.0,
+          "scored_by": "path-fallback",
           "path": 2.0,
           "terminus": 1.0,
           "temp": 0.0,
@@ -3555,7 +3246,8 @@
                 "mendel"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         }
       ]
     },
@@ -3604,6 +3296,7 @@
           "letter": "A",
           "text": "formation of a pilus between the mammalian cell and the virus",
           "score": 28.0,
+          "scored_by": "path-fallback",
           "path": 23.0,
           "terminus": 5.0,
           "temp": 0.0,
@@ -3635,12 +3328,14 @@
                 "cell"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "B",
           "text": "incorporation of the viral genome into the mammalian cell's nuclear DNA",
           "score": 29.0,
+          "scored_by": "path-fallback",
           "path": 23.0,
           "terminus": 6.0,
           "temp": 0.0,
@@ -3674,12 +3369,14 @@
                 "cell"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "C",
           "text": "conversion of the host's genome into the viral DNA",
           "score": 3.0,
+          "scored_by": "path-fallback",
           "path": 2.0,
           "terminus": 1.0,
           "temp": 0.0,
@@ -3703,12 +3400,14 @@
                 "dna"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "D",
           "text": "release of spores into the mammalian cell",
           "score": 28.0,
+          "scored_by": "path-fallback",
           "path": 23.0,
           "terminus": 5.0,
           "temp": 0.0,
@@ -3740,7 +3439,8 @@
                 "cell"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         }
       ]
     },
@@ -3751,8 +3451,8 @@
       "correct_text": "Prophase I",
       "pick": "A",
       "outcome": "correct",
-      "best_score": 6.0,
-      "gap_pct": 83.3,
+      "best_score": 2.0,
+      "gap_pct": 50.0,
       "regions": [
         "meiosis",
         "cell_cycle",
@@ -3781,87 +3481,63 @@
         {
           "letter": "A",
           "text": "Prophase I",
-          "score": 6.0,
-          "path": 6.0,
-          "terminus": 0.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "homologous chromosomes separate during meiosis I",
-              "q_hits": [
-                "meiosi",
-                "meiosis"
-              ],
-              "c_hits": [
-                "i"
-              ]
-            },
-            {
-              "source": "homologous chromosomes separate during meiosis I",
-              "q_hits": [
-                "meiosi",
-                "meiosis"
-              ],
-              "c_hits": [
-                "i"
-              ]
-            },
-            {
-              "source": "crossing-over occurs during prophase I of meiosis",
-              "q_hits": [
-                "crossing",
-                "meiosi",
-                "meiosis",
-                "occur",
-                "over"
-              ],
-              "c_hits": [
-                "i",
-                "prophase"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 2,
+          "best_path": {
+            "source": "crossing-over occurs during prophase I of meiosis",
+            "property_hits": [
+              "i",
+              "prophase"
+            ],
+            "terminus_words": [
+              "crossing",
+              "occur",
+              "over"
+            ]
+          }
         },
         {
           "letter": "B",
           "text": "Metaphase I",
           "score": 0.0,
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "topic_relevant_paths": 2,
+          "best_path": null
         },
         {
           "letter": "C",
           "text": "Anaphase I",
           "score": 0.0,
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "topic_relevant_paths": 2,
+          "best_path": null
         },
         {
           "letter": "D",
           "text": "Prophase II",
           "score": 1.0,
-          "path": 1.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "crossing-over occurs during prophase I of meiosis",
-              "q_hits": [
-                "crossing",
-                "meiosi",
-                "meiosis",
-                "occur",
-                "over"
-              ],
-              "c_hits": [
-                "prophase"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 2,
+          "best_path": {
+            "source": "crossing-over occurs during prophase I of meiosis",
+            "property_hits": [
+              "prophase"
+            ],
+            "terminus_words": [
+              "crossing",
+              "occur",
+              "over"
+            ]
+          }
         }
       ]
     },
@@ -3870,10 +3546,10 @@
       "question": "Compared to DNA viral replication, RNA viral replication is more susceptible to mutation because",
       "correct": "D",
       "correct_text": "RNA replication lacks the proofreading functions characteristic of DNA replication.",
-      "pick": "-",
-      "outcome": "tie",
-      "best_score": 25.0,
-      "gap_pct": 0.0,
+      "pick": "D",
+      "outcome": "correct",
+      "best_score": 2.0,
+      "gap_pct": 50.0,
       "regions": [
         "genetics",
         "cell_division",
@@ -3907,153 +3583,81 @@
         {
           "letter": "A",
           "text": "RNA replication takes place in the cytoplasm, whereas DNA replication takes place in the nucleus.",
-          "score": 25.0,
-          "path": 19.0,
-          "terminus": 6.0,
+          "score": 1.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "DNA replication mistakes are a source of genetic variation",
-              "q_hits": [
-                "dna",
-                "replication"
-              ],
-              "c_hits": [
-                "dna",
-                "replication"
-              ]
-            },
-            {
-              "source": "snRNPs are involved in RNA processing",
-              "q_hits": [
-                "rna"
-              ],
-              "c_hits": [
-                "rna"
-              ]
-            },
-            {
-              "source": "RNA replication lacks proofreading functions",
-              "q_hits": [
-                "replication",
-                "rna"
-              ],
-              "c_hits": [
-                "replication",
-                "rna"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 5,
+          "best_path": {
+            "source": "DNA replication mistakes are a source of genetic variation",
+            "property_hits": [
+              "dna"
+            ],
+            "terminus_words": [
+              "dna",
+              "mistake",
+              "replication"
+            ]
+          }
         },
         {
           "letter": "B",
           "text": "RNA viruses replicate much faster than DNA viruses.",
-          "score": 19.0,
-          "path": 14.0,
-          "terminus": 5.0,
+          "score": 1.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "DNA replication mistakes are a source of genetic variation",
-              "q_hits": [
-                "dna",
-                "replication"
-              ],
-              "c_hits": [
-                "dna"
-              ]
-            },
-            {
-              "source": "snRNPs are involved in RNA processing",
-              "q_hits": [
-                "rna"
-              ],
-              "c_hits": [
-                "rna"
-              ]
-            },
-            {
-              "source": "RNA replication lacks proofreading functions",
-              "q_hits": [
-                "replication",
-                "rna"
-              ],
-              "c_hits": [
-                "rna"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 5,
+          "best_path": {
+            "source": "DNA replication mistakes are a source of genetic variation",
+            "property_hits": [
+              "dna"
+            ],
+            "terminus_words": [
+              "dna",
+              "mistake",
+              "replication"
+            ]
+          }
         },
         {
           "letter": "C",
           "text": "RNA viruses use uracil instead of thymine.",
-          "score": 3.0,
-          "path": 2.0,
-          "terminus": 1.0,
+          "score": 1.0,
+          "scored_by": "property",
+          "property_score": 1.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "snRNPs are involved in RNA processing",
-              "q_hits": [
-                "rna"
-              ],
-              "c_hits": [
-                "rna"
-              ]
-            },
-            {
-              "source": "RNA replication lacks proofreading functions",
-              "q_hits": [
-                "replication",
-                "rna"
-              ],
-              "c_hits": [
-                "rna"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 5,
+          "best_path": {
+            "source": "RNA replication lacks proofreading functions",
+            "property_hits": [
+              "rna"
+            ],
+            "terminus_words": [
+              "replication",
+              "rna"
+            ]
+          }
         },
         {
           "letter": "D",
           "text": "RNA replication lacks the proofreading functions characteristic of DNA replication.",
-          "score": 25.0,
-          "path": 19.0,
-          "terminus": 6.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "convergent_paths": [
-            {
-              "source": "DNA replication mistakes are a source of genetic variation",
-              "q_hits": [
-                "dna",
-                "replication"
-              ],
-              "c_hits": [
-                "dna",
-                "replication"
-              ]
-            },
-            {
-              "source": "snRNPs are involved in RNA processing",
-              "q_hits": [
-                "rna"
-              ],
-              "c_hits": [
-                "rna"
-              ]
-            },
-            {
-              "source": "RNA replication lacks proofreading functions",
-              "q_hits": [
-                "replication",
-                "rna"
-              ],
-              "c_hits": [
-                "function",
-                "replication",
-                "rna"
-              ]
-            }
-          ]
+          "topic_relevant_paths": 5,
+          "best_path": {
+            "source": "RNA replication lacks proofreading functions",
+            "property_hits": [
+              "function",
+              "rna"
+            ],
+            "terminus_words": [
+              "replication",
+              "rna"
+            ]
+          }
         }
       ]
     },
@@ -4093,6 +3697,7 @@
           "letter": "A",
           "text": "It is created by the direct action of natural selection.",
           "score": 4.0,
+          "scored_by": "path-fallback",
           "path": 3.0,
           "terminus": 1.0,
           "temp": 0.0,
@@ -4118,21 +3723,25 @@
                 "selection"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "B",
           "text": "It arises in response to changes in the environment.",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "C",
           "text": "It must be present in a population before natural selection can act upon the population.",
           "score": 4.0,
+          "scored_by": "path-fallback",
           "path": 3.0,
           "terminus": 1.0,
           "temp": 0.0,
@@ -4161,16 +3770,19 @@
                 "selection"
               ]
             }
-          ]
+          ],
+          "fallback": "no-topic-paths"
         },
         {
           "letter": "D",
           "text": "It tends to be reduced by the processes involved when diploid organisms produce gametes.",
           "score": 0.0,
+          "scored_by": "path-fallback",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "convergent_paths": []
+          "convergent_paths": [],
+          "fallback": "no-topic-paths"
         }
       ]
     }

@@ -105,7 +105,14 @@ def load_region_paths(brain, region: str, nlp=None) -> list[dict]:
         entry = paths.setdefault(
             pid,
             {"words": set(), "source_text": src,
-             "terminus_words": set()},
+             "terminus_words": set(),
+             # Polarity: True when the path is a refutation rather than
+             # an affirmation. Detected from the source text so that
+             # pre-Level-1 teachings (negations stored as affirmations
+             # with 'not' stripped) are still recognised. Newly-taught
+             # negations also land here correctly because the parser
+             # preserves the original source_text verbatim.
+             "negated": detect_polarity(src)},
         )
         entry["words"].update(path_words(sl, nlp))
         entry["words"].update(path_words(tl, nlp))
@@ -115,6 +122,48 @@ def load_region_paths(brain, region: str, nlp=None) -> list[dict]:
     return list(paths.values())
 CAUSAL_LEMMAS = {"because", "cause", "therefore", "thus", "result",
                  "produce", "lead"}
+
+# ── Negation-word lexicon ─────────────────────────────────────────────
+# Words that signal polarity. Used to detect whether the question is
+# asking for a FALSE statement, whether a choice denies something, and
+# whether a taught path refutes rather than affirms.
+_NEG_TOKENS = {
+    "not", "never", "no", "neither", "nor", "cannot",
+    "except", "excluding", "excludes",
+    "false", "incorrect", "wrong",
+}
+# Strong question-level markers — require capitalisation or a multi-word
+# phrase so we don't mis-fire on an incidental lowercase 'not' inside a
+# clause. Questions that want a FALSE answer almost always signal it
+# strongly ("Which is NOT true", "all of the following EXCEPT", etc.).
+_QUESTION_NEG_RE = re.compile(
+    r"\bNOT\b|\bEXCEPT\b|\bEXCLUDING\b|\bfalse\b|\bincorrect\b"
+    r"|\bwrong\b|\bnone of\b|\bleast likely\b"
+)
+
+
+def detect_polarity(text: str, question_mode: bool = False) -> bool:
+    """Return True when text is negated.
+
+    question_mode=True: match strong question-level markers only
+        (capitalised NOT/EXCEPT, phrases). Avoids false-positives from
+        incidental lowercase 'not' inside clauses.
+    question_mode=False (default): for a fact's source_text or for a
+        choice's text. Any negation token or "n't" contraction anywhere
+        inverts polarity.
+    """
+    if not text:
+        return False
+    if question_mode:
+        return bool(_QUESTION_NEG_RE.search(text))
+    low = text.lower()
+    if "n't" in low:
+        return True
+    for w in _WORD_RE.findall(low):
+        if w in _NEG_TOKENS:
+            return True
+    return False
+
 
 # Generic stopwords filtered before using lemmas as seeds / score tokens.
 STOP = {
@@ -272,6 +321,8 @@ def extract_topic(doc) -> set[str]:
 def score_choice_by_property(q_topic: set[str], c_lemmas: set[str],
                              region_paths: list[list[dict]],
                              choice_doc, q_temporal: dict,
+                             q_neg: bool = False,
+                             choice_text: str = "",
                              ) -> tuple[float, dict]:
     """Topic-filtered property match, MAX-over-paths.
 
@@ -288,9 +339,11 @@ def score_choice_by_property(q_topic: set[str], c_lemmas: set[str],
     source_text so the verbose output is inspectable. A score of 0 with
     zero topic-relevant paths signals the caller to fall back to path-mode.
     """
+    c_neg = detect_polarity(choice_text)
     best_score = 0.0
     best_path_info: dict | None = None
     topic_relevant_count = 0
+    polarity_skips = 0
 
     for paths in region_paths:
         for p in paths:
@@ -302,6 +355,22 @@ def score_choice_by_property(q_topic: set[str], c_lemmas: set[str],
                 continue
             topic_relevant_count += 1
 
+            # Polarity alignment: a match counts iff (c_neg XOR p_neg)
+            # == q_neg. Intuition:
+            #   - Positive Q + affirming path + affirming choice → OK
+            #   - Positive Q + refuting path + affirming choice → SKIP
+            #     (choice asserts what the graph refutes)
+            #   - Negative Q ("which is NOT true?") + affirming path +
+            #     affirming choice → SKIP (Q wants a refutable claim)
+            #   - Negative Q + affirming path + denying choice → OK
+            #   - Negative Q + refuting path + affirming choice → OK
+            #     (the choice says what the graph says is false — it IS
+            #     the false statement the question wants)
+            p_neg = p.get("negated", False)
+            if (c_neg != p_neg) != q_neg:
+                polarity_skips += 1
+                continue
+
             property_words = words - q_topic
             hits = c_lemmas & property_words
             score = float(len(hits))
@@ -311,6 +380,8 @@ def score_choice_by_property(q_topic: set[str], c_lemmas: set[str],
                     "source": p["source_text"],
                     "property_hits": sorted(hits),
                     "terminus_words": sorted(term_words),
+                    "path_negated": p_neg,
+                    "choice_negated": c_neg,
                 }
 
     # Temporal/causal fit — kept as a small side-signal for parity with
@@ -327,6 +398,9 @@ def score_choice_by_property(q_topic: set[str], c_lemmas: set[str],
         "property_score": round(best_score, 2),
         "temp": round(temp_score, 2),
         "topic_relevant_paths": topic_relevant_count,
+        "polarity_skips": polarity_skips,
+        "c_neg": c_neg,
+        "q_neg": q_neg,
         "best_path": best_path_info,
     }
     return total, detail
@@ -388,7 +462,10 @@ def get_regional_activation(brain: Brain, regions: list[str],
 def score_choice_by_path(q_lemmas: set[str], c_lemmas: set[str],
                          region_paths: list[list[dict]],
                          q_temporal: dict,
-                         choice_doc) -> tuple[float, dict]:
+                         choice_doc,
+                         q_neg: bool = False,
+                         choice_text: str = "",
+                         apply_polarity: bool = True) -> tuple[float, dict]:
     """Rank by path co-occurrence, not activation magnitude.
 
     A choice wins when its lemmas and the question's lemmas land on the
@@ -396,9 +473,15 @@ def score_choice_by_path(q_lemmas: set[str], c_lemmas: set[str],
     path, the stronger the signal. This is apple = red ∧ round ∧ juicy:
     a property-set scores only where those properties converge on a
     single concept's path, not when they scatter across the region.
+
+    Polarity alignment: (c_neg XOR p_neg) must equal q_neg for the
+    convergence to count. See score_choice_by_property for the
+    reasoning.
     """
+    c_neg = detect_polarity(choice_text)
     path_score = 0.0
     terminus_bonus = 0.0
+    polarity_skips = 0
     convergent_paths: list[dict] = []
 
     for paths in region_paths:
@@ -407,6 +490,10 @@ def score_choice_by_path(q_lemmas: set[str], c_lemmas: set[str],
             q_hits = q_lemmas & labels
             c_hits = c_lemmas & labels
             if q_hits and c_hits:
+                p_neg = p.get("negated", False)
+                if apply_polarity and (c_neg != p_neg) != q_neg:
+                    polarity_skips += 1
+                    continue
                 # Tightness: min(q_overlap, c_overlap) — both must be present
                 # in strength for the path to count as a convergence.
                 tight = min(len(q_hits), len(c_hits))
@@ -420,6 +507,7 @@ def score_choice_by_path(q_lemmas: set[str], c_lemmas: set[str],
                     "source": p["source_text"],
                     "q_hits": sorted(q_hits),
                     "c_hits": sorted(c_hits),
+                    "path_negated": p_neg,
                 })
 
     # Temporal/causal fit — kept light, operates on spaCy parse only.
@@ -435,6 +523,9 @@ def score_choice_by_path(q_lemmas: set[str], c_lemmas: set[str],
         "path": round(path_score, 2),
         "terminus": round(terminus_bonus, 2),
         "temp": round(temp_score, 2),
+        "polarity_skips": polarity_skips,
+        "c_neg": c_neg,
+        "q_neg": q_neg,
         "convergent_paths": convergent_paths[:3],  # top-3 for log
     }
 
@@ -750,6 +841,7 @@ def main():
         q_lemmas = content_lemmas(q_doc)
         q_temporal = temporal_signal(q_doc)
         q_topic = extract_topic(q_doc) if args.mode == "property" else set()
+        q_neg = detect_polarity(q["question"], question_mode=True)
 
         # Route using question + all choices combined — the correct region
         # for an MC question is often driven by choice vocabulary.
@@ -779,13 +871,20 @@ def main():
                     score, detail = score_choice_by_property(
                         q_topic, c_lemmas_set, selected_path_bags,
                         c_doc, q_temporal,
+                        q_neg=q_neg, choice_text=choice,
                     )
                     scored_by = "property"
                     if detail["topic_relevant_paths"] == 0:
                         # No topic-matching paths at all — use path-mode now.
+                        # Polarity alignment is applied ONLY when the
+                        # question is negative (EXCEPT/NOT). For positive
+                        # questions, loose co-occurrence shouldn't be
+                        # gated by incidental negation words in paths.
                         p_score, p_detail = score_choice_by_path(
                             q_lemmas_set, c_lemmas_set,
                             selected_path_bags, q_temporal, c_doc,
+                            q_neg=q_neg, choice_text=choice,
+                            apply_polarity=q_neg,
                         )
                         score = p_score
                         detail = {**p_detail, "fallback": "no-topic-paths"}
@@ -795,6 +894,8 @@ def main():
                     score, detail = score_choice_by_path(
                         q_lemmas_set, c_lemmas_set,
                         selected_path_bags, q_temporal, c_doc,
+                        q_neg=q_neg, choice_text=choice,
+                        apply_polarity=q_neg,
                     )
                     detail = {**detail, "fallback": "no-topic"}
                     scored_by = "path-fallback"
@@ -809,6 +910,7 @@ def main():
                 score, detail = score_choice_by_path(
                     q_lemmas_set, c_lemmas_set,
                     selected_path_bags, q_temporal, c_doc,
+                    q_neg=q_neg, choice_text=choice,
                 )
                 per_choice_detail.append({
                     "letter": labels[i],
@@ -844,10 +946,15 @@ def main():
             for i, choice in enumerate(q["choices"]):
                 c_doc = nlp(choice)
                 c_lemmas_set = set(content_lemmas(c_doc))
+                # All-zero fallback: polarity is applied ONLY for
+                # explicitly-negative questions (same rule as the
+                # per-choice path-fallback).
                 score, detail = score_choice_by_path(
                     q_lemmas_set, c_lemmas_set,
                     [region_paths_cache[r] for r in selected],
                     q_temporal, c_doc,
+                    q_neg=q_neg, choice_text=choice,
+                    apply_polarity=q_neg,
                 )
                 choice_scores.append(score)
                 per_choice_detail.append({

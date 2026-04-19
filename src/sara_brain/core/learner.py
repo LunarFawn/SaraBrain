@@ -68,10 +68,16 @@ class Learner:
         parsed = self.parser.parse(text)
         if parsed is None:
             return None
+        # First-class negation: when the parser detects a negated
+        # statement (e.g., "X is not Y", "X does not Y"), flow that
+        # through as a refutation of the positive relation — same
+        # storage path as unlearn()/brain.refute(). Sara now
+        # distinguishes "X is Y" from "X is not Y" at the graph level.
         return self._build_chain(
             parsed,
             initial_strength=initial_strength,
             source_label=source_label,
+            refute=parsed.negated,
         )
 
     def unlearn(self, text: str) -> LearnResult | None:

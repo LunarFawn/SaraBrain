@@ -1,0 +1,572 @@
+# Biology2e Chapter 23 — Protists
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 568
+
+Therefore, it became an interesting challenge to deal with the world of microorganisms once microscopes were developed a few centuries ago.
+This name was first suggested by Ernst Haeckel in the late nineteenth century.
+It has been applied in many contexts and has been formally used to represent a kingdom-level taxon called Protista.
+However, many modern systematists are beginning to shy away from the idea of formal ranks such as kingdom and phylum.
+Instead, they are naming taxa as groups of organisms thought to include all the descendants of a last common ancestor.
+During the past two decades, the field of molecular genetics has demonstrated that some protists are more related to animals, plants, or fungi than they are to other protists.
+During the past two decades, the field of molecular genetics has demonstrated that some protists are more related to animals, plants.
+fungi make the kingdom Protista a paraphyletic group, or one that does not include all descendents of its common ancestor.
+For this reason, protist lineages originally classified into the kingdom Protista continue to be examined and debated.
+In the meantime, the term "protist" still is used informally to describe this tremendously diverse group of eukaryotes.
+Most protists are microscopic, unicellular organisms that are abundant in soil, freshwater, brackish, and marine environments.
+Most protists are microscopic, unicellular organisms that are abundant in soil, freshwater, brackish.
+They are also common in the digestive tracts of animals and in the vascular tissues of plants.
+Others invade the cells of other protists, animals, and plants.
+Others invade the cells of other protists, animals.
+Not all protists are microscopic.
+Some protists are multicellular, such as the red, green, and brown seaweeds.
+Some protists are multicellular, such as the red, green.
+It is among the protists that one finds the wealth of ways that organisms can grow.
+Organisms are classified into three domains: Archaea, Bacteria, and Eukarya.
+Organisms are classified into three domains: Archaea, Bacteria.
+The first two lineages comprise all prokaryotic cells, and the third contains all eukaryotes.
+The first two lineages comprise all prokaryotic cells.
+However, comparative biology of extant organisms and the limited fossil record provide some insight into the evolution of Eukarya.
+The earliest fossils found appear to be those of domain Bacteria.
+They are about 3.5 to 3.8 billion years old and are recognizable because of their relatively complex structure and, for prokaryotes, relatively large cells.
+Most other prokaryotes have small cells, 1 or 2 µm in size, and would be difficult to pick out as fossils.
+Most other prokaryotes have small cells, 1 or 2 µm in size.
+Most living eukaryotes have cells measuring 10 µm or greater.
+Structures this size, which might be fossilized remains of early eukaryotes, appear in the geological record in deposits dating to about 2.1 billion years ago.
+All extant eukaryotes have cells with nuclei.
+Most extant eukaryotes have "typical" mitochondria, although some eukaryotes have very reduced mitochondrial "remnants" and a few lack detectable mitochondria.
+All extant eukaryotes have these cytoskeletal elements.
+Some extant eukaryotes lack flagella and/or cilia, but their presence in related lineages suggests that they are descended from ancestors that possessed these organelles.
+Mitosis is universally present in eukaryotes.
+If the last common ancestor could make cell walls, it is clear that this ability must have been lost in many groups.
+This major theme in the origin of eukaryotes is known as endosymbiosis, one cell engulfing another such that the engulfed cell survives and both cells benefit.
+Over many generations, a symbiotic relationship can result in two organisms that depend on each other so completely that neither could survive on its own.
+Similar endosymbiotic associations are not uncommon in living eukaryotes.
+Before explaining this further, it is necessary to consider metabolism in prokaryotes.
+Prokaryotic Metabolism Many important metabolic processes arose in prokaryotes; however, some of these processes, such as nitrogen fixation, are never found in eukaryotes.
+Prokaryotic Metabolism Many important metabolic processes arose in prokaryotes.
+however, some of these processes, such as nitrogen fixation, are never found in eukaryotes.
+The process of aerobic respiration is found in all major lineages of eukaryotes, and it is localized in the mitochondria.
+The process of aerobic respiration is found in all major lineages of eukaryotes.
+it is localized in the mitochondria.
+While today's atmosphere is about 20 percent molecular oxygen, geological evidence shows that it originally lacked O2.
+Without oxygen, aerobic respiration would not be expected, and living things would have relied on anaerobic respiration or the process of fermentation instead.
+Without oxygen, aerobic respiration would not be expected.
+living things would have relied on anaerobic respiration or the process of fermentation instead.
+At some point between 3.2 and 3.5 billion years ago, some prokaryotes began using energy from sunlight to power anabolic processes that reduce carbon dioxide to form organic compounds.
+That is, they evolved the ability to photosynthesize.
+Various metabolic processes evolved that protected organisms from oxygen, one of which, aerobic respiration, also generated high levels of ATP.
+It became widely present among prokaryotes, including in a free-living group we now call alpha-proteobacteria.
+Organisms that did not acquire aerobic respiration had to remain in oxygen-free environments.
+Oxygen levels similar to today's levels only arose within the last 700 million years.
+These organelles were first observed by light microscopists in the late 1800s, where they appeared to be somewhat worm-shaped structures that seemed to be moving around in the cell.
+Some early observers suggested that they might be bacteria living inside host cells, but these hypotheses remained unknown or rejected in most scientific communities.
+In 1967, Margulis introduced new data to support her work on the theory and substantiated her findings through microbiological evidence.
+Much remains to be clarified about how this relationship occurred; this continues to be an exciting field of discovery in biology.
+this continues to be an exciting field of discovery in biology.
+For instance, it is not known whether the endosymbiotic event that led to mitochondria occurred before or after the host cell had a nucleus.
+Such organisms would be among the extinct precursors of the last common ancestor of eukaryotes.
+Mitochondria One of the major features distinguishing prokaryotes from eukaryotes is the presence of mitochondria, or their reduced derivatives, in virtually all eukaryotic cells.
+Mitochondria One of the major features distinguishing prokaryotes from eukaryotes is the presence of mitochondria.
+Eukaryotic cells may contain anywhere from one to several thousand mitochondria, depending on the cell's level of energy consumption, in humans being most abundant in the liver and skeletal muscles.
+However, although they may have originated as free-living aerobic organisms, mitochondria can no longer survive and reproduce outside the cell.
+Mitochondria have their own genomes, with a circular chromosome stabilized by attachments to the inner membrane.
+Mitochondria also have special ribosomes and transfer RNAs that resemble these same components in prokaryotes.
+An intriguing feature of mitochondria is that many of them exhibit minor differences from the universal genetic code.
+When these genes are compared to those of other organisms, they appear to be of alpha-proteobacterial origin.
+In some eukaryotic groups, such genes are found in the mitochondria, whereas in other groups, they are found in the nucleus.
+In some eukaryotic groups, such genes are found in the mitochondria.
+in other groups, they are found in the nucleus.
+This has been interpreted as evidence that over evolutionary time, genes have been transferred from the endosymbiont chromosome to those of the host genome.
+This apparent "loss" of genes by the endosymbiont is probably one explanation why mitochondria cannot live without a host.
+Another line of evidence supporting the idea that mitochondria were derived by endosymbiosis comes from the structure of the mitochondrion itself.
+Most mitochondria are shaped like alpha-proteobacteria and are surrounded by two membranes; the inner membrane is bacterial in nature whereas the outer membrane is eukaryotic in nature.
+Most mitochondria are shaped like alpha-proteobacteria and are surrounded by two membranes.
+the inner membrane is bacterial in nature whereas the outer membrane is eukaryotic in nature.
+This is exactly what one would expect if one membrane-bound organism was engulfed into a vacuole by another membrane-bound organism.
+The outer mitochondrial membrane was derived by the enclosing vesicle, while the inner membrane was derived from the plasma membrane of the endosymbiont.
+The outer mitochondrial membrane was derived by the enclosing vesicle.
+the inner membrane was derived from the plasma membrane of the endosymbiont.
+The mitochondrial inner membrane is extensive and involves substantial infoldings called cristae that resemble the textured, outer surface of alpha- proteobacteria.
+The matrix and inner membrane are rich with the enzymes necessary for aerobic respiration.
+The third line of evidence comes from the production of new mitochondria.
+Mitochondria arise only from previous mitochondria; they are not formed from scratch by the eukaryotic cell.
+Mitochondria arise only from previous mitochondria.
+they are not formed from scratch by the eukaryotic cell.
+Mitochondria may fuse together; and they may be moved around inside the cell by interactions with the cytoskeleton.
+Mitochondria may fuse together.
+and they may be moved around inside the cell by interactions with the cytoskeleton.
+They reproduce within their enclosing cell and are distributed with the cytoplasm when a cell divides or two cells fuse.
+Therefore, although these organelles are highly integrated into the eukaryotic cell, they still reproduce as if they were independent organisms within the cell.
+However, their reproduction is synchronized with the activity and division of the cell.
+Some living eukaryotes are anaerobic and cannot survive in the presence of too much oxygen.
+In addition to the aerobic generation of ATP, mitochondria have several other metabolic functions.
+Such functions are often associated with the reduced mitochondrion-derived organelles of anaerobic eukaryotes.
+However, it is related to other protists with reduced mitochondria and probably represents an end- point in mitochondrial reduction.
+Although most biologists accept that the last common ancestor of eukaryotes had mitochondria, it appears that the complex relationship between mitochondria and their host cell continues to evolve.
+Plastids Some groups of eukaryotes are photosynthetic.
+This chloroplast cross-section illustrates its elaborate inner membrane organization.
+Stacks of thylakoid membranes compartmentalize photosynthetic enzymes and provide scaffolding for chloroplast DNA.
+In this micrograph of Elodea sp., the chloroplasts can be seen as small green spheres.
+Like mitochondria, plastids appear to have an endosymbiotic origin.
+This hypothesis was also proposed and championed with the first direct evidence by Lynn Margulis.
+We now know that plastids are derived from cyanobacteria that lived inside the cells of an ancestral, aerobic, heterotrophic eukaryote.
+plastids of primary origin are surrounded by two membranes.
+However, the best evidence is that the acquisition of cyanobacterial endosymbionts has happened twice in the history of eukaryotes.
+Almost all photosynthetic eukaryotes are descended from the first event, and only a couple of species are derived from the other, which in evolutionary terms, appears to be more recent.
+Almost all photosynthetic eukaryotes are descended from the first event.
+only a couple of species are derived from the other, which in evolutionary terms, appears to be more recent.
+Cyanobacteria are a group of Gram-negative bacteria with all the conventional structures of the group.
+However, unlike most prokaryotes, they have extensive, internal membrane-bound sacs called thylakoids.
+Chlorophyll is a component of these membranes, as are many of the proteins of the light reactions of photosynthesis.
+Cyanobacteria also have the peptidoglycan wall and lipopolysaccharide layer associated with Gram-negative bacteria.
+Chloroplasts of primary endosymbiotic origin have thylakoids, a circular DNA chromosome, and ribosomes similar to those of cyanobacteria.
+Chloroplasts of primary endosymbiotic origin have thylakoids, a circular DNA chromosome.
+As in mitochondria, each chloroplast is surrounded by two membranes.
+In the group of Archaeplastida called the glaucophytes and in the rhizarian Paulinella, a thin peptidoglycan layer is still present between the outer and inner plastid membranes.
+All other plastids lack this relict of the cyanobacterial wall.
+Plastids, like mitochondria, cannot live independently outside the host.
+In addition, like mitochondria, plastids are derived from the division of other plastids and never built from scratch.
+Not all plastids in eukaryotes are derived directly from primary endosymbiosis.
+Numerous microscopic and genetic studies have supported this conclusion.
+Secondary plastids are surrounded by three or more membranes, and some secondary plastids even have clear remnants of the nucleus of endosymbiotic algae.
+Secondary plastids are surrounded by three or more membranes.
+some secondary plastids even have clear remnants of the nucleus of endosymbiotic algae.
+Red algae and green algae share similar DNA sequences with photosynthetic cyanobacteria.
+Scientists speculate that, in a process called endosymbiosis, an ancestral prokaryote engulfed a photosynthetic cyanobacterium that evolved into modern-day chloroplasts.
+Secondary Endosymbiosis in Chlorarachniophytes Endosymbiosis involves one cell engulfing another to produce, over time, a coevolved relationship in which neither cell could survive alone.
+The chloroplasts of red and green algae, for instance, are derived from the engulfment of a photosynthetic cyanobacterium by an ancestral prokaryote.
+This evidence suggests the possibility that an ancestral cell was engulfed by another eukaryote cell, resulting in a secondary endosymbiosis.
+Chlorarachniophytes are rare algae indigenous to tropical seas and sand.
+They are classified into the Rhizarian supergroup.
+Chlorarachniophytes are reticulose amoebae, extending thin cytoplasmic strands that interconnect them with other chlorarachniophytes in a cytoplasmic network.
+In a primary endosymbiotic event, a heterotrophic eukaryote consumed a cyanobacterium.
+In a secondary endosymbiotic event, the cell resulting from primary endosymbiosis was consumed by a second cell.
+The resulting organelle became a plastid in modern chlorarachniophytes.
+Several lines of evidence support that chlorarachniophytes evolved from secondary endosymbiosis.
+The chloroplasts contained within the green algal endosymbionts still are capable of photosynthesis, making chlorarachniophytes photosynthetic.
+The green algal endosymbiont also exhibits a vestigial nucleus.
+In fact, it appears that chlorarachniophytes are the products of an evolutionarily recent secondary endosymbiotic event.
+In other lineages that involved secondary endosymbiosis, only three membranes can be identified around plastids.
+This is currently interpreted as a sequential loss of a membrane during the course of evolution.
+The process of secondary endosymbiosis is not unique to chlorarachniophytes.
+Secondary plastids are also found in the Excavates and the Chromalveolates.
+it is unclear how many undescribed species may exist.
+On the other hand, familiar characteristics of plants and animals are foreshadowed in various protists.
+The cells of protists are among the most elaborate of all cells.
+Multicellular plants, animals, and fungi are embedded among the protists in eukaryotic phylogeny.
+fungi are embedded among the protists in eukaryotic phylogeny.
+In most plants and animals and some fungi, complexity arises out of multicellularity, tissue specialization, and subsequent interaction because of these features.
+In most plants and animals and some fungi, complexity arises out of multicellularity, tissue specialization.
+A few protists live as colonies that behave in some ways as a group of free- living cells and in other ways as a multicellular organism.
+Some protists are composed of enormous, multinucleate, single cells that look like amorphous blobs of slime, or in other cases, like ferns.
+Some protists are composed of enormous, multinucleate, single cells that look like amorphous blobs of slime.
+In some species of protists, the nuclei are different sizes and have distinct roles in protist cell function.
+Protist cells may be enveloped by animal-like cell membranes or plant-like cell walls.
+Others are encased in glassy silica-based shells or wound with pellicles of interlocking protein strips.
+Metabolism Protists exhibit many forms of nutrition and may be aerobic or anaerobic.
+Those that store energy by photosynthesis belong to a group of photoautotrophs and are characterized by the presence of chloroplasts.
+Other protists are heterotrophic and consume organic materials to obtain nutrition.
+In some protists, food vacuoles can be formed anywhere on the body surface, whereas in others, they may be restricted to the base of a specialized feeding structure.
+In some protists, food vacuoles can be formed anywhere on the body surface.
+in others, they may be restricted to the base of a specialized feeding structure.
+Undigested remains ultimately are expelled from the cell via exocytosis.
+Subtypes of heterotrophs, called saprobes, absorb nutrients from dead organisms or their organic wastes.
+Some protists can function as mixotrophs, obtaining nutrition by photoautotrophic or heterotrophic routes, depending on whether sunlight or organic nutrients are available.
+Some protists have one or more flagella, which they rotate or whip.
+Others are covered in rows or tufts of tiny cilia that they beat in a coordinated manner to swim.
+Some protists can move toward or away from a stimulus, a movement referred to as taxis.
+phototaxis, is accomplished by coupling their locomotion strategy with a light-sensing organ.
+Protists use various methods for transportation.
+Amoeba uses lobe-like pseudopodia to anchor itself to a solid surface and pull itself forward.
+Euglena uses a whip-like tail called a flagellum to propel itself.
+Life Cycles Protists reproduce by a variety of mechanisms.
+In protists, binary fission can be divided into transverse or longitudinal, depending on the axis of orientation; sometimes Paramecium exhibits this method.
+In protists, binary fission can be divided into transverse or longitudinal, depending on the axis of orientation.
+sometimes Paramecium exhibits this method.
+Some protists such as the true slime molds exhibit multiple fission and simultaneously divide into many daughter cells.
+Others produce tiny buds that go on to divide and grow to the size of the parental protist.
+Sexual reproduction, involving meiosis and fertilization, is common among protists, and many protist species can switch from asexual to sexual reproduction when necessary.
+Sexual reproduction, involving meiosis and fertilization, is common among protists.
+many protist species can switch from asexual to sexual reproduction when necessary.
+Sexual reproduction is often associated with periods when nutrients are depleted or environmental changes occur.
+However, sexual reproduction is often associated with resistant cysts that are a protective, resting stage.
+Depending on habitat of the species, the cysts may be particularly resistant to temperature extremes, desiccation, or low pH.
+Depending on habitat of the species, the cysts may be particularly resistant to temperature extremes, desiccation.
+Protist life cycles range from simple to extremely elaborate.
+Certain parasitic protists have complicated life cycles and must infect different host species at different developmental stages to complete their life cycle.
+Some protists are unicellular in the haploid form and multicellular in the diploid form, a strategy employed by animals.
+Other protists have multicellular stages in both haploid and diploid forms, a strategy called alternation of generations, analogous to that used by plants.
+Habitats Nearly all protists exist in some type of aquatic environment, including freshwater and marine environments, damp soil, and even snow.
+Habitats Nearly all protists exist in some type of aquatic environment, including freshwater and marine environments, damp soil.
+Several protist species are parasites that infect animals or plants.
+A few protist species live on dead organisms or their wastes, and contribute to their decay.
+A few protist species live on dead organisms or their wastes.
+Moreover, protists that exhibit similar morphological features may have evolved analogous structures because of similar selective pressures—rather than because of recent common ancestry.
+This phenomenon, called convergent evolution, is one reason why protist classification is so challenging.
+Each supergroup can be viewed as representing one of many variants on eukaryotic cell structure.
+the endosymbiotic organelles—may have diverged from the "typical" pattern.
+This diagram shows a proposed classification of the domain Eukarya.
+Currently, the domain Eukarya is divided into six supergroups.
+Although each supergroup is believed to be monophyletic, the dotted lines suggest evolutionary relationships among the supergroups that continue to be debated.
+Keep in mind that the classification scheme presented here represents just one of several hypotheses, and the true evolutionary relationships are still to be determined.
+the true evolutionary relationships are still to be determined.
+Archaeplastida Molecular evidence supports the hypothesis that all Archaeplastida are descendents of an endosymbiotic relationship between a heterotrophic protist and a cyanobacterium.
+It was from a common ancestor of these protists that the land plants evolved, since their closest relatives are found in this group.
+The red and green algae include unicellular, multicellular, and colonial forms.
+The red and green algae include unicellular, multicellular.
+A diploid sporophyte contains cells that undergo meiosis to produce haploid spores.
+The gametes fuse to form a zygote that grows into a diploid sporophyte.
+In some species, the gametophyte and sporophyte look quite different, while in others they are nearly indistinguishable.
+In some species, the gametophyte and sporophyte look quite different.
+in others they are nearly indistinguishable.
+Red algae have a second cell wall outside an inner cellulose cell wall.
+Carbohydrates in this wall are the source of agarose used for electrophoresis gels and agar for solidifying bacterial media.
+The "red" in the red algae comes from phycoerythrins, accessory photopigments that are red in color and obscure the green tint of chlorophyll in some species.
+Other protists classified as red algae lack phycoerythrins and are parasites.
+Red algae are common in tropical waters where they have been detected at depths of 260 meters.
+Other red algae exist in terrestrial or freshwater environments.
+The red algae life cycle is an unusual alternation of generations that includes two sporophyte phases, with meiosis occurring only in the second sporophyte.
+Green Algae: Chlorophytes and Charophytes The most abundant group of algae is the green algae.
+In both green algae and plants, carbohydrates are stored in the plastid.
+The green algae are subdivided into the chlorophytes and the charophytes.
+The charophytes are the closest living relatives to land plants and resemble them in morphology and reproductive strategies.
+The familiar Spirogyra is a charophyte.
+Charophytes are common in wet habitats, and their presence often signals a healthy ecosystem.
+Charophytes are common in wet habitats.
+their presence often signals a healthy ecosystem.
+The chlorophytes exhibit great diversity of form and function.
+Chlorophytes primarily inhabit freshwater and damp soil, and are a common component of plankton.
+Chlorophytes primarily inhabit freshwater and damp soil.
+Chlamydomonas is a simple, unicellular chlorophyte with a pear- shaped morphology and two opposing, anterior flagella that guide this protist toward light sensed by its eyespot.
+Volvox colonies contain 500 to 60,000 cells, each with two flagella, contained within a hollow, spherical matrix composed of a gelatinous glycoprotein secretion.
+Individual cells in a Volvox colony move in a coordinated fashion and are interconnected by cytoplasmic bridges.
+Daughter colonies are produced with their flagella on the inside and have to evert as they are released.
+Volvox aureus is a green alga in the supergroup Archaeplastida.
+This species exists as a colony, consisting of cells immersed in a gel-like matrix and intertwined with each other via hair-like cytoplasmic extensions.
+True multicellular organisms, such as the sea lettuce, Ulva, are also represented among the chlorophytes.
+In addition, some chlorophytes exist as large, multinucleate, single cells.
+Caulerpa species undergo nuclear division, but their cells do not complete cytokinesis, remaining instead as massive and elaborate single cells.
+Caulerpa taxifolia is a chlorophyte consisting of a single cell containing potentially thousands of nuclei.
+An interesting question is how a single cell can produce such complex shapes.
+LINK TO LEARNING Take a look at this video to see cytoplasmic streaming in a green alga.
+Amoebozoa Like the Archaeplastida, the Amoebozoa include species with single cells, species with large multinucleated cells, and species that have multicellular phases.
+Amoebozoa Like the Archaeplastida, the Amoebozoa include species with single cells, species with large multinucleated cells.
+Amoebozoan cells characteristically exhibit pseudopodia that extend like tubes or flat lobes.
+The protist then transports its cytoplasm into the pseudopod, thereby moving the entire cell.
+The Amoebozoa include both free-living and parasitic species.
+Gymnomoebae The Gymnamoeba or lobose amoebae include both naked amoebae like the familiar Amoeba proteus and shelled amoebae, whose bodies protrude like snails from their protective tests.
+Amoeba proteus is a large amoeba about 500 µm in diameter but is dwarfed by the multinucleate amoebae Pelomyxa, which can be 10 times its size.
+Although Pelomyxa may have hundreds of nuclei, it has lost its mitochondria, but replaced them with bacterial endosymbionts.
+The secondary loss or modification of mitochondria is a feature also seen in other protist groups.
+Amoebae with tubular and lobe-shaped pseudopodia are seen under a microscope.
+These isolates would be morphologically classified as amoebozoans.
+Slime Molds A subset of the amoebozoans, the slime molds, has several morphological similarities to fungi that are thought to be the result of convergent evolution.
+For instance, during times of stress, some slime molds develop into spore- generating fruiting bodies, much like fungi.
+The slime molds are categorized on the basis of their life cycles into plasmodial or cellular types.
+Upon maturation, the plasmodium takes on a net-like appearance with the ability to form fruiting bodies, or sporangia, during times of stress.
+Upon maturation, the plasmodium takes on a net-like appearance with the ability to form fruiting bodies.
+Haploid spores are produced by meiosis within the sporangia, and spores can be disseminated through the air or water to potentially land in more favorable environments.
+Haploid spores are produced by meiosis within the sporangia.
+spores can be disseminated through the air or water to potentially land in more favorable environments.
+The brightly colored plasmodium in the inset photo is a single-celled, multinucleate mass.
+When food is depleted, cellular slime molds aggregate into a mass of cells that behaves as a single unit, called a slug.
+As with plasmodial slime molds, the spores are disseminated and can germinate if they land in a moist environment.
+One representative genus of the cellular slime molds is Dictyostelium, which commonly exists in the damp soil of forests.
+Opisthokonta The Opisthokonts are named for the single posterior flagellum seen in flagellated cells of the group.
+The flagella of other protists are anterior and their movement pulls the cells along, while the opisthokonts are pushed.
+The flagella of other protists are anterior and their movement pulls the cells along.
+Protist members of the opisthokonts include the animal-like choanoflagellates, which are believed to resemble the common ancestor of sponges and perhaps, all animals.
+In these organisms, the single, apical flagellum is surrounded by a contractile collar composed of microvilli.
+The collar is used to filter and collect bacteria for ingestion by the protist.
+A similar feeding mechanism is seen in the collar cells of sponges, which suggests a possible connection between choanoflagellates and animals.
+The Mesomycetozoa form a small group of parasites, primarily of fish, and at least one form that can parasitize humans.
+The Mesomycetozoa form a small group of parasites, primarily of fish.
+Their life cycles are poorly understood.
+These organisms are of special interest, because they appear to be so closely related to animals.
+In the past, they were grouped with fungi and other protists based on their morphology.
+The next three supergroups all contain at least some photosynthetic members whose chloroplasts were derived by secondary endosymbiosis.
+They also show some interesting variations in nuclear structure, and modification of mitochondria or chloroplasts.
+They also show some interesting variations in nuclear structure.
+Many rhizarians make elaborate and beautiful tests—armor-like coverings for the body of the cell—composed of calcium carbonate, silicon, or strontium salts.
+Many rhizarians make elaborate and beautiful tests—armor-like coverings for the body of the cell—composed of calcium carbonate, silicon.
+Rhizarians have important roles in both carbon and nitrogen cycles.
+When rhizarians die, and their tests sink into deep water, the carbonates are out of reach of most decomposers, locking carbon dioxide away from the atmosphere.
+When rhizarians die.
+their tests sink into deep water, the carbonates are out of reach of most decomposers, locking carbon dioxide away from the atmosphere.
+The biological carbon pump is a crucial component of the carbon cycle that maintains lower atmospheric carbon dioxide levels.
+Foraminiferans are unusual in that they are the only eukaryotes known to participate in the nitrogen cycle by denitrification, an activity usually served only by prokaryotes.
+Ammonia tepida, a Rhizaria species viewed here using phase contrast light microscopy, exhibits many threadlike pseudopodia.
+It also has a chambered calcium carbonate shell or test.
+As a group, the forams exhibit porous shells, called tests that are built from various organic materials and typically hardened with calcium carbonate.
+The tests may house photosynthetic algae, which the forams can harvest for nutrition.
+Foram pseudopodia extend through the pores and allow the forams to move, feed, and gather additional building materials.
+Foram pseudopodia extend through the pores and allow the forams to move, feed.
+Typically, forams are associated with sand or other particles in marine or freshwater habitats.
+Foraminiferans are also useful as indicators of pollution and changes in global weather patterns.
+These shells from foraminifera sank to the sea floor.
+Needle-like pseudopods supported by microtubules radiate outward from the cell bodies of these protists and function to catch food particles.
+The shells of dead radiolarians sink to the ocean floor, where they may accumulate in 100 meter-thick depths.
+Preserved, sedimented radiolarians are very common in the fossil record.
+Cercozoa The Cercozoa are both morphologically and metabolically diverse, and include both naked and shelled forms.
+Cercozoa The Cercozoa are both morphologically and metabolically diverse.
+Vampyrellids or "vampire amoebae," as their name suggests, obtain their nutrients by thrusting a pseudopod into the interior of other cells and sucking out their contents.
+This rhizarian is mixotrophic, and can obtain nutrients both by photosynthesis and by trapping various microorganisms with its network of pseudopodia.
+This rhizarian is mixotrophic.
+Therefore, the ancestor of chromalveolates is believed to have resulted from a secondary endosymbiotic event.
+However, some chromalveolates appear to have lost red alga- derived plastid organelles or lack plastid genes altogether.
+Therefore, this supergroup should be considered a hypothesis-based working group that is subject to change.
+Chromalveolates include very important photosynthetic organisms, such as diatoms, brown algae, and significant disease agents in animals and plants.
+Chromalveolates include very important photosynthetic organisms, such as diatoms, brown algae.
+The chromalveolates can be subdivided into alveolates and stramenopiles.
+Alveolates: Dinoflagellates, Apicomplexians, and Ciliates A large body of data supports that the alveolates are derived from a shared common ancestor.
+Ciliates A large body of data supports that the alveolates are derived from a shared common ancestor.
+The alveolates are named for the presence of an alveolus, or membrane-enclosed sac, beneath the cell membrane.
+The alveolates are named for the presence of an alveolus.
+The exact function of the alveolus is unknown, but it may be involved in osmoregulation.
+The alveolates are further categorized into some of the better-known protists: the dinoflagellates, the apicomplexans, and the ciliates.
+The alveolates are further categorized into some of the better-known protists: the dinoflagellates, the apicomplexans.
+Dinoflagellates exhibit extensive morphological diversity and can be photosynthetic, heterotrophic, or mixotrophic.
+Dinoflagellates exhibit extensive morphological diversity and can be photosynthetic, heterotrophic.
+The chloroplast of photosynthetic dinoflagellates was derived by secondary endosymbiosis of a red alga.
+Many dinoflagellates are encased in interlocking plates of cellulose.
+Together, the flagella contribute to the characteristic spinning motion of dinoflagellates.
+The dinoflagellates exhibit great diversity in shape.
+Movement of these two perpendicular flagella causes a spinning motion.
+Dinoflagellates have a nuclear variant called a dinokaryon.
+The chromosomes in the dinokaryon are highly condensed throughout the cell cycle and do not have typical histones.
+Mitosis in dinoflagellates is closed, that is, the spindle separates the chromosomes from outside of the nucleus without breakdown of the nuclear envelope.
+Some dinoflagellates generate light, called bioluminescence, when they are jarred or stressed.
+For approximately 20 species of marine dinoflagellates, population explosions during the summer months can tint the ocean with a muddy red color.
+it results from the abundant red pigments present in dinoflagellate plastids.
+In large quantities, these dinoflagellate species secrete an asphyxiating toxin that can kill fish, birds, and marine mammals.
+In large quantities, these dinoflagellate species secrete an asphyxiating toxin that can kill fish, birds.
+Red tides can be massively detrimental to commercial fisheries, and humans who consume these protists may become poisoned.
+Red tides can be massively detrimental to commercial fisheries.
+Bioluminescence is emitted from dinoflagellates in a breaking wave, as seen from the New Jersey coast.
+The apicoplast genome is similar to those of dinoflagellate chloroplasts.
+The apical complex is specialized for entry and infection of host cells.
+Indeed, all apicomplexans are parasitic.
+This group includes the genus Plasmodium, which causes malaria in humans.
+Apicomplexan life cycles are complex, involving multiple hosts and stages of sexual and asexual reproduction.
+Apicomplexans are parasitic protists.
+They have a characteristic apical complex that enables them to infect host cells.
+Plasmodium, the causative agent of malaria, has a complex life cycle typical of apicomplexans.
+The ciliates, which include Paramecium and Tetrahymena, are a group of protists 10 to 3,000 micrometers in length that are covered in rows, tufts, or spirals of tiny cilia.
+The ciliates, which include Paramecium and Tetrahymena, are a group of protists 10 to 3,000 micrometers in length that are covered in rows, tufts.
+By beating their cilia synchronously or in waves, ciliates can coordinate directed movements and ingest food particles.
+Certain ciliates have fused cilia-based structures that function like paddles, funnels, or fins.
+Certain ciliates have fused cilia-based structures that function like paddles, funnels.
+Ciliates also are surrounded by a pellicle, providing protection without compromising agility.
+Food captured in the oral groove enters a food vacuole, where it combines with digestive enzymes.
+Waste particles are expelled by an exocytic vesicle that fuses at a specific region on the cell membrane, called the anal pore.
+Ciliates therefore exhibit considerable structural complexity without having achieved multicellularity.
+Paramecium has a primitive mouth to ingest food, and an anal pore to eliminate waste.
+Paramecium has a primitive mouth to ingest food.
+Contractile vacuoles allow the organism to excrete excess water.
+Cilia enable the organism to move.
+Paramecium has two nuclei, a macronucleus and a micronucleus, in each cell.
+The micronucleus is essential for sexual reproduction, and is in many ways a typical eukaryotic nucleus, except that its genes are not transcribed.
+The micronucleus is essential for sexual reproduction.
+is in many ways a typical eukaryotic nucleus, except that its genes are not transcribed.
+The transcribed nucleus is the macronucleus, which directs asexual binary fission and all other biological functions.
+The macronucleus is a multiploid nucleus constructed from the micronucleus during sexual reproduction.
+reconstruction of the macronucleus is necessary because the macronucleus divides amitotically, and thus becomes genetically unbalanced over a period of successive cell replications.
+reconstruction of the macronucleus is necessary because the macronucleus divides amitotically.
+Paramecium and most other ciliates reproduce sexually by conjugation.
+The diploid micronucleus in each cell then undergoes meiosis to produce four haploid micronuclei.
+The cells each exchange one of these haploid nuclei and move away from each other.
+Fusion of the haploid micronuclei generates a completely novel diploid pre- micronucleus in each conjugative cell.
+The copies of the micronuclear chromosomes are severely edited to form hundreds of smaller chromosomes that contain only the protein coding genes.
+Each of these smaller chromosomes gets new telomeres as the macronucleus differentiates.
+Two cycles of cell division then yield four new Paramecia from each original conjugative cell.
+The complex process of sexual reproduction in Paramecium creates eight daughter cells from two original cells.
+Each cell has a macronucleus and a micronucleus.
+During sexual reproduction, the macronucleus dissolves and is replaced by a micronucleus.
+a. The macronuclei are derived from micronuclei.
+Both mitosis and meiosis occur during sexual reproduction.
+Each parent produces four daughter cells.
+Stramenopiles: Diatoms, Brown Algae, Golden Algae and Oomycetes The other subgroup of chromalveolates, the stramenopiles, includes photosynthetic marine algae and heterotrophic protists.
+The chloroplast of these algae is derived from red alga.
+The identifying feature of this group is the presence of a textured, or "hairy," flagellum.
+The identifying feature of this group is the presence of a textured.
+This stramenopile cell has a single hairy flagellum and a secondary smooth flagellum.
+These protists are a component of freshwater and marine plankton.
+Most species of diatoms reproduce asexually, although some instances of sexual reproduction and sporulation also exist.
+Some diatoms exhibit a slit in their silica shell, called a raphe.
+By expelling a stream of mucopolysaccharides from the raphe, the diatom can attach to surfaces or propel itself in one direction.
+During periods of nutrient availability, diatom populations bloom to numbers greater than can be consumed by aquatic organisms.
+As a result, the carbon dioxide that the diatoms had consumed and incorporated into their cells during photosynthesis is not returned to the atmosphere.
+Along with rhizarians and other shelled protists, diatoms help to maintain a balanced carbon cycle.
+Like diatoms, golden algae are largely unicellular, although some species can form large colonies.
+Golden algae are found in both freshwater and marine environments, where they form a major part of the plankton community.
+The brown algae are primarily marine, multicellular organisms that are known colloquially as seaweeds.
+Giant kelps are a type of brown alga.
+Some brown algae have evolved specialized tissues that resemble terrestrial plants, with root-like holdfasts, stem-like stipes, and leaf-like blades that are capable of photosynthesis.
+Some brown algae have evolved specialized tissues that resemble terrestrial plants, with root-like holdfasts, stem-like stipes.
+The stipes of giant kelps are enormous, extending in some cases for 60 meters.
+Like the green algae, brown algae have a variety of life cycles, including alternation of generations.
+Several species of brown algae, such as the Laminaria shown here, have evolved life cycles in which both the haploid and diploid forms are multicellular.
+The gametophyte is different in structure than the sporophyte.
+The sporophyte is the 2n plant.
+The gametophyte is diploid.
+Both the gametophyte and sporophyte stages are multicellular.
+The water molds, oomycetes, were so-named based on their fungus-like morphology, but molecular data have shown that the water molds are not closely related to fungi.
+The oomycetes are characterized by a cellulose-based cell wall and an extensive network of filaments that allow for nutrient uptake.
+As diploid spores, many oomycetes have two oppositely directed flagella for locomotion.
+Most oomycetes are aquatic, but some parasitize terrestrial plants.
+One plant pathogen is Phytophthora infestans, the causative agent of late blight of potatoes, such as occurred in the nineteenth century Irish potato famine.
+Excavata Many of the protist species classified into the supergroup Excavata are asymmetrical, single-celled organisms with a feeding groove "excavated" from one side.
+This supergroup includes heterotrophic predators, photosynthetic species, and parasites.
+This supergroup includes heterotrophic predators, photosynthetic species.
+Its subgroups are the diplomonads, parabasalids, and euglenozoans.
+Its subgroups are the diplomonads, parabasalids.
+The group includes a variety of modified mitochondria, as well as chloroplasts derived from green algae by secondary endosymbiosis.
+Until recently, these protists were believed to lack mitochondria.
+Mitochondrial remnant organelles, called mitosomes, have since been identified in diplomonads, but although these mitosomes are essentially nonfunctional as respiratory organelles, they do function in iron and sulfur metabolism.
+Diplomonads exist in anaerobic environments and use alternative pathways, such as glycolysis, to generate energy.
+Each diplomonad cell has two similar, but not identical haploid nuclei.
+Diplomonads have four pairs of locomotor flagella that are fairly deeply rooted in basal bodies that lie between the two nuclei.
+The mammalian intestinal parasite Giardia lamblia, visualized here using scanning electron microscopy, is a waterborne protist that causes severe diarrhea when ingested.
+Parabasalids A second Excavata subgroup, the parabasalids, are named for the parabasal apparatus, which consists of a Golgi complex associated with cytoskeletal fibers.
+Other cytoskeletal features include an axostyle, a bundle of fibers that runs the length of the cell and may even extend beyond it.
+Parabasalids move with flagella and membrane rippling, and these and other cytoskeletal modifications may assist locomotion.
+Parabasalids move with flagella and membrane rippling.
+these and other cytoskeletal modifications may assist locomotion.
+Like the diplomonads, the parabasalids exhibit modified mitochondria.
+In parabasalids these structures function anaerobically and are called hydrogenosomes because they produce hydrogen gas as a byproduct.
+The parabasalid Trichomonas vaginalis causes trichomoniasis, a sexually transmitted disease in humans, which appears in an estimated 180 million cases worldwide each year.
+Pregnant people infected with T. vaginalis are at an increased risk of serious complications, such as pre-term delivery.
+Some of the most complex of the parabasalids are those that colonize the rumen of ruminant animals and the guts of termites.
+These organisms can digest cellulose, a metabolic talent that is unusual among eukaryotic cells.
+They have multiple flagella arranged in complex patterns and some additionally recruit spirochetes that attach to their surface to act as accessory locomotor structures.
+Euglenozoans Euglenozoans includes parasites, heterotrophs, autotrophs, and mixotrophs, ranging in size from 10 to 500 µm.
+Euglenozoans Euglenozoans includes parasites, heterotrophs, autotrophs.
+Euglenoids move through their aquatic habitats using two long flagella that guide them toward light sources sensed by a primitive ocular organ called an eyespot.
+The familiar genus, Euglena, encompasses some mixotrophic species that display a photosynthetic capability only when light is present.
+The chloroplast of Euglena descends from a green alga by secondary endosymbiosis.
+In the dark, the chloroplasts of Euglena shrink up and temporarily cease functioning, and the cells instead take up organic nutrients from their environment.
+In the dark, the chloroplasts of Euglena shrink up and temporarily cease functioning.
+the cells instead take up organic nutrients from their environment.
+Euglena has a tough pellicle composed of bands of protein attached to the cytoskeleton.
+The bands spiral around the cell and give Euglena its exceptional flexibility.
+The human parasite, Trypanosoma brucei, belongs to a different subgroup of Euglenozoa, the kinetoplastids.
+kinetoplastid subgroup is named after the kinetoplast, a large modified mitochondrion carrying multiple circular DNAs.
+This subgroup includes several parasites, collectively called trypanosomes, which cause devastating human diseases and infect an insect species during a portion of their life cycle.
+T. brucei develops in the gut of the tsetse fly after the fly bites an infected human or other mammalian host.
+The parasite then travels to the insect salivary glands to be transmitted to another human or other mammal when the infected tsetse fly consumes another blood meal.
+Trypanosoma brucei, the causative agent of sleeping sickness, spends part of its life cycle in the tsetse fly and part in humans.
+Protists function in various ecological niches.
+Whereas some protist species are essential components of the food chain and generators of biomass, others function in the decomposition of organic materials.
+Still other protists are dangerous human pathogens or causative agents of devastating plant diseases.
+Primary Producers/Food Sources Protists are essential sources of food and provide nutrition for many other organisms.
+In some cases, as with zooplankton, protists are consumed directly.
+Alternatively, photosynthetic protists serve as producers of nutrition for other organisms.
+This is a temporary version of the secondarily endosymbiotic chloroplast found in Euglena.
+But these symbiotic associations are not restricted to protists.
+In turn, the corals provide the protist with a protected environment and the compounds needed for photosynthesis.
+This type of symbiotic relationship is important in nutrient-poor environments.
+Without dinoflagellate symbionts, corals lose algal pigments in a process called coral bleaching, and they eventually die.
+Without dinoflagellate symbionts, corals lose algal pigments in a process called coral bleaching.
+they eventually die.
+This explains why reef-building corals typically do not reside in waters deeper than 20 meters: insufficient light reaches those depths for dinoflagellates to photosynthesize.
+Coral polyps obtain nutrition through a symbiotic relationship with dinoflagellates.
+As primary producers, protists feed a large proportion of the world's aquatic species.
+In fact, approximately 25 percent of the world's photosynthesis is conducted by photosynthetic protists, particularly dinoflagellates, diatoms, and multicellular algae.
+In fact, approximately 25 percent of the world's photosynthesis is conducted by photosynthetic protists, particularly dinoflagellates, diatoms.
+Virtually all aquatic organisms depend directly or indirectly on protists for food.
+Protists do not create food sources only for sea-dwelling organisms.
+Human Pathogens As we have seen, a pathogen is anything that causes disease.
+Parasitic organisms live in or on a host organism and harm the organism.
+A small number of protists are serious pathogenic parasites that must infect other organisms to survive and propagate.
+For example, protist parasites include the causative agents of malaria, African sleeping sickness, amoebic encephalitis, and waterborne gastroenteritis in humans.
+For example, protist parasites include the causative agents of malaria, African sleeping sickness, amoebic encephalitis.
+Other protist pathogens prey on plants, effecting massive destruction of food crops.
+The only healthy faces were worn by those immigrants who had just arrived.
+We now know that malaria is caused by several species of the apicomplexan protist genus Plasmodium.
+Members of Plasmodium must sequentially require both a mosquito and a vertebrate to complete their life cycle.
+In 2015, it was estimated that malaria caused over 400,000 deaths, mostly in African children.
+During the course of malaria, P. falciparum can infect and destroy more than one-half of a human's circulating blood cells, leading to severe anemia.
+Ironically, a type of genetic control has arisen in parts of the world where malaria is endemic.
+Possession of one copy of the HbS beta globin allele results in malaria resistance.
+Unfortunately, this allele also has an unfortunate second effect; when homozygous it causes sickle cell disease.
+Unfortunately, this allele also has an unfortunate second effect.
+when homozygous it causes sickle cell disease.
+Red blood cells are shown to be infected with P. falciparum, the causative agent of malaria.
+LINK TO LEARNING This movie depicts the pathogenesis of Plasmodium falciparum, the causative agent of malaria.
+This trypanosome confounds the human immune system by changing its thick layer of surface glycoproteins with each infectious cycle.
+However, T. brucei has thousands of possible antigens, and with each subsequent generation, the protist switches to a glycoprotein coating with a different molecular structure.
+However, T. brucei has thousands of possible antigens.
+with each subsequent generation, the protist switches to a glycoprotein coating with a different molecular structure.
+In this way, T. brucei is capable of replicating continuously without the immune system ever succeeding in clearing the parasite.
+During epidemic periods, mortality from the disease can be high.
+LINK TO LEARNING This movie discusses the pathogenesis of Trypanosoma brucei, the causative agent of African sleeping sickness.
+In Latin America, another species of trypanosome, T. cruzi, is responsible for Chagas disease.
+T. cruzi infections are mainly caused by a blood-sucking "kissing bug" in the genus Triatoma.
+These "true bugs" bite the host during the night and then defecate on the wound, transmitting the trypanosome to the victim.
+The victim scratches the wound, further inoculating the site with trypanosomes at the location of the bite.
+An estimated 10 million people are infected with Chagas disease, and it is estimated to cause 10,000-12,000 deaths per year.
+An estimated 10 million people are infected with Chagas disease.
+it is estimated to cause 10,000-12,000 deaths per year.
+Trypanosomes are shown among red blood cells.
+Plant Parasites Protist parasites of terrestrial plants include agents that destroy food crops.
+Grape plants infected with P. viticola appear stunted and have discolored, withered leaves.
+The spread of downy mildew nearly collapsed the French wine industry in the nineteenth century.
+Both downy and powdery mildews on this grape leaf are caused by an infection of P. viticola.
+Late blight continues to plague potato crops in certain parts of the United States and Russia, wiping out as much as 70 percent of crops when no pesticides are applied.
+These unappetizing remnants result from an infection with P. infestans, the causative agent of potato late blight.
+Protist Decomposers The fungus-like protist saprobes are specialized to absorb nutrients from nonliving organic matter, such as dead organisms or their wastes.
+For instance, many types of oomycetes grow on dead animals or algae.
+Saprobic protists have the essential function of returning inorganic nutrients to the soil and water.
+This process allows for new plant growth, which in turn generates sustenance for other organisms along the food chain.
+Indeed, without saprobe species, such as protists, fungi, and bacteria, life would cease to exist as all organic carbon became "tied up" in dead organisms.
+bacteria, life would cease to exist as all organic carbon became "tied up" in dead organisms.
+Today's eukaryotes are very The oldest fossil evidence of eukaryotes is about 2 diverse in their shapes, organization, life cycles, and billion years old.
+Today's eukaryotes are very The oldest fossil evidence of eukaryotes is about 2 diverse in their shapes, organization, life cycles.
+Fossils older than this all appear to be number of cells per individual.
+It is probable that today's eukaryotes are descended from an ancestor that had a prokaryotic 23.2 Characteristics of Protists organization.
+Its chromosomes were phylogenetically unrelated groups.
+Protists display linear and contained DNA associated with histones.
+highly varied cell structures, several types of The nuclear genome seems to be descended from an reproductive strategies, virtually every possible type of archaean ancestor.
+This ancestor would have had a nutrition, and varied habitats.
+This ancestor would have had a nutrition.
+Most single-celled cytoskeleton and divided its chromosomes mitotically.
+protists are motile, but these organisms use diverse The ancestral cytoskeletal system included the ability structures for transportation.
+It was aerobic because it had mitochondria 23.3 Groups of Protists derived from an aerobic alpha-proteobacterium that The process of classifying protists into meaningful lived inside a host cell.
+Whether this host had a nucleus groups is ongoing, but genetic data in the past 20 years at the time of the initial symbiosis remains unknown.
+The majority view at present is to commonalities at the morphological, physiological, and order all eukaryotes into six supergroups: ecological levels can be identified.
+The majority view at present is to commonalities at the morphological, physiological.
+order all eukaryotes into six supergroups: ecological levels can be identified.
+At web: as primary producers, as direct food sources, and present, the monophyly of some of the supergroups are as decomposers.
+present, the monophyly of some of the supergroups are as decomposers.
+In addition, many protists are better supported by genetic data than others.
+Although parasites of plants and animals and can cause deadly tremendous variation exists within the supergroups, human diseases or destroy valuable crops.
+The macronuclei are derived from c.
+Both mitosis and meiosis occur during stages are multicellular.
+this organism has no detectable mitochondrial a. global warming genes.
+However, its genome was arranged in b. glaciation linear chromosomes wrapped around histones c. volcanic activity which are contained within the nucleus.
+d. oxygenation of the atmosphere Monocercomonoides is therefore a _________.
+Which of the following observations about a bacterium would distinguish it from the last 6.
+Protists that have a pellicle are surrounded by a. green algae ______________.
+b. cyanobacteria a. silica dioxide c. red algae b. calcium carbonate d. chlorarachniophytes c. carbohydrates d. proteins 8.
+A marine biologist analyzing water samples notices a protist with a calcium carbonate shell 13.
+Alternation of generations describes which of that moves by pseudopodia extension.
+diploid form is unicellular.
+The haploid form is unicellular; the diploid b. Circogonia icosahedra form can be multicellular.
+The haploid form is unicellular.
+the diploid b. Circogonia icosahedra form can be multicellular.
+Both the haploid and diploid forms can be d.
+An example of carbon fixation is can be multicellular.
+The amoeba E. histolytica is a pathogen that b. decomposition forms liver abscesses in infected individuals.
+Its c. phagocytosis metabolic classification is most likely ______.
+Which parasitic protist evades the host immune c. Aerobic phototroph system by altering its surface proteins with each d.
+c. Plasmodium falciparum a. slime molds d. Phytophthora infestans b. diatoms c. parabasalids 22.
+a. They fix carbon into organic molecules.
+Conjugation between two Paramecia produces b.
+They occupy the apex producer niche. ________ total daughter cells.
+They enter symbiotic relationships with a. 2 animals.
+Some aspects of eukaryotes are more similar to resolve this paradox.
+Opisthokonta includes animals and fungi, as well 26.
+Giardia lamblia is a cyst-forming protist parasite as protists.
+environments might G. lamblia cysts be 31.
+that the kingdom Protista includes a wide 32.
+The chlorophyte genera Ulva and Caulerpa both have macroscopic leaf-like and 34.

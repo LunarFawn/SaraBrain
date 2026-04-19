@@ -1,0 +1,559 @@
+# Biology2e Chapter 3 — Biological Macromolecules
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 555
+
+INTRODUCTION Food provides the body with the nutrients it needs to survive.
+Different smaller organic molecule combinations build these macromolecules.
+We explore these questions in this chapter.
+As you've learned, biological macromolecules are large molecules, necessary for life, that are built from smaller organic molecules.
+Each is an important cell component and performs a wide array of functions.
+Combined, these molecules make up the majority of a cell's dry mass.
+Dehydration Synthesis Most macromolecules are made from single subunits, or building blocks, called monomers.
+Dehydration Synthesis Most macromolecules are made from single subunits.
+The monomers combine with each other using covalent bonds to form larger molecules known as polymers.
+In doing so, monomers release water molecules as byproducts.
+In the dehydration synthesis reaction above, two glucose molecules link to form the disaccharide maltose.
+In the process, it forms a water molecule.
+At the same time, the monomers share electrons and form covalent bonds.
+As additional monomers join, this chain of repeating monomers forms a polymer.
+Different monomer types can combine in many configurations, giving rise to a diverse group of macromolecules.
+Even one kind of monomer can combine in a variety of ways to form several different polymers.
+For example, glucose monomers are the constituents of starch, glycogen, and cellulose.
+For example, glucose monomers are the constituents of starch, glycogen.
+Hydrolysis Polymers break down into monomers during hydrolysis.
+During these reactions, the polymer breaks into two components: one part gains a hydrogen atom and the other gains a hydroxyl molecule from a split water molecule.
+Dehydration and hydrolysis reactions are catalyzed, or "sped up," by specific enzymes; dehydration reactions involve the formation of new bonds, requiring energy, while hydrolysis reactions break bonds and release energy.
+dehydration reactions involve the formation of new bonds, requiring energy, while hydrolysis reactions break bonds and release energy.
+"sped up," by specific enzymes; dehydration reactions involve the formation of new bonds, requiring energy, while hydrolysis reactions break bonds and release energy.
+Dehydration and hydrolysis reactions are catalyzed, or "sped up," by specific enzymes; dehydration reactions involve the formation of new bonds, requiring energy.
+hydrolysis reactions break bonds and release energy.
+These reactions are similar for most macromolecules, but each monomer and polymer reaction is specific for its class.
+For example, catalytic enzymes in the digestive system hydrolyze or break down the food we ingest into smaller molecules.
+This allows cells in our body to easily absorb nutrients in the intestine.
+Enzymes called proteases, such as pepsin and peptidase, and hydrochloric acid break down proteins.
+hydrochloric acid break down proteins.
+Lipases break down lipids.
+These broken down macromolecules provide energy for cellular activities.
+LINK TO LEARNING Visit this site to see visual representations of dehydration synthesis and hydrolysis.
+Most people are familiar with carbohydrates, one type of macromolecule, especially when it comes to what we eat.
+To lose weight, some individuals adhere to "low-carb" diets.
+Carbohydrates are, in fact, an essential part of our diet.
+Carbohydrates also have other important functions in humans, animals, and plants.
+Carbohydrates also have other important functions in humans, animals.
+In other words, the ratio of carbon to hydrogen to oxygen is 1:2:1 in carbohydrate molecules.
+This formula also explains the origin of the term "carbohydrate": the components are carbon and the components of water.
+Scientists classify carbohydrates into three subtypes: monosaccharides, disaccharides, and polysaccharides.
+Scientists classify carbohydrates into three subtypes: monosaccharides, disaccharides.
+Monosaccharides Monosaccharides are simple sugars, the most common of which is glucose.
+In monosaccharides, the number of carbons usually ranges from three to seven.
+Most monosaccharide names end with the suffix -ose.
+Depending on the number of carbons in the sugar, they can be trioses, pentoses, and/or hexoses.
+Aldoses have a carbonyl group at the end of the carbon chain, and ketoses have a carbonyl group in the middle of the carbon chain.
+Aldoses have a carbonyl group at the end of the carbon chain.
+ketoses have a carbonyl group in the middle of the carbon chain.
+Trioses, pentoses, and hexoses have three-, five-, and six- carbon backbones, respectively.
+hexoses have three-, five-.
+six- carbon backbones, respectively.
+The chemical formula for glucose is C6H12O6.
+In humans, glucose is an important source of energy.
+that energy helps make adenosine triphosphate.
+Plants synthesize glucose using carbon dioxide and water, and glucose in turn provides energy requirements for the plant.
+Plants synthesize glucose using carbon dioxide and water.
+glucose in turn provides energy requirements for the plant.
+Humans and other animals that feed on plants often obtain glucose from catabolized starch.
+They are structural isomers, meaning they have the same chemical formula but a different atom arrangement.
+fructose are isomeric monosaccharides, meaning they have the same chemical formula but have slightly different structures.
+Glucose and galactose are aldoses, and fructose is a ketose.
+Glucose and galactose are aldoses.
+fructose is a ketose.
+Monosaccharides can exist as a linear chain or as ring-shaped molecules.
+Glucose in a ring form can have two different hydroxyl group arrangements around the anomeric carbon.
+Fructose and ribose also form rings, although they form five-membered rings as opposed to the six- membered ring of glucose.
+During this process, one monosaccharide's hydroxyl group combines with another monosaccharide's hydrogen, releasing a water molecule and forming a covalent bond.
+Glycosidic bonds can be an alpha or beta type.
+In the process, a water molecule is lost.
+By convention, the carbon atoms in a monosaccharide are numbered from the terminal carbon closest to the carbonyl group.
+Lactose is a disaccharide consisting of the monomers glucose and galactose.
+It is naturally in milk.
+malt sugar, is a disaccharide formed by a dehydration reaction between two glucose molecules.
+The most common disaccharide is sucrose, or table sugar, which is comprised of glucose and fructose monomers.
+The most common disaccharide is sucrose.
+Polysaccharides A long chain of monosaccharides linked by glycosidic bonds is a polysaccharide.
+it may contain different types of monosaccharides.
+The molecular weight may be 100,000 daltons or more depending on the number of joined monomers.
+Starch, glycogen, cellulose, and chitin are primary examples of polysaccharides.
+chitin are primary examples of polysaccharides.
+In plants, an amylose and amylopectin mixture comprise these sugars.
+Plants are able to synthesize glucose, and they store the excess glucose, beyond their immediate energy needs, as starch in different plant parts, including roots and seeds.
+Plants are able to synthesize glucose.
+they store the excess glucose, beyond their immediate energy needs, as starch in different plant parts, including roots and seeds.
+The starch in the seeds provides food for the embryo as it germinates and can also act as a food source for humans and animals.
+Enzymes break down the starch that humans consume.
+The cells can then absorb the glucose.
+Glucose starch comprises monomers that are joined by α 1-4 or α 1-6 glycosidic bonds.
+Unbranched glucose monomer chains comprise amylose by α 1-4 glycosidic linkages.
+Branched glucose monomer chains comprise amylopectin by α 1-4 and α 1-6 glycosidic linkages.
+Because of the way the subunits are joined, the glucose chains have a helical structure.
+Glycogen is similar in structure to amylopectin but more highly branched.
+Glycogen is the storage form of glucose in humans and other vertebrates and is comprised of monomers of glucose.
+Glycogen is the animal equivalent of starch and is a highly branched molecule usually stored in liver and muscle cells.
+Whenever blood glucose levels decrease, glycogen breaks down to release glucose in a process scientists call glycogenolysis.
+Cellulose is the most abundant natural biopolymer.
+Cellulose mostly comprises a plant's cell wall.
+This provides the cell structural support.
+Wood and paper are mostly cellulosic in nature.
+The glucose monomers form hydrogen bonds, holding the chains firmly together side-by-side and form strong microfibrils.
+This rigidity is an important structural component of the cell walls found in plants.
+In some of these animals, certain species of bacteria and protists reside in the rumen and secrete the enzyme cellulase.
+The appendix of grazing animals also contains bacteria that digest cellulose, giving it an important role in ruminants' digestive systems.
+Cellulases can break down cellulose into glucose monomers that animals use as an energy source.
+Termites are also able to break down cellulose because of the presence of other organisms in their bodies that secrete cellulases.
+Carbohydrates serve various functions in different animals.
+This exoskeleton is made of the biological macromolecule chitin, which is a nitrogen-containing polysaccharide.
+It is made of repeating N-acetyl-β-d-glucosamine units, which are a modified sugar.
+Chitin is also a major component of fungal cell walls.
+Fungi are neither animals nor plants and form a kingdom of their own in the domain Eukarya.
+Registered Dietitian Nutrition is a worldwide health concern, and many diseases, such as diabetes and heart disease, are becoming more prevalent.
+Registered Dietitian Nutrition is a worldwide health concern.
+many diseases, such as diabetes and heart disease, are becoming more prevalent.
+This is one of the reasons why people increasingly seek out registered dietitians for advice.
+Registered dietitians help plan nutrition programs for individuals in various settings.
+They often work with patients in health care facilities, designing nutrition plans to treat and prevent diseases.
+For example, dietitians may teach a patient with diabetes how to manage blood sugar levels by eating the correct types and amounts of carbohydrates.
+Dietitians may also work in nursing homes, schools, and private practices.
+Dietitians may also work in nursing homes, schools.
+To become a registered dietitian, one needs to earn at least a bachelor's degree in dietetics, nutrition, food technology, or a related field.
+To become a registered dietitian, one needs to earn at least a bachelor's degree in dietetics, nutrition, food technology.
+In addition, registered dietitians must complete a supervised internship program and pass a national exam.
+Those who pursue careers in dietetics take courses in nutrition, chemistry, biochemistry, biology, microbiology, and human physiology.
+Those who pursue careers in dietetics take courses in nutrition, chemistry, biochemistry, biology, microbiology.
+Dietitians must become experts in the chemistry and physiology of food.
+Some people believe that carbohydrates are bad and they should avoid them.
+Some diets completely forbid carbohydrate consumption, claiming that a low-carbohydrate diet helps people to lose weight faster.
+However, carbohydrates have been an important part of the human diet for thousands of years.
+Artifacts from ancient civilizations show the presence of wheat, rice, and corn in our ancestors' storage areas.
+Artifacts from ancient civilizations show the presence of wheat, rice.
+As part of a well balanced diet, we should supplement carbohydrates with proteins, vitamins, and fats.
+As part of a well balanced diet, we should supplement carbohydrates with proteins, vitamins.
+Calorie-wise, a gram of carbohydrate provides 4.3 Kcal.
+For comparison, fats provide 9 Kcal/g, a less desirable ratio.
+Carbohydrates contain soluble and insoluble elements.
+The insoluble part, fiber, is mostly cellulose.
+Fiber has many uses.
+It promotes regular bowel movement by adding bulk, and it regulates the blood glucose consumption rate.
+It promotes regular bowel movement by adding bulk.
+it regulates the blood glucose consumption rate.
+Fiber also helps to remove excess cholesterol from the body.
+Fiber binds to the cholesterol in the small intestine, then attaches to the cholesterol and prevents the cholesterol particles from entering the bloodstream.
+Cholesterol then exits the body via the feces.
+Fiber-rich diets also have a protective role in reducing the occurrence of colon cancer.
+In addition, a meal containing whole grains and vegetables gives a feeling of fullness.
+Without consuming carbohydrates, we reduce the availability of "instant energy".
+Lipids include a diverse group of compounds that are largely nonpolar in nature.
+Non-polar molecules are hydrophobic, or insoluble in water.
+Non-polar molecules are hydrophobic.
+Lipids perform many different functions in a cell.
+For example, they help keep aquatic birds and mammals dry when forming a protective layer over fur or feathers because of their water-repellent hydrophobic nature.
+Lipids are also the building blocks of many hormones and are an important constituent of all cellular membranes.
+Lipids include fats, oils, waxes, phospholipids, and steroids.
+Lipids include fats, oils, waxes, phospholipids.
+Fats and Oils A fat molecule consists of two main components—glycerol and fatty acids.
+Glycerol is an organic compound with three carbons, five hydrogens, and three hydroxyl groups.
+Glycerol is an organic compound with three carbons, five hydrogens.
+The number of carbons in the fatty acid may range from 4 to 36.
+Three water molecules release in the process.
+During this ester bond formation, three water molecules are released.
+The three fatty acids in the triacylglycerol may be similar or dissimilar.
+We also call fats triacylglycerols or triglycerides because of their chemical structure.
+Some fatty acids have common names that specify their origin.
+For example, palmitic acid, a saturated fatty acid, is derived from the palm tree.
+Arachidic acid is derived from Arachis hypogea, the scientific name for groundnuts or peanuts.
+In a fatty acid chain, if there are only single bonds between neighboring carbons in the hydrocarbon chain, the fatty acid is saturated.
+Saturated fatty acids are saturated with hydrogen.
+In other words, the number of hydrogen atoms attached to the carbon skeleton is maximized.
+When the hydrocarbon chain contains a double bond, the fatty acid is unsaturated.
+Most unsaturated fats are liquid at room temperature.
+We call these oils.
+When a fatty acid has no double bonds, it is a saturated fatty acid because it is not possible to add more hydrogen to the chain's carbon atoms.
+A fat may contain similar or different fatty acids attached to glycerol.
+Long straight fatty acids with single bonds generally pack tightly and are solid at room temperature.
+Animal fats with stearic acid and palmitic acid and the fat with butyric acid are examples of saturated fats.
+Plants store fat or oil in many seeds and use them as a source of energy during seedling development.
+Unsaturated fats or oils are usually of plant origin and contain cis unsaturated fatty acids.
+Cis and trans indicate the configuration of the molecule around the double bond.
+If hydrogens are present in the same plane, it is a cis fat.
+If the hydrogen atoms are on two different planes, it is a trans fat.
+Olive oil, corn oil, canola oil, and cod liver oil are examples of unsaturated fats.
+cod liver oil are examples of unsaturated fats.
+Unsaturated fats help to lower blood cholesterol levels; whereas, saturated fats might contribute to plaque formation in the arteries.
+Unsaturated fats help to lower blood cholesterol levels.
+whereas, saturated fats might contribute to plaque formation in the arteries.
+Saturated fatty acids have hydrocarbon chains connected by single bonds only.
+Unsaturated fatty acids have one or more double bonds.
+Each double bond may be in a cis or trans configuration.
+In the cis configuration, both hydrogens are on the same side of the hydrocarbon chain.
+In the trans configuration, the hydrogens are on opposite sides.
+A cis double bond causes a kink in the chain.
+Trans Fats The food industry artificially hydrogenates oils to make them semi-solid and of a consistency desirable for many processed food products.
+Simply speaking, hydrogen gas is bubbled through oils to solidify them.
+During this hydrogenation process, double bonds of the cis- conformation in the hydrocarbon chain may convert to double bonds in the trans- conformation.
+Margarine, some types of peanut butter, and shortening are examples of artificially hydrogenated trans fats.
+shortening are examples of artificially hydrogenated trans fats.
+Many fast food restaurants have recently banned using trans fats, and food labels are required to display the trans fat content.
+Many fast food restaurants have recently banned using trans fats.
+food labels are required to display the trans fat content.
+Consequently, they have to be supplemented through ingestion via the diet.
+It has three cis double bonds and, as a result, a curved shape.
+For clarity, the diagram does not show the carbons.
+Each singly bonded carbon has two hydrogens associated with it, which the diagram also does not show.
+Nutritionally important because the body does not make them, omega-3 fatty acids include alpha-linoleic acid, eicosapentaenoic acid, and docosahexaenoic acid, all of which are polyunsaturated.
+Nutritionally important because the body does not make them, omega-3 fatty acids include alpha-linoleic acid, eicosapentaenoic acid.
+Salmon, trout, and tuna are good sources of omega-3 fatty acids.
+tuna are good sources of omega-3 fatty acids.
+Research indicates that omega-3 fatty acids reduce the risk of sudden death from heart attacks, lower triglycerides in the blood, decrease blood pressure, and prevent thrombosis by inhibiting blood clotting.
+Research indicates that omega-3 fatty acids reduce the risk of sudden death from heart attacks, lower triglycerides in the blood, decrease blood pressure.
+They also reduce inflammation, and may help lower the risk of some cancers in animals.
+They also reduce inflammation.
+Like carbohydrates, fats have received considerable bad publicity.
+It is true that eating an excess of fried foods and other "fatty" foods leads to weight gain.
+However, fats do have important functions.
+Many vitamins are fat soluble, and fats serve as a long-term storage form of fatty acids: a source of energy.
+Many vitamins are fat soluble.
+fats serve as a long-term storage form of fatty acids: a source of energy.
+They also provide insulation for the body.
+Therefore, we should consume "healthy" fats in moderate amounts on a regular basis.
+Waxes Wax covers some aquatic birds' feathers and some plants' leaf surfaces.
+Long fatty acid chains esterified to long-chain alcohols comprise waxes.
+Phospholipids Phospholipids are major plasma membrane constituents that comprise cells' outermost layer.
+Like fats, they are comprised of fatty acid chains attached to a glycerol or sphingosine backbone.
+A phosphate group alone attached to a diacylglycerol does not qualify as a phospholipid.
+It is phosphatidate, the precursor of phospholipids.
+An alcohol modifies the phosphate group.
+Phosphatidylcholine and phosphatidylserine are two important phospholipids that are in plasma membranes.
+A phospholipid is a molecule with two fatty acids and a modified phosphate group attached to a glycerol backbone.
+A phospholipid is an amphipathic molecule, meaning it has a hydrophobic and a hydrophilic part.
+The phospholipid bilayer is the major component of all cellular membranes.
+The hydrophilic head groups of the phospholipids face the aqueous solution.
+The hydrophobic tails are sequestered in the middle of the bilayer.
+The head is the hydrophilic part, and the tail contains the hydrophobic fatty acids.
+The head is the hydrophilic part.
+the tail contains the hydrophobic fatty acids.
+Phospholipids are responsible for the plasma membrane's dynamic nature.
+Steroids Unlike the phospholipids and fats that we discussed earlier, steroids have a fused ring structure.
+Many steroids also have the –OH functional group, which puts them in the alcohol classification.
+Cholesterol is the most common steroid.
+The liver synthesizes cholesterol and is the precursor to many steroid hormones such as testosterone and estradiol, which gonads and endocrine glands secrete.
+It is also the precursor to Vitamin D. Cholesterol is also the precursor of bile salts, which help emulsifying fats and their subsequent absorption by cells.
+Although lay people often speak negatively about cholesterol, it is necessary for the body's proper functioning.
+Sterols are components of the plasma membrane of cells and are found within the phospholipid bilayer.
+Proteins are one of the most abundant organic molecules in living systems and have the most diverse range of functions of all macromolecules.
+Proteins may be structural, regulatory, contractile, or protective.
+Proteins may be structural, regulatory, contractile.
+They may serve in transport, storage, or membranes; or they may be toxins or enzymes.
+They may serve in transport, storage, or membranes.
+or they may be toxins or enzymes.
+They may serve in transport, storage.
+Each cell in a living system may contain thousands of proteins, each with a unique function.
+Their structures, like their functions, vary greatly.
+They are all, however, amino acid polymers arranged in a linear sequence.
+Each enzyme is specific for the substrate upon which it acts.
+The enzyme may help in breakdown, rearrangement, or synthesis reactions.
+We call enzymes that break down their substrates catabolic enzymes.
+Those that build more complex molecules from their substrates are anabolic enzymes, and enzymes that affect the rate of reaction are catalytic enzymes.
+Those that build more complex molecules from their substrates are anabolic enzymes.
+enzymes that affect the rate of reaction are catalytic enzymes.
+An example of an enzyme is salivary amylase, which hydrolyzes its substrate amylose, a component of starch.
+Hormones are chemical-signaling molecules, usually small proteins or steroids, secreted by endocrine cells that act to control or regulate specific physiological processes, including growth, development, metabolism, and reproduction.
+Hormones are chemical-signaling molecules, usually small proteins or steroids, secreted by endocrine cells that act to control or regulate specific physiological processes, including growth, development, metabolism.
+For example, insulin is a protein hormone that helps regulate the blood glucose level.
+Proteins have different shapes and molecular weights.
+Some proteins are globular in shape; whereas, others are fibrous in nature.
+Some proteins are globular in shape.
+whereas, others are fibrous in nature.
+For example, hemoglobin is a globular protein, but collagen, located in our skin, is a fibrous protein.
+Protein shape is critical to its function, and many different types of chemical bonds maintain this shape.
+Protein shape is critical to its function.
+many different types of chemical bonds maintain this shape.
+Changes in temperature, pH, and exposure to chemicals may lead to permanent changes in the protein's shape, leading to loss of function, or denaturation.
+exposure to chemicals may lead to permanent changes in the protein's shape, leading to loss of function, or denaturation.
+Changes in temperature, pH, and exposure to chemicals may lead to permanent changes in the protein's shape, leading to loss of function.
+Different arrangements of the same 20 types of amino acids comprise all proteins.
+Two rare new amino acids were discovered recently, and additional new discoveries may be added to the list.
+Two rare new amino acids were discovered recently.
+additional new discoveries may be added to the list.
+Amino Acids Amino acids are the monomers that comprise proteins.
+Scientists use the name "amino acid" because these acids contain both amino group and carboxyl-acid-group in their basic structure.
+The chemical nature of the side chain determines the amino acid's nature.
+For example, the amino acid glycine has a hydrogen atom as the R group.
+Amino acids such as valine, methionine, and alanine are nonpolar or hydrophobic in nature, while amino acids such as serine, threonine, and cysteine are polar and have hydrophilic side chains.
+alanine are nonpolar or hydrophobic in nature, while amino acids such as serine, threonine.
+cysteine are polar and have hydrophilic side chains.
+Amino acids such as valine, methionine, and alanine are nonpolar or hydrophobic in nature.
+amino acids such as serine, threonine, and cysteine are polar and have hydrophilic side chains.
+The side chains of lysine and arginine are positively charged, and therefore these amino acids are also basic amino acids.
+The side chains of lysine and arginine are positively charged.
+therefore these amino acids are also basic amino acids.
+Proline has an R group that is linked to the amino group, forming a ring-like structure.
+A single upper case letter or a three-letter abbreviation represents amino acids.
+For example, the letter V or the three-letter symbol val represent valine.
+Just as some fatty acids are essential to a diet, some amino acids also are necessary.
+These essential amino acids in humans include isoleucine, leucine, and cysteine.
+These essential amino acids in humans include isoleucine, leucine.
+Essential amino acids refer to those necessary to build proteins in the body, but not those that the body produces.
+Which amino acids are essential varies from organism to organism.
+The sequence and the number of amino acids ultimately determine the protein's shape, size, and function.
+The sequence and the number of amino acids ultimately determine the protein's shape, size.
+A covalent bond, or peptide bond, attaches to each amino acid, which a dehydration reaction forms.
+peptide bond, attaches to each amino acid, which a dehydration reaction forms.
+The carboxyl group of one amino acid is linked to the incoming amino acid's amino group.
+In the process, it releases a water molecule.
+As more amino acids join to this growing chain, the resulting chain is a polypeptide.
+Each polypeptide has a free amino group at one end.
+the other end has a free carboxyl group, also called the C or carboxyl terminal.
+the amino terminal, and the other end has a free carboxyl group, also called the C or carboxyl terminal.
+After protein synthesis, most proteins are modified.
+These are known as post-translational modifications.
+They may undergo cleavage, phosphorylation, or may require adding other chemical groups.
+They may undergo cleavage, phosphorylation.
+Only after these modifications is the protein completely functional.
+Cytochrome c is an important component of the electron transport chain, a part of cellular respiration, and it is normally located in the cellular organelle, the mitochondrion.
+Cytochrome c is an important component of the electron transport chain, a part of cellular respiration.
+it is normally located in the cellular organelle, the mitochondrion.
+This protein has a heme prosthetic group, and the heme's central ion alternately reduces and oxidizes during electron transfer.
+This protein has a heme prosthetic group.
+the heme's central ion alternately reduces and oxidizes during electron transfer.
+Because this essential protein's role in producing cellular energy is crucial, it has changed very little over millions of years.
+Protein sequencing has shown that there is a considerable amount of cytochrome c amino acid sequence homology among different species.
+In other words, we can assess evolutionary kinship by measuring the similarities or differences among various species' DNA or protein sequences.
+Scientists have determined that human cytochrome c contains 104 amino acids.
+This indicates that there may have been a common ancestor.
+On comparing the human and chimpanzee protein sequences, scientists did not find a sequence difference.
+When researchers compared human and rhesus monkey sequences, the single difference was in one amino acid.
+Protein Structure As we discussed earlier, a protein's shape is critical to its function.
+For example, an enzyme can bind to a specific substrate at an active site.
+If this active site is altered because of local changes or changes in overall protein structure, the enzyme may be unable to bind to the substrate.
+To understand how the protein gets its final shape or conformation, we need to understand the four levels of protein structure: primary, secondary, tertiary, and quaternary.
+To understand how the protein gets its final shape or conformation, we need to understand the four levels of protein structure: primary, secondary, tertiary.
+Primary Structure Amino acids' unique sequence in a polypeptide chain is its primary structure.
+For example, the pancreatic hormone insulin has two polypeptide chains, A and B, and they are linked together by disulfide bonds.
+For example, the pancreatic hormone insulin has two polypeptide chains, A and B.
+they are linked together by disulfide bonds.
+The amino acid sequences in the A and B chains are unique to insulin.
+In each chain, three-letter abbreviations that represent the amino acids' names in the order they are present indicate primary structure.
+The amino acid cysteine has a sulfhydryl group as a side chain.
+Two sulfhydryl groups can react in the presence of oxygen to form a disulfide bond.
+Two disulfide bonds connect the A and B chains together, and a third helps the A chain fold into the correct shape.
+Two disulfide bonds connect the A and B chains together.
+The gene encoding the protein ultimately determines the unique sequence for every protein.
+The molecule, therefore, has about 600 amino acids.
+The structural difference between a normal hemoglobin molecule and a sickle cell molecule—which dramatically decreases life expectancy—is a single amino acid of the 600.
+a single base change, 1 in 1800 bases causes the mutation.
+In normal hemoglobin, the amino acid at position six is glutamate.
+This can lead to myriad serious health problems such as breathlessness, dizziness, headaches, and abdominal pain for those affected by this disease.
+This can lead to myriad serious health problems such as breathlessness, dizziness, headaches.
+William Warrick Cardozo showed that sickle-cell anemia is an inherited disorder, meaning that the difference in the specific gene's encoding region is passed down from parents to children.
+The local folding of the polypeptide in some regions gives rise to the secondary structure of the protein.
+The hydrogen bonds form between the oxygen atom in the carbonyl group in one amino acid and another amino acid that is four amino acids farther along the chain.
+The α-helix and β-pleated sheet are secondary protein structures formed when hydrogen bonds form between the carbonyl oxygen and the amino hydrogen in the peptide backbone.
+Certain amino acids have a propensity to form an α-helix while others favor β- pleated sheet formation.
+Every helical turn in an alpha helix has 3.6 amino acid residues.
+The polypeptide's R groups protrude out from the α-helix chain.
+In the β-pleated sheet, hydrogen bonding between atoms on the polypeptide chain's backbone form the "pleats".
+The R groups are attached to the carbons and extend above and below the pleat's folds.
+The α-helix and β-pleated sheet structures are in most globular and fibrous proteins and they play an important structural role.
+This structure is in part due to chemical interactions at work on the polypeptide chain.
+Primarily, the interactions among R groups create the protein's complex three-dimensional tertiary structure.
+The nature of the R groups in the amino acids involved can counteract forming the hydrogen bonds we described for standard secondary structures.
+For example, R groups with like charges repel each other and those with unlike charges are attracted to each other.
+When protein folding takes place, the nonpolar amino acids' hydrophobic R groups lie in the protein's interior; whereas, the hydrophilic R groups lie on the outside.
+When protein folding takes place, the nonpolar amino acids' hydrophobic R groups lie in the protein's interior.
+whereas, the hydrophilic R groups lie on the outside.
+Scientists also call the former interaction types hydrophobic interactions.
+Interaction between cysteine side chains forms disulfide linkages in the presence of oxygen, the only covalent bond that forms during protein folding.
+These include hydrophobic interactions, ionic bonding, hydrogen bonding, and disulfide linkages.
+These include hydrophobic interactions, ionic bonding, hydrogen bonding.
+All of these interactions, weak and strong, determine the protein's final three-dimensional shape.
+When a protein loses its three-dimensional shape, it may no longer be functional.
+In nature, some proteins form from several polypeptides, or subunits, and the interaction of these subunits forms the quaternary structure.
+the interaction of these subunits forms the quaternary structure.
+Weak interactions between the subunits help to stabilize the overall structure.
+For example, insulin has a combination of hydrogen and disulfide bonds that cause it to mostly clump into a ball shape.
+Insulin starts out as a single polypeptide and loses some internal sequences in the presence of post-translational modification after forming the disulfide linkages that hold the remaining chains together.
+Silk, however, has a β-pleated sheet structure that is the result of hydrogen bonding between different chains.
+Denaturation and Protein Folding Each protein has its own unique sequence and shape that chemical interactions hold together.
+Denaturation is often reversible because the polypeptide's primary structure is conserved in the process if the denaturing agent is removed, allowing the protein to resume its function.
+Sometimes denaturation is irreversible, leading to loss of function.
+One example of irreversible protein denaturation is frying an egg.
+For instance, bacteria that survive in hot springs have proteins that function at temperatures close to boiling.
+The stomach is also very acidic, has a low pH, and denatures proteins as part of the digestion process; however, the stomach's digestive enzymes retain their activity under these conditions.
+The stomach is also very acidic, has a low pH, and denatures proteins as part of the digestion process.
+however, the stomach's digestive enzymes retain their activity under these conditions.
+The stomach is also very acidic, has a low pH.
+denatures proteins as part of the digestion process; however, the stomach's digestive enzymes retain their activity under these conditions.
+Protein folding is critical to its function.
+Scientists originally thought that the proteins themselves were responsible for the folding process.
+Only recently researchers discovered that often they receive assistance in the folding process from protein helpers, or chaperones that associate with the target protein during the folding process.
+Only recently researchers discovered that often they receive assistance in the folding process from protein helpers.
+They act by preventing polypeptide aggregation that comprise the complete protein structure, and they disassociate from the protein once the target protein is folded.
+They act by preventing polypeptide aggregation that comprise the complete protein structure.
+they disassociate from the protein once the target protein is folded.
+Nucleic acids are the most important macromolecules for the continuity of life.
+They carry the cell's genetic blueprint and carry instructions for its functioning.
+DNA and RNA The two main types of nucleic acids are deoxyribonucleic acid and ribonucleic acid.
+DNA is the genetic material in all living organisms, ranging from single-celled bacteria to multicellular mammals.
+It is in the nucleus of eukaryotes and in the organelles, chloroplasts, and mitochondria.
+In prokaryotes, the DNA is not enclosed in a membranous envelope.
+The cell's entire genetic content is its genome, and the study of genomes is genomics.
+The cell's entire genetic content is its genome.
+the study of genomes is genomics.
+A chromosome may contain tens of thousands of genes.
+Many genes contain the information to make protein products.
+The other type of nucleic acid, RNA, is mostly involved in protein synthesis.
+The DNA molecules never leave the nucleus but instead use an intermediary to communicate with the rest of the cell.
+This intermediary is the messenger RNA.
+Other types of RNA—like rRNA, tRNA, and microRNA—are involved in protein synthesis and its regulation.
+microRNA—are involved in protein synthesis and its regulation.
+DNA and RNA are comprised of monomers that scientists call nucleotides.
+The nucleotides combine with each other to form a polynucleotide, DNA or RNA.
+Each nitrogenous base in a nucleotide is attached to a sugar molecule, which is attached to one or more phosphate groups.
+The base is attached to the ribose's 1′ position, and the phosphate is attached to the 5′ position.
+The base is attached to the ribose's 1′ position.
+the phosphate is attached to the 5′ position.
+Two types of pentose are in nucleotides, deoxyribose and ribose.
+Deoxyribose is similar in structure to ribose, but it has an H instead of an OH at the 2′ position.
+We can divide bases into two categories: purines and pyrimidines.
+Purines have a double ring structure, and pyrimidines have a single ring.
+Purines have a double ring structure.
+pyrimidines have a single ring.
+The nitrogenous bases, important components of nucleotides, are organic molecules and are so named because they contain carbon and nitrogen.
+Each nucleotide in DNA contains one of four possible nitrogenous bases: adenine, guanine cytosine, and thymine.
+Each nucleotide in DNA contains one of four possible nitrogenous bases: adenine, guanine cytosine.
+Scientists classify adenine and guanine as purines.
+The purine's primary structure is two carbon-nitrogen rings.
+Each of these basic carbon-nitrogen rings has different functional groups attached to it.
+sugars is the presence of the hydroxyl group on the ribose's second carbon and hydrogen on the deoxyribose's second carbon.
+The carbon atoms of the sugar molecule are numbered as 1′, 2′, 3′, 4′, and 5′.
+The carbon atoms of the sugar molecule are numbered as 1′, 2′, 3′, 4′.
+A simple dehydration reaction like the other linkages connecting monomers in macromolecules does not form the phosphodiester linkage.
+Its formation involves removing two phosphate groups.
+A polynucleotide may have thousands of such phosphodiester linkages.
+The sugar and phosphate lie on the outside of the helix, forming the DNA's backbone.
+The nitrogenous bases are stacked in the interior, like a pair of staircase steps.
+Hydrogen bonds bind the pairs to each other.
+Every base pair in the double helix is separated from the next base pair by 0.34 nm.
+The helix's two strands run in opposite directions, meaning that the 5′ carbon end of one strand will face the 3′ carbon end of its matching strand.
+The phosphate backbone is on the outside, and the bases are on the inside.
+The phosphate backbone is on the outside.
+the bases are on the inside.
+Each base from one strand interacts via hydrogen bonding with a base from the opposing strand.
+For example, a certain purine can only pair with a certain pyrimidine.
+This is the base complementary rule.
+In other words, the DNA strands are complementary to each other.
+If the sequence of one strand is AATTGGCC, the complementary strand would have the sequence TTAACCGG.
+During DNA replication, each strand copies itself, resulting in a daughter DNA double helix containing one parental DNA strand and a newly synthesized strand.
+The phosphate backbone is located on the outside, and the bases are in the middle.
+The phosphate backbone is located on the outside.
+the bases are in the middle.
+adenine replaces cytosine.
+RNA Ribonucleic acid, or RNA, is mainly involved in the process of protein synthesis under the direction of DNA.
+RNA, is mainly involved in the process of protein synthesis under the direction of DNA.
+RNA is usually single-stranded and is comprised of ribonucleotides that are linked by phosphodiester bonds.
+A ribonucleotide in the RNA chain contains ribose, one of the four nitrogenous bases, and the phosphate group.
+A ribonucleotide in the RNA chain contains ribose, one of the four nitrogenous bases.
+The first, mRNA, carries the message from DNA, which controls all of the cellular activities in a cell.
+If a cell requires synthesizing a certain protein, the gene for this product turns "on" and the messenger RNA synthesizes in the nucleus.
+The RNA base sequence is complementary to the DNA's coding sequence from which it has been copied.
+However, in RNA, the base T is absent and U is present instead.
+If the DNA strand has a sequence AATTGCGC, the sequence of the complementary RNA is UUAACGCG.
+The mRNA sits in between the two subunits.
+A tRNA molecule recognizes a codon on the mRNA, binds to it by complementary base pairing, and adds the correct amino acid to the growing peptide chain.
+A tRNA molecule recognizes a codon on the mRNA, binds to it by complementary base pairing.
+The mRNA is read in sets of three bases known as codons.
+In this way, the mRNA is read and the protein product is made.
+Ribosomal RNA is a major constituent of ribosomes on which the mRNA binds.
+The rRNA ensures the proper alignment of the mRNA and the Ribosomes.
+The ribosome's rRNA also has an enzymatic activity and catalyzes peptide bond formation between two aligned amino acids.
+It carries the correct amino acid to the protein synthesis site.
+It is the base pairing between the tRNA and mRNA that allows for the correct amino acid to insert itself in the polypeptide chain.
+MicroRNAs are the smallest RNA molecules and their role involves regulating gene expression by interfering with the expression of certain mRNA messages.
+Even though the RNA is single stranded, most RNA types show extensive intramolecular base pairing between complementary sequences, creating a predictable three-dimensional structure essential for their function.
+As you have learned, information flow in an organism takes place from DNA to RNA to protein.
+DNA dictates the structure of mRNA in a process scientists call transcription, and RNA dictates the protein's structure in a process scientists call translation.
+DNA dictates the structure of mRNA in a process scientists call transcription.
+RNA dictates the protein's structure in a process scientists call translation.
+This is the Central Dogma of Life, which holds true for all organisms; however, exceptions to the rule occur in connection with viral infections.
+This is the Central Dogma of Life, which holds true for all organisms.
+however, exceptions to the rule occur in connection with viral infections.
+LINK TO LEARNING To learn more about DNA, explore the Howard Hughes Medical Institute BioInteractive animations on the topic of DNA.
+macromolecules—large molecules necessary for life Glucose, galactose, and fructose are common that are built from smaller organic molecules.
+fructose are common that are built from smaller organic molecules.
+monosaccharides; whereas, common disaccharides Macromolecules are comprised of single units include lactose, maltose, and sucrose.
+whereas, common disaccharides Macromolecules are comprised of single units include lactose, maltose, and sucrose.
+monosaccharides; whereas, common disaccharides Macromolecules are comprised of single units include lactose, maltose.
+Starch and scientists call monomers that are joined by covalent glycogen, examples of polysaccharides, are the storage bonds to form larger polymers.
+The polymer is more forms of glucose in plants and animals, respectively.
+than the sum of its parts: it acquires new The long polysaccharide chains may be branched or characteristics, and leads to an osmotic pressure that unbranched.
+than the sum of its parts: it acquires new The long polysaccharide chains may be branched or characteristics.
+Cellulose is an example of an unbranched is much lower than that formed by its ingredients.
+This polysaccharide; whereas, amylopectin, a constituent of is an important advantage in maintaining cellular starch, is a highly branched molecule.
+Scientists call these prevents it from leaking out of the cell or creating a dehydration or condensation reactions.
+When polymers high osmotic pressure that could cause the cell to break down into smaller units, they use a uptake excessive water.
+Such reactions are hydrolysis reactions.
+Major types include fats reaction is specific to its class.
+Fats are a typically require an investment of energy for new bond stored form of energy and are also known as formation, while hydrolysis reactions typically release triacylglycerols or triglycerides.
+Fats are a typically require an investment of energy for new bond stored form of energy and are also known as formation.
+hydrolysis reactions typically release triacylglycerols or triglycerides.
+Fats are comprised of energy by breaking bonds.
+Fatty 3.2 Carbohydrates acids may be unsaturated or saturated, depending on the presence or absence of double bonds in the Carbohydrates are a group of macromolecules that are hydrocarbon chain.
+If only single bonds are present, a vital energy source for the cell and provide structural they are saturated fatty acids.
+Phospholipids comprise the spiders.
+Scientists classify carbohydrates as membrane's matrix.
+Protein shape and function are intricately Steroids are another class of lipids.
+Any change in shape caused by changes in structure has four fused carbon rings.
+Cholesterol is a temperature or pH may lead to protein denaturation type of steroid and is an important constituent of the and a loss in function.
+It is also the precursor of 3.5 Nucleic Acids steroid hormones such as testosterone.
+Nucleic acids are molecules comprised of nucleotides that direct cellular activities such as cell division and 3.4 Proteins protein synthesis.
+Pentose sugar, a nitrogenous base, Proteins are a class of macromolecules that perform a and a phosphate group comprise each nucleotide.
+They help in There are two types of nucleic acids: DNA and RNA.
+metabolism by acting as enzymes, carriers, or DNA carries the cell's genetic blueprint and passes it hormones, and provide structural support.
+metabolism by acting as enzymes, carriers, or DNA carries the cell's genetic blueprint and passes it hormones.
+DNA carries the cell's genetic blueprint and passes it hormones, and provide structural support.
+The building on from parents to offspring are amino acids.
+RNA is a single-stranded polymer amino acids, each of which differs in the R group.
+A sugar, a nitrogenous base, and a phosphate long amino acid chain is a polypeptide. group.
+a phosphate long amino acid chain is a polypeptide. group.
+RNA is involved in protein synthesis and its regulation.
+Messenger RNA copies from the Proteins are organized at four levels: primary, DNA, exports itself from the nucleus to the cytoplasm, secondary, tertiary, and quaternary.
+Messenger RNA copies from the Proteins are organized at four levels: primary, DNA, exports itself from the nucleus to the cytoplasm, secondary, tertiary.
+primary structure is the amino acids' unique sequence.
+cytosine is would you expect to find on the surface of a replaced with adenine.
+Dehydration synthesis leads to formation of 6.
+What type of reaction occurs to make ethyl d.
+An example of a monosaccharide is ________.
+c. galactose b. embedded with the phospholipid heads d. all of the above c. within the tail bilayer d. attached to the intracellular surface 8.
+Cellulose and starch are examples of: a. monosaccharides 15.
+Lactose is a disaccharide formed by the d. quaternary formation of a ________ bond between glucose and ________.
+Mad cow disease is an infectious disease where a. glycosidic; lactose one misfolded protein causes all other copies of b. glycosidic; galactose the protein to begin misfolding.
+Mad cow disease is an infectious disease where a. glycosidic.
+lactose one misfolded protein causes all other copies of b. glycosidic.
+This is an c. hydrogen; sucrose example of a disease impacting ____ structure.
+This is an c. hydrogen.
+d. quaternary a. protect an insect's internal organs from external trauma 18.
+A nucleotide of DNA may contain ________.
+Saturated fats have all of the following d. ribose, thymine, and a phosphate group characteristics except: a. they are solid at room temperature 19.
+Saturated fats have all of the following d. ribose, thymine.
+a phosphate group characteristics except: a. they are solid at room temperature 19.
+The building blocks of nucleic acids are b.
+they have single bonds within the carbon ________.
+Phospholipids are important components of 20.
+The sugar-phosphate backbone provides a b. the ring structure of steroids template for DNA replication.
+the waxy covering on leaves b. tRNA pairing with the template strand d. the double bond in hydrocarbon chains creates proteins encoded by the genome.
+c. Complementary base pairing creates a 14.
+Cholesterol is an integral part of plasma very stable structure.
+Why are biological macromolecules considered in plants and/or animals.
+Why have trans fats been banned from some 22.
+Part of cortisol's role in the body involves based side chains.
+Aquaporins are proteins embedded in the 24.
+Why is it impossible for humans to digest food the intracellular space.
+How is the structure of the 34.
+What are the four types of RNA and how do they 27.

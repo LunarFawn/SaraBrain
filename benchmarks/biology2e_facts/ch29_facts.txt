@@ -1,0 +1,992 @@
+# Biology2e Chapter 29 — Vertebrates
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 988
+
+INTRODUCTION Vertebrates are among the most recognizable organisms of the Animal Kingdom, and more than 62,000 vertebrate species have been identified.
+INTRODUCTION Vertebrates are among the most recognizable organisms of the Animal Kingdom.
+The vertebrate species now living represent only a small portion of the vertebrates that have existed in the past.
+The best- known extinct vertebrates are the dinosaurs, a unique group of reptiles, some of which reached sizes not seen before or after in terrestrial animals.
+The vertebrates exhibit two major innovations in their evolution from the invertebrate chordates.
+Within the amniotes, modifications of keratinous epidermal structures have given rise to scales, claws, hair, and feathers.
+Within the amniotes, modifications of keratinous epidermal structures have given rise to scales, claws, hair.
+Currently, a number of vertebrate species face extinction primarily due to habitat loss and pollution.
+According to the International Union for the Conservation of Nature, more than 6,000 vertebrate species are classified as threatened.
+Amphibians and mammals are the classes with the greatest percentage of threatened species, with 29 percent of all amphibians and 21 percent of all mammals classified as threatened.
+Attempts are being made around the world to prevent the extinction of threatened species.
+For example, the Biodiversity Action Plan is an international program, ratified by 188 countries, which is designed to protect species and habitats.
+The deuterostomes, whose name translates as "second mouth," consist of two major phyla: Echinodermata and Chordata.
+Echinoderms are invertebrate marine animals that have pentaradial symmetry and a spiny body covering, a group that includes sea stars, sea urchins, and sea cucumbers.
+Echinoderms are invertebrate marine animals that have pentaradial symmetry and a spiny body covering, a group that includes sea stars, sea urchins.
+The most conspicuous and familiar members of Chordata are vertebrates, but this phylum also includes two groups of invertebrate chordates.
+All chordates are deuterostomes possessing a notochord at some stage of their life cycle.
+In some groups, some of these key characteristics are present only during embryonic development.
+It is strengthened with glycoproteins similar to cartilage and covered with a collagenous sheath.
+The notochord is located between the digestive tube and the nerve cord, and provides rigid skeletal support as well as a flexible location for attachment of axial muscles.
+The notochord is located between the digestive tube and the nerve cord.
+In some chordates, the notochord acts as the primary axial support of the body throughout the animal's lifetime.
+The notochord, however, is not found in the postembryonic stages of vertebrates; at this point, it has been replaced by the vertebral column.
+The notochord, however, is not found in the postembryonic stages of vertebrates.
+at this point, it has been replaced by the vertebral column.
+In chordates, four common features appear at some point during development: a notochord, a dorsal hollow nerve cord, pharyngeal slits, and a post-anal tail.
+In chordates, four common features appear at some point during development: a notochord, a dorsal hollow nerve cord, pharyngeal slits.
+The endostyle is embedded in the floor of the pharynx.
+The dorsal hollow nerve cord is part of the chordate central nervous system.
+In vertebrate fishes, the pharyngeal slits become the gills.
+The dorsal hollow nerve cord is derived from ectoderm that rolls into a hollow tube during development.
+In chordates, it is located dorsally to the notochord.
+In contrast, the nervous system in protostome animal phyla is characterized by solid nerve cords that are located either ventrally and/or laterally to the gut.
+In vertebrates, the neural tube develops into the brain and spinal cord, which together comprise the central nervous system.
+The peripheral nervous system refers to the peripheral nerves lying outside of the brain and spinal cord.
+Pharyngeal slits are openings in the pharynx that extend to the outside environment.
+In organisms that live in aquatic environments, pharyngeal slits allow for the exit of water that enters the mouth during feeding.
+Some invertebrate chordates use the pharyngeal slits to filter food out of the water that enters the mouth.
+The endostyle is a strip of ciliated mucus-producing tissue in the floor of the pharynx.
+Food particles trapped in the mucus are moved along the endostyle toward the gut.
+The endostyle also produces substances similar to thyroid hormones and is homologous with the thyroid gland in vertebrates.
+In vertebrate fishes, the pharyngeal slits are modified into gill supports, and in jawed fishes, into jaw supports.
+In vertebrate fishes, the pharyngeal slits are modified into gill supports.
+In tetrapods, the slits are highly modified into components of the ear, and tonsils and thymus glands.
+In tetrapods, the slits are highly modified into components of the ear.
+The post-anal tail is a posterior elongation of the body, extending beyond the anus.
+The tail contains skeletal elements and muscles, which provide a source of locomotion in aquatic species, such as fishes.
+In some terrestrial vertebrates, the tail also helps with balance, courting, and signaling when danger is near.
+In some terrestrial vertebrates, the tail also helps with balance, courting.
+apes, the post-anal tail is reduced to a vestigial coccyx that aids in balance during sitting.
+Chordates and the Evolution of Vertebrates Two clades of chordates are invertebrates: Cephalochordata and Urochordata.
+Members of these groups also possess the five distinctive features of chordates at some point during their development.
+The notochord extends into the head, which gives the subphylum its name.
+the nervous system is centered around a hollow nerve cord lying above the notochord.
+Extinct members of this subphylum include Pikaia, which is the oldest known cephalochordate.
+Excellently preserved Pikaia fossils were recovered from the Burgess shales of Canada and date to the middle of the Cambrian age, making them more than 500 million years old.
+The anatomy of Pikaia closely resembles that of the extant lancelet in the genus Branchiostoma.
+The lancelets are named for their bladelike shape.
+Lancelets are only a few centimeters long and are usually found buried in sand at the bottom of warm temperate and tropical seas.
+Cephalochordates are suspension feeders.
+A water current is created by cilia in the mouth, and is filtered through oral tentacles.
+A water current is created by cilia in the mouth.
+Water from the mouth then enters the pharyngeal slits, which filter out food particles.
+The filtered water collects in a gill chamber called the atrium and exits through the atriopore.
+Trapped food particles are caught in a stream of mucus produced by the endostyle in a ventral ciliated fold of the pharynx and carried to the gut.
+Most gas exchange occurs across the body surface.
+Sexes are separate and gametes are released into the water through the atriopore for external fertilization.
+In the lancelet and other cephalochordates, the notochord extends into the head region.
+Adult lancelets retain all five key characteristics of chordates: a notochord, a dorsal hollow nerve cord, pharyngeal slits, an endostyle, and a post- anal tail.
+Adult lancelets retain all five key characteristics of chordates: a notochord, a dorsal hollow nerve cord, pharyngeal slits, an endostyle.
+The name tunicate derives from the cellulose-like carbohydrate material, called the tunic, which covers the outer body of tunicates.
+Most tunicates are hermaphrodites; their larvae hatch from eggs inside the adult tunicate's body.
+Most tunicates are hermaphrodites.
+This photograph shows a colony of the tunicate Botrylloides violaceus.
+The larval stage of the tunicate possesses all of the features characteristic of chordates: a notochord, a dorsal hollow nerve cord, pharyngeal slits, an endostyle, and a post-anal tail.
+The larval stage of the tunicate possesses all of the features characteristic of chordates: a notochord, a dorsal hollow nerve cord, pharyngeal slits, an endostyle.
+Adult tunicates may be either solitary or colonial forms, and some species may reproduce by budding.
+Adult tunicates may be either solitary or colonial forms.
+some species may reproduce by budding.
+Most tunicates live a sessile existence on the ocean floor and are suspension feeders.
+The primary foods of tunicates are plankton and detritus.
+Seawater enters the tunicate's body through its incurrent siphon.
+Suspended material is filtered out of this water by a mucous net produced by the endostyle and is passed into the intestine via the action of cilia.
+Tunicates are found in shallow ocean waters around the world.
+These colonial tunicates feed on phytoplankton.
+Salps are sequential hermaphrodites, with younger female colonies fertilized by older male colonies.
+The subphylum Craniata, including this placoderm fish, are characterized by the presence of a cranium, mandible, and other facial bones.
+The subphylum Craniata, including this placoderm fish, are characterized by the presence of a cranium, mandible.
+Members of the phylum Craniata/Vertebrata display the five characteristic features of the chordates; however, members of this group also share derived characteristics that distinguish them from invertebrate chordates.
+Members of the phylum Craniata/Vertebrata display the five characteristic features of the chordates.
+however, members of this group also share derived characteristics that distinguish them from invertebrate chordates.
+In most derived vertebrates, the notochord becomes the nucleus pulposus of the intervertebral discs that cushion and support adjacent vertebrae.
+Vertebrata are characterized by the presence of a backbone, such as the one that runs through the middle of this fish.
+All vertebrates are in the Craniata clade and have a cranium.
+Traditional phylogenies place the cephalochordates as a sister clade to the vertebrates, a view that has been supported by most current molecular analyses.
+This hypothesis is further supported by the discovery of a fossil in China from the genus Haikouella.
+This organism seems to be an intermediate form between cephalochordates and vertebrates.
+The Haikouella fossils are about 530 million years old and appear similar to 1 modern lancelets.
+These organisms had a brain and eyes, as do vertebrates, but lack the skull found in craniates.
+This evidence suggests that vertebrates arose during the Cambrian explosion.
+Vertebrates are the largest group of chordates, with more than 62,000 living species, which are grouped based on anatomical and physiological traits.
+More than one classification and naming scheme is used for these animals.
+we will consider the traditional groups Agnatha, Chondrichthyes, Osteichthyes, Amphibia, Reptilia, Aves, and Mammalia, which constitute classes in the subphylum Vertebrata/Craniata.
+we will consider the traditional groups Agnatha, Chondrichthyes, Osteichthyes, Amphibia, Reptilia, Aves.
+Virtually all modern cladists classify birds within Reptilia, which correctly reflects their evolutionary heritage.
+Thus, we now have the nonavian reptiles and the avian reptiles in our reptilian classification.
+We consider them separately only for convenience.
+Gnathostomes include fishes and tetrapods.
+Tetrapods include amphibians, reptiles, birds, and mammals, and technically could also refer to the extinct fishlike groups that gave rise to the tetrapods.
+Tetrapods include amphibians, reptiles, birds.
+Tetrapods can be further divided into two groups: amphibians and amniotes.
+Amniotes are animals whose eggs contain four extraembryonic membranes that provide nutrition and a water-retaining environment for their embryos.
+Amniotes are adapted for terrestrial living, and include mammals, reptiles, and birds.
+Amniotes are adapted for terrestrial living.
+Modern fishes include an estimated 31,000 species, by far the most of all clades within the Vertebrata.
+Fishes were the earliest vertebrates, with jawless species being the earliest forms and jawed species evolving later.
+They are active feeders, rather than sessile, suspension feeders.
+The Agnatha—the hagfishes and lampreys—have a distinct cranium and complex sense organs including eyes, that distinguish them from the invertebrate chordates, the urochordates and cephalochordates.
+Jawless Fishes: Superclass Agnatha Jawless fishes are craniates representing an ancient vertebrate lineage that arose over 550 million years ago.
+In the past, hagfishes and lampreys were sometimes recognized as separate clades within the Agnatha, primarily because lampreys were regarded as true vertebrates, whereas hagfishes were not.
+In the past, hagfishes and lampreys were sometimes recognized as separate clades within the Agnatha, primarily because lampreys were regarded as true vertebrates.
+The discussion below, for convenience, separates the modern "cyclostomes" into the class Myxini and class Petromyzontida.
+The defining features of the living jawless fishes are the lack of jaws and lack of paired lateral appendages.
+They also lack internal ossification and scales, although these are not defining features of the clade.
+Some of the earliest jawless fishes were the armored ostracoderms: vertebrate fishes encased in bony armor—unlike present-day jawless fishes, which lack bone in their scales.
+Some ostracoderms, also unlike living jawless fishes, may have had paired fins.
+We should note, however, that the "ostracoderms" represent an assemblage of heavily armored extinct jawless fishes that may not form a natural evolutionary group.
+Fossils of the genus Haikouichthys from China, with an age of about 530 million years, show many typical vertebrate characteristics including paired eyes, auditory capsules, and rudimentary vertebrae.
+Fossils of the genus Haikouichthys from China, with an age of about 530 million years, show many typical vertebrate characteristics including paired eyes, auditory capsules.
+Although they are almost completely blind, sensory barbels around the mouth help them locate food by smell and touch.
+They feed using keratinized teeth on a movable cartilaginous plate in the mouth, which rasp pieces of flesh from their prey.
+These feeding structures allow the gills to be used exclusively for respiration, not for filter feeding as in the urochordates and cephalochordates.
+Hagfishes are entirely marine and are found in oceans around the world, except for the polar regions.
+Hagfish can also twist their bodies into a knot, which provides additional leverage to feed.
+Pacific hagfish are scavengers that live on the ocean floor.
+Hagfishes have a cartilaginous skull, as well as a fibrous and cartilaginous skeleton, but the major supportive structure is the notochord that runs the length of the body.
+However, lampreys possess extrinsic eye muscles, at least two semicircular canals, and a true cerebellum, as well as simple vertebral elements, called arcualia—cartilaginous structures arranged above the notochord.
+However, lampreys possess extrinsic eye muscles, at least two semicircular canals.
+These features are also shared with the gnathostomes—vertebrates with jawed mouths and paired appendages.
+Lampreys also have a dorsal tubular nerve cord with a well-differentiated brain, a small cerebellum, and 10 pairs of nerves.
+Lampreys also have a dorsal tubular nerve cord with a well-differentiated brain, a small cerebellum.
+The classification of lampreys is still debated, but they clearly represent one of the oldest divergences of the vertebrate lineage.
+Lampreys lack paired appendages, as do the hagfishes, although they have one or two fleshy dorsal fins.
+As adults, lampreys are characterized by a rasping tongue within a toothed, funnel-like sucking mouth.
+Lampreys live primarily in coastal and freshwater environments, and have a worldwide distribution, except for the tropics and polar regions.
+Lampreys live primarily in coastal and freshwater environments.
+Some species are marine, but all species spawn in fresh water.
+Eggs are fertilized externally, and the larvae differ greatly from the adult form, closely resembling the adult cephalocordate amphioxus.
+Eggs are fertilized externally.
+the larvae differ greatly from the adult form, closely resembling the adult cephalocordate amphioxus.
+After spending three to 15 years as suspension feeders in rivers and streams, they attain sexual maturity.
+After one to three years of feeding on fish as ectoparasites during life in open water, the adults swim upstream, reproduce, and die within days.
+Gnathostomes: Jawed Fishes Gnathostomes, or "jaw-mouths," are vertebrates that possess true jaws—a milestone in the evolution of the vertebrates.
+"jaw-mouths," are vertebrates that possess true jaws—a milestone in the evolution of the vertebrates.
+Jaws were probably derived from the first pair of gill arches supporting the gills of jawless fishes.
+Early gnathostomes also possessed two sets of paired fins, allowing the fishes to maneuver accurately.
+Pectoral fins are typically located on the anterior body, and pelvic fins on the posterior.
+Pectoral fins are typically located on the anterior body.
+Evolution of the jaw and paired fins permitted gnathostomes to expand their food options from the scavenging and suspension feeding of jawless fishes to active predation.
+The ability of gnathostomes to exploit new nutrient sources probably contributed to their replacing most jawless fishes during the Devonian period.
+Most modern fishes are gnathostomes that belong to the clades Chondrichthyes and Osteichthyes.
+Dunkleosteus was an enormous placoderm from the Devonian period, 380 to 360 million years ago.
+It measured up to 10 meters in length and weighed up to 3.6 tons.
+Its head and neck were armored with heavy bony plates.
+Although Dunkleosteus had no true teeth, the edge of the jaw was armed with sharp bony blades.
+This clade arose approximately 370 million years ago in the early or middle Devonian.
+They are thought to be descended from the placoderms, which had endoskeletons made of bone; thus, the lighter cartilaginous skeleton of Chondrichthyes is a secondarily derived evolutionary development.
+They are thought to be descended from the placoderms, which had endoskeletons made of bone.
+thus, the lighter cartilaginous skeleton of Chondrichthyes is a secondarily derived evolutionary development.
+Parts of shark skeleton are strengthened by granules of calcium carbonate, but this is not the same as bone.
+Most cartilaginous fishes live in marine habitats, with a few species living in fresh water for a part or all of their lives.
+Most sharks are carnivores that feed on live prey, either swallowing it whole or using their jaws and teeth to tear it into smaller pieces.
+Sharks have abrasive skin covered with tooth-like scales called placoid scales.
+Shark teeth probably evolved from rows of these scales lining the mouth.
+The sawfishes have an extended rostrum that looks like a double-edged saw.
+The rostrum is covered with electrosensitive pores that allow the sawfish to detect slight movements of prey hiding in the muddy sea floor.
+The teeth in the rostrum are actually modified tooth- like structures called denticles, similar to scales.
+Hammerhead sharks tend to school during the day and hunt prey at night.
+Sharks have well-developed sense organs that aid them in locating prey, including a keen sense of smell and the ability to detect electromagnetic fields.
+Electroreceptors called ampullae of Lorenzini allow sharks to detect the electromagnetic fields that are produced by all living things, including their prey.
+The lateral line is visible as a darker stripe that runs along the length of a fish's body.
+Sharks have no mechanism for maintaining neutral buoyancy and must swim continuously to stay suspended in the water.
+Some must also swim in order to ventilate their gills but others have muscular pumps in their mouths to keep water flowing over the gills.
+Whale sharks are filter-feeders and can grow to be over 10 meters long.
+Whale sharks, like most other sharks, are ovoviviparous.
+Sharks reproduce sexually, and eggs are fertilized internally.
+Sharks reproduce sexually.
+eggs are fertilized internally.
+Most species are ovoviviparous: The fertilized egg is retained in the oviduct of the mother's body and the embryo is nourished by the egg yolk.
+Some species of sharks are oviparous: They lay eggs that hatch outside of the mother's body.
+The shark egg case has tentacles that snag in seaweed and give the newborn shark cover.
+In both viviparous and ovoviviparous sharks, gas exchange uses this yolk sac transport.
+Shark embryos are clearly visible through these transparent egg cases.
+The round structure is the yolk that nourishes the growing embryo.
+They also have three pairs of semicircular canals, and excellent senses of smell, vibration, vision, and electroreception.
+They also have three pairs of semicircular canals.
+Rays and skates comprise more than 500 species.
+Most species are marine and live on the sea floor, with nearly a worldwide distribution.
+Unlike sharks with elasmobranch or naked gills, chimaeras have four pairs of gills covered by an operculum.
+Many species have a pearly iridescence and are extremely pretty.
+This stingray blends into the sandy bottom of the ocean floor.
+The vast majority of present-day fishes belong to this group, which consists of approximately 30,000 species, making it the largest class of vertebrates in existence today.
+This characteristic has been reversed only in a few groups of Osteichthyes, such as sturgeons and paddlefish, which have primarily cartilaginous skeletons.
+The skin of bony fishes is often covered by overlapping scales, and glands in the skin secrete mucus that reduces drag when swimming and aids the fish in osmoregulation.
+The skin of bony fishes is often covered by overlapping scales.
+Like sharks, bony fishes have a lateral line system that detects vibrations in water.
+All bony fishes use gills to breathe.
+Water is drawn over gills that are located in chambers covered and ventilated by a protective, muscular flap called the operculum.
+Many bony fishes also have a swim bladder, a gas-filled organ derived as a pouch from the gut.
+The swim bladder helps to control the buoyancy of the fish.
+In most bony fish, the gases of the swim bladder are exchanged directly with the blood.
+The swim bladder is believed to be homologous to the lungs of lungfish and the lungs of land vertebrates.
+Bony fishes are further divided into two extant clades: Class Actinopterygii and Class Sarcopterygii.
+Ray-finned fishes are named for the fan of slender bones that supports their fins.
+Currently, two extant species of coelacanths have been described.
+The sockeye salmon and coelacanth are both bony fishes of the Osteichthyes clade.
+Amphibians are vertebrate tetrapods, and include frogs, salamanders, and caecilians.
+Amphibians are vertebrate tetrapods.
+In fact, they cannot stray far from water because their reproduction is intimately tied to aqueous environments.
+Amphibians evolved during the Devonian period and were the earliest terrestrial tetrapods.
+They represent an evolutionary transition from water to land that occurred over many millions of years.
+Thus, the Amphibia are the only living true vertebrates that have made a transition from water to land in both their ontogeny and phylogeny.
+Characteristics of Amphibians As tetrapods, most amphibians are characterized by four well-developed limbs.
+In some species of salamanders, hindlimbs are reduced or absent, but all caecilians are limbless.
+An important characteristic of extant amphibians is a moist, permeable skin that is achieved via mucus glands.
+Most water is taken in across the skin rather than by drinking.
+The skin is also one of three respiratory surfaces used by amphibians.
+Air is taken first into the mouth through the nostrils, and then pushed by positive pressure into the lungs by closing the nostrils and elevating the throat.
+Air is taken first into the mouth through the nostrils.
+All extant adult amphibians are carnivorous, and some terrestrial amphibians have a sticky tongue used to capture prey.
+All extant adult amphibians are carnivorous.
+some terrestrial amphibians have a sticky tongue used to capture prey.
+Amphibians also have multiple small teeth at the edge of the jaws.
+In salamanders and caecilians, teeth are present in both jaws, sometimes in multiple rows.
+In frogs and toads, teeth are seen only in the upper jaw.
+Additional teeth, called vomerine teeth, may be found in the roof of the mouth.
+Amphibian teeth are pedicellate, which means that the root and crown are calcified, separated by a zone of noncalcified tissue.
+Amphibians have image-forming eyes and color vision.
+Ears are best developed in frogs and toads, which vocalize to communicate.
+Evolution of Amphibians The fossil record provides evidence of the first tetrapods: now-extinct amphibian species dating to nearly 400 million years ago.
+Aquatic tetrapods of the Devonian period include Ichthyostega and Acanthostega.
+Both were aquatic, and may have had both gills and lungs.
+Both were aquatic.
+They also had four limbs, with the skeletal structure of limbs found in present-day tetrapods, including amphibians.
+However, the limbs could not be pulled in under the body and would not have supported their bodies well out of water.
+They probably lived in shallow freshwater environments, and may have taken brief terrestrial excursions, much like "walking" catfish do today in Florida.
+They probably lived in shallow freshwater environments.
+In Ichthyostega, the forelimbs were more developed than the hind limbs, so it might have dragged itself along when it ventured onto land.
+Tiktaalik likely lived in a shallow water environment about 375 million 2 years ago.
+Tiktaalik also had gills and lungs, but the loss of some gill elements gave it a neck, which would have allowed its head to move sideways for feeding.
+The eyes were on top of the head.
+It had fins, but the attachment of the fin bones to the shoulder suggested they might be weight-bearing.
+Tiktaalik preceded Acanthostega and Ichthyostega, with their four limbs, by about 10 million years and is considered to be a true intermediate clade between fish and amphibians.
+The early tetrapods that moved onto land had access to new nutrient sources and relatively few predators.
+Modern Amphibians Amphibia comprises an estimated 6,770 extant species that inhabit tropical and temperate regions around the world.
+All living species are classified in the subclass Lissamphibia, which is divided into three clades: Urodela, the salamanders; Anura, the frogs; and Apoda, the caecilians.
+All living species are classified in the subclass Lissamphibia, which is divided into three clades: Urodela, the salamanders.
+Urodela: Salamanders Salamanders are amphibians that belong to the order Urodela.
+These animals are probably the most similar to ancestral amphibians.
+Most adult salamanders have a generalized tetrapod body plan with four limbs and a tail.
+It is thought that their gait is similar to that used by early tetrapods.
+The majority of salamanders are lungless, and respiration occurs through the skin or through external gills in aquatic species.
+The majority of salamanders are lungless.
+respiration occurs through the skin or through external gills in aquatic species.
+Some terrestrial salamanders have primitive lungs; a few species have both gills and lungs.
+Some terrestrial salamanders have primitive lungs.
+a few species have both gills and lungs.
+The giant Japanese salamander, the largest living amphibian, has additional folds in its skin that enlarge its respiratory surface.
+Most salamanders reproduce using an unusual process of internal fertilization of the eggs.
+All salamanders except one, the fire salamander, are oviparous.
+Aquatic salamanders lay their eggs in water, where they develop into legless larvae called efts.
+Terrestrial salamanders lay their eggs in damp nests, where the eggs are guarded by their mothers.
+These embryos go through the larval stage and complete metamorphosis before hatching into tiny adult forms.
+One aquatic salamander, the Mexican axolotl, never leaves the larval stage, becoming sexually mature without metamorphosis.
+Most salamanders have legs and a tail, but respiration varies among species.
+Anurans are among the most diverse groups of vertebrates, with approximately 5,965 species that occur on all of the continents except Antarctica.
+Adult frogs use their hind limbs and their arrow-like endoskeleton to jump accurately to capture prey on land.
+Tree frogs have hands adapted for grasping branches as they climb.
+In tropical areas, "flying frogs" can glide from perch to perch on the extended webs of their feet.
+Frogs have a number of modifications that allow them to avoid predators, including skin that acts as camouflage.
+Many species of frogs and salamanders also release defensive chemicals that are poisonous to predators from glands in the skin.
+Frogs with more toxic skins have bright warning coloration.
+The Australian green tree frog is a nocturnal predator that lives in the canopies of trees near a water source.
+Frog eggs are fertilized externally, and like other amphibians, frogs generally lay their eggs in moist environments.
+Frog eggs are fertilized externally.
+like other amphibians, frogs generally lay their eggs in moist environments.
+Although amphibian eggs are protected by a thick jelly layer, they would still dehydrate quickly in a dry environment.
+The males of Darwin's frog carry tadpoles in their vocal sac.
+Many tree frogs lay their eggs off the ground in a folded leaf located over water so that the tadpoles can drop into the water as they hatch.
+The life cycle of most frogs, as other amphibians, consists of two distinct stages: the larval stage followed by metamorphosis to an adult stage.
+The larval stage of a frog, the tadpole, is often a filter-feeding herbivore.
+Tadpoles usually have gills, a lateral line system, longfinned tails, and lack limbs.
+Tadpoles usually have gills, a lateral line system, longfinned tails.
+During this stage, the gills, tail, and lateral line system disappear, and four limbs develop.
+The jaws become larger and are suited for carnivorous feeding, and the digestive system transforms into the typical short gut of a predator.
+The jaws become larger and are suited for carnivorous feeding.
+the digestive system transforms into the typical short gut of a predator.
+An eardrum and air-breathing lungs also develop.
+These changes during metamorphosis allow the larvae to move onto land in the adult stage.
+Here, the frog has started to develop limbs, but its tadpole tail is still evident.
+They have no limbs, although they evolved from a legged vertebrate ancestor.
+The complete lack of limbs makes them resemble earthworms.
+This resemblance is enhanced by folds of skin that look like the segments of an earthworm.
+Caecilians are adapted for a burrowing or aquatic lifestyle, and they are nearly blind, with their tiny eyes sometimes covered by skin.
+Caecilians are adapted for a burrowing or aquatic lifestyle.
+they are nearly blind, with their tiny eyes sometimes covered by skin.
+Although they have a single lung, they also depend on cutaneous respiration.
+These animals are found in the tropics of South America, Africa, and Southern Asia.
+These animals are found in the tropics of South America, Africa.
+In the caecelians, the only amphibians in which the males have copulatory structures, fertilization is internal.
+Some caecilians are oviparous, but most bear live young.
+In these cases, the females help nourish their young with tissue from their oviduct before birth and from their skin after birth.
+The Paleozoic Era and the Evolution of Vertebrates When the vertebrates arose during the Paleozoic Era, the climate and geography of Earth was vastly different.
+The distribution of landmasses on Earth were also very different from that of today.
+At this time, sea levels were very high, probably at a level that hasn't been reached since.
+As the Paleozoic progressed, glaciations created a cool global climate, but conditions warmed near the end of the first half of the Paleozoic.
+Eventually, a single supercontinent, called Pangaea, was formed, starting in the latter third of the Paleozoic.
+Glaciations then began to affect Pangaea's climate and the distribution of vertebrate life.
+During the Paleozoic Era, around 550 million years ago, the continent Gondwana formed.
+Both Gondwana and the continent Laurentia were located near the equator.
+During the early Paleozoic, the amount of carbon dioxide in the atmosphere was much greater than it is today.
+This may have begun to change later, as land plants became more common.
+As the roots of land plants began to infiltrate rock and soil began to form, carbon dioxide was drawn out of the atmosphere and became trapped in the rock.
+As plants became more common through the latter half of the Paleozoic, microclimates began to emerge and ecosystems began to change.
+As plants and ecosystems continued to grow and become more complex, vertebrates moved from the water to land.
+The presence of shoreline vegetation may have contributed to the movement of vertebrates onto land.
+The chorion and amnion develop from folds in the body wall, and the yolk sac and allantois are extensions of the midgut and hindgut respectively.
+The chorion and amnion develop from folds in the body wall.
+the yolk sac and allantois are extensions of the midgut and hindgut respectively.
+The amnion forms a fluid-filled cavity that provides the embryo with its own internal aquatic environment.
+The evolution of the extraembryonic membranes led to less dependence on water for development and thus allowed the amniotes to branch out into drier environments.
+In addition to these membranes, the eggs of birds, reptiles, and a few mammals have shells.
+a few mammals have shells.
+An amniote embryo was then enclosed in the amnion, which was in turn encased in an extra-embryonic coelom contained within the chorion.
+This was a significant development that further distinguishes the amniotes from amphibians, which were and continue to be restricted to moist environments due their shell-less eggs.
+Although the shells of various reptilian amniotic species vary significantly, they all permit the retention of water and nutrients for the developing embryo.
+The egg shells of birds are hardened with calcium carbonate, making them rigid, but fragile.
+The shells of most nonavian reptile eggs, such as turtles, are leathery and require a moist environment.
+Most mammals do not lay eggs.
+Instead, the embryo grows within the mother's body, with the placenta derived from two of the extraembryonic membranes.
+Characteristics of Amniotes The amniotic egg is the key characteristic of amniotes.
+In amniotes that lay eggs, the shell of the egg provides protection for the developing embryo while being permeable enough to allow for the exchange of carbon dioxide and oxygen.
+The chorion facilitates exchange of oxygen and carbon dioxide between the embryo and the egg's external environment.
+The amnion protects the embryo from mechanical shock and supports hydration.
+In mammals, the yolk sac is very reduced, but the embryo is still cushioned and enclosed within the amnion.
+The placenta, which transports nutrients and functions in gas exchange and waste management, is derived from the chorion and allantois.
+The chorion facilitates gas exchange.
+The yolk provides food for the growing embryo.
+The amniotic cavity is filled with albumen.
+Additional derived characteristics of amniotes include a waterproof skin, accessory keratinized structures, and costal ventilation of the lungs.
+Additional derived characteristics of amniotes include a waterproof skin, accessory keratinized structures.
+The early amniotes quickly diverged into two main lines: synapsids and sauropsids.
+Synapsids included the therapsids, a clade from which mammals evolved.
+Sauropsids were further divided into anapsids and diapsids.
+Diapsids gave rise to the reptiles, including the dinosaurs and birds.
+Temporal fenestrae are post-orbital openings in the skull that allow muscles to expand and lengthen.
+Anapsids have no temporal fenestrae, synapsids have one, and diapsids have two.
+Anapsids have no temporal fenestrae, synapsids have one.
+diapsids have two.
+Anapsids include extinct organisms and traditionally included turtles.
+The canonical diapsids include dinosaurs, birds, and all other extinct and living reptiles.
+The canonical diapsids include dinosaurs, birds.
+Anapsids have no openings, synapsids have one opening, and diapsids have two openings.
+Anapsids have no openings, synapsids have one opening.
+diapsids have two openings.
+The lepidosaurs include modern lizards, snakes, and tuataras.
+The lepidosaurs include modern lizards, snakes.
+The archosaurs include modern crocodiles and alligators, the extinct ichthyosaurs and, pterosaurs, dinosaurs, and birds.
+The archosaurs include modern crocodiles and alligators, the extinct ichthyosaurs and, pterosaurs, dinosaurs.
+This chart shows the evolution of amniotes.
+The placement of Testudines is currently still debated.
+However, molecular studies clearly indicate that turtles descended from a diapsid ancestor.
+In the past, the most common division of amniotes has been into the classes Mammalia, Reptilia, and Aves.
+In the past, the most common division of amniotes has been into the classes Mammalia, Reptilia.
+However, both birds and mammals are descended from different amniote branches: the synapsids giving rise to the therapsids and mammals, and the diapsids giving rise to the lepidosaurs and archosaurs.
+However, both birds and mammals are descended from different amniote branches: the synapsids giving rise to the therapsids and mammals.
+Characteristics of Reptiles Reptiles are tetrapods.
+Limbless reptiles—snakes and legless lizards—are classified as tetrapods because they are descended from four-limbed ancestors.
+Reptiles lay calcareous or leathery eggs enclosed in shells on land.
+They usually reproduce sexually with internal fertilization.
+Some species display ovoviviparity, with the eggs remaining in the mother's body until they are ready to hatch.
+In ovoviviparous reptiles, most nutrients are supplied by the egg yolk, while the chorioallantois assists with respiration.
+In ovoviviparous reptiles, most nutrients are supplied by the egg yolk.
+the chorioallantois assists with respiration.
+Other species are viviparous, with the offspring born alive, with their development supported by a yolk sac-placenta, a chorioallantoic-placenta, or both.
+Other species are viviparous, with the offspring born alive, with their development supported by a yolk sac-placenta, a chorioallantoic-placenta.
+thus all amniotes breathe with lungs.
+All reptiles grow throughout their lives and regularly shed their skin, both to accommodate their growth and to rid themselves of ectoparasites.
+Snakes tend to shed the entire skin at one time, but other reptiles shed their skins in patches.
+Reptiles ventilate their lungs using various muscular mechanisms to produce negative pressure within the lungs that allows them to expand and draw in air.
+In snakes and lizards, the muscles of the spine and ribs are used to expand or contract the rib cage.
+Since walking or running interferes with this activity, the squamates cannot breathe effectively while running.
+Some squamates can supplement rib movement with buccal pumping through the nose, with the mouth closed.
+In crocodilians, the lung chamber is expanded and contracted by moving the liver, which is attached to the pelvis.
+Turtles have a special problem with breathing, because their rib cage cannot expand.
+However, they can change the pressure around the lungs by pulling their limbs in and out of the shell, and by moving their internal organs.
+However, they can change the pressure around the lungs by pulling their limbs in and out of the shell.
+Some turtles also have a posterior respiratory sac that opens off the hindgut that aids in the diffusion of gases.
+Rather, their metabolism is slowed in response to cold temperatures, and the animal is very sluggish.
+Rather, their metabolism is slowed in response to cold temperatures.
+the animal is very sluggish.
+Evolution of Reptiles Reptiles originated approximately 300 million years ago during the Carboniferous period.
+Soon after the first amniotes appeared, they diverged into three groups—synapsids, anapsids, and diapsids—during the Permian period.
+Soon after the first amniotes appeared, they diverged into three groups—synapsids, anapsids.
+The Permian period also saw a second major divergence of diapsid reptiles into stem archosaurs and lepidosaurs.
+These groups remained inconspicuous until the Triassic period, when the archosaurs became the dominant terrestrial group possibly due to the extinction of large-bodied anapsids and synapsids during the Permian-Triassic extinction.
+About 250 million years ago, archosaurs radiated into the pterosaurs and both saurischian "lizard hip" and ornithischian "bird-hip" dinosaurs.
+Pterosaurs had a number of adaptations that allowed for flight, including hollow bones.
+Their wings were formed by membranes of skin that attached to the long, fourth finger of each arm and extended along the body to the legs.
+Instead, they may have been able to soar after launching from cliffs.
+Archosaurs: Dinosaurs Dinosaurs include the Saurischia with a simple, three-pronged pelvis, and Ornithischia dinosaurs with a more complex pelvis, superficially similar to that of birds.
+Archosaurs: Dinosaurs Dinosaurs include the Saurischia with a simple, three-pronged pelvis.
+Ornithischia dinosaurs with a more complex pelvis, superficially similar to that of birds.
+However, it is a fact that birds evolved from the saurischian "lizard hipped" lineage, not the ornithischian "bird hip" lineage.
+They were the largest land animals to have lived, challenging and perhaps exceeding the great blue whale in size, but probably not weight—which could be greater than 200 tons.
+The Ornithischia were all herbivores, and sometimes evolved into crazy shapes, such as ankylosaur "armored tanks" and horned dinosaurs such as Triceratops.
+The Ornithischia were all herbivores.
+Some, such as Parasaurolophus, lived in great herds and may have amplified their species-specific calls through elaborate crests on their heads.
+Both the ornithischian and saurischian dinosaurs provided parental care for their broods, just as crocodilians and birds do today.
+Recent fossils suggest that hundreds of pterosaur species may have lived during any given period, dividing up the environment much like birds do today.
+Pterosaurs had ultralight skeletons, with a pteroid bone, unique to pterosaurs, that strengthened the forewing membrane.
+It is tempting to relate to them in terms of bird characteristics, but in reality, their proportions were decidedly not like birds at all.
+In addition, unlike the feathered bird wing, the reptilian wing had a layer of muscles, connective tissue, and blood vessels, all reinforced with a webbing of fibrous cords.
+In addition, unlike the feathered bird wing, the reptilian wing had a layer of muscles, connective tissue.
+In contrast to the aerial pterosaurs, the dinosaurs were a diverse group of terrestrial reptiles with more than 1,000 species classified to date.
+Paleontologists continue to discover new species of dinosaurs.
+Some were carnivorous, whereas others were herbivorous.
+Some were carnivorous.
+others were herbivorous.
+Dinosaurs laid eggs, and a number of nests containing fossilized eggs, with intact embryos, have been found.
+Dinosaurs laid eggs.
+It is not known with certainty whether dinosaurs were homeotherms or facultative endotherms.
+However, given that modern birds are endothermic, the dinosaurs that were the immediate ancestors to birds likely were endothermic as well.
+Some fossil evidence exists for dinosaurian parental care, and comparative biology supports this hypothesis since the archosaur birds and crocodilians both display extensive parental care.
+Some fossil evidence exists for dinosaurian parental care.
+comparative biology supports this hypothesis since the archosaur birds and crocodilians both display extensive parental care.
+Edmontonia was an armored dinosaur that lived in the Late Cretaceous period, 145.5 to 65.6 million years ago.
+Herrerasaurus and Eoraptor were late Triassic saurischian dinosaurs dating to about 230 million years ago.
+The dominance of dinosaurs lasted until the end of the Cretaceous, the last period of the Mesozoic era.
+The Cretaceous-Tertiary extinction resulted in the loss of most of the large-bodied animals of the Mesozoic era.
+Birds are the only living descendants of one of the major clades of theropod dinosaurs.
+LINK TO LEARNING Visit this site to see a video discussing the hypothesis that an asteroid caused the Cretaceous-Tertiary extinction.
+Modern Reptiles Class Reptilia includes many diverse species that are classified into four living clades.
+Crocodilia Crocodilia arose as a distinct lineage by the middle Triassic; extant species include alligators, crocodiles, gharials, and caimans.
+Crocodilia Crocodilia arose as a distinct lineage by the middle Triassic.
+extant species include alligators, crocodiles, gharials, and caimans.
+Crocodilia Crocodilia arose as a distinct lineage by the middle Triassic; extant species include alligators, crocodiles, gharials.
+They are found in freshwater, saltwater, and brackish habitats, such as rivers and lakes, and spend most of their time in water.
+They are found in freshwater, saltwater.
+Crocodiles are descended from terrestrial reptiles and can still walk and run well on land.
+They often move on their bellies in a swimming motion, propelled by alternate movements of their legs.
+However, some species can lift their bodies off the ground, pulling their legs in under the body with their feet rotated to face forward.
+This mode of locomotion takes a lot of energy, and seems to be used primarily to clear ground obstacles.
+This mode of locomotion takes a lot of energy.
+Amazingly, some crocodiles can also gallop, pushing off with their hind legs and moving their hind and forelegs alternately in pairs.
+Crocodilians, such as this Siamese crocodile, provide parental care for their offspring.
+The common name "tuatara" comes from a Maori word describing the crest along its back.
+Tuataras have a primitive diapsid skull with biconcave vertebrae.
+They measure up to 80 centimeters and weigh about 1 kilogram.
+Although superficially similar to an iguanid lizard, several unique features of the skull and jaws clearly define them and distinguish this group from the Squamata.
+They have no external ears.
+Tuataras briefly have a third eye—with a lens, retina, and cornea—in the middle of the forehead.
+Tuataras briefly have a third eye—with a lens, retina.
+The eye is visible only in very young animals; it is soon covered with skin.
+The eye is visible only in very young animals.
+it is soon covered with skin.
+Parietal eyes can sense light, but have limited color discrimination.
+Similar light-sensing structures are also seen in some other lizards.
+In their jaws, tuataras have two rows of teeth in the upper jaw that bracket a single row of teeth in the lower jaw.
+These teeth are actually projections from the jawbones, and are not replaced as they wear down.
+These teeth are actually projections from the jawbones.
+Squamata The Squamata arose in the mid-Triassic period approximately 220 million years ago, and extant species include lizards and snakes.
+Squamata The Squamata arose in the mid-Triassic period approximately 220 million years ago.
+extant species include lizards and snakes.
+Both are found on all continents except Antarctica.
+Lizards and snakes are most closely related to tuataras, both groups having evolved from a lepidosaurian ancestor.
+Most lizards differ from snakes by having four limbs, although these have often been lost or significantly reduced in at least 60 lineages.
+Some lizards are extravagantly decorated with spines, crests, and frills, and many are brightly colored.
+Some lizards are extravagantly decorated with spines, crests.
+Lizards have multiple-colored oil droplets in their retinal cells that give them a good range of color vision.
+Lizards, unlike snakes, can focus their eyes by changing the shape of the lens.
+The eyes of chameleons can move independently.
+Several species of lizards have a "hidden" parietal eye, similar to that in the tuatara.
+Both lizards and snakes use their tongues to sample the environment and a pit in the roof of the mouth, Jacobson's organ, is used to evaluate the collected sample.
+Most lizards are carnivorous, but some large species, such as iguanas, are herbivores.
+Some predatory lizards are ambush predators, waiting quietly until their prey is close enough for a quick grab.
+Others are patient foragers, moving slowly through their environment to detect possible prey.
+Lizard tongues are long and sticky and can be extended at high speed for capturing insects or other small prey.
+Traditionally, the only venomous lizards are the Gila monster and the beaded lizard.
+Specialized features of the jaw are related to adaptations for feeding that have evolved to feed on relatively large prey.
+They include about 3,600 species, ranging in size from 10 centimeter-long thread snakes to 10 meter-long pythons and anacondas.
+All snakes are legless, except for boids, which have vestigial hindlimbs in the form of pelvic spurs.
+Like caecilian amphibians, the narrow bodies of most snakes have only a single functional lung.
+All snakes are carnivorous and eat small animals, birds, eggs, fish, and insects.
+All snakes are carnivorous and eat small animals, birds, eggs, fish.
+The garter snake belongs to the genus Thamnophis, the most widely distributed reptile genus in North America.
+Most snakes have a skull that is very flexible, involving eight rotational joints.
+They also differ from other squamates by having mandibles without either bony or ligamentous attachment anteriorly.
+Most snakes are nonvenomous and simply swallow their prey alive, or subdue it by constriction before swallowing it.
+Most snakes are nonvenomous and simply swallow their prey alive.
+Venomous snakes use their venom both to kill or immobilize their prey, and to help digest it.
+Venomous snakes use their venom both to kill or immobilize their prey.
+Although snakes have no eyelids, their eyes are protected with a transparent scale.
+Their retinas have both rods and cones, and like many animals, they do not have receptor pigments for red light.
+Their retinas have both rods and cones.
+like many animals, they do not have receptor pigments for red light.
+Some species, however, can see in the ultraviolet, which allows them to track ultraviolet signals in rodent trails.
+Snakes adjust focus by moving their heads.
+They have lost both external and middle ears, although their inner ears are sensitive to ground vibrations.
+Snakes have a number of sensory structures that assist in tracking prey.
+In pit vipers, like rattlesnakes, a sensory pit between the eye and nostrils is sensitive to infrared emissions from warm-blooded prey.
+A row of similar pits is located on the upper lip of boids.
+As noted above, snakes also use Jacobson's organ for detecting olfactory signals.
+The shell in turtles is not just an epidermal covering, but is incorporated into the skeletal system.
+The dorsal shell is called the carapace and includes the backbone and ribs; the ventral shell is called the plastron.
+Both shells are covered with keratinous plates or scutes, and the two shells are held together by a bridge.
+Both shells are covered with keratinous plates or scutes.
+the two shells are held together by a bridge.
+In some turtles, the plastron is hinged to allow the head and legs to be withdrawn under the shell.
+The two living groups of turtles, Pleurodira and Cryptodira, have significant anatomical differences and are most easily recognized by how they retract their necks.
+The more common Cryptodira retract their neck in a vertical S- curve; they appear to simply pull their head backward when retracting.
+The more common Cryptodira retract their neck in a vertical S- curve.
+they appear to simply pull their head backward when retracting.
+Less common Pleurodira retract their neck with a horizontal curve, basically folding their neck to the side.
+The earliest Testudines arose approximately 240 million years ago, partially overlapping with the evolution of crocodiles, lizards, and snakes.
+The earliest Testudines arose approximately 240 million years ago, partially overlapping with the evolution of crocodiles, lizards.
+Like other reptiles, turtles are ectotherms.
+All turtles are oviparous, laying their eggs on land, although many species live in or near water.
+None exhibit parental care.
+Turtles range in size from the speckled padloper tortoise at 8 centimeters to the leatherback sea turtle at 200 centimeters.
+The African spurred tortoise lives at the southern edge of the Sahara Desert.
+It is the third largest tortoise in the world.
+With over 10,000 identified species, the birds are the most speciose of the land vertebrate classes.
+Abundant research has shown that birds are really an extant clade that evolved from maniraptoran theropod dinosaurs about 150 million years ago.
+Feathers in these clades are also homologous to reptilian scales and mammalian hair, according to the most recent research.
+Modern birds produce two main types of feathers: contour feathers and down feathers.
+Contour feathers have a number of parallel barbs that branch from a central shaft.
+The barbs in turn have microscopic branches called barbules that are linked together by minute hooks, making the vane of a feather a strong, flexible, and uninterrupted surface.
+The barbs in turn have microscopic branches called barbules that are linked together by minute hooks, making the vane of a feather a strong, flexible.
+Feathers not only provide insulation, but also allow for flight, producing the lift and thrust necessary for flying birds to become and stay airborne.
+Flight feathers are also asymmetrical and curved, so that air flowing over them generates lift.
+Primary feathers are located at the tip of the wing and provide thrust as the bird moves its wings downward, using the pectoralis major muscles.
+Secondary feathers are located closer to the body, in the forearm portion of the wing, and provide lift.
+Secondary feathers are located closer to the body, in the forearm portion of the wing.
+In contrast to primary and secondary feathers, contour feathers are found on the body, where they help reduce form drag produced by wind resistance against the body during flight.
+They create a smooth, aerodynamic surface so that air moves swiftly over the bird's body, preventing turbulence and creating ideal aerodynamic conditions for efficient flight.
+Primary feathers are located at the wing tip and provide thrust; secondary feathers are located close to the body and provide lift.
+Primary feathers are located at the wing tip and provide thrust.
+secondary feathers are located close to the body and provide lift.
+These muscles are highly developed in birds and account for a higher percentage of body mass than in most mammals.
+The flight muscles attach to a blade-shaped keel projecting ventrally from the sternum, like the keel of a boat.
+The sternum of birds is deeper than that of other vertebrates, which accommodates the large flight muscles.
+The flight muscles of birds who are active flyers are rich with oxygen-storing myoglobin.
+Another skeletal modification found in most birds is the fusion of the two clavicles, forming the furcula or wishbone.
+The furcula is flexible enough to bend and provide support to the shoulder girdle during flapping.
+An important requirement for flight is a low body weight.
+The largest living bird is the ostrich, and while it is much smaller than the largest mammals, it is secondarily flightless.
+The largest living bird is the ostrich.
+while it is much smaller than the largest mammals, it is secondarily flightless.
+For birds that do fly, reduction in body weight makes flight easier.
+Several modifications are found in birds to reduce body weight, including pneumatization of bones.
+Pneumatic bones are not found in all birds, and they are more extensive in large birds than in small birds.
+Pneumatic bones are not found in all birds.
+they are more extensive in large birds than in small birds.
+Not all bones of the skeleton are pneumatic, although the skulls of almost all birds are.
+Many birds have hollow, pneumatic bones, which make flight easier.
+Other modifications that reduce weight include the lack of a urinary bladder.
+Birds possess a cloaca, an external body cavity into which the intestinal, urinary, and genital orifices empty in reptiles, birds, and the monotreme mammals.
+Birds possess a cloaca, an external body cavity into which the intestinal, urinary.
+The cloaca allows water to be reabsorbed from waste back into the bloodstream.
+Thus, uric acid is not eliminated as a liquid but is concentrated into urate salts, which are expelled along with fecal matter.
+In this way, water is not held in a urinary bladder, which would increase body weight.
+In addition, the females of most bird species only possess one functional ovary rather than two, further reducing body mass.
+The respiratory system of birds is dramatically different from that of reptiles and mammals, and is well adapted for the high metabolic rate required for flight.
+The respiratory system of birds is dramatically different from that of reptiles and mammals.
+To begin, the air spaces of pneumatic bone are sometimes connected to air sacs in the body cavity, which replace coelomic fluid and also lighten the body.
+These air sacs are also connected to the path of airflow through the bird's body, and function in respiration.
+These air sacs are also connected to the path of airflow through the bird's body.
+Gas exchange occurs in "air capillaries" or microscopic air passages within the lungs.
+The arrangement of air capillaries in the lungs creates a cross-current exchange system with the pulmonary blood.
+In a cross-current exchange system, the flow of air is perpendicular to the flow of blood, producing a favorable diffusion gradient and creating an efficient means of gas exchange.
+This very effective oxygen-delivery system of birds supports their higher metabolic activity.
+In effect, ventilation is provided by the parabronchi with thin air sacs located among the visceral organs and the skeleton.
+A syrinx resides near the junction of the trachea and bronchi.
+The syrinx, however, is not homologous to the mammalian larynx, which resides within the upper part of the trachea.
+Avian respiration is an efficient system of gas exchange with air flowing unidirectionally.
+A full ventilation cycle takes two breathing cycles.
+During the first inhalation, air passes from the trachea into posterior air sacs.
+The first exhalation moves the air from the posterior air sacs to the lungs.
+The second inhalation moves the air in the lungs to the anterior air sacs, and the second exhalation moves the air in the anterior air sacs out of the body.
+The second inhalation moves the air in the lungs to the anterior air sacs.
+the second exhalation moves the air in the anterior air sacs out of the body.
+Overall, each inhalation moves air into the air sacs, while each exhalation moves fresh air through the lungs and "used" air out of the body.
+Overall, each inhalation moves air into the air sacs.
+each exhalation moves fresh air through the lungs and "used" air out of the body.
+The air sacs are connected to the hollow interior of bones.
+Beyond the unique characteristics discussed above, birds are also unusual vertebrates because of a number of other features.
+First, they typically have an elongated S-shaped neck, but a short tail or pygostyle, produced from the fusion of the caudal vertebrae.
+Unlike mammals, birds have only one occipital condyle, allowing them extensive movement of the head and neck.
+They also have a very thin epidermis without sweat glands, and a specialized uropygial gland or sebaceous "preening gland" found at the dorsal base of the tail.
+They also have a very thin epidermis without sweat glands.
+a specialized uropygial gland or sebaceous "preening gland" found at the dorsal base of the tail.
+Their large brains, keen senses, and the abilities of many species to imitate vocalization and use tools make them some of the most intelligent vertebrates on Earth.
+the abilities of many species to imitate vocalization and use tools make them some of the most intelligent vertebrates on Earth.
+Birds belong to a group of diapsids called the archosaurs, which includes three other groups: living crocodilians, pterosaurs, and dinosaurs.
+Birds belong to a group of diapsids called the archosaurs, which includes three other groups: living crocodilians, pterosaurs.
+Overwhelming evidence shows that birds evolved within the clade Dinosauria, which is further subdivided into two groups, the Saurischia and the Ornithischia.
+Despite the names of these groups, it was not the bird-hipped dinosaurs that gave rise to modern birds.
+The second group, bipedal predators called theropods, gave rise to birds.
+The clade Neornithes includes the avian crown group, which comprises all living birds and the descendants from their most recent common maniraptoran ancestor.
+Archaeopteryx has characteristics of both maniraptoran dinosaurs and modern birds.
+Some scientists propose classifying it as a bird, but others prefer to classify it as a dinosaur.
+Traits in skeletons of Archaeopteryx like those of a dinosaur included a jaw with teeth and a long bony tail.
+Like birds, it had feathers modified for flight, both on the forelimbs and on the tail, a trait associated only with birds among modern animals.
+Archaeopteryx lived in the late Jurassic period around 150 million years ago.
+It had cuplike thecodont teeth like a dinosaur, but had flight feathers like modern birds, which can be seen in this fossil.
+The Evolution of Flight in Birds There are two basic hypotheses that explain how flight may have evolved in birds: the arboreal hypothesis and the terrestrial hypothesis.
+In contrast to this, the terrestrial hypothesis holds that running was the stimulus for flight.
+In this scenario, wings could be used to capture prey and were preadapted for balance and flapping flight.
+Ostriches, which are large flightless birds, hold their wings out when they run, possibly for balance.
+However, this condition may represent a behavioral relict of the clade of flying birds that were their ancestors.
+This early flight behavior would have also greatly increased the opportunity for species dispersal.
+Although we have a good understanding of how feathers and flight may have evolved, the question of how endothermy evolved in birds remains unanswered.
+Feathers provide insulation, but this is only beneficial for thermoregulatory purposes if body heat is being produced internally.
+Similarly, internal heat production is only viable for the evolution of endothermy if insulation is present to retain that infrared energy.
+It seems probable that feathers and endothermy coevolved together, the improvement and evolutionary advancement of feathers reinforcing the evolutionary advancement of endothermy, and so on.
+It seems probable that feathers and endothermy coevolved together, the improvement and evolutionary advancement of feathers reinforcing the evolutionary advancement of endothermy.
+Enantiornithes means "opposite birds," which refers to the fact that certain bones of the shoulder are joined differently than the way the bones are joined in modern birds.
+Like Archaeopteryx, these birds retained teeth in their jaws, but did have a shortened tail, and at least some fossils have preserved "fans" of tail feathers.
+Like Archaeopteryx, these birds retained teeth in their jaws, but did have a shortened tail.
+at least some fossils have preserved "fans" of tail feathers.
+These birds formed an evolutionary lineage separate from that of modern birds, and they did not survive past the Cretaceous.
+These birds formed an evolutionary lineage separate from that of modern birds.
+they did not survive past the Cretaceous.
+Along with the Enantiornithes, however, another group of birds—the Ornithurae, with a short, fused tail or pygostyle—emerged from the evolutionary line that includes modern birds.
+This clade was also present in the Cretaceous.
+Molecular analysis based on very large data sets has produced our current understanding of the relationships among living birds.
+The Paleognathae or ratites are a group of flightless birds including ostriches, emus, rheas, and kiwis.
+The Paleognathae or ratites are a group of flightless birds including ostriches, emus, rheas.
+The Galloanserae include pheasants, ducks, geese and swans.
+The Neoaves includes all other birds.
+Despite the current classification scheme, it is important to understand that phylogenetic revisions, even for the extant birds, are still taking place.
+Shanweiniao cooperorum was a species of Enantiornithes that did not survive past the Cretaceous period.
+Veterinarian Veterinarians are concerned with diseases, disorders.
+injuries in animals, primarily vertebrates.
+They treat pets, livestock, and animals in zoos and laboratories.
+They treat pets, livestock.
+Veterinarians often treat dogs and cats, but also take care of birds, reptiles, rabbits, and other animals that are kept as pets.
+Veterinarians often treat dogs and cats, but also take care of birds, reptiles, rabbits.
+Veterinarians are also trained to perform surgery on many different vertebrate species, which requires an understanding of the vastly different anatomies of various species.
+For example, the stomach of ruminants like cows has four "compartments" versus one compartment for non-ruminants.
+As we have seen, birds also have unique anatomical adaptations that allow for flight, which requires additional training and care.
+Some veterinarians conduct research in academic settings, broadening our knowledge of animals and medical science.
+One area of research involves understanding the transmission of animal diseases to humans, called zoonotic diseases.
+For example, one area of great concern is the transmission of the avian flu virus to humans.
+One type of avian flu virus, H5N1, is a highly pathogenic strain that has been spreading in birds in Asia, Europe, Africa, and the Middle East.
+One type of avian flu virus, H5N1, is a highly pathogenic strain that has been spreading in birds in Asia, Europe, Africa.
+More research is needed to understand how this virus can cross the species barrier and how its spread can be prevented.
+Mammals, comprising about 5,200 species, are vertebrates that possess hair and mammary glands.
+Several other characteristics are distinctive to mammals, including certain features of the jaw, skeleton, integument, and internal anatomy.
+Several other characteristics are distinctive to mammals, including certain features of the jaw, skeleton, integument.
+Modern mammals belong to three clades: monotremes, marsupials, and eutherians.
+Modern mammals belong to three clades: monotremes, marsupials.
+Characteristics of Mammals The presence of hair, composed of the protein keratin, is one of the most obvious characteristics of mammals.
+Although it is not very extensive or obvious on some species, hair has many important functions for most mammals.
+Mammals are endothermic, and hair traps a boundary layer of air close to the body, retaining heat generated by metabolic activity.
+Mammals are endothermic.
+Along with insulation, hair can serve as a sensory mechanism via specialized hairs called vibrissae, better known as whiskers.
+Vibrissae attach to nerves that transmit information about tactile vibration produced by sound sensation, which is particularly useful to nocturnal or burrowing mammals.
+Unlike the skin of birds, the integument of mammals, includes a number of different types of secretory glands.
+Sebaceous glands produce a lipid mixture called sebum that is secreted onto the hair and skin, providing water resistance and lubrication for hair.
+Sebaceous glands are located over most of the body.
+Eccrine glands produce sweat, or perspiration, which is mainly composed of water, but also contains metabolic waste products, and sometimes compounds with antibiotic activity.
+Eccrine glands produce sweat, or perspiration, which is mainly composed of water, but also contains metabolic waste products.
+Eccrine glands produce sweat.
+In most mammals, eccrine glands are limited to certain areas of the body, and some mammals do not possess them at all.
+In most mammals, eccrine glands are limited to certain areas of the body.
+some mammals do not possess them at all.
+However, in primates, especially humans, sweat glands are located over most of the body surface and figure prominently in regulating the body temperature through evaporative cooling.
+Mammary glands produce milk that is used to feed newborns.
+In both monotremes and eutherians, both males and females possess mammary glands, while in some marsupials, mammary glands are found only in females, with exception of some opossums.
+In both monotremes and eutherians, both males and females possess mammary glands.
+in some marsupials, mammary glands are found only in females, with exception of some opossums.
+Mammary glands likely are modified sebaceous or eccrine glands, but their evolutionary origin is not entirely clear.
+The skeletal system of mammals possesses many unique features.
+In the ear of other vertebrates, vibrations are transmitted to the inner ear by a single bone, the stapes.
+The malleus is derived from the articular bone, whereas the incus originated from the quadrate bone.
+The malleus is derived from the articular bone.
+the incus originated from the quadrate bone.
+Bones of the mammalian middle ear are modified from bones of the jaw and skull in reptiles.
+The stapes is found in other vertebrates whereas in mammals, the malleus and incus are derived from the articular and quadrate bones, respectively.
+The adductor muscles that close the jaw comprise two major muscles in mammals: the temporalis and the masseter.
+Most mammals have heterodont teeth, meaning that they have different types and shapes of teeth rather than just one type and shape of tooth.
+Most mammals are also diphyodonts, meaning that they have two sets of teeth in their lifetime: deciduous or "baby" teeth, and permanent teeth.
+Most mammals are also diphyodonts, meaning that they have two sets of teeth in their lifetime: deciduous or "baby" teeth.
+Most other vertebrates with teeth are polyphyodonts, that is, their teeth are replaced throughout their entire life.
+Mammalian erythrocytes do not have nuclei, whereas the erythrocytes of other vertebrates are nucleated.
+Mammalian erythrocytes do not have nuclei.
+Mammals lack a renal portal system, which is a system of veins that moves blood from the hind or lower limbs and region of the tail to the kidneys.
+Renal portal systems are present in all other vertebrates except jawless fishes.
+A urinary bladder is present in all mammals.
+Turbinate bones are located along the sides of the nasal cavity, and help warm and moisten air as it is inhaled.
+Turbinate bones are located along the sides of the nasal cavity.
+The pelvic bones are fused in mammals, and there are typically seven cervical vertebrae.
+The pelvic bones are fused in mammals.
+Mammals have movable eyelids and fleshy external ears, quite unlike the naked external auditory openings of birds.
+Mammals also have a muscular diaphragm that is lacking in birds.
+Mammalian brains also have certain characteristics that differ from the brains of other vertebrates.
+The optic lobes, located in the midbrain, are divided into two parts in mammals, while other vertebrates possess a single, undivided lobe.
+The optic lobes, located in the midbrain, are divided into two parts in mammals.
+other vertebrates possess a single, undivided lobe.
+Eutherian mammals also possess a specialized structure, the corpus callosum, which links the two cerebral hemispheres together.
+Evolution of Mammals Mammals are synapsids, meaning they have a single, ancestrally fused, postorbital opening in the skull.
+They are the only living synapsids, as earlier forms became extinct by the Jurassic period.
+Cynodonts, which first appeared in the Late Permian period 260 million years ago, are thought to be the ancestors of modern mammals.
+Holes in the upper jaws of cynodonts suggest that they had whiskers, which might also indicate the presence of hair.
+As with birds, a key characteristic of synapsids is endothermy, rather than the ectothermy seen in many other vertebrates.
+The increased metabolic rate required to internally modify body temperature likely went hand-in-hand with changes to certain skeletal structures that improved food processing and ambulation.
+The secondary palate separates the area of the mouth where chewing occurs from the area above where respiration occurs, allowing breathing to proceed uninterrupted while the animal is chewing.
+A secondary palate is not found in pelycosaurs but is present in cynodonts and mammals.
+The jawbone also shows changes from early synapsids to later ones.
+The zygomatic arch, or cheekbone, is present in mammals and advanced therapsids such as cynodonts, but is not present in pelycosaurs.
+The presence of the zygomatic arch suggests the presence of masseter muscles, which close the jaw and function in chewing.
+Mammals evolved from therapsids in the late Triassic period, as the earliest known mammal fossils are from the early Jurassic period, some 205 million years ago.
+One group of transitional mammals was the morganucodonts, small nocturnal insectivores.
+Like modern mammals, the morganucodonts had differentiated teeth and were diphyodonts.
+Mammals first began to diversify in the Mesozoic era, from the Jurassic to the Cretaceous periods.
+Even some small gliding mammals appear in the fossil record during this time period.
+During the Cretaceous period, another radiation of mammals began and continued through the Cenozoic era, about 65 million years ago.
+This morganucodont Megazotrodon, an extinct basal mammal, may have been nocturnal and insectivorous.
+In living mammals, the articular and quadrate bones have been incorporated into the middle ear.
+The eutherians and the marsupials together comprise a clade of therian mammals, with the monotremes forming a sister clade to both metatherians and eutherians.
+The platypus and one species of echidna are found in Australia, and the other species of echidna are found in New Guinea.
+The platypus and one species of echidna are found in Australia.
+the other species of echidna are found in New Guinea.
+Monotremes are unique among mammals because they lay eggs, rather than giving birth to live young.
+The shells of their eggs are not like the hard shells of birds, but have a leathery shell, similar to the shells of reptile eggs.
+Monotremes retain their eggs through about two-thirds of the developmental period, and then lay them in nests.
+Monotremes retain their eggs through about two-thirds of the developmental period.
+A yolk-sac placenta helps support development.
+The babies hatch in a fetal state and complete their development in the nest, nourished by milk secreted by mammary glands opening directly to the skin.
+Monotremes, except for young platypuses, do not have teeth.
+Body temperature in the monotreme species is maintained at about 30°C, considerably lower than the average body temperature of marsupial and placental mammals, which are typically between 35 and 38°C.
+The platypus, a monotreme, possesses a leathery beak and lays eggs rather than giving birth to live young.
+The echidna is another monotreme, with long hairs modified into spines.
+Like monotremes, the embryos of marsupials are nourished during a short gestational period by a yolk-sac placenta, but with no intervening egg shell.
+Some marsupial embryos can enter an embryonic diapause, and delay implantation, suspending development until implantation is completed.
+Some marsupial embryos can enter an embryonic diapause.
+Marsupial young are also effectively fetal at birth.
+Most, but not all, species of marsupials possess a pouch in which the very premature young reside, receiving milk and continuing their development.
+In kangaroos, the young joeys continue to nurse for about a year and a half.
+The Tasmanian devil is one of several marsupials native to Australia.
+Eutherians are the most widespread and numerous of the mammals, occurring throughout the world.
+Eutherian mammals are sometimes called "placental mammals" because all species possess a complex chorioallantoic placenta that connects a fetus to the mother, allowing for gas, fluid, and nutrient exchange.
+Eutherian mammals are sometimes called "placental mammals" because all species possess a complex chorioallantoic placenta that connects a fetus to the mother, allowing for gas, fluid.
+In the evolutionary sense, they have been incredibly successful in form, diversity, and abundance.
+In the evolutionary sense, they have been incredibly successful in form, diversity.
+The eutherian mammals are classified in two major clades, the Atlantogenata and the Boreoeutheria.
+The Atlantogeneta include the Afrotheria and the Xenarthra.
+The Boreoeutheria contain two large groups, the Euarchontoglires and the Laurasiatheria.
+Familiar orders in the Euarchontoglires are the Scandentia, Rodentia, Lagomorpha, and the Primates.
+Familiar orders in the Euarchontoglires are the Scandentia, Rodentia, Lagomorpha.
+The two largest orders are the rodents and bats, which together constitute almost 60 percent of all eutherian species.
+Order Primates of class Mammalia includes lemurs, tarsiers, monkeys, apes, and humans.
+Order Primates of class Mammalia includes lemurs, tarsiers, monkeys, apes.
+Non-human primates live primarily in the tropical or subtropical regions of South America, Africa, and Asia.
+Non-human primates live primarily in the tropical or subtropical regions of South America, Africa.
+They range in size from the mouse lemur at 30 grams to the mountain gorilla at 200 kilograms.
+The characteristics and evolution of primates are of particular interest to us as they allow us to understand the evolution of our own species.
+Characteristics of Primates All primate species possess adaptations for climbing trees, as they all descended from tree-dwellers.
+This arboreal heritage of primates has resulted in hands and feet that are adapted for climbing, or brachiation.
+This arboreal heritage of primates has resulted in hands and feet that are adapted for climbing.
+Order Primates is divided into two groups: Strepsirrhini and Haplorhini primates.
+Strepsirrhines, also called the wet-nosed primates, include prosimians like the bush babies and pottos of Africa, the lemurs of Madagascar, and the lorises of Southeast Asia.
+Strepsirrhines, also called the wet-nosed primates, include prosimians like the bush babies and pottos of Africa, the lemurs of Madagascar.
+Haplorhines, with a few exceptions, are diurnal, and depend more on their vision.
+Haplorhines, with a few exceptions, are diurnal.
+Another interesting difference between the strepsirrhines and haplorhines is that strepsirrhines have the enzymes for making vitamin C, while haplorhines have to get it from their food.
+Another interesting difference between the strepsirrhines and haplorhines is that strepsirrhines have the enzymes for making vitamin C.
+haplorhines have to get it from their food.
+This tarsier, Carlito syrichta, is one of the smallest primates—about 5 inches long, from nose to the base of the tail.
+Evolution of Primates The first primate-like mammals are referred to as proto-primates.
+They were roughly similar to squirrels and tree shrews in size and appearance.
+The existing fossil evidence is very fragmented.
+These proto-primates remain largely mysterious creatures until more fossil evidence becomes available.
+Although genetic evidence suggests that primates diverged from other mammals about 85 MYA, the oldest known primate-like mammals with a relatively robust fossil record date to about 65 MYA.
+Fossils like the proto-primate Plesiadapis had some features of the teeth and skeleton in common with true primates.
+They were found in North America and Europe in the Cenozoic and went extinct by the end of the Eocene epoch.
+The first true primates date to about 55 MYA in the Eocene epoch.
+They were found in North America, Europe, Asia, and Africa.
+They were found in North America, Europe, Asia.
+These early primates resembled present-day prosimians such as lemurs.
+Anthropoid monkeys evolved from prosimians during the Eocene epoch.
+By 40 million years ago, evidence indicates that monkeys were present in the New World and the Old World.
+At the time the platyrrhines arose, the continents of South American and Africa had drifted apart.
+Therefore, it is thought that monkeys arose in the Old World and reached the New World either by drifting on log rafts or by crossing land bridges.
+World monkeys underwent separate adaptive radiations over millions of years.
+The New World monkeys are all arboreal, whereas Old World monkeys include both arboreal and ground-dwelling species.
+The New World monkeys are all arboreal.
+Old World monkeys include both arboreal and ground-dwelling species.
+The arboreal habits of the New World monkeys are reflected in the possession of prehensile or grasping tails by most species.
+The tails of Old World monkeys are never prehensile and are often reduced, and some species have ischial callosities—thickened patches of skin on their seats.
+The tails of Old World monkeys are never prehensile and are often reduced.
+some species have ischial callosities—thickened patches of skin on their seats.
+The howler monkey is native to Central and South America.
+It makes a call that sounds like a lion roaring.
+Apes evolved from the catarrhines in Africa midway through the Cenozoic, approximately 25 million years ago.
+Apes are generally larger than monkeys and they do not possess a tail.
+All apes are capable of moving through trees, although many species spend most their time on the ground.
+When walking quadrupedally, monkeys walk on their palms, while apes support the upper body on their knuckles.
+When walking quadrupedally, monkeys walk on their palms.
+apes support the upper body on their knuckles.
+Apes are more intelligent than monkeys, and they have larger brains relative to body size.
+Apes are more intelligent than monkeys.
+they have larger brains relative to body size.
+The apes are divided into two groups.
+The lesser apes comprise the family Hylobatidae, including gibbons and siamangs.
+All great apes have a similar skeletal structure.
+Two species of orangutan are native to different islands in Indonesia: Borneo and Sumatra.
+A third orangutan species, Pongo tapanuliensis, was reported in 2017 from the Batang Toru forest in Sumatra.
+Orangutans are arboreal and solitary.
+Males are much larger than females and have cheek and throat pouches when mature.
+Gorillas all live in Central Africa.
+The eastern and western populations are recognized as separate species, G. berengei and G. gorilla.
+Gorillas are strongly sexually dimorphic, with males about twice the size of females.
+In older males, called silverbacks, the hair on the back turns white or gray.
+However, the species most closely related to the chimpanzee is the bonobo.
+that chimpanzee and human lineages separated 5 to 7 MYA, while chimpanzee and bonobo lineages separated about 2 MYA.
+that chimpanzee and human lineages separated 5 to 7 MYA.
+chimpanzee and bonobo lineages separated about 2 MYA.
+Chimpanzees and bonobos both live in Central Africa, but the two species are separated by the Congo River, a significant geographic barrier.
+Bonobos are slighter than chimpanzees, but have longer legs and more hair on their heads.
+In chimpanzees, white tail tufts identify juveniles, while bonobos keep their white tail tufts for life.
+In chimpanzees, white tail tufts identify juveniles.
+bonobos keep their white tail tufts for life.
+Bonobos also have higher-pitched voices than chimpanzees.
+Chimpanzees are more aggressive and sometimes kill animals from other groups, while bonobos are not known to do so.
+Chimpanzees are more aggressive and sometimes kill animals from other groups.
+bonobos are not known to do so.
+Both chimpanzees and bonobos are omnivorous.
+Orangutan and gorilla diets also include foods from multiple sources, although the predominant food items are fruits for orangutans and foliage for gorillas.
+This white-cheeked gibbon is a lesser ape.
+This young chimpanzee is one of the great apes.
+It possesses a relatively large brain and has no tail.
+Evidence from the fossil record and from a comparison of human and chimpanzee DNA suggests that humans and chimpanzees diverged from a common hominoid ancestor approximately six million years ago.
+Several species evolved from the evolutionary branch that includes humans, although our species is the only surviving member.
+This chart shows evolutionary relationship among Hominins and hypothesized relation to modern humans.
+Very Early Hominins Three species of very early hominins have made news in the late 20th and early 21st centuries: Ardipithecus, Sahelanthropus, and Orrorin.
+Very Early Hominins Three species of very early hominins have made news in the late 20th and early 21st centuries: Ardipithecus, Sahelanthropus.
+Although the bipedality of the early specimens was uncertain, several more specimens of Ardipithecus were discovered in the intervening years and demonstrated that the organism was bipedal.
+Two different species of Ardipithecus have been identified, A. ramidus and A. kadabba, whose specimens are older, dating to 5.6 MYA.
+However, the status of this genus as a human ancestor is uncertain.
+It is not thought at this time that this species was an ancestor of modern humans.
+A younger species, Orrorin tugenensis, is also a relatively recent discovery, found in 2000.
+Some features of Orrorin are more similar to those of modern humans than are the australopithicenes, although Orrorin is much older.
+If Orrorin is a human ancestor, then the australopithicenes may not be in the direct human lineage.
+Additional specimens of these species may help to clarify their role.
+Early Hominins: Genus Australopithecus Australopithecus is a genus of hominin that evolved in eastern Africa approximately four million years ago and went extinct about two million years ago.
+our genus, genus Homo, evolved from a common ancestor shared with Australopithecus about two million years ago.
+Australopithecus had a number of characteristics that were more similar to the great apes than to modern humans.
+For example, sexual dimorphism was more exaggerated than in modern humans.
+Males were up to 50 percent larger than females, a ratio that is similar to that seen in modern gorillas and orangutans.
+In contrast, modern human males are approximately 15 to 20 percent larger than females.
+A key feature that Australopithecus had in common with modern humans was bipedalism, although it is likely that Australopithecus also spent time in trees.
+Hominin footprints, similar to those of modern humans, were found in Laetoli, Tanzania and dated to 3.6 million years ago.
+They showed that hominins at the time of Australopithecus were walking upright.
+Australopithecus anamensis lived about 4.2 million years ago.
+This species demonstrates a trend in human evolution: the reduction of the dentition and jaw in size.
+Its brain size was 380 to 450 cubic centimeters, approximately the size of a modern chimpanzee brain.
+It also had prognathic jaws, which is a relatively longer jaw than that of modern humans.
+The fossil, which is informally called "Lucy," is significant because it was the most complete australopith fossil found, with 40 percent of the skeleton recovered.
+This adult female Australopithecus afarensis skeleton, nicknamed Lucy, was discovered in the mid-1970s.
+Australopithecus africanus lived between two and three million years ago.
+It had a slender build and was bipedal, but had robust arm bones and, like other early hominids, may have spent significant time in trees.
+Its brain was larger than that of A. afarensis at 500 cubic centimeters, which is slightly less than one-third the size of modern human brains.
+Two other species, Australopithecus bahrelghazali and Australopithecus garhi, have been added to the roster of australopiths in recent years.
+A. bahrelghazali is unusual in being the only australopith found in Central Africa.
+The australopiths had a relatively slender build and teeth that were suited for soft food.
+In the past several years, fossils of hominids of a different body type have been found and dated to approximately 2.5 million years ago.
+These hominids, of the genus Paranthropus, were muscular, stood 1.3 to 1.4 meters tall, and had large grinding teeth.
+These hominids, of the genus Paranthropus, were muscular, stood 1.3 to 1.4 meters tall.
+Their molars showed heavy wear, suggesting that they had a coarse and fibrous vegetarian diet as opposed to the partially carnivorous diet of the australopiths.
+Paranthropus includes Paranthropus robustus of South Africa, and Paranthropus aethiopicus and Paranthropus boisei of East Africa.
+Paranthropus includes Paranthropus robustus of South Africa.
+Early Hominins: Genus Homo The human genus, Homo, first appeared between 2.5 and three million years ago.
+Compared to A. africanus, H. habilis had a number of features more similar to modern humans.
+H. habilis had a jaw that was less prognathic than the australopiths and a larger brain, at 600 to 750 cubic centimeters.
+However, H. habilis retained some features of older hominin species, such as long arms.
+The name H. habilis means "handy man," which is a reference to the stone tools that have been found with its remains.
+It is believed to have originated in East Africa and was the first hominin species to migrate out of Africa.
+H. erectus had a number of features that were more similar to modern humans than those of H. habilis.
+H. erectus was larger in size than earlier hominins, reaching heights up to 1.85 meters and weighing up to 65 kilograms, which are sizes similar to those of modern humans.
+H. erectus had a larger brain than earlier species at 775 to 1,100 cubic centimeters, which compares to the 1,130 to 1,260 cubic centimeters seen in modern human brains.
+H. erectus also had a nose with downward-facing nostrils similar to modern humans, rather than the forward-facing nostrils found in other primates.
+Longer, downward-facing nostrils allow for the warming of cold air before it enters the lungs and may have been an adaptation to colder climates.
+H. erectus is generally thought to have lived until about 50,000 years ago.
+Homo erectus had a prominent brow and a nose that pointed downward rather than forward.
+Humans: Homo sapiens A number of species, sometimes called archaic Homo sapiens, apparently evolved from H. erectus starting about 500,000 years ago.
+These species include Homo heidelbergensis, Homo rhodesiensis, and Homo neanderthalensis.
+These species include Homo heidelbergensis, Homo rhodesiensis.
+These archaic H. sapiens had a brain size similar to that of modern humans, averaging 1,200 to 1,400 cubic centimeters.
+They differed from modern humans by having a thick skull, a prominent brow ridge, and a receding chin.
+They differed from modern humans by having a thick skull, a prominent brow ridge.
+As discussed earlier, H. erectus migrated out of Africa and into Asia and Europe in the first major wave of migration about 1.5 million years ago.
+It is thought that modern humans arose in Africa from H. erectus and migrated out of Africa about 100,000 years ago in a second major migration wave.
+Then, modern humans replaced H. erectus species that had migrated into Asia and Europe in the first wave.
+This evolutionary timeline is supported by molecular evidence.
+One approach to studying the origins of modern humans is to examine mitochondrial DNA from populations around the world.
+Because a fetus develops from an egg containing its mother's mitochondria, mtDNA is passed entirely through the maternal line.
+Mutations in mtDNA can now be used to estimate the timeline of genetic divergence.
+The resulting evidence suggests that all modern humans have mtDNA inherited from a common ancestor that lived in Africa about 160,000 years ago.
+Another approach to the molecular understanding of human evolution is to examine the Y chromosome, which is passed from male parent to male offspring.
+This evidence suggests that all males today inherited a Y chromosome from a male that lived in Africa about 140,000 years ago.
+The study of mitochondrial DNA led to the identification of another human species or subspecies, the Denisovans.
+DNA from teeth and finger bones suggested two things.
+First, the mitochondrial DNA was different from that of both modern humans and Neanderthals.
+Second, the genomic DNA suggested that the Denisovans shared a common ancestor with the Neanderthals.
+Genes from both Neanderthals and Denisovans have been identified in modern human populations, indicating that interbreeding among the three groups occurred over part of their range.
+Chordata fishes, whose extant members include the hagfishes contains two clades of invertebrates: Urochordata and lampreys.
+Hagfishes are eel-like scavengers that and Cephalochordata, together feed on dead invertebrates and other fishes.
+Fishes with jaws tunicates live on the ocean floor and are suspension evolved later.
+Jaws allowed early gnathostomes to feeders.
+Which of the two invertebrate chordate clades exploit new food sources.
+Cartilaginous fishes include cranium) is considered to be synonymous with sharks, rays, skates, and ghost sharks.
+Cartilaginous fishes include cranium) is considered to be synonymous with sharks, rays, skates.
+cartilaginous fishes live in marine habitats, with a few Sphenodontia, Squamata (lizards and species living in fresh water for part or all of their lives.
+Bony fishes can be Reptilia.
+The most heat, as well as structures such as feathers that allow important characteristic of extant amphibians is a them to retain their own body heat.
+These adaptations moist, permeable skin used for cutaneous respiration, are used to regulate their internal temperature, making although lungs are found in the adults of many species.
+it largely independent of ambient thermal conditions.
+All amphibians are carnivores and possess many small Birds have feathers, which allow for insulation and teeth.
+The fossil record provides evidence of amphibian flight, as well as for mating and warning signals.
+Flight species, now extinct, that arose over 400 million years feathers have a broad and continuously curved vane ago as the first tetrapods.
+Living Amphibia can be that produces lift.
+Some birds have pneumatic bones divided into three classes: salamanders, containing air spaces that are sometimes connected to frogs, and caecilians.
+Some birds have pneumatic bones divided into three classes: salamanders, containing air spaces that are sometimes connected to frogs.
+Airflow through bird lungs amphibians, development occurs in two distinct travels in one direction, creating a counter-current gas stages: a gilled aquatic larval stage that exchange with the blood.
+metamorphoses into an adult stage, acquiring lungs Birds are highly modified diapsids and belong to a and legs, and losing the tail in Anurans.
+metamorphoses into an adult stage, acquiring lungs Birds are highly modified diapsids and belong to a and legs.
+birds are most likely evolved from theropod Various levels of parental care are seen in the dinosaurs.
+fossils of a "dinosaur-bird" is that of 29.4 Reptiles Archaeopteryx, which is dated from the Jurassic period.
+The early Mammals are vertebrates that possess hair and amniotes diverged into two main lines soon after the mammary glands.
+The initial split was into synapsids includes various secretory glands, including sebaceous and sauropsids.
+Sauropsids can be further glands, eccrine glands, apocrine glands, and mammary divided into anapsids and diapsids (crocodiles, glands.
+Sauropsids can be further glands, eccrine glands, apocrine glands.
+Mammals are synapsids, meaning that they have a Reptiles are tetrapods that ancestrally had four limbs; single opening in the skull behind the eye.
+Mammals are synapsids, meaning that they have a Reptiles are tetrapods that ancestrally had four limbs.
+For example, limbless reptiles are the early Jurassic period.
+A key characteristic of classified as tetrapods, because they descended from synapsids is endothermy, and most mammals are ancestors with four limbs.
+A key characteristic of classified as tetrapods, because they descended from synapsids is endothermy.
+most mammals are ancestors with four limbs.
+Monotremes Reptilia includes four living clades of nonavian are unique among mammals as they lay eggs, rather organisms: Crocodilia, than giving birth to young.
+Monkeys evolved development in a pouch.
+Eutherian mammals are from prosimians during the Eocene epoch.
+The simian sometimes called placental mammals, because all line includes both platyrrhine and catarrhine branches.
+species possess a complex placenta that connects a Apes evolved from catarrhines in Africa during the fetus to the mother, allowing for gas, fluid, and nutrient Miocene epoch.
+species possess a complex placenta that connects a Apes evolved from catarrhines in Africa during the fetus to the mother, allowing for gas, fluid.
+Apes are divided into the lesser apes exchange.
+All mammals nourish their young with milk, and the greater apes.
+All mammals nourish their young with milk.
+Hominins include those groups which is derived from modified sweat or sebaceous that gave rise to our own species, such as glands.
+ancestors, although not all living species are arboreal.
+Primates are divided into two groups: emerges.
+The allantois stores nitrogenous waste and a. The dorsal hollow nerve cord is part of the facilitates respiration.
+The yolk provides food for the growing become the gills.
+c. Humans are not chordates because d.
+humans do not have a tail.
+d. Vertebrates do not have a notochord at 3.
+However, molecular studies indicate that turtles descended from a diapsid 2.
+Members of Chondrichthyes differ from 5.
+Members of Chondrichthyes are thought to be chordates that can also be classified into which descended from fishes that had ________.
+a. a cartilaginous skeleton c. Enantiornithes b. a bony skeleton d. Paleognathae c. mucus glands d. slime glands 16.
+Which of the following feather types helps to reduce drag produced by wind resistance during 9.
+Upon examination, she a. Flight feathers determines that the species has a b. Primary feathers predominantly cartilaginous skeleton and a c. Secondary feathers swim bladder.
+Eccrine glands produce ________.
+Which of the following is not true of 18.
+a. It was aquatic.
+It had gills.
+It had four limbs.
+It laid shelled eggs.
+The evolution of which of the following features 11.
+During the Mesozoic period, diapsids diverged into_______.
+erectus d. Homo sapiens sapiens 14.
+A bird or feathered dinosaur is ________.
+What are the characteristic features of the 32.
+What can be inferred about the evolution of the for flight in birds.
+How did the evolution of jaw musculature allow 29.
+Why is it so difficult to determine the sequence 30.

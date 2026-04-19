@@ -1,0 +1,577 @@
+# Biology2e Chapter 35 — The Nervous System
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 573
+
+INTRODUCTION When you're reading this book, your nervous system is performing several functions simultaneously.
+The visual system is processing what is seen on the page; the motor system controls the turn of the pages; the prefrontal cortex maintains attention.
+The visual system is processing what is seen on the page.
+the motor system controls the turn of the pages.
+the prefrontal cortex maintains attention.
+Even fundamental functions, like breathing and regulation of body temperature, are controlled by the nervous system.
+A nervous system is an organism's control center: it processes sensory information from outside the body and controls all behaviors—from eating to sleeping to finding a mate.
+Some organisms, like sea sponges, lack a true nervous system.
+Echinoderms such as sea stars have nerve cells that are bundled into fibers called nerves.
+The insect nervous system is more complex but also fairly decentralized.
+It contains a brain, ventral nerve cord, and ganglia.
+It contains a brain, ventral nerve cord.
+These ganglia can control movements and behaviors without input from the brain.
+Octopi may have the most complicated of invertebrate nervous systems—they have neurons that are organized in specialized lobes and eyes that are structurally similar to vertebrate species.
+In cnidarians, nerve cells form a decentralized nerve net.
+In echinoderms, nerve cells are bundled into fibers called nerves.
+In addition to a brain, arthropods have clusters of nerve cell bodies, called peripheral ganglia, located along the ventral nerve cord.
+Mollusks such as squid and octopi, which must hunt to survive, have complex brains containing millions of neurons.
+In vertebrates, the brain and spinal cord comprise the central nervous system, while neurons extending into the rest of the body comprise the peripheral nervous system.
+In vertebrates, the brain and spinal cord comprise the central nervous system.
+neurons extending into the rest of the body comprise the peripheral nervous system.
+One interesting difference between the nervous systems of invertebrates and vertebrates is that the nerve cords of many invertebrates are located ventrally whereas the vertebrate spinal cords are located dorsally.
+A neuron can be compared to an electrical wire—it transmits a signal from one place to another.
+Glia can be compared to the workers at the electric company who make sure wires go to the right places, maintain the wires, and take down wires that are broken.
+Glia can be compared to the workers at the electric company who make sure wires go to the right places, maintain the wires.
+Although glia have been compared to workers, recent evidence suggests that they also usurp some of the signaling functions of neurons.
+they share several important cellular components.
+The nervous system of the common laboratory fly, Drosophila melanogaster, contains around 100,000 neurons, the same number as a lobster.
+This number compares to 75 million in the mouse and 300 million in the octopus.
+A human brain contains around 86 billion neurons.
+Despite these very different numbers, the nervous systems of these animals control many of the same behaviors—from basic reflexes to more complicated behaviors like finding food and courting mates.
+The ability of neurons to communicate with each other as well as with other types of cells underlies all of these behaviors.
+Most neurons share the same cellular components.
+But neurons are also highly specialized—different types of neurons have different sizes and shapes that relate to their functional roles.
+Dendrites are tree-like structures that extend away from the cell body to receive messages from other neurons at specialized junctions called synapses.
+Although some neurons do not have any dendrites, some types of neurons have multiple dendrites.
+Dendrites can have small protrusions called dendritic spines, which further increase surface area for possible synaptic connections.
+Once a signal is received by the dendrite, it then travels passively to the cell body.
+The cell body contains a specialized structure, the axon hillock that integrates signals from multiple synapses and serves as a junction between the cell body and an axon.
+An axon is a tube-like structure that propagates the integrated signal to specialized endings called axon terminals.
+Chemicals released at axon terminals allow signals to be communicated to these other cells.
+Neurons usually have one or two axons, but some neurons, like amacrine cells in the retina, do not contain any axons.
+Some axons are covered with myelin, which acts as an insulator to minimize dissipation of the electrical signal as it travels down the axon, greatly increasing the speed of conduction.
+This insulation is important as the axon from a human motor neuron can be as long as a meter—from the base of the spine to the toes.
+The myelin sheath is not actually part of the neuron.
+Myelin is produced by glial cells.
+Dendrites from a single neuron may receive synaptic contact from many other neurons.
+For example, dendrites from a Purkinje cell in the cerebellum are thought to receive contact from as many as 200,000 other neurons.
+They also have more specialized structures, including dendrites and axons.
+The soma is the cell body of a nerve cell.
+Myelin sheath provides an insulating layer to the dendrites.
+c. Axons carry the signal from the soma to the target.
+d. Dendrites carry the signal to the soma.
+Types of Neurons There are different types of neurons, and the functional role of a given neuron is intimately dependent on its structure.
+Types of Neurons There are different types of neurons.
+the functional role of a given neuron is intimately dependent on its structure.
+Examples include a pyramidal cell from the cerebral cortex, a Purkinje cell from the cerebellar cortex, and olfactory cells from the olfactory epithelium and olfactory bulb.
+Examples include a pyramidal cell from the cerebral cortex, a Purkinje cell from the cerebellar cortex.
+While there are many defined neuron cell subtypes, neurons are broadly divided into four basic types: unipolar, bipolar, multipolar, and pseudounipolar.
+While there are many defined neuron cell subtypes, neurons are broadly divided into four basic types: unipolar, bipolar, multipolar.
+Unipolar neurons have only one structure that extends away from the soma.
+These neurons are not found in vertebrates but are found in insects where they stimulate muscles or glands.
+A bipolar neuron has one axon and one dendrite extending from the soma.
+Multipolar neurons are the most common type of neuron.
+Each multipolar neuron contains one axon and multiple dendrites.
+Multipolar neurons can be found in the central nervous system.
+An example of a multipolar neuron is a Purkinje cell in the cerebellum, which has many branching dendrites but only one axon.
+Pseudounipolar cells share characteristics with both unipolar and bipolar cells.
+A pseudounipolar cell has a single process that extends from the soma, like a unipolar cell, but this process later branches into two distinct structures, like a bipolar cell.
+EVERYDAY CONNECTION Neurogenesis At one time, scientists believed that people were born with all the neurons they would ever have.
+Neurogenesis was first discovered in songbirds that produce new neurons while learning songs.
+For mammals, new neurons also play an important role in learning: about 1000 new neurons develop in the hippocampus each day.
+Stress has the opposite effect.
+While neurogenesis is quite limited compared to regeneration in other tissues, research in this area may lead to new treatments for disorders such as Alzheimer's, stroke, and epilepsy.
+While neurogenesis is quite limited compared to regeneration in other tissues, research in this area may lead to new treatments for disorders such as Alzheimer's, stroke.
+A researcher can inject a compound called bromodeoxyuridine into the brain of an animal.
+While all cells will be exposed to BrdU, BrdU will only be incorporated into the DNA of newly generated cells that are in S phase.
+This micrograph shows fluorescently labeled new neurons in a rat hippocampus.
+Cells that are actively dividing have bromodeoxyuridine incorporated into their DNA and are labeled in red.
+Cells that express glial fibrillary acidic protein are labeled in green.
+Astrocytes, but not neurons, express GFAP.
+Thus, cells that are labeled both red and green are actively dividing astrocytes, whereas cells labeled red only are actively dividing neurons.
+Thus, cells that are labeled both red and green are actively dividing astrocytes.
+Neurons would be unable to function without the vital roles that are fulfilled by these glial cells.
+Glia guide developing neurons to their destinations, buffer ions and chemicals that would otherwise harm neurons, and provide myelin sheaths around axons.
+Glia guide developing neurons to their destinations, buffer ions and chemicals that would otherwise harm neurons.
+Scientists have recently discovered that they also play a role in responding to nerve activity and modulating communication between nerve cells.
+When glia do not function properly, the result can be disastrous—most brain tumors are caused by mutations in glia.
+They provide nutrients and other substances to neurons, regulate the concentrations of ions and chemicals in the extracellular fluid, and provide structural support for synapses.
+They provide nutrients and other substances to neurons, regulate the concentrations of ions and chemicals in the extracellular fluid.
+Astrocytes also form the blood-brain barrier—a structure that blocks entrance of toxic substances into the brain.
+Astrocytes, in particular, have been shown through calcium imaging experiments to become active in response to nerve activity, transmit calcium waves between astrocytes, and modulate the activity of surrounding synapses.
+Astrocytes, in particular, have been shown through calcium imaging experiments to become active in response to nerve activity, transmit calcium waves between astrocytes.
+Satellite glia provide nutrients and structural support for neurons in the PNS.
+One axon can be myelinated by several oligodendrocytes, and one oligodendrocyte can provide myelin for multiple neurons.
+One axon can be myelinated by several oligodendrocytes.
+one oligodendrocyte can provide myelin for multiple neurons.
+This is distinctive from the PNS where a single Schwann cell provides myelin for only one axon as the entire Schwann cell surrounds the axon.
+Radial glia serve as scaffolds for developing neurons as they migrate to their end destinations.
+Ependymal cells line fluid-filled ventricles of the brain and the central canal of the spinal cord.
+Glial cells of the central nervous system include oligodendrocytes, astrocytes, ependymal cells, and microglial cells.
+Glial cells of the central nervous system include oligodendrocytes, astrocytes, ependymal cells.
+Oligodendrocytes form the myelin sheath around axons.
+Astrocytes provide nutrients to neurons, maintain their extracellular environment, and provide structural support.
+Astrocytes provide nutrients to neurons, maintain their extracellular environment.
+Ependymal cells produce cerebrospinal fluid that cushions the neurons.
+Glial cells of the peripheral nervous system include Schwann cells, which form the myelin sheath, and satellite cells, which provide nutrients and structural support to neurons.
+Glial cells of the peripheral nervous system include Schwann cells, which form the myelin sheath.
+All functions performed by the nervous system—from a simple motor reflex to more advanced functions like making a memory or a decision—require neurons to communicate with one another.
+While humans use words and body language to communicate, neurons use electrical and chemical signals.
+Just like a person in a committee, one neuron usually receives and synthesizes messages from multiple other neurons before "making the decision" to send the message on to other neurons.
+Nerve Impulse Transmission within a Neuron For the nervous system to function, neurons must be able to send and receive signals.
+To understand how neurons communicate, one must first understand the basis of the baseline or 'resting' membrane charge.
+Neuronal Charged Membranes The lipid bilayer membrane that surrounds a neuron is impermeable to charged molecules or ions.
+To enter or exit the neuron, ions must pass through special proteins called ion channels that span the membrane.
+Some ion channels need to be activated in order to open and allow ions to pass into or out of the cell.
+These ion channels are sensitive to the environment and can change their shape accordingly.
+Voltage-gated ion channels regulate the relative concentrations of different ions inside and outside the cell.
+After activation, they become inactivated for a brief period and will no longer open in response to a signal.
+LINK TO LEARNING This video discusses the basis of the resting membrane potential.
+This voltage is called the resting membrane potential; it is caused by differences in the concentrations of ions inside and outside the cell.
+it is caused by differences in the concentrations of ions inside and outside the cell.
+If the membrane were equally permeable to all ions, each type of ion would flow across the membrane and the system would reach equilibrium.
+When the membrane is at rest, K+ ions accumulate inside the cell due to the activity of the Na/K pump, driving both ions against their concentration gradient.
+The negative charge within the cell is created by the cell membrane being more permeable to potassium ion movement than sodium ion movement.
+In neurons, potassium ions are maintained at high concentrations within the cell while sodium ions are maintained at high concentrations outside of the cell.
+However, the neurons have far more potassium leakage channels than sodium leakage channels.
+Therefore, potassium diffuses out of the cell at a much faster rate than sodium leaks in.
+Because more cations are leaving the cell than are entering, this causes the interior of the cell to be negatively charged relative to the outside of the cell.
+It should be noted that chloride ions tend to accumulate outside of the cell because they are repelled by negatively-charged proteins within the cytoplasm.
+The resting membrane potential is a result of different concentrations inside and outside the cell.
+At the peak action potential, K+ channels open and the cell becomes hyperpolarized.
+Action Potential A neuron can receive input from other neurons and, if this input is strong enough, send the signal to downstream neurons.
+Transmission of a signal between neurons is generally carried by a chemical called a neurotransmitter.
+A stimulus from a sensory cell or another neuron depolarizes the target neuron to its threshold potential.
+Once depolarization is complete, the cell must now "reset" its membrane voltage back to the resting potential.
+This begins the neuron's refractory period, in which it cannot produce another action potential because its sodium channels will not open.
+At the same time, voltage-gated K+ channels open, allowing K+ to leave the cell.
+As K+ ions leave the cell, the membrane potential once again becomes negative and repolarizes.
+This is the result of the slow closing of the K+ channels.
+At this point, the sodium channels will return to their resting state, meaning they are ready to open again if the membrane potential again exceeds the threshold potential.
+Eventually all the K+ channels close, and the cell returns back to its resting membrane potential.
+Eventually all the K+ channels close.
+the cell returns back to its resting membrane potential.
+At the peak action potential, K+ channels open and K+ begins to leave the cell.
+The hyperpolarized membrane is in a refractory period and cannot fire.
+The action potential is conducted down the axon as the axon membrane depolarizes, then repolarizes.
+LINK TO LEARNING This video presents an overview of action potential.
+The speed of conduction of an action potential along an axon is influenced by both the diameter of the axon and the axon's resistance to current leak.
+Myelin acts as an insulator that prevents current from leaving the axon; this increases the speed of action potential conduction.
+Myelin acts as an insulator that prevents current from leaving the axon.
+this increases the speed of action potential conduction.
+In demyelinating diseases like multiple sclerosis, action potential conduction slows because current leaks from previously insulated axon areas.
+These unmyelinated spaces are about one micrometer long and contain voltage-gated Na+ and K+ channels.
+Flow of ions through these channels, particularly the Na+ channels, regenerates the action potential over and over again along the axon.
+Nodes of Ranvier also save energy for the neuron since the channels only need to be present at the nodes and not along the entire axon.
+Nodes contain voltage-gated K+ and Na+ channels.
+Action potentials travel down the axon by jumping from one node to the next.
+The synapse or "gap" is the place where information is transmitted from one neuron to another.
+Synapses usually form between axon terminals and dendritic spines, but this is not universally true.
+Note that these designations are relative to a particular synapse—most neurons are both presynaptic and postsynaptic.
+Chemical Synapse When an action potential reaches the axon terminal it depolarizes the membrane and opens voltage-gated Na+ channels.
+Na+ ions enter the cell, further depolarizing the presynaptic membrane.
+This depolarization causes voltage-gated Ca2+ channels to open.
+Calcium ions entering the cell initiate a signaling cascade that causes small membrane-bound vesicles, called synaptic vesicles, containing neurotransmitter molecules to fuse with the presynaptic membrane.
+This pseudocolored image taken with a scanning electron microscope shows an axon terminal that was broken open to reveal synaptic vesicles inside the neuron.
+The neurotransmitter diffuses across the synaptic cleft and binds to receptor proteins on the postsynaptic membrane.
+The calcium entry causes synaptic vesicles to fuse with the membrane and release neurotransmitter molecules into the synaptic cleft.
+The neurotransmitter diffuses across the synaptic cleft and binds to ligand-gated ion channels in the postsynaptic membrane, resulting in a localized depolarization or hyperpolarization of the postsynaptic neuron.
+The binding of a specific neurotransmitter causes particular ion channels, in this case ligand-gated channels, on the postsynaptic membrane to open.
+Neurotransmitters can either have excitatory or inhibitory effects on the postsynaptic membrane.
+For example, when acetylcholine is released at the synapse between a nerve and muscle by a presynaptic neuron, it causes postsynaptic Na+ channels to open.
+Na+ enters the postsynaptic cell and causes the postsynaptic membrane to depolarize.
+Release of neurotransmitter at inhibitory synapses causes inhibitory postsynaptic potentials, a hyperpolarization of the presynaptic membrane.
+For example, when the neurotransmitter GABA is released from a presynaptic neuron, it binds to and opens Cl- channels.
+Cl- ions enter the cell and hyperpolarizes the membrane, making the neuron less likely to fire an action potential.
+Once neurotransmission has occurred, the neurotransmitter must be removed from the synaptic cleft so the postsynaptic membrane can "reset" and be ready to receive another signal.
+Several drugs act at this step of neurotransmission.
+For example, some drugs that are given to Alzheimer's patients work by inhibiting acetylcholinesterase, the enzyme that degrades acetylcholine.
+This inhibition of the enzyme essentially increases neurotransmission at synapses that release acetylcholine.
+Once released, the acetylcholine stays in the cleft and can continually bind and unbind to postsynaptic receptors.
+Electrical Synapse While electrical synapses are fewer in number than chemical synapses, they are found in all nervous systems and play important and unique roles.
+The mode of neurotransmission in electrical synapses is quite different from that in chemical synapses.
+In an electrical synapse, the presynaptic and postsynaptic membranes are very close together and are actually physically connected by channel proteins forming gap junctions.
+Gap junctions allow current to pass directly from one cell to the next.
+some electrical synapses are bidirectional.
+Electrical synapses are also more reliable as they are less likely to be blocked, and they are important for synchronizing the electrical activity of a group of neurons.
+Electrical synapses are also more reliable as they are less likely to be blocked.
+they are important for synchronizing the electrical activity of a group of neurons.
+For example, electrical synapses in the thalamus are thought to regulate slow-wave sleep, and disruption of these synapses can cause seizures.
+For example, electrical synapses in the thalamus are thought to regulate slow-wave sleep.
+disruption of these synapses can cause seizures.
+Additionally, one neuron often has inputs from many presynaptic neurons—some excitatory and some inhibitory—so IPSPs can cancel out EPSPs and vice versa.
+It is the net change in postsynaptic membrane voltage that determines whether the postsynaptic cell has reached its threshold of excitation needed to fire an action potential.
+Together, synaptic summation and the threshold for excitation act as a filter so that random "noise" in the system is not transmitted as important information.
+A single neuron can receive both excitatory and inhibitory inputs from multiple neurons, resulting in local membrane depolarization and hyperpolarization.
+All these inputs are added together at the axon hillock.
+EVERYDAY CONNECTION Brain-computer interface Amyotrophic lateral sclerosis is a neurological disease characterized by the degeneration of the motor neurons that control voluntary movements.
+The disease begins with muscle weakening and lack of coordination and eventually destroys the neurons that control speech, breathing, and swallowing; in the end, the disease can lead to paralysis.
+The disease begins with muscle weakening and lack of coordination and eventually destroys the neurons that control speech, breathing, and swallowing.
+in the end, the disease can lead to paralysis.
+The disease begins with muscle weakening and lack of coordination and eventually destroys the neurons that control speech, breathing.
+swallowing; in the end, the disease can lead to paralysis.
+At that point, patients require assistance from machines to be able to breathe and to communicate.
+Several special technologies have been developed to allow "locked-in" patients to communicate with the rest of the world.
+One technology, for example, allows patients to type out sentences by twitching their cheek.
+These sentences can then be read aloud by a computer.
+This technology sounds like something out of science fiction: it allows paralyzed patients to control a computer using only their thoughts.
+Some forms use EEG recordings from electrodes taped onto the skull.
+These recordings contain information from large populations of neurons that can be decoded by a computer.
+Other forms of BCI require the implantation of an array of electrodes smaller than a postage stamp in the arm and hand area of the motor cortex.
+This form of BCI, while more invasive, is very powerful as each electrode can record actual action potentials from one or more neurons.
+These signals are then sent to a computer, which has been trained to decode the signal and feed it to a tool—such as a cursor on a computer screen.
+Recent advances have allowed a paralyzed locked-in patient who suffered a stroke 15 years ago to control a robotic arm and even to feed herself coffee using BCI technology.
+Despite the amazing advancements in BCI technology, it also has limitations.
+The technology can require many hours of training and long periods of intense concentration for the patient; it can also require brain surgery to implant the devices.
+The technology can require many hours of training and long periods of intense concentration for the patient.
+it can also require brain surgery to implant the devices.
+Synaptic Plasticity Synapses are not static structures.
+Synaptic plasticity allows for these changes, which are all needed for a functioning nervous system.
+In fact, synaptic plasticity is the basis of learning and memory.
+Long-term Potentiation Long-term potentiation is a persistent strengthening of a synaptic connection.
+LTP is based on the Hebbian principle: cells that fire together wire together.
+There are various mechanisms, none fully understood, behind the synaptic strengthening seen with LTP.
+The insertion of additional AMPA receptors strengthens the synapse and means that the postsynaptic neuron is more likely to fire in response to presynaptic neurotransmitter release.
+Some drugs of abuse co-opt the LTP pathway, and this synaptic strengthening can lead to addiction.
+Some drugs of abuse co-opt the LTP pathway.
+this synaptic strengthening can lead to addiction.
+Long-term Depression Long-term depression is essentially the reverse of LTP: it is a long-term weakening of a synaptic connection.
+The decrease in AMPA receptors in the membrane makes the postsynaptic neuron less responsive to glutamate released from the presynaptic neuron.
+While it may seem counterintuitive, LTD may be just as important for learning and memory as LTP.
+The weakening and pruning of unused synapses allows for unimportant connections to be lost and makes the synapses that have undergone LTP that much stronger by comparison.
+This stimulation causes a calcium- and CaMKII-dependent cellular cascade, which results in the insertion of more AMPA receptors into the postsynaptic membrane.
+The next time glutamate is released from the presynaptic cell, it will bind to both NMDA and the newly inserted AMPA receptors, thus depolarizing the membrane more efficiently.
+The calcium that does flow through NMDA receptors initiates a different calcineurin and protein phosphatase 1-dependent cascade, which results in the endocytosis of AMPA receptors.
+This makes the postsynaptic neuron less responsive to glutamate released from the presynaptic neuron.
+The outermost layer is the dura mater.
+thick layer is to protect the brain and spinal cord.
+The dura mater also contains vein-like structures that carry blood from the brain back to the heart.
+The middle layer is the web-like arachnoid mater.
+The last layer is the pia mater, which directly contacts and covers the brain and spinal cord like plastic wrap.
+The space between the arachnoid and pia maters is filled with cerebrospinal fluid.
+CSF is produced by a tissue called choroid plexus in fluid-filled compartments in the CNS called ventricles.
+The brain floats in CSF, which acts as a cushion and shock absorber and makes the brain neutrally buoyant.
+CSF also functions to circulate chemical substances throughout the brain and into the spinal cord.
+The entire brain contains only about 8.5 tablespoons of CSF, but CSF is constantly produced in the ventricles.
+This creates a problem when a ventricle is blocked—the CSF builds up and creates swelling and the brain is pushed against the skull.
+The cerebral cortex is covered by three layers of meninges: the dura, arachnoid, and pia maters.
+The cerebral cortex is covered by three layers of meninges: the dura, arachnoid.
+Brain The brain is the part of the central nervous system that is contained in the cranial cavity of the skull.
+It includes the cerebral cortex, limbic system, basal ganglia, thalamus, hypothalamus, and cerebellum.
+It includes the cerebral cortex, limbic system, basal ganglia, thalamus, hypothalamus.
+A thick fiber bundle called the corpus callosum connects the two hemispheres and allows information to be passed from one side to the other.
+Although there are some brain functions that are localized more to one hemisphere than the other, the functions of the two hemispheres are largely redundant.
+In fact, sometimes an entire hemisphere is removed to treat severe epilepsy.
+While patients do suffer some deficits following the surgery, they can have surprisingly few problems, especially when the surgery is performed on children who have very immature nervous systems.
+These illustrations show the coronal and sagittal sections of the human brain.
+In other surgeries to treat severe epilepsy, the corpus callosum is cut instead of removing an entire hemisphere.
+This causes a condition called split-brain, which gives insights into unique functions of the two hemispheres.
+Each cortical hemisphere contains regions called lobes that are involved in different functions.
+They also conduct animal studies where they stimulate brain areas and see if there are any behavioral changes.
+That being said, each hemisphere of the mammalian cerebral cortex can be broken down into four functionally and spatially defined lobes: frontal, parietal, temporal, and occipital.
+That being said, each hemisphere of the mammalian cerebral cortex can be broken down into four functionally and spatially defined lobes: frontal, parietal, temporal.
+The human cerebral cortex includes the frontal, parietal, temporal, and occipital lobes.
+The human cerebral cortex includes the frontal, parietal, temporal.
+The frontal lobe is located at the front of the brain, over the eyes.
+The frontal lobe also contains the motor cortex, which is important for planning and implementing movement.
+Neurons in the frontal lobe also control cognitive functions like maintaining attention, speech, and decision-making.
+Neurons in the frontal lobe also control cognitive functions like maintaining attention, speech.
+Studies of humans who have damaged their frontal lobes show that parts of this area are involved in personality, socialization, and assessing risk.
+Studies of humans who have damaged their frontal lobes show that parts of this area are involved in personality, socialization.
+Muscle groups that are neighbors in the body are generally controlled by neighboring regions of the motor cortex as well.
+The parietal lobe is located at the top of the brain.
+Neurons in the parietal lobe are involved in speech and also reading.
+The parietal lobe contains a somatosensory map of the body similar to the motor cortex.
+The occipital lobe is located at the back of the brain.
+It is primarily involved in vision—seeing, recognizing, and identifying the visual world.
+It is primarily involved in vision—seeing, recognizing.
+The temporal lobe is located at the base of the brain by your ears and is primarily involved in processing and interpreting sounds.
+It also contains the hippocampus—a structure that processes memory formation.
+His seizures went away, but he could no longer form new memories.
+Compared to other vertebrates, mammals have exceptionally large brains for their body size.
+An entire alligator's brain, for example, would fill about one and a half teaspoons.
+This increase in brain to body size ratio is especially pronounced in apes, whales, and dolphins.
+This increase in brain to body size ratio is especially pronounced in apes, whales.
+While this increase in overall brain size doubtlessly played a role in the evolution of complex behaviors unique to mammals, it does not tell the whole story.
+Scientists have found a relationship between the relatively high surface area of the cortex and the intelligence and complex social behaviors exhibited by some mammals.
+This increased surface area is due, in part, to increased folding of the cortical sheet.
+For example, a rat cortex is very smooth with very few sulci and gyri.
+Cat and sheep cortices have more sulci and gyri.
+Chimps, humans, and dolphins have even more.
+dolphins have even more.
+Within mammals, increased cortical folding and surface area is correlated with complex behavior.
+Damage to the basal ganglia, as in Parkinson's disease, leads to motor impairments like a shuffling gait when walking.
+The basal ganglia also regulate motivation.
+But when he was externally stimulated—as when someone asked to play a card game with him—he was able to function normally.
+Interestingly, he and other similar patients do not report feeling bored or frustrated by their state.
+It receives sensory and motor inputs from the body and also receives feedback from the cortex.
+This feedback mechanism can modulate conscious awareness of sensory and motor inputs depending on the attention and arousal state of the animal.
+The thalamus helps regulate consciousness, arousal, and sleep states.
+The thalamus helps regulate consciousness, arousal.
+A rare genetic disorder called fatal familial insomnia causes the degeneration of thalamic neurons and glia.
+This disorder prevents affected patients from being able to sleep, among other symptoms, and is eventually fatal.
+This disorder prevents affected patients from being able to sleep, among other symptoms.
+The limbic system regulates emotion and other behaviors.
+This relationship means that the hypothalamus regulates important behaviors that are controlled by these hormones.
+The hypothalamus is the body's thermostat—it makes sure key functions like food and water intake, energy expenditure, and body temperature are kept at appropriate levels.
+The hypothalamus is the body's thermostat—it makes sure key functions like food and water intake, energy expenditure.
+body temperature are kept at appropriate levels.
+Neurons within the hypothalamus also regulate circadian rhythms, sometimes called sleep cycles.
+Limbic System The limbic system is a connected set of structures that regulates emotion, as well as behaviors related to fear and motivation.
+It plays a role in memory formation and includes parts of the thalamus and hypothalamus as well as the hippocampus.
+The two amygdala are important both for the sensation of fear and for recognizing fearful faces.
+The cingulate gyrus helps regulate emotions and pain.
+The cerebellum controls balance and aids in coordinating movement and learning new motor tasks.
+It consists of the midbrain, medulla oblongata, and the pons.
+It consists of the midbrain, medulla oblongata.
+Motor and sensory neurons extend through the brainstem allowing for the relay of signals between the brain and spinal cord.
+Ascending neural pathways cross in this section of the brain allowing the left hemisphere of the cerebrum to control the right side of the body and vice versa.
+The brainstem controls several important functions of the body including alertness, arousal, breathing, blood pressure, digestion, heart rate, swallowing, walking, and sensory and motor information integration.
+The brainstem controls several important functions of the body including alertness, arousal, breathing, blood pressure, digestion, heart rate, swallowing, walking.
+The spinal cord is a thick bundle of nerve tissue that carries information about the body to the brain and from the brain to the body.
+Gray matter is also composed of interneurons, which connect two neurons each located in different parts of the body.
+Axons and cell bodies in the dorsal spinal cord convey mostly sensory information from the body to the brain.
+Axons and cell bodies in the ventral spinal cord primarily transmit signals controlling movement from the brain to the body.
+The spinal cord also controls motor reflexes.
+These reflexes are quick, unconscious movements—like automatically removing a hand from a hot object.
+Reflexes are so fast because they involve local synaptic connections.
+For example, the knee reflex that a doctor tests during a routine physical is controlled by a single synapse between a sensory neuron and a motor neuron.
+Because the spinal cord is the information superhighway connecting the brain with the body, damage to the spinal cord can lead to paralysis.
+The extent of the paralysis depends on the location of the injury along the spinal cord and whether the spinal cord was completely severed.
+One such treatment is to pump the body with cold saline to induce hypothermia.
+This cooling can prevent swelling and other processes that are thought to worsen spinal cord injuries.
+A cross-section of the spinal cord shows gray matter and white matter.
+The peripheral nervous system is the connection between the central nervous system and the rest of the body.
+The CNS is like the power plant of the nervous system.
+It creates the signals that control the functions of the body.
+The PNS is like the wires that go to individual houses.
+Without those "wires," the signals produced by the CNS could not control the body.
+The postganglionic neuron, in turn, acts on a target organ.
+Autonomic responses are mediated by the sympathetic and the parasympathetic systems, which are antagonistic to one another.
+The sympathetic system activates the "fight or flight" response, while the parasympathetic system activates the "rest and digest" response.
+The sympathetic system activates the "fight or flight" response.
+the parasympathetic system activates the "rest and digest" response.
+The parasympathetic pathway is responsible for resting the body, while the sympathetic pathway is responsible for preparing for an emergency.
+The parasympathetic pathway is responsible for resting the body.
+the sympathetic pathway is responsible for preparing for an emergency.
+Most preganglionic neurons in the sympathetic pathway originate in the spinal cord.
+c. Slowing of the heartbeat is a parasympathetic response.
+Parasympathetic neurons are responsible for releasing norepinephrine on the target organ, while sympathetic neurons are responsible for releasing acetylcholine.
+Parasympathetic neurons are responsible for releasing norepinephrine on the target organ.
+sympathetic neurons are responsible for releasing acetylcholine.
+The autonomic nervous system serves as the relay between the CNS and the internal organs.
+It controls the lungs, the heart, smooth muscle, and exocrine and endocrine glands.
+It controls the lungs, the heart, smooth muscle.
+The sympathetic nervous system is responsible for the "fight or flight" response that occurs when an animal encounters a dangerous situation.
+Examples of functions controlled by the sympathetic nervous system include an accelerated heart rate and inhibited digestion.
+These functions help prepare an organism's body for the physical strain required to escape a potentially dangerous situation or to fend off a predator.
+The sympathetic and parasympathetic nervous systems often have opposing effects on target organs.
+The axons of these neurons release acetylcholine on postganglionic neurons within sympathetic ganglia.
+The acetylcholine activates the postganglionic neurons.
+Postganglionic neurons then release norepinephrine onto target organs.
+system are quite pervasive.
+The axons of the preganglionic neurons release acetylcholine on the postganglionic neurons, which are generally located very near the target organs.
+Most postganglionic neurons release acetylcholine onto target organs, although some release nitric oxide.
+The parasympathetic nervous system resets organ function after the sympathetic nervous system is activated.
+Effects of acetylcholine release on target organs include slowing of heart rate, lowered blood pressure, and stimulation of digestion.
+Effects of acetylcholine release on target organs include slowing of heart rate, lowered blood pressure.
+Sensory neurons transmit sensory information from the skin, skeletal muscle, and sensory organs to the CNS.
+Sensory neurons transmit sensory information from the skin, skeletal muscle.
+Motor neurons transmit messages about desired movement from the CNS to the muscles to make them contract.
+Acetylcholine is the main neurotransmitter released at these synapses.
+Humans have 12 cranial nerves, nerves that emerge from or enter the skull, as opposed to the spinal nerves, which emerge from the vertebral column.
+Some cranial nerves transmit only sensory information.
+For example, the olfactory nerve transmits information about smells from the nose to the brainstem.
+Other cranial nerves transmit almost solely motor information.
+For example, the oculomotor nerve controls the opening and closing of the eyelid and some eye movements.
+Other cranial nerves contain a mix of sensory and motor fibers.
+For example, the glossopharyngeal nerve has a role in both taste and swallowing.
+The human brain contains 12 cranial nerves that receive sensory input and control motor output for the head and neck.
+Spinal nerves transmit sensory and motor information between the spinal cord and the rest of the body.
+Each of the 31 spinal nerves contains both sensory and motor axons.
+Each sensory neuron has one projection—with a sensory receptor ending in skin, muscle, or sensory organs—and another that synapses with a neuron in the dorsal spinal cord.
+Each sensory neuron has one projection—with a sensory receptor ending in skin, muscle.
+Motor neurons have cell bodies in the ventral gray matter of the spinal cord that project to muscle through the ventral root.
+These neurons are usually stimulated by interneurons within the spinal cord but are sometimes directly stimulated by sensory neurons.
+The somas of sensory neurons are located in dorsal root ganglia.
+The somas of motor neurons are found in the ventral portion of the gray matter of the spinal cord.
+A nervous system that functions correctly is a fantastically complex, well-oiled machine—synapses fire appropriately, muscles move when needed, memories are formed and stored, and emotions are well regulated.
+A nervous system that functions correctly is a fantastically complex, well-oiled machine—synapses fire appropriately, muscles move when needed, memories are formed and stored.
+emotions are well regulated.
+Unfortunately, each year millions of people in the United States deal with some sort of nervous system disorder.
+Neurodegenerative Disorders Neurodegenerative disorders are illnesses characterized by a loss of nervous system functioning that are usually caused by neuronal death.
+These diseases generally worsen over time as more and more neurons die.
+The symptoms of a particular neurodegenerative disease are related to where in the nervous system the death of neurons occurs.
+Spinocerebellar ataxia, for example, leads to neuronal death in the cerebellum.
+The death of these neurons causes problems in balance and walking.
+Neurodegenerative disorders include Huntington's disease, amyotrophic lateral sclerosis, Alzheimer's disease and other types of dementia disorders, and Parkinson's disease.
+Neurodegenerative disorders include Huntington's disease, amyotrophic lateral sclerosis, Alzheimer's disease and other types of dementia disorders.
+Here, Alzheimer's and Parkinson's disease will be discussed in more depth.
+Alzheimer's Disease Alzheimer's disease is the most common cause of dementia in the elderly.
+In 2012, an estimated 5.4 million Americans suffered from Alzheimer's disease, and payments for their care are estimated at $200 billion.
+In 2012, an estimated 5.4 million Americans suffered from Alzheimer's disease.
+payments for their care are estimated at $200 billion.
+Symptoms of Alzheimer's disease include disruptive memory loss, confusion about time or place, difficulty planning or executing tasks, poor judgment, and personality changes.
+Symptoms of Alzheimer's disease include disruptive memory loss, confusion about time or place, difficulty planning or executing tasks, poor judgment.
+Problems smelling certain scents can also be indicative of Alzheimer's disease and may serve as an early warning sign.
+Alzheimer's disease was named for Alois Alzheimer, a German psychiatrist who published a report in 1911 about a woman who showed severe dementia symptoms.
+Amyloid plaques, neurofibrillary tangles, and an overall shrinking of brain volume are commonly seen in the brains of Alzheimer's patients.
+an overall shrinking of brain volume are commonly seen in the brains of Alzheimer's patients.
+Loss of neurons in the hippocampus is especially severe in advanced Alzheimer's patients.
+Many research groups are examining the causes of these hallmarks of the disease.
+One form of the disease is usually caused by mutations in one of three known genes.
+This rare form of early onset Alzheimer's disease affects fewer than five percent of patients with the disease and causes dementia beginning between the ages of 30 and 60.
+The more prevalent, late-onset form of the disease likely also has a genetic component.
+One particular gene, apolipoprotein E has a variant that increases a carrier's likelihood of getting the disease.
+LINK TO LEARNING Visit this website for video links discussing genetics and Alzheimer's disease.
+Current treatments focus on managing the symptoms of the disease.
+Other clinical interventions focus on behavioral therapies like psychotherapy, sensory therapy, and cognitive exercises.
+Other clinical interventions focus on behavioral therapies like psychotherapy, sensory therapy.
+Since Alzheimer's disease appears to hijack the normal aging process, research into prevention is prevalent.
+Smoking, obesity, and cardiovascular problems may be risk factors for the disease, so treatments for those may also help to prevent Alzheimer's disease.
+cardiovascular problems may be risk factors for the disease, so treatments for those may also help to prevent Alzheimer's disease.
+Compared to a normal brain, the brain from a patient with Alzheimer's disease shows a dramatic neurodegeneration, particularly within the ventricles and hippocampus.
+Parkinson's Disease Like Alzheimer's disease, Parkinson's disease is a neurodegenerative disease.
+It was first characterized by James Parkinson in 1817.
+Each year, 50,000-60,000 people in the United States are diagnosed with the disease.
+Parkinson's disease causes the loss of dopamine neurons in the substantia nigra, a midbrain structure that regulates movement.
+Loss of these neurons causes many symptoms including tremor, slowed movement, speech changes, balance and posture problems, and rigid muscles.
+Loss of these neurons causes many symptoms including tremor, slowed movement, speech changes, balance and posture problems.
+Patients with Parkinson's disease can also exhibit psychological symptoms, such as dementia or emotional problems.
+Post-mortem analysis of brains from Parkinson's patients shows the presence of Lewy bodies—abnormal protein clumps—in dopaminergic neurons.
+The prevalence of these Lewy bodies often correlates with the severity of the disease.
+treatment is focused on easing symptoms.
+This conversion increases the overall level of dopamine neurotransmission and can help compensate for the loss of dopaminergic neurons in the substantia nigra.
+Other drugs work by inhibiting the enzyme that breaks down dopamine.
+Some, like Down Syndrome, cause intellectual deficits.
+Others specifically affect communication, learning, or the motor system.
+Others specifically affect communication, learning.
+Some disorders like autism spectrum disorder and attention deficit/hyperactivity disorder have complex symptoms.
+Autism Autism spectrum disorder is a neurodevelopmental disorder.
+Its severity differs from person to person.
+Estimates for the prevalence of the disorder have changed rapidly in the past few decades.
+Current estimates suggest that one in 88 children will develop the disorder.
+ASD is four times more prevalent in males than females.
+LINK TO LEARNING This video discusses possible reasons why there has been a recent increase in the number of people diagnosed with autism.
+A characteristic symptom of ASD is impaired social skills.
+Children with autism may have difficulty making and maintaining eye contact and reading social cues.
+They also may have problems feeling empathy for others.
+Other symptoms of ASD include repetitive motor behaviors, preoccupation with specific subjects, strict adherence to certain rituals, and unusual language use.
+Other symptoms of ASD include repetitive motor behaviors, preoccupation with specific subjects, strict adherence to certain rituals.
+Up to 30 percent of patients with ASD develop epilepsy.
+patients with some forms of the disorder also have intellectual disability.
+Because it is a spectrum disorder, other ASD patients are very functional and have good-to-excellent language skills.
+Except for some well-characterized, clearly genetic forms of autism, the causes of ASD are largely unknown.
+Variants of several genes correlate with the presence of ASD, but for any given patient, many different mutations in different genes may be required for the disease to develop.
+At a general level, ASD is thought to be a disease of "incorrect" wiring.
+Accordingly, brains of some ASD patients lack the same level of synaptic pruning that occurs in non-affected people.
+In the 1990s, a research paper linked autism to a common vaccine given to children.
+follow- up studies showed no connection between vaccines and autism.
+Treatment for autism usually combines behavioral therapies and interventions, along with medications to treat other disorders common to people with autism.
+Approximately three to five percent of children and adults are affected by attention deficit/hyperactivity disorder.
+Like ASD, ADHD is more prevalent in males than females.
+Symptoms of the disorder include inattention, executive functioning difficulties, impulsivity, and hyperactivity beyond what is characteristic of the normal developmental stage.
+Symptoms of the disorder include inattention, executive functioning difficulties, impulsivity.
+Some patients do not have the hyperactive component of symptoms and are diagnosed with a subtype of ADHD: attention deficit disorder.
+Many people with ADHD also show comorbitity, in that they develop secondary disorders in addition to ADHD.
+Examples include depression or obsessive compulsive disorder.
+The cause of ADHD is unknown, although research points to a delay and dysfunction in the development of the prefrontal cortex and disturbances in neurotransmission.
+According to studies of twins, the disorder has a strong genetic component.
+Environmental factors, including exposure to certain pesticides, may also contribute to the development of ADHD in some patients.
+Treatment for ADHD often involves behavioral therapies and the prescription of stimulant medications, which paradoxically cause a calming effect in these patients.
+Neurologist Neurologists are physicians who specialize in disorders of the nervous system.
+Neurologists are medical doctors who have attended college, medical school, and completed three to four years of neurology residency.
+Neurologists are medical doctors who have attended college, medical school.
+When examining a new patient, a neurologist takes a full medical history and performs a complete physical exam.
+For example, to check whether the hypoglossal nerve is functioning correctly, the neurologist will ask the patient to move their tongue in different ways.
+Neurologists have other tools besides a physical exam they can use to diagnose particular problems in the nervous system.
+To treat patients with neurological problems, neurologists can prescribe medications or refer the patient to a neurosurgeon for surgery.
+Mental Illnesses Mental illnesses are nervous system disorders that result in problems with thinking, mood, or relating with other people.
+Mental Illnesses Mental illnesses are nervous system disorders that result in problems with thinking, mood.
+These disorders are severe enough to affect a person's quality of life and often make it difficult for people to perform the routine tasks of daily living.
+Each newly released version of the DSM contains different symptoms and classifications as scientists learn more about these disorders, their causes, and how they relate to each other.
+Each newly released version of the DSM contains different symptoms and classifications as scientists learn more about these disorders, their causes.
+how they relate to each other.
+Schizophrenia Schizophrenia is a serious and often debilitating mental illness affecting one percent of people in the United States.
+Symptoms of the disease include the inability to differentiate between reality and imagination, inappropriate and unregulated emotional responses, difficulty thinking, and problems with social situations.
+Symptoms of the disease include the inability to differentiate between reality and imagination, inappropriate and unregulated emotional responses, difficulty thinking.
+People with schizophrenia can suffer from hallucinations and hear voices; they may also suffer from delusions.
+People with schizophrenia can suffer from hallucinations and hear voices.
+they may also suffer from delusions.
+Patients also have so-called "negative" symptoms like a flattened emotional state, loss of pleasure, and loss of basic drives.
+Patients also have so-called "negative" symptoms like a flattened emotional state, loss of pleasure.
+Many schizophrenic patients are diagnosed in their late adolescence or early 20s.
+The development of schizophrenia is thought to involve malfunctioning dopaminergic neurons and may also involve problems with glutamate signaling.
+Treatment for the disease usually requires antipsychotic medications that work by blocking dopamine receptors and decreasing dopamine neurotransmission in the brain.
+This decrease in dopamine can cause Parkinson's disease-like symptoms in some patients.
+While some classes of antipsychotics can be quite effective at treating the disease, they are not a cure, and most patients must remain medicated for the rest of their lives.
+While some classes of antipsychotics can be quite effective at treating the disease, they are not a cure.
+most patients must remain medicated for the rest of their lives.
+Depression Major depression affects approximately 6.7 percent of the adults in the United States each year and is one of the most common mental disorders.
+The exact causes of major depression are unknown and likely include both genetic and environmental risk factors.
+Some research supports the "classic monoamine hypothesis," which suggests that depression is caused by a decrease in norepinephrine and serotonin neurotransmission.
+antidepressants force a feedback loop that decreases this release.
+it may actually be an increase in norepinephrine and serotonin that causes the disease, and antidepressants force a feedback loop that decreases this release.
+Treatments for depression include psychotherapy, electroconvulsive therapy, deep-brain stimulation, and prescription medications.
+Treatments for depression include psychotherapy, electroconvulsive therapy, deep-brain stimulation.
+For example, monoamine oxidase inhibitors block the enzyme that degrades many neurotransmitters, resulting in increased neurotransmitter in the synaptic cleft.
+Selective serotonin reuptake inhibitors block the reuptake of serotonin into the presynaptic neuron.
+This blockage results in an increase in serotonin in the synaptic cleft.
+Other types of drugs such as norepinephrine-dopamine reuptake inhibitors and norepinephrine-serotonin reuptake inhibitors are also used to treat depression.
+These include chronic pain conditions, cancers of the nervous system, epilepsy disorders, and stroke.
+These include chronic pain conditions, cancers of the nervous system, epilepsy disorders.
+Epilepsy and stroke are discussed below.
+Epilepsy Estimates suggest that up to three percent of people in the United States will be diagnosed with epilepsy in their lifetime.
+While there are several different types of epilepsy, all are characterized by recurrent seizures.
+Epilepsy itself can be a symptom of a brain injury, disease, or other illness.
+Epilepsy itself can be a symptom of a brain injury, disease.
+For example, people who have intellectual disability or ASD can experience seizures, presumably because the developmental wiring malfunctions that caused their disorders also put them at risk for epilepsy.
+For many patients, however, the cause of their epilepsy is never identified and is likely to be a combination of genetic and environmental factors.
+Often, seizures can be controlled with anticonvulsant medications.
+However, for very severe cases, patients may undergo brain surgery to remove the brain area where seizures originate.
+Without the oxygen supplied by blood flow, neurons in this brain region die.
+This neuronal death can cause many different symptoms—depending on the brain area affected—including headache, muscle weakness or paralysis, speech disturbances, sensory problems, memory loss, and confusion.
+This neuronal death can cause many different symptoms—depending on the brain area affected—including headache, muscle weakness or paralysis, speech disturbances, sensory problems, memory loss.
+Stroke is often caused by blood clots and can also be caused by the bursting of a weak blood vessel.
+Strokes are extremely common and are the third most common cause of death in the United States.
+On average one person experiences a stroke every 40 seconds in the United States.
+Approximately 75 percent of strokes occur in people older than 65.
+Risk factors for stroke include high blood pressure, diabetes, high cholesterol, and a family history of stroke.
+Risk factors for stroke include high blood pressure, diabetes, high cholesterol.
+Smoking doubles the risk of stroke.
+Treatment following a stroke can include blood pressure medication and physical therapy.
+The nervous system is made up of neurons and glia.
+How Neurons Communicate Neurons are specialized cells that are capable of Neurons have charged membranes because there are sending electrical as well as chemical signals.
+Most different concentrations of ions inside and outside of neurons contain dendrites, which receive these signals, the cell.
+Voltage-gated ion channels control the and axons that send signals to other neurons or movement of ions into and out of a neuron.
+The are non-neuronal cells in the nervous system that action potential is then propagated along a myelinated support neuronal development and signaling.
+It transmits sensory and motor input molecules into the synaptic cleft.
+The Peripheral Nervous System by depolarizing or hyperpolarizing, respectively, the The peripheral nervous system contains both the postsynaptic membrane.
+Synapses are not static structures and systems.
+The sympathetic nervous system is activated can be strengthened and weakened.
+Two mechanisms in stressful situations to prepare the animal for a "fight of synaptic plasticity are long-term potentiation and or flight" response.
+system is active during restful periods.
+The brain contains structurally and functionally defined regions.
+While functions may be primarily and nurture.
+The spinal cord is the and only address symptoms.
+The parasympathetic pathway is b. Myelin sheath provides an insulating layer responsible for relaxing the body, while to the dendrites.
+The parasympathetic pathway is b. Myelin sheath provides an insulating layer responsible for relaxing the body.
+the sympathetic pathway is responsible c. Axons carry the signal from the soma to for preparing for an emergency.
+Most preganglionic neurons in the d. Dendrites carry the signal to the soma.
+sympathetic pathway originate in the spinal cord.
+Neurons contain ________, which can receive b. mitochondria signals from other neurons.
+The ________ lobe contains the visual cortex.
+a. limbic system a. Schwann cells b. corpus callosum b. oligodendrocytes c. cerebellum c. microglia d. pituitary d. astrocytes 14.
+c. parietal lobe a. astrocytes d. hippocampus b. microglia c. neurons 15.
+Phineas Gage was a 19th century railroad worker d. satellite glia who survived an accident that drove a large iron rod through his head.
+If the injury resulted in him 8.
+For a neuron to fire an action potential, its becoming temperamental and capricious what membrane must reach ________.
+Parkinson's disease is a caused by the c. voltage-gated ion channels degeneration of neurons that release ________.
+The onset and display of symptoms varies patients with ADHD.
+Their genes predispose them to 21.
+Strokes are often caused by ________.
+Stimulant medications cause new b. blood clots or burst blood vessels behavioral disorders.
+d. Dysfunction in the brain can affect many 22.
+Why is it difficult to identify the cause of many aspects of the body.
+Multiple sclerosis causes demyelination of axons 33.
+What are the main differences between the in the brain and spinal cord.
+Many neurons have only a single axon, but many 34.
+What are the main functions of the sensory- terminals at the end of the axon.
+What are the main steps in chemical 36.
+nervous system is not well-adapted to modern human life.
+What methods can be used to determine the 37.

@@ -1,0 +1,405 @@
+# Biology2e Chapter 46 — Ecosystems
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 401
+
+In the southwestern United States, rainy weather causes an increase in production of pinyon nuts, causing the deer mouse population to explode.
+Deer mice may carry a virus called Sin Nombre that causes respiratory disease in humans and has a high fatality rate.
+In 1992–1993, wet El Niño weather caused a Sin Nombre epidemic.
+Navajo healers, who were aware of the link between this disease and weather, predicted the outbreak.
+INTRODUCTION In 1993, an interesting example of ecosystem dynamics occurred when a rare lung disease struck inhabitants of the southwestern United States.
+This disease had an alarming rate of fatalities, killing more than half of early patients, many of whom were Native Americans.
+These formerly healthy young adults died from complete respiratory failure.
+The disease was unknown, and the Centers for Disease Control, the United States government agency responsible for managing potential epidemics, was brought in to investigate.
+The disease was unknown.
+With insights from traditional Navajo medicine, scientists were able to characterize the disease rapidly and institute effective health measures to prevent its spread.
+This example illustrates the importance of understanding the complexities of ecosystems and how they respond to changes in the environment.
+Life in an ecosystem is often about competition for limited resources, a characteristic of the theory of natural selection.
+Competition in communities is observed both within species and among different species.
+The resources for which organisms compete include organic material, sunlight, and mineral nutrients, which provide the energy for living processes and the matter to make up organisms' physical structures.
+The resources for which organisms compete include organic material, sunlight.
+Other critical factors influencing community dynamics are the components of its physical and geographic environment: a habitat's latitude, amount of rainfall, topography, and available species.
+Other critical factors influencing community dynamics are the components of its physical and geographic environment: a habitat's latitude, amount of rainfall, topography.
+These are all important environmental variables that determine which organisms can exist within a particular area.
+An ecosystem is a community of living organisms and their interactions with their abiotic environment.
+The shallow ocean ecosystems include extremely biodiverse coral reef ecosystems, and the deep ocean surface is known for its large numbers of plankton and krill that support it.
+The shallow ocean ecosystems include extremely biodiverse coral reef ecosystems.
+the deep ocean surface is known for its large numbers of plankton and krill that support it.
+These two environments are especially important to aerobic respirators worldwide as the phytoplankton perform 40 percent of all photosynthesis on Earth.
+Although not as diverse as the other two, deep ocean ecosystems contain a wide variety of marine organisms.
+Such ecosystems exist even at the bottom of the ocean where light is unable to penetrate through the water.
+Freshwater ecosystems are the rarest, occurring on only 1.8 percent of the Earth's surface.
+Lakes, rivers, streams, and springs comprise these systems.
+springs comprise these systems.
+They are quite diverse, and they support a variety of fish, amphibians, reptiles, insects, phytoplankton, fungi, and bacteria.
+They are quite diverse.
+they support a variety of fish, amphibians, reptiles, insects, phytoplankton, fungi.
+Terrestrial ecosystems, also known for their diversity, are grouped into large categories called biomes, such as tropical rain forests, savannas, deserts, coniferous forests, deciduous forests, and tundra.
+Terrestrial ecosystems, also known for their diversity, are grouped into large categories called biomes, such as tropical rain forests, savannas, deserts, coniferous forests, deciduous forests.
+The desert in Saguaro National Park, Arizona, has abundant plant life, while the rocky desert of Boa Vista island, Cape Verde, Africa, is devoid of plant life.
+The desert in Saguaro National Park, Arizona, has abundant plant life.
+the rocky desert of Boa Vista island, Cape Verde, Africa, is devoid of plant life.
+Ecosystems are complex with many interacting parts.
+The impact of environmental disturbances caused by human activities is as important as the changes wrought by natural processes.
+Human agricultural practices, air pollution, acid rain, global deforestation, overfishing, eutrophication, oil spills, and waste dumping on land and into the ocean are all issues of concern to conservationists.
+waste dumping on land and into the ocean are all issues of concern to conservationists.
+Equilibrium is the steady state of an ecosystem where all organisms are in balance with their environment and with each other.
+In ecology, two parameters are used to measure changes in ecosystems: resistance and resilience.
+Resistance is the ability of an ecosystem to remain at equilibrium in spite of disturbances.
+Resilience is the speed at which an ecosystem recovers equilibrium after being disturbed.
+Ecosystem resistance and resilience are especially important when considering human impact.
+The nature of an ecosystem may change to such a degree that it can lose its resilience entirely.
+This process can lead to the complete destruction or irreversible altering of the ecosystem.
+The term "food chain" is sometimes used metaphorically to describe human social situations.
+The scientific understanding of a food chain is more precise than in its everyday usage.
+Each organism in a food chain occupies what is called a trophic level.
+In many ecosystems, the bottom of the food chain consists of photosynthetic organisms, which are called primary producers.
+The organisms that consume the primary producers are herbivores: the primary consumers.
+Secondary consumers are usually carnivores that eat the primary consumers.
+Tertiary consumers are carnivores that eat other carnivores.
+Higher-level consumers feed on the next lower trophic levels, and so on, up to the organisms at the top of the food chain: the apex consumers.
+Higher-level consumers feed on the next lower trophic levels.
+These are the trophic levels of a food chain in Lake Ontario at the United States-Canada border.
+Energy and nutrients flow from photosynthetic green algae at the bottom to the top of the food chain: the Chinook salmon.
+One major factor that limits the length of food chains is energy.
+Energy is lost as heat between each trophic level due to the second law of thermodynamics.
+Each trophic level has less energy available and supports fewer organisms at the next level.
+In other words, the linear model of ecosystems, the food chain, is not completely descriptive of ecosystem structure.
+This food web shows the interactions between organisms across trophic levels in the Lake Ontario ecosystem.
+Primary producers are outlined in green, primary consumers in orange, secondary consumers in blue, and tertiary consumers in purple.
+Primary producers are outlined in green, primary consumers in orange, secondary consumers in blue.
+For example, the opossum shrimp eats both primary producers and primary consumers.
+A comparison of the two types of structural ecosystem models shows strength in both.
+Interactive Labs box, under Food underline Web,end click Step underline 1.
+Two general types of food webs are often shown interacting within a single ecosystem.
+A detrital food web consists of a base of organisms that feed on decaying organic matter, called decomposers or detritivores.
+These organisms are usually bacteria or fungi that recycle organic material back into the biotic part of the ecosystem as they themselves are consumed by other organisms.
+As all ecosystems require a method to recycle material from dead organisms, most grazing food webs have an associated detrital food web.
+It is well established by the theory of natural selection that changes in the environment play a major role in the evolution of species within an ecosystem.
+Over the last 10,000 years, these freshwater fish then became isolated from each other in different lakes.
+Depending on which lake population was studied, findings showed that these sticklebacks then either remained as one species or evolved into two species.
+The divergence of species was made possible by their use of different areas of the pond for feeding called micro niches.
+Dr. Harmon and his team created artificial pond microcosms in 250-gallon tanks and added muck from freshwater ponds as a source of zooplankton and other invertebrates to sustain the fish.
+In different experimental tanks they introduced one species of stickleback from either a single-species or double-species lake.
+Over time, the team observed that some of the tanks bloomed with algae while others did not.
+It turned out that the water from the tanks with two-species fish contained larger particles of DOC than water with single-species fish.
+This increase in DOC blocked the sunlight and prevented algal blooming.
+Conversely, the water from the single-species tank contained smaller DOC particles, allowing more sunlight penetration to fuel the algal blooms.
+Thus, the study shows that, at least in these ecosystems, the environment and the evolution of populations have reciprocal effects that may now be factored into simulation models.
+The three-spined stickleback evolved from a saltwater fish to freshwater fish.
+Some ecologists study ecosystems using controlled experimental systems, while some study entire ecosystems in their natural state, and others use both approaches.
+Some ecologists study ecosystems using controlled experimental systems, while some study entire ecosystems in their natural state.
+others use both approaches.
+Some ecologists study ecosystems using controlled experimental systems.
+A holistic ecosystem model attempts to quantify the composition, interaction, and dynamics of entire ecosystems; it is the most representative of the ecosystem in its natural state.
+A holistic ecosystem model attempts to quantify the composition, interaction, and dynamics of entire ecosystems.
+it is the most representative of the ecosystem in its natural state.
+A holistic ecosystem model attempts to quantify the composition, interaction.
+dynamics of entire ecosystems; it is the most representative of the ecosystem in its natural state.
+A food web is an example of a holistic ecosystem model.
+However, this type of study is limited by time and expense, as well as the fact that it is neither feasible nor ethical to do experiments on large natural ecosystems.
+It is difficult to quantify all different species in an ecosystem and the dynamics in their habitat, especially when studying large habitats such as the Amazon Rainforest.
+For these reasons, scientists study ecosystems under more controlled conditions.
+A major limitation to these approaches is that removing individual organisms from their natural ecosystem or altering a natural ecosystem through partitioning may change the dynamics of the ecosystem.
+These changes are often due to differences in species numbers and diversity and also to environment alterations caused by partitioning or recreating the natural habitat.
+Thus, these types of experiments are not totally predictive of changes that would occur in the ecosystem from which they were gathered.
+Scientists use the data generated by these experimental studies to develop ecosystem models that demonstrate the structure and dynamics of ecosystems.
+They use three basic types of ecosystem modeling in research and ecosystem management: a conceptual model, an analytical model, and a simulation model.
+They use three basic types of ecosystem modeling in research and ecosystem management: a conceptual model, an analytical model.
+A conceptual model is an ecosystem model that consists of flow charts to show interactions of different compartments of the living and nonliving components of the ecosystem.
+A conceptual model describes ecosystem structure and dynamics and shows how environmental disturbances affect the ecosystem.
+An analytical model is an ecosystem model that is created using simple mathematical formulas to predict the effects of environmental disturbances on ecosystem structure and dynamics.
+Conceptual Models Conceptual models are useful for describing ecosystem structure and dynamics and for demonstrating the relationships between different organisms in a community and their environment.
+Conceptual models are usually depicted graphically as flow charts.
+The organisms and their resources are grouped into specific compartments with arrows showing the relationship and transfer of energy or nutrients between them.
+Thus, these diagrams are sometimes called compartment models.
+This conversion is greatly accelerated by the combustion of fossil fuels by humans, which releases large amounts of carbon dioxide into the atmosphere.
+This is thought to be a major factor in the rise of the atmospheric carbon dioxide levels in the industrial age.
+The carbon dioxide released from burning fossil fuels is produced faster than photosynthetic organisms can use it.
+This process is intensified by the reduction of photosynthetic trees because of worldwide deforestation.
+Most scientists agree that high atmospheric carbon dioxide is a major cause of global climate change.
+Conceptual models are also used to show the flow of energy through particular ecosystems.
+This study shows the energy content and transfer between various ecosystem compartments.
+This conceptual model shows the flow of energy through a spring ecosystem in Silver Springs, Florida.
+The major limitation of conceptual models is their inability to predict the consequences of changes in ecosystem species and/or environment.
+Ecosystems are dynamic entities and subject to a variety of abiotic and biotic disturbances caused by natural forces and/or human activity.
+Ecosystems altered from their initial equilibrium state can often recover from such disturbances and return to a state of equilibrium.
+As most ecosystems are subject to periodic disturbances and are often in a state of change, they are usually either moving toward or away from their equilibrium state.
+Although analytical models have great potential, their simplification of complex ecosystems is thought to limit their accuracy.
+Simulation models that use computer programs are better able to deal with the complexities of ecosystem structure.
+These simulations are considered to be the most accurate and predictive of the complex responses of ecosystems to disturbances.
+LINK TO LEARNING Visit The Darwin Project to view a variety of ecosystem models, including simulations that model predator-prey relationships to learn more.
+All living things require energy in one form or another.
+Living organisms would not be able to assemble macromolecules from their monomeric subunits without a constant energy input.
+It is important to understand how organisms acquire energy and how that energy is passed from one organism to another through food webs and their constituent food chains.
+Food webs illustrate how energy flows directionally through ecosystems, including how efficiently organisms acquire it, use it, and how much remains for use by other organisms of the food web.
+Food webs illustrate how energy flows directionally through ecosystems, including how efficiently organisms acquire it, use it.
+Photosynthetic autotrophs use sunlight as an energy source, whereas chemosynthetic autotrophs use inorganic molecules as an energy source.
+Photosynthetic autotrophs use sunlight as an energy source.
+chemosynthetic autotrophs use inorganic molecules as an energy source.
+Autotrophs are critical for all ecosystems.
+Photoautotrophs, such as plants, algae, and photosynthetic bacteria, serve as the energy source for a majority of the world's ecosystems.
+photosynthetic bacteria, serve as the energy source for a majority of the world's ecosystems.
+These ecosystems are often described by grazing food webs.
+Photoautotrophs harness the solar energy of the sun by converting it to chemical energy in the form of ATP.
+The energy stored in ATP is used to synthesize complex organic molecules, such as glucose.
+Many chemoautotrophs in hydrothermal vents use hydrogen sulfide, which is released from the vents as a source of chemical energy.
+This allows chemoautotrophs to synthesize complex organic molecules, such as glucose, for their own energy and in turn supplies energy to the rest of the ecosystem.
+As no sunlight penetrates to this depth, the ecosystem is supported by chemoautotrophic bacteria and organic material that sinks from the ocean's surface.
+This picture was taken in 2006 at the submerged NW Eifuku volcano off the coast of Japan by the National Oceanic and Atmospheric Administration.
+The summit of this highly active volcano lies 1535 m below the surface.
+Productivity within Trophic Levels Productivity within an ecosystem can be defined as the percentage of energy entering the ecosystem incorporated into biomass in a particular trophic level.
+Biomass is the total mass, in a unit area at the time of measurement, of living or previously living organisms within a trophic level.
+Ecosystems have characteristic amounts of biomass at each trophic level.
+The productivity of the primary producers is especially important in any ecosystem because these organisms bring energy to other living organisms by photoautotrophy or chemoautotrophy.
+In this ecosystem, the total energy accumulated by the primary producers was shown to be 20,810 kcal/m2/yr.
+Net primary productivity is the energy that remains in the primary producers after accounting for the organisms' respiration and heat loss.
+The net productivity is then available to the primary consumers at the next trophic level.
+In biologic systems, this energy takes the form of metabolic heat, which is lost when the organisms consume other organisms.
+In Silver Springs, the TLTE between the first two trophic levels was approximately 14.48 percent.
+The low efficiency of energy transfer between trophic levels is usually the major factor that limits the length of food chains observed in a food web.
+The fact is, after four to six energy transfers, there is not enough energy left to support another trophic level.
+Ecologists have many different methods of measuring energy transfers within ecosystems.
+Measurement difficulty depends on the complexity of the ecosystem and how much access scientists have to observe the ecosystem.
+In other words, some ecosystems are more difficult to study than others, and sometimes the quantification of energy transfers has to be estimated.
+In other words, some ecosystems are more difficult to study than others.
+sometimes the quantification of energy transfers has to be estimated.
+Other parameters are important in characterizing energy flow within an ecosystem.
+Net consumer productivity is the energy content available to the organisms of the next trophic level.
+Incomplete ingestion refers to the fact that some consumers eat only a part of their food.
+For example, when a lion kills an antelope, it will eat everything except the hide and bones.
+The lion is missing the energy-rich bone marrow inside the bone, so the lion does not make use of all the calories its prey could provide.
+The extra heat generated in endotherms, although an advantage in terms of the activity of these organisms in colder environments, is a major disadvantage in terms of NPE.
+Therefore, many endotherms have to eat more often than ectotherms to get the energy they need for survival.
+In general, NPE for ectotherms is an order of magnitude higher than for endotherms.
+For example, the NPE for a caterpillar eating leaves has been measured at 18 percent, whereas the NPE for a squirrel eating acorns may be as low as 1.6 percent.
+For example, the NPE for a caterpillar eating leaves has been measured at 18 percent.
+the NPE for a squirrel eating acorns may be as low as 1.6 percent.
+The inefficiency of energy use by warm-blooded animals has broad implications for the world's food supply.
+The same energy content of milk from cattle is also costly, at approximately $0.16 per 1000 kcal.
+The structure of ecosystems can be visualized with ecological pyramids, which were first described by the pioneering studies of Charles Elton in the 1920s.
+Ecological pyramids show the relative amounts of various parameters across trophic levels.
+Pyramids of numbers can be either upright or inverted, depending on the ecosystem.
+However, during the summer in a temperate forest, the base of the pyramid consists of few trees compared with the number of primary consumers, mostly insects.
+Because trees are large, they have great photosynthetic capability, and dominate other plants in this ecosystem to obtain sunlight.
+Because trees are large, they have great photosynthetic capability.
+Even in smaller numbers, primary producers in forests are still capable of supporting other trophic levels.
+Another way to visualize ecosystem structure is with pyramids of biomass.
+energy converted into living tissue at the different trophic levels.
+The plants of the Silver Springs ecosystem make up a large percentage of the biomass found there.
+However, the phytoplankton in the English Channel example make up less biomass than the primary consumers, the zooplankton.
+The phytoplankton are consumed rapidly by the primary consumers, thus, minimizing their biomass at any particular point in time.
+However, phytoplankton reproduce quickly, thus they are able to support the rest of the ecosystem.
+Pyramid ecosystem modeling can also be used to show energy flow through the trophic levels.
+Pyramids of energy are always upright, and an ecosystem without sufficient primary productivity cannot be supported.
+Pyramids of energy are always upright.
+All types of ecological pyramids are useful for characterizing ecosystem structure.
+Pyramids depicting the number of organisms or biomass may be inverted, upright, or even diamond-shaped.
+Pyramids depicting the number of organisms or biomass may be inverted, upright.
+Energy pyramids, however, are always upright.
+Consequences of Food Webs: Biological Magnification One of the most important environmental consequences of ecosystem dynamics is biomagnification.
+Biomagnification is the increasing concentration of persistent, toxic substances in organisms at each trophic level, from the primary producers to the apex consumers.
+Many substances have been shown to bioaccumulate, including the pesticide dichlorodiphenyltrichloroethane, which was described in the 1960s bestseller, Silent Spring, by marine biologist Rachel Carson.
+DDT was a commonly used pesticide before its dangers became known.
+Thus, the birds accumulated sufficient amounts of DDT to cause fragility in their eggshells.
+This effect increased egg breakage during nesting and was shown to have adverse effects on these bird populations.
+Carson's combination of scientific knowledge and illuminating writing helped raise awareness about overall environmental issues as well as the specifics of the pesticide.
+The use of DDT was banned in the United States in the 1970s.
+These substances were best studied in aquatic ecosystems, where fish species at different trophic levels accumulate toxic substances brought through the ecosystem by the primary producers.
+The apex consumer has more than four times the amount of PCBs compared to phytoplankton.
+Also, based on results from other studies, birds that eat these fish may have PCB levels at least one order of magnitude higher than those found in the lake fish.
+This chart shows the PCB concentrations found at the various trophic levels in the Saginaw Bay ecosystem of Lake Huron.
+Other concerns have been raised by the accumulation of heavy metals, such as mercury and cadmium, in certain types of seafood.
+The United States Environmental Protection Agency recommends that pregnant people and young children should not consume any swordfish, shark, king mackerel, or tilefish because of their high mercury content.
+The United States Environmental Protection Agency recommends that pregnant people and young children should not consume any swordfish, shark, king mackerel.
+These individuals are advised to eat fish low in mercury: salmon, tilapia, shrimp, pollock, and catfish.
+These individuals are advised to eat fish low in mercury: salmon, tilapia, shrimp, pollock.
+Biomagnification is a good example of how ecosystem dynamics can affect our everyday lives, even influencing the food we eat.
+Energy flows directionally through ecosystems, entering as sunlight and leaving as heat during the many transfers between trophic levels.
+However, the matter that makes up living organisms is conserved and recycled.
+erosion, water drainage, and the subduction of the tectonic plates, all play a role in this recycling of materials.
+the subduction of the tectonic plates, all play a role in this recycling of materials.
+Water contains hydrogen and oxygen, which is essential to all living processes.
+The hydrosphere is the area of the Earth where water movement and storage occurs.
+On or beneath the surface, water occurs in liquid or solid form in rivers, lakes, oceans, groundwater, polar ice caps, and glaciers.
+On or beneath the surface, water occurs in liquid or solid form in rivers, lakes, oceans, groundwater, polar ice caps.
+And it occurs as water vapor in the atmosphere.
+Carbon is found in all organic macromolecules and is an important constituent of fossil fuels.
+Nitrogen is a major component of our nucleic acids and proteins and is critical to human agriculture.
+Sulfur is critical to the 3-D folding of proteins, such as in disulfide binding.
+For example, the movement of water is critical for the leaching of nitrogen and phosphate into rivers, lakes, and oceans.
+For example, the movement of water is critical for the leaching of nitrogen and phosphate into rivers, lakes.
+Furthermore, the ocean itself is a major reservoir for carbon.
+Thus, mineral nutrients are cycled, either rapidly or slowly, through the entire biosphere, from one living organism to another, and between the biotic and abiotic world.
+Thus, mineral nutrients are cycled, either rapidly or slowly, through the entire biosphere, from one living organism to another.
+The Water Cycle Water is the basis of all living processes on Earth.
+Of the remaining water, 99 percent is locked underground as water or as ice.
+Thus, less than 1 percent of fresh water is easily accessible from lakes and rivers.
+Many living things, such as plants, animals, and fungi, are dependent on that small amount of fresh surface water, a lack of which can have massive effects on ecosystem dynamics.
+fungi, are dependent on that small amount of fresh surface water, a lack of which can have massive effects on ecosystem dynamics.
+To be successful, organisms must adapt to fluctuating water supplies.
+Humans, of course, have developed technologies to increase water availability, such as digging wells to harvest groundwater, storing rainwater, and using desalination to obtain drinkable water from the ocean.
+Humans, of course, have developed technologies to increase water availability, such as digging wells to harvest groundwater, storing rainwater.
+Water cycling is extremely important to ecosystem dynamics.
+Water has a major influence on climate and, thus, on the environments of ecosystems.
+Residence time is a measure of the average time an individual water molecule stays in a particular reservoir.
+This graph shows the average residence time for water molecules in the Earth's water reservoirs.
+The water cycle is driven by the sun's energy as it warms the oceans and other surface waters.
+Over time, this water vapor condenses into clouds as liquid or frozen droplets and is eventually followed by precipitation, which returns water to the Earth's surface.
+Rain eventually permeates into the ground, where it may evaporate again if it is near the surface, flow beneath the surface, or be stored for long periods.
+Rain eventually permeates into the ground, where it may evaporate again if it is near the surface, flow beneath the surface.
+Runoff can then make its way through streams and lakes to the oceans or flow directly to the oceans themselves.
+Rain and surface runoff are major ways in which minerals, including carbon, nitrogen, phosphorus, and sulfur, are cycled from land to water.
+Rain and surface runoff are major ways in which minerals, including carbon, nitrogen, phosphorus.
+sulfur, are cycled from land to water.
+The environmental effects of runoff will be discussed later as these cycles are described.
+Precipitated water may enter freshwater bodies or infiltrate the soil.
+The cycle is complete when surface or groundwater reenters the ocean.
+The Carbon Cycle Carbon is the second most abundant element in living organisms.
+Carbon is present in all organic molecules, and its role in the structure of macromolecules is of primary importance to living organisms.
+Carbon is present in all organic molecules.
+its role in the structure of macromolecules is of primary importance to living organisms.
+respiration cycles the organic carbon back into carbon dioxide gas.
+Long-term storage of organic carbon occurs when matter from living organisms is buried deep underground and becomes fossilized.
+Volcanic activity and, more recently, human emissions, bring this stored carbon back into the carbon cycle.
+The Biological Carbon Cycle Living organisms are connected in many ways, even between ecosystems.
+A good example of this connection is the exchange of carbon between autotrophs and heterotrophs within and between ecosystems by way of atmospheric carbon dioxide.
+Carbon dioxide is the basic building block that most autotrophs use to build multicarbon, high energy compounds, such as glucose.
+The energy harnessed from the sun is used by these organisms to form the covalent bonds that link carbon atoms together.
+These chemical bonds thereby store this energy for later use in the process of respiration.
+However carbon dioxide is acquired, a by-product of the process is oxygen.
+The photosynthetic organisms are responsible for creating the oxygen content of our atmosphere; oxygen makes up approximately 21 percent of the atmosphere that we observe today.
+The photosynthetic organisms are responsible for creating the oxygen content of our atmosphere.
+oxygen makes up approximately 21 percent of the atmosphere that we observe today.
+Heterotrophs and autotrophs are partners in biological carbon exchange.
+Heterotrophs acquire the high-energy carbon compounds from the autotrophs by consuming them, and breaking them down by respiration to obtain cellular energy, such as ATP.
+Heterotrophs acquire the high-energy carbon compounds from the autotrophs by consuming them.
+The most efficient type of respiration, aerobic respiration, requires oxygen obtained from the atmosphere or dissolved in water.
+Gas exchange through the atmosphere and water is one way that the carbon cycle connects all living organisms on Earth.
+As stated, the atmosphere is a major reservoir of carbon in the form of carbon dioxide and is essential to the process of photosynthesis.
+The level of carbon dioxide in the atmosphere is greatly influenced by the reservoir of carbon in the oceans.
+The exchange of carbon between the atmosphere and water reservoirs influences how much carbon is found in each location, and each one affects the other reciprocally.
+The exchange of carbon between the atmosphere and water reservoirs influences how much carbon is found in each location.
+each one affects the other reciprocally.
+The equilibrium coefficients are such that more than 90 percent of the carbon in the ocean is found as bicarbonate ions.
+Some of these ions combine with seawater calcium to form calcium carbonate, a major component of marine organism shells.
+These organisms eventually form sediments on the ocean floor.
+On land, carbon is stored in soil as a result of the decomposition of living organisms or from weathering of terrestrial rock and minerals.
+This carbon can be leached into the water reservoirs by surface runoff.
+A nonrenewable resource, such as fossil fuel, is either regenerated very slowly or not at all.
+Another way for carbon to enter the atmosphere is from land by the eruption of volcanoes and other geothermal systems.
+Carbon sediments from the ocean floor are taken deep within the Earth by the process of subduction: the movement of one tectonic plate beneath another.
+Carbon is released as carbon dioxide when a volcano erupts or from volcanic hydrothermal vents.
+Humans contribute to atmospheric carbon by the burning of fossil fuels and other materials.
+Since the Industrial Revolution, humans have significantly increased the release of carbon and carbon compounds, which has in turn affected the climate and overall environment.
+Animal husbandry by humans also increases atmospheric carbon.
+This is another example of how human activity indirectly affects biogeochemical cycles in a significant way.
+The Nitrogen Cycle Getting nitrogen into the living world is difficult.
+Nitrogen enters the living world via free-living and symbiotic bacteria, which incorporate nitrogen into their macromolecules through nitrogen fixation.
+Cyanobacteria live in most aquatic ecosystems where sunlight is present; they play a key role in nitrogen fixation.
+Cyanobacteria live in most aquatic ecosystems where sunlight is present.
+they play a key role in nitrogen fixation.
+Cyanobacteria are able to use inorganic sources of nitrogen to "fix" nitrogen.
+Rhizobium bacteria live symbiotically in the root nodules of legumes and provide them with the organic nitrogen they need.
+(For example, gardeners often grow peas both for their produce and to naturally add nitrogen to the soil.
+Free-living bacteria, such as Azotobacter, are also important nitrogen fixers.
+Organic nitrogen is especially important to the study of ecosystem dynamics since many ecosystem processes, such as primary production and decomposition, are limited by the available supply of nitrogen.
+This process occurs in three steps in terrestrial systems: ammonification, nitrification, and denitrification.
+This process occurs in three steps in terrestrial systems: ammonification, nitrification.
+First, the ammonification process converts nitrogenous waste from living animals or from the remains of dead animals into ammonium by certain bacteria and fungi.
+Second, the ammonium is converted to nitrites by nitrifying bacteria, such as Nitrosomonas, through nitrification.
+Subsequently, nitrites are converted to nitrates by similar organisms.
+Third, the process of denitrification occurs, whereby bacteria, such as Pseudomonas and Clostridium, convert the nitrates into nitrogen gas, allowing it to reenter the atmosphere.
+This nitrogen and nitrogenous waste from animals is then processed back into gaseous nitrogen by soil bacteria, which also supply terrestrial food webs with the organic nitrogen they need.
+a. Ammonification converts organic nitrogenous matter from living organisms into ammonium.
+b. Denitrification by bacteria converts nitrates to nitrogen gas.
+c. Nitrification by bacteria converts nitrates to nitrites.
+A major effect from fertilizer runoff is saltwater and freshwater eutrophication, a process whereby nutrient runoff causes the excess growth of microorganisms, depleting dissolved oxygen levels and killing ecosystem fauna.
+A similar process occurs in the marine nitrogen cycle, where the ammonification, nitrification, and denitrification processes are performed by marine bacteria.
+A similar process occurs in the marine nitrogen cycle, where the ammonification, nitrification.
+denitrification processes are performed by marine bacteria.
+Phosphorus occurs in nature as the phosphate ion.
+This rock has its origins in the ocean.
+Phosphate-containing ocean sediments form primarily from the bodies of ocean organisms and from their excretions.
+However, in remote regions, volcanic ash, aerosols, and mineral dust may also be significant phosphate sources.
+mineral dust may also be significant phosphate sources.
+This sediment then is moved to land over geologic time by the uplifting of areas of the Earth's surface.
+Phosphorus is also reciprocally exchanged between phosphate dissolved in the ocean and marine ecosystems.
+In nature, phosphorus exists as the phosphate ion.
+Phosphate enters the oceans via surface runoff, groundwater flow, and river flow.
+Phosphate enters the oceans via surface runoff, groundwater flow.
+Phosphate dissolved in ocean water cycles into marine food webs.
+Some phosphate from the marine food webs falls to the ocean floor, where it forms sediment.
+Worldwide, large dead zones are found in coastal areas of high population density.
+The number of dead zones has been increasing for several years, and more than 400 of these zones were present as of 2008.
+The number of dead zones has been increasing for several years.
+This satellite image shows the Chesapeake Bay, an ecosystem affected by phosphate and nitrate runoff.
+A member of the Army Corps of Engineers holds a clump of oysters being used as a part of the oyster restoration effort in the bay.
+The Chesapeake Bay has long been valued as one of the most scenic areas on Earth; it is now in distress and is recognized as a declining ecosystem.
+The Chesapeake Bay has long been valued as one of the most scenic areas on Earth.
+it is now in distress and is recognized as a declining ecosystem.
+Several species have declined in the Chesapeake Bay due to surface water runoff containing excess nutrients from artificial fertilizer used on land.
+The source of the fertilizers is not limited to agricultural practices.
+Thus, the decline of the Chesapeake Bay is a complex issue and requires the cooperation of industry, agriculture, and everyday homeowners.
+Thus, the decline of the Chesapeake Bay is a complex issue and requires the cooperation of industry, agriculture.
+Oyster harvesting was once a major industry for Chesapeake Bay, but it declined 88 percent between 1982 and 2007.
+This decline was due not only to fertilizer runoff and dead zones but also to overharvesting.
+Oysters require a certain minimum population density because they must be in close proximity to reproduce.
+Human activity has altered the oyster population and locations, greatly disrupting the ecosystem.
+The restoration of the oyster population in the Chesapeake Bay has been ongoing for several years with mixed success.
+Not only do many people find oysters good to eat, but they also clean up the bay.
+Oysters are filter feeders, and as they eat, they clean the water around them.
+Oysters are filter feeders.
+as they eat, they clean the water around them.
+In the 1700s, it was estimated that it took only a few days for the oyster population to filter the entire volume of the bay.
+Today, with changed water conditions, it is estimated that the present population would take nearly a year to do the same job.
+Restoration efforts have been ongoing for several years by nonprofit organizations, such as the Chesapeake Bay Foundation.
+The restoration goal is to find a way to increase population density so the oysters can reproduce more efficiently.
+The Sulfur Cycle Sulfur is an essential element for the macromolecules of living things.
+Weathering of rocks also makes sulfates available to terrestrial ecosystems.
+Decomposition of living organisms returns sulfates to the ocean, soil, and atmosphere.
+Decomposition of living organisms returns sulfates to the ocean, soil.
+Atmospheric sulfur is found in the form of sulfur dioxide, and as rain falls through the atmosphere, sulfur is dissolved in the form of weak sulfurous acid.
+Atmospheric sulfur is found in the form of sulfur dioxide.
+as rain falls through the atmosphere, sulfur is dissolved in the form of weak sulfurous acid.
+Sulfur can also fall directly from the atmosphere in a process called fallout.
+Also, the weathering of sulfur-containing rocks releases sulfur into the soil.
+These rocks originate from ocean sediments that are moved to land by the geologic uplifting of ocean sediments.
+Sulfur enters the ocean via runoff from land, from atmospheric fallout, and from underwater geothermal vents.
+Sulfur enters the ocean via runoff from land, from atmospheric fallout.
+Human activities have played a major role in altering the balance of the global sulfur cycle.
+The burning of large quantities of fossil fuels, especially from coal, releases larger amounts of sulfur dioxide and hydrogen sulfide gas into the atmosphere.
+Acid rain is caused by rainwater falling to the ground through mostly sulfur dioxide gas, turning it into weak sulfurous acid.
+For example, many marble monuments, such as the Lincoln Memorial in Washington, DC, have suffered significant damage from acid rain over the years.
+Modeling of ecosystem energy is best done with Ecosystems exist on land, at sea, in the air, and ecological pyramids of energy, although other underground.
+Modeling of ecosystem energy is best done with Ecosystems exist on land, at sea, in the air.
+Different ways of modeling ecosystems ecological pyramids provide other vital information are necessary to understand how environmental about ecosystem structure.
+disturbances will affect ecosystem structure and dynamics.
+Conceptual models are useful to show the 46.3 Biogeochemical Cycles general relationships between organisms and the flow Mineral nutrients are cycled through ecosystems and of materials or energy between them.
+Of particular importance are water, models are used to describe linear food chains, and carbon, nitrogen, phosphorus, and sulfur.
+Of particular importance are water, models are used to describe linear food chains.
+All of these simulation models work best with holistic food webs.
+cycles have major impacts on ecosystem structure and 46.2 Energy Flow through Ecosystems function.
+A variety of human activities, such as pollution, oil spills, and other events have damaged Organisms in an ecosystem acquire energy in a variety ecosystems, potentially causing global climate change.
+other events have damaged Organisms in an ecosystem acquire energy in a variety ecosystems, potentially causing global climate change.
+Energy pyramids, d. Nitrogen fixing bacteria convert nitrogen however, are always upright.
+A re-created ecosystem in a laboratory a. resistance environment is known as a ________.
+Decomposers are associated with which class of 13.
+The primary producers in an ocean grazing food web are usually ________.
+In the English Channel ecosystem, the number a. analytical modeling of primary producers is smaller than the number b. simulation modeling of primary consumers because________.
+c. conceptual modeling a. the apex consumers have a low turnover d. individual-based modeling rate b.
+the primary producers have a low turnover 9.
+The position of an organism along a food chain is rate known as its ________.
+the primary producers have a high a. locus turnover rate b. location d.
+the primary consumers have a high c. trophic level turnover rate d. microcosm 16.
+What law of chemistry determines how much 10.
+a. primary producers a. the first law of thermodynamics b.
+A food chain would be a better resource than a 17.
+Carbon is present in the atmosphere as organic molecules is called ________.
+Which of the following approaches would be the 20.
+The average time a molecule spends in its c. Increase use of fuel sources that do not reservoir is known as ________.
+a. Nitrogen could no longer be fixed into 22.
+growth of microorganisms due to excess b. Phosphorus stores would be released for nutrients in aquatic systems is called ________.
+c. retrofication d. Carbon would accumulate in dead organic d. depletion matter and waste.
+What are the strengths of each concept in 33.
+What does this convey to readers about 28.
+and how well they describe ecosystem structure.

@@ -1,0 +1,287 @@
+# Biology2e Chapter 19 — The Evolution of Populations
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 283
+
+Living things may be single-celled or complex, multicellular organisms.
+They may be plants, animals, fungi, bacteria, or archaea.
+They may be plants, animals, fungi, bacteria.
+This diversity results from evolution.
+Scientists consider evolution a key concept to understanding life.
+However, natural selection can only, as its name implies, select—it cannot create.
+We can attribute novel traits and behaviors to another evolutionary force—mutation.
+Mutation and other sources of variation among individuals, as well as the evolutionary forces that act upon them, alter populations and species.
+This combination of processes has led to the world of life we see today.
+People did not understand the mechanisms of inheritance, or genetics, at the time Charles Darwin and Alfred Russel Wallace were developing their idea of natural selection.
+People did not understand the mechanisms of inheritance.
+genetics, at the time Charles Darwin and Alfred Russel Wallace were developing their idea of natural selection.
+The predominant genetic theory of the time, blending inheritance, made it difficult to understand how natural selection might operate.
+Darwin and Wallace were unaware of the Austrian monk Gregor Mendel's 1866 publication "Experiments in Plant Hybridization", which came out not long after Darwin's book, On the Origin of Species.
+Scholars rediscovered Mendel's work in the early twentieth century at which time geneticists were rapidly coming to an understanding of the basics of inheritance.
+Initially, the newly discovered particulate nature of genes made it difficult for biologists to understand how gradual evolution could occur.
+Generally, this concept is accepted today.
+The theory also connects population change over time, with the processes that gave rise to new species and higher taxonomic groups with widely divergent characters.
+EVERYDAY CONNECTION Evolution and Flu Vaccines Every fall, the media starts reporting on flu vaccinations and potential outbreaks.
+Scientists, health experts, and institutions determine recommendations for different parts of the population, predict optimal production and inoculation schedules, create vaccines, and set up clinics to provide inoculations.
+institutions determine recommendations for different parts of the population, predict optimal production and inoculation schedules, create vaccines.
+You may think of the annual flu shot as media hype, an important health protection, or just a briefly uncomfortable prick in your arm.
+You may think of the annual flu shot as media hype, an important health protection.
+The media hype of annual flu shots is scientifically grounded in our understanding of evolution.
+Each year, scientists across the globe strive to predict the flu strains that they anticipate as most widespread and harmful in the coming year.
+They base this knowledge on how flu strains have evolved over time and over the past few flu seasons.
+Scientists then work to create the most effective vaccine to combat those selected strains.
+Pharmaceutical companies produce hundreds of millions of doses in a short period in order to provide vaccinations to key populations at the optimal time.
+Because viruses, like the flu, evolve very quickly, this poses quite a challenge.
+Evolution of these viruses means continued adaptations to ensure survival, including adaptations to survive previous vaccines.
+Population Genetics Recall that a gene for a particular character may have several alleles, or variants, that code for different traits associated with that character.
+Population Genetics Recall that a gene for a particular character may have several alleles.
+For example, in the ABO blood type system in humans, three alleles determine the particular blood-type carbohydrate on the surface of red blood cells.
+Mendel followed alleles as they were inherited from parent to offspring.
+In the early twentieth century, biologists in the area of population genetics began to study how selective forces change a population through changes in allele and genotypic frequencies.
+The allele frequency is the rate at which a specific allele appears within a population.
+Until now we have discussed evolution as a change in the characteristics of a population of organisms, but behind that phenotypic change is genetic change.
+In population genetics, scientists define the term evolution as a change in the allele's frequency in a population.
+For 1 example, a study in Jordan found a frequency of IA to be 26.1 percent.
+The IB and I0 alleles comprise 13.4 percent and 60.5 percent of the alleles respectively, and all of the frequencies added up to 100 percent.
+The IB and I0 alleles comprise 13.4 percent and 60.5 percent of the alleles respectively.
+all of the frequencies added up to 100 percent.
+A change in this frequency over time would constitute evolution in the population.
+The allele frequency within a given population can change depending on environmental factors; therefore, certain alleles become more widespread than others during the natural selection process.
+The allele frequency within a given population can change depending on environmental factors.
+therefore, certain alleles become more widespread than others during the natural selection process.
+Natural selection can alter the population's genetic makeup.
+Over time, the allele will spread throughout the population.
+The gene pool is the sum of all the alleles in a population.
+Natural selection and genetic drift usually occur simultaneously in populations and are not isolated events.
+It is hard to determine which process dominates because it is often nearly impossible to determine the cause of change in allele frequencies at each occurrence.
+We call an event that initiates an allele frequency change in an isolated part of the population, which is not typical of the original population, the founder effect.
+Natural selection, random drift, and founder effects can lead to significant changes in a population's genome.
+founder effects can lead to significant changes in a population's genome.
+Hardy-Weinberg Principle of Equilibrium In the early twentieth century, English mathematician Godfrey Hardy and German physician Wilhelm Weinberg stated the principle of equilibrium to describe the population's genetic makeup.
+The Hardy-Weinberg principle assumes an infinitely large population and conditions with no mutations, migration, emigration, or selective pressure for or against genotype.
+The Hardy-Weinberg principle assumes an infinitely large population and conditions with no mutations, migration, emigration.
+While no population can satisfy those conditions, the principle offers a useful model against which to compare real population changes.
+Working under this theory, population geneticists represent different alleles as different variables in their mathematical models.
+If these are the only two possible alleles for a given locus in the population, p + q = 1.
+In other words, all the p alleles and all the q alleles comprise all of the alleles for that locus in the population.
+If we observe the phenotype, we can know only the homozygous recessive allele's genotype.
+The calculations provide an estimate of the remaining genotypes.
+In other words, the frequency of pp individuals is simply p2; the frequency of pq individuals is 2pq; and the frequency of qq individuals is q2.
+In other words, the frequency of pp individuals is simply p2.
+the frequency of pq individuals is 2pq.
+and the frequency of qq individuals is q2.
+When populations are in the Hardy-Weinberg equilibrium, the allelic frequency is stable from generation to generation and we can determine the allele distribution from the Hardy-Weinberg equation.
+If the allelic frequency measured in the field differs from the predicted value, scientists can make inferences about what evolutionary forces are at play.
+In plants, violet flower color is dominant over white.
+Of course, even Hardy and Weinberg recognized that no natural population is immune to evolution.
+Populations in nature are constantly changing in genetic makeup due to drift, mutation, possibly migration, and selection.
+Populations in nature are constantly changing in genetic makeup due to drift, mutation, possibly migration.
+As a result, the only way to determine the exact distribution of phenotypes in a population is to go out and count them.
+However, the Hardy-Weinberg principle gives scientists a mathematical baseline of a non-evolving population to which they can compare evolving populations and thereby infer what evolutionary forces might be at play.
+If the frequencies of alleles or genotypes deviate from the value expected from the Hardy-Weinberg equation, then the population is evolving.
+A population's individuals often display different phenotypes, or express different alleles of a particular gene, which scientists refer to as polymorphisms.
+A population's individuals often display different phenotypes.
+We call populations with two or more variations of particular characteristics polymorphic.
+The distribution of phenotypes in this litter of kittens illustrates population variation.
+Genetic variability Natural selection and some of the other evolutionary forces can only act on heritable traits, namely an organism's genetic code.
+Acquired traits, for the most part, are not heritable.
+For example, if an athlete works out in the gym every day, building up muscle strength, the athlete's offspring will not necessarily grow up to be a body builder.
+If there is a genetic basis for the ability to run fast, on the other hand, a parent may pass this to a child.
+LINK TO LEARNING Before Darwinian evolution became the prevailing theory of the field, French naturalist Jean-Baptiste Lamarck theorized that organisms could inherit acquired traits.
+While the majority of scientists have not supported this hypothesis, some have recently begun to realize that Lamarck was not completely wrong.
+Heritability is the fraction of phenotype variation that we can attribute to genetic differences, or genetic variability, among individuals in a population.
+Heritability is the fraction of phenotype variation that we can attribute to genetic differences.
+The greater the heritability of a population's phenotypic variation, the more susceptible it is to the evolutionary forces that act on heritable variation.
+We call the diversity of alleles and genotypes within a population genetic variability.
+Changes in allele frequencies that we identify in a population can shed light on how it is evolving.
+The pack leader will father more offspring, who share half of his genes, and are likely to also grow bigger and stronger like their father.
+The pack leader will father more offspring, who share half of his genes.
+Over time, the genes for bigger size will increase in frequency in the population, and the population will, as a result, grow larger on average.
+Over time, the genes for bigger size will increase in frequency in the population.
+the population will, as a result, grow larger on average.
+That is, this would occur if this particular selection pressure, or driving selective force, were the only one acting on the population.
+That is, this would occur if this particular selection pressure.
+In other examples, better camouflage or a stronger resistance to drought might pose a selection pressure.
+In this example, rabbits with the brown coat color allele are dominant over rabbits with the white coat color allele.
+In the first generation, the two alleles occur with equal frequency in the population, resulting in p and q values of .5.
+Only two individuals in the second generation reproduce, and by chance these individuals are homozygous dominant for brown coat color.
+by chance these individuals are homozygous dominant for brown coat color.
+As a result, in the third generation the recessive b allele is lost.
+Small populations are more susceptible to the forces of genetic drift.
+Large populations, alternatively, are buffered against the effects of chance.
+In a population of 100, that's only 1 percent of the overall gene pool; therefore, it is much less impactful on the population's genetic structure.
+In a population of 100, that's only 1 percent of the overall gene pool.
+therefore, it is much less impactful on the population's genetic structure.
+Natural events, such as an earthquake disaster that kills—at random—a large portion of the population, can magnify genetic drift.
+At once, the survivors' genetic structure becomes the entire population's genetic structure, which may be very different from the pre-disaster population.
+In this situation, those individuals are an unlikely representation of the entire population, which results in the founder effect.
+This is probably because a higher-than-normal proportion of the founding colonists carried these mutations.
+As a result, the population expresses unusually high incidences of Huntington's disease and Fanconi anemia, a genetic disorder known to cause blood marrow and congenital abnormalities—even 2 cancer.
+Background: When an earthquake or hurricane suddenly wipes out much of a population, the surviving individuals are usually a random sampling of the original group.
+As a result, the population's genetic makeup can change dramatically.
+We call this phenomenon the bottleneck effect.
+yellow beads might represent red, blue.
+This represents the surviving individuals after a natural disaster kills a majority of the population.
+Remember, these populations all came from the same exact parent population.
+This is because natural disasters are not selective—they kill and spare individuals at random.
+While some populations are fairly stable, others experience more flux.
+Many plants, for example, send their pollen far and wide, by wind or by bird, to pollinate other populations of the same species some distance away.
+Mutation Mutations are changes to an organism's DNA and are an important driver of diversity in populations.
+Species evolve because of mutations accumulating over time.
+The appearance of new mutations is the most common way to introduce novel genotypic and phenotypic variability.
+Some mutations are unfavorable or harmful and are quickly eliminated from the population by natural selection.
+Others are beneficial and will spread through the population.
+Some mutations do not do anything and can linger, unaffected by natural selection, in the genome.
+Some can have a dramatic effect on a gene and the resulting phenotype.
+Nonrandom Mating If individuals nonrandomly mate with their peers, the result can be a changing population.
+One reason is simple mate choice.
+For example, female peahens may prefer peacocks with bigger, brighter tails.
+Natural selection picks traits that lead to more mating selections for an individual.
+One common form of mate choice, called assortative mating, is an individual's preference to mate with partners who are phenotypically similar to themselves.
+Another cause of nonrandom mating is physical location.
+This is especially true in large populations spread over vast geographic distances where not all individuals will have equal access to one another.
+Some might be miles apart through woods or over rough terrain, while others might live immediately nearby.
+Some might be miles apart through woods or over rough terrain.
+others might live immediately nearby.
+Environmental Variation Genes are not the only players involved in determining population variation.
+A beachgoer is likely to have darker skin than a city dweller, for example, due to regular exposure to the sun, an environmental factor.
+For some species, the environment determines some major characteristics, such as sex.
+For example, some turtles and other reptiles have temperature-dependent sex determination.
+TSD means that individuals develop into males if their eggs are incubated within a certain temperature range, or females at a different temperature range.
+TSD means that individuals develop into males if their eggs are incubated within a certain temperature range.
+However, environmental variation can affect evolution through natural selection favoring different alleles and shaping different phenotypes in different environments.
+The temperature at which the eggs are incubated determine the American alligator's sex.
+Eggs incubated at 30°C produce females, and eggs incubated at 33°C produce males.
+Eggs incubated at 30°C produce females.
+eggs incubated at 33°C produce males.
+Geographic separation between populations can lead to differences in the phenotypic variation between those populations.
+We see such geographical variation between most populations and it can be significant.
+We can observe one type of geographic variation, a cline, as given species' populations vary gradually across an ecological gradient.
+Species of warm-blooded animals, for example, tend to have larger bodies in the cooler climates closer to the earth's poles, allowing them to better conserve heat.
+This is a latitudinal cline.
+Alternatively, flowering plants tend to bloom at different times depending on where they are along a mountain slope.
+This is an altitudinal cline.
+If there is gene flow between the populations, the individuals will likely show gradual differences in phenotype along the cline.
+Restricted gene flow, alternatively can lead to abrupt differences, even speciation.
+Scientists call this process adaptive evolution.
+It selects for individuals with greater contributions to the gene pool of the next generation.
+Scientists call this an organism's evolutionary fitness.
+Fitness is often quantifiable and is measured by scientists in the field.
+However, it is not an individual's absolute fitness that counts, but rather how it compares to the other organisms in the population.
+Scientists call this concept relative fitness, which allows researchers to determine which individuals are contributing additional offspring to the next generation, and thus, how the population might evolve.
+Scientists call this concept relative fitness, which allows researchers to determine which individuals are contributing additional offspring to the next generation.
+thus, how the population might evolve.
+As natural selection influences the allele frequencies in a population, individuals can either become more or less genetically similar and the phenotypes can become more similar or more disparate.
+Mice that carry alleles that make them a bit lighter or a bit darker will stand out against the ground and be more likely to fall victim to predation.
+As a result of this selection, the population's genetic variability will decrease.
+A classic example of this type of selection is the evolution of the peppered moth in eighteenth- and nineteenth-century England.
+Prior to the Industrial Revolution, the moths were predominately light in color, which allowed them to blend in with the light-colored trees and lichens in their environment.
+However, as soot began spewing from factories, the trees darkened, and the light-colored moths became easier for predatory birds to spot.
+However, as soot began spewing from factories, the trees darkened.
+the light-colored moths became easier for predatory birds to spot.
+Similarly, the hypothetical mouse population may evolve to take on a different coloration if something were to cause the forest floor where they live to change color.
+The result of this type of selection is a shift in the population's genetic variability toward the new, fit phenotype.
+LINK TO LEARNING In science, we sometimes believe some things are true, and then new information becomes available that changes our understanding.
+LINK TO LEARNING In science, we sometimes believe some things are true.
+then new information becomes available that changes our understanding.
+The peppered moth story is an example: some scientists recently have questioned the facts behind the selection toward darker moths.
+the intermediate phenotypes are, on average, less fit.
+We see this in many animal populations that have multiple male forms.
+Large, dominant alpha males use brute force to obtain mates, while small males can sneak in for furtive copulations with the females in an alpha male's territory.
+Large, dominant alpha males use brute force to obtain mates.
+small males can sneak in for furtive copulations with the females in an alpha male's territory.
+In this scenario, light-colored mice that blend in with the sand would be favored, as well as dark-colored mice that can hide in the grass.
+Medium-colored mice, alternatively would not blend in with either the grass or the sand, and thus predators would most likely eat them.
+Medium-colored mice, alternatively would not blend in with either the grass or the sand.
+thus predators would most likely eat them.
+In stabilizing selection, an average phenotype is favored.
+In diversifying selection, two or more extreme phenotypes are selected for, while the average phenotype is selected against.
+In diversifying selection, two or more extreme phenotypes are selected for.
+the average phenotype is selected against.
+In recent years, factories have become cleaner, and release less soot into the environment.
+In recent years, factories have become cleaner.
+Frequency-Dependent Selection Another type of selection, frequency-dependent selection, favors phenotypes that are either common or rare.
+We can observe an interesting example of this type of selection in a unique group of Pacific Northwest lizards.
+Male common side-blotched lizards come in three throat-color patterns: orange, blue, and yellow.
+Male common side-blotched lizards come in three throat-color patterns: orange, blue.
+Each of these forms has a different reproductive strategy: orange males are the strongest and can fight other males for access to their females.
+Blue males are medium-sized and form strong pair bonds with their mates.
+Like a game of rock-paper-scissors, orange beats blue, blue beats yellow, and yellow beats orange in the competition for females.
+Like a game of rock-paper-scissors, orange beats blue, blue beats yellow.
+yellow beats orange in the competition for females.
+A yellow-throated side-blotched lizard is smaller than either the blue-throated or orange-throated males and appears a bit like the females of the species, allowing it to sneak copulations.
+In this scenario, natural selection favors orange males when blue males dominate the population.
+yellow males will be selected for when orange males are the most populous.
+As a result, populations of side-blotched lizards cycle in the distribution of these phenotypes—in one generation, orange might predominate, and then yellow males will begin to rise in frequency.
+As a result, populations of side-blotched lizards cycle in the distribution of these phenotypes—in one generation, orange might predominate.
+then yellow males will begin to rise in frequency.
+Negative frequency-dependent selection serves to increase the population's genetic variability by selecting for rare phenotypes; whereas, positive frequency-dependent selection usually decreases genetic variability by selecting for common phenotypes.
+Negative frequency-dependent selection serves to increase the population's genetic variability by selecting for rare phenotypes.
+whereas, positive frequency-dependent selection usually decreases genetic variability by selecting for common phenotypes.
+Sexual Selection Males and females of certain species are often quite different from one another in ways beyond the reproductive organs.
+Males are often larger, for example, and display many elaborate colors and adornments, like the peacock's tail, while females tend to be smaller and duller in decoration.
+Males are often larger, for example.
+Males are often larger, for example, and display many elaborate colors and adornments, like the peacock's tail.
+females tend to be smaller and duller in decoration.
+That is, some males—often the bigger, stronger, or more decorated males—obtain the vast majority of the total matings, while others receive none.
+more decorated males—obtain the vast majority of the total matings, while others receive none.
+That is, some males—often the bigger, stronger, or more decorated males—obtain the vast majority of the total matings.
+others receive none.
+because females will choose to mate with the bigger or more decorated males.
+Females, however, tend to achieve a handful of selected matings; therefore, they are more likely to select more desirable males.
+Females, however, tend to achieve a handful of selected matings.
+therefore, they are more likely to select more desirable males.
+Sexual dimorphism varies widely among species, and some species are even sex-role reversed.
+Sexual dimorphism varies widely among species.
+some species are even sex-role reversed.
+We call the selection pressures on males and females to obtain matings sexual selection.
+It can result in developing secondary sexual characteristics that do not benefit the individual's likelihood of survival but help to maximize its reproductive success.
+Sexual selection can be so strong that it selects traits that are actually detrimental to the individual's survival.
+While it is beautiful and the male with the largest, most colorful tail is more likely to win the female, it is not the most practical appendage.
+In addition to greater visibility to predators, it makes the males slower in their attempted escapes.
+The speculation is that large tails carry risk, and only the best males survive that risk: the bigger the tail, the more fit the male.
+The speculation is that large tails carry risk.
+only the best males survive that risk: the bigger the tail, the more fit the male.
+We call this the handicap principle.
+The good genes hypothesis states that males develop these impressive ornaments to show off their efficient metabolism or their ability to fight disease.
+Females then choose males with the most impressive traits because it signals their genetic superiority, which they will then pass on to their offspring.
+Although one may argue that females should not be picky because it will likely reduce their number of offspring, if better males father more fit offspring, it may be beneficial.
+No Perfect Organism Natural selection is a driving force in evolution and can generate populations that are better adapted to survive and successfully reproduce in their environments.
+However, natural selection cannot produce the perfect organism.
+Natural selection can only select on existing variation in the population.
+It does not create anything from scratch.
+Thus, it is limited by a population's existing genetic variability and whatever new alleles arise through mutation and gene flow.
+Any given individual may carry some beneficial and some unfavorable alleles.
+It is the alleles' net effect, or the organism's fitness, upon which natural selection can act.
+It is the alleles' net effect.
+As a result, good alleles can be lost if individuals who carry them also have several overwhelmingly bad alleles.
+Likewise, bad alleles can be kept if individuals who have enough good alleles to result in an overall fitness benefit carry them.
+Furthermore, natural selection can be constrained by the relationships between different polymorphisms.
+The dark-colored mice may be, overall, more fit than the light-colored mice, and at first glance, one might expect the light-colored mice to be selected for a darker coloration.
+The dark-colored mice may be, overall, more fit than the light-colored mice.
+at first glance, one might expect the light-colored mice to be selected for a darker coloration.
+Finally, it is important to understand that not all evolution is adaptive.
+Evolution has no purpose—it is not changing a population into a preconceived ideal.
+It is simply the sum of the various forces that we have described in this chapter and how they influence the population's genetic and phenotypic variability.
+It Both genetic and environmental factors can cause describes the evolution of populations and species, phenotypic variation in a population.
+Different alleles from small-scale changes among individuals to large- can confer different phenotypes, and different scale changes over paleontological time periods.
+Different alleles from small-scale changes among individuals to large- can confer different phenotypes.
+To environments can also cause individuals to look or act understand how organisms evolve, scientists can track differently.
+When environmental conditions change.
+In contrast, individuals leave or join the population, allele diversifying selection results in increased genetic frequencies can change as a result of gene flow.
+variability by selecting for two or more distinct Mutations to an individual's DNA may introduce new phenotypes.
+Allele frequencies can also Other types of selection include frequency-dependent alter when individuals do not randomly mate with selection, in which individuals with either common others in the group.
+As a result, males and females decreasing the frequency of deleterious qualities, it is experience different selective pressures, which can adaptive evolution.
+In plants, violet flower color is 2.
+would you expect to be homozygous dominant 3.
+What is the difference between micro- and 5.
+b. Microevolution describes the evolution of 6.
+macroevolution a. a population with 12 homozygous describes the evolution of whole recessive individuals, 8 homozygous organisms.
+dominant trait, was one of the original colonists.
+Today, we see a much higher frequency of c. Inbreeding can bring together rare, polydactyly in the Amish population.
+This is an deleterious mutations that lead to harmful example of: phenotypes.
+the number of individuals in the a. natural selection population b. genetic drift d. gradual geographic variation across an c. gene flow ecological gradient d. random mating 13.
+When males and females of a population look or act differently, it is referred to as ________.
+when individuals mate with those who are a. why more fit individuals are more likely to least fit in the population have more offspring b.
+Close relatives are genetically d. why individuals of one sex develop incompatible.
+In a separate experiment, you discover 17.
+In a field, you count 600 blue flowers and 200 18.

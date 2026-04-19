@@ -1,0 +1,495 @@
+# Biology2e Chapter 17 — Biotechnology and Genomics
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 491
+
+INTRODUCTION The study of nucleic acids began with the discovery of DNA, progressed to the study of genes and small fragments, and has now exploded to the field of genomics.
+INTRODUCTION The study of nucleic acids began with the discovery of DNA, progressed to the study of genes and small fragments.
+Genomics is the study of entire genomes, including the complete set of genes, their nucleotide sequence and organization, and their interactions within a species and with other species.
+Genomics is the study of entire genomes, including the complete set of genes, their nucleotide sequence and organization.
+DNA sequencing technology has contributed to advances in genomics.
+These findings have helped anthropologists to better understand human migration and have aided the medical field through mapping human genetic diseases.
+Genomic information can contribute to scientific understanding in various ways and knowledge in the field is quickly growing.
+Biotechnology is the use of biological agents for technological advancement.
+Biotechnology was used for breeding livestock and crops long before people understood the scientific basis of these techniques.
+Since the discovery of the structure of DNA in 1953, the biotechnology field has grown rapidly through both academic research and private companies.
+technology are in medicine and agriculture.
+Pharmaceutical companies now commercially produce and test antibiotics for their potential to inhibit bacterial growth.
+The phosphate groups on these molecules each have a net negative charge.
+DNA has two complementary strands linked by hydrogen bonds between the paired bases.
+Exposure to high temperatures can separate the two strands and cooling can reanneal them.
+The DNA polymerase enzyme can replicate the DNA.
+Unlike DNA, which is located in the eukaryotic cells' nucleus, RNA molecules leave the nucleus.
+The most common type of RNA that researchers analyze is the messenger RNA because it represents the protein-coding genes that are actively expressed.
+However, RNA molecules present some other challenges to analysis, as they are often less stable than DNA.
+DNA and RNA Extraction To study or manipulate nucleic acids, one must first isolate or extract the DNA or RNA from the cells.
+These enzymes break apart lipid molecules in the cell membranes and nuclear membranes.
+Enzymes such as proteases and ribonucleases break down proteins and RNA, respectively.
+Human genomic DNA is usually visible as a gelatinous, white mass.
+One can store the DNA samples frozen at –80°C for several years.
+This diagram shows the basic method of DNA extraction.
+Scientists perform RNA analysis to study gene expression patterns in cells.
+RNA is naturally very unstable because RNAses are commonly present in nature and very difficult to inactivate.
+Similar to DNA, RNA extraction involves using various buffers and enzymes to inactivate macromolecules and preserve the RNA.
+Gel Electrophoresis Because nucleic acids are negatively charged ions at neutral or basic pH in an aqueous environment, an electric field can mobilize them.
+Gel electrophoresis is a technique that scientists use to separate molecules on the basis of size, using this charge.
+One can separate the nucleic acids as whole chromosomes or fragments.
+The nucleic acids load into a slot near the semisolid, porous gel matrix's negative electrode, and pulled toward the positive electrode at the gel's opposite end.
+The nucleic acids load into a slot near the semisolid, porous gel matrix's negative electrode.
+Smaller molecules move through the gel's pores faster than larger molecules.
+This difference in the migration rate separates the fragments on the basis of size.
+We can observe nucleic acids in a gel matrix using various fluorescent or colored dyes.
+Researchers use PCR for many purposes in laboratories, such as cloning gene fragments to analyze genetic diseases, identifying contaminant foreign DNA in a sample, and amplifying DNA for sequencing.
+Researchers use PCR for many purposes in laboratories, such as cloning gene fragments to analyze genetic diseases, identifying contaminant foreign DNA in a sample.
+More practical applications include determining paternity and detecting genetic diseases.
+Primers—short pieces of DNA complementary to each end of the target sequence combine with genomic DNA, Taq polymerase, and deoxynucleotides.
+Primers—short pieces of DNA complementary to each end of the target sequence combine with genomic DNA, Taq polymerase.
+Taq polymerase is a DNA polymerase isolated from the thermostable bacterium Thermus aquaticus that is able to withstand the high temperatures that scientists use in PCR.
+Thermus aquaticus grows in the Lower Geyser Basin of Yellowstone National Park.
+DNA fragments can also be amplified from an RNA template in a process called reverse transcriptase PCR.
+The first step is to recreate the original DNA template strand by applying DNA nucleotides to the mRNA.
+This requires the presence of an enzyme called reverse transcriptase.
+After the cDNA is made, regular PCR can be used to amplify it.
+LINK TO LEARNING Deepen your understanding of the polymerase chain reaction by watching this video.
+Hybridization, Southern Blotting, and Northern Blotting Scientists can probe nucleic acid samples, such as fragmented genomic DNA and RNA extracts, for the presence of certain sequences.
+Northern Blotting Scientists can probe nucleic acid samples, such as fragmented genomic DNA and RNA extracts, for the presence of certain sequences.
+Scientists design and label short DNA fragments.
+Gel electrophoresis separates the nucleic acid fragments according to their size.
+Scientists can then probe the nucleic acid fragments that are bound to the membrane's surface with specific radioactively or fluorescently labeled probe sequences.
+When scientists transfer DNA to a nylon membrane, they refer to the technique as Southern blotting.
+When they transfer the RNA to a nylon membrane, they call it Northern blotting.
+Scientists use Southern blots to detect the presence of certain DNA sequences in a given genome, and Northern blots to detect gene expression.
+Scientists use Southern blots to detect the presence of certain DNA sequences in a given genome.
+Northern blots to detect gene expression.
+Scientists use Southern blotting to find a particular sequence in a DNA sample.
+Scientists separate DNA fragments on a gel, transfer them to a nylon membrane, and incubate them with a DNA probe complementary to the sequence of interest.
+Scientists separate DNA fragments on a gel, transfer them to a nylon membrane.
+Northern blotting is similar to Southern blotting, but scientists run RNA on the gel instead of DNA.
+In Western blotting, scientists run proteins on a gel and detect them using antibodies.
+The technique offered methods to create new medicines and to overcome difficulties with existing ones.
+Insulin at that time was only produced using pig and cow pancreases, and the life-saving substance was often in short supply.
+Insulin at that time was only produced using pig and cow pancreases.
+the life-saving substance was often in short supply.
+Synthetic insulin, once mass produced, would solve that problem for many patients.
+These early discoveries led to the "BioTech Boom," and spurred continued research and funding for newer and better ways to improve health.
+A plasmid, or vector, is a small circular DNA molecule that replicates independently of the chromosomal DNA.
+vector, is a small circular DNA molecule that replicates independently of the chromosomal DNA.
+In cloning, scientists can use the plasmid molecules to provide a "folder" in which to insert a desired DNA fragment.
+Plasmids are usually introduced into a bacterial host for proliferation.
+An important feature of plasmid vectors is the ease with which scientists can introduce a foreign DNA fragment via the multiple cloning site.
+The MCS is a short DNA sequence containing multiple sites that different commonly available restriction endonucleases can cut.
+Restriction endonucleases recognize specific DNA sequences and cut them in a predictable manner.
+They are naturally produced by bacteria as a defense mechanism against foreign DNA.
+Many restriction endonucleases make staggered cuts in the two DNA strands, such that the cut ends have a 2- or 4-base single-stranded overhang.
+We call proteins that are expressed from recombinant DNA molecules recombinant proteins.
+Not all recombinant plasmids are capable of expressing genes.
+The recombinant DNA may need to move into a different vector that is better designed for gene expression.
+Scientists may also engineer plasmids to express proteins only when certain environmental factors stimulate them, so they can control the recombinant proteins' expression.
+This diagram shows the steps involved in molecular cloning.
+As a result, it was degraded by nucleases, but still used in the experiment.
+The plasmid, on the other hand, is fine.
+The will be white colonies only.
+Cellular Cloning Unicellular organisms, such as bacteria and yeast, naturally produce clones of themselves when they replicate asexually by binary fission; this is known as cellular cloning.
+Cellular Cloning Unicellular organisms, such as bacteria and yeast, naturally produce clones of themselves when they replicate asexually by binary fission.
+this is known as cellular cloning.
+Reproductive Cloning Reproductive cloning is a method scientists use to clone or identically copy an entire multicellular organism.
+Most multicellular organisms undergo reproduction by sexual means, which involves genetic hybridization of two individuals, making it impossible to generate an identical copy or a clone of either parent.
+Recent advances in biotechnology have made it possible to artificially induce mammal asexual reproduction in the laboratory.
+This is a form of asexual reproduction.
+If the egg is not fertilized, it remains a haploid egg and develops into a male.
+The unfertilized egg is a parthenogenic, or virgin egg.
+The unfertilized egg is a parthenogenic.
+Some insects and reptiles lay parthenogenic eggs that can develop into adults.
+Sexual reproduction requires two cells.
+The zygote nucleus contains the genetic information to produce a new individual.
+However, early embryonic development requires the cytoplasmic material contained in the egg cell.
+This idea forms the basis for reproductive cloning.
+Somatic cell nuclear transfer is the technique of transferring a diploid nucleus into an enucleated egg.
+Scientists can use it for either therapeutic cloning or reproductive cloning.
+The first cloned animal was Dolly, a sheep born in 1996.
+The reproductive cloning success rate at the time was very low.
+Since Dolly, scientists have cloned successfully several animals such as horses, bulls, and goats, although these animals often exhibit facial, limb, and cardiac abnormalities.
+Since Dolly, scientists have cloned successfully several animals such as horses, bulls.
+Therapeutic cloning produces stem cells in the attempt to remedy detrimental diseases or defects.
+While some have met therapeutic cloning efforts with resistance because of bioethical considerations, new discoveries have identified additional opportunities for stem cell therapies.
+These cells help the skin repair itself, and their discovery may have applications in treatments of skin disease and potentially other conditions, such as nerve damage.
+These cells help the skin repair itself.
+their discovery may have applications in treatments of skin disease and potentially other conditions, such as nerve damage.
+Dolly the sheep was the first mammal to be cloned.
+To create Dolly, they removed the nucleus from a donor egg cell.
+They then introduced the nucleus from a second sheep into the cell, which divided to the blastocyst stage before they implanted it in a surrogate mother.
+Genetic Engineering Genetic engineering is the alteration of an organism's genotype using recombinant DNA technology to modify an organism's DNA to achieve desirable traits.
+The addition of foreign DNA in the form of recombinant DNA vectors generated by molecular cloning is the most common method of genetic engineering.
+The organism that receives the recombinant DNA is a genetically modified organism.
+If the foreign DNA comes from a different species, the host organism is transgenic.
+Scientists have genetically modified bacteria, plants, and animals since the early 1970s for academic, medical, agricultural, and industrial purposes.
+Scientists have genetically modified bacteria, plants.
+In the US, GMOs such as Roundup-ready soybeans and borer-resistant corn are part of many common processed foods.
+This technique, reverse genetics, has resulted in reversing the classic genetic methodology.
+This method would be similar to damaging a body part to determine its function.
+The classical genetic method would compare insects that cannot fly with insects that can fly, and observe that the non-flying insects have lost wings.
+The classical genetic method would compare insects that cannot fly with insects that can fly.
+Similarly, mutating or deleting genes provides researchers with clues about gene function.
+We collectively call the methods they use to disable gene function gene targeting.
+It is easy to see how biotechnology can be used for medicinal purposes.
+species, the genetic basis of heritable diseases, and the invention of technology to manipulate and fix mutant genes provides methods to treat disease.
+the invention of technology to manipulate and fix mutant genes provides methods to treat disease.
+Biotechnology in agriculture can enhance resistance to disease, pest, and environmental stress, and improve both crop yield and quality.
+Biotechnology in agriculture can enhance resistance to disease, pest.
+Genetic Diagnosis and Gene Therapy Scientists call the process of testing for suspected genetic defects before administering treatment genetic diagnosis by genetic testing.
+Depending on the inheritance patterns of a disease-causing gene, family members are advised to undergo genetic testing.
+For example, doctors usually advise people diagnosed with breast cancer to have a biopsy so that the medical team can determine the genetic basis of cancer development.
+Doctors base treatment plans on genetic test findings that determine the type of cancer.
+If inherited gene mutations cause the cancer, doctors also advise other female relatives to undergo genetic testing and periodic screening for breast cancer.
+Doctors also offer genetic testing for fetuses to determine the presence or absence of disease-causing genes in families with specific debilitating diseases.
+Gene therapy is a genetic engineering technique used to cure disease.
+More advanced forms of gene therapy try to correct the mutation at the original site in the genome, such as is the case with treatment of severe combined immunodeficiency.
+Production of Vaccines, Antibiotics, and Hormones Traditional vaccination strategies use weakened or inactive forms of microorganisms to mount the initial immune response.
+Hormones Traditional vaccination strategies use weakened or inactive forms of microorganisms to mount the initial immune response.
+Modern techniques use the genes of microorganisms cloned into vectors to mass produce the desired antigen.
+Doctors then introduce the antigen into the body to stimulate the primary immune response and trigger immune memory.
+The medical field has used genes cloned from the influenza virus to combat the constantly changing strains of this virus.
+Antibiotics are a biotechnological product.
+Microorganisms, such as fungi, naturally produce them to attain an advantage over bacterial populations.
+Cultivating and manipulating fungal cells produces antibiotics.
+Scientists used recombinant DNA technology to produce large-scale quantities of human insulin in E. coli as early as 1978.
+Previously, it was only possible to treat diabetes with pig insulin, which caused allergic reactions in humans because of differences in the gene product.
+In addition, doctors use human growth hormone to treat growth disorders in children.
+Researchers cloned the HGH gene from a cDNA library and inserted it into E. coli cells by cloning it into a bacterial vector.
+Transgenic Animals Although several recombinant proteins in medicine are successfully produced in bacteria, some proteins require a eukaryotic animal host for proper processing.
+For this reason, the desired genes are cloned and expressed in animals, such as sheep, goats, chickens, and mice.
+For this reason, the desired genes are cloned and expressed in animals, such as sheep, goats, chickens.
+We call animals that have been modified to express recombinant DNA transgenic animals.
+Several human proteins are expressed in transgenic sheep and goat milk, and some are expressed in chicken eggs.
+Several human proteins are expressed in transgenic sheep and goat milk.
+some are expressed in chicken eggs.
+Scientists have used mice extensively for expressing and studying recombinant gene and mutation effects.
+Plants are the most important source of food for the human population.
+Farmers developed ways to select for plant varieties with desirable traits long before modern-day biotechnology practices were established.
+We call plants that have received recombinant DNA from other species transgenic plants.
+Because foreign genes can spread to other species in the environment, extensive testing is required to ensure ecological stability.
+Staples like corn, potatoes, and tomatoes were the first crop plants that scientists genetically engineered.
+tomatoes were the first crop plants that scientists genetically engineered.
+Transformation of Plants Using Agrobacterium tumefaciens Gene transfer occurs naturally between species in microbial populations.
+Agrobacterium tumefaciens occur by DNA transfer from the bacterium to the plant.
+Although the tumors do not kill the plants, they stunt the plants and they become more susceptible to harsh environmental conditions.
+A. tumefaciens affects many plants such as walnuts, grapes, nut trees, and beets.
+A. tumefaciens affects many plants such as walnuts, grapes, nut trees.
+Researchers used the natural transfer of DNA from Agrobacterium to a plant host to introduce DNA fragments of their choice into plant hosts.
+In nature, the disease-causing A. tumefaciens have a set of plasmids, Ti plasmids, that contain genes to produce tumors in plants.
+DNA from the Ti plasmid integrates into the infected plant cell's genome.
+Researchers manipulate the Ti plasmids to remove the tumor-causing genes and insert the desired DNA fragment for transfer into the plant genome.
+The Ti plasmids carry antibiotic resistance genes to aid selection and researchers can propagate them in E. coli cells as well.
+The Organic Insecticide Bacillus thuringiensis Bacillus thuringiensis is a bacterium that produces protein crystals during sporulation that are toxic to many insect species that affect plants.
+Insects need to ingest Bt toxin in order to activate the toxin.
+Insects that have eaten Bt toxin stop feeding on the plants within a few hours.
+After the toxin activates in the insects' intestines, they die within a couple of days.
+Modern biotechnology has allowed plants to encode their own crystal Bt toxin that acts against insects.
+Scientists have cloned the crystal toxin genes from Bt and introduced them into plants.
+Bt toxin is safe for the environment, nontoxic to humans and other mammals, and organic farmers have approved it as a natural insecticide.
+Bt toxin is safe for the environment, nontoxic to humans and other mammals.
+organic farmers have approved it as a natural insecticide.
+The first GM crop on the market was the Flavr Savr Tomato in 1994.
+Scientists used antisense RNA technology to slow the softening and rotting process caused by fungal infections, which led to increased shelf life of the GM tomatoes.
+Additional genetic modification improved the tomato's flavor.
+The Flavr Savr tomato did not successfully stay in the market because of problems maintaining and shipping the crop.
+Genome mapping is the process of finding the locations of genes on each chromosome.
+A genetic map is an illustration that lists genes and their location on a chromosome.
+Genetic maps provide the big picture and use genetic markers.
+A genetic marker is a gene or sequence on a chromosome that co-segregates with a specific trait.
+Early geneticists called this linkage analysis.
+Physical maps present the intimate details of smaller chromosome regions.
+A physical map is a representation of the physical distance, in nucleotides, between genes or genetic markers.
+Both genetic linkage maps and physical maps are required to build a genome's complete picture.
+Human genome maps help researchers in their efforts to identify human disease-causing genes related to illnesses like cancer, heart disease, and cystic fibrosis.
+Human genome maps help researchers in their efforts to identify human disease-causing genes related to illnesses like cancer, heart disease.
+We can use genome mapping in a variety of other applications, such as using live microbes to clean up pollutants or even prevent pollution.
+Research involving plant genome mapping may lead to producing higher crop yields or developing plants that better adapt to climate change.
+Genetic Maps The study of genetic maps begins with linkage analysis, a procedure that analyzes the recombination frequency between genes to determine if they are linked or show independent assortment.
+Scientists used the term linkage before the discovery of DNA.
+Early geneticists relied on observing phenotypic changes to understand an organism's genotype.
+Observations that certain traits were always linked and certain others were not linked came from studying the offspring of crosses between parents with different traits.
+We call exchanging DNA between homologous chromosome pairs genetic recombination, which occurs by crossing over DNA between homologous DNA strands, such as nonsister chromatids.
+Linkage analysis involves studying the recombination frequency between any two genes.
+Recombination between genes A and B is more frequent than recombination between genes B and C because genes A and B are farther apart.
+Therefore, a crossover is more likely to occur between them.
+The generation of genetic maps requires markers, just as a road map requires landmarks.
+Scientists based early genetic maps on using known genes as markers.
+Scientists now use more sophisticated markers, including those based on non-coding DNA, to compare individuals' genomes in a population.
+Although individuals of a given species are genetically similar, they are not identical.
+Every individual has a unique set of traits.
+These minor differences in the genome between individuals in a population are useful for genetic mapping purposes.
+In general, a good genetic marker is a region on the chromosome that shows variability or polymorphism in the population.
+Some genetic markers that scientists use in generating genetic maps are restriction fragment length polymorphisms, variable number of tandem repeats, microsatellite polymorphisms, and the single nucleotide polymorphisms.
+Some genetic markers that scientists use in generating genetic maps are restriction fragment length polymorphisms, variable number of tandem repeats, microsatellite polymorphisms.
+Every individual's DNA will give rise to a unique pattern of bands when cut with a particular set of restriction endonucleases.
+Certain chromosome regions that are subject to polymorphism will lead to generating the unique banding pattern.
+VNTRs are repeated sets of nucleotides present in DNA's non-coding regions.
+Non-coding, or "junk," DNA has no known biological function; however, research shows that much of this DNA is actually transcribed.
+Non-coding, or "junk," DNA has no known biological function.
+however, research shows that much of this DNA is actually transcribed.
+"junk," DNA has no known biological function; however, research shows that much of this DNA is actually transcribed.
+The number of repeats may vary in a population's individual organisms.
+Microsatellite polymorphisms are similar to VNTRs, but the repeat unit is very small.
+SNPs are variations in a single nucleotide.
+Some parts of the genome are recombination hotspots; whereas, others do not show a propensity for recombination.
+Some parts of the genome are recombination hotspots.
+whereas, others do not show a propensity for recombination.
+For this reason, it is important to look at mapping information developed by multiple methods.
+Physical Maps A physical map provides detail of the actual physical distance between genetic markers, as well as the number of nucleotides.
+It is possible to determine the approximate distance between genetic markers using cytogenetic mapping, but not the exact distance.
+Radiation hybrid mapping uses radiation, such as x-rays, to break the DNA into fragments.
+We can adjust the radiation amount to create smaller or larger fragments.
+This technique overcomes the limitation of genetic mapping, and we can adjust the radiation so that increased or decreased recombination frequency does not affect it.
+This technique overcomes the limitation of genetic mapping.
+we can adjust the radiation so that increased or decreased recombination frequency does not affect it.
+Sequence mapping resulted from DNA sequencing technology that allowed for creating detailed physical maps with distances measured in terms of the number of base pairs.
+An expressed sequence tag and a single sequence length polymorphism are common STSs.
+An EST is a short STS that we can identify with cDNA libraries, while we obtain SSLPs from known genetic markers, which provide a link between genetic and physical maps.
+An EST is a short STS that we can identify with cDNA libraries.
+we obtain SSLPs from known genetic markers, which provide a link between genetic and physical maps.
+A cytogenetic map shows the appearance of a chromosome after scientists stain and exam it under a microscope.
+Genetic and Physical Maps Integration Genetic maps provide the outline and physical maps provide the details.
+It is easy to understand why both genome mapping technique types are important to show the big picture.
+Scientists use information from each technique in combination to study the genome.
+Scientists are using genomic mapping with different model organisms for research.
+Genome mapping is still an ongoing process, and as researchers develop more advanced techniques, they expect more breakthroughs.
+Genome mapping is still an ongoing process.
+as researchers develop more advanced techniques, they expect more breakthroughs.
+Genome mapping is similar to completing a complicated puzzle using every piece of available data.
+Mapping information generated in laboratories all over the world goes into central databases, such as GenBank at the National Center for Biotechnology Information.
+Researchers are making efforts for the information to be more easily accessible to other researchers and the general public.
+Just as we use global positioning systems instead of paper maps to navigate through roadways, NCBI has created a genome viewer tool to simplify the data-mining process.
+The web page displays the comparison of the gene sequences of many organisms to the Human Insulin Receptor gene.
+On the same page, there are other options to explore, not all are necessary for the task, however it might give more insight to the value of genome/gene comparisons.
+LINK TO LEARNING Online Mendelian Inheritance in Man is a searchable online catalog of human genes and genetic disorders.
+This website shows genome mapping information, and also details the history and research of each trait and disorder.
+This website shows genome mapping information.
+genome sequencing is a process that determines an entire genome's DNA sequence.
+Whole-genome sequencing is a brute-force approach to problem solving when there is a genetic basis at the core of a disease.
+Several laboratories now provide services to sequence, analyze, and interpret entire genomes.
+Several laboratories now provide services to sequence, analyze.
+For example, whole-exome sequencing is a lower-cost alternative to whole genome sequencing.
+In exome sequencing, the doctor sequences only the DNA's coding, exon-producing regions.
+In 2010, doctors used whole- exome sequencing to save a young boy whose intestines had multiple mysterious abscesses.
+The child had several colon operations with no relief.
+Finally, they performed whole-exome sequencing, which revealed a defect in a pathway that controls apoptosis.
+The doctors used a bone-marrow transplant to overcome this genetic disorder, leading to a cure for the boy.
+He was the first person to receive successful treatment based on a whole-exome sequencing diagnosis.
+Today, human genome sequencing is more readily available and results are available within two days for about $1000.
+The chain termination method involves DNA replication of a single-stranded template by using a primer and a regular deoxynucleotide, which is a monomer, or a single DNA unit.
+The chain termination method involves DNA replication of a single-stranded template by using a primer and a regular deoxynucleotide, which is a monomer.
+Scientists label each ddNTP with a different color of fluorophore.
+When gel electrophoresis processes the reaction mixture after separating into single strands, the multiple newly replicated DNA strands form a ladder because of the differing sizes.
+Because the ddNTPs are fluorescently labeled, each band on the gel reflects the DNA strand's size and the ddNTP that terminated the reaction.
+The different colors of the fluorophore-labeled ddNTPs help identify the ddNTP incorporated at that position.
+A dideoxynucleotide is similar in structure to a deoxynucleotide, but is missing the 3' hydroxyl group.
+This figure illustrates Frederick Sanger's dideoxy chain termination method.
+Using dideoxynucleotides, the DNA fragment can terminate at different points.
+The DNA separates on the basis of size, and we can read these bands based on the fragments' size.
+The DNA separates on the basis of size.
+we can read these bands based on the fragments' size.
+Then, with sequence computer assistance, scientists can analyze the fragments to see where their sequences overlap.
+By matching overlapping sequences at each fragment's end, scientists can reform the entire DNA sequence.
+The person then rips up each photograph with their hands, so that different size pieces are present from each copy.
+The person then mixes all of the pieces together and asks you to reconstruct the photograph.
+In a larger piece, you see that the same mountain is behind a lake.
+A third fragment shows only the lake, but it reveals that there is a cabin on the shore of the lake.
+Therefore, from looking at the overlapping information in these three fragments, you know that the picture contains a mountain behind a lake that has a cabin on its shore.
+This is the principle behind reconstructing entire DNA sequences using shotgun sequencing.
+This was sufficient for sequencing small genomes.
+However, the desire to sequence larger genomes, such as that of a human, led to developing double-barrel shotgun sequencing, or pairwise-end sequencing.
+However, the desire to sequence larger genomes, such as that of a human, led to developing double-barrel shotgun sequencing.
+In pairwise-end sequencing, scientists analyze each fragment's end for overlap.
+Pairwise-end sequencing is, therefore, more cumbersome than shotgun sequencing, but it is easier to reconstruct the sequence because there is more available information.
+These automated low-cost sequencers can generate sequences of hundreds of thousands or millions of short fragments in the span of one day.
+These sequencers use sophisticated software to get through the cumbersome process of putting all the fragments in order.
+Comparing Sequences A sequence alignment is an arrangement of proteins, DNA, or RNA.
+Comparing Sequences A sequence alignment is an arrangement of proteins, DNA.
+Scientists use it to identify similar regions between cell types or species, which may indicate function or structure conservation.
+We can use sequence alignments to construct phylogenetic trees.
+The following website uses a software program called BLAST.
+The search will take some amount of time before the results are displayed.
+The result is that this sequence occurs in over a hundred places in the human genome.
+This will bring you to a page that shows the sequence's location within the entire human genome.
+You can move the slider that looks like a colored flag back and forth to view the sequences immediately around the selected gene.
+You can then return to your selected sequence by clicking the "ATG" button.
+Other scientists later sequenced several other organelle and viral genomes.
+American biotechnologist, biochemist, geneticist, and businessman Craig Venter sequenced the bacterium Haemophilus influenzae in the 1980s.
+businessman Craig Venter sequenced the bacterium Haemophilus influenzae in the 1980s.
+By 1997, the genome sequences of two important model organisms were available: the bacterium Escherichia coli K12 and the yeast Saccharomyces cerevisiae.
+We now know the genomes of other model organisms, such as the mouse Mus musculus, the fruit fly Drosophila melanogaster, the nematode Caenorhabditis.
+humans Homo sapiens.
+Researchers perform extensive basic research in model organisms because they can apply the information to genetically similar organisms.
+A model organism is a species that researchers use as a model to understand the biological processes in other species that the model organism represents.
+The process of attaching biological information to gene sequences is genome annotation.
+Annotating gene sequences helps with basic experiments in molecular biology, such as designing PCR primers and RNA targets.
+Although studying genome sequencing with medical applications is interesting, this discipline dwells on abnormal gene function.
+This will allow for more informed decisions about lifestyle, medication, and having children.
+This will allow for more informed decisions about lifestyle, medication.
+Genomics is still in its infancy, although someday it may become routine to use whole-genome sequencing to screen every newborn to detect genetic abnormalities.
+In addition to disease and medicine, genomics can contribute to developing novel enzymes that convert biomass to biofuel, which results in higher crop and fuel production, and lower consumer cost.
+In addition to disease and medicine, genomics can contribute to developing novel enzymes that convert biomass to biofuel, which results in higher crop and fuel production.
+This knowledge should allow better methods of control over the microbes that industry uses to produce biofuels.
+Genomics could also improve monitoring methods that measure the impact of pollutants on ecosystems and help clean up environmental contaminants.
+Genomics has aided in developing agrochemicals and pharmaceuticals that could benefit medical science and agriculture.
+It sounds great to have all the knowledge we can get from whole-genome sequencing; however, humans have a responsibility to use this knowledge wisely.
+It sounds great to have all the knowledge we can get from whole-genome sequencing.
+however, humans have a responsibility to use this knowledge wisely.
+Otherwise, it could be easy to misuse the power of such knowledge, leading to discrimination based on a person's genetics, human genetic engineering, and other ethical concerns.
+Otherwise, it could be easy to misuse the power of such knowledge, leading to discrimination based on a person's genetics, human genetic engineering.
+This information could also lead to legal issues regarding health and privacy.
+Many fields, such as metagenomics, pharmacogenomics, and mitochondrial genomics are using genomics.
+mitochondrial genomics are using genomics.
+Health care professionals can recommend intervention with lifestyle changes and drugs before disease onset.
+However, this approach is most applicable when the problem resides within a single gene defect.
+Such defects only account for approximately 5 percent of diseases in developed countries.
+In April 2010, scientists at Stanford University published the genome analysis of a healthy individual (Stephen Quake, a scientist at Stanford University, who had his genome sequenced.
+The analysis predicted his propensity to acquire various diseases.
+The medical team performed a risk assessment to analyze Quake's percentage of risk for 55 different medical conditions.
+The team found a rare genetic mutation, which showed him to be at risk for sudden heart attack.
+The results also predicted that Quake had a 23 percent risk of developing prostate cancer and a 1.4 percent risk of developing Alzheimer's.
+The scientists used databases and several publications to analyze the genomic data.
+Even though genomic sequencing is becoming more affordable and analytical tools are becoming more reliable, researchers still must address ethical issues surrounding genomic analysis at a population level.
+A high PCA3 concentration in urine is indicative of prostate cancer.
+The PCA3 test is a better indicator of cancer than the more well known PSA test, which measures the level of PSA in the blood.
+In 2011, the United States Preventative Services Task Force recommended against using the PSA test to screen healthy people for prostate cancer.
+Their recommendation is based on evidence that screening does not reduce the risk of death from prostate cancer.
+Prostate cancer often develops very slowly and does not cause problems, while the cancer treatment can have severe side effects.
+Prostate cancer often develops very slowly and does not cause problems.
+the cancer treatment can have severe side effects.
+The PCA3 test is more accurate, but screening may still result in people who would not have been harmed by the cancer itself suffering side effects from treatment.
+Pharmacogenomics and Toxicogenomics Pharmacogenomics, or toxicogenomics, involves evaluating drug effectiveness and safety on the basis of information from an individual's genomic sequence.
+toxicogenomics, involves evaluating drug effectiveness and safety on the basis of information from an individual's genomic sequence.
+We can study genomic responses to drugs using experimental animals or live cells in the laboratory before embarking on studies with humans.
+For example, genes involved in cellular growth and controlled cell death, when disturbed, could lead to cancerous cell growth.
+Genome-wide studies can also help to find new genes involved in drug toxicity.
+Medical professionals can use personal genome sequence information to prescribe medications that will be most effective and least toxic on the basis of the individual patient's genotype.
+The gene signatures may not be completely accurate, but medical professionals can test them further before pathologic symptoms arise.
+Traditionally, scholars have taught microbiology with the view that it is best to study microorganisms under pure culture conditions.
+This involves isolating a single cell type and culturing it in the laboratory.
+Because microorganisms can go through several generations in a matter of hours, their gene expression profiles adapt to the new laboratory environment very quickly.
+In addition, the vast majority of bacterial species resist culturing in isolation.
+Most microorganisms do not live as isolated entities, but in microbial communities or biofilms.
+For all of these reasons, pure culture is not always the best way to study microorganisms.
+Metagenomics is the study of the collective genomes of multiple species that grow and interact in an environmental niche.
+Metagenomics involves isolating DNA from multiple species within an environmental niche.
+The primary sources of fuel today are coal, oil, wood, and other plant products, such as ethanol.
+The primary sources of fuel today are coal, oil, wood.
+The microbial world is one of the largest resources for genes that encode new enzymes and produce new organic compounds, and it remains largely untapped.
+The microbial world is one of the largest resources for genes that encode new enzymes and produce new organic compounds.
+it remains largely untapped.
+Microorganisms are used to create products, such as enzymes that are used in research, antibiotics, and other antimicrobial mechanisms.
+Microorganisms are used to create products, such as enzymes that are used in research, antibiotics.
+Microbial genomics is helping to develop diagnostic tools, improved vaccines, new disease treatments, and advanced environmental cleanup techniques.
+Microbial genomics is helping to develop diagnostic tools, improved vaccines, new disease treatments.
+Mitochondrial Genomics Mitochondria are intracellular organelles that contain their own DNA.
+Mitochondrial DNA mutates at a rapid rate and scientists often use it to study evolutionary relationships.
+Another feature that makes studying the mitochondrial genome interesting is that the mitochondrial DNA in most multicellular organisms passes from the mother during the fertilization process.
+For this reason, scientists often use mitochondrial genomics to trace genealogy.
+Experts have used information and clues from DNA samples at crime scenes as evidence in court cases, and they have used genetic markers in forensic analysis.
+Experts have used information and clues from DNA samples at crime scenes as evidence in court cases.
+they have used genetic markers in forensic analysis.
+Genomic analysis has also become useful in this field.
+The first publication showcasing the first use of genomics in forensics came out in 2001.
+It was a collaborative attempt between academic research institutions and the FBI to solve the mysterious cases of anthrax communicated via the US Postal Service.
+Using microbial genomics, researchers determined that the culprit used a specific anthrax strain in all the mailings.
+Genomics in Agriculture Genomics can reduce the trials and failures involved in scientific research to a certain extent, which could improve agricultural crop yield quality and quantity.
+Scientists use genomic data to identify desirable traits, and then transfer those traits to a different organism.
+Scientists use genomic data to identify desirable traits.
+Researchers are discovering how genomics can improve agricultural production's quality and quantity.
+For example, scientists could use desirable traits to create a useful product or enhance an existing product, such as making a drought-sensitive crop more tolerant of the dry season.
+Proteins are the final products of genes, which help perform the function that the gene encodes.
+Amino acids comprise proteins and play important roles in the cell.
+All enzymes are proteins that act as catalysts to affect the rate of reactions.
+Proteins are also regulatory molecules, and some are hormones.
+Proteins are also regulatory molecules.
+some are hormones.
+Transport proteins, such as hemoglobin, help transport oxygen to various organs.
+In the diseased state, protein function can be impaired because of changes at the genetic level or because of direct impact on a specific protein.
+A proteome is the entire set of proteins that a cell type produces.
+We can study proteoms using the knowledge of genomes because genes code for mRNAs, and the mRNAs encode proteins.
+We can study proteoms using the knowledge of genomes because genes code for mRNAs.
+Although mRNA analysis is a step in the right direction, not all mRNAs are translated into proteins.
+Proteomics is the study of proteomes' function.
+Proteomics complements genomics and is useful when scientists want to test their hypotheses that they based on genes.
+Even though all multicellular organisms' cells have the same set of genes, the set of proteins produced in different tissues is different and dependent on gene expression.
+Thus, the genome is constant, but the proteome varies and is dynamic within an organism.
+Although the genome provides a blueprint, the final architecture depends on several factors that can change the progression of events that generate the proteome.
+Metabolomics is related to genomics and proteomics.
+Metabolomics involves studying small molecule metabolites in an organism.
+The metabolome is the complete set of metabolites that are related to an organism's genetic makeup.
+Metabolomics offers an opportunity to compare genetic makeup and physical characteristics, as well as genetic makeup and environmental factors.
+The goal of metabolome research is to identify, quantify, and catalogue all the metabolites in living organisms' tissues and fluids.
+The goal of metabolome research is to identify, quantify.
+Just as scientists analyze the genome using the basic DNA sequencing technique, proteomics requires techniques for protein analysis.
+The basic technique for protein analysis, analogous to DNA sequencing, is mass spectrometry.
+Advances in spectrometry have allowed researchers to analyze very small protein samples.
+X-ray crystallography, for example, enables scientists to determine a protein crystal's three-dimensional structure at atomic resolution.
+Another protein imaging technique, nuclear magnetic resonance, uses atoms' magnetic properties to determine the protein's three- dimensional structure in aqueous solution.
+Scientists have also used protein microarrays to study protein interactions.
+Scientists use computer software to analyze the vast amount of data for proteomic analysis.
+Genomic- and proteomic-scale analyses are part of systems biology, which is the study of whole biological systems based on interactions within the system.
+Researchers use information that they obtain from proteomics to identify novel drugs and to understand their mechanisms of action.
+In this method, a transcription factor splits into a DNA-binding domain and an activator domain.
+The binding domain is able to bind the promoter in the activator domain's absence, but it does not turn on transcription.
+Transcription occurs only if the prey "catches" the bait.
+Although mass spectrometry is good for detecting small protein amounts, variations in protein expression in diseased states can be difficult to discern.
+Proteins are naturally unstable molecules, which makes proteomic analysis much more difficult than genomic analysis.
+Cancer Proteomics Researchers are studying patients' genomes and proteomes to understand the genetic basis of diseases.
+These approaches improve screening and early cancer detection.
+Researchers are able to identify proteins whose expression indicates the disease process.
+An individual protein is a biomarker; whereas, a set of proteins with altered expression levels is a protein signature.
+An individual protein is a biomarker.
+whereas, a set of proteins with altered expression levels is a protein signature.
+The current problem with using biomarkers for early cancer detection is the high rate of false-negative results.
+A false negative is an incorrect test result that should have been positive.
+In other words, many cancer cases go undetected, which makes biomarkers unreliable.
+Some examples of protein biomarkers in cancer detection are CA-125 for ovarian cancer and PSA for prostate cancer.
+Protein signatures may be more reliable than biomarkers to detect cancer cells.
+Researchers also use proteomics to predict the possibility of disease recurrence.
+The National Cancer Institute has developed programs to improve cancer detection and treatment.
+The Clinical Proteomic Technologies for Cancer and the Early Detection Research Network are efforts to identify protein signatures specific to different cancer types.
+The Biomedical Proteomics Program identifies protein signatures and designs effective therapies for cancer patients.
+PCR can amplify short DNA or RNA genetic markers on the basis of recombination stretches.
+Researchers can use Southern and Northern frequencies during meiosis.
+Physical maps provide blotting to detect the presence of specific short detailed information about the physical distance sequences in a DNA or RNA sample.
+The most detailed information is may refer to cloning small DNA fragments (molecular available through sequence mapping.
+Medical professionals perform genetic testing to identify disease-causing genes, and use gene therapy 17.3 Whole-Genome Sequencing to cure an inheritable disease.
+Medical professionals perform genetic testing to identify disease-causing genes.
+Whole-genome sequencing is the latest available resource to treat genetic diseases.
+Some doctors are Transgenic organisms possess DNA from a different using whole-genome sequencing to save lives.
+species, usually generated by molecular cloning Genomics has many industrial applications including techniques.
+Vaccines, antibiotics, and hormones are biofuel development, agriculture, pharmaceuticals, and examples of products obtained by recombinant DNA pollution control.
+hormones are biofuel development, agriculture, pharmaceuticals.
+Scientists usually create transgenic plants sequencing strategies involves the chain termination to improve crop plant characteristics.
+In a multicellular organism, and the decreased cost of whole-genome sequencing different cell types will have different proteomes, and may lead to personalized medicine in the future.
+the decreased cost of whole-genome sequencing different cell types will have different proteomes.
+these will vary with environmental changes.
+Researchers are applying genomics to most fields of biology.
+They use it for personalized medicine, Proteomics approaches rely on protein analysis.
+prediction of disease risks at an individual level, Researchers are constantly upgrading these studying drug interactions before conducting clinical techniques.
+Researchers have used proteomics to trials, and studying microorganisms in the environment study different cancer types.
+Researchers have used proteomics to trials.
+Medical professionals are as opposed to the laboratory.
+They are also applying it using different biomarkers and protein signatures to to developments such as generating new biofuels, analyze each cancer type.
+The future goal is to have a genealogical assessment using mitochondria, personalized treatment plan for each individual.
+Their are planning to clone on the lab bench overnight recommendation is based on evidence that instead of storing it in the freezer.
+Prostate cancer often develops experiment.
+The plasmid, on the other hand, is very slowly and does not cause problems, while fine.
+The plasmid, on the other hand, is very slowly and does not cause problems.
+The PCA3 test is more accurate, but a. There will be no colonies on the bacterial screening may still result in people who would plate.
+Should people in general be screened to find out 2.
+GMOs are created by ________.
+Gene therapy can be used to introduce foreign d. is recombinant DNA DNA into cells ________.
+Bt toxin is considered to be ________.
+The Flavr Savr Tomato: a. is a variety of vine-ripened tomato in the 16.
+ESTs are ________.
+the availability and stability of DNA a. is used to create a physical map d. all of the above b. is based on the natural recombination process 18.
+Individual genetic maps in a given species are: an individual's children a. genetically similar d.
+all of the above b. genetically identical c. genetically dissimilar 20.
+Information obtained by microscopic analysis of diseased state stained chromosomes is used in: c.
+A protein signature is: d. cytogenetic mapping a. the path followed by a protein after it is synthesized in the nucleus 14.
+the path followed by a protein in the a. uses labeled ddNTPs cytoplasm b. uses only dideoxynucleotides c.
+A researcher wants to study cancer cells from a patient with breast cancer.
+How would a scientist introduce a gene for 29.
+If you had a chance to get your genome 30.

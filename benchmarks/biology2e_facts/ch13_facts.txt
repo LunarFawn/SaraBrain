@@ -1,0 +1,226 @@
+# Biology2e Chapter 13 — Modern Understandings of Inheritance
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 222
+
+The chromosomes depicted here were isolated from a fruit fly's salivary gland, stained with dye, and visualized under a microscope.
+The chromosomes depicted here were isolated from a fruit fly's salivary gland, stained with dye.
+Akin to miniature bar codes, chromosomes absorb different dyes to produce characteristic banding patterns, which allows for their routine identification.
+INTRODUCTION The gene is the physical unit of inheritance, and genes are arranged in a linear order on chromosomes.
+INTRODUCTION The gene is the physical unit of inheritance.
+genes are arranged in a linear order on chromosomes.
+Chromosome behavior and interaction during meiosis explain, at a cellular level, inheritance patterns that we observe in populations.
+Genetic disorders involving alterations in chromosome number or structure may have dramatic effects and can prevent a fertilized egg from developing.
+With improved microscopic techniques during the late 1800s, cell biologists could stain and visualize subcellular structures with dyes and observe their actions during cell division and meiosis.
+In 1902, Theodor Boveri observed that proper sea urchin embryonic development does not occur unless chromosomes are present.
+Together, these observations led to the Chromosomal Theory of Inheritance, which identified chromosomes as the genetic material responsible for Mendelian inheritance.
+Eleanor Carothers, was the first to provide physical evidence supporting the theory.
+Chromosome sorting from each homologous pair into pre-gametes appears to be random.
+Each parent synthesizes gametes that contain only half their chromosomal complement.
+Even though male and female gametes differ in size and morphology, they have the same number of chromosomes, suggesting equal genetic contributions from each parent.
+The gametic chromosomes combine during fertilization to produce offspring with the same chromosome number as their parents.
+About ten years after the theory was proposed, Eleanor Carothers was the first to discover physical evidence supporting it; she observed independent chromosome assortment in grasshoppers.
+About ten years after the theory was proposed, Eleanor Carothers was the first to discover physical evidence supporting it.
+she observed independent chromosome assortment in grasshoppers.
+Then, after several years of carrying out crosses with the fruit fly, Drosophila melanogaster, Thomas Hunt Morgan provided additional experimental evidence to support the Chromosomal Theory of Inheritance.
+Genetic Linkage and Distances Mendel's work suggested that traits are inherited independently of each other.
+Morgan identified a 1:1 correspondence between a segregating trait and the X chromosome, suggesting that random chromosome segregation was the physical basis of Mendel's model.
+This also demonstrated that linked genes disrupt Mendel's predicted outcomes.
+researchers in Morgan's laboratory suggested that alleles positioned on the same chromosome were not always inherited together.
+During meiosis, linked genes somehow became unlinked.
+Homologous Recombination In 1909, Frans Janssen observed chiasmata—the point at which chromatids are in contact with each other and may exchange segments—prior to the first meiotic division.
+He suggested that alleles become unlinked and chromosomes physically exchange segments.
+As chromosomes condensed and paired with their homologs, they appeared to interact at distinct points.
+Janssen suggested that these points corresponded to regions in which chromosome segments exchanged.
+We now know that the pairing and interaction between homologous chromosomes, or synapsis, does more than simply organize the homologs for migration to separate daughter cells.
+We now know that the pairing and interaction between homologous chromosomes.
+synapsis, does more than simply organize the homologs for migration to separate daughter cells.
+If the genes are linked, one would expect this individual to produce gametes that are either AB or ab with a 1:1 ratio.
+If the genes are unlinked, the individual should produce AB, Ab, aB, and ab gametes with equal frequencies, according to the Mendelian concept of independent assortment.
+If the genes are unlinked, the individual should produce AB, Ab, aB.
+Because they correspond to new allele combinations, the genotypes Ab and aB are nonparental types that result from homologous recombination during meiosis.
+Parental types are progeny that exhibit the same allelic combination as their parents.
+Morgan and his colleagues, however, found that when they test crossed such heterozygous individuals to a homozygous recessive parent, both parental and nonparental cases occurred.
+For example, 950 offspring might be recovered that were either AaBb or aabb, but 50 offspring would also result that were either Aabb or aaBb.
+These results suggested that linkage occurred most often, but a significant minority of offspring were the products of recombination.
+This figure shows unlinked and linked gene inheritance patterns.
+The example used includes fruit fly body color and wing length.
+Fruit flies may have a dominant gray color `b` +, or a recessive black color `b`.
+Fruit flies may have a dominant gray color `b` +.
+They may have dominant long wings vg+, or recessive short wings, vg.
+They may have dominant long wings vg+.
+In, two genes are located on different chromosomes so independent assortment occurs during meiosis.
+In, two genes are very close together on the same chromosome so that no crossing over occurs between them.
+Therefore, the genes are always inherited together and all the offspring are the parental type.
+In, two genes are far apart on the chromosome such that crossing over occurs during every meiotic event.
+The actual recombination frequency of fruit fly wing length and body color that Thomas Morgan observed in 1912 was 17 percent.
+A crossover frequency between 0 percent and 50 percent indicates that the genes are on the same chromosome and crossover sometimes occurs.
+Genetic Maps Janssen did not have the technology to demonstrate crossing over so it remained an abstract idea that scientists did not widely believe.
+Scientists thought chiasmata were a variation on synapsis and could not understand how chromosomes could break and rejoin.
+Yet, the data were clear that linkage did not always occur.
+Ultimately, it took a young undergraduate student and an "all-nighter" to mathematically elucidate the linkage and recombination problem.
+In 1913, Alfred Sturtevant, a student in Morgan's laboratory, gathered results from researchers in the laboratory, and took them home one night to mull them over.
+In 1913, Alfred Sturtevant, a student in Morgan's laboratory, gathered results from researchers in the laboratory.
+a. Recombination of the body color and red/cinnabar eye alleles will occur more frequently than recombination of the alleles for wing length and aristae length.
+b. Recombination of the body color and aristae length alleles will occur more frequently than recombination of red/brown eye alleles and the aristae length alleles.
+d. Recombination of the red/brown eye and long/short aristae alleles will occur more frequently than recombination of the alleles for wing length and body color.
+The values represent map distances in centimorgans, which correspond to recombination frequencies.
+To construct a chromosome map, Sturtevant assumed that genes were ordered serially on threadlike chromosomes.
+He also assumed that the incidence of recombination between two homologous chromosomes could occur with equal likelihood anywhere along the chromosome's length.
+Considering the example cross between AaBb and aabb above, we could calculate the recombination's frequency as 50/1000 = 0.05.
+That is, the likelihood of a crossover between genes A/a and B/b was 0.05, or 5 percent.
+That is, the likelihood of a crossover between genes A/a and B/b was 0.05.
+Such a result would indicate that the genes were definitively linked, but that they were far enough apart for crossovers to occasionally occur.
+Sturtevant divided his genetic map into map units, or centimorgans, in which a 0.01 recombination frequency corresponds to 1 cM.
+Sturtevant divided his genetic map into map units.
+Perfectly unlinked genes correspond to the frequencies Mendel predicted to assort independently in a dihybrid cross.
+A 0.5 recombination frequency indicates that 50 percent of offspring are recombinants and the other 50 percent are parental types.
+That is, every type of allele combination is represented with equal frequency.
+This representation allowed Sturtevant to additively calculate distances between several genes on the same chromosome.
+In 1931, Barbara McClintock and Harriet Creighton demonstrated the crossover of homologous chromosomes in corn plants.
+Weeks later, Curt Stern demonstrated microscopically homologous recombination in Drosophila.
+We now know that homologous chromosomes regularly exchange segments in meiosis by reciprocally breaking and rejoining their DNA at precise locations.
+Aurora Ruiz-Herrera, for example, studies the occurrence of genetic breakpoints at locations in the chromosomes known as fragile sites.
+By identifying chromosomal fragile sites that are shared between humans and other primates, Ruiz-Herrera has provided a deeper understanding of mammalian and specifically human evolution.
+Mendel's Mapped Traits Homologous recombination is a common genetic process, yet Mendel never observed it.
+Some have suggested that Mendel was enormously lucky to select only unlinked genes; whereas, others question whether Mendel discarded any data suggesting linkage.
+Some have suggested that Mendel was enormously lucky to select only unlinked genes.
+whereas, others question whether Mendel discarded any data suggesting linkage.
+In any case, Mendel consistently observed independent assortment because he examined genes that were effectively unlinked.
+We can divide chromosome disorders into two categories: abnormalities in chromosome number and chromosomal structural rearrangements.
+Because even small chromosome segments can span many genes, chromosomal disorders are characteristically dramatic and often fatal.
+Chromosome Identification Chromosome isolation and microscopic observation forms the basis of cytogenetics and is the primary method by which clinicians detect chromosomal abnormalities in humans.
+A karyotype is the number and appearance of chromosomes, and includes their length, banding pattern, and centromere position.
+A karyotype is the number and appearance of chromosomes.
+To obtain a view of an individual's karyotype, cytologists photograph the chromosomes and then cut and paste each chromosome into a chart, or karyogram.
+To obtain a view of an individual's karyotype, cytologists photograph the chromosomes and then cut and paste each chromosome into a chart.
+This karyotype is of a female human.
+A human male would have an XY chromosome pair instead of the XX pair.
+In a given species, we can identify chromosomes by their number, size, centromere position, and banding pattern.
+In a given species, we can identify chromosomes by their number, size, centromere position.
+The X and Y chromosomes are not autosomes.
+However, chromosome 21 is actually shorter than chromosome 22.
+Researchers discovered this after naming Down syndrome as trisomy 21, reflecting how this disorder results from possessing one extra chromosome 21.
+Not wanting to change the name of this important disorder, scientists retained the numbering of chromosome 21 despite describing it having the shortest set of chromosomes.
+We may designate the chromosome "arms" projecting from either end of the centromere as short or long, depending on their relative lengths.
+We abbreviate the short arm p; whereas, we abbreviate the long arm q.
+We abbreviate the short arm p.
+whereas, we abbreviate the long arm q.
+Using this naming system, we can describe chromosome locations consistently in the scientific literature.
+To observe an individual's karyotype, a geneticist first collects a person's cells from a blood sample or other tissue.
+In the laboratory, the geneticist stimulates the isolated cells to begin actively dividing.
+The geneticist then applies the chemical colchicine to cells to arrest condensed chromosomes in metaphase.
+The geneticist then induces swelling in the cells using a hypotonic solution so the chromosomes spread apart.
+Finally, the geneticist preserves the sample in a fixative and applies it to a slide.
+The geneticist then stains chromosomes with one of several dyes to better visualize each chromosome pair's distinct and reproducible banding patterns.
+Following staining, the geneticist views the chromosomes using bright- field microscopy.
+A common stain choice is the Giemsa stain.
+geneticist can identify each band.
+In addition to the banding patterns, geneticists further identify chromosomes on the basis of size and centromere location.
+At its most basic, the karyogram may reveal genetic abnormalities in which an individual has too many or too few chromosomes per cell.
+Geneticists can also identify large DNA deletions or insertions.
+For instance, geneticists can identify Jacobsen Syndrome—which involves distinctive facial features as well as heart and bleeding defects—by a deletion on chromosome 11.
+Translocations are implicated in certain cancers, including chronic myelogenous leukemia.
+During Mendel's lifetime, inheritance was an abstract concept that one could only infer by performing crosses and observing the traits that offspring expressed.
+By observing a karyogram, today's geneticists can actually visualize an individual's chromosomal composition to confirm or predict genetic abnormalities in offspring, even before birth.
+Chromosome Number Disorders Of all of the chromosomal disorders, chromosome number abnormalities are the most obviously identifiable from a karyogram.
+Chromosome number disorders include duplicating or losing entire chromosomes, as well as changes in the number of complete sets of chromosomes.
+They are caused by nondisjunction, which occurs when homologous chromosome pairs or sister chromatids fail to separate during meiosis.
+Misaligned or incomplete synapsis, or a spindle apparatus dysfunction that facilitates chromosome migration, can cause nondisjunction.
+a spindle apparatus dysfunction that facilitates chromosome migration, can cause nondisjunction.
+If homologous chromosomes fail to separate during meiosis I, the result is two gametes that lack that particular chromosome and two gametes with two chromosome copies.
+Nondisjunction may occur during meiosis I or meiosis II.
+a. Nondisjunction only results in gametes with n+1 or n–1 chromosomes.
+b. Nondisjunction occurring during meiosis II results in 50 percent normal gametes.
+c. Nondisjunction during meiosis I results in 50 percent normal gametes.
+d. Nondisjunction always results in four different kinds of gametes.
+Aneuploidy Scientists call an individual with the appropriate number of chromosomes for their species euploid.
+An individual with an error in chromosome number is described as aneuploid, a term that includes monosomy or trisomy.
+Monosomic human zygotes missing any one copy of an autosome invariably fail to develop to birth because they lack essential genes.
+This underscores the importance of "gene dosage" in humans.
+Trisomic individuals suffer from a different type of genetic imbalance: an excess in gene dose.
+Individuals with an extra chromosome may synthesize an abundance of the gene products, which that chromosome encodes.
+This extra dose of specific genes can lead to a number of functional challenges and often precludes development.
+The most common trisomy among viable births is that of chromosome 21, which corresponds to Down Syndrome.
+Short stature and stunted digits, facial distinctions that include a broad skull and large tongue, and significant developmental delays characterize individuals with this inherited disorder.
+significant developmental delays characterize individuals with this inherited disorder.
+We can correlate the incidence of Down syndrome with maternal age.
+Polyploidy We call an individual with more than the correct number of chromosome sets polyploid.
+Polyploid animals are extremely rare, with only a few examples among the flatworms, crustaceans, amphibians, fish, and lizards.
+Polyploid animals are extremely rare, with only a few examples among the flatworms, crustaceans, amphibians, fish.
+Polyploid animals are sterile because meiosis cannot proceed normally and instead produces mostly aneuploid daughter cells that cannot yield viable zygotes.
+Rarely, polyploid animals can reproduce asexually by haplodiploidy, in which an unfertilized egg divides mitotically to produce offspring.
+As with many polyploid plants, this triploid orange daylily is particularly large and robust, and grows flowers with triple the number of petals of its diploid counterparts.
+As with many polyploid plants, this triploid orange daylily is particularly large and robust.
+Sex Chromosome Nondisjunction in Humans Humans display dramatic deleterious effects with autosomal trisomies and monosomies.
+Therefore, it may seem counterintuitive that human females and males can function normally, despite carrying different numbers of the X chromosome.
+Rather than a gain or loss of autosomes, variations in the number of sex chromosomes occur with relatively mild effects.
+In part, this happens because of the molecular process X inactivation.
+By this process, females compensate for their double genetic dose of X chromosome.
+In cats, the gene for coat color is located on the X chromosome.
+Male cats, having only one X chromosome, never exhibit a tortoiseshell coat color.
+An individual carrying an abnormal number of X chromosomes will inactivate all but one X chromosome in each of her cells.
+However, even inactivated X chromosomes continue to express a few genes, and X chromosomes must reactivate for the proper maturation of female ovaries.
+However, even inactivated X chromosomes continue to express a few genes.
+X chromosomes must reactivate for the proper maturation of female ovaries.
+As a result, X-chromosomal abnormalities typically occur with mild intellectual and physical disorders or disabilities, as well as sterility.
+If the X chromosome is absent altogether, the individual will not develop in utero.
+Individuals with three X chromosomes, triplo-X, are phenotypically female but express developmental delays and reduced fertility.
+The XXY genotype, corresponding to one type of Klinefelter syndrome, corresponds to phenotypically male individuals with small testes, enlarged breasts, and reduced body hair.
+The XXY genotype, corresponding to one type of Klinefelter syndrome, corresponds to phenotypically male individuals with small testes, enlarged breasts.
+More complex types of Klinefelter syndrome exist in which the individual has as many as five X chromosomes.
+We see this as several Barr bodies in each cell nucleus.
+Duplications and Deletions In addition to losing or gaining an entire chromosome, a chromosomal segment may duplicate or lose itself.
+Duplications and deletions often produce offspring that survive but exhibit abnormalities.
+Duplicated chromosomal segments may fuse to existing chromosomes or may be free in the nucleus.
+This figure shows an individual with cri-du-chat syndrome at two, four, nine, and 12 years of age.
+This figure shows an individual with cri-du-chat syndrome at two, four, nine.
+Chromosomal Structural Rearrangements Cytologists have characterized numerous structural rearrangements in chromosomes, but chromosome inversions and translocations are the most common.
+We can identify both during meiosis by the adaptive pairing of rearranged chromosomes with their former homologs to maintain appropriate gene alignment.
+If the genes on two homologs are not oriented correctly, a recombination event could result in losing genes from one chromosome and gaining genes on the other.
+This would produce aneuploid gametes.
+Chromosome Inversions A chromosome inversion is the detachment, 180° rotation, and reinsertion of part of a chromosome.
+Chromosome Inversions A chromosome inversion is the detachment, 180° rotation.
+Unless they disrupt a gene sequence, inversions only change gene orientation and are likely to have more mild effects than aneuploid errors.
+However, altered gene orientation can result in functional changes because regulators of gene expression could move out of position with respect to their targets, causing aberrant levels of gene products.
+A pericentric inversion that is asymmetric about the centromere can change the chromosome arms' relative lengths, making these inversions easily identifiable.
+A pericentric inversion can change the chromosome arms' relative lengths.
+When one homologous chromosome undergoes an inversion but the other does not, the individual is an inversion heterozygote.
+To maintain point-for-point synapsis during meiosis, one homolog must form a loop, and the other homolog must mold around it.
+To maintain point-for-point synapsis during meiosis, one homolog must form a loop.
+the other homolog must mold around it.
+When one chromosome undergoes an inversion but the other does not, one chromosome must form an inverted loop to retain point-for-point interaction during synapsis.
+This inversion pairing is essential to maintaining gene alignment during meiosis and to allow for recombination.
+In rare instances, such a change can result in new species evolving.
+In fact, a pericentric inversion in chromosome 18 appears to have contributed to human evolution.
+This inversion is not present in our closest genetic relatives, the chimpanzees.
+Humans and chimpanzees differ cytogenetically by pericentric inversions on several chromosomes and by the fusion of two separate chromosomes in chimpanzees that correspond to chromosome two in humans.
+Scientists believe the pericentric chromosome 18 inversion occurred in early humans following their divergence from a common ancestor with chimpanzees approximately five million years ago.
+Researchers characterizing this inversion have suggested that approximately 19,000 nucleotide bases were duplicated on 18p, and the duplicated region inverted and reinserted on chromosome 18 of an ancestral human.
+Researchers characterizing this inversion have suggested that approximately 19,000 nucleotide bases were duplicated on 18p.
+This suggests that one of the inversion breakpoints occurred between these two genes.
+Interestingly, humans and chimpanzees express USP14 at distinct levels in specific cell types, including cortical cells and fibroblasts.
+Because both ROCK1 and USP14 encode cellular enzymes, a change in their expression could alter cellular function.
+We do not know how this inversion contributed to hominid evolution, but it appears to be a significant factor in the divergence of humans from 1 other primates.
+Translocations can be benign or have devastating effects depending on how the positions of genes are altered with respect to regulatory sequences.
+Notably, specific translocations have occurred with several cancers and with schizophrenia.
+Neither Mendelian genetics nor karyogram and allows for the assessment of many gene linkage is perfectly accurate.
+Disorders in chromosome chromosome behavior involves segregation, number, or aneuploidies, are typically lethal to the independent assortment, and occasionally, linkage.
+Disorders in chromosome chromosome behavior involves segregation, number, or aneuploidies, are typically lethal to the independent assortment.
+Disorders in chromosome chromosome behavior involves segregation, number.
+aneuploidies, are typically lethal to the independent assortment, and occasionally, linkage.
+embryo, although a few trisomic genotypes are viable.
+Sturtevant devised a method to assess recombination Because of X inactivation, aberrations in sex frequency and infer linked genes' relative positions and chromosomes typically have milder phenotypic effects.
+Sturtevant correctly presumed that themselves.
+Inversion or translocation also may genes are arranged in serial order on chromosomes rearrange chromosome structures.
+Both of these and that recombination between homologs can occur aberrations can result in problematic phenotypic anywhere on a chromosome with equal likelihood.
+cinnabar eye alleles will occur more frequently than recombination of the 3.
+c. Nondisjunction during meiosis I results in c. Recombination of the gray/black body 50 percent normal gametes.
+color and long/short aristae alleles will not d. Nondisjunction always results in four occur.
+X-linked recessive traits in humans are observed ________.
+In agriculture, polyploid crops tend to produce trait ________.
+The first suggestion that chromosomes may b. more variety physically exchange segments came from the c. larger yields microscopic identification of ________.
+The other d. alleles homolog remains normal.
+The genotype XXY corresponds to 7.
+Abnormalities in the number of X chromosomes d. 0.75 tends to have milder phenotypic effects than the same abnormalities in autosomes because of 8.
+Which of the following codes describes position ________.
+By definition, a pericentric inversion includes the d. synapse ________.

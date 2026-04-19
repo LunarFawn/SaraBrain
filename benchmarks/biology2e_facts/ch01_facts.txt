@@ -1,0 +1,406 @@
+# Biology2e Chapter 1 — The Study of Life
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 402
+
+This NASA image is a composite of several satellite-based views of Earth.
+To make the whole-Earth image, NASA scientists combine observations of different parts of the planet.
+INTRODUCTION Viewed from space, Earth offers no clues about the diversity of life forms that reside there.
+Scientists believe that the first forms of life on Earth were microorganisms that existed for billions of years in the ocean before plants and animals appeared.
+The mammals, birds, and flowers so familiar to us are all relatively recent, originating 130 to 250 million years ago.
+flowers so familiar to us are all relatively recent, originating 130 to 250 million years ago.
+These stromatolites along the shores of Lake Thetis in Western Australia are ancient structures formed by layering cyanobacteria in shallow waters.
+In simple terms, biology is the study of life.
+This is a very broad definition because the scope of biology is vast.
+Listening to the daily news, you will quickly realize how many aspects of biology we discuss every day.
+Other subjects include efforts toward finding a cure for AIDS, Alzheimer's disease, and cancer.
+Other subjects include efforts toward finding a cure for AIDS, Alzheimer's disease.
+On a global scale, many researchers are committed to finding ways to protect the planet, solve environmental issues, and reduce the effects of climate change.
+On a global scale, many researchers are committed to finding ways to protect the planet, solve environmental issues.
+All of these diverse endeavors are related to different facets of the discipline of biology.
+However, virulent strains are sometimes responsible for disease outbreaks.
+It becomes clear from this definition that applying scientific method plays a major role in science.
+The scientific method is a method of research with defined steps that include experiments and careful observation.
+We will examine scientific method steps in detail later, but one of the most important aspects of this method is the testing of hypotheses by means of repeatable experiments.
+Although using the scientific method is inherent to science, it is inadequate in determining what science is.
+These areas of study are still sciences, however.
+Consider archaeology—even though one cannot perform repeatable experiments, hypotheses may still be supported.
+For instance, archaeologists can hypothesize that an ancient culture existed based on finding a piece of pottery.
+They could make further hypotheses about various characteristics of this culture, which could be correct or false through continued support or contradictions from other findings.
+A hypothesis may become a verified theory.
+A theory is a tested and confirmed explanation for observations or phenomena.
+Therefore, we may be better off to define science as fields of study that attempt to comprehend the nature of the universe.
+However, scientists consider those fields of science related to the physical world and its phenomena and processes natural sciences.
+Thus, a museum of natural sciences might contain any of the items listed above.
+The diversity of scientific fields includes astronomy, biology, computer science, geology, logic, physics, chemistry, mathematics, and many other fields.
+The diversity of scientific fields includes astronomy, biology, computer science, geology, logic, physics, chemistry, mathematics.
+For some experts, the natural sciences are astronomy, biology, chemistry, earth science, and physics.
+For some experts, the natural sciences are astronomy, biology, chemistry, earth science.
+Some disciplines such as biophysics and biochemistry build on both life and physical sciences and are interdisciplinary.
+Some refer to natural sciences as "hard science" because they rely on the use of quantitative data.
+Not surprisingly, the natural science of biology has many branches or subdisciplines.
+Cell biologists study cell structure and function, while biologists who study anatomy investigate the structure of an entire organism.
+Cell biologists study cell structure and function.
+biologists who study anatomy investigate the structure of an entire organism.
+Those biologists studying physiology, however, focus on the internal functioning of an organism.
+For example, botanists explore plants, while zoologists specialize in animals.
+For example, botanists explore plants.
+zoologists specialize in animals.
+Curiosity and inquiry are the driving forces for the development of science.
+Scientists seek to understand the world and the way it operates.
+To do this, they use two methods of logical thinking: inductive reasoning and deductive reasoning.
+Inductive reasoning is a form of logical thinking that uses related observations to arrive at a general conclusion.
+This type of reasoning is common in descriptive science.
+A life scientist such as a biologist makes observations and records them.
+These data can be qualitative or quantitative, and one can supplement the raw data with drawings, pictures, photos, or videos.
+These data can be qualitative or quantitative.
+one can supplement the raw data with drawings, pictures, photos, or videos.
+These data can be qualitative or quantitative, and one can supplement the raw data with drawings, pictures, photos.
+From many observations, the scientist can infer conclusions based on evidence.
+Inductive reasoning involves formulating generalizations inferred from careful observation and analyzing a large amount of data.
+Brain studies provide an example.
+In this type of research, scientists observe many live brains while people are engaged in a specific activity, such as viewing images of food.
+Excess absorption of radioactive sugar derivatives by active areas of the brain causes the various areas to "light up".
+Scientists use a scanner to observe the resultant increase in radioactivity.
+Then, researchers can stimulate that part of the brain to see if similar responses result.
+Deductive reasoning or deduction is the type of logic used in hypothesis-based science.
+In deductive reasoning, the pattern of thinking moves in the opposite direction as compared to inductive reasoning.
+Deductive reasoning is a form of logical thinking that uses a general principle or law to predict specific results.
+From those general principles, a scientist can deduce and predict the specific results that would be valid as long as the general principles are valid.
+Studies in climate change can illustrate this type of reasoning.
+For example, scientists may predict that if the climate becomes warmer in a particular region, then the distribution of plants and animals should change.
+Both types of logical thinking are related to the two main pathways of scientific study: descriptive science and hypothesis-based science.
+The boundary between these two forms of study is often blurred, and most scientific endeavors combine both approaches.
+The boundary between these two forms of study is often blurred.
+most scientific endeavors combine both approaches.
+The fuzzy boundary becomes apparent when thinking about how easily observation can lead to specific questions.
+For example, a gentleman in the 1940s observed that the burr seeds that stuck to his clothes and his dog's fur had a tiny hook structure.
+On closer inspection, he discovered that the burrs' gripping device was more reliable than a zipper.
+He eventually experimented to find the best material that acted similarly, and produced the hook-and-loop fastener popularly known today as Velcro.
+He eventually experimented to find the best material that acted similarly.
+Descriptive science and hypothesis-based science are in continuous dialogue.
+The Scientific Method Biologists study the living world by posing questions about it and seeking science-based responses.
+Known as scientific method, this approach is common to other sciences as well.
+He set up inductive methods for scientific inquiry.
+The scientific method is not used only by biologists; researchers from almost all fields of study can apply it as a logical, rational problem-solving method.
+The scientific method is not used only by biologists.
+researchers from almost all fields of study can apply it as a logical, rational problem-solving method.
+The scientific process typically starts with an observation that leads to a question.
+One Monday morning, a student arrives at class and quickly discovers that the classroom is too warm.
+That is an observation that also describes a problem: the classroom is too warm.
+To solve a problem, one can propose several hypotheses.
+therefore one may propose other hypotheses.
+Once one has selected a hypothesis, the student can make a prediction.
+A prediction is similar to a hypothesis but it typically has the format "If . . .
+It should also be falsifiable, meaning that experimental results can disprove it.
+Importantly, science does not claim to "prove" anything because scientific understandings are always subject to modification with further information.
+This step—openness to disproving ideas—is what distinguishes sciences from non-sciences.
+The presence of the supernatural, for instance, is neither testable nor falsifiable.
+To test a hypothesis, a researcher will conduct one or more experiments designed to eliminate one or more of the hypotheses.
+Each experiment will have one or more variables and one or more controls.
+A variable is any part of the experiment that can vary or change during the experiment.
+The control group contains every feature of the experimental group except it is not given the manipulation that the researcher hypothesizes.
+Therefore, if the experimental group's results differ from the control group, the difference must be due to the hypothesized manipulation, rather than some outside factor.
+the student should reject this hypothesis.
+The students should test each hypothesis by carrying out appropriate experiments.
+While this "warm classroom" example is based on observational results, other hypotheses and experiments might have clearer controls.
+For instance, a student might attend class on Monday and realize she had difficulty concentrating on the lecture.
+The student could then design an experiment with a control to test this hypothesis.
+In hypothesis-based science, researchers predict specific results from a general premise.
+We call this type of reasoning deductive reasoning: deduction proceeds from the general to the particular.
+However, the reverse of the process is also possible: sometimes, scientists reach a general conclusion from a number of specific observations.
+We call this type of reasoning inductive reasoning, and it proceeds from the particular to the general.
+We call this type of reasoning inductive reasoning.
+it proceeds from the particular to the general.
+In recent years a new approach of testing hypotheses has developed as a result of an exponential growth of data deposited in various databases.
+This will increase the demand for specialists in both biology and computer science, a promising career opportunity.
+The scientific method consists of a series of well-defined steps.
+If a hypothesis is not supported by experimental data, one can propose a new hypothesis.
+In the example below, the scientific method is used to solve an everyday problem.
+If something is wrong with the outlet, my coffeemaker also won't work when plugged 2.
+My toaster doesn't toast my bread.
+I plug my coffee maker into the outlet.
+As is the case in this example, the conclusion from inductive reasoning can often become the premise for deductive reasoning.
+Birds and insects flap their wings as they move through the air.
+Therefore, wings enable flight.
+Therefore, insect pests will become more problematic if global temperatures increase.
+Therefore, each daughter cell will have the same chromosome set as the mother cell.
+Therefore, social behavior must have an evolutionary advantage.
+It is important to keep in mind that, although scientists often follow this sequence, there is flexibility.
+Sometimes an experiment leads to conclusions that favor a change in approach.
+Often, an experiment brings entirely new scientific questions to the puzzle.
+Many times, science does not operate in a linear fashion.
+Instead, scientists continually draw inferences and make generalizations, finding patterns as their research proceeds.
+The scientific community has been debating for the last few decades about the value of different types of science.
+This question focuses on the differences between two types of science: basic science and applied science.
+Basic science or "pure" science seeks to expand knowledge regardless of the short-term application of that knowledge.
+It is not focused on developing a product or a service of immediate public or commercial value.
+The immediate goal of basic science is knowledge for knowledge's sake, although this does not mean that, in the end, it may not result in a practical application.
+In applied science, the problem is usually defined for the researcher.
+After Hurricane Irma struck the Caribbean and Florida in 2017, thousands of baby squirrels like this one were thrown from their nests.
+Thanks to applied science, scientists knew how to rehabilitate the squirrel.
+However, a careful look at the history of science reveals that basic knowledge has resulted in many remarkable applications of great value.
+Many scientists think that a basic understanding of science is necessary before researchers develop an application, therefore, applied science relies on the results that researchers generate through basic science.
+Other scientists think that it is time to move on from basic science in order to find solutions to actual problems.
+Both approaches are valid.
+It is true that there are problems that demand immediate attention; however, scientists would find few solutions without the help of the wide knowledge foundation that basic science generates.
+It is true that there are problems that demand immediate attention.
+however, scientists would find few solutions without the help of the wide knowledge foundation that basic science generates.
+DNA strands, unique in every human, are in our cells, where they provide the instructions necessary for life.
+When DNA replicates, it produces new copies of itself, shortly before a cell divides.
+Understanding DNA replication mechanisms enabled scientists to develop laboratory techniques that researchers now use to identify genetic diseases, pinpoint individuals who were at a crime scene, and determine paternity.
+Understanding DNA replication mechanisms enabled scientists to develop laboratory techniques that researchers now use to identify genetic diseases, pinpoint individuals who were at a crime scene.
+Without basic science, it is unlikely that applied science could exist.
+(The gene is the basic unit of heredity represented by a specific DNA segment that codes for a functional molecule.
+Researchers have studied other less complex organisms as part of this project in order to gain a better understanding of human chromosomes.
+An important end goal eventually became using the data for applied research, seeking cures and early diagnoses for genetically related diseases.
+The Human Genome Project was a 13-year collaborative effort among researchers working in several different science fields.
+Researchers completed the project, which sequenced the entire human genome, in 2003.
+Scottish biologist Alexander Fleming discovered penicillin when he accidentally left a petri dish of Staphylococcus bacteria open.
+An unwanted mold grew on the dish, killing the bacteria.
+Fleming's curiosity to investigate the reason behind the bacterial death, followed by his experiments, led to the discovery of the antibiotic penicillin, which is produced by the fungus Penicillium.
+Reporting Scientific Work Whether scientific research is basic science or applied science, scientists must share their findings in order for other researchers to expand and build upon their discoveries.
+Collaboration with other scientists—when planning, conducting, and analyzing results—is important for scientific research.
+For this reason, important aspects of a scientist's work are communicating with peers and disseminating results to peers.
+Scientists can share results by presenting them at a scientific meeting or conference, but this approach can reach only the select few who are present.
+Instead, most scientists present their results in peer-reviewed manuscripts that are published in scientific journals.
+Peer-reviewed manuscripts are scientific papers that a scientist's colleagues or peers review.
+These colleagues are qualified individuals, often experts in the same research area, who judge whether or not the scientist's work is suitable for publication.
+The process of peer review helps to ensure that the research in a scientific paper or grant proposal is original, significant, logical, and thorough.
+The process of peer review helps to ensure that the research in a scientific paper or grant proposal is original, significant, logical.
+Grant proposals, which are requests for research funding, are also subject to peer review.
+Scientists publish their work so other scientists can reproduce their experiments under similar or different conditions to expand on the findings.
+A scientific paper is very different from creative writing.
+A scientific paper needs to be succinct but detailed enough to allow peers to reproduce the experiments.
+The scientific paper consists of several specific sections—introduction, materials and methods, results, and discussion.
+The scientific paper consists of several specific sections—introduction, materials and methods, results.
+This structure is sometimes called the "IMRaD" format.
+For example, some review papers require an outline.
+The introduction starts with brief, but broad, background information about what is known in the field.
+A good introduction also gives the rationale of the work.
+It justifies the work carried out and also briefly mentions the end of the paper, where the researcher will present the hypothesis or research question driving the research.
+The introduction refers to the published scientific work of others and therefore requires citations following the style of the journal.
+The materials and methods section includes a complete and accurate description of the substances the researchers use, and the method and techniques they use to gather data.
+The materials and methods section includes a complete and accurate description of the substances the researchers use.
+The description should be thorough enough to allow another researcher to repeat the experiment and obtain similar results, but it does not have to be verbose.
+This section will also include information on how the researchers made measurements and the types of calculations and statistical analyses they used to examine raw data.
+Although the materials and methods section gives an accurate description of the experiments, it does not discuss them.
+Some journals require a results section followed by a discussion section, but it is more common to combine both.
+If the journal does not allow combining both sections, the results section simply narrates the findings without any further interpretation.
+The researchers present results with tables or graphs, but they do not present duplicate information.
+In the discussion section, the researchers will interpret the results, describe how variables may be related, and attempt to explain the observations.
+In the discussion section, the researchers will interpret the results, describe how variables may be related.
+It is indispensable to conduct an extensive literature search to put the results in the context of previously published scientific research.
+Therefore, researchers include proper citations in this section as well.
+Finally, the conclusion section summarizes the importance of the experimental findings.
+While the scientific paper almost certainly answers one or more scientific questions that the researchers stated, any good research should lead to more questions.
+Therefore, a well-done scientific paper allows the researchers and others to continue and expand on the findings.
+Review articles do not follow the IMRAD format because they do not present original scientific findings, or primary literature.
+Review articles do not follow the IMRAD format because they do not present original scientific findings.
+Instead, they summarize and comment on findings that were published as primary literature and typically include extensive reference sections.
+Scientific Ethics Scientists must ensure that their efforts do not cause undue damage to humans, animals, or the environment.
+Scientific Ethics Scientists must ensure that their efforts do not cause undue damage to humans, animals.
+They also must ensure that their research and communications are free of bias and that they properly balance financial, legal, safety, replicability, and other considerations.
+They also must ensure that their research and communications are free of bias and that they properly balance financial, legal, safety, replicability.
+Bioethics is thus an important and continually evolving field, in which researchers collaborate with other thinkers and organizations.
+They work to define guidelines for current practice, and also continually consider new developments and emerging technologies in order to form answers for the years and decades to come.
+They work to define guidelines for current practice.
+In that effort, ethicists will likely seek to balance the positive outcomes -- such as improved therapies or prevention of certain illnesses -- with negative outcomes.
+Doctors even withheld proven medications because the goal of the study was to understand the impact of untreated syphilis on Black men.
+While the decisions made in the Tuskegee study are unjustifiable, some decisions are genuinely difficult to make.
+For example, doctors rely on artificial intelligence and robotics for medical diagnosis and treatment; in the near future, even more responsibility will lie with machines.
+For example, doctors rely on artificial intelligence and robotics for medical diagnosis and treatment.
+in the near future, even more responsibility will lie with machines.
+These are all questions bioethicists seek to answer, and are the types of considerations that all scientific researchers take into account when designing and conducting studies.
+These are all questions bioethicists seek to answer.
+Bioethics are not simple, and often leave scientists balancing benefits with harm.
+Bioethics are not simple.
+In this text and course, you will discuss medical discoveries, vaccines, and research that, at their core, have an ethical complexity or, in the view of many, an ethical lapse.
+In this text and course, you will discuss medical discoveries, vaccines.
+In 1951, Henrietta Lacks, a 30-year-old African American woman, was diagnosed with cervical cancer at Johns Hopkins Hospital.
+Without her knowledge or permission, researchers took samples of her cells and with them created the immortal HeLa cell line.
+These cells have contributed to major medical discoveries, including the polio vaccine.
+Today, harvesting tissue or organs from a dying patient without consent is not only considered unethical but illegal, regardless of whether such an act could save other patients' lives.
+This may sound like a silly question with an obvious response, but it is not always easy to define life.
+For example, a branch of biology called virology studies viruses, which exhibit some of the characteristics of living entities but lack others.
+Although viruses can attack living organisms, cause diseases, and even reproduce, they do not meet the criteria that biologists use to define life.
+even reproduce, they do not meet the criteria that biologists use to define life.
+Consequently, virologists are not biologists, strictly speaking.
+Similarly, some biologists study the early molecular evolution that gave rise to life.
+Since the events that preceded life are not biological events, these scientists are also excluded from biology in the strict sense of the term.
+As scientists discover new organisms every day, biologists continue to seek answers to these and other questions.
+Properties of Life All living organisms share several key characteristics or functions: order, sensitivity or response to the environment, reproduction, adaptation, growth and development, regulation/homeostasis, energy processing, and evolution.
+Properties of Life All living organisms share several key characteristics or functions: order, sensitivity or response to the environment, reproduction, adaptation, growth and development, regulation/homeostasis, energy processing.
+When viewed together, these eight characteristics serve to define life.
+Organisms are highly organized, coordinated structures that consist of one or more cells.
+Even very simple, single- celled organisms are remarkably complex: inside each cell, atoms form molecules.
+These in turn form cell organelles and other cellular inclusions.
+Tissues, in turn, collaborate to create organs.
+Organs work together to form organ systems.
+After a few minutes, the plant returns to normal.
+Even tiny bacteria can move toward or away from chemicals or light.
+Movement toward a stimulus is a positive response, while movement away from a stimulus is a negative response.
+Movement toward a stimulus is a positive response.
+movement away from a stimulus is a negative response.
+Reproduction Single-celled organisms reproduce by first duplicating their DNA, and then dividing it equally as the cell prepares to divide to form two new cells.
+Reproduction Single-celled organisms reproduce by first duplicating their DNA.
+When reproduction occurs, DNA containing genes are passed along to an organism's offspring.
+These genes ensure that the offspring will belong to the same species and will have similar characteristics, such as size and shape.
+Adaptation All living organisms exhibit a "fit" to their environment.
+Biologists refer to this fit as adaptation, and it is a consequence of evolution by natural selection, which operates in every lineage of reproducing organisms.
+Biologists refer to this fit as adaptation.
+it is a consequence of evolution by natural selection, which operates in every lineage of reproducing organisms.
+Adaptations enhance the reproductive potential of the individuals exhibiting them, including their ability to survive to reproduce.
+Adaptations are not constant.
+As an environment changes, natural selection causes the characteristics of the individuals in a population to track those changes.
+Although no two look alike, these kittens have inherited genes from both parents and share many of the same characteristics.
+Even the smallest organisms are complex and require multiple regulatory mechanisms to coordinate internal functions, respond to stimuli, and cope with environmental stresses.
+Even the smallest organisms are complex and require multiple regulatory mechanisms to coordinate internal functions, respond to stimuli.
+Homeostasis refers to the relatively stable internal environment required to maintain life.
+Two examples of internal functions regulated in an organism are nutrient transport and blood flow.
+Organs perform specific functions, such as carrying oxygen throughout the body, removing wastes, delivering nutrients to every cell, and cooling the body.
+Organs perform specific functions, such as carrying oxygen throughout the body, removing wastes, delivering nutrients to every cell.
+In order to function properly, cells require appropriate conditions such as proper temperature, pH, and appropriate concentration of diverse chemicals.
+In order to function properly, cells require appropriate conditions such as proper temperature, pH.
+These conditions may, however, change from one moment to the next.
+Organisms are able to maintain homeostatic internal conditions within a narrow range almost constantly, despite environmental changes, by activation of regulatory mechanisms.
+For example, an organism needs to regulate body temperature through the thermoregulation process.
+Structures that aid in this type of insulation include fur, feathers, blubber, and fat.
+Structures that aid in this type of insulation include fur, feathers, blubber.
+In hot climates, organisms have methods that help them to shed excess body heat.
+California condors are an endangered species.
+This bird has a wing tag that helps biologists identify the individual.
+All organisms use a source of energy for their metabolic activities.
+Some organisms capture energy from the sun and convert it into chemical energy in food.
+Evolution The diversity of life on Earth is a result of mutations, or random changes in hereditary material over time.
+Evolution The diversity of life on Earth is a result of mutations.
+These mutations allow the possibility for organisms to adapt to a changing environment.
+An organism that evolves characteristics fit for the environment will have greater reproductive success, subject to the forces of natural selection.
+Levels of Organization of Living Things Living things are highly organized and structured, following a hierarchy that we can examine on a scale from small to large.
+The atom is the smallest and most fundamental unit of matter that retains the properties of an element.
+It consists of a nucleus surrounded by electrons.
+Atoms form molecules.
+A molecule is a chemical structure consisting of at least two atoms held together by one or more chemical bonds.
+Some cells contain aggregates of macromolecules surrounded by membranes.
+We call these organelles.
+Organelles are small structures that exist within cells.
+All living things are made of cells.
+The cell itself is the smallest fundamental unit of structure and function in living organisms.
+(This requirement is why scientists do not consider viruses living: they are not made of cells.
+To make new viruses, they have to invade and hijack the reproductive mechanism of a living cell.
+Some organisms consist of a single cell and others are multicellular.
+Scientists classify cells as prokaryotic or eukaryotic.
+Prokaryotes are single-celled or colonial organisms that do not have membrane-bound nuclei.
+In contrast, the cells of eukaryotes do have membrane-bound organelles and a membrane-bound nucleus.
+In larger organisms, cells combine to make tissues, which are groups of similar cells carrying out similar or related functions.
+Organs are collections of tissues grouped together performing a common function.
+Organs are present not only in animals but also in plants.
+An organ system is a higher level of organization that consists of functionally related organs.
+Mammals have many organ systems.
+For instance, the circulatory system transports blood through the body and to and from the lungs.
+It includes organs such as the heart and blood vessels.
+Organisms are individual living entities.
+For example, each tree in a forest is an organism.
+Single-celled prokaryotes and single- celled eukaryotes are also organisms, which biologists typically call microorganisms.
+Biologists collectively call all the individuals of a species living within a specific area a population.
+For example, a forest may include many pine trees, which represent the population of pine trees in this forest.
+Different populations may live in the same specific area.
+For example, the forest with the pine trees includes populations of flowering plants, insects, and microbial populations.
+For example, the forest with the pine trees includes populations of flowering plants, insects.
+A community is the sum of populations inhabiting a particular area.
+The forest itself is an ecosystem.
+An ecosystem consists of all the living things in a particular area together with the abiotic, nonliving parts of that environment such as nitrogen in the soil or rain water.
+It includes land, water, and even the atmosphere to a certain extent.
+It includes land, water.
+From a single organelle to the entire biosphere, living organisms are parts of a highly structured hierarchy.
+a. Tissues exist within organs which exist within organ systems.
+Communities exist within populations which exist within ecosystems.
+c. Organelles exist within cells which exist within tissues.
+Communities exist within ecosystems which exist in the biosphere.
+The Diversity of Life The fact that biology, as a science, has such a broad scope has to do with the tremendous diversity of life on earth.
+The source of this diversity is evolution, the process of gradual change in a population or species over time.
+Evolutionary biologists study the evolution of living things in everything from the microscopic world to ecosystems.
+It is a diagram showing the evolutionary relationships among biological species based on similarities and differences in genetic or physical traits or both.
+Nodes and branches comprise a phylogenetic tree.
+The internal nodes represent ancestors and are points in evolution when, based on scientific evidence, researchers believe an ancestor has diverged to form two new species.
+In some phylogenetic trees, the length of each branch might be proportional to the time elapsed since the split.
+Microbiologist Carl Woese constructed this phylogenetic tree using data that he obtained from sequencing ribosomal RNA genes.
+The tree shows the separation of living organisms into three domains: Bacteria, Archaea, and Eukarya.
+The tree shows the separation of living organisms into three domains: Bacteria, Archaea.
+Carl Woese and the Phylogenetic Tree In the past, biologists grouped living organisms into six kingdoms—animalia, plantae, fungi, protista, archea, and bacteria.
+Carl Woese and the Phylogenetic Tree In the past, biologists grouped living organisms into six kingdoms—animalia, plantae, fungi, protista, archea.
+They based the organizational scheme mainly on physical features, as opposed to physiology, biochemistry, or molecular biology, all of which modern systematics use.
+They based the organizational scheme mainly on physical features, as opposed to physiology, biochemistry.
+American microbiologist Carl Woese's pioneering work in the early 1970s has shown, however, that life on Earth has evolved along three lineages, now called domains—Bacteria, Archaea, and Eukarya.
+American microbiologist Carl Woese's pioneering work in the early 1970s has shown, however, that life on Earth has evolved along three lineages, now called domains—Bacteria, Archaea.
+The third domain contains the eukaryotes and includes unicellular microorganisms, together with the three remaining kingdoms.
+Many organisms belonging to the Archaea domain live under extreme conditions and are called extremophiles.
+To construct his tree, Woese used genetic relationships rather than similarities based on morphology.
+Woese constructed his tree from universally distributed comparative gene sequencing that are present in every organism, and conserved.
+Woese constructed his tree from universally distributed comparative gene sequencing that are present in every organism.
+which justified separating the prokaryotes into two domains: bacteria and archaea.
+These images represent different domains.
+The bacteria in this micrograph belong to Domain Bacteria, while the extremophiles living in this hot vent belong to Domain Archaea.
+The bacteria in this micrograph belong to Domain Bacteria.
+the extremophiles living in this hot vent belong to Domain Archaea.
+Both the sunflower and lion are part of Domain Eukarya.
+Branches of Biological Study The scope of biology is broad and therefore contains many branches and subdisciplines.
+Biologists may pursue one of those subdisciplines and work in a more focused field.
+Microbiology, the study of microorganisms, is the study of the structure and function of single-celled organisms.
+It is quite a broad branch itself, and depending on the subject of study, there are also microbial physiologists, ecologists, and geneticists, among others.
+It is quite a broad branch itself.
+Forensic Scientist Forensic science is the application of science to answer questions related to the law.
+Biologists as well as chemists and biochemists can be forensic scientists.
+Forensic scientists provide scientific evidence for use in courts, and their job involves examining trace materials associated with crimes.
+Forensic scientists provide scientific evidence for use in courts.
+their job involves examining trace materials associated with crimes.
+Interest in forensic science has increased in the last few years, possibly because of popular television shows that feature forensic scientists on the job.
+Their job activities are primarily related to crimes against people such as murder, rape, and assault.
+Their job activities are primarily related to crimes against people such as murder, rape.
+Forensic scientists also analyze other biological evidence left at crime scenes, such as insect larvae or pollen grains.
+Students who want to pursue careers in forensic science will most likely have to take chemistry and biology courses as well as some intensive math courses.
+This forensic scientist works in a DNA extraction room at the U.S. Army Criminal Investigation Laboratory at Fort Gillem, GA.
+Researchers work on excavating dinosaur fossils at a site in Castellón, Spain.
+Biologists can also specialize as biotechnologists, ecologists, or physiologists, to name just a few areas.
+Biologists can also specialize as biotechnologists, ecologists.
+This is just a small sample of the many fields that biologists can pursue.
+Biology is the culmination of the achievements of the natural sciences from their inception to today.
+A scan of news headlines—whether reporting on immunizations, a newly discovered species, sports doping, or a genetically-modified food—demonstrates the way biology is active in and important to our everyday world.
+a genetically-modified food—demonstrates the way biology is active in and important to our everyday world.
+Biology is the science that studies living organisms and defined sections: introduction, materials and methods, their interactions with one another and their results, and, finally, a concluding discussion.
+Science attempts to describe and papers summarize the conducted research in a understand the nature of the universe in whole or in particular field over a period of time.
+Science has many fields.
+Those fields related to the physical world and its phenomena 1.2 Themes and Concepts of Biology are natural sciences.
+Biology is the science of life.
+All living organisms share Science can be basic or applied.
+In turn, Science uses two types of logical reasoning.
+Inductive biologists group organisms as populations, reasoning uses particular results to produce general communities, ecosystems, and the biosphere.
+Inductive biologists group organisms as populations, reasoning uses particular results to produce general communities, ecosystems.
+Deductive reasoning is a form of great diversity of life today evolved from less-diverse logical thinking that predicts results by applying ancestral organisms over billions of years.
+We can use general principles.
+step-based process that consists of making observations, defining a problem, posing hypotheses, Biology is very broad and includes many branches and testing these hypotheses, and drawing one or more subdisciplines.
+step-based process that consists of making observations, defining a problem, posing hypotheses, Biology is very broad and includes many branches and testing these hypotheses.
+Examples include molecular biology, conclusions.
+The testing uses proper controls.
+microbiology, neurobiology, zoology, and botany, Scientists present their results in peer-reviewed among others.
+botany, Scientists present their results in peer-reviewed among others.
+Question the outlet, my coffeemaker also incorrect, propose some alternative hypotheses.
+pests will become more problematic if 3. global temperatures increase.
+My toaster doesn't toast my 3. Chromosomes, the carriers of DNA, Hypothesis bread.
+Therefore, each daughter cell will have the same chromosome set as the 4. d.
+I plug my coffee maker into mother cell.
+Therefore, social behavior must have an Experiment evolutionary advantage.
+Communities exist within populations Birds and insects flap their wings as they which exist within ecosystems.
+Therefore, wings c. Organelles exist within cells which exist enable flight.
+Communities exist within ecosystems better than harsh ones.
+The first forms of life on Earth were ________.
+The process of ________ helps to ensure that a a. plants scientist's research is original, significant, b. microorganisms logical, and thorough.
+The process of ________ helps to ensure that a a. plants scientist's research is original, significant, b. microorganisms logical.
+A person notices that her houseplants that are b. variable regularly exposed to music seem to grow more c. theory quickly than those in rooms with no music.
+As a d. control result, she determines that plants grow better when exposed to music.
+c. do not contain DNA or RNA a. organelle, tissue, biosphere, ecosystem, d. cannot reproduce population b. organ, organism, tissue, organelle, 12.
+The presence of a membrane-enclosed nucleus molecule is a characteristic of ________.
+Where in a phylogenetic tree would you expect 13.
+For each, give an example of a nonliving of the sciences, it can also be applied to object that otherwise fits the definition of everyday situations.
+you may have at home, at school, or with your 21.
+you may have at home, at school.
+You go for a long walk on a hot day.

@@ -1,0 +1,326 @@
+# Biology2e Chapter 41 — Osmotic Regulation and Excretion
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 322
+
+Our bodies' complex systems have developed ways to treat waste and maintain a balanced internal environment.
+INTRODUCTION The daily intake recommendation for human water consumption is eight to ten glasses of water.
+In order to achieve a healthy balance, the human body should excrete the eight to ten glasses of water every day.
+This occurs via the processes of urination, defecation, sweating and, to a small extent, respiration.
+The organs and tissues of the human body are soaked in fluids that are maintained at constant temperature, pH, and solute concentration, all crucial elements of homeostasis.
+The organs and tissues of the human body are soaked in fluids that are maintained at constant temperature, pH.
+The solutes in body fluids are mainly mineral salts and sugars, and osmotic regulation is the process by which the mineral salts and water are kept in balance.
+The solutes in body fluids are mainly mineral salts and sugars.
+osmotic regulation is the process by which the mineral salts and water are kept in balance.
+Osmotic homeostasis is maintained despite the influence of external factors like temperature, diet, and weather conditions.
+Osmotic homeostasis is maintained despite the influence of external factors like temperature, diet.
+Osmoregulation is the process of maintenance of salt and water balance across membranes within the body's fluids, which are composed of water, plus electrolytes and non-electrolytes.
+Both electrolytes and non-electrolytes contribute to the osmotic balance.
+The body's fluids include blood plasma, the cytosol within cells, and interstitial fluid, the fluid that exists in the spaces between cells and tissues of the body.
+The body's fluids include blood plasma, the cytosol within cells.
+The membranes of the body are semi-permeable membranes.
+Semi-permeable membranes are permeable to certain types of solutes and water.
+Solutions on two sides of a semi-permeable membrane tend to equalize in solute concentration by movement of solutes and/or water across the membrane.
+Isotonic cells have an equal concentration of solutes inside and outside the cell; this equalizes the osmotic pressure on either side of the cell membrane which is a semi-permeable membrane.
+Isotonic cells have an equal concentration of solutes inside and outside the cell.
+this equalizes the osmotic pressure on either side of the cell membrane which is a semi-permeable membrane.
+In a hypotonic environment, cells tend to swell due to intake of water.
+The blood maintains an isotonic environment so that cells neither shrink nor swell.
+The body does not exist in isolation.
+Because blood plasma is one of the fluid components, osmotic pressures have a direct bearing on blood pressure.
+Transport of Electrolytes across Cell Membranes Electrolytes, such as sodium chloride, ionize in water, meaning that they dissociate into their component ions.
+In water, sodium chloride, dissociates into the sodium ion and the chloride ion.
+Electrolytes are lost from the body during urination and perspiration.
+For this reason, athletes are encouraged to replace electrolytes and fluids during periods of increased activity and perspiration.
+Osmotic pressure is influenced by the concentration of solutes in a solution.
+It is directly proportional to the number of solute atoms or molecules and not dependent on the size of the solute molecules.
+Water can pass through membranes by passive diffusion.
+This movement can be accomplished by facilitated diffusion and active transport.
+Facilitated diffusion requires protein-based channels for moving the solute.
+Active transport requires energy in the form of ATP conversion, carrier proteins, or pumps in order to move ions against the concentration gradient.
+Active transport requires energy in the form of ATP conversion, carrier proteins.
+Concept of Osmolality and Milliequivalent In order to calculate osmotic pressure, it is necessary to understand how solute concentrations are measured.
+The unit for measuring solutes is the mole.
+One mole is defined as the gram molecular weight of the solute.
+For example, the molecular weight of sodium chloride is 58.44.
+Thus, one mole of sodium chloride weighs 58.44 grams.
+The molarity of a solution is the number of moles of solute per liter of solution.
+The molality of a solution is the number of moles of solute per kilogram of solvent.
+If the solvent is water, one kilogram of water is equal to one liter of water.
+The unit of milliequivalent takes into consideration the ions present in the solution and the charge on the ions.
+Thus, for ions that have a charge of one, one milliequivalent is equal to one millimole.
+For ions that have a charge of two, one milliequivalent is equal to 0.5 millimoles.
+Another unit for the expression of electrolyte concentration is the milliosmole, which is the number of milliequivalents of solute per kilogram of solvent.
+Body fluids are usually maintained within the range of 280 to 300 mOsm.
+Organisms such as goldfish that can tolerate only a relatively narrow range of salinity are referred to as stenohaline.
+About 90 percent of all bony fish are restricted to either freshwater or seawater.
+They are incapable of osmotic regulation in the opposite environment.
+It is possible, however, for a few fishes like salmon to spend part of their life in freshwater and part in seawater.
+Organisms like the salmon and molly that can tolerate a relatively wide range of salinity are referred to as euryhaline organisms.
+This is possible because some fish have evolved osmoregulatory mechanisms to survive in all kinds of aquatic environments.
+In such hypotonic environments, these fish do not drink much water.
+Instead, they pass a lot of very dilute urine, and they achieve electrolyte balance by active transport of salts through the gills.
+Instead, they pass a lot of very dilute urine.
+they achieve electrolyte balance by active transport of salts through the gills.
+Their body fluid concentrations conform to changes in seawater concentration.
+fishes; however, the blood of sharks contains the organic compounds urea and trimethylamine oxide.
+however, the blood of sharks contains the organic compounds urea and trimethylamine oxide.
+This does not mean that their electrolyte composition is similar to that of seawater.
+They achieve isotonicity with the sea by storing large concentrations of urea.
+TMAO stabilizes proteins in the presence of high urea levels, preventing the disruption of peptide bonds that would occur in other animals exposed to similar levels of urea.
+Sharks are cartilaginous fish with a rectal gland to secrete salt and assist in osmoregulation.
+Dialysis Technician Dialysis is a medical process of removing wastes and excess water from the blood by diffusion and ultrafiltration.
+This is a vital process to keep patients alive.
+In some cases, the patients undergo artificial dialysis until they are eligible for a kidney transplant.
+In others who are not candidates for kidney transplants, dialysis is a life-long necessity.
+Dialysis technicians typically work in hospitals and clinics.
+Their on-the-job duties, which typically occur under the direct supervision of a registered nurse, focus on providing dialysis treatments.
+This can include reviewing patient history and current condition, assessing and responding to patient needs before and during treatment, and monitoring the dialysis process.
+This can include reviewing patient history and current condition, assessing and responding to patient needs before and during treatment.
+Treatment may include taking and reporting a patient's vital signs and preparing solutions and equipment to ensure accurate and sterile procedures.
+Although the kidneys are the major osmoregulatory organ, the skin and lungs also play a role in the process.
+The adrenal glands sit on top of each kidney and are also called the suprarenal glands.
+Kidneys filter blood and purify it.
+Oxygen allows the kidney cells to efficiently manufacture chemical energy in the form of ATP through aerobic respiration.
+The outermost layer is a tough connective tissue layer called the renal fascia.
+The third and innermost layer is the renal capsule.
+Internally, the kidney has three regions—an outer cortex, a medulla in the middle, and the renal pelvis in the region called the hilum of the kidney.
+Internally, the kidney has three regions—an outer cortex, a medulla in the middle.
+the renal pelvis in the region called the hilum of the kidney.
+The hilum is the concave part of the bean-shape where blood vessels and nerves enter and exit the kidney; it is also the point of exit for the ureters.
+The hilum is the concave part of the bean-shape where blood vessels and nerves enter and exit the kidney.
+it is also the point of exit for the ureters.
+The renal cortex is granular due to the presence of nephrons—the functional unit of the kidney.
+The medulla consists of multiple pyramidal tissue masses, called the renal pyramids.
+The tips of the pyramids, called renal papillae, point toward the renal pelvis.
+The renal pelvis leads to the ureter on the outside of the kidney.
+On the inside of the kidney, the renal pelvis branches out into two or three extensions called the major calyces, which further branch into the minor calyces.
+The ureters are urine-bearing tubes that exit the kidney and empty into the urinary bladder.
+The renal pyramids are in the medulla.
+The cortex covers the capsule.
+d. Nephrons are in the renal cortex.
+Because the kidney filters blood, its network of blood vessels is an important component of its structure and function.
+The renal arteries split into several segmental arteries upon entering the kidneys.
+Each segmental artery splits further into several interlobar arteries and enters the renal columns, which supply the renal lobes.
+The interlobar arteries split at the junction of the renal cortex and medulla to form the arcuate arteries.
+The arcuate "bow shaped" arteries form arcs along the base of the medullary pyramids.
+Cortical radiate arteries, as the name suggests, radiate out from the arcuate arteries.
+Veins trace the path of the arteries and have similar names, except there are no segmental veins.
+Each kidney is made up of over one million nephrons that dot the renal cortex, giving it a granular appearance when sectioned sagittally.
+A nephron consists of three parts—a renal corpuscle, a renal tubule, and the associated capillary network, which originates from the cortical radiate arteries.
+A nephron consists of three parts—a renal corpuscle, a renal tubule.
+The nephron is the functional unit of the kidney.
+The glomerulus and convoluted tubules are located in the kidney cortex, while collecting ducts are located in the pyramids of the medulla.
+The glomerulus and convoluted tubules are located in the kidney cortex.
+collecting ducts are located in the pyramids of the medulla.
+The Bowman's capsule surrounds the glomerulus.
+The loop of Henle is between the proximal and distal convoluted tubules.
+Renal Tubule The renal tubule is a long and convoluted structure that emerges from the glomerulus and can be divided into three parts based on function.
+The first part is called the proximal convoluted tubule due to its proximity to the glomerulus; it stays in the renal cortex.
+The first part is called the proximal convoluted tubule due to its proximity to the glomerulus.
+it stays in the renal cortex.
+The collecting ducts amass contents from multiple nephrons and fuse together as they enter the papillae of the renal medulla.
+Capillary Network within the Nephron The capillary network that originates from the renal arteries supplies the nephron with blood that needs to be filtered.
+Within the glomerulus, the network of capillaries is called the glomerular capillary bed.
+Once the efferent arteriole exits the glomerulus, it forms the peritubular capillary network, which surrounds and interacts with parts of the renal tubule.
+In cortical nephrons, the peritubular capillary network surrounds the PCT and DCT.
+In juxtamedullary nephrons, the peritubular capillary network forms a network around the loop of Henle and is called the vasa recta.
+Kidney Function and Physiology Kidneys filter blood in a three-step process.
+First, the nephrons filter blood that runs through the capillary network in the glomerulus.
+Almost all solutes, except for proteins, are filtered out into the glomerulus by a process called glomerular filtration.
+Second, the filtrate is collected in the renal tubules.
+In the loop of Henle, the filtrate continues to exchange solutes and water with the renal medulla and the peritubular capillary network.
+Water is also reabsorbed during this step.
+Then, additional solutes and wastes are secreted into the kidney tubules during tubular secretion, which is, in essence, the opposite process to tubular reabsorption.
+The collecting ducts collect filtrate coming from the nephrons and fuse in the medullary papillae.
+Each part of the nephron performs a different function in filtering waste and maintaining homeostatic balance.
+The proximal convoluted tubule also adjusts blood pH by selectively secreting ammonia into the filtrate, where it reacts with H+ to form NH4+.
+The descending loop of Henle is lined with cells containing aquaporins that allow water to pass from the filtrate into the interstitial fluid.
+In the thin part of the ascending loop of Henle, Na+ and Cl- ions diffuse into the interstitial fluid.
+In the thick part, these same ions are actively transported into the interstitial fluid.
+Because salt but not water is lost, the filtrate becomes more dilute as it travels up the limb.
+Glomerular Filtration Glomerular filtration filters out most of the solutes due to high blood pressure and specialized membranes in the afferent arteriole.
+The "leaky" connections between the endothelial cells of the glomerular capillary network allow solutes to pass through easily.
+All solutes in the glomerular capillaries, except for macromolecules like proteins, pass through by passive diffusion.
+Glomerular filtration rate is the volume of glomerular filtrate formed per minute by the kidneys.
+GFR is regulated by multiple mechanisms and is an important indicator of kidney function.
+LINK TO LEARNING To learn more about the vascular system of kidneys, click through this review and the steps of blood flow.
+Tubular Reabsorption and Secretion Tubular reabsorption occurs in the PCT part of the renal tubule.
+this occurs either by passive or active transport.
+Sodium is the most abundant ion and most of it is reabsorbed by active transport and then transported to the peritubular capillaries.
+Because Na+ is actively transported out of the tubule, water follows it to even out the osmotic pressure.
+Water is also independently reabsorbed into the peritubular capillaries due to the presence of aquaporins, or water channels, in the PCT.
+Water is also independently reabsorbed into the peritubular capillaries due to the presence of aquaporins.
+This occurs due to the low blood pressure and high osmotic pressure in the peritubular capillaries.
+However, every solute has a transport maximum and the excess is not reabsorbed.
+The descending limb is permeable to water, not solutes.
+the opposite is true for the ascending limb.
+Additionally, the loop of Henle invades the renal medulla, which is naturally high in salt concentration and tends to absorb water from the renal tubule and concentrate the filtrate.
+The vasa recta around it acts as the countercurrent exchanger.
+The descending limb is water permeable.
+Water flows from the filtrate to the interstitial fluid, so osmolality inside the limb increases as it descends into the renal medulla.
+At the bottom, the osmolality is higher inside the loop than in the interstitial fluid.
+Osmolarity is given in units of milliosmoles per liter.
+Loop diuretics are drugs sometimes used to treat hypertension.
+These drugs inhibit the reabsorption of Na+ and Cl- ions by the ascending limb of the loop of Henle.
+A side effect is that they increase urination.
+If the body requires additional water, all of it can be reabsorbed at this point.
+Excretion of wastes occurs due to lack of reabsorption combined with tubular secretion.
+Undesirable products like metabolic wastes, urea, uric acid, and certain drugs, are excreted by tubular secretion.
+certain drugs, are excreted by tubular secretion.
+Kidneys also maintain an acid-base balance by secreting excess H+ ions.
+This allows for exchange of chemical messengers between the different cell types.
+Together, the macula densa and juxtaglomerular cells form the juxtaglomerular complex.
+The JGC is an endocrine structure that secretes the enzyme renin and the hormone erythropoietin.
+Blood pressure, blood volume, and changes in electrolyte balance come under the purview of a nephrologist.
+changes in electrolyte balance come under the purview of a nephrologist.
+Nephrologists usually work with other physicians who refer patients to them or consult with them about specific diagnoses and treatment plans.
+Patients are usually referred to a nephrologist for symptoms such as blood or protein in the urine, very high blood pressure, kidney stones, or renal failure.
+Patients are usually referred to a nephrologist for symptoms such as blood or protein in the urine, very high blood pressure, kidney stones.
+Nephrology is a subspecialty of internal medicine.
+To become a nephrologist, medical school is followed by additional training to become certified in internal medicine.
+An additional two or more years is spent specifically studying kidney disorders and their accompanying effects on the body.
+Microorganisms and invertebrate animals use more primitive and simple mechanisms to get rid of their metabolic wastes than the mammalian system of kidney and urinary function.
+Contractile Vacuoles in Microorganisms The most fundamental feature of life is the presence of a cell.
+In other words, a cell is the simplest functional unit of a life.
+Bacteria are unicellular, prokaryotic organisms that have some of the least complex life processes in place.
+The cells of microorganisms like bacteria, protozoa, and fungi are bound by cell membranes and use them to interact with the environment.
+fungi are bound by cell membranes and use them to interact with the environment.
+Some cells, including some leucocytes in humans, are able to engulf food by endocytosis—the formation of vesicles by involution of the cell membrane within the cells.
+The same vesicles are able to interact and exchange metabolites with the intracellular environment.
+Contractile vacuoles should not be confused with vacuoles, which store food or water.
+Some unicellular organisms, such as the amoeba, ingest food by endocytosis.
+The food vesicle fuses with a lysosome, which digests the food.
+Waste is excreted by exocytosis.
+Planaria are flatworms that live in freshwater.
+Their excretory system consists of two tubules connected to a highly branched duct system.
+Any valuable metabolites are recovered by reabsorption.
+Flame cells are found in flatworms, including parasitic tapeworms and free-living planaria.
+They also maintain the organism's osmotic balance.
+Tubules are connected into branched structures that lead to pores located all along the sides of the body.
+The filtrate is secreted through these pores.
+Filtered fluid containing nitrogenous and other wastes is stored in a bladder and then secreted through a pore in the side of the body.
+A pair of nephridia is present on each segment of the earthworm.
+They are similar to flame cells in that they have a tubule with cilia.
+Excretion occurs through a pore called the nephridiopore.
+They are more evolved than the flame cells in that they have a system for tubular reabsorption by a capillary network before excretion.
+They are usually found in pairs and the number of tubules varies with the species of insect.
+they are lined with microvilli for reabsorption and maintenance of osmotic balance.
+Malpighian tubules work cooperatively with specialized glands in the wall of the rectum.
+Na+ ions out; water passively follows to form urine.
+water passively follows to form urine.
+The secretion of ions alters the osmotic pressure which draws water, electrolytes, and nitrogenous waste into the tubules.
+The secretion of ions alters the osmotic pressure which draws water, electrolytes.
+uric acid is excreted as a thick paste or powder.
+Not dissolving wastes in water helps these organisms to conserve water; this is especially important for life in dry environments.
+this is especially important for life in dry environments.
+Na+ and/or K+ ions are actively transported into the lumen of the tubules.
+Water then enters the tubules via osmosis, forming urine.
+The urine passes through the intestine, and into the rectum.
+The urine passes through the intestine.
+There, nutrients diffuse back into the hemolymph.
+Na+ and/or K+ ions are pumped into the hemolymph, and water follows.
+Na+ and/or K+ ions are pumped into the hemolymph.
+The concentrated waste is then excreted.
+During the catabolism, or breakdown, of nitrogen-containing macromolecules, carbon, hydrogen, and oxygen are extracted and stored in the form of carbohydrates and fats.
+Excess nitrogen is excreted from the body.
+Nitrogenous wastes tend to form toxic ammonia, which raises the pH of body fluids.
+The formation of ammonia itself requires energy in the form of ATP and large quantities of water to dilute it out of a biological system.
+Animals that live in aquatic environments tend to release ammonia into the water.
+Animals that excrete ammonia are said to be ammonotelic.
+Terrestrial organisms have evolved other mechanisms to excrete nitrogenous wastes.
+The animals must detoxify ammonia by converting it into a relatively nontoxic form such as urea or uric acid.
+Mammals, including humans, produce urea, whereas reptiles and many terrestrial invertebrates produce uric acid.
+Mammals, including humans, produce urea.
+reptiles and many terrestrial invertebrates produce uric acid.
+Nitrogenous Waste in Terrestrial Animals: The Urea Cycle The urea cycle is the primary mechanism by which mammals convert ammonia to urea.
+Urea is made in the liver and excreted in urine.
+The amino acid L-ornithine gets converted into different intermediates before being regenerated at the end of the urea cycle.
+Hence, the urea cycle is also referred to as the ornithine cycle.
+The enzyme ornithine transcarbamylase catalyzes a key step in the urea cycle and its deficiency can lead to accumulation of toxic levels of ammonia in the body.
+The first two reactions occur in the mitochondria and the last three reactions occur in the cytosol.
+Urea concentration in the blood, called blood urea nitrogen or BUN, is used as an indicator of kidney function.
+Excretion of Nitrogenous Waste The theory of evolution proposes that life started in an aquatic environment.
+It is not surprising to see that biochemical pathways like the urea cycle evolved to adapt to a changing environment when terrestrial life forms evolved.
+Arid conditions probably led to the evolution of the uric acid pathway as a means of conserving water.
+Nitrogenous Waste in Birds and Reptiles: Uric Acid Birds, reptiles, and most terrestrial arthropods convert toxic ammonia to uric acid or the closely related compound guanine instead of urea.
+most terrestrial arthropods convert toxic ammonia to uric acid or the closely related compound guanine instead of urea.
+Mammals also form some uric acid during breakdown of nucleic acids.
+Uric acid is a compound similar to purines found in nucleic acids.
+It is water insoluble and tends to form a white paste or powder; it is excreted by birds, insects, and reptiles.
+It is water insoluble and tends to form a white paste or powder.
+it is excreted by birds, insects, and reptiles.
+It is water insoluble and tends to form a white paste or powder; it is excreted by birds, insects.
+These include ammonia, urea, and uric acid.
+These include ammonia, urea.
+EVERYDAY CONNECTION Gout Mammals use uric acid crystals as an antioxidant in their cells.
+Food choices that reduce the amount of nitrogenous bases in the diet help reduce the risk of gout.
+For example, tea, coffee, and chocolate have purine-like compounds, called xanthines, and should be avoided by people with gout and kidney stones.
+chocolate have purine-like compounds, called xanthines.
+While the kidneys operate to maintain osmotic balance and blood pressure in the body, they also act in concert with hormones.
+Hormones are small molecules that act as messengers within the body.
+Epinephrine and Norepinephrine Epinephrine and norepinephrine are synthesized by the adrenal medulla.
+They are the flight/fight hormones that are released when the body is under extreme stress.
+Kidney function is halted temporarily by epinephrine and norepinephrine.
+These hormones function by acting directly on the smooth muscles of blood vessels to constrict them.
+These hormones go one step further and trigger the renin- angiotensin-aldosterone system.
+Renin is produced by the granular cells of the afferent and efferent arterioles.
+Thus, the kidneys control blood pressure and volume directly.
+Renin acts on angiotensinogen, which is made in the liver and converts it to angiotensin I. Angiotensin converting enzyme converts angiotensin I to angiotensin II.
+Angiotensin II raises blood pressure by constricting blood vessels.
+It also triggers the release of the mineralocorticoid aldosterone from the adrenal cortex, which in turn stimulates the renal tubules to reabsorb more sodium.
+Angiotensin II also triggers the release of anti-diuretic hormone from the hypothalamus, leading to water retention in the kidneys.
+It acts directly on the nephrons and decreases glomerular filtration rate.
+Medically, blood pressure can be controlled by drugs that inhibit ACE.
+The renin-angiotensin-aldosterone system increases blood pressure and volume.
+The hormone ANP has antagonistic effects.
+Mineralocorticoids Mineralocorticoids are hormones synthesized by the adrenal cortex that affect osmotic balance.
+Aldosterone is a mineralocorticoid that regulates sodium levels in the blood.
+Almost all of the sodium in the blood is reclaimed by the renal tubules under the influence of aldosterone.
+Because sodium is always reabsorbed by active transport and water follows sodium to maintain osmotic balance, aldosterone manages not only sodium levels but also the water levels in body fluids.
+In contrast, the aldosterone also stimulates potassium secretion concurrently with sodium reabsorption.
+In contrast, absence of aldosterone means that no sodium gets reabsorbed in the renal tubules and all of it gets excreted in the urine.
+In addition, the daily dietary potassium load is not secreted and the retention of K+ can cause a dangerous increase in plasma K+ concentration.
+Patients who have Addison's disease have a failing adrenal cortex and cannot produce aldosterone.
+They lose sodium in their urine constantly, and if the supply is not replenished, the consequences can be fatal.
+They lose sodium in their urine constantly.
+if the supply is not replenished, the consequences can be fatal.
+It is formed by the hypothalamus and is stored and released from the posterior pituitary.
+It acts by inserting aquaporins in the collecting ducts and promotes reabsorption of water.
+ADH also acts as a vasoconstrictor and increases blood pressure during hemorrhaging.
+It is released by cells in the atrium of the heart in response to high blood pressure and in patients with sleep apnea.
+ANP affects salt release, and because water passively follows salt to maintain osmotic balance, it also has a diuretic effect.
+ANP affects salt release.
+because water passively follows salt to maintain osmotic balance, it also has a diuretic effect.
+ANP also prevents sodium reabsorption by the renal tubules, decreasing water reabsorption and lowering blood pressure.
+Its actions suppress the actions of aldosterone, ADH, and renin.
+Its actions suppress the actions of aldosterone, ADH.
+Chapter Summary 41.1 Osmoregulation and Osmotic Balance saltwater adapt by being osmoregulators or osmoconformers.
+It is the number of Organs solute molecules and not the molecular size that is The kidneys are the main osmoregulatory organs in important in osmosis.
+Osmoregulation and osmotic mammalian systems; they function to filter blood and balance are important bodily functions, resulting in maintain the osmolarity of body fluids at 300 mOsm.
+they function to filter blood and balance are important bodily functions, resulting in maintain the osmolarity of body fluids at 300 mOsm.
+Not all solutes can pass They are surrounded by three layers and are made up through a semi-permeable membrane.
+Osmosis is the internally of three distinct regions—the cortex, medulla, movement of water across the membrane.
+the kidneys arise from and merge with the aorta and Facilitated diffusion utilizes protein channels to move inferior vena cava, respectively.
+Osmolarity is measured in units of The nephron is the functional unit of the kidney, which milliequivalents or milliosmoles, both of which take actively filters blood and generates urine.
+The nephron into consideration the number of solute particles and is made up of the renal corpuscle and renal tubule.
+While aquatic animals can easily excrete vessels and the tissue fluid in the kidneys.
+Urea is the tubular reabsorption, which occurs in the renal tubules; major byproduct of ammonia metabolism in vertebrate and tubular secretion, which also occurs in the renal animals.
+Urea is the tubular reabsorption, which occurs in the renal tubules.
+Uric acid is the major byproduct of ammonia tubules.
+The simplest system is that of Hormonal cues help the kidneys synchronize the contractile vacuoles present in microorganisms.
+Hormones like epinephrine, cells and nephridia in worms perform excretory norepinephrine, renin-angiotensin, aldosterone, anti- functions and maintain osmotic balance.
+Some insects diuretic hormone, and atrial natriuretic peptide help have evolved Malpighian tubules to excrete wastes and regulate the needs of the body as well as the maintain osmotic balance.
+atrial natriuretic peptide help have evolved Malpighian tubules to excrete wastes and regulate the needs of the body as well as the maintain osmotic balance.
+The loop of Henle is between the proximal a. The renal pelvis drains into the ureter.
+Why do you think b.
+When dehydrated human patients need to be 6.
+The macula densa is/are: a. present in the renal medulla.
+The sodium ion is at the highest concentration b. dense tissue present in the outer layer of in: the kidney.
+BUN is ________.
+The gland located at the top of the kidney is the 14.
+Human beings accumulate ________ before ________ gland.
+Renin is made by ________.
+the kidneys waste matter and bodily fluids c.
+Flame cells are primitive excretory organs found a. epinephrine in ________.
+Why is excretion important in order to achieve than the kidneys.
+Why are the loop of Henle and vasa recta uric acid.

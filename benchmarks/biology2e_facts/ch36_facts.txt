@@ -1,0 +1,551 @@
+# Biology2e Chapter 36 — Sensory Systems
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 547
+
+While it is helpful to this underwater predator, electrosensitivity is a sense not found in most land animals.
+Senses provide information about the body and its environment.
+Humans have five special senses: olfaction, gustation, equilibrium, vision, and hearing.
+Humans have five special senses: olfaction, gustation, equilibrium, vision.
+Additionally, we possess general senses, also called somatosensation, which respond to stimuli like temperature, pain, pressure, and vibration.
+Additionally, we possess general senses, also called somatosensation, which respond to stimuli like temperature, pain, pressure.
+In one, a neuron works with a sensory receptor, a cell, or cell process that is specialized to engage with and detect a specific stimulus.
+In one, a neuron works with a sensory receptor, a cell.
+Stimulation of the sensory receptor activates the associated afferent neuron, which carries information about the stimulus to the central nervous system.
+In the second type of sensory transduction, a sensory nerve ending responds to a stimulus in the internal or external environment: this neuron constitutes the sensory receptor.
+Free nerve endings can be stimulated by several different stimuli, thus showing little receptor specificity.
+For example, pain receptors in your gums and teeth may be stimulated by temperature changes, chemical stimulation, or pressure.
+For example, pain receptors in your gums and teeth may be stimulated by temperature changes, chemical stimulation.
+Reception The first step in sensation is reception, which is the activation of sensory receptors by stimuli such as mechanical stimuli, chemicals, or temperature.
+Reception The first step in sensation is reception, which is the activation of sensory receptors by stimuli such as mechanical stimuli, chemicals.
+The receptor can then respond to the stimuli.
+The region in space in which a given sensory receptor can respond to a stimulus, be it far away or in contact with the body, is that receptor's receptive field.
+For the sense of touch, a stimulus must come into contact with the body.
+For the sense of hearing, a stimulus can be a moderate distance away.
+For vision, a stimulus can be very far away; for example, the visual system perceives light from stars at enormous distances.
+For vision, a stimulus can be very far away.
+for example, the visual system perceives light from stars at enormous distances.
+Transduction The most fundamental function of a sensory system is the translation of a sensory signal to an electrical signal in the nervous system.
+This takes place at the sensory receptor, and the change in electrical potential that is produced is called the receptor potential.
+This takes place at the sensory receptor.
+Disturbance of these dendrites by compressing them or bending them opens gated ion channels in the plasma membrane of the sensory neuron, changing its electrical potential.
+Receptor potentials are graded potentials: the magnitude of these graded potentials varies with the strength of the stimulus.
+If the magnitude of depolarization is sufficient, the neuron will fire an action potential.
+as those in the visual system, this is not always the case.
+A mechanosensitive channel is connected to the plasma membrane and the cytoskeleton by hair-like tethers.
+Stereocilia in the human ear are connected to mechanosensitive ion channels.
+When a sound causes the stereocilia to move, mechanosensitive ion channels transduce the signal to the cochlear nerve.
+Sensory receptors for different senses are very different from each other, and they are specialized according to the type of stimulus they sense: they have receptor specificity.
+Sensory receptors for different senses are very different from each other.
+they are specialized according to the type of stimulus they sense: they have receptor specificity.
+For example, touch receptors, light receptors, and sound receptors are each activated by different stimuli.
+sound receptors are each activated by different stimuli.
+Touch receptors are not sensitive to light or sound; they are sensitive only to touch or pressure.
+Touch receptors are not sensitive to light or sound.
+they are sensitive only to touch or pressure.
+However, stimuli may be combined at higher levels in the brain, as happens with olfaction, contributing to our sense of taste.
+Thus, action potentials transmitted over a sensory receptor's afferent axons encode one type of stimulus, and this segregation of the senses is preserved in other sensory circuits.
+Thus, action potentials transmitted over a sensory receptor's afferent axons encode one type of stimulus.
+this segregation of the senses is preserved in other sensory circuits.
+The intensity of a stimulus is often encoded in the rate of action potentials produced by the sensory receptor.
+Thus, an intense stimulus will produce a more rapid train of action potentials, and reducing the stimulus will likewise slow the rate of production of action potentials.
+Thus, an intense stimulus will produce a more rapid train of action potentials.
+A second way in which intensity is encoded is by the number of receptors activated.
+An intense stimulus might initiate action potentials in a large number of adjacent receptors, while a less intense stimulus might stimulate fewer receptors.
+An intense stimulus might initiate action potentials in a large number of adjacent receptors.
+a less intense stimulus might stimulate fewer receptors.
+information is received in the CNS, and the brain will further process incoming signals.
+information is received in the CNS.
+the brain will further process incoming signals.
+Perception Perception is an individual's interpretation of a sensation.
+Although perception relies on the activation of sensory receptors, perception happens not at the level of the sensory receptor, but at higher levels in the nervous system, in the brain.
+The brain distinguishes sensory stimuli through a sensory pathway: action potentials from sensory receptors travel along neurons that are dedicated to a particular stimulus.
+These neurons are dedicated to that particular stimulus and synapse with particular neurons in the brain or spinal cord.
+All sensory signals, except those from the olfactory system, are transmitted through the central nervous system and are routed to the thalamus and to the appropriate region of the cortex.
+Interpretation of sensory signals between individuals of the same species is largely similar, owing to the inherited similarity of their nervous systems.
+A good example of this is individual tolerances to a painful stimulus, such as dental pain, which certainly differ.
+It is easy to differentiate between a one-pound bag of rice and a two-pound bag of rice.
+one bag is twice as heavy as the other.
+This smallest detectible difference in stimuli is known as the just-noticeable difference.
+You will be testing JND of different weights of rice in bags.
+For example, you could choose 10 percent increments between one and two pounds or 20 percent increments.
+JND between the two small bags and between the two large bags is proportionally the same," or ". . .
+Given the large difference between 20 and 40 pounds, you may wish to use 30 pounds as your larger weight.
+For the one-pound and 20-pound groups record a plus sign for each participant that detects a difference between the base weight and the step weight.
+Weber's Law states that the concept that a just-noticeable difference in a stimulus is proportional to the magnitude of the original stimulus.
+Somatosensation is a mixed sensory category and includes all sensation received from the skin and mucous membranes, as well from as the limbs and joints.
+Somatosensation is also known as tactile sense, or more familiarly, as the sense of touch.
+Somatosensation is also known as tactile sense.
+Somatosensation occurs all over the exterior of the body and at some interior locations as well.
+A variety of receptor types—embedded in the skin, mucous membranes, muscles, joints, internal organs, and cardiovascular system—play a role.
+cardiovascular system—play a role.
+The epidermis serves as a barrier to water and to invasion by pathogens.
+Below the epidermis and dermis is the subcutaneous tissue, or hypodermis, the fatty layer that contains blood vessels, connective tissue, and the axons of sensory neurons.
+Below the epidermis and dermis is the subcutaneous tissue, or hypodermis, the fatty layer that contains blood vessels, connective tissue.
+Below the epidermis and dermis is the subcutaneous tissue.
+The hypodermis, which holds about 50 percent of the body's fat, attaches the dermis to the bone and muscle, and supplies nerves and blood vessels to the dermis.
+The hypodermis, which holds about 50 percent of the body's fat, attaches the dermis to the bone and muscle.
+Somatosensory Receptors Somatosensory receptors are classified into four categories: mechanoreceptors, thermoreceptors, pain receptors, and chemoreceptors.
+Somatosensory Receptors Somatosensory receptors are classified into four categories: mechanoreceptors, thermoreceptors, pain receptors.
+These categories are based on the nature of stimuli each receptor class transduces.
+A free nerve ending, as its name implies, is an unencapsulated dendrite of a sensory neuron.
+Free nerve endings are the most common nerve endings in skin, and they extend into the middle of the epidermis.
+Free nerve endings are the most common nerve endings in skin.
+they extend into the middle of the epidermis.
+Free nerve endings are sensitive to painful stimuli, to hot and cold, and to light touch.
+Free nerve endings are sensitive to painful stimuli, to hot and cold.
+They are slow to adjust to a stimulus and so are less sensitive to abrupt changes in stimulation.
+Mechanoreceptors sense stimuli due to physical deformation of their plasma membranes.
+They contain mechanically gated ion channels whose gates open or close in response to pressure, touch, stretching, and sound.
+They contain mechanically gated ion channels whose gates open or close in response to pressure, touch, stretching.
+end bulbs, are found only in specialized regions.
+Merkel's disks are densely distributed in the fingertips and lips.
+They are slow-adapting, unencapsulated nerve endings, and they respond to light touch.
+They are slow-adapting, unencapsulated nerve endings.
+they respond to light touch.
+Light touch, also known as discriminative touch, is a light pressure that allows the location of a stimulus to be pinpointed.
+The receptive fields of Merkel's disks are small with well-defined borders.
+That makes them finely sensitive to edges and they come into use in tasks such as typing on a keyboard.
+Merkel's disks, which are unencapsulated, respond to light touch.
+Ruffini endings detect stretch, deformation within joints, and warmth.
+Ruffini endings detect stretch, deformation within joints.
+Pacinian corpuscles detect transient pressure and high-frequency vibration.
+Krause end bulbs are encapsulated thermo receptors that detect cold.
+a. Pacinian corpuscles are found in both glabrous and hairy skin.
+Merkel's disks are abundant on the fingertips and lips.
+c. Ruffini endings are encapsulated mechanoreceptors.
+d. Meissner's corpuscles extend into the lower dermis.
+They, too, are found primarily in the glabrous skin on the fingertips and eyelids.
+They respond to fine touch and pressure, but they also respond to low-frequency vibration or flutter.
+They are rapidly adapting, fluid-filled, encapsulated neurons with small, well-defined borders and are responsive to fine details.
+Like Merkel's disks, Meissner's corpuscles are not as plentiful in the palms as they are in the fingertips.
+Deeper in the epidermis, near the base, are Ruffini endings, which are also known as bulbous corpuscles.
+These are slow-adapting, encapsulated mechanoreceptors that detect skin stretch and deformations within joints, so they provide valuable feedback for gripping objects and controlling finger position and movement.
+Thus, they also contribute to proprioception and kinesthesia.
+Ruffini endings also detect warmth.
+It is not surprising, then, that humans detect cold stimuli before they detect warm stimuli.
+They are rapidly adapting mechanoreceptors that sense deep transient pressure and high-frequency vibration.
+Pacinian receptors detect pressure and vibration by being compressed, stimulating their internal dendrites.
+In proprioception, proprioceptive and kinesthetic signals travel through myelinated afferent neurons running from the spinal cord to the medulla.
+Neurons are not physically connected, but communicate via neurotransmitters secreted into synapses or "gaps" between communicating neurons.
+Once in the medulla, the neurons continue carrying the signals to the thalamus.
+Muscle spindles are stretch receptors that detect the amount of stretch, or lengthening of muscles.
+Muscle spindles are stretch receptors that detect the amount of stretch.
+Related to these are Golgi tendon organs, which are tension receptors that detect the force of muscle contraction.
+Proprioceptive and kinesthetic signals come from limbs.
+Unconscious proprioceptive signals run from the spinal cord to the cerebellum, the brain region that coordinates muscle contraction, rather than to the thalamus, like most other sensory information.
+Baroreceptors detect pressure changes in an organ.
+They are found in the walls of the carotid artery and the aorta where they monitor blood pressure, and in the lungs where they detect the degree of lung expansion.
+They are found in the walls of the carotid artery and the aorta where they monitor blood pressure.
+Stretch receptors are found at various sites in the digestive and urinary systems.
+they differ in their sensitivity to movement.
+Some hair receptors also detect skin deflection, and certain rapidly adapting hair receptors allow detection of stimuli that have not yet touched the skin.
+Some hair receptors also detect skin deflection.
+certain rapidly adapting hair receptors allow detection of stimuli that have not yet touched the skin.
+The nociceptive receptors—those that detect pain—are located near the surface.
+Small, finely calibrated mechanoreceptors—Merkel's disks and Meissner's corpuscles—are located in the upper layers and can precisely localize even gentle touch.
+Both primary somatosensory cortex and secondary cortical areas are responsible for processing the complex picture of stimuli transmitted from the interplay of mechanoreceptors.
+Density of Mechanoreceptors The distribution of touch receptors in human skin is not consistent over the body.
+In humans, touch receptors are less dense in skin covered with any type of hair, such as the arms, legs, torso, and face.
+In humans, touch receptors are less dense in skin covered with any type of hair, such as the arms, legs, torso.
+The relative density of pressure receptors in different locations on the body can be demonstrated experimentally using a two-point discrimination test.
+In this demonstration, two sharp points, such as two thumbtacks, are brought into contact with the subject's skin.
+If the two points are felt as one point, it can be inferred that the two points are both in the receptive field of a single sensory receptor.
+If two points are felt as two separate points, each is in the receptive field of two separate sensory receptors.
+Warmth and cold information from the face travels through one of the cranial nerves to the brain.
+You know from experience that a tolerably cold or hot stimulus can quickly progress to a much more intense stimulus that is no longer tolerable.
+Any stimulus that is too intense can be perceived as pain because temperature sensations are conducted along the same pathways that carry pain sensations.
+Pain Pain is the name given to nociception, which is the neural processing of injurious stimuli in response to tissue damage.
+Pain is caused by true sources of injury, such as contact with a heat source that causes a thermal burn or contact with a corrosive chemical.
+Peppers taste "hot" because the protein receptors that bind capsaicin open the same calcium channels that are activated by warm receptors.
+Nociception starts at the sensory receptors, but pain, inasmuch as it is the perception of nociception, does not start until it is communicated to the brain.
+Interestingly, one nociceptive pathway projects not to the thalamus but directly to the hypothalamus in the forebrain, which modulates the cardiovascular and neuroendocrine functions of the autonomic nervous system.
+Taste, also called gustation, and smell, also called olfaction, are the most interconnected senses in that both involve molecules of the stimulus entering the body and bonding to receptors.
+Taste, also called gustation.
+Smell lets an animal sense the presence of food or other animals—whether potential mates, predators, or prey—or other chemicals in the environment that can impact their survival.
+Smell lets an animal sense the presence of food or other animals—whether potential mates, predators.
+Similarly, the sense of taste allows animals to discriminate between types of foods.
+Different tasting foods have different attributes, both helpful and harmful.
+For example, sweet-tasting substances tend to be highly caloric, which could be necessary for survival in lean times.
+Bitterness is associated with toxicity, and sourness is associated with spoiled food.
+Bitterness is associated with toxicity.
+Salty foods are valuable in maintaining homeostasis by helping the body retain water and by providing ions necessary for cells to function.
+Tastes and Odors Both taste and odor stimuli are molecules taken in from the environment.
+The primary tastes detected by humans are sweet, sour, bitter, salty, and umami.
+The primary tastes detected by humans are sweet, sour, bitter, salty.
+The first four tastes need little explanation.
+The taste of umami, also known as savoriness, is attributable to the taste of the amino acid L- glutamate.
+In fact, monosodium glutamate, or MSG, is often used in cooking to enhance the savory taste of certain foods.
+MSG, is often used in cooking to enhance the savory taste of certain foods.
+Savory substances tend to be high in protein.
+All odors that we perceive are molecules in the air we breathe.
+If a substance does not release molecules into the air from its surface, it has no smell.
+And if a human or other animal does not have a receptor that recognizes a specific molecule, then that molecule has no smell.
+Humans have about 350 olfactory receptor subtypes that work in various combinations to allow us to sense about 10,000 different odors.
+Both odors and tastes involve molecules that stimulate specific chemoreceptors.
+Although humans commonly distinguish taste as one sense and smell as another, they work together to create the perception of flavor.
+The olfactory epithelium is a collection of specialized olfactory receptors in the back of the nasal cavity that spans an area about 5 cm2 in humans.
+Humans have about 12 million olfactory receptors, distributed among hundreds of different receptor types that respond to different odors.
+The overall size of the olfactory epithelium also differs between species, with that of bloodhounds, for example, being many times larger than that of humans.
+Olfactory neurons are bipolar neurons.
+Each neuron has a single dendrite buried in the olfactory epithelium, and extending from this dendrite are 5 to 20 receptor-laden, hair-like cilia that trap odorant molecules.
+Each neuron has a single dendrite buried in the olfactory epithelium.
+The sensory receptors on the cilia are proteins, and it is the variations in their amino acid chains that make the receptors sensitive to different odorants.
+The sensory receptors on the cilia are proteins.
+it is the variations in their amino acid chains that make the receptors sensitive to different odorants.
+Each olfactory sensory neuron has only one type of receptor on its cilia, and the receptors are specialized to detect specific odorants, so the bipolar neurons themselves are specialized.
+Each olfactory sensory neuron has only one type of receptor on its cilia.
+the receptors are specialized to detect specific odorants, so the bipolar neurons themselves are specialized.
+other sensations are relayed through the thalamus.
+In 1991, they were the first to pinpoint the olfactory receptors in the back of the nasal cavity of mice.
+These detection abilities are applied in different combinations of detection to create a pattern that can both be recognized and remembered.
+The exact nature of this scent identification is still being researched and debated.
+Pheromones A pheromone is a chemical released by an animal that affects the behavior or physiology of animals of the same species.
+Pheromonal signals can have profound effects on animals that inhale them, but pheromones apparently are not consciously perceived in the same way as other odors.
+Certain pheromones are attractants to potential mates, others are repellents to potential competitors of the same sex, and still others play roles in mother-infant attachment.
+Certain pheromones are attractants to potential mates, others are repellents to potential competitors of the same sex.
+still others play roles in mother-infant attachment.
+Some pheromones can also influence the timing of puberty, modify reproductive cycles, and even prevent embryonic implantation.
+Some pheromones can also influence the timing of puberty, modify reproductive cycles.
+The vomeronasal organ is a tubular, fluid-filled, olfactory organ present in many vertebrate animals that sits adjacent to the nasal cavity.
+It is very sensitive to pheromones and is connected to the nasal cavity by a duct.
+When molecules dissolve in the mucosa of the nasal cavity, they then enter the VNO where the pheromone molecules among them bind with specialized pheromone receptors.
+pheromonal signal then continues to areas of the hypothalamus that are key to reproductive physiology and behavior.
+Taste Detecting a taste is fairly similar to detecting an odor, given that both taste and smell rely on chemical receptors being stimulated by certain molecules.
+The primary organ of taste is the taste bud.
+Filiform papillae, which are located across the tongue, are tactile, providing friction that helps the tongue move substances, and contain no taste cells.
+Filiform papillae, which are located across the tongue, are tactile, providing friction that helps the tongue move substances.
+In contrast, fungiform papillae, which are located mainly on the anterior two-thirds of the tongue, each contain one to eight taste buds and also have receptors for pressure and temperature.
+Foliate papillae are prominent protrusions on this light micrograph.
+Each of these papillae is surrounded by a groove and contains about 250 taste buds.
+Food molecules are dissolved in saliva, and they bind with and stimulate the receptors on the microvilli.
+Food molecules are dissolved in saliva.
+they bind with and stimulate the receptors on the microvilli.
+The receptors for tastants are located across the outer portion and front of the tongue, outside of the middle area where the filiform papillae are most prominent.
+each taste has only one corresponding type of receptor.
+Thus, like olfaction, each receptor is specific to its stimulus.
+Transduction of the five tastes happens through different mechanisms that reflect the molecular composition of the tastant.
+A salty tastant provides the sodium ions that enter the taste neurons and excite them directly.
+Sour tastants are acids and belong to the thermoreceptor protein family.
+Sweet, bitter, and umami tastants require a G-protein coupled receptor.
+umami tastants require a G-protein coupled receptor.
+These tastants bind to their respective receptors, thereby exciting the specialized neurons associated with them.
+In humans, the senses decline dramatically by age 50 and continue to decline.
+A child may find a food to be too spicy, whereas an elderly person may find the same food to be bland and unappetizing.
+A child may find a food to be too spicy.
+an elderly person may find the same food to be bland and unappetizing.
+of olfactory receptor, so each glomerulus is specific to one odorant.
+From glomeruli, olfactory signals travel directly to the olfactory cortex and then to the frontal cortex and the thalamus.
+Olfactory signals also travel directly to the amygdala, thereafter reaching the hypothalamus, thalamus, and frontal cortex.
+Olfactory signals also travel directly to the amygdala, thereafter reaching the hypothalamus, thalamus.
+The last structure that olfactory signals directly travel to is a cortical center in the temporal lobe structure important in spatial, autobiographical, declarative, and episodic memories.
+The last structure that olfactory signals directly travel to is a cortical center in the temporal lobe structure important in spatial, autobiographical, declarative.
+Olfaction is finally processed by areas of the brain that deal with memory, emotions, reproduction, and thought.
+Olfaction is finally processed by areas of the brain that deal with memory, emotions, reproduction.
+From the medulla, taste signals travel to the thalamus and then to the primary gustatory cortex.
+Information from different regions of the tongue is segregated in the medulla, thalamus, and cortex.
+Information from different regions of the tongue is segregated in the medulla, thalamus.
+Audition, or hearing, is important to humans and to other animals for many different interactions.
+hearing, is important to humans and to other animals for many different interactions.
+It enables an organism to detect and receive information about danger, such as an approaching predator, and to participate in communal exchanges like those concerning territories or mating.
+It enables an organism to detect and receive information about danger, such as an approaching predator.
+On the other hand, although it is physically linked to the auditory system, the vestibular system is not involved in hearing.
+Instead, an animal's vestibular system detects its own movement, both linear and angular acceleration and deceleration, and balance.
+Instead, an animal's vestibular system detects its own movement, both linear and angular acceleration and deceleration.
+Sound Auditory stimuli are sound waves, which are mechanical, pressure waves that move through a medium, such as air or water.
+Frequency is the number of waves per unit of time, and in sound is heard as pitch.
+Frequency is the number of waves per unit of time.
+For sound frequency, the most commonly used unit is hertz, or cycles per second.
+For sound frequency, the most commonly used unit is hertz.
+Most humans can perceive sounds with frequencies between 30 and 20,000 Hz.
+Dogs detect up to about 40,000 Hz; cats, 60,000 Hz; bats, 100,000 Hz; and dolphins 150,000 Hz, and American shad, a fish, can hear 180,000 Hz.
+Dogs detect up to about 40,000 Hz.
+Dogs detect up to about 40,000 Hz; cats, 60,000 Hz; bats, 100,000 Hz; and dolphins 150,000 Hz.
+American shad, a fish, can hear 180,000 Hz.
+The sound waves of louder sounds have greater amplitude than those of softer sounds.
+For sound, volume is measured in decibels.
+The softest sound that a human can hear is the zero point.
+Humans speak normally at 60 decibels.
+The sound wave shown with a dashed line is softer in volume than the sound wave shown with a solid line.
+Interior to the tympanum is the middle ear.
+The middle ear holds three small bones called the ossicles, which transfer energy from the moving tympanum to the inner ear.
+The three ossicles are the malleus, the incus, and stapes.
+The three ossicles are the malleus, the incus.
+The aptly named stapes looks very much like a stirrup.
+The three ossicles are unique to mammals, and each plays a role in hearing.
+The three ossicles are unique to mammals.
+each plays a role in hearing.
+The incus attaches the malleus to the stapes.
+In humans, the stapes is not long enough to reach the tympanum.
+If we did not have the malleus and the incus, then the vibrations of the tympanum would never reach the inner ear.
+These bones also function to collect force and amplify sounds.
+Many animals use the stapes of the middle ear to transmit vibrations to the inner ear.
+The middle ear contains three bones called ossicles that transfer the sound wave to the oval window, the exterior boundary of the inner ear.
+organ of Corti, which is the organ of sound transduction, lies inside the cochlea.
+Transduction of Sound Vibrating objects, such as vocal cords, create sound waves or pressure waves in the air.
+When these pressure waves reach the ear, the ear transduces this mechanical stimulus into a nerve impulse that the brain perceives as sound.
+The pressure waves strike the tympanum, causing it to vibrate.
+The mechanical energy from the moving tympanum transmits the vibrations to the three bones of the middle ear.
+The stapes transmits the vibrations to a thin diaphragm called the oval window, which is the outermost structure of the inner ear.
+The structures of the inner ear are found in the labyrinth, a bony, hollow structure that is the most interior portion of the ear.
+Here, the energy from the sound wave is transferred from the stapes through the flexible oval window and to the fluid of the cochlea.
+The vibrations of the oval window create pressure waves in the fluid inside the cochlea.
+Inside the cochlea, the basilar membrane is a mechanical analyzer that runs the length of the cochlea, curling toward the cochlea's center.
+When the sound waves in the cochlear fluid contact the basilar membrane, it flexes back and forth in a wave-like fashion.
+A sound wave causes the tympanic membrane to vibrate.
+The amplified vibration is picked up by the oval window causing pressure waves in the fluid of the scala vestibuli and scala tympani.
+The complexity of the pressure waves is determined by the changes in amplitude and frequency of the sound waves entering the ear.
+Cochlear implants can restore hearing in people who have a nonfunctional cochlea.
+A speech processor selects sounds in the range of human speech, and a transmitter converts these sounds to electrical impulses, which are then sent to the auditory nerve.
+A speech processor selects sounds in the range of human speech.
+a transmitter converts these sounds to electrical impulses, which are then sent to the auditory nerve.
+The site of transduction is in the organ of Corti.
+The inner hair cells are the primary auditory receptors and exist in a single row, numbering approximately 3,500.
+The stereocilia from inner hair cells extend into small dimples on the tectorial membrane's lower surface.
+The outer hair cells are arranged in three or four rows.
+They number approximately 12,000, and they function to fine tune incoming sound waves.
+They number approximately 12,000.
+they function to fine tune incoming sound waves.
+As a result, the hair cell membrane is depolarized, and a signal is transmitted to the chochlear nerve.
+As a result, the hair cell membrane is depolarized.
+a signal is transmitted to the chochlear nerve.
+Intensity of sound is determined by how many hair cells at a particular location are stimulated.
+The hair cell is a mechanoreceptor with an array of stereocilia emerging from its apical surface.
+The hair cells are arranged on the basilar membrane in an orderly way.
+Likewise, the hair cells that lay above it are most sensitive to a specific frequency of sound waves.
+Hair cells can respond to a small range of similar frequencies, but they require stimulation of greater intensity to fire at frequencies outside of their optimal range.
+The difference in response frequency between adjacent inner hair cells is about 0.2 percent.
+Lower frequencies travel farther along the membrane before causing appreciable excitation of the membrane.
+The basic pitch-determining mechanism is based on the location along the membrane where the hair cells are stimulated.
+The place theory is the first step toward an understanding of pitch perception.
+Considering the extreme pitch sensitivity of the human ear, it is thought that there must be some auditory "sharpening" mechanism to enhance the pitch resolution.
+When sound waves produce fluid waves inside the cochlea, the basilar membrane flexes, bending the stereocilia that attach to the tectorial membrane.
+When the hairs bend, they release an excitatory neurotransmitter at a synapse with a sensory neuron, which then conducts action potentials to the central nervous system.
+The cochlear branch of the vestibulocochlear cranial nerve sends information on hearing.
+The auditory system is very refined, and there is some modulation or "sharpening" built in.
+The auditory system is very refined.
+The brain can send signals back to the cochlea, resulting in a change of length in the outer hair cells, sharpening or dampening the hair cells' response to certain frequencies.
+Higher Processing The inner hair cells are most important for conveying auditory information to the brain.
+About 90 percent of the afferent neurons carry information from inner hair cells, with each hair cell synapsing with 10 or so neurons.
+Outer hair cells connect to only 10 percent of the afferent neurons, and each afferent neuron innervates many hair cells.
+Outer hair cells connect to only 10 percent of the afferent neurons.
+each afferent neuron innervates many hair cells.
+The stimuli associated with the vestibular system are linear acceleration and angular acceleration and deceleration.
+Gravity, acceleration, and deceleration are detected by evaluating the inertia on receptive cells in the vestibular system.
+deceleration are detected by evaluating the inertia on receptive cells in the vestibular system.
+Gravity is detected through head position.
+Angular acceleration and deceleration are expressed through turning or tilting of the head.
+The vestibular system has some similarities with the auditory system.
+It utilizes hair cells just like the auditory system, but it excites them in different ways.
+The utricle and saccule respond to acceleration in a straight line, such as gravity.
+The roughly 30,000 hair cells in the utricle and 16,000 hair cells in the saccule lie below a gelatinous layer, with their stereocilia projecting into the gelatin.
+Embedded in this gelatin are calcium carbonate crystals—like tiny rocks.
+The bending of the stereocilia stimulates the neurons, and they signal to the brain that the head is tilted, allowing the maintenance of balance.
+The bending of the stereocilia stimulates the neurons.
+they signal to the brain that the head is tilted, allowing the maintenance of balance.
+It is the vestibular branch of the vestibulocochlear cranial nerve that deals with balance.
+The fluid-filled semicircular canals are tubular loops set at oblique angles.
+They are arranged in three spatial planes.
+The base of each canal has a swelling that contains a cluster of hair cells.
+The hairs project into a gelatinous cap called the cupula and monitor angular acceleration and deceleration from rotation.
+They would be stimulated by driving your car around a corner, turning your head, or falling forward.
+They would be stimulated by driving your car around a corner, turning your head.
+When the brain processes input from all three canals together, it can detect angular acceleration or deceleration in three dimensions.
+Upon cessation of accelerating or decelerating—or just moving—the movement of the fluid within the canals slows or stops.
+When moving forward, water may splash backwards onto the hand, and when motion has stopped, water may splash forward onto the fingers.
+When moving forward, water may splash backwards onto the hand.
+when motion has stopped, water may splash forward onto the fingers.
+While in motion, the water settles in the glass and does not splash.
+Higher Processing Hair cells from the utricle, saccule, and semicircular canals also communicate through bipolar neurons to the cochlear nucleus in the medulla.
+semicircular canals also communicate through bipolar neurons to the cochlear nucleus in the medulla.
+Cochlear neurons send descending projections to the spinal cord and ascending projections to the pons, thalamus, and cerebellum.
+Cochlear neurons send descending projections to the spinal cord and ascending projections to the pons, thalamus.
+Connections to the cerebellum are important for coordinated movements.
+People with lesions in the vestibular area of the somatosensory cortex see vertical objects in the world as being tilted.
+Vision is the ability to detect light patterns from the outside environment and interpret them into images.
+Animals are bombarded with sensory information, and the sheer volume of visual information can be problematic.
+Animals are bombarded with sensory information.
+the sheer volume of visual information can be problematic.
+Fortunately, the visual systems of species have evolved to attend to the most-important stimuli.
+The importance of vision to humans is further substantiated by the fact that about one-third of the human cerebral cortex is dedicated to analyzing and perceiving visual information.
+The compression waves that compose sound must travel in a medium—a gas, a liquid, or a solid.
+The compression waves that compose sound must travel in a medium—a gas, a liquid.
+Certain variables are important when discussing perception of light.
+Wavelength manifests itself as hue.
+Light at the red end of the visible spectrum has longer wavelengths.
+light at the violet end has shorter wavelengths.
+The wavelength of light is expressed in nanometers; one nanometer is one billionth of a meter.
+The wavelength of light is expressed in nanometers.
+one nanometer is one billionth of a meter.
+Humans perceive light that ranges between approximately 380 nm and 740 nm.
+Some other animals, though, can detect wavelengths outside of the human range.
+For example, bees see near-ultraviolet light in order to locate nectar guides on flowers, and some non-avian reptiles sense infrared light.
+For example, bees see near-ultraviolet light in order to locate nectar guides on flowers.
+some non-avian reptiles sense infrared light.
+In the electromagnetic spectrum, visible light lies between 380 nm and 740 nm.
+Wave amplitude is perceived as luminous intensity, or brightness.
+Wave amplitude is perceived as luminous intensity.
+This effect is produced by light that stimulates equally the color receptors in the human eye.
+The apparent color of an object is the color that the object reflects.
+Thus a red object reflects the red wavelengths in mixed light and absorbs all other wavelengths of light.
+But light does not impinge on the retina unaltered.
+In conditions of low light, the iris relaxes and the pupil enlarges.
+The human eye is shown in cross section.
+A blowup shows the layers of the retina.
+a. Rods detect color, while cones detect only shades of gray.
+a. Rods detect color.
+cones detect only shades of gray.
+When light enters the retina, it passes the ganglion cells and bipolar cells before reaching photoreceptors at the rear of the eye.
+The iris adjusts the amount of light coming into the eye.
+The cornea is a protective layer on the front of the eye.
+The main function of the lens is to focus light on the retina and fovea centralis.
+The lens is dynamic, focusing and re- focusing light as the eye rests on near and far objects in the visual field.
+With age comes the loss of the flexibility of the lens, and a form of farsightedness called presbyopia results.
+With age comes the loss of the flexibility of the lens.
+Presbyopia is a deficit similar to a different type of farsightedness called hyperopia caused by an eyeball that is too short.
+clear but images nearby are blurry.
+In this case, images in the distance are blurry but images nearby are clear.
+Rods are strongly photosensitive and are located in the outer edges of the retina.
+They detect dim light and are used primarily for peripheral and nighttime vision.
+Cones are weakly photosensitive and are located near the center of the retina.
+They respond to bright light, and their primary role is in daytime, color vision.
+They respond to bright light.
+their primary role is in daytime, color vision.
+Rods respond in low light and can detect only shades of gray.
+Cones respond in intense light and are responsible for color vision.
+The fovea is the region in the center back of the eye that is responsible for acute vision.
+The fovea has a high density of cones.
+The rods and cones are the site of transduction of light to a neural signal.
+Both rods and cones contain photopigments.
+This isomerization of retinal activates the rhodopsin, starting a cascade of events that ends with the closing of Na+ channels in the membrane of the photoreceptor.
+When light strikes retinal, it changes shape from a cis to a trans form.
+The signal is passed to a G-protein called transducin, triggering a series of downstream events.
+Phosphodiesterase converts cGMP to GMP, thereby closing sodium channels.
+The hyperpolarized membrane does not release glutamate to the bipolar cell.
+With only one type of cone, color vision would not be possible, and a two-cone system has limitations.
+With only one type of cone, color vision would not be possible.
+a two-cone system has limitations.
+Primates use a three-cone system, resulting in full color vision.
+The color we perceive is a result of the ratio of activity of our three types of cones.
+Humans have very sensitive perception of color and can distinguish about 500 levels of brightness, 200 different hues, and 20 steps of saturation, or about 2 million distinct colors.
+Humans have very sensitive perception of color and can distinguish about 500 levels of brightness, 200 different hues.
+Humans have very sensitive perception of color and can distinguish about 500 levels of brightness, 200 different hues, and 20 steps of saturation.
+Retinal Processing Visual signals leave the cones and rods, travel to the bipolar cells, and then to ganglion cells.
+Retinal Processing Visual signals leave the cones and rods, travel to the bipolar cells.
+A large degree of processing of visual information occurs in the retina itself, before visual information is sent to the brain.
+Photoreceptors in the retina continuously undergo tonic activity.
+That is, they are always slightly active even when not stimulated by light.
+In the absence of light, the bipolar neurons that connect rods and cones to ganglion cells are continuously and actively inhibited by the rods and cones.
+Exposure of the retina to light hyperpolarizes the rods and cones and removes their inhibition of bipolar cells.
+The now active bipolar cells in turn stimulate the ganglion cells, which send action potentials along their axons.
+Thus, the visual system relies on change in retinal activity, rather than the absence or presence of activity, to encode visual signals for the brain.
+Sometimes horizontal cells carry signals from one rod or cone to other photoreceptors and to several bipolar cells.
+When a rod or cone stimulates a horizontal cell, the horizontal cell inhibits more distant photoreceptors and bipolar cells, creating lateral inhibition.
+Amacrine cells can distribute information from one bipolar cell to many ganglion cells.
+You can demonstrate this using an easy demonstration to "trick" your retina and brain about the colors you are observing in your visual field.
+You should see an afterimage of the Norwegian flag in its correct colors.
+Higher Processing The myelinated axons of ganglion cells make up the optic nerves.
+Within the nerves, different axons carry different qualities of the visual signal.
+Some axons constitute the magnocellular pathway, which carries information about form, movement, depth, and differences in brightness.
+Some axons constitute the magnocellular pathway, which carries information about form, movement, depth.
+Other axons constitute the parvocellular pathway, which carries information on color and fine detail.
+This crossing of optical pathways produces the distinctive optic chiasma found at the base of the brain and allows us to coordinate information from both eyes.
+Once in the brain, visual information is processed in several places, and its routes reflect the complexity and importance of visual information to humans and other animals.
+Once in the brain, visual information is processed in several places.
+its routes reflect the complexity and importance of visual information to humans and other animals.
+One route takes the signals to the thalamus, which serves as the routing station for all incoming sensory impulses except olfaction.
+In the thalamus, the magnocellular and parvocellular distinctions remain intact, and there are different layers of the thalamus dedicated to each.
+In the thalamus, the magnocellular and parvocellular distinctions remain intact.
+When visual signals leave the thalamus, they travel to the primary visual cortex at the rear of the brain.
+From the visual cortex, the visual signals travel in two directions.
+One stream that projects to the parietal lobe, in the side of the brain, carries magnocellular information.
+A second stream projects to the temporal lobe and carries both magnocellular and parvocellular information.
+Another important visual route is a pathway from the retina to the superior colliculus in the midbrain, where eye movements are coordinated and integrated with auditory information.
+The SCN is a cluster of cells that is considered to be the body's internal clock, which controls our circadian cycle.
+The SCN sends information to the pineal gland, which is important in sleep/wake patterns and annual cycles.
+When the sensory signal exits chemical stimulus is processed into a neural signal the thalamus, it is conducted to the specific area of the by a sensory receptor.
+Perception is an individual interpretation of a sensation and is a brain function.
+Humans have special senses: 36.2 Somatosensation olfaction, gustation, equilibrium, and hearing, plus the Somatosensation includes all sensation received from general senses of somatosensation.
+Humans have special senses: 36.2 Somatosensation olfaction, gustation, equilibrium.
+hearing, plus the Somatosensation includes all sensation received from general senses of somatosensation.
+the skin and mucous membranes, as well as from the Sensory receptors are either specialized cells limbs and joints.
+Each sensory receptor is modified for the receptors.
+Each sensory receptor is responsive fingertips and lips, and respond to light touch.
+Each sensory receptor is responsive fingertips and lips.
+The most rapidly adapting, encapsulated receptors that detect fundamental function of a sensory system is the touch, low-frequency vibration, and flutter.
+The most rapidly adapting, encapsulated receptors that detect fundamental function of a sensory system is the touch, low-frequency vibration.
+Ruffini translation of a sensory signal to an electrical signal in endings are slowly adapting, encapsulated receptors the nervous system.
+that detect skin stretch, joint activity, and warmth.
+that detect skin stretch, joint activity.
+Finally, Pacinian maintain balance.
+The vestibular hair cells also There are five primary tastes in humans: sweet, sour, send signals to the thalamus and to the somatosensory bitter, salty, and umami.
+The vestibular hair cells also There are five primary tastes in humans: sweet, sour, send signals to the thalamus and to the somatosensory bitter, salty.
+Vision is the only photo responsive sense.
+Light waves differ taste receptors, olfactory receptors are each based on their frequency and responsive to only one odorant.
+Odorants dissolve in amplitude.
+When these cells detect an In the vertebrate retina, there are two types of light odorant, they send their signals to the main olfactory receptors: cones and rods.
+Cones are located in the 36.4 Hearing and Vestibular Sensation retina, along with the dim-light, achromatic receptors Audition is important for territory defense, predation,.
+Cones are found in the fovea, the central region predator defense, and communal exchanges.
+Cones are found in the fovea, the central region predator defense.
+The of the retina, whereas rods are found in the peripheral vestibular system, which is not auditory, detects linear regions of the retina.
+rods are found in the peripheral vestibular system, which is not auditory, detects linear regions of the retina.
+acceleration and angular acceleration and Visual signals travel from the eye over the axons of deceleration.
+system use hair cells as their receptors.
+Ganglion cells come in several versions.
+Some ganglion Auditory stimuli are sound waves.
+Once in the auditory information takes place.
+This activates the receptors, which send their auditory neural signals to the brain.
+a. Pacini corpuscles are found in both 2.
+Cochlear implants can restore glabrous and hairy skin.
+hearing in people who have a nonfunctional b. Merkel's disks are abundant on the cochlea.
+that picks up sound.
+A speech processor selects c. Ruffini endings are encapsulated sounds in the range of human speech, and a mechanoreceptors.
+A speech processor selects c. Ruffini endings are encapsulated sounds in the range of human speech.
+When light enters the retina, it passes the loss of hair cells in the organ of Corti.
+The iris adjusts the amount of light coming cochlea.
+The cornea is a protective layer on the bones of the middle ear.
+If a person's cold receptors no longer convert 10.
+Many diabetic patients are warned by their cold stimuli into sensory signals, that person has doctors to test their glucose levels by pricking a problem with the process of ________.
+c. perception a. Krause end bulbs d. transduction b. Meissner's corpuscles c. Ruffini ending 6.
+After somatosensory transduction, the sensory d. Nociceptors signal travels through the brain as a _____ signal.
+Many people experience motion sickness while traveling in a car.
+This sensation results from 12.
+It depends on the spot on the tongue.
+Salty foods activate the taste cells by _____.
+a. exciting the taste cell directly a. Meissner's corpuscles; hairy b. causing hydrogen ions to enter the cell b.
+hairy b. causing hydrogen ions to enter the cell b.
+Merkel's disks; glabrous c. causing sodium channels to close c. hair receptors; hairy d. binding directly to the receptors d. Krause end bulbs; hairy 14.
+glabrous c. causing sodium channels to close c. hair receptors.
+hairy d. binding directly to the receptors d. Krause end bulbs.
+All sensory signals except _____ travel to the 9.
+If you were to burn your epidermis, what _____ in the brain before the cerebral cortex.
+Why do people over 55 often need reading 15.
+Their cornea no longer focuses correctly.
+a. Umami identifies healthy foods that are b.
+Their lens no longer focuses correctly.
+Their eyeball has elongated with age, b.
+Umami enhances the flavor of bland foods.
+Their retina has thinned with age, making d. Umami identifies foods that help maintain vision more difficult.
+Why is it easier to see images at night using 16.
+volume is measured in _____.
+a. Cones are denser in the periphery of the a. nanometers.
+Bipolar cells are denser in the periphery of c. decibels.
+decibels c. Rods are denser in the periphery of the retina.
+Auditory hair cells are indirectly anchored to the d.
+The optic nerve exits at the periphery of _____.
+A person catching a ball must coordinate her c. tectorial membrane hand and eyes.
+A satellite is launched into space, but explodes d. ossicles after exiting the Earth's atmosphere.
+Which statement accurately reflects the observations 19.
+The astronaut will not sense the explosion.
+The astronaut will see the explosion, and b.
+The astronaut will see the explosion.
+The hair cells in the semicircular canals then hear the boom.
+The astronaut will feel the concussive c.
+The utricle will no longer recognize force of the explosion, but will not see it. acceleration.
+If a person sustains damage to axons leading 25.
+How would a rise in altitude likely affect the in humans.
+What can be inferred about the relative sizes of 33.
+Many studies have demonstrated that females are able to tolerate the same painful stimuli for 35.
+From the perspective of the recipient of the signal, in what ways do pheromones differ from 36.
+Cataracts, the medical condition where the lens of the eye becomes cloudy, are a leading cause 31.
+A few recent cancer detection studies have used of blindness.
+What is the hypothesis behind this the eye.

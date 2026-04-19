@@ -1,0 +1,503 @@
+# Biology2e Chapter 24 — Fungi
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 499
+
+This electron micrograph shows the spore-bearing structures of Aspergillus, a type of toxic fungus found mostly in soil and plants.
+Indeed, the familiar mushroom is a reproductive structure used by many types of fungi.
+Being eukaryotes, a typical fungal cell contains a true nucleus and many membrane-bound organelles.
+While scientists have identified about 135,000 species of fungi, this is only a fraction of the more than 1.5 million species of fungus likely present on Earth.
+Edible mushrooms, yeasts, black mold, and the producer of the antibiotic penicillin, Penicillium notatum, are all members of the kingdom Fungi, which belongs to the domain Eukarya.
+the producer of the antibiotic penicillin, Penicillium notatum, are all members of the kingdom Fungi, which belongs to the domain Eukarya.
+Fungi, once considered plant-like organisms, are more closely related to animals than plants.
+Fungi are not capable of photosynthesis: they are heterotrophic because they use complex organic compounds as sources of energy and carbon.
+Fungi share a few other traits with animals.
+Their cell walls are composed of chitin, which is found in the exoskeletons of arthropods.
+Fungi produce a number of pigments, including melanin, also found in the hair and skin of animals.
+Some fungal organisms multiply only asexually, whereas others undergo both asexual reproduction and sexual reproduction with alternation of generations.
+Some fungal organisms multiply only asexually.
+others undergo both asexual reproduction and sexual reproduction with alternation of generations.
+Most fungi produce a large number of spores, which are haploid cells that can undergo mitosis to form multicellular, haploid individuals.
+Fungi often interact with other organisms, forming beneficial or mutualistic associations.
+For example, most terrestrial plants form symbiotic relationships with fungi.
+The roots of the plant connect with the underground parts of the fungus, which form mycorrhizae.
+Alternatively, lichens are an association between a fungus and its photosynthetic partner.
+Fungi also cause serious infections in plants and animals.
+The elm bark beetle acts as a vector, transmitting the disease from tree to tree.
+Many European and Asiatic elms are less susceptible to Dutch elm disease than American elms.
+In humans, fungal infections are generally considered challenging to treat.
+Unlike bacteria, fungi do not respond to traditional antibiotic therapy, since they are eukaryotes.
+Fungal infections may prove deadly for individuals with compromised immune systems.
+Fungi have many commercial applications.
+The food industry uses yeasts in baking, brewing, and cheese and wine making.
+The food industry uses yeasts in baking, brewing.
+Many industrial compounds are byproducts of fungal fermentation.
+Fungi are the source of many commercial enzymes and antibiotics.
+Although humans have used yeasts and mushrooms since prehistoric times, until recently, the biology of fungi was poorly understood.
+Fungi, like plants, are mostly sessile and seemingly rooted in place.
+They possess a stem-like structure similar to plants, as well as having a root-like fungal mycelium in the soil.
+In addition, their mode of nutrition was poorly understood.
+Progress in the field of fungal biology was the result of mycology: the scientific study of fungi.
+Based on fossil evidence, fungi have been found in the Devonian era, about 410 million years ago.
+However, new findings might place the appearance of the first fungi during the Neoproterozoic era, about 900 million years ago.
+Under some current systematic phylogenies, they continue to be a monophyletic group of organisms.
+Mycologist Mycologists are biologists who study fungi.
+Historically, mycology was a branch of microbiology, and many mycologists start their careers with a degree in microbiology.
+Historically, mycology was a branch of microbiology.
+many mycologists start their careers with a degree in microbiology.
+To become a mycologist, a bachelor's degree in a biological science and a master's degree in mycology are minimally necessary.
+Mycologists can specialize in taxonomy and fungal genomics, molecular and cellular biology, plant pathology, biotechnology, or biochemistry.
+Mycologists can specialize in taxonomy and fungal genomics, molecular and cellular biology, plant pathology, biotechnology.
+medical microbiologists concentrate on the study of infectious diseases caused by fungi, called mycoses.
+Government agencies hire mycologists as research scientists and technicians to monitor the health of crops, national parks, and national forests.
+Government agencies hire mycologists as research scientists and technicians to monitor the health of crops, national parks.
+Mycologists are also employed in the private sector by companies that develop chemical and biological control products or new agricultural products, and by companies that provide disease control services.
+Mycologists are also employed in the private sector by companies that develop chemical and biological control products or new agricultural products.
+It is possible to purchase yeast strains isolated from specific grape-growing regions.
+The great French chemist and microbiologist, Louis Pasteur, made many of his essential discoveries working on the humble brewer's yeast, thus discovering the process of fermentation.
+Cell Structure and Function Fungi are eukaryotes, and as such, have a complex cellular organization.
+Cell Structure and Function Fungi are eukaryotes.
+As eukaryotes, fungal cells contain a membrane-bound nucleus.
+The DNA in the nucleus is represented by multiple linear molecules wrapped around histone proteins, as is observed in other eukaryotic cells.
+Fungal cells also contain mitochondria and a complex system of internal membranes, including the endoplasmic reticulum and Golgi apparatus.
+Unlike plant cells, fungal cells do not have chloroplasts or chlorophyll.
+Many fungi display bright colors arising from other cellular pigments, ranging from red to green to black.
+Pigments in fungi are associated with the cell wall and play a protective role against ultraviolet radiation.
+Some fungal pigments are toxic to humans.
+The poisonous Amanita muscaria is native to temperate and boreal regions of North America.
+Like plant cells, fungal cells have a thick cell wall.
+The rigid layers of fungal cell walls contain complex polysaccharides called chitin and glucans.
+Chitin, also found in the exoskeleton of arthropods such as insects, gives structural strength to the cell walls of fungi.
+The wall provides structural support and protects the cell from desiccation and some predators.
+Fungi have plasma membranes similar to those of other eukaryotes, except that the structure is stabilized by ergosterol: a steroid molecule that replaces the cholesterol found in animal cell membranes.
+Most members of the kingdom Fungi are nonmotile.
+However, flagella are produced by the spores and gametes in the primitive Phylum Chytridiomycota.
+Growth The vegetative body of a fungus is a unicellular or multicellular thallus.
+Multicellular fungi produce threadlike hyphae.
+multicellular state depending on environmental conditions.
+Candida albicans is a yeast cell and the agent of candidiasis and thrush.
+This organism has a similar morphology to coccus bacteria; however, yeast is a eukaryotic organism.
+This organism has a similar morphology to coccus bacteria.
+however, yeast is a eukaryotic organism.
+Most fungi are multicellular organisms.
+They display two distinct morphological stages: the vegetative and reproductive.
+The vegetative stage consists of a tangle of hyphae, whereas the reproductive stage can be more conspicuous.
+The vegetative stage consists of a tangle of hyphae.
+the reproductive stage can be more conspicuous.
+It can grow on a surface, in soil or decaying material, in a liquid, or even on living tissue.
+It can grow on a surface, in soil or decaying material, in a liquid.
+The mycelium of the fungus Neotestudina rosati can be pathogenic to humans.
+The fungus enters through a cut or scrape and develops a mycetoma, a chronic subcutaneous infection.
+In most phyla of fungi, tiny holes in the septa allow for the rapid flow of nutrients and small molecules from cell to cell along the hypha.
+They are described as perforated septa.
+The hyphae in bread molds are not separated by septa.
+A bright field light micrograph of Phialophora richardsiae shows septa that divide the hyphae.
+Fungi thrive in environments that are moist and slightly acidic, and can grow in dark places or places exposed to light.
+Fungi thrive in environments that are moist and slightly acidic.
+They vary in their oxygen requirement.
+Most fungi are obligate aerobes, requiring oxygen to survive.
+Yeasts are intermediate, being facultative anaerobes.
+This means that they grow best in the presence of oxygen using aerobic respiration, but can survive using anaerobic respiration when oxygen is not available.
+The alcohol produced from yeast fermentation is used in wine and beer production.
+In addition, fungi do not fix nitrogen from the atmosphere.
+Like animals, they must obtain it from their diet.
+However, unlike most animals, which ingest food and then digest it internally in specialized organs, fungi perform these steps in the reverse order; digestion precedes ingestion.
+However, unlike most animals, which ingest food and then digest it internally in specialized organs, fungi perform these steps in the reverse order.
+digestion precedes ingestion.
+First, exoenzymes are transported out of the hyphae, where they process nutrients in the environment.
+Then, the smaller molecules produced by this external digestion are absorbed through the large surface area of the mycelium.
+As with animal cells, the polysaccharide of storage is glycogen, a branched polysaccharide, rather than amylopectin, a less densely branched polysaccharide, and amylose, a linear polysaccharide, as found in plants.
+As with animal cells, the polysaccharide of storage is glycogen, a branched polysaccharide, rather than amylopectin, a less densely branched polysaccharide.
+Fungi are mostly saprobes: organisms that derive nutrients from decaying organic matter.
+They obtain their nutrients from dead or decomposing organic material derived mainly from plants.
+Fungal exoenzymes are able to break down insoluble compounds, such as the cellulose and lignin of dead wood, into readily absorbable glucose molecules.
+The carbon, nitrogen, and other elements are thus released into the environment.
+other elements are thus released into the environment.
+For example, some species of fungi can be used to break down diesel oil and polycyclic aromatic hydrocarbons.
+Other species take up heavy metals, such as cadmium and lead.
+Some fungi are parasitic, infecting either plants or animals.
+Smut and Dutch elm disease affect plants, whereas athlete's foot and candidiasis are medically important fungal infections in humans.
+Smut and Dutch elm disease affect plants.
+athlete's foot and candidiasis are medically important fungal infections in humans.
+In fact, species of Arthrobotrys fungi have a number of mechanisms to trap nematodes: One mechanism involves constricting rings within the network of hyphae.
+Reproduction Fungi reproduce sexually and/or asexually.
+Fungal spores are smaller and lighter than plant seeds.
+For example, the giant puffball mushroom bursts open and releases trillions of spores in a massive cloud of what looks like finely particulate dust.
+The giant puffball mushroom releases a cloud of spores when it reaches maturity.
+Fragments of hyphae can grow new colonies.
+The dark cells in this bright field light micrograph are the pathogenic yeast Histoplasma capsulatum, seen against a backdrop of light blue tissue.
+Histoplasma primarily infects lungs but can spread to other tissues, causing histoplasmosis, a potentially fatal disease.
+They may be released from the parent thallus either outside or within a special reproductive sac called a sporangium.
+Fungi may have both asexual and sexual stages of reproduction.
+Conidiospores are unicellular or multicellular spores that are released directly from the tip or side of the hypha.
+Other asexual spores originate in the fragmentation of a hypha to form single cells that are released as spores; some of these have a thick wall surrounding the fragment.
+Other asexual spores originate in the fragmentation of a hypha to form single cells that are released as spores.
+some of these have a thick wall surrounding the fragment.
+Yet others bud off the vegetative parent cell.
+This bright field light micrograph shows the release of spores from a sporangium at the end of a hypha called a sporangiophore.
+The organism is a Mucor sp. fungus, a mold often found indoors.
+Sexual Reproduction Sexual reproduction introduces genetic variation into a population of fungi.
+In fungi, sexual reproduction often occurs in response to adverse environmental conditions.
+During sexual reproduction, two mating types are produced.
+Heterothallic mycelia require two different, but compatible, mycelia to reproduce sexually.
+During karyogamy, the haploid nuclei fuse to form a diploid zygote nucleus.
+Finally, meiosis takes place in the gametangia organs, in which gametes of different mating types are generated.
+At this stage, spores are disseminated into the environment.
+However, most mycologists have discontinued this practice.
+Rapid advances in molecular biology and the sequencing of 18S rRNA continue to show new and different relationships among the various categories of fungi.
+The chytrids are the simplest and most primitive Eumycota, or true fungi.
+The chytrids are the simplest and most primitive Eumycota.
+The evolutionary record shows that the first recognizable chytrids appeared during the late pre-Cambrian period, more than 500 million years ago.
+Like all fungi, chytrids have chitin in their cell walls, but one group of chytrids has both cellulose and chitin in the cell wall.
+Most chytrids are unicellular; however, a few form multicellular organisms and hyphae, which have no septa between cells.
+Most chytrids are unicellular.
+The Chytrids are the only fungi that have retained flagella.
+They produce both gametes and diploid zoospores that swim with the help of a single flagellum.
+An unusual feature of the chytrids is that both male and female gametes are flagellated.
+The ecological habitat and cell structure of chytrids have much in common with protists.
+Chytrids usually live in aquatic environments, although some species live on land.
+Its reproductive cycle includes both asexual and sexual phases.
+Allomyces produces diploid or haploid flagellated zoospores in a sporangium.
+The chytrid Batrachochytrium dendrobatidis is seen in these light micrographs as transparent spheres growing on a freshwater arthropod and algae.
+This chytrid causes skin diseases in many species of amphibians, resulting in species decline and extinction.
+The Conjugated Fungi The zygomycetes are a relatively small group of fungi belonging to the Phylum Zygomycota.
+They include the familiar bread mold, Rhizopus stolonifer, which rapidly propagates on the surfaces of breads, fruits, and vegetables.
+They include the familiar bread mold, Rhizopus stolonifer, which rapidly propagates on the surfaces of breads, fruits.
+Most species are saprobes, living off decaying organic material.
+Zygomycetes play a considerable commercial role.
+For example, the metabolic products of some species of Rhizopus are intermediates in the synthesis of semi-synthetic steroid hormones.
+Zygomycetes have a thallus of coenocytic hyphae in which the nuclei are haploid when the organism is in the vegetative stage.
+Two opposing mating strains must be in close proximity for gametangia from the hyphae to be produced and fuse, leading to karyogamy.
+Each zygospore can contain several diploid nuclei.
+The developing diploid zygospores have thick coats that protect them from desiccation and other hazards.
+They may remain dormant until environmental conditions are favorable.
+When the zygospore germinates, it undergoes meiosis and produces haploid spores, which will, in turn, grow into a new organism.
+Zygomycetes have asexual and sexual phases in their life cycles.
+In the asexual phase, spores are produced from haploid sporangia by mitosis.
+In the sexual phase, plus and minus haploid mating types conjugate to form a heterokaryotic zygosporangium.
+Karyogamy then produces a diploid zygote.
+Diploid cells in the zygote undergo meiosis and germinate to form a haploid sporangium, which releases the next generation of haploid spores.
+Asexual sporangia grow at the end of stalks, which appear as white fuzz seen on this bread mold, Rhizopus stolonifer.
+The black tips of bread mold are the spore-containing sporangia.
+Many ascomycetes are of commercial importance.
+Some play a beneficial role for humanity, such as the yeasts used in baking, brewing, and wine fermentation, and directly as food delicacies such as truffles and morels.
+Some play a beneficial role for humanity, such as the yeasts used in baking, brewing.
+Aspergillus oryzae is used in the fermentation of rice to produce sake.
+Other ascomycetes parasitize plants and animals, including humans.
+For example, fungal pneumonia poses a significant threat to AIDS patients who have a compromised immune system.
+Ascomycetes not only infest and destroy crops directly; they also produce poisonous secondary metabolites that make crops unfit for consumption.
+they also produce poisonous secondary metabolites that make crops unfit for consumption.
+The "male" strain produces an antheridium and the "female" strain develops an ascogonium.
+At fertilization, the antheridium and the ascogonium combine in plasmogamy, without nuclear fusion.
+Special dikaryotic ascogenous hyphae arise from this dikaryon, in which each cell has pairs of nuclei: one from the "male" strain and one from the "female" strain.
+In each ascus, two haploid nuclei fuse in karyogamy.
+Thousands of asci fill a fruiting body called the ascocarp.
+The diploid nucleus in each ascus gives rise to haploid nuclei by meiosis, and spore walls form around each nucleus.
+The diploid nucleus in each ascus gives rise to haploid nuclei by meiosis.
+spore walls form around each nucleus.
+The spores in each ascus contain the meiotic products of a single diploid nucleus.
+The lifecycle of an ascomycete is characterized by the production of asci during the sexual phase.
+The haploid phase is the predominant phase of the life cycle in Ascomycetes.
+The bright field light micrograph shows ascospores being released from asci in the fungus Talaromyces flavus var. flavus.
+These mushroom- producing basidiomycetes are sometimes referred to as "gill fungi" because of the presence of gill-like structures on the underside of the cap.
+The gills are actually compacted hyphae on which the basidia are borne.
+This group also includes shelf fungi, which cling to the bark of trees like small shelves.
+In addition, the basidiomycota include smuts and rusts, which are important plant pathogens.
+Most edible fungi belong to the Phylum Basidiomycota; however, some basidiomycota are inedible and produce deadly toxins.
+Most edible fungi belong to the Phylum Basidiomycota.
+however, some basidiomycota are inedible and produce deadly toxins.
+For example, Cryptococcus neoformans causes severe respiratory illness.
+The infamous death cap mushroom is related to the fly agaric seen at the beginning of the previous section.
+The best-known fairy ring fungus has the scientific name Marasmius oreades.
+The body of this fungus, its mycelium, is underground and grows outward in a circle.
+Most fungi are haploid through most of their life cycles, but the basidiomycetes produce both haploid and dikaryotic mycelia, with the dikaryotic phase being dominant.
+In the basidiomycetes, sexual spores are more common than asexual spores.
+In the basidium, nuclei of two different mating strains fuse, giving rise to a diploid zygote that then undergoes meiosis.
+The haploid nuclei migrate into four different chambers appended to the basidium, and then become basidiospores.
+The haploid nuclei migrate into four different chambers appended to the basidium.
+This is the dominant dikaryotic stage of the basidiomycete life cycle.
+Thus, each cell in this mycelium has two haploid nuclei, which will not fuse until formation of the basidium.
+Eventually, the secondary mycelium generates a basidiocarp, a fruiting body that protrudes from the ground—this is what we think of as a mushroom.
+The basidiocarp bears the developing basidia on the gills under its cap.
+The lifecycle of a basidiomycete has sexual and asexual reproduction with haploid and dikaryotic mycelia.
+Haploid primary mycelia fuse to form a dikaryotic secondary mycelium, which is the dominant stage of the life cycle, and produces the basidiocarp.
+a. A basidium is the fruiting body of a mushroom-producing fungus, and it forms four basidiocarps.
+a. A basidium is the fruiting body of a mushroom-producing fungus.
+it forms four basidiocarps.
+The result of the plasmogamy step is four basidiospores.
+c. Karyogamy results directly in the formation of mycelia.
+A basidiocarp is the fruiting body of a mushroom-producing fungus.
+They form visible mycelia with a fuzzy appearance and are commonly known as mold.
+Aspergillus niger is an asexually reproducing fungus commonly found as a food contaminant.
+The spherical structure in this light micrograph is an asexual conidiophore.
+Molecular studies have placed Aspergillus with the ascomycetes and sexual cycles have been identified in some species.
+The fungi in this group have a large impact on everyday human life.
+The food industry relies on them for ripening some cheeses.
+The blue veins in Roquefort cheese and the white crust on Camembert are the result of fungal growth.
+The antibiotic penicillin was originally discovered on an overgrown Petri plate, on which a colony of Penicillium fungi had killed the bacterial growth surrounding it.
+Glomeromycota The Glomeromycota is a newly established phylum that comprises about 230 species, all of which are involved in close associations with the roots of trees.
+Fossil records indicate that trees and their root symbionts share a long evolutionary history.
+The exception is Geosiphon pyriformis, which hosts the cyanobacterium Nostoc as an endosymbiont.
+The glomeromycetes do not reproduce sexually and do not survive without the presence of plant roots.
+Although they have coenocytic hyphae like the zygomycetes, they do not form zygospores.
+DNA analysis shows that all glomeromycetes probably descended from a common ancestor, making them a monophyletic lineage.
+Fungi play a crucial role in the constantly changing "balance" of ecosystems.
+They colonize most habitats on Earth, preferring dark, moist conditions.
+They can thrive in seemingly hostile environments, such as the tundra, thanks to a most successful symbiosis with photosynthetic organisms like algae to produce lichens.
+Within their communities, fungi are not as obvious as are large animals or tall trees.
+Like bacteria, they act behind the scenes as major decomposers.
+they colonize a surprising diversity of habitats, from seawater to human skin and mucous membranes.
+Chytrids are found primarily in aquatic environments.
+Other fungi, such as Coccidioides immitis, which causes pneumonia when its spores are inhaled, thrive in the dry and sandy soil of the southwestern United States.
+Fungi that parasitize coral reefs live in the ocean.
+However, most members of the Kingdom Fungi grow on the forest floor, where the dark and damp environment is rich in decaying debris from plants and animals.
+In these environments, fungi play a major role as decomposers and recyclers, making it possible for members of the other kingdoms to be supplied with nutrients and live.
+Some elements—such as nitrogen and phosphorus—are required in large quantities by biological systems, and yet are not abundant in the environment.
+Some elements—such as nitrogen and phosphorus—are required in large quantities by biological systems.
+The action of fungi releases these elements from decaying matter, making them available to other living organisms.
+Fungi are an important part of ecosystem nutrient cycles.
+These bracket fungi growing on the side of a tree are the fruiting structures of a basidiomycete.
+They receive their nutrients through their hyphae, which invade and decay the tree trunk.
+The ability of fungi to degrade many large and insoluble molecules is due to their mode of nutrition.
+As seen earlier, digestion precedes ingestion.
+Fungi produce a variety of exoenzymes to digest nutrients.
+The enzymes are either released into the substrate or remain bound to the outside of the fungal cell wall.
+Large molecules are broken down into small molecules, which are transported into the cell by a system of protein carriers embedded in the cell membrane.
+Because the movement of small molecules and enzymes is dependent on the presence of water, active growth depends on a relatively high percentage of moisture in the environment.
+As saprobes, fungi help maintain a sustainable ecosystem for the animals and plants that share the same habitat.
+While some shelf fungi are found only on dead trees, others can parasitize living trees and cause eventual death, so they are considered serious tree pathogens.
+Mutualistic Relationships Symbiosis is the ecological interaction between two organisms that live together.
+This definition does not describe the type or quality of the interaction.
+When both members of the association benefit, the symbiotic relationship is called mutualistic.
+Fungi form mutualistic associations with many types of organisms, including cyanobacteria, algae, plants, and animals.
+Fungi form mutualistic associations with many types of organisms, including cyanobacteria, algae, plants.
+Nearly 90 percent of all vascular plant species have mycorrhizal partners.
+In exchange, the plant supplies the products of photosynthesis to fuel the metabolism of the fungus.
+Ectomycorrhizae depend on fungi enveloping the roots in a sheath.
+The fungal partner can belong to the Ascomycota, Basidiomycota or Zygomycota.
+The fungal partners of endomycorrhizal associates all belong to the Glomeromycota.
+Orchids rely on a third type of mycorrhiza.
+Orchids are epiphytes that typically produce very small airborne seeds without much storage to sustain germination and growth.
+Their seeds will not germinate without a mycorrhizal partner.
+After nutrients in the seed are depleted, fungal symbionts support the growth of the orchid by providing necessary carbohydrates and minerals.
+Some orchids continue to be mycorrhizal throughout their life cycle.
+Ectomycorrhizae and arbuscular or endomycorrhizae have different mechanisms for interacting with the roots of plants.
+The infection of Pinus radiata roots by the hyphae of Amanita muscaria causes the pine tree to produce many small, branched rootlets.
+The Amanita hyphae cover these small roots with a white mantle.
+Spores and hyphae are evident in this light micrograph of an arbuscular mycorrhiza by a fungus on the root of a corn plant.
+Other examples of fungus–plant mutualism include the endophytes: fungi that live inside tissue without damaging the host plant.
+Endophytes release toxins that repel herbivores, or confer resistance to environmental stress factors, such as infection by microorganisms, drought, or heavy metals in soil.
+Endophytes release toxins that repel herbivores.
+Coevolution of Land Plants and Mycorrhizae As we have seen, mycorrhizae are the fungal partners of a mutually beneficial symbiotic association that coevolved between roots of vascular plants and fungi.
+A well-supported theory proposes that fungi were instrumental in the evolution of the root system in plants and contributed to the success of Angiosperms.
+However, some bryophytes have arbuscular mycorrhizae and some do not.
+The first true roots would have allowed vascular plants to obtain more water and nutrients in the ground.
+Fossil records indicate that fungi actually preceded the invasion of ancestral freshwater plants onto dry land.
+Slowly, the benefits of the endophyte and rhizoid interactions for both partners led to present-day mycorrhizae: About 90 percent of today's vascular plants have associations with fungi in their rhizosphere.
+They cover rocks, gravestones, tree bark, and the ground in the tundra where plant roots cannot penetrate.
+They cover rocks, gravestones, tree bark.
+Lichens can survive extended periods of drought, when they become completely desiccated, and then rapidly become active once water is available again.
+Lichens can survive extended periods of drought, when they become completely desiccated.
+Lichens have many forms.
+They may be crust-like, hair-like, or leaf-like.
+They may be crust-like, hair-like.
+Generally, neither the fungus nor the photosynthetic organism can survive alone outside of the symbiotic relationship.
+The body of a lichen, referred to as a thallus, is formed of hyphae wrapped around the photosynthetic partner.
+The photosynthetic organism provides carbon and energy in the form of carbohydrates.
+Some cyanobacteria additionally fix nitrogen from the atmosphere, contributing nitrogenous compounds to the association.
+In return, the fungus supplies minerals and protection from dryness and excessive light by encasing the algae in its mycelium.
+The fungus also attaches the lichen to its substrate.
+The thallus of lichens grows very slowly, expanding its diameter a few millimeters per year.
+Both the fungus and the alga participate in the formation of dispersal units, called soredia—clusters of algal cells surrounded by mycelia.
+Soredia are dispersed by wind and water and form new lichens.
+Lichens are extremely sensitive to air pollution, especially to abnormal levels of nitrogenous and sulfurous compounds.
+The U.S. Forest Service and National Park Service can monitor air quality by measuring the relative abundance and health of the lichen population in an area.
+Lichens fulfill many ecological roles.
+Caribou and reindeer eat lichens, and they provide cover for small invertebrates that hide in the mycelium.
+Caribou and reindeer eat lichens.
+they provide cover for small invertebrates that hide in the mycelium.
+In the production of textiles, weavers used lichens to dye wool for many centuries until the advent of synthetic dyes.
+The pigments used in litmus paper are also extracted from lichens.
+LINK TO LEARNING Lichens are used to monitor the quality of air.
+Fungus/Animal Mutualism Fungi have evolved mutualisms with numerous insects in Phylum Arthropoda: joint-legged invertebrates with a chitinous exoskeleton.
+Arthropods depend on the fungus for protection from predators and pathogens, while the fungus obtains nutrients and a way to disseminate spores into new environments.
+Arthropods depend on the fungus for protection from predators and pathogens.
+the fungus obtains nutrients and a way to disseminate spores into new environments.
+The association between species of Basidiomycota and scale insects is one example.
+The scale insects foster a flow of nutrients from the parasitized plant to the fungus.
+Fungi are cultivated in these disk gardens, digesting the cellulose in the leaves that the ants cannot break down.
+Once smaller sugar molecules are produced and consumed by the fungi, the fungi in turn become a meal for the ants.
+The insects also patrol their garden, preying on competing fungi.
+The fungus receives a steady supply of leaves and freedom from competition, while the ants feed on the fungi they cultivate.
+The fungus receives a steady supply of leaves and freedom from competition.
+the ants feed on the fungi they cultivate.
+Fungivores Animal dispersal is important for some fungi because an animal may carry fungal spores considerable distances from the source.
+Fungal spores are rarely completely degraded in the gastrointestinal tract of an animal, and many are able to germinate when they are passed in the feces.
+Fungal spores are rarely completely degraded in the gastrointestinal tract of an animal.
+Some "dung fungi" actually require passage through the digestive system of herbivores to complete their lifecycle.
+The black truffle—a prized gourmet delicacy—is the fruiting body of an underground ascomycete.
+Almost all truffles are ectomycorrhizal, and are usually found in close association with trees.
+Almost all truffles are ectomycorrhizal.
+Animals eat truffles and disperse the spores.
+Parasitism describes a symbiotic relationship in which one member of the association benefits at the expense of the other.
+Plant Parasites and Pathogens The production of sufficient high-quality crops is essential to human existence.
+Unfortunately, plant diseases have ruined many crops throughout human agricultural history, sometimes creating widespread famine.
+In addition to destroying plant tissue directly, some plant pathogens spoil crops by producing potent toxins that can further damage and kill the host plant.
+Fungi are also responsible for food spoilage and the rotting of stored crops.
+For example, the fungus Claviceps purpurea causes ergot, a disease of cereal crops.
+Although the fungus reduces the yield of cereals, the effects of the ergot's alkaloid toxins on humans and animals are of much greater significance.
+In animals, the disease is referred to as ergotism.
+The most common signs and symptoms are convulsions, hallucination, gangrene, and loss of milk in cattle.
+The most common signs and symptoms are convulsions, hallucination, gangrene.
+The active ingredient of ergot is lysergic acid, which is a precursor of the drug LSD.
+Smuts, rusts, and powdery or downy mildew are other examples of common fungal pathogens that affect crops.
+powdery or downy mildew are other examples of common fungal pathogens that affect crops.
+Some fungal pathogens include green mold on grapefruit, powdery mildew on a zinnia, stem rust on a sheaf of barley, and grey rot on grapes.
+Some fungal pathogens include green mold on grapefruit, powdery mildew on a zinnia, stem rust on a sheaf of barley.
+grey rot on grapes.
+In wet conditions Botrytis cinerea, the fungus that causes grey rot, can destroy a grape crop.
+Aflatoxins are toxic, carcinogenic compounds released by fungi of the genus Aspergillus.
+Periodically, harvests of nuts and grains are tainted by aflatoxins, leading to massive recall of produce.
+This sometimes ruins producers and causes food shortages in developing countries.
+Animal and Human Parasites and Pathogens Fungi can affect animals, including humans, in several ways.
+A mycosis is a fungal disease that results from infection and direct damage due to the growth and infiltration of the fungus.
+Mycotoxicosis is the poisoning of humans by foods contaminated by fungal toxins.
+Mycetismus specifically describes the ingestion of preformed toxins in poisonous mushrooms.
+In addition, individuals who display hypersensitivity to molds and spores may develop strong and dangerous allergic reactions.
+Fungal infections are generally very difficult to treat because, unlike bacteria, fungi are eukaryotes.
+Antibiotics only target prokaryotic cells, whereas compounds that kill fungi also harm the eukaryotic animal host.
+Antibiotics only target prokaryotic cells.
+compounds that kill fungi also harm the eukaryotic animal host.
+Many fungal infections are superficial; that is, they occur on the animal's skin.
+Many fungal infections are superficial.
+that is, they occur on the animal's skin.
+Termed cutaneous mycoses, they can have devastating effects.
+For example, the decline of the world's frog population in recent years is caused by the chytrid fungus Batrachochytrium dendrobatidis.
+Similarly, more than a million bats in the United States have been killed by white-nose syndrome, which appears as a white ring around the mouth of the bat.
+It is caused by the cold-loving fungus Pseudogymnoascus destructans, which disseminates its deadly spores in caves where bats hibernate.
+Mycologists are researching the transmission, mechanism, and control of P. destructans to stop its spread.
+Mycologists are researching the transmission, mechanism.
+These fungi are often misnamed "dermatophytes", from the Greek words dermis meaning skin and phyte meaning plant, although they are not plants.
+They secrete extracellular enzymes that break down keratin, causing conditions such as athlete's foot and jock itch.
+These conditions are usually treated with over- the-counter topical creams and powders, and are easily cleared.
+These conditions are usually treated with over- the-counter topical creams and powders.
+More persistent superficial mycoses may require prescription oral medications.
+Systemic mycoses spread to internal organs, most commonly entering the body through the respiratory system.
+For example, coccidioidomycosis is commonly found in the southwestern United States, but as far north as Washington, where the fungus resides in the dust.
+Once inhaled, the spores develop in the lungs and cause symptoms similar to those of tuberculosis.
+Histoplasmosis is caused by the dimorphic fungus Histoplasma capsulatum.
+In its human host, Histoplasma grows as a yeast, causing pulmonary infections, and in rarer cases, swelling of the membranes of the brain and spinal cord.
+In its human host, Histoplasma grows as a yeast, causing pulmonary infections.
+Treatment of these and many other fungal diseases requires the use of antifungal medications that have serious side effects.
+Opportunistic mycoses are fungal infections that are either common in all environments, or part of the normal biota.
+Opportunistic mycoses are fungal infections that are either common in all environments.
+They mainly affect individuals who have a compromised immune system.
+Patients in the late stages of AIDS suffer from opportunistic mycoses that can be life threatening.
+It causes a number of human fatalities during mushroom-picking season.
+Many edible fruiting bodies of fungi resemble highly poisonous relatives, and amateur mushroom hunters are cautioned to carefully inspect their harvest and avoid eating mushrooms of doubtful origin.
+Many edible fruiting bodies of fungi resemble highly poisonous relatives.
+amateur mushroom hunters are cautioned to carefully inspect their harvest and avoid eating mushrooms of doubtful origin.
+The adage "there are bold mushroom pickers and old mushroom pickers, but are there no old, bold mushroom pickers" is unfortunately true.
+Background: Dutch elm disease is a fungal infestation that affects many species of elm in North America.
+The fungus infects the vascular system of the tree, which blocks water flow within the plant and mimics drought stress.
+Accidently introduced to the United States in the early 1930s, it decimated American elm shade trees across the continent.
+It is caused by the fungus Ophiostoma ulmi.
+The elm bark beetle acts as a vector and transmits the disease from tree to tree.
+Many European and Asiatic elms are less susceptible to the disease than are American elms.
+These are negative and positive controls that validate the experimental setup.
+The fungicide should be surrounded by a clear zone where the fungus growth was inhibited.
+Although we often think of fungi as organisms that cause disease and rot food, they are vitally important to human life on many levels.
+They have other ecosystem roles as well.
+These fungi are very specific to the insects they attack, and do not infect other animals or plants.
+These fungi are very specific to the insects they attack.
+Fungi are currently under investigation as potential microbial insecticides, with several already on the market.
+For example, the fungus Beauveria bassiana is being tested as a possible biological control agent for the recent spread of emerald ash borer a beetle that feeds on ash trees.
+The emerald ash borer is an insect that attacks ash trees.
+It is in turn parasitized by a pathogenic fungus that holds promise as a biological insecticide.
+The parasitic fungus appears as white fuzz on the body of the insect.
+The mycorrhizal relationship between fungi and plant roots is essential for the productivity of farm land.
+Without the fungal partner in root systems, 80–90 percent of trees and grasses would not survive.
+Mycorrhizal fungal inoculants are available as soil amendments from gardening supply stores and are promoted by supporters of organic agriculture, but there is little evidence as to the effectiveness.
+We also eat some types of fungi.
+The humble meadow mushroom, Agaricus campestris, appears in many dishes.
+Molds of the genus Penicillium ripen many cheeses.
+The morel mushroom is an ascomycete greatly appreciated for its delicate taste.
+Fermentation—of grains to produce beer, and of fruits to produce wine—is an ancient art that humans in most cultures have practiced for millennia.
+Wild yeasts are acquired from the environment and used to ferment sugars into CO2 and ethyl alcohol under anaerobic conditions.
+It is now possible to purchase isolated strains of wild yeasts from different wine-making regions.
+Saccharomyces cerevisiae, for the French brewing industry in the late 1850s.
+This was one of the first examples of biotechnology patenting.
+Many secondary metabolites of fungi are of great commercial importance.
+Antibiotics are naturally produced by fungi to kill or inhibit the growth of bacteria, limiting their competition in the natural environment.
+Important antibiotics, such as penicillin and the cephalosporins, are isolated from fungi.
+Psilocybin is a compound found in fungi such as Psilocybe semilanceata and Gymnopilus junonius, which have been used for their hallucinogenic properties by various cultures for thousands of years.
+As simple eukaryotic organisms, fungi are important model research organisms.
+Many advances in modern genetics were achieved by the use of the red bread mold Neurospora crassa.
+Additionally, many important genes originally discovered in S. cerevisiae served as a starting point in discovering analogous human genes.
+This makes yeast a much better organism for use in recombinant DNA technology experiments.
+Like bacteria, yeasts grow easily in culture, have a short generation time, and are amenable to genetic modification.
+Like bacteria, yeasts grow easily in culture, have a short generation time.
+Fungi are important decomposers that but are frequently found in cool, dark, moist places release essential elements into the environment.
+Fungi are saprobes External enzymes called exoenzymes digest nutrients that decompose organic matter.
+Many successful that are absorbed by the body of the fungus, which is mutualistic relationships involve a fungus and another called a thallus.
+Fungi can be unicellular as yeasts, associations with the roots of plants.
+Lichens are a symbiotic which is often described as mold.
+photosynthetic organism provides energy from stored Sexual reproduction involves plasmogamy, followed by karyogamy (the fusion of protection.
+Some animals that consume fungi help nuclei).
+Following these processes, meiosis generates disseminate spores over long distances.
+Fungal diseases can decimate crops and spoil ancestral group of fungi.
+They are mostly aquatic, and food during storage.
+They are mostly aquatic.
+Compounds produced by fungi can their gametes are the only fungal cells known to have be toxic to humans and other animals.
+Mycoses are flagella.
+They reproduce both sexually and asexually; infections caused by fungi.
+They reproduce both sexually and asexually.
+Superficial mycoses affect the asexual spores are called zoospores.
+systemic mycoses spread through produce non-septate hyphae with the body.
+Fungal infections are difficult to cure, since many nuclei.
+Their hyphae fuse during sexual fungi, like their hosts, are eukaryotic, and cladistically reproduction to produce a zygospore in a related closely to Kingdom Animalia.
+Their hyphae fuse during sexual fungi, like their hosts, are eukaryotic.
+Ascomycota form spores in sacs called asci during sexual reproduction.
+Asexual 24.5 Importance of Fungi in Human Life reproduction is their most common form of Fungi are important to everyday human life.
+Fungi are reproduction.
+Fungi, as food, play a role in human nutrition in spores form.
+Most familiar mushrooms belong to this the form of mushrooms, and also as agents of division.
+Most familiar mushrooms belong to this the form of mushrooms.
+Secondary metabolites of fungi are used comparative molecular analysis with the Ascomycota as medicines, such as antibiotics and anticoagulants.
+Glomeromycota form tight Fungi are model organisms for the study of eukaryotic associations with the roots of genetics and metabolism.
+A basidium is the fruiting body of a mitosis to form eight ascospores.
+it forms c.
+The result of the plasmogamy step is four and mitosis to form eight ascospores.
+c. Karyogamy results directly in the 3.
+If symbiotic fungi are absent from formation of mycelia.
+the soil, what impact do you think this would d.
+The fungi that do not reproduce sexually used to c. mitochondrion be classified as ________.
+A scientist discovers a new species of fungus c. mycelium that introduces genetic diversity during d. septum reproduction by creating a diploid zygote.
+This new species cannot belong to which modern 7.
+mycelium contains a. Zygomycota a. all septated hyphae b. Glomeromycota b.
+What term describes the close association of a 8.
+The most primitive phylum of fungi is the a. They produce many spores. ________.
+They can grow in many different a. Chytridiomycota environments.
+They produce mycelia.
+They recycle carbon and inorganic d. Ascomycota minerals by the process of decomposition.
+Yeast is a facultative anaerobe.
+This means that c. Nitrogen intake would decrease.
+alcohol fermentation takes place only if: d. Nitrogen intake would stop.
+a. the temperature is close to 37°C b.
+the atmosphere does not contain oxygen 17.
+A fungal infection that affects nails and skin is d. yeast cells are easily lysed to purify the classified as ________.
+The targets for anti-fungal drugs are much more would not make a person sick, but limited than antibiotics or anti-viral medications.
+A single fungal insecticide would kill a fungi.
+b. Fungi can only be targeted during sexual pesticide.
+reproduction, while bacteria and viruses c. Fungal insecticides can eliminate both can be targeted at any point in their harmful insects and plant pathogens, lifespan.
+bacteria and viruses c. Fungal insecticides can eliminate both can be targeted at any point in their harmful insects and plant pathogens, lifespan.
+while chemical pesticides only kill insects.
+c. Fungi cause topical infections, while d. Fungal insecticides will decompose dying viruses and bacteria cause systemic plants, enhancing the nitrogen content of infections.
+c. Fungi cause topical infections.
+d. Fungal insecticides will decompose dying viruses and bacteria cause systemic plants, enhancing the nitrogen content of infections.
+the soil, while chemical pesticides are not d. Human cells are much more similar to decomposers.
+Ambrosia bark beetles carry Ambrosiella fungal polysaccharide storage.
+hatch, they eat the fungus that has germinated 25.
+Why is the large surface area of the mycelium in the holes.
+What is the advantage for a basidiomycete to 30.
+In an arid climate, scientists recommend introducing plants with 27.
+production of artisanal breads was long and laborious because many batches of dough 31.

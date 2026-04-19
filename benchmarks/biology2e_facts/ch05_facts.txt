@@ -1,0 +1,458 @@
+# Biology2e Chapter 5 — Structure and Function of Plasma
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 454
+
+Analogously, a plasma membrane's functions involve movement within the cell and across boundaries' activities.
+INTRODUCTION The plasma membrane, the cell membrane, has many functions, but the most basic one is to define the cell's borders and keep the cell functional.
+The plasma membrane is selectively permeable.
+Cells exclude some substances, take in others, and excrete still others, all in controlled quantities.
+Cells exclude some substances, take in others.
+The plasma membrane must be very flexible to allow certain cells, such as red and white blood cells, to change shape as they pass through narrow capillaries.
+These are the more obvious plasma membrane functions.
+These proteins act both as extracellular input receivers and as intracellular processing activators.
+These membrane receptors provide extracellular attachment sites for effectors like hormones and growth factors, and they activate intracellular response cascades when their effectors are bound.
+These membrane receptors provide extracellular attachment sites for effectors like hormones and growth factors.
+they activate intracellular response cascades when their effectors are bound.
+Fluid Mosaic Model Scientists identified the plasma membrane in the 1890s, and its chemical components in 1915.
+Fluid Mosaic Model Scientists identified the plasma membrane in the 1890s.
+The principal components they identified were lipids and proteins.
+In 1935, Hugh Davson and James Danielli proposed the plasma membrane's structure.
+This was the first model that others in the scientific community widely accepted.
+It was based on the plasma membrane's "railroad track" appearance in early electron micrographs.
+Davson and Danielli theorized that the plasma membrane's structure resembles a sandwich.
+They made the analogy of proteins to bread, and lipids to the filling.
+They made the analogy of proteins to bread.
+In the 1950s, advances in microscopy, notably transmission electron microscopy, allowed researchers to see that the plasma membrane's core consisted of a double, rather than a single, layer.
+In 1972, S.J. Singer and Garth L. Nicolson proposed a new model that provides microscopic observations and better explains plasma membrane function.
+The explanation, the fluid mosaic model, has evolved somewhat over time, but it still best accounts for plasma membrane structure and function as we now understand them.
+The fluid mosaic model describes the plasma membrane structure as a mosaic of components—including phospholipids, cholesterol, proteins, and carbohydrates—that gives the membrane a fluid character.
+The fluid mosaic model describes the plasma membrane structure as a mosaic of components—including phospholipids, cholesterol, proteins.
+Plasma membranes range from 5 to 10 nm in thickness.
+For comparison, human red blood cells, visible via light microscopy, are approximately 8 µm wide, or approximately 1,000 times wider than a plasma membrane.
+For comparison, human red blood cells, visible via light microscopy, are approximately 8 µm wide.
+The plasma membrane fluid mosaic model describes the plasma membrane as a fluid combination of phospholipids, cholesterol, and proteins.
+The plasma membrane fluid mosaic model describes the plasma membrane as a fluid combination of phospholipids, cholesterol.
+Carbohydrates attached to lipids and to proteins extend from the membrane's outward-facing surface.
+A plasma membrane's principal components are lipids, proteins, and carbohydrates attached to some of the lipids and proteins.
+A plasma membrane's principal components are lipids, proteins.
+A phospholipid is a molecule consisting of glycerol, two fatty acids, and a phosphate-linked head group.
+A phospholipid is a molecule consisting of glycerol, two fatty acids.
+Cholesterol, another lipid comprised of four fused carbon rings, is situated alongside the phospholipids in the membrane's core.
+However, protein and lipid concentration varies with different cell membranes.
+For example, myelin, an outgrowth of specialized cells' membrane that insulates the peripheral nerves' axons, contains only 18 percent protein and 76 percent lipid.
+The mitochondrial inner membrane contains 76 percent protein and only 24 percent lipid.
+The plasma membrane of human red blood cells is 30 percent lipid.
+Carbohydrates are present only on the plasma membrane's exterior surface and are attached to proteins, forming glycoproteins, or attached to lipids, forming glycolipids.
+Carbohydrates are present only on the plasma membrane's exterior surface and are attached to proteins, forming glycoproteins.
+Hydrophobic, or water-hating molecules, tend to be non-polar.
+water-hating molecules, tend to be non-polar.
+They interact with other non-polar molecules in chemical reactions, but generally do not interact with polar molecules.
+When placed in water, hydrophobic molecules tend to form a ball or cluster.
+The phospholipids' hydrophilic regions form hydrogen bonds with water and other polar molecules on both the cell's exterior and interior.
+Thus, the membrane surfaces that face the cell's interior and exterior are hydrophilic.
+In contrast, the cell membrane's interior is hydrophobic and will not interact with water.
+Therefore, phospholipids form an excellent two- layer cell membrane that separates fluid within the cell from the fluid outside the cell.
+The head can form hydrogen bonds, but the tail cannot.
+A hydrophilic head and two hydrophobic tails comprise this phospholipid molecule.
+The hydrophilic head group consists of a phosphate-containing group attached to a glycerol molecule.
+The hydrophobic tails, each containing either a saturated or an unsaturated fatty acid, are long hydrocarbon chains.
+This characteristic is vital to the plasma membrane's structure because, in water, phospholipids arrange themselves with their hydrophobic tails facing each other and their hydrophilic heads facing out.
+Proteins Proteins comprise the plasma membranes' second major component.
+Single-pass integral membrane proteins usually have a hydrophobic transmembrane segment that consists of 20–25 amino acids.
+This protein type has a hydrophilic region or regions, and one or several mildly hydrophobic regions.
+This protein type has a hydrophilic region or regions.
+Peripheral proteins, along with integral proteins, may serve as enzymes, as structural attachments for the cytoskeleton's fibers, or as part of the cell's recognition sites.
+Peripheral proteins, along with integral proteins, may serve as enzymes, as structural attachments for the cytoskeleton's fibers.
+Scientists sometimes refer to these as "cell- specific" proteins.
+The body recognizes its own proteins and attacks foreign proteins associated with invasive pathogens.
+Carbohydrates Carbohydrates are the third major plasma membrane component.
+These carbohydrate chains may consist of 2–60 monosaccharide units and can be either straight or branched.
+Along with peripheral proteins, carbohydrates form specialized sites on the cell surface that allow cells to recognize each other.
+These sites have unique patterns that allow for cell recognition, much the way that the facial features unique to each person allow individuals to recognize him or her.
+This recognition function is very important to cells, as it allows the immune system to differentiate between body cells and foreign cells or tissues.
+Similar glycoprotein and glycolipid types are on the surfaces of viruses and may change frequently, preventing immune cells from recognizing and attacking them.
+We collectively refer to these carbohydrates on the cell's exterior surface—the carbohydrate components of both glycoproteins and glycolipids—as the glycocalyx.
+The glycocalyx is highly hydrophilic and attracts large amounts of water to the cell's surface.
+As we discussed above, the glycocalyx is also important for cell identification, self/non-self determination, and embryonic development, and is used in cell to cell attachments to form tissues.
+As we discussed above, the glycocalyx is also important for cell identification, self/non-self determination.
+How Viruses Infect Specific Organs Glycoprotein and glycolipid patterns on the cells' surfaces give many viruses an opportunity for infection.
+HIV and hepatitis viruses infect only specific organs or cells in the human body.
+HIV is able to penetrate the plasma membranes of a subtype of lymphocytes called T-helper cells, as well as some monocytes and central nervous system cells.
+The hepatitis virus attacks liver cells.
+Other recognition sites on the virus's surface interact with the human immune system, prompting the body to produce antibodies.
+Antibodies are made in response to the antigens or proteins associated with invasive pathogens, or in response to foreign cells, such as might occur with an organ transplant.
+Antibodies are made in response to the antigens or proteins associated with invasive pathogens.
+These same sites serve as places for antibodies to attach and either destroy or inhibit the virus' activity.
+A person infected with HIV will quickly develop different populations, or variants, of the virus that differences in these recognition sites distinguish.
+A person infected with HIV will quickly develop different populations.
+This rapid change of surface markers decreases the effectiveness of the person's immune system in attacking the virus, because the antibodies will not recognize the surface patterns' new variations.
+In the case of HIV, the problem is compounded because the virus specifically infects and destroys cells involved in the immune response, further incapacitating the host.
+The membrane's mosaic characteristic helps to illustrate its nature.
+The integral proteins and lipids exist in the membrane as separate but loosely attached molecules.
+These resemble the separate, multicolored tiles of a mosaic picture, and they float, moving somewhat with respect to one another.
+These resemble the separate, multicolored tiles of a mosaic picture.
+The membrane's mosaic characteristics explain some but not all of its fluidity.
+One factor is the nature of the phospholipids themselves.
+In their saturated form, the fatty acids in phospholipid tails are saturated with bound hydrogen atoms.
+In contrast, unsaturated fatty acids do not contain a maximal number of hydrogen atoms, but they do contain some double bonds between adjacent carbon atoms.
+Thus, if decreasing temperatures compress saturated fatty acids with their straight tails, they press in on each other, making a dense and fairly rigid membrane.
+If unsaturated fatty acids are compressed, the "kinks" in their tails elbow adjacent phospholipid molecules away, maintaining some space between the phospholipid molecules.
+This "elbow room" helps to maintain fluidity in the membrane at temperatures at which membranes with saturated fatty acid tails in their phospholipids would "freeze" or solidify.
+The membrane's relative fluidity is particularly important in a cold environment.
+A cold environment usually compresses membranes comprised largely of saturated fatty acids, making them less fluid and more susceptible to rupturing.
+Many organisms are capable of adapting to cold environments by changing the proportion of unsaturated fatty acids in their membranes in response to lower temperature.
+Animals have an additional membrane constituent that assists in maintaining fluidity.
+Cholesterol, which lies alongside the phospholipids in the membrane, tends to dampen temperature effects on the membrane.
+Thus, cholesterol extends, in both directions, the temperature range in which the membrane is appropriately fluid and consequently functional.
+Cholesterol also serves other functions, such as organizing clusters of transmembrane proteins into lipid rafts.
+Immunologist The variations in peripheral proteins and carbohydrates that affect a cell's recognition sites are of prime interest in immunology.
+In developing vaccines, researchers have been able to conquer many infectious diseases, such as smallpox, polio, diphtheria, and tetanus.
+In developing vaccines, researchers have been able to conquer many infectious diseases, such as smallpox, polio, diphtheria.
+Immunologists are the physicians and scientists who research and develop vaccines, as well as treat and study allergies or other immune problems.
+Immunologists also help treat organ transplantation patients, who must have their immune systems suppressed so that their bodies will not reject a transplanted organ.
+Others work on questions about how the immune system affects diseases such as cancer.
+In the past, researchers did not understand the importance of having a healthy immune system in preventing cancer.
+Immunologists who focus on certain types of diseases or pathogens can play an important role in saving lives during specific outbreaks and pandemics.
+Kizzmekia S. Corbett, for example, was a research fellow and scientific lead working specifically on coronaviruses.
+When the COVID-19 pandemic occurred, Corbett's deep experience and knowledge was instrumental in developing one of the main vaccines.
+She is now applying that experience to other respiratory diseases and vaccine development processes.
+To work as an immunologist, one must have a PhD or MD.
+Plasma membranes must allow certain substances to enter and leave a cell, and prevent some harmful materials from entering and some essential materials from leaving.
+Plasma membranes must allow certain substances to enter and leave a cell.
+In other words, plasma membranes are selectively permeable—they allow some substances to pass through, but not others.
+If they were to lose this selectivity, the cell would no longer be able to sustain itself, and it would be destroyed.
+If they were to lose this selectivity, the cell would no longer be able to sustain itself.
+Some cells require larger amounts of specific substances.
+They must have a way of obtaining these materials from extracellular fluids.
+This may happen passively, as certain materials move back and forth, or the cell may have special mechanisms that facilitate transport.
+This may happen passively, as certain materials move back and forth.
+the cell may have special mechanisms that facilitate transport.
+Some materials are so important to a cell that it spends some of its energy, hydrolyzing adenosine triphosphate, to obtain these materials.
+Red blood cells use some of their energy doing just that.
+Most cells spend the majority of their energy to maintain an imbalance of sodium and potassium ions between the cell's interior and exterior, as well as on protein synthesis.
+The most direct forms of membrane transport are passive.
+Passive transport is a naturally occurring phenomenon and does not require the cell to exert any of its energy to accomplish the movement.
+In passive transport, substances move from an area of higher concentration to an area of lower concentration.
+A physical space in which there is a single substance concentration range has a concentration gradient.
+Selective Permeability Plasma membranes are asymmetric: the membrane's interior is not identical to its exterior.
+On the membrane's interior, some proteins serve to anchor the membrane to cytoskeleton's fibers.
+Carbohydrates, attached to lipids or proteins, are also on the plasma membrane's exterior surface.
+These carbohydrate complexes help the cell bind required substances in the extracellular fluid.
+The plasma membrane's exterior surface is not identical to its interior surface.
+Recall that plasma membranes are amphiphilic: They have hydrophilic and hydrophobic regions.
+This characteristic helps move some materials through the membrane and hinders the movement of others.
+Non-polar and lipid- soluble material with a low molecular weight can easily slip through the membrane's hydrophobic lipid core.
+Substances such as the fat-soluble vitamins A, D, E, and K readily pass through the plasma membranes in the digestive tract and other tissues.
+K readily pass through the plasma membranes in the digestive tract and other tissues.
+Fat-soluble drugs and hormones also gain easy entry into cells and readily transport themselves into the body's tissues and organs.
+Oxygen and carbon dioxide molecules have no charge and pass through membranes by simple diffusion.
+Polar substances present problems for the membrane.
+While some polar molecules connect easily with the cell's outside, they cannot readily pass through the plasma membrane's lipid core.
+Additionally, while small ions could easily slip through the spaces in the membrane's mosaic, their charge prevents them from doing so.
+small ions could easily slip through the spaces in the membrane's mosaic, their charge prevents them from doing so.
+Ions such as sodium, potassium, calcium, and chloride must have special means of penetrating plasma membranes.
+chloride must have special means of penetrating plasma membranes.
+Simple sugars and amino acids also need the help of various transmembrane proteins to transport themselves across plasma membranes.
+Diffusion Diffusion is a passive process of transport.
+You are familiar with diffusion of substances through the air.
+The ammonia gas is at its highest concentration in the bottle.
+Its lowest concentration is at the room's edges.
+gradually, increasingly more people will smell the ammonia as it spreads.
+Diffusion expends no energy.
+On the contrary, concentration gradients are a form of potential energy, which dissipates as the gradient is eliminated.
+Each separate substance in a medium, such as the extracellular fluid, has its own concentration gradient, independent of other materials' concentration gradients.
+In addition, each substance will diffuse according to that gradient.
+This movement accounts for molecule diffusion through whatever medium in which they are localized.
+We call this lack of a concentration gradient in which the substance has no net movement dynamic equilibrium.
+While diffusion will go forward in the presence of a substance's concentration gradient, several factors affect the diffusion rate.
+The closer the distribution of the material gets to equilibrium, the slower the diffusion rate.
+Mass of the molecules diffusing: Heavier molecules move more slowly; therefore, they diffuse more slowly.
+Mass of the molecules diffusing: Heavier molecules move more slowly.
+therefore, they diffuse more slowly.
+The reverse is true for lighter molecules.
+Lower temperatures decrease the molecules' energy, thus decreasing the diffusion rate.
+Solvent density: As the density of a solvent increases, the diffusion rate decreases.
+If the medium is less dense, diffusion increases.
+Because cells primarily use diffusion to move materials within the cytoplasm, any increase in the cytoplasm's density will inhibit the movement of the materials.
+An example of this is a person experiencing dehydration.
+As the body's cells lose water, the diffusion rate decreases in the cytoplasm, and the cells' functions deteriorate.
+As the body's cells lose water, the diffusion rate decreases in the cytoplasm.
+Neurons tend to be very sensitive to this effect.
+Dehydration frequently leads to unconsciousness and possibly coma because of the decrease in diffusion rate within the cells.
+Solubility: As we discussed earlier, nonpolar or lipid-soluble materials pass through plasma membranes more easily than polar materials, allowing a faster diffusion rate.
+• Surface area and plasma membrane thickness: Increased surface area increases the diffusion rate; whereas, a thicker membrane reduces it.
+• Surface area and plasma membrane thickness: Increased surface area increases the diffusion rate.
+whereas, a thicker membrane reduces it.
+This places an upper limitation on cell size.
+Therefore, cells must either be small in size, as in the case of many prokaryotes, or be flattened, as with many single-celled eukaryotes.
+Therefore, cells must either be small in size, as in the case of many prokaryotes.
+A variation of diffusion is the process of filtration.
+Sometimes pressure enhances the diffusion rate, causing the substances to filter more rapidly.
+This occurs in the kidney, where blood pressure forces large amounts of water and accompanying dissolved substances, or solutes, out of the blood and into the renal tubules.
+This occurs in the kidney, where blood pressure forces large amounts of water and accompanying dissolved substances.
+The diffusion rate in this instance is almost totally dependent on pressure.
+Facilitated transport In facilitated transport, or facilitated diffusion, materials diffuse across the plasma membrane with the help of membrane proteins.
+facilitated diffusion, materials diffuse across the plasma membrane with the help of membrane proteins.
+However, these materials are polar molecule ions that the cell membrane's hydrophobic parts repel.
+Facilitated transport proteins shield these materials from the membrane's repulsive force, allowing them to diffuse into the cell.
+This allows removal of material from the extracellular fluid that the cell needs.
+The substances then pass to specific integral proteins that facilitate their passage.
+Some of these integral proteins are collections of beta-pleated sheets that form a pore or channel through the phospholipid bilayer.
+Others are carrier proteins which bind with the substance and aid its diffusion through the membrane.
+The integral proteins involved in facilitated transport are transport proteins, and they function as either channels for the material or carriers.
+The integral proteins involved in facilitated transport are transport proteins.
+they function as either channels for the material or carriers.
+In both cases, they are transmembrane proteins.
+Channels are specific for the transported substance.
+Channel proteins have hydrophilic domains exposed to the intracellular and extracellular fluids.
+Passage through the channel allows polar compounds to avoid the plasma membrane's nonpolar central layer that would otherwise slow or prevent their entry into the cell.
+Aquaporins are channel proteins that allow water to pass through the membrane at a very high rate.
+When they are closed, no ions can pass through them.
+However, when a channel opens, select ions diffuse through the channel.
+Channel proteins are highly specific, letting only a specific ion or subset of ions pass.
+Channel proteins are either open at all times or they are "gated," which controls the channel's opening.
+When a particular ion attaches to the channel protein it may control the opening.
+In some tissues, sodium and chloride ions pass freely through open channels; whereas, in other tissues a gate must open to allow passage.
+In some tissues, sodium and chloride ions pass freely through open channels.
+whereas, in other tissues a gate must open to allow passage.
+An example of this occurs in the kidney, where there are both channel forms in different parts of the renal tubules.
+Cells involved in transmitting electrical impulses, such as nerve and muscle cells, have gated channels for sodium, potassium, and calcium in their membranes.
+Cells involved in transmitting electrical impulses, such as nerve and muscle cells, have gated channels for sodium, potassium.
+Carrier Proteins Another type of protein embedded in the plasma membrane is a carrier protein.
+Carrier proteins are typically specific for a single substance.
+This selectivity adds to the plasma membrane's overall selectivity.
+Scientists poorly understand the exact mechanism for the change of shape.
+Proteins can change shape when their hydrogen bonds are affected, but this may not fully explain this mechanism.
+Each carrier protein is specific to one substance, and there are a finite number of these proteins in any membrane.
+Each carrier protein is specific to one substance.
+This can cause problems in transporting enough material for the cell to function properly.
+An example of this process occurs in the kidney.
+This filtrate, which includes glucose, then reabsorbs in another part of the kidney.
+A different group of carrier proteins, glucose transport proteins, or GLUTs, are involved in transporting glucose and other hexose sugars through plasma membranes within the body.
+GLUTs, are involved in transporting glucose and other hexose sugars through plasma membranes within the body.
+Channel proteins transport much more quickly than carrier proteins.
+Osmosis Osmosis is the movement of free water molecules through a semipermeable membrane according to the water's concentration gradient across the membrane, which is inversely proportional to the solutes' concentration.
+While diffusion transports material across membranes and within cells, osmosis transports only water across a membrane and the membrane limits the solutes' diffusion in the water.
+Mechanism Osmosis is a special case of diffusion.
+Water, like other substances, moves from an area of high concentration of free water molecules to one of low free water molecule concentration.
+In the diagram, the solute cannot pass through the selectively permeable membrane, but the water can.
+One has a single teaspoon of sugar in it; whereas, the second one contains one-quarter cup of sugar.
+whereas, the second one contains one-quarter cup of sugar.
+A principle of diffusion is that the molecules move around and will spread evenly throughout the medium if they can.
+However, only the material capable of getting through the membrane will diffuse through it.
+In this example, the solute cannot diffuse through the membrane, but the water can.
+Water has a concentration gradient in this system.
+Thus, water will diffuse down its concentration gradient, crossing the membrane to the side where it is less concentrated.
+Osmosis proceeds constantly in living systems.
+Tonicity Tonicity describes how an extracellular solution can change a cell's volume by affecting osmosis.
+A solution's tonicity often directly correlates with the solution's osmolarity.
+Osmolarity describes the solution's total solute concentration.
+A solution with low osmolarity has a greater number of water molecules relative to the number of solute particles.
+A solution with high osmolarity has fewer water molecules with respect to solute particles.
+Hypotonic Solutions Scientists use three terms—hypotonic, isotonic, and hypertonic—to relate the cell's osmolarity to the extracellular fluid's osmolarity that contains the cells.
+Hypotonic Solutions Scientists use three terms—hypotonic, isotonic.
+In a hypotonic situation, the extracellular fluid has lower osmolarity than the fluid inside the cell, and water enters the cell.
+In a hypotonic situation, the extracellular fluid has lower osmolarity than the fluid inside the cell.
+water enters the cell.
+It also means that the extracellular fluid has a higher water concentration in the solution than does the cell.
+In this situation, water will follow its concentration gradient and enter the cell.
+Because the cell has a relatively higher water concentration, water will leave the cell.
+Isotonic Solutions In an isotonic solution, the extracellular fluid has the same osmolarity as the cell.
+This will cause the RBC to shrivel.
+A doctor injects a patient with what the doctor thinks is an isotonic saline solution.
+LINK TO LEARNING For a video illustrating the diffusion process in solutions, visit this site.
+Tonicity in Living Systems In a hypotonic environment, water enters a cell, and the cell swells.
+Tonicity in Living Systems In a hypotonic environment, water enters a cell.
+In an isotonic condition, the relative solute and solvent concentrations are equal on both membrane sides.
+In a hypertonic solution, water leaves a cell and the cell shrinks.
+If either the hypo- or hyper- condition goes to excess, the cell's functions become compromised, and the cell may be destroyed.
+If either the hypo- or hyper- condition goes to excess, the cell's functions become compromised.
+Remember, the membrane resembles a mosaic, with discrete spaces between the molecules comprising it.
+If the cell swells, and the spaces between the lipids and proteins become too large, the cell will break apart.
+the spaces between the lipids and proteins become too large, the cell will break apart.
+This has the effect of concentrating the solutes left in the cell, making the cytosol denser and interfering with diffusion within the cell.
+Various living things have ways of controlling the effects of osmosis—a mechanism we call osmoregulation.
+Some organisms, such as plants, fungi, bacteria, and some protists, have cell walls that surround the plasma membrane and prevent cell lysis in a hypotonic solution.
+some protists, have cell walls that surround the plasma membrane and prevent cell lysis in a hypotonic solution.
+The plasma membrane can only expand to the cell wall's limit, so the cell will not lyse.
+The cytoplasm in plants is always slightly hypertonic to the cellular environment, and water will always enter a cell if water is available.
+The cytoplasm in plants is always slightly hypertonic to the cellular environment.
+water will always enter a cell if water is available.
+In nonwoody plants, turgor pressure supports the plant.
+Conversely, if you do not water the plant, the extracellular fluid will become hypertonic, causing water to leave the cell.
+In this condition, the cell does not shrink because the cell wall is not flexible.
+We call this plasmolysis.
+The turgor pressure within a plant cell depends on the solution's tonicity in which it is bathed.
+Tonicity is a concern for all living things.
+For example, paramecia and amoebas, which are protists that lack cell walls, have contractile vacuoles.
+Many marine invertebrates have internal salt levels matched to their environments, making them isotonic with the water in which they live.
+Fish, however, must spend approximately five percent of their metabolic energy maintaining osmotic homeostasis.
+Freshwater fish live in an environment that is hypotonic to their cells.
+These fish actively take in salt through their gills and excrete diluted urine to rid themselves of excess water.
+Saltwater fish live in the reverse environment, which is hypertonic to their cells, and they secrete salt through their gills and excrete highly concentrated urine.
+Saltwater fish live in the reverse environment, which is hypertonic to their cells.
+they secrete salt through their gills and excrete highly concentrated urine.
+In vertebrates, the kidneys regulate the water amount in the body.
+Osmoreceptors are specialized cells in the brain that monitor solute concentration in the blood.
+Animals also have high albumin concentrations, which the liver produces, in their blood.
+This protein is too large to pass easily through plasma membranes and is a major factor in controlling the osmotic pressures applied to tissues.
+Active transport mechanisms require the cell's energy, usually in the form of adenosine triphosphate.
+Some active transport mechanisms move small-molecular weight materials, such as ions, through the membrane.
+Other mechanisms transport much larger molecules.
+Electrochemical Gradient We have discussed simple concentration gradients—a substance's differential concentrations across a space or a membrane—but in living systems, gradients are more complex.
+However, the situation is more complex for other elements such as potassium.
+We call the combined concentration gradient and electrical charge that affects an ion its electrochemical gradient.
+This is due to the presence of K+ binding proteins and other negatively charged molecules.
+Structures labeled A represent proteins.
+This is how capital punishment and euthanasia subjects die.
+The proton pump creates an electrochemical gradient of protons using ATP to drive primary active transport.
+This gradient allows for cotransport/secondary transport of sucrose against its concentration gradient as protons come down their concentration gradient via their membrane cotransporter protein.
+Moving Against a Gradient To move substances against a concentration or electrochemical gradient, the cell must use energy.
+This energy comes from ATP generated through the cell's metabolism.
+Active transport mechanisms, or pumps, work against electrochemical gradients.
+pumps, work against electrochemical gradients.
+Small substances constantly pass through plasma membranes.
+Active transport maintains concentrations of ions and other substances that living cells require in the face of these passive movements.
+A cell may spend much of its metabolic energy supply maintaining these processes.
+Because active transport mechanisms depend on a cell's metabolism for energy, they are sensitive to many metabolic poisons that interfere with the ATP supply.
+Two mechanisms exist for transporting small-molecular weight material and small molecules.
+Primary active transport moves ions across a membrane and creates a difference in charge across that membrane, which is directly dependent on ATP.
+A uniporter carries one specific ion or molecule.
+A symporter carries two different ions or molecules, both in the same direction.
+An antiporter also carries two different ions or molecules, but in different directions.
+All of these transporters can also transport small, uncharged organic molecules like glucose.
+These three types of carrier proteins are also in facilitated diffusion, but they do not require ATP to work in that process.
+Both of these are antiporter carrier proteins.
+Two other carrier proteins are Ca2+ ATPase and H+ ATPase, which carry only calcium and only hydrogen ions, respectively.
+Both are pumps.
+A uniporter carries one molecule or ion.
+A symporter carries two different molecules or ions, both in the same direction.
+An antiporter also carries two different molecules or ions, but in different directions.
+The sodium-potassium pump is an example of primary active transport that moves ions, sodium and potassium ions in this instance, across a membrane against their concentration gradients.
+The energy is provided by the hydrolysis of ATP.
+Three sodium ions are moved out of the cell for every 2 potassium ions that are brought into the cell.
+This creates an electrochemical gradient that is crucial for living cells.
+The sodium-potassium pump moves K+ into the cell while moving Na+ out at the same time, at a ratio of three Na+ for every two K+ ions moved in.
+The Na+-K+ ATPase exists in two forms, depending on its orientation to the cell's interior or exterior and its affinity for either sodium or potassium ions.
+The process consists of the following six steps.
+The protein carrier hydrolyzes ATP and a low-energy phosphate group attaches to it.
+As a result, the carrier changes shape and reorients itself towards the membrane's exterior.
+The protein's affinity for sodium decreases and the three sodium ions leave the carrier.
+The shape change increases the carrier's affinity for potassium ions, and two such ions attach to the protein.
+The shape change increases the carrier's affinity for potassium ions.
+two such ions attach to the protein.
+Subsequently, the low-energy phosphate group detaches from the carrier.
+The carrier protein, in its new configuration, has a decreased affinity for potassium, and the two ions moves into the cytoplasm.
+The carrier protein, in its new configuration, has a decreased affinity for potassium.
+the two ions moves into the cytoplasm.
+The protein now has a higher affinity for sodium ions, and the process starts again.
+The protein now has a higher affinity for sodium ions.
+the process starts again.
+Several things have happened as a result of this process.
+For every three sodium ions that move out, two potassium ions move in.
+This results in the interior being slightly more negative relative to the exterior.
+This difference in charge is important in creating the conditions necessary for the secondary process.
+The sodium-potassium pump is, therefore, an electrogenic pump, creating an electrical imbalance across the membrane and contributing to the membrane potential.
+Secondary active transport uses the kinetic energy of the sodium ions to bring other compounds, against their concentration gradient into the cell.
+As sodium ion concentrations build outside of the plasma membrane because of the primary active transport process, this creates an electrochemical gradient.
+If a channel protein exists and is open, the sodium ions will move down its concentration gradient across the membrane.
+Many amino acids, as well as glucose, enter a cell this way.
+This secondary process also stores high-energy hydrogen ions in the mitochondria of plant and animal cells in order to produce ATP.
+An electrochemical gradient, is generated by primary active transport.
+The energy stored in the Na+ gradient provides the energy to move other substances against their concentration gradients, a process called co- transport or secondary active transport.
+In addition to moving small ions and molecules through the membrane, cells also need to remove and take in larger molecules and particles.
+Some cells are even capable of engulfing entire unicellular microorganisms.
+You might have correctly hypothesized that when a cell uptakes and releases large particles, it requires energy.
+A large particle, however, cannot pass through the membrane, even with energy that the cell supplies.
+Endocytosis Endocytosis is a type of active transport that moves particles, such as large molecules, parts of cells, and even whole cells, into a cell.
+Endocytosis Endocytosis is a type of active transport that moves particles, such as large molecules, parts of cells.
+Phagocytosis Phagocytosis is the process by which a cell takes in large particles, such as other cells or relatively large particles.
+In phagocytosis, the cell membrane surrounds the particle and engulfs it.
+In preparation for phagocytosis, a portion of the plasma membrane's inward-facing surface becomes coated with the protein clathrin, which stabilizes this membrane's section.
+The membrane's coated portion then extends from the cell's body and surrounds the particle, eventually enclosing it.
+When accessible nutrients from the vesicular contents' degradation have been extracted, the newly formed endosome merges with the plasma membrane and releases its contents into the extracellular fluid.
+The endosomal membrane again becomes part of the plasma membrane.
+Pinocytosis A variation of endocytosis is pinocytosis.
+This literally means "cell drinking".
+Discovered by Warren Lewis in 1929, this American embryologist and cell biologist described a process whereby he assumed that the cell was purposefully taking in extracellular fluid.
+In reality, this is a process that takes in molecules, including water, which the cell needs from the extracellular fluid.
+A variation of pinocytosis is potocytosis.
+This process uses a coating protein, caveolin, on the plasma membrane's cytoplasmic side, which performs a similar function to clathrin.
+The cavities in the plasma membrane that form the vacuoles have membrane receptors and lipid rafts in addition to caveolin.
+The vacuoles or vesicles formed in caveolae are smaller than those in pinocytosis.
+Potocytosis brings small molecules into the cell and transports them through the cell for their release on the other side, a process we call transcytosis.
+In some cases, the caveolae deliver their cargo to membranous organelles like the ER.
+If a compound's uptake is dependent on receptor-mediated endocytosis and the process is ineffective, the material will not be removed from the tissue fluids or blood.
+Instead, it will stay in those fluids and increase in concentration.
+The failure of receptor-mediated endocytosis causes some human diseases.
+For example, receptor mediated endocytosis removes low density lipoprotein or LDL from the blood.
+In the human genetic disease familial hypercholesterolemia, the LDL receptors are defective or missing entirely.
+People with this condition have life-threatening levels of cholesterol in their blood, because their cells cannot clear LDL particles.
+Flu viruses, diphtheria, and cholera toxin all have sites that cross-react with normal receptor-binding sites and gain entry into cells.
+cholera toxin all have sites that cross-react with normal receptor-binding sites and gain entry into cells.
+Exocytosis The reverse process of moving material into a cell is the process of exocytosis.
+Exocytosis is the opposite of the processes we discussed above in that its purpose is to expel material from the cell into the extracellular fluid.
+Waste material is enveloped in a membrane and fuses with the plasma membrane's interior.
+The contents then release to the cell's exterior.
+Chapter Summary 5.1 Components and Structure 5.3 Active Transport Modern scientists refer to the plasma membrane as the The combined gradient that affects an ion includes its fluid mosaic model.
+A phospholipid bilayer comprises concentration gradient and its electrical gradient.
+A the plasma membrane, with hydrophobic, fatty acid positive ion, for example, might diffuse into a new area, tails in contact with each other.
+Some of these proteins serve to gradient hampers its diffusion.
+Living cells need certain substances other cells.
+The membrane's fluid nature is due to that exist inside the cell in concentrations greater than temperature, fatty acid tail configuration (some kinked they exist in the extracellular space.
+Moving by double bonds), cholesterol presence embedded in substances up their electrochemical gradients requires the membrane, and the mosaic nature of the proteins energy from the cell.
+Moving by double bonds), cholesterol presence embedded in substances up their electrochemical gradients requires the membrane.
+Active transport uses energy and protein-carbohydrate combinations, which are not stored in ATP to fuel this transport.
+Not static, they are dynamic in the cell membrane to move the materials.
+proteins are analogous to pumps.
+Substances diffuse from high to lower concentration gradient.
+In solutions containing more than one substance, each Active transport methods require directly using ATP to molecule type diffuses according to its own fuel the transport.
+In a process scientists call concentration gradient, independent of other phagocytosis, other cells can engulf large particles, substances diffusing.
+Many factors can affect the such as macromolecules, cell parts, or whole cells.
+Many factors can affect the such as macromolecules, cell parts.
+In diffusion rate, such as concentration gradient, phagocytosis, a portion of the membrane invaginates diffusing, particle sizes, and the system's temperature.
+In diffusion rate, such as concentration gradient, phagocytosis, a portion of the membrane invaginates diffusing, particle sizes.
+Pinocytosis is a similar process on a others are hindered and only can pass through due to smaller scale.
+The chemistry of living things occurs in outside the cell.
+The cell those solutions is an ongoing problem.
+the doctor thinks is an isotonic saline solution.
+person's blood is lethal.
+Which plasma membrane component can be lipoprotein content.
+Water moves via osmosis _________.
+The principal force driving movement in diffusion c. a saturated fatty acid tail is the __________.
+Their bodies tend to take in too much water.
+A scientist compares the plasma membrane b.
+They have no way of controlling their composition of an animal from the tonicity.
+Mediterranean coast with one from the Mojave c. Only salt water poses problems for Desert.
+Which hypothesis is most likely to be animals that live in it.
+Their bodies tend to lose too much water a.
+animal will have more fluid plasma membranes.
+In which situation would passive transport not b.
+The cells' plasma membranes will be b. glucose being absorbed from the blood indistinguishable.
+a. plasma membranes wear out a.
+It transports only small amounts of fluid.
+not all membranes are amphiphilic b.
+It does not involve the pinching off of c. facilitated transport opposes active membrane.
+It brings in only a specifically targeted d. diffusion is constantly moving solutes in substance.
+It brings substances into the cell, while phagocytosis removes substances.
+It brings substances into the cell.
+phagocytosis removes substances.
+Many viruses enter host cells through receptor- a. by expelling anions mediated endocytosis.
+by expelling more cations than are taken in a. The virus directly enters the cytoplasm of d. by taking in and expelling an equal number the cell.
+The virus is protected from recognition by white blood cells.
+What is the combination of an electrical gradient c.
+The virus can directly inject its genome b. electrical potential into the cell's nucleus.
+b. vacuole a. It leaves the cell.
+It is disassembled by the cell.
+It fuses with and becomes part of the plasma membrane.
+It is used again in another exocytosis minimal endocytosis.
+What would happen to the event.
+The cell would secrete all its intracellular 16.
+Which transport mechanism can bring whole proteins.
+The plasma membrane would increase in a. pinocytosis size over time.
+The cell would stop expressing integral c. facilitated transport receptor proteins in its plasma membrane.
+Why do phospholipids tend to spontaneously 25.
+Which explanation identifies how the following would affect the rate of diffusion of molecules affect the rate of diffusion: molecular size, across a cell's plasma membrane.
+Where does the cell get energy for active as secondary active transport.
+Why is it important that there are different types 30.
+Why do ions have a difficult time getting through 31.

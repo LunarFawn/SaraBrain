@@ -1,0 +1,312 @@
+# Biology2e Chapter 10 — Cell Reproduction
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 308
+
+After many rounds of cell division, the individual develops into a complex, multicellular organism, as seen in this mature sea urchin.
+INTRODUCTION A human, like every sexually reproducing organism, begins life as a fertilized egg or zygote.
+In our species, billions of cell divisions subsequently must occur in a controlled manner in order to produce a complex, multicellular human comprising trillions of cells.
+Thus, the original single-celled zygote is literally the ancestor of all cells in the body.
+In fact, all multicellular organisms use cell division for growth and the maintenance and repair of cells and tissues.
+Cell division is closely regulated, and the occasional failure of this regulation can have life-threatening consequences.
+Cell division is closely regulated.
+the occasional failure of this regulation can have life-threatening consequences.
+Single-celled organisms may also use cell division as their method of reproduction.
+The continuity of life from one cell to another has its foundation in the reproduction of cells by way of the cell cycle.
+understanding of the structure and function of a cell's genetic information is necessary.
+Some prokaryotes also have smaller loops of DNA called plasmids that are not essential for normal growth.
+Bacteria can exchange these plasmids with other bacteria, sometimes receiving beneficial new genes that the recipient can add to their chromosomal DNA.
+Antibiotic resistance is one trait that often spreads through a bacterial colony through plasmid exchange from resistant donors to recipient cells.
+Each species of eukaryotes has a characteristic number of chromosomes in the nuclei of its cells.
+Human body cells have 46 chromosomes, while human gametes have 23 chromosomes each.
+Human body cells have 46 chromosomes.
+human gametes have 23 chromosomes each.
+A typical body cell contains two matched or homologous sets of chromosomes—a configuration known as diploid.
+Human cells that contain one set of chromosomes are called gametes, or sex cells; these are eggs and sperm, and are designated 1n, or haploid.
+these are eggs and sperm, and are designated 1n, or haploid.
+Human cells that contain one set of chromosomes are called gametes, or sex cells; these are eggs and sperm.
+sex cells; these are eggs and sperm, and are designated 1n.
+Upon fertilization, each gamete contributes one set of chromosomes, creating a diploid cell containing matched pairs of chromosomes called homologous chromosomes.
+Homologous chromosomes are the same length and have specific nucleotide segments called genes in exactly the same location, or locus.
+Homologous chromosomes are the same length and have specific nucleotide segments called genes in exactly the same location.
+Genes, the functional units of chromosomes, determine specific characteristics by coding for specific proteins.
+Traits are the variations of those characteristics.
+For example, hair color is a characteristic with traits that are blonde, brown, or black, and many colors in between.
+For example, hair color is a characteristic with traits that are blonde, brown, or black.
+For example, hair color is a characteristic with traits that are blonde, brown.
+In this image, the chromosomes were exposed to fluorescent stains for differentiation of the different chromosomes.
+A method of staining called "chromosome painting" employs fluorescent dyes that highlight chromosomes in different colors.
+The variation of individuals within a species is due to the specific combination of the genes inherited from both parents.
+Even a slightly altered sequence of nucleotides within a gene can result in an alternative trait.
+However, if the entire DNA sequence from any pair of human homologous chromosomes is compared, the difference is much less than one percent.
+At the same time, it must also be readily accessible for the genes to be expressed.
+For this reason, the long strands of DNA are condensed into compact chromosomes during certain stages of the cell cycle.
+The second level of compaction occurs as the nucleosomes and the linker DNA between them coil into a 30-nm chromatin fiber.
+Each linear chromosome in a eukaryotic cell is packaged into chromatin, a combination of DNA and proteins.
+These nucleosomes are further organized into a 30 nm fiber by the linker histone, H1.
+The fiber then associates with additional proteins to form loops and higher-order heterochromatin packing.
+DNA packing reaches its most condensed state during metaphase in mitosis in preparation for chromosome separation.
+Chromatin packing is dynamic and undergoes reversible changes in response to changes in gene expression and the cell cycle.
+After replication, the chromosomes are composed of two linked sister chromatids.
+When fully compact, the pairs of identically packed chromosomes are bound to each other by cohesin proteins.
+The connection between the sister chromatids is closest in a region called the centromere.
+The conjoined sister chromatids, with a diameter of about 1 µm, are visible under a light microscope.
+The centromeric region is highly condensed and thus will appear as a constricted area.
+LINK TO LEARNING This animation illustrates the different levels of chromosome packing.
+The cell cycle is an ordered series of events involving cell growth and cell division that produces two new daughter cells.
+During interphase, the cell grows and DNA is replicated.
+During the mitotic phase, the replicated DNA and cytoplasmic contents are separated, and the cell cytoplasm is typically partitioned by a third process of the cell cycle called cytokinesis.
+During the mitotic phase, the replicated DNA and cytoplasmic contents are separated.
+the cell cytoplasm is typically partitioned by a third process of the cell cycle called cytokinesis.
+We should note, however, that interphase and mitosis may take place without cytokinesis, in which case cells with multiple nuclei are produced.
+The cell cycle in multicellular organisms consists of interphase and the mitotic phase.
+During interphase, the cell grows and the nuclear DNA is duplicated.
+Interphase is followed by the mitotic phase.
+During the mitotic phase, the duplicated chromosomes are segregated and distributed into daughter nuclei.
+Following mitosis, the cytoplasm is usually divided as well by cytokinesis, resulting in two genetically identical daughter cells.
+Interphase During interphase, the cell undergoes normal growth processes while also preparing for cell division.
+However, during the G1 stage, the cell is quite active at the biochemical level.
+S Phase Throughout interphase, nuclear DNA remains in a semi-condensed chromatin configuration.
+In the S phase, DNA replication can proceed through the mechanisms that result in the formation of identical pairs of DNA molecules—sister chromatids—that are firmly attached at the centromeric region.
+The centrosome is also duplicated during the S phase.
+The two centrosomes will give rise to the mitotic spindle, the apparatus that orchestrates the movement of chromosomes during mitosis.
+Centrioles help organize cell division.
+We should note, however, that centrioles are not present in the centrosomes of other eukaryotic organisms, such as plants and most fungi.
+In the G2 phase, the cell replenishes its energy stores and synthesizes proteins necessary for chromosome manipulation and movement.
+the cytoskeleton is dismantled to provide resources for the mitotic phase.
+The Mitotic Phase The mitotic phase is a multistep process during which the duplicated chromosomes are aligned, separated, and move into two new, identical daughter cells.
+The Mitotic Phase The mitotic phase is a multistep process during which the duplicated chromosomes are aligned, separated.
+During this stage, cells grow, replenish energy and synthesize needed macromolecules, such as proteins and lipids.
+Mitosis - When G2 is complete, the cell will enter mitosis.
+Although there are 5 phases in mitosis, with the exception of the metaphase to anaphase transition, these phases are not discrete and happen as a continuous process.
+Prophase is the first stage in mitosis.
+The nuclear envelope begins to break down and chromosomes condense and are now visible.
+Spindle fibers start to appear and centrosomes begin to move towards opposite poles.
+Prometaphase - Chromosomes continue to condense and are more visible.
+Kinetochores appear at the centromere and kinetochore microtubules attach.
+Centrosomes continue to move towards opposite poles.
+each sister chromatid rests on one side of the plate, with spindle fibers attached to them.
+Anaphase - Sister chromatids are pulled apart by spindle fibers and are separated from each other.
+Each chromatid is now a chromosome.
+This physical separation into two cells are remarkably different processes in plant and animal cells.
+a. Sister chromatids line up at the metaphase plate.
+The kinetochore becomes attached to the mitotic spindle.
+Sister chromatids line up at the metaphase plate.
+The kinetochore becomes attached to the cohesin proteins.
+The nucleolus disappears as well, and the centrosomes begin to move to opposite poles of the cell.
+The nucleolus disappears as well.
+the centrosomes begin to move to opposite poles of the cell.
+The sister chromatids begin to coil more tightly with the aid of condensin proteins and now become visible under a light microscope.
+Prometaphase: Many processes that began in prophase continue to advance.
+The remnants of the nuclear envelope fragment further, and the mitotic spindle continues to develop as more microtubules assemble and stretch across the length of the former nuclear area.
+the mitotic spindle continues to develop as more microtubules assemble and stretch across the length of the former nuclear area.
+Chromosomes become even more condensed and discrete.
+As the spindle microtubules extend from the centrosomes, some of these microtubules come into contact with and firmly bind to the kinetochores.
+Eventually, all the sister chromatids will be attached via their kinetochores to microtubules from opposing poles.
+These microtubules overlap each other midway between the two poles and contribute to cell elongation.
+Astral microtubules are located near the poles, aid in spindle orientation, and are required for the regulation of mitosis.
+Astral microtubules are located near the poles, aid in spindle orientation.
+During prometaphase, mitotic spindle microtubules from opposite poles attach to each sister chromatid at the kinetochore.
+In anaphase, the connection between the sister chromatids breaks down, and the microtubules pull the chromosomes toward opposite poles.
+In anaphase, the connection between the sister chromatids breaks down.
+the microtubules pull the chromosomes toward opposite poles.
+At this time, the chromosomes are maximally condensed.
+the sister chromatids separate at the centromere.
+Each chromatid, now called a single chromosome, is pulled rapidly toward the centrosome to which its microtubule is attached.
+The cell becomes visibly elongated as the polar microtubules slide against each other at the metaphase plate where they overlap.
+Telophase: the chromosomes reach the opposite poles and begin to decondense, relaxing once again into a stretched-out chromatin configuration.
+The mitotic spindles are depolymerized into tubulin monomers that will be used to assemble cytoskeletal components for each daughter cell.
+Nuclear envelopes form around the chromosomes, and nucleosomes appear within the nuclear area.
+Nuclear envelopes form around the chromosomes.
+nucleosomes appear within the nuclear area.
+The microtubule spindle has completed the alignment of chromosomes at the metaphase plate in preparation for the separation of sister chromatids during anaphase.
+If cytokinesis does take place, cell division is not complete until the cell components have been apportioned and completely separated into the two daughter cells.
+Although the stages of mitosis are similar for most eukaryotes, the process of cytokinesis is quite different for eukaryotes that have cell walls, such as plant cells.
+In animal cells, cytokinesis typically starts during late anaphase.
+The actin filaments pull the equator of the cell inward, forming a fissure.
+In plant cells, a new cell wall must form between the daughter cells.
+During interphase, the Golgi apparatus accumulates enzymes, structural proteins, and glucose molecules prior to breaking into vesicles and dispersing throughout the dividing cell.
+During interphase, the Golgi apparatus accumulates enzymes, structural proteins.
+During telophase, these Golgi vesicles are transported on microtubules to form a phragmoplast at the metaphase plate.
+There, the vesicles fuse and coalesce from the center toward the cell walls; this structure is called a cell plate.
+Enzymes use the glucose that has accumulated between the membrane layers to build a new cell wall.
+The cleavage furrow gets continuously deeper until it eventually divides the cell into two new, independent daughter cells.
+A mixture of enzymes, proteins, and glucose molecules are transported via vesicles to the center of the cell.
+glucose molecules are transported via vesicles to the center of the cell.
+These vesicles continuously build upon each other until a completely new cell wall has emerged and two new cells are formed, independent of one another.
+Cells in G0 phase are not actively preparing to divide.
+The cell is in a quiescent stage that occurs when cells exit the cell cycle.
+Some cells enter G0 temporarily due to environmental conditions such as availability of nutrients, or stimulation by growth factors.
+Some cells enter G0 temporarily due to environmental conditions such as availability of nutrients.
+The cell will remain in this phase until conditions improve or until an external signal triggers the onset of G1.
+Other cells that never or rarely divide, such as mature cardiac muscle and nerve cells, remain in G0 permanently.
+With this objective, individual cells are clearly visible, but the chromosomes will still be very small.
+The length of the cell cycle is highly variable, even within the cells of a single organism.
+When rapidly dividing mammalian cells are grown in a culture, the length of the cell cycle is about 24 hours.
+By comparison, in fertilized eggs of fruit flies, the cell cycle is completed in about eight minutes.
+The timing of events in the cell cycle of both "invertebrates" and "vertebrates" is controlled by mechanisms that are both internal and external to the cell.
+An event may be as simple as the death of nearby cells or as sweeping as the release of growth-promoting hormones, such as human growth hormone.
+A lack of HGH can inhibit cell division, resulting in dwarfism, whereas too much HGH can result in gigantism.
+A lack of HGH can inhibit cell division, resulting in dwarfism.
+too much HGH can result in gigantism.
+In contrast, a factor that can initiate cell division is the size of the cell: As a cell grows, it becomes physiologically inefficient due to its decreasing surface-to-volume ratio.
+The solution to this problem is to divide.
+Regulation at Internal Checkpoints It is essential that the daughter cells produced be exact duplicates of the parent cell.
+Mistakes in the duplication or distribution of the chromosomes lead to mutations that may be passed forward to every new cell produced from an abnormal cell.
+The cell cycle is controlled at three checkpoints.
+The integrity of the DNA is assessed at the G1 checkpoint.
+Proper chromosome duplication is assessed at the G2 checkpoint.
+Attachment of each kinetochore to a spindle fiber is assessed at the M checkpoint.
+The G1 Checkpoint The G1 checkpoint determines whether all conditions are favorable for cell division to proceed.
+The G1 checkpoint, also called the restriction point, is a point at which the cell irreversibly commits to the cell division process.
+External influences, such as growth factors, play a large role in carrying the cell past the G1 checkpoint.
+A cell that does not meet all the requirements will not be allowed to progress into the S phase.
+The cell can halt the cycle and attempt to remedy the problematic condition, or the cell can advance into G0 and await further signals when conditions improve.
+The cell can halt the cycle and attempt to remedy the problematic condition.
+the cell can advance into G0 and await further signals when conditions improve.
+However, the most important role of the G2 checkpoint is to ensure that all of the chromosomes have been replicated and that the replicated DNA is not damaged.
+the cell attempts to either complete DNA replication or repair the damaged DNA.
+The M Checkpoint The M checkpoint occurs near the end of the metaphase stage of karyokinesis.
+The M checkpoint is also known as the spindle checkpoint, because it determines whether all the sister chromatids are correctly attached to the spindle microtubules.
+Regulator Molecules of the Cell Cycle In addition to the internally controlled checkpoints, there are two groups of intracellular molecules that regulate the cell cycle.
+These regulatory molecules either promote progress of the cell to the next phase or halt the cycle.
+Regulator molecules may act individually, or they can influence the activity or production of other regulatory proteins.
+Regulator molecules may act individually.
+they can influence the activity or production of other regulatory proteins.
+Therefore, the failure of a single regulator may have almost no effect on the cell cycle, especially if more than one mechanism controls the same event.
+However, the effect of a deficient or non- functioning regulator can be wide-ranging and possibly fatal to the cell if multiple processes are affected.
+They are responsible for the progress of the cell through the various checkpoints.
+Increases in the concentration of cyclin proteins are triggered by both external and internal signals.
+The concentrations of cyclin proteins change throughout the cell cycle.
+Cyclins regulate the cell cycle only when they are tightly bound to Cdks.
+To be fully active, the Cdk/cyclin complex must also be phosphorylated in specific locations to activate the complex.
+Like all kinases, Cdks are enzymes that in turn phosphorylate other proteins.
+Phosphorylation activates the protein by changing its shape.
+The proteins phosphorylated by Cdks are involved in advancing the cell to the next phase.
+The levels of Cdk proteins are relatively stable throughout the cell cycle; however, the concentrations of cyclin fluctuate and determine when Cdk/cyclin complexes form.
+The levels of Cdk proteins are relatively stable throughout the cell cycle.
+however, the concentrations of cyclin fluctuate and determine when Cdk/cyclin complexes form.
+Cyclin-dependent kinases are protein kinases that, when fully activated, can phosphorylate and thus activate other proteins that advance the cell cycle past a checkpoint.
+To become fully activated, a Cdk must bind to a cyclin protein and then be phosphorylated by another kinase.
+Without a specific concentration of fully activated cyclin/Cdk complexes, the cell cycle cannot proceed through the checkpoints.
+These mechanisms essentially block the progression of the cell cycle until problematic conditions are resolved.
+The block placed on Cdks by inhibitor molecules will not be removed until the specific event that the inhibitor monitors is completed.
+Negative Regulation of the Cell Cycle The second group of cell-cycle regulatory molecules are negative regulators, which stop the cell cycle.
+The best understood negative regulatory molecules are retinoblastoma protein, p53, and p21.
+The best understood negative regulatory molecules are retinoblastoma protein, p53.
+Retinoblastoma proteins are a group of tumor-suppressor proteins common in many cells.
+In each case, the main cause of the unchecked progress through the cell cycle was a faulty copy of the regulatory protein.
+If the DNA cannot be repaired, p53 can trigger apoptosis, or cell suicide, to prevent the duplication of damaged chromosomes.
+If the DNA cannot be repaired, p53 can trigger apoptosis.
+As a cell is exposed to more stress, higher levels of p53 and p21 accumulate, making it less likely that the cell will move into the S phase.
+Rb, which largely monitors cell size, exerts its regulatory influence on other positive regulator proteins.
+Transcription factors "turn on" specific genes, allowing the production of proteins encoded by that gene.
+As the cell increases in size, Rb is slowly phosphorylated until it becomes inactivated.
+Rb releases E2F, which can now turn on the gene that produces the transition protein, and this particular block is removed.
+Rb releases E2F, which can now turn on the gene that produces the transition protein.
+Rb halts the cell cycle and releases its hold in response to cell growth.
+Rb and other proteins that negatively regulate the cell cycle are sometimes called tumor suppressors.
+Cancer comprises many different diseases caused by a common mechanism: uncontrolled cell growth.
+Despite the redundancy and overlapping levels of cell-cycle control, errors do occur.
+Even when all of the cell-cycle controls are fully functional, a small percentage of replication errors will be passed on to the daughter cells.
+Even minor mistakes, however, may allow subsequent mistakes to occur more readily.
+Over and over, small uncorrected errors are passed from the parent cell to the daughter cells and amplified as each generation produces more non-functional proteins from uncorrected DNA damage.
+Eventually, the pace of the cell cycle speeds up as the effectiveness of the control and repair mechanisms decreases.
+Uncontrolled growth of the mutated cells outpaces the growth of normal cells in the area, and a tumor can result.
+Uncontrolled growth of the mutated cells outpaces the growth of normal cells in the area.
+In an adult organism, normal cell division is balanced by apoptosis to maintain a constant cell number in homeostasis.
+Either an increase in cell division or a decrease in apoptosis leads an increase in the number of cells and tumor formation.
+In most instances, the alteration of the DNA sequence will result in a less functional protein.
+Occasionally, however, a gene mutation causes a change that increases the activity of a positive regulator.
+The Cdk gene in the above example is only one of many genes that are considered proto-oncogenes.
+In addition to the cell-cycle regulatory proteins, any protein that influences the cycle can be altered in such a way as to override cell-cycle checkpoints.
+An oncogene is any gene that, when altered, leads to an increase in the rate of cell-cycle progression.
+Tumor suppressor genes are segments of DNA that code for negative regulator proteins, the type of regulators that, when activated, can prevent the cell from undergoing uncontrolled division.
+The collective function of the best-understood tumor suppressor gene proteins, Rb, p53, and p21, is to put up a roadblock to cell-cycle progression until certain events are completed.
+p21, is to put up a roadblock to cell-cycle progression until certain events are completed.
+A cell that carries a mutated form of a negative regulator might not be able to halt the cell cycle if there is a problem.
+Mutated p53 genes have been identified in more than 50 percent of all human tumor cells.
+This discovery is not surprising in light of the multiple roles that the p53 protein plays at the G1 checkpoint.
+Even if a partially functional p53 does identify the mutations, it may no longer be able to signal the necessary DNA repair enzymes.
+Either way, damaged DNA will remain uncorrected.
+At this point, a functional p53 will deem the cell unsalvageable and trigger programmed cell death.
+The damaged version of p53 found in cancer cells, however, cannot trigger apoptosis.
+The role of normal p53 is to monitor DNA and the supply of oxygen.
+If repairs are unsuccessful, p53 signals apoptosis.
+A cell with an abnormal p53 protein cannot repair damaged DNA and thus cannot signal apoptosis.
+Cells with abnormal p53 can become cancerous.
+Human papillomavirus can cause cervical cancer.
+The virus encodes E6, a protein that binds p53.
+The loss of p53 function has other repercussions for the cell cycle.
+Mutated p53 might lose its ability to trigger p21 production.
+Essentially, without a fully functional p53, the G1 checkpoint is severely compromised and the cell proceeds directly from G1 to S regardless of internal and external conditions.
+At the completion of this shortened cell cycle, two daughter cells are produced that have inherited the mutated p53 gene.
+Given the non-optimal conditions under which the parent cell reproduced, it is likely that the daughter cells will have acquired other mutations in addition to the faulty tumor-suppressor gene.
+Cells such as these daughter cells quickly accumulate both oncogenes and non-functional tumor-suppressor genes.
+Again, the result is tumor growth.
+Prokaryotes, such as bacteria, produce daughter cells by binary fission.
+For unicellular organisms, cell division is the only method to produce new individuals.
+In both prokaryotic and eukaryotic cells, the outcome of cell reproduction is a pair of daughter cells that are genetically identical to the parent cell.
+In unicellular organisms, daughter cells are individuals.
+To achieve the outcome of cloned offspring, certain steps are essential.
+As we've seen with bacterial cells, the genome consists of a single, circular DNA chromosome; therefore, the process of cell division is simplified.
+As we've seen with bacterial cells, the genome consists of a single, circular DNA chromosome.
+therefore, the process of cell division is simplified.
+Karyokinesis is unnecessary because there is no true nucleus and thus no need to direct one copy of the multiple chromosomes into each daughter cell.
+Binary Fission Due to the relative simplicity of the prokaryotes, the cell division process is a less complicated and much more rapid process than cell division in eukaryotes.
+The packing proteins of bacteria are, however, related to the cohesin and condensin proteins involved in the chromosome compaction of eukaryotes.
+The bacterial chromosome is attached to the plasma membrane at about the midpoint of the cell.
+Replication of the DNA is bidirectional, moving away from the origin on both strands of the loop simultaneously.
+As the new double strands are formed, each origin point moves away from the cell wall attachment toward the opposite ends of the cell.
+The formation of a ring composed of repeating units of a protein called FtsZ directs the partition between the nucleoids.
+Formation of the FtsZ ring triggers the accumulation of other proteins that work together to recruit new membrane and cell wall materials to the site.
+A septum is formed between the daughter nucleoids, extending gradually from the periphery toward the center of the cell.
+These images show the steps of binary fission in prokaryotes.
+The precise timing and formation of the mitotic spindle is critical to the success of eukaryotic cell division.
+Prokaryotic cells, on the other hand, do not undergo karyokinesis and therefore have no need for a mitotic spindle.
+FtsZ proteins can form filaments, rings, and other three-dimensional structures that resemble the way tubulin forms microtubules, centrioles, and various cytoskeletal components.
+FtsZ proteins can form filaments, rings.
+In this example, FtsZ is the ancestor protein to tubulin.
+A survey of mitotic assembly components found in present-day unicellular eukaryotes reveals crucial intermediary steps to the complex membrane-enclosed genomes of multicellular eukaryotes.
+Microfilaments Chromosomes attach to the nuclear envelope, form a Some Linear chromosomes which remains intact.
+The mitotic spindle passes cleavage protists exist in the nucleus.
+Microfilaments A mitotic spindle forms from the centrioles and Linear chromosomes form a passes through the nuclear membrane, which Other wrapped around cleavage remains intact.
+Chromosomes attach to the mitotic protists histones exist in the furrow that spindle, which separates the chromosomes and nucleus.
+Chromosomes attach to cleavage cells exist in the nucleus.
+Chapter Summary 10.1 Cell Division karyokinesis, which consists of five stages: prophase, prometaphase, metaphase, anaphase, and Prokaryotes have a single circular chromosome telophase.
+Prokaryotes have a single circular chromosome telophase.
+This is the 2n or diploid state.
+Human Each step of the cell cycle is monitored by internal gametes have 23 chromosomes, or one complete set controls called checkpoints.
+Human Each step of the cell cycle is monitored by internal gametes have 23 chromosomes.
+This is second at the G2/M transition, and the third during the n or haploid state.
+This is second at the G2/M transition.
+Genes are segments of DNA that metaphase.
+Positive regulator molecules allow the cell code for a specific functional molecule (a protein or cycle to advance to the next stage of cell division.
+An organism's traits are determined by the genes Negative regulator molecules monitor cellular inherited from each parent.
+Faulty instructions lead to a mitosis.
+Any 10.2 The Cell Cycle disruption of the monitoring system can allow other mistakes to be passed on to the daughter cells.
+Each The cell cycle is an orderly sequence of events.
+Cells on successive cell division will give rise to daughter cells the path to cell division proceed through a series of with even more accumulated damage.
+Interphase is divided into G1, S, and G2 phases.
+Interphase is divided into G1, S.
+Therefore, mitosis is not necessary in bacterial cell division.
+Based on this fact and what you negatively regulate the cell cycle are sometimes know about p53, what effect do you think E6 called tumor suppressors.
+b. E6 inactivates p53 c. E6 mutates p53 2.
+Human papillomavirus can cause d. E6 binding marks p53 for degradation cervical cancer.
+An organism's traits are determined by the d. separation of sister chromatids specific combination of inherited _____.
+The mitotic spindles arise from which cell b. genes.
+a new nuclear envelope is a characteristic of d. sister chromatids.
+d. telophase a. cell has reached a sufficient size b. an adequate stockpile of nucleotides 13.
+d. cyclin-dependent kinase a. Sister chromatids line up at the metaphase plate.
+The kinetochore becomes attached to the d. stem cells mitotic spindle.
+Which negative regulatory molecule can trigger Sister chromatids line up at the cell suicide if vital cell cycle events metaphase plate.
+The kinetochore becomes attached to the b. p21 cohesin proteins.
+Sister chromatids line up c. retinoblastoma protein at the metaphase plate.
+The nucleus reforms and the cell 22. ___________ are changes to the order of divides.
+Sister chromatids line up a. Proto-oncogenes at the metaphase plate.
+At which of the cell-cycle checkpoints do regulator is called a _____.
+FtsZ proteins direct the formation of a _______ 25.
+Eukaryotic chromosomes are thousands of times longer than a typical cell.
+Rb is a negative regulator that blocks the cell 31.
+Exactly what mitotic structure is targeted by these drugs 42.
+p53 can trigger apoptosis if certain cell-cycle between the cytokinesis mechanisms found in events fail.
+What cell-cycle events will be affected in a cell chromosomes are distributed into new daughter that produces mutated cohesin cells without the direction of the mitotic spindle.

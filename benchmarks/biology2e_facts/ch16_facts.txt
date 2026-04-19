@@ -1,0 +1,398 @@
+# Biology2e Chapter 16 — Gene Expression
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 394
+
+The genetic content of each somatic cell in an organism is the same, but not all genes are expressed in every cell.
+The control of which genes are expressed dictates whether a cell is, for example, an eye cell or a liver cell.
+It is the differential gene expression patterns that arise in different cells that give rise to a complete organism.
+INTRODUCTION Each somatic cell in the body generally contains the same DNA.
+A few exceptions include red blood cells, which contain no DNA in their mature state, and some immune system cells that rearrange their DNA while producing antibodies.
+A few exceptions include red blood cells, which contain no DNA in their mature state.
+Whereas each cell shares the same genome and DNA sequence, each cell does not turn on, or express, the same set of genes.
+Each cell type needs a different set of proteins to perform its function.
+Therefore, only a small subset of proteins is expressed in a cell.
+For the proteins to be expressed, the DNA must be transcribed into RNA and the RNA must be translated into protein.
+In a given cell type, not all genes encoded in the DNA are transcribed into RNA or translated into protein because specific cells in our body have specific functions.
+At any given time, only a subset of all of the genes encoded by our DNA are expressed and translated into proteins.
+The expression of specific genes is a highly regulated process with many levels and stages of control.
+This complexity ensures the proper expression in the proper cell at the proper time.
+For a cell to function properly, necessary proteins must be synthesized at the proper time and place.
+Whether in a simple unicellular organism or a complex multi-cellular organism, each cell controls when and how its genes are expressed.
+The regulation of gene expression conserves energy and space.
+Cells would have to be enormous if every protein were expressed in every cell all the time.
+The control of gene expression is extremely complex.
+Malfunctions in this process are detrimental to the cell and can lead to the development of many diseases, including cancer.
+Prokaryotic versus Eukaryotic Gene Expression To understand how gene expression is regulated, we must first understand how a gene codes for a functional protein in a cell.
+The process occurs in both prokaryotic and eukaryotic cells, just in slightly different manners.
+Prokaryotic organisms are single-celled organisms that lack a cell nucleus, and their DNA therefore floats freely in the cell cytoplasm.
+Prokaryotic organisms are single-celled organisms that lack a cell nucleus.
+their DNA therefore floats freely in the cell cytoplasm.
+To synthesize a protein, the processes of transcription and translation occur almost simultaneously.
+All of the subsequent steps occur automatically.
+Therefore, in prokaryotic cells, the control of gene expression is mostly at the transcriptional level.
+Eukaryotic cells, in contrast, have intracellular organelles that add to their complexity.
+In eukaryotic cells, the DNA is contained inside the cell's nucleus and there it is transcribed into RNA.
+The newly synthesized RNA is then transported out of the nucleus into the cytoplasm, where ribosomes translate the RNA into protein.
+The processes of transcription and translation are physically separated by the nuclear membrane; transcription occurs only within the nucleus, and translation occurs only outside the nucleus in the cytoplasm.
+The processes of transcription and translation are physically separated by the nuclear membrane.
+transcription occurs only within the nucleus, and translation occurs only outside the nucleus in the cytoplasm.
+The processes of transcription and translation are physically separated by the nuclear membrane; transcription occurs only within the nucleus.
+translation occurs only outside the nucleus in the cytoplasm.
+The regulation of gene expression occurs at multiple steps going from DNA to the functional gene product, usually a protein.
+It begins with chromatin structure making the DNA more or less accessible for transcription by RNA polymerase.
+In eukaryotes, the primary mRNA transcript must be processed before it can be translated in the cytoplasm.
+The final level of active protein in the cell depends not only on the rate of synthesis, but also on the rate of degradation of mRNA and protein.
+A. Prokaryotic transcription and translation occur simultaneously in the cytoplasm, and regulation occurs primarily at the transcriptional level.
+A. Prokaryotic transcription and translation occur simultaneously in the cytoplasm.
+regulation occurs primarily at the transcriptional level.
+B. Eukaryotic gene expression is regulated during transcription and RNA processing, which take place in the nucleus, and during protein translation, which takes place in the cytoplasm.
+B. Eukaryotic gene expression is regulated during transcription and RNA processing, which take place in the nucleus.
+Further regulation may occur through post-translational modifications of proteins in both prokaryotes and eukaryotes.
+The differences in the regulation of gene expression between prokaryotes and eukaryotes are summarized in.
+The regulation of gene expression is discussed in detail in subsequent modules.
+RNA transcription and protein RNA transcription occurs prior to protein formation, and it takes place in formation occur almost the nucleus.
+RNA transcription and protein RNA transcription occurs prior to protein formation.
+it takes place in formation occur almost the nucleus.
+Translation of RNA to protein occurs in the cytoplasm.
+Evolution of Gene Regulation Prokaryotic cells can only regulate gene expression by controlling the amount of transcription.
+For example, with the evolution of eukaryotic cells came compartmentalization of important cellular components and cellular processes.
+Transcription and translation were physically separated into two different cellular compartments.
+It therefore became possible to control gene expression by regulating transcription in the nucleus, and also by controlling the RNA levels and protein translation present outside the nucleus.
+It therefore became possible to control gene expression by regulating transcription in the nucleus.
+However, other regulatory processes may be defensive.
+If the cell could quickly shut off gene expression for a short period of time, it would be able to survive an infection when other organisms could not.
+Therefore, the organism evolved a new process that helped it survive, and it was able to pass this new development to offspring.
+Therefore, the organism evolved a new process that helped it survive.
+it was able to pass this new development to offspring.
+The DNA of prokaryotes is organized into a circular chromosome, supercoiled within the nucleoid region of the cell cytoplasm.
+Proteins that are needed for a specific function, or that are involved in the same biochemical pathway, are encoded together in blocks called operons.
+Repressors and activators are proteins produced in the cell.
+Both repressors and activators regulate gene expression by binding to specific DNA sites adjacent to the genes they control.
+In general, activators bind to the promoter site, while repressors bind to operator regions.
+In general, activators bind to the promoter site.
+Repressors prevent transcription of a gene in response to an external stimulus, whereas activators increase the transcription of a gene in response to an external stimulus.
+Repressors prevent transcription of a gene in response to an external stimulus.
+activators increase the transcription of a gene in response to an external stimulus.
+Inducers are small molecules that> may be produced by the cell or that are in the cell's environment.
+Inducers either activate or repress transcription depending on the needs of the cell and the availability of substrate.
+The trp Operon: A Repressible Operon Bacteria such as Escherichia coli need amino acids to survive, and are able to synthesize many of them.
+The trp Operon: A Repressible Operon Bacteria such as Escherichia coli need amino acids to survive.
+Tryptophan is one such amino acid that E. coli can either ingest from the environment or synthesize using enzymes that are encoded by five genes.
+The genes are transcribed into a single mRNA, which is then translated to produce all five enzymes.
+tryptophan is present in the environment, then E. coli does not need to synthesize it and the trp operon is switched off.
+However, when tryptophan availability is low, the switch controlling the operon is turned on, the mRNA is transcribed, the enzyme proteins are translated, and tryptophan is synthesized.
+However, when tryptophan availability is low, the switch controlling the operon is turned on, the mRNA is transcribed, the enzyme proteins are translated.
+The five genes that are needed to synthesize tryptophan in E. coli are located next to each other in the trp operon.
+When tryptophan is plentiful, two tryptophan molecules bind the repressor protein at the operator sequence.
+This physically blocks the RNA polymerase from transcribing the tryptophan genes.
+When tryptophan is absent, the repressor protein does not bind to the operator and the genes are transcribed.
+The trp operon includes three important regions: the coding region, the trp operator and the trp promoter.
+The coding region includes the genes for the five tryptophan biosynthesis enzymes.
+Just before the coding region is the transcriptional start site.
+The promoter sequence, to which RNA polymerase binds to initiate transcription, is before or "upstream" of the transcriptional start site.
+The trp operator contains the DNA code to which the trp repressor protein can bind.
+However, the repressor alone cannot bind to the operator.
+When tryptophan is not present in the cell, the repressor by itself does not bind to the operator, the polymerase can transcribe the enzyme genes, and tryptophan is synthesized.
+When tryptophan is not present in the cell, the repressor by itself does not bind to the operator, the polymerase can transcribe the enzyme genes.
+For example, when glucose is scarce, E. coli bacteria can turn to other sugar sources for fuel.
+When glucose levels drop, cyclic AMP begins to accumulate in the cell.
+The cAMP molecule is a signaling molecule that is involved in glucose and energy metabolism in E. coli.
+In these operons, a CAP- binding site is located upstream of the RNA-polymerase-binding site in the promoter.
+CAP binding stabilizes the binding of RNA polymerase to the promoter region and increases transcription of the associated protein-coding genes.
+When glucose levels fall, E. coli may use other sugars for fuel but must transcribe new genes to do so.
+As glucose supplies become limited, cAMP levels increase.
+This cAMP binds to the CAP protein, a positive regulator that binds to a promoter region upstream of the genes required to use other sugar sources.
+The lac operon is a typical inducible operon.
+As mentioned previously, E. coli is able to use other sugars as energy sources when glucose concentrations are low.
+One such sugar source is lactose.
+The lac operon encodes the genes necessary to acquire and process the lactose from the local environment.
+The Z gene of the lac operon encodes beta-galactosidase, which breaks lactose down to glucose and galactose.
+However, for the lac operon to be activated, two conditions must be met.
+First, the level of glucose must be very low or non-existent.
+Second, lactose must be present.
+In the absence of glucose, the binding of the CAP protein makes transcription of the lac operon more effective.
+When lactose is present, its metabolite, allolactose, binds to the lac repressor and changes its shape so that it cannot bind to the lac operator to prevent transcription.
+It should be mentioned that the lac operon is transcribed at a very low rate even when glucose is present and lactose absent.
+Transcription of the lac operon is carefully regulated so that its expression only occurs when glucose is limited and lactose is present to serve as an alternative fuel source.
+In E. coli, the trp operon is on by default, while the lac operon is off.
+In E. coli, the trp operon is on by default.
+the lac operon is off.
+If glucose is present, then CAP fails to bind to the promoter sequence to activate transcription.
+If lactose is absent, then the repressor binds to the operator to prevent transcription.
+If either of these conditions is met, then transcription remains off.
+If both glucose and lactose are present, the transcription rate is low as the CAP is not bound to promote maximal rates of lac operon transcription.
+Eukaryotic gene expression is more complex than prokaryotic gene expression because the processes of transcription and translation are physically separated.
+Unlike prokaryotic cells, eukaryotic cells can regulate gene expression at many different levels.
+Epigenetic changes are inheritable changes in gene expression that do not result from changes in the DNA sequence.
+Eukaryotic gene expression begins with control of access to the DNA.
+Transcriptional access to the DNA can be controlled in two general ways: chromatin remodeling and DNA methylation.
+DNA methylation is associated with developmental changes and gene silencing.
+The DNA in the nucleus is precisely wound, folded, and compacted into chromosomes so that it will fit into the nucleus.
+The DNA in the nucleus is precisely wound, folded.
+It is also organized so that specific segments can be accessed as needed by a specific cell type.
+The first level of organization, or packing, is the winding of DNA strands around histone proteins.
+packing, is the winding of DNA strands around histone proteins.
+These nucleosomes control the access of proteins to the underlying DNA.
+When viewed through an electron microscope, the nucleosomes look like beads on a string.
+These beads can move along the string to expose different sections of the molecule.
+Modifications to the histones and DNA affect nucleosome spacing.
+These tags are not permanent, but may be added or removed as needed.
+Some chemical groups are attached to specific amino acids in histone "tails" at the N-terminus of the protein.
+These groups do not alter the DNA base sequence, but they do alter how tightly wound the DNA is around the histone proteins.
+DNA is a negatively charged molecule and unmodified histones are positively charged; therefore, changes in the charge of the histone will change how tightly wound the DNA molecule will be.
+DNA is a negatively charged molecule and unmodified histones are positively charged.
+therefore, changes in the charge of the histone will change how tightly wound the DNA molecule will be.
+By adding chemical modifications like acetyl groups, the charge becomes less positive, and the binding of DNA to the histones is relaxed.
+By adding chemical modifications like acetyl groups, the charge becomes less positive.
+the binding of DNA to the histones is relaxed.
+The DNA molecule itself can also be modified by methylation.
+DNA methylation occurs within very specific regions called CpG islands.
+These are stretches with a high frequency of cytosine and guanine dinucleotide DNA pairs found in the promoter regions of genes.
+Methylated genes are usually silenced, although methylation may have other regulatory effects.
+In some cases, genes that are silenced during the development of the gametes of one parent are transmitted in their silenced condition to the offspring.
+Such genes are said to be imprinted.
+Parental diet or other environmental conditions may also affect the methylation patterns of genes, which in turn modifies gene expression.
+chromatin organization interact with DNA methylation.
+DNA methyltransferases appear to be attracted to chromatin regions with specific histone modifications.
+Highly methylated DNA regions with deacetylated histones are tightly coiled and transcriptionally inactive.
+Modifications affect nucleosome spacing and gene expression.
+Epigenetic changes are not permanent, although they often persist through multiple rounds of cell division and may even cross generational lines.
+silenced, the histone proteins and DNA have different modifications that signal a closed chromosomal configuration.
+However, unlike prokaryotic cells, the eukaryotic RNA polymerase requires other proteins, or transcription factors, to facilitate transcription initiation.
+However, unlike prokaryotic cells, the eukaryotic RNA polymerase requires other proteins.
+RNA polymerase by itself cannot initiate transcription in eukaryotic cells.
+There are two types of transcription factors that regulate eukaryotic transcription: General transcription factors bind to the core promoter region to assist with the binding of RNA polymerase.
+The Promoter and the Transcription Machinery Genes are organized to make the control of gene expression easier.
+The promoter region is immediately upstream of the coding sequence.
+This region can be short or quite long.
+This also adds more control to the transcription process.
+The length of the promoter is gene-specific and can differ dramatically between genes.
+Consequently, the level of control of gene expression can also differ quite dramatically between genes.
+The purpose of the promoter is to bind transcription factors that control the initiation of transcription.
+Within the core promoter region, 25 to 35 bases upstream of the transcriptional start site, resides the TATA box.
+The TATA box has the consensus sequence of 5'-TATAAA-3'.
+The TATA box is the binding site for a protein complex called TFIID, which contains a TATA-binding protein.
+Some of these transcription factors help to bind the RNA polymerase to the promoter, and others help to activate the transcription initiation complex.
+Some of these transcription factors help to bind the RNA polymerase to the promoter.
+others help to activate the transcription initiation complex.
+In addition to the TATA box, other binding sites are found in some promoters.
+Examples of these elements are the CAAT box, with the consensus sequence 5'-CCAAT-3' and the GC box, with the consensus sequence 5'-GGGCGG-3'.
+Specific transcription factors can bind to these promoter-proximal elements to regulate gene transcription.
+A given gene may have its own combination of these specific transcription-factor binding sites.
+Transcription factors respond to environmental stimuli that cause the proteins to find their binding sites and initiate transcription of the gene that is needed.
+These regions, called enhancers, are not necessarily close to the genes they enhance.
+They can be located upstream of a gene, within the coding region of the gene, downstream of a gene, or may be thousands of nucleotides away.
+They can be located upstream of a gene, within the coding region of the gene, downstream of a gene.
+Enhancer regions are binding sequences, or sites, for specific transcription factors.
+Enhancer regions are binding sequences.
+When a protein transcription factor binds to its enhancer sequence, the shape of the protein changes, allowing it to interact with proteins at the promoter site.
+However, since the enhancer region may be distant from the promoter, the DNA must bend to allow the proteins at the two sites to come into contact.
+This shape change allows for the interaction of the specific activator proteins bound to the enhancers with the general transcription factors bound to the promoter region and the RNA polymerase.
+An enhancer is a DNA sequence that promotes transcription.
+Each enhancer is made up of short DNA sequences called distal control elements.
+Activators bound to the distal control elements interact with mediator proteins and transcription factors.
+Two different genes may have the same promoter but different distal control elements, enabling differential gene expression.
+Turning Genes Off: Transcriptional Repressors Like prokaryotic cells, eukaryotic cells also have mechanisms to prevent transcription.
+Transcriptional repressors can bind to promoter or enhancer regions and block transcription.
+As with the epigenetic and transcriptional stages of processing, this post- transcriptional step can also be regulated to control gene expression in the cell.
+If the RNA is not processed, shuttled, or translated, then no protein will be synthesized.
+translated, then no protein will be synthesized.
+RNA Splicing, the First Stage of Post-transcriptional Control In eukaryotic cells, the RNA transcript often contains regions, called introns, that are removed prior to translation.
+Splicing is done by spliceosomes, ribonucleoprotein complexes that can recognize the two ends of the intron, cut the transcript at those two points, and bring the exons together for ligation.
+Splicing is done by spliceosomes, ribonucleoprotein complexes that can recognize the two ends of the intron, cut the transcript at those two points.
+Alternative RNA Splicing In the 1970s, genes were first observed that exhibited alternative RNA splicing.
+Although there are multiple ways to alternatively splice RNA transcripts, the original 5'-3' order of the exons is always conserved.
+However, alternative splicing could possibly create a protein variant without the loss of the original protein, opening up possibilities for adaptation of the new variant to new functions.
+Gene duplication has played an important role in the evolution of new functions in a similar way by providing genes that may evolve without eliminating the original, functional protein.
+The cause of amelanism in these snakes was recently identified as the insertion of a transposable element into an intron in the OCA2 gene.
+LINK TO LEARNING Visualize how mRNA splicing happens by watching the process in action in this video.
+Control of RNA Stability Before the mRNA leaves the nucleus, it is given two protective "caps" that prevent the ends of the strand from degrading during its journey.
+5' and 3' exonucleases can degrade unprotected RNAs.
+The 5' cap, which is placed on the 5' end of the mRNA, is usually composed of a methylated guanosine triphosphate molecule.
+The GTP is placed "backward" on the 5' end of the mRNA, so that the 5' carbons of the GTP and the terminal nucleotide are linked through three phosphates.
+The poly-A tail, which is attached to the 3' end, is usually composed of a long chain of adenine nucleotides.
+These changes protect the two ends of the RNA from exonuclease attack.
+Each RNA molecule has a defined lifespan and decays at a specific rate.
+This rate of decay can influence how much protein is in the cell.
+If the decay rate is increased, the RNA will not exist in the cytoplasm as long, shortening the time available for translation of the mRNA to occur.
+Conversely, if the rate of decay is decreased, the mRNA molecule will reside in the cytoplasm longer and more protein can be translated.
+This rate of decay is referred to as the RNA stability.
+If the RNA is stable, it will be detected for longer periods of time in the cytoplasm.
+RBPs, can bind to the regions of the mRNA just upstream or downstream of the protein-coding region.
+They are not introns.
+Rather, these are regions that regulate mRNA localization, stability, and protein translation.
+Rather, these are regions that regulate mRNA localization, stability.
+The binding of RBPs to these regions can increase or decrease the stability of an RNA molecule, depending on the specific RBP that binds.
+The protein-coding region of this processed mRNA is flanked by 5' and 3' untranslated regions.
+The presence of RNA-binding proteins at the 5' or 3' UTR influences the stability of the RNA molecule.
+RNA Stability and microRNAs In addition to RBPs that bind to and control RNA stability, other elements called microRNAs can bind to the RNA molecule.
+These microRNAs, or miRNAs, are short RNA molecules that are only 21 to 24 nucleotides in length.
+The miRNAs are made in the nucleus as longer pre-miRNAs.
+These pre-miRNAs are chopped into mature miRNAs by a protein called Dicer.
+After RNA has been transported to the cytoplasm, it is translated into protein.
+Control of this process is largely dependent on the RNA molecule.
+As previously discussed, the stability of the RNA will have a large impact on its translation into a protein.
+As the stability changes, the amount of time that it is available for translation also changes.
+The Initiation Complex and Translation Rate Like transcription, translation is controlled by proteins that bind and initiate the process.
+In translation, the complex that assembles to start the process is referred to as the translation initiation complex.
+In eukaryotes, translation is initiated by binding the initiating met-tRNAi to the 40S ribosome.
+This tRNA is brought to the 40S ribosome by a protein initiation factor, eukaryotic initiation factor-2.
+The eIF-2 protein binds to the high-energy molecule guanosine triphosphate.
+The tRNA-eIF2-GTP complex then binds to the 40S ribosome.
+Several different initiation factors recognize the 5' cap of the mRNA and proteins bound to the poly-A tail of the same mRNA, forming the mRNA into a loop.
+The cap-binding protein eIF4F brings the mRNA complex together with the 40S ribosome complex.
+The binding of eIF-2 to the RNA is controlled by phosphorylation.
+If eIF-2 is phosphorylated, it undergoes a conformational change and cannot bind to GTP.
+When eIF-2 remains unphosphorylated, the initiation complex can form normally and translation can proceed.
+An increase in phosphorylation levels of eIF-2 has been observed in patients with neurodegenerative diseases such as Alzheimer's, Parkinson's, and Huntington's.
+An increase in phosphorylation levels of eIF-2 has been observed in patients with neurodegenerative diseases such as Alzheimer's, Parkinson's.
+Chemical Modifications, Protein Activity, and Longevity Proteins can be chemically modified with the addition of groups including methyl, phosphate, acetyl, and ubiquitin groups.
+Longevity Proteins can be chemically modified with the addition of groups including methyl, phosphate, acetyl.
+Sometimes these modifications can regulate where a protein is found in the cell—for example, in the nucleus, in the cytoplasm, or attached to the plasma membrane.
+Sometimes these modifications can regulate where a protein is found in the cell—for example, in the nucleus, in the cytoplasm.
+Chemical modifications occur in response to external stimuli such as stress, the lack of nutrients, heat, or ultraviolet light exposure.
+Chemical modifications occur in response to external stimuli such as stress, the lack of nutrients, heat.
+These changes can alter epigenetic accessibility, transcription, mRNA stability, or translation—all resulting in changes in expression of various genes.
+These changes can alter epigenetic accessibility, transcription, mRNA stability.
+This is an efficient way for the cell to rapidly change the levels of specific proteins in response to the environment.
+One way to control gene expression, therefore, is to alter the longevity of the protein.
+Cancer is not a single disease but includes many different diseases.
+In cancer cells, mutations modify cell-cycle control and cells don't stop growing as they normally would.
+Mutations can also alter the growth rate or the progression of the cell through the cell cycle.
+For cells to move through each phase of the cell cycle, the cell must pass through checkpoints.
+This ensures that the cell has properly completed the step and has not encountered any mutation that will alter its function.
+Many proteins, including cyclin B, control these checkpoints.
+The phosphorylation of cyclin B, a post-translational event, alters its function.
+As a result, cells can progress through the cell cycle unimpeded, even if mutations exist in the cell and its growth should be terminated.
+This post-translational change of cyclin B prevents it from controlling the cell cycle and contributes to the development of cancer.
+Cancer: Disease of Altered Gene Expression Cancer can be described as a disease of altered gene expression.
+This can be the result of gene mutation or changes in gene regulation.
+Changes in epigenetic regulation, transcription, RNA stability, protein translation, and post-translational control can be detected in cancer.
+post-translational control can be detected in cancer.
+Scientists are working to understand the common changes that give rise to certain types of cancer or how a modification might be exploited to destroy a tumor cell.
+Tumor Suppressor Genes, Oncogenes, and Cancer In normal cells, some genes function to prevent excess, inappropriate cell growth.
+Cancer In normal cells, some genes function to prevent excess, inappropriate cell growth.
+These are tumor-suppressor genes, which are active in normal cells to prevent uncontrolled cell growth.
+The most studied tumor-suppressor gene is p53, which is mutated in over 50 percent of all cancer types.
+It can bind to sites in the promoters of genes to initiate transcription.
+Therefore, the mutation of p53 in cancer will dramatically alter the transcriptional activity of its target genes.
+Proto-oncogenes are positive cell-cycle regulators.
+When mutated, proto-oncogenes can become oncogenes and cause cancer.
+Overexpression of the oncogene can lead to uncontrolled cell growth.
+An example of an oncogene involved in cancer is a protein called myc.
+Myc is a transcription factor that is aberrantly activated in Burkett's Lymphoma, a cancer of the lymph system.
+Overexpression of myc transforms normal B cells into cancerous cells that continue to grow uncontrollably.
+High B-cell numbers can result in tumors that can interfere with normal bodily function.
+Patients with Burkett's lymphoma can develop tumors on their jaw or in their mouth that interfere with the ability to eat.
+In cancer cells, the DNA in the promoter region of silenced genes is methylated on cytosine DNA residues in CpG islands.
+This combination of DNA methylation and histone deacetylation is commonly found in cancer.
+Increasingly, scientists understand how epigenetic changes are altered in cancer.
+Indeed, many researchers are testing how a silenced gene can be switched back on in a cancer cell to help re-establish normal growth patterns.
+Genes involved in the development of many other illnesses, ranging from allergies to inflammation to autism, are thought to be regulated by epigenetic mechanisms.
+As our knowledge of how genes are controlled deepens, new ways to treat diseases like cancer will emerge.
+Cancer and Transcriptional Control Alterations in cells that give rise to cancer can affect the transcriptional control of gene expression.
+Mutations that activate transcription factors, such as increased phosphorylation, can increase the binding of a transcription factor to its binding site in a promoter.
+This could lead to increased transcriptional activation of that gene that results in modified cell growth.
+Alternatively, a mutation in the DNA of a promoter or enhancer region can increase the binding ability of a transcription factor.
+This could also lead to the increased transcription and aberrant gene expression that is seen in cancer cells.
+Researchers have been investigating how to control the transcriptional activation of gene expression in cancer.
+a pathway that activates where a gene can be turned off, has led to new drugs and new ways to treat cancer.
+In breast cancer, for example, many proteins are overexpressed.
+This can lead to increased phosphorylation of key transcription factors that increase transcription.
+One such example is the overexpression of the epidermal growth-factor receptor in a subset of breast cancers.
+The EGFR pathway activates many protein kinases that, in turn, activate many transcription factors which control genes involved in cell growth.
+Cancer and Post-transcriptional Control Changes in the post-transcriptional control of a gene can also result in cancer.
+Recently, several groups of researchers have shown that specific cancers have altered expression of miRNAs.
+Because miRNAs bind to the 3' UTR of RNA molecules to degrade them, overexpression of these miRNAs could be detrimental to normal cellular activity.
+Too many miRNAs could dramatically decrease the RNA population, leading to a decrease in protein expression.
+Several studies have demonstrated a change in the miRNA population in specific cancer types.
+It appears that the subset of miRNAs expressed in breast cancer cells is quite different from the subset expressed in lung cancer cells or even from normal breast cells.
+This suggests that alterations in miRNA activity can contribute to the growth of breast cancer cells.
+These types of studies also suggest that if some miRNAs are specifically expressed only in cancer cells, they could be potential drug targets.
+It would, therefore, be conceivable that new drugs that turn off miRNA expression in cancer could be an effective method to treat cancer.
+Modifications are found in cancer cells from the increased translation of a protein to changes in protein phosphorylation to alternative splice variants of a protein.
+The c-Flip protein, a protein involved in mediating the cell-death pathway, comes in two forms: long and short.
+Both forms appear to be involved in initiating controlled cell-death mechanisms in normal cells.
+Clearly, the expression of the wrong protein dramatically alters cell function and contributes to the development of cancer.
+Many scientists are designing drugs on the basis of the gene expression patterns within individual tumors.
+This idea, that therapy and medicines can be tailored to an individual, has given rise to the field of personalized medicine.
+With an increased understanding of gene regulation and gene function, medicines can be designed to specifically target diseased cells without harming healthy cells.
+Some new medicines, called targeted therapies, have exploited the overexpression of a specific protein or the mutation of a gene to develop a new medication to treat disease.
+One such example is the use of anti-EGF receptor medications to treat the subset of breast cancer tumors that have very high levels of the EGF protein.
+Undoubtedly, more targeted therapies will be developed as scientists learn more about how gene expression changes can cause cancer.
+Clinical Trial Coordinator A clinical trial coordinator is the person managing the proceedings of the clinical trial.
+A clinical trial coordinator may have a science background, like a nursing degree, or other certification.
+A clinical trial coordinator may have a science background, like a nursing degree.
+People who have worked in science labs or in clinical offices are also qualified to become a clinical trial coordinator.
+These jobs are generally in hospitals; however, some clinics and doctor's offices also conduct clinical trials and may hire a coordinator.
+These jobs are generally in hospitals.
+however, some clinics and doctor's offices also conduct clinical trials and may hire a coordinator.
+that is not translated into protein.
+Prokaryotic organisms express mechanisms control access to the chromosomal region most of their genes most of the time.
+However, some to allow genes to be turned on or off.
+The DNA itself may be protein, the DNA is first transcribed into RNA, which is methylated to selectively silence genes.
+The addition then translated into proteins, which are then targeted or removal of chemical modifications to to specific cellular locations.
+In prokaryotic cells, histone proteins or DNA signals the cell to open or transcription and translation occur almost close a chromosomal region.
+Additional transcription factors may also bind to other 16.2 Prokaryotic Gene Regulation regulatory elements at the promoter to increase or The regulation of gene expression in prokaryotic cells prevent transcription.
+Enhancers can be upstream, transcription: repressors and activators.
+Activators bind to the promoter to enhancer regions may either increase or prevent enhance the binding of RNA polymerase.
+molecules can increase transcription either by inactivating repressors or by activating activator 16.5 Eukaryotic Post-transcriptional Gene proteins.
+In the trp operon, the trp repressor is itself Regulation activated by binding to tryptophan.
+which binds to the promoter to stabilize RNA This involves the removal of introns that do not code polymerase binding.
+CAP is itself activated by cAMP, for protein.
+Spliceosomes bind to the signals that mark whose concentration rises as the concentration of the exon/intron border to remove the introns and ligate glucose falls.
+However, the lac operon also requires the the exons together.
+Once this occurs, the RNA is presence of lactose for transcription to occur.
+Alternative splicing can inactivates the lac repressor, and prevents the produce more than one mRNA from a given transcript.
+Alternative splicing can inactivates the lac repressor.
+With Different splicing variants may be produced under the repressor inactivated, transcription may proceed.
+Therefore glucose must be absent and lactose must be present for effective transcription of the lac operon.
+Once the RNA is in the cytoplasm, the on the RNA.
+Once a protein has been synthesized, it overall amount of protein that is synthesized.
+These post-translational time in the cytoplasm, or decreased, leading to modifications can greatly impact the stability, shortened time and less protein synthesis.
+stability is controlled by RNA-binding proteins and microRNAs.
+Changes at every level of eukaryotic gene RISC complexes may repress translation or lead to expression can be detected in some form of cancer at mRNA breakdown.
+To translate wrong in disease states including complex ones like the protein, a protein initiator complex must assemble cancer.
+levels of eIF-2 has been observed in patients 2.
+development because of epigenetic changes to What impact do you think this might have on the chromatin.
+a. Cells can become specialized within a a. only the transcriptional level multicellular organism.
+b. epigenetic and transcriptional levels b. Organisms can conserve energy and c. epigenetic, transcriptional, and resources.
+b. epigenetic and transcriptional levels b. Organisms can conserve energy and c. epigenetic, transcriptional.
+translational levels c. Cells grow larger to accommodate protein d. epigenetic, transcriptional, post- production.
+If glucose is absent, but so is lactose, the lac 5.
+Post-translational control refers to: operon will be ________.
+Prokaryotic cells lack a nucleus.
+Therefore, the translation genes in prokaryotic cells are: a. all expressed, all of the time 6.
+and c are both true a.
+More transcripts will be made from Gene B. 9.
+The ara operon is an inducible operon that b. Transcription of Gene A involves fewer controls the breakdown of the sugar arabinose.
+When arabinose is present in a bacterium it c. Enhancers control Gene B's transcription.
+the complex binds d. Transcription of Gene A is more controlled to the initiator site to promote transcription.
+In than transcription of Gene B. this scenario, AraC is a ________.
+An unprocessed pre-mRNA has the following a. allow DNA to be transcribed structure.
+Alternative splicing has been estimated to occur 13.
+What will result from the binding of a in more than 95% of multi-exon genes.
+gene a. Alternative splicing increases diversity b. increased transcription of a distant gene without increasing genome size.
+Different gene isoforms can be expressed gene in different tissues.
+d. initiation of the recruitment of RNA c. Alternative splicing creates shorter mRNA polymerase transcripts.
+Different gene isoforms can be expressed 14.
+A scientist compares the promoter regions of during different stages of development.
+Gene A's core promoter plus proximal promoter elements encompasses 19.
+Targeted therapies are used in patients with a hydrolysis capability.
+How would this mutated set gene expression pattern.
+The large ribosomal subunit would not be a. patients who express the EGFR receptor in able to interact with mRNA transcripts.
+normal cells c. tRNAi-Met would not scan mRNA b. patients with a mutation that inactivates transcripts for the start codon.
+the estrogen receptor d. eIF-2 would not be able to interact with c. patients with lots of the estrogen receptor the small ribosomal subunit.
+A mutation within the promoter region can alter 25.
+A scientist identifies a potential transcription 27.
+In cancer cells, alteration to epigenetic regulation site 300bp downstream of a gene and modifications turns off genes that are normally hypothesizes that it is a repressor.
+A scientific study demonstrated that rat degrading an RNA molecule.
+Protein modification can alter gene expression in with inattentive mothers had high activation of many ways.
+An proteins can alter gene expression.
+additional study that swapped the pups at birth (i.e., rats born to inattentive mothers grew up 36.
+Alternative forms of a protein can be beneficial with attentive mothers and vice versa) showed or harmful to a cell.
+What do you think would the same positive effect of attentive mothering.
+Some autoimmune diseases show a positive 37.
+Changes in epigenetic modifications alter the correlation with dramatically decreased accessibility and transcription of DNA.
+A scientist discovers a virus encoding a Protein X kill tumor cells.
+that degrades a subunit of the eIF4F complex.

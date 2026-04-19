@@ -1,0 +1,373 @@
+# Biology2e Chapter 27 — Introduction to Animal Diversity
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 369
+
+The leaf chameleon was discovered in northern Madagascar in 2012.
+At just over one inch long, it is the smallest known chameleon.
+INTRODUCTION Animal evolution began in the ocean over 600 million years ago with tiny creatures that probably do not resemble any living organism today.
+Since then, animals have evolved into a highly diverse kingdom.
+Although over one million extant species of animals have been identified, scientists are continually discovering more species as they explore ecosystems around the world.
+The number of extant species is estimated to be between 3 and 30 million.
+While we can easily identify dogs, birds, fish, spiders.
+worms as animals, other organisms, such as corals and sponges, are not as easy to classify.
+Animals vary in complexity—from sea sponges to crickets to chimpanzees—and scientists are faced with the difficult task of classifying them within a unified system.
+They must identify traits that are common to all animals as well as traits that can be used to distinguish among related groups of animals.
+The animal classification system characterizes animals based on their anatomy, morphology, evolutionary history, features of embryological development, and genetic makeup.
+The animal classification system characterizes animals based on their anatomy, morphology, evolutionary history, features of embryological development.
+This classification scheme is constantly developing as new information about species arises.
+However, plants and animals not only have different life styles, they also have different cellular histories as eukaryotes.
+The opisthokonts share the possession of a single posterior flagellum in flagellated cells, e.g., sperm cells.
+Most animals also share other features that distinguish them from organisms in other kingdoms.
+All animals require a source of food and are therefore heterotrophic, ingesting other living or dead organisms.
+This feature distinguishes them from autotrophic organisms, such as most plants, which synthesize their own nutrients through photosynthesis.
+As with plants, almost all animals have a complex tissue structure with differentiated and specialized tissues.
+The necessity to collect food has made most animals motile, at least during certain life stages.
+The typical life cycle in animals is diplontic.
+We should note that the alternation of generations characteristic of the land plants is typically not found in animals.
+In animals whose life histories include several to multiple body forms, all body forms are diploid.
+Animal embryos pass through a series of developmental stages that establish a determined and fixed body plan.
+The body plan refers to the morphology of an animal, determined by developmental cues.
+All animals are heterotrophs and thus derive energy from a variety of food sources.
+The black bear is an omnivore, eating both plants and animals.
+The heartworm Dirofilaria immitis is a parasite that derives energy from its hosts.
+It spends its larval stage in mosquitoes and its adult stage infesting the heart of dogs and other mammals, as shown here.
+This explains why animals typically have evolved special structures associated with specific methods of food capture and complex digestive systems supported by accessory organs.
+Movement is driven by muscle tissue attached to supportive structures like bone or chitin, and is coordinated by neural communication.
+Movement is driven by muscle tissue attached to supportive structures like bone or chitin.
+Animal cells may also have unique structures for intercellular communication.
+This allows animals to survive in environments where they must compete with other species to meet their nutritional demands.
+The tissues of animals differ from those of the other major multicellular eukaryotes, plants and fungi, because their cells don't have cell walls.
+However, cells of animal tissues may be embedded in an extracellular matrix.
+In vertebrates, bone tissue is a type of connective tissue that supports the entire body structure.
+The complex bodies and activities of vertebrates demand such supportive tissues.
+The different types of tissues in true animals are responsible for carrying out specific functions for the organism.
+This differentiation and specialization of tissues is part of what allows for such incredible animal diversity.
+The Placozoa have only four cell types, while the sponges have nearly two dozen.
+The Placozoa have only four cell types.
+the sponges have nearly two dozen.
+The three other clades do include animals with specialized tissues derived from the germ layers of the embryo.
+When we think of animals, we usually think of Eumetazoa, since most animals fall into this category.
+Animal Reproduction and Development Most animals are diploid organisms, meaning that their body cells are diploid and haploid reproductive cells are produced through meiosis.
+Some exceptions exist: for example, in bees, wasps, and ants, the male is haploid because it develops from unfertilized eggs.
+Some exceptions exist: for example, in bees, wasps.
+ants, the male is haploid because it develops from unfertilized eggs.
+Most animals undergo sexual reproduction.
+However, a few groups, such as cnidarians, flatworms, and roundworms, may also undergo asexual reproduction, in which offspring originate from part of the parental body.
+roundworms, may also undergo asexual reproduction, in which offspring originate from part of the parental body.
+Processes of Animal Reproduction and Embryonic Development During sexual reproduction, the haploid gametes of the male and female individuals of a species combine in a process called fertilization.
+Typically, both male and female gametes are required: the small, motile male sperm fertilizes the typically much larger, sessile female egg.
+This process produces a diploid fertilized egg called a zygote.
+Some animal species—including sea stars and sea anemones—are capable of asexual reproduction.
+The most common forms of asexual reproduction for stationary aquatic animals include budding and fragmentation, where part of a parent individual can separate and grow into a new individual.
+This type of asexual reproduction produces genetically identical offspring, which would appear to be disadvantageous from the perspective of evolutionary adaptability, simply because of the potential buildup of deleterious mutations.
+In contrast, a form of uniparental reproduction found in some insects and a few vertebrates is called parthenogenesis.
+Because of the nutrients stored in eggs, only females produce parthenogenetic offspring.
+In some insects, unfertilized eggs develop into new male offspring.
+A few vertebrates, e.g., some fish, turkeys, rattlesnakes, and whiptail lizards, are also capable of parthenogenesis.
+In birds and rattlesnakes, the female is the heterogametic sex, so the only surviving progeny of post-meiotic parthenogenesis would be ZZ males.
+These animals may not be identical to their parent, although they have only maternal chromosomes.
+However, for animals that are limited in their access to mates, uniparental reproduction can ensure genetic propagation.
+In animals, the zygote progresses through a series of developmental stages, during which primary germ layers are established and reorganize to form an embryo.
+During this process, animal tissues begin to specialize and organize into organs and organ systems, determining their future morphology and physiology.
+Cleavage differs from somatic cell division in that the egg is subdivided by successive cleavages into smaller and smaller cells, with no actual cell growth.
+Three cell divisions transform the single-celled zygote into an eight-celled structure.
+After further cell division and rearrangement of existing cells, a solid morula is formed, followed by a hollow structure called a blastula.
+The blastula is hollow only in invertebrates whose eggs have relatively small amounts of yolk.
+Further cell division and cellular rearrangement leads to a process called gastrulation.
+Gastrulation results in two important events: the formation of the primitive gut or digestive cavity, and the formation of the embryonic germ layers, as we have discussed above.
+Gastrulation results in two important events: the formation of the primitive gut or digestive cavity.
+These germ layers are programmed to develop into certain tissue types, organs, and organ systems during a process called organogenesis.
+These germ layers are programmed to develop into certain tissue types, organs.
+Diploblastic organisms have two germ layers, endoderm and ectoderm.
+Endoderm forms the wall of the digestive tract, and ectoderm covers the surface of the animal.
+Endoderm forms the wall of the digestive tract.
+ectoderm covers the surface of the animal.
+During embryonic development, the zygote undergoes a series of mitotic cell divisions, or cleavages, that subdivide the egg into smaller and smaller blastomeres.
+During embryonic development, the zygote undergoes a series of mitotic cell divisions.
+In many invertebrates, the blastula consists of a single layer of cells around a hollow space.
+This inner cavity becomes the primitive gut of the gastrula stage.
+in some invertebrates it is destined to form the mouth.
+Some animals produce larval forms that are different from the adult.
+The adult body then develops from one or more regions of larval tissue.
+For animals with complete metamorphosis, the larva and the adult may have different diets, limiting competition for food between them.
+Regardless of whether a species undergoes complete or incomplete metamorphosis, the series of developmental stages of the embryo remains largely the same for most members of the animal kingdom.
+The butterfly undergoes complete metamorphosis.
+For a long time, scientists did not understand why so many animal species looked similar during embryonic development but were very different as adults.
+They wondered what dictated the developmental direction that a fly, mouse, frog, or human embryo would take.
+They wondered what dictated the developmental direction that a fly, mouse, frog.
+Near the end of the twentieth century, a particular class of genes was discovered that had this very job.
+The work to understand the role these genes play was novel and incredibly detailed.
+Over several years, Christiane Nüsslein-Volhard and Eric Wieschaus introduced mutated genes into fruit flies and observed changes to the flies' bodies under microscopes.
+Eventually they were able to identify specific changes, such as different numbers of body segments, based on mutations of specific genes, therefore showing which genes controlled aspects of development.
+One group of animal genes containing homeobox sequences is specifically referred to as Hox genes.
+The first Hox genes to be sequenced were those from the fruit fly.
+Now, Hox genes are known from virtually all other animals as well.
+Hox genes do this by encoding transcription factors that control the expression of numerous other genes.
+In addition, the order of the genes reflects the anterior-posterior axis of the animal's body.
+All vertebrates have four sets of Hox genes, while invertebrates have only one set.
+All vertebrates have four sets of Hox genes.
+invertebrates have only one set.
+Hox genes are highly conserved genes encoding transcription factors that determine the course of embryonic development in animals.
+green shading, occurs in the same body segments in both the mouse and the human.
+While at least one copy of each Hox gene is present in humans and other vertebrates, some Hox genes are missing in some chromosomal sets.
+In spite of the superficial similarities between the Cnidaria and the Ctenophora, the Cnidaria have a number of Hox genes, but the Ctenophora have none.
+The absence of Hox genes from the ctenophores has led to the suggestion that they might be "basal" animals, in spite of their tissue differentiation.
+Ironically, the Placozoa, which have only a few cell types, do have at least one Hox gene.
+However, we should note that at this time the reclassification of the Animal Kingdom is still tentative and requires much more study.
+Animals have been traditionally classified according to two characteristics: body plan and developmental pathway.
+plan is its symmetry: how the body parts are distributed along the major body axis.
+Symmetrical animals can be divided into roughly equivalent halves along at least one axis.
+The phylogenetic tree of animals is based on morphological, fossil, and genetic evidence.
+The phylogenetic tree of animals is based on morphological, fossil.
+The represented tree is one of several proposed relationships based on genetic and other data.
+b. Lophotrochozoa and Ecdysozoa are both Bilataria.
+c. Acoela and Cnidaria both possess radial symmetry.
+d. Arthropods are more closely related to nematodes than they are to annelids.
+All types of symmetry are well suited to meet the unique demands of a particular animal's lifestyle.
+Radial symmetry is the arrangement of body parts around a central axis, as is seen in a bicycle wheel or pie.
+It results in animals having top and bottom surfaces but no left and right sides, nor front or back.
+Radial symmetry equips these sea creatures to experience the environment equally from all directions.
+The sponge is asymmetrical.
+The jellyfish and anemone are radially symmetrical, the butterfly is bilaterally symmetrical.
+Rotational symmetry is seen in the ctenophore Beroe, shown swimming open-mouthed.
+All Eumetazoa except those with secondary radial symmetry are bilaterally symmetrical.
+In contrast to radial symmetry, which is best suited for stationary or limited-motion lifestyles, bilateral symmetry allows for streamlined and directional motion.
+In evolutionary terms, this simple form of symmetry promoted active and controlled directional mobility and increased sophistication of resource-seeking and predator-prey relationships.
+The bilaterally symmetrical human body can be divided by several planes.
+Echinoderms evolved from bilaterally symmetrical animals; thus, they are classified as bilaterally symmetrical.
+Echinoderms evolved from bilaterally symmetrical animals.
+thus, they are classified as bilaterally symmetrical.
+Animal Characterization Based on Features of Embryological Development Most animal species undergo a separation of tissues into germ layers during embryonic development.
+that each germ layer typically gives rise to specific types of embryonic tissues and organs.
+The animals that display radial, biradial, or rotational symmetry develop two germ layers, an inner layer and an outer layer.
+rotational symmetry develop two germ layers, an inner layer and an outer layer.
+The four clades considered to be diploblastic have different levels of complexity and different developmental pathways, although there is little information about development in Placozoa.
+More complex animals develop three tissue layers: an inner layer, an outer layer, and a middle layer.
+More complex animals develop three tissue layers: an inner layer, an outer layer.
+During embryogenesis, diploblasts develop two embryonic germ layers: an ectoderm and an endoderm or mesendoderm.
+Triploblasts develop a third layer—the mesoderm—which arises from mesendoderm and resides between the endoderm and ectoderm.
+a. Animals that display only radial symmetry during their lifespans are diploblasts.
+Animals that display bilateral symmetry are triploblasts.
+The endoderm gives rise to the lining of the digestive tract and the respiratory tract.
+The mesoderm gives rise to the central nervous system.
+Each of the three germ layers is programmed to give rise to specific body tissues and organs, although there are variations on these themes.
+The ectoderm develops into the outer epithelial covering of the body surface, the central nervous system, and a few other structures.
+The ectoderm develops into the outer epithelial covering of the body surface, the central nervous system.
+The mesoderm is the third germ layer; it forms between the endoderm and ectoderm in triploblasts.
+The mesoderm is the third germ layer.
+it forms between the endoderm and ectoderm in triploblasts.
+Diploblastic animals may have cell types that serve multiple functions, such as epitheliomuscular cells, which serve as a covering as well as contractile cells.
+It houses many organs such as the digestive, urinary, and reproductive systems, the heart and lungs, and also contains the major arteries and veins of the circulatory system.
+It houses many organs such as the digestive, urinary.
+In mammals, the body cavity is divided into the thoracic cavity, which houses the heart and lungs, and the abdominal cavity, which houses the digestive organs.
+In mammals, the body cavity is divided into the thoracic cavity, which houses the heart and lungs.
+The evolution of the coelom is associated with many functional advantages.
+For example, the coelom provides cushioning and shock absorption for the major organ systems that it encloses.
+The coelom also provides space for the diffusion of gases and nutrients, as well as body flexibility, promoting improved animal motility.
+their mesoderm region is completely filled with tissue, although they do still have a gut cavity.
+Examples of acoelomates include animals in the phylum Platyhelminthes, also known as flatworms.
+In such cases, a true coelom arises entirely within the mesoderm germ layer and is lined by an epithelial membrane.
+This membrane also lines the organs within the coelom, connecting and holding them in position while allowing them some freedom of movement.
+chordates are all eucoelomates.
+A third group of triploblasts has a slightly different coelom lined partly by mesoderm and partly by endoderm.
+so we call these animals pseudocoelomates.
+The phylum Nematoda is an example of a pseudocoelomate.
+True coelomates can be further characterized based on other features of their early embryological development.
+Triploblasts may be acoelomates, eucoelomates, or pseudocoelomates.
+Triploblasts may be acoelomates, eucoelomates.
+Acoelomates have no body cavity.
+Eucoelomates have a body cavity within the mesoderm, called a coelom, in which both the gut and the body wall are lined with mesoderm.
+Pseudocoelomates also have a body cavity, but only the body wall is lined with mesoderm.
+Embryonic Development of the Mouth Bilaterally symmetrical, tribloblastic eucoelomates can be further divided into two groups based on differences in the origin of the mouth.
+When the primitive gut forms, the opening that first connects the gut cavity to the outside of the embryo is called the blastopore.
+Most animals have openings at both ends of the gut: mouth at one end and anus at the other.
+Protostomes include arthropods, mollusks, and annelids.
+Protostomes include arthropods, mollusks.
+Deuterostomes include more complex animals such as chordates but also some "simple" animals such as echinoderms.
+Recent evidence has challenged this simple view of the relationship between the location of the blastopore and the formation of the mouth, however, and the theory remains under debate.
+Recent evidence has challenged this simple view of the relationship between the location of the blastopore and the formation of the mouth, however.
+the theory remains under debate.
+Nevertheless, these details of mouth and anus formation reflect general differences in the organization of protostome and deuterostome embryos, which are also expressed in other developmental features.
+Since body cavity formation tends to accompany the formation of the mesoderm, the mesoderm of protostomes and deuterostomes forms differently.
+The coelom of most protostomes is formed through a process called schizocoely.
+The mesoderm in these organisms is usually the product of specific blastomeres, which migrate into the interior of the embryo and form two clumps of mesodermal tissue.
+Within each clump, cavities develop and merge to form the hollow opening of the coelom.
+Deuterostomes differ in that their coelom forms through a process called enterocoely.
+Here, the mesoderm develops as pouches that are pinched off from the endoderm tissue.
+These pouches eventually fuse and expand to fill the space between the gut and the body wall, giving rise to the coelom.
+Another difference in organization of protostome and deuterostome embryos is expressed during cleavage.
+Protostomes undergo spiral cleavage, meaning that the cells of one pole of the embryo are rotated, and thus misaligned, with respect to the cells of the opposite pole.
+Protostomes undergo spiral cleavage, meaning that the cells of one pole of the embryo are rotated.
+This is due to the oblique angle of cleavage relative to the two poles of the embryo.
+Deuterostomes undergo radial cleavage, where the cleavage axes are either parallel or perpendicular to the polar axis, resulting in the parallel alignment of the cells between the two poles.
+Eucoelomates can be divided into two groups based on their early embryonic development.
+In deuterostomes, the mouth forms at a site opposite the blastopore end of the embryo and the mesoderm pinches off to form the coelom during the process of enterocoely.
+A second distinction between the types of cleavage in protostomes and deuterostomes relates to the fate of the resultant blastomeres.
+In addition to spiral cleavage, protostomes also undergo determinate cleavage.
+This means that even at this early stage, the developmental fate of each embryonic cell is already determined.
+A given cell does not have the ability to develop into any cell type other than its original destination.
+Removal of a blastomere from an embryo with determinate cleavage can result in missing structures, and embryos that fail to develop.
+Removal of a blastomere from an embryo with determinate cleavage can result in missing structures.
+In contrast, deuterostomes undergo indeterminate cleavage, in which cells are not yet fully committed at this early stage to develop into specific cell types.
+Removal of individual blastomeres from these embryos does not result in the loss of embryonic structures.
+In fact, twins can be produced as a result from blastomeres that have been separated from the original mass of blastomere cells.
+Unlike protostomes, however, if some blastomeres are damaged during embryogenesis, adjacent cells are able to compensate for the missing cells, and the embryo is not damaged.
+Unlike protostomes, however, if some blastomeres are damaged during embryogenesis, adjacent cells are able to compensate for the missing cells.
+These cells are referred to as undetermined cells.
+The Evolution of the Coelom One of the first steps in the classification of animals is to examine the animal's body.
+One structure that is used in classification of animals is the body cavity or coelom.
+The body cavity develops within the mesoderm, so only triploblastic animals can have body cavities.
+Therefore body cavities are found only within the Bilateria.
+In other animal clades, the gut is either close to the body wall or separated from it by a jelly-like material.
+The body cavity is important for two reasons.
+Fluid within the body cavity protects the organs from shock and compression.
+The major acoelomate group in the Bilateria is the flatworms, including both free-living and parasitic forms such as tapeworms.
+In these animals, mesenchyme fills the space between the gut and the body wall.
+Flatworms rely on passive diffusion for nutrient transport across their body.
+In these animals, the mesoderm forms, but does not develop cavities within it.
+Major pseudocoelomate phyla are the rotifers and nematodes.
+all vertebrates, as well as mollusks, annelids, arthropods, and echinoderms, are eucoelomates.
+The coelom develops within the mesoderm during embryogenesis.
+These buds separate from the gut and coalesce to form the body cavity.
+In the vertebrates, mammals have a subdivided body cavity, with the thoracic cavity separated from the abdominal cavity.
+The pseudocoelomates may have had eucoelomate ancestors and may have lost their ability to form a complete coelom through genetic mutations.
+Thus, this step in early embryogenesis—the formation of the coelom—has had a large evolutionary impact on the various species of the animal kingdom.
+Biologists strive to understand the evolutionary history and relationships of members of the animal kingdom, and all of life, for that matter.
+Biologists strive to understand the evolutionary history and relationships of members of the animal kingdom.
+The study of phylogeny aims to determine the evolutionary relationships between phyla.
+Currently, most biologists divide the animal kingdom into 35 to 40 phyla.
+Scientists develop phylogenetic trees, which serve as hypotheses about which species have evolved from which ancestors.
+Scientific understanding of the distinctions and hierarchies between anatomical characteristics provided much of this knowledge.
+Used alone, however, this information can be misleading.
+Morphological characteristics may evolve multiple times, and independently, through evolutionary history.
+Morphological characteristics may evolve multiple times.
+With the advancement of molecular technologies, modern phylogenetics is now informed by genetic and molecular analyses, in addition to traditional morphological and fossil data.
+With a growing understanding of genetics, the animal evolutionary tree has changed substantially and continues to change as new DNA and RNA analyses are performed on additional animal species.
+Eumetazoa are subdivided into radially symmetrical animals and bilaterally symmetrical animals, and are thus classified into the clades Bilateria and Radiata, respectively.
+Eumetazoa are subdivided into radially symmetrical animals and bilaterally symmetrical animals.
+As mentioned earlier, the cnidarians and ctenophores are animal phyla with true radial, biradial, or rotational symmetry.
+As mentioned earlier, the cnidarians and ctenophores are animal phyla with true radial, biradial.
+All other Eumetazoa are members of the Bilateria clade.
+Lophotrochozoa is named for two structural features, each common to certain phyla within the clade.
+Phoronids are in the clade Lophotrochozoa.
+The tentacles are part of a feeding structure called a lophophore.
+The phylogenetic groupings are continually being debated and refined by evolutionary biologists.
+Each year, new evidence emerges that further alters the relationships described by a phylogenetic tree diagram.
+Nucleic acid and protein analyses have greatly modified and refined the modern phylogenetic animal tree.
+Many evolutionary relationships in the modern tree have only recently been determined from the molecular evidence.
+For example, a previously classified group of animals called lophophorates, which included brachiopods and bryozoans, were long-thought to be primitive deuterostomes.
+Extensive molecular analysis using rRNA data found these animals are actually protostomes, more closely related to annelids and mollusks.
+This discovery allowed for the distinction of the protostome clade Lophotrochozoa.
+Molecular data have also shed light on some differences within the lophotrochozoan group, and the placement of the Platyhelminthes is particularly problematic.
+Molecular data have also shed light on some differences within the lophotrochozoan group.
+the placement of the Platyhelminthes is particularly problematic.
+Some scientists believe that the phyla Platyhelminthes and Rotifera should actually belong to their own clade of protostomes termed Platyzoa.
+Due to morphological similarities in their segmented body types, annelids and arthropods were once thought to be closely related.
+These two clades now make up the protostomes.
+Another change to former phylogenetic groupings because of modern molecular analyses includes the emergence of an entirely new phylum of worm called Acoelomorpha.
+These acoel flatworms were long thought to belong to the phylum Platyhelminthes because of their similar "flatworm" morphology.
+However, molecular analyses revealed this to be a false relationship and originally suggested that acoels represented living species of some of the earliest divergent bilaterians.
+More recent research into the acoelomorphs has called this hypothesis into question and suggested that the acoels are more closely related to deuterostomes.
+The placement of this new phylum remains disputed, but scientists agree that with sufficient molecular data, their true phylogeny will be determined.
+Another example of phylogenetic reorganization involves the identification of the Ctenophora as the basal clade of the animal kingdom.
+Ctenophora, or comb jellies, were once considered to be a sister group of the Cnidaria, and the sponges were placed as the basal animal group, sister to other animals.
+Ctenophora, or comb jellies, were once considered to be a sister group of the Cnidaria.
+the sponges were placed as the basal animal group, sister to other animals.
+comb jellies, were once considered to be a sister group of the Cnidaria, and the sponges were placed as the basal animal group, sister to other animals.
+The presence of nerve and muscle cells in both the Ctenophores and the Cnidaria and their absence in the Porifera strengthened this view of the relationships among simple animal forms.
+However, recent molecular analysis has shown that many of the genes that support neural development in other animals are absent from the Ctenophore genome.
+The muscle cells are restricted to the mouth and tentacles and are derived from cells in the mesoglea.
+The mitochondrial genome of the Ctenophores is small and lacks many genes found in other animal mitochondrial genomes.
+Changes to the phylogenetic tree can be difficult to track and understand, and are evidence of the process of science.
+Changes to the phylogenetic tree can be difficult to track and understand.
+Data and analytical methods play a significant role in the development of phylogenies.
+For this reason – because molecular analysis and reanalysis are not complete -- we cannot necessarily dismiss a former phylogenetic tree as inaccurate.
+A recent reanalysis of molecular evidence by an international group of evolutionary biologists refuted the proposition that comb jellies are the phylogenetically oldest extant metazoan group.
+The ongoing discussion concerning the location of sponges and comb jellies on the animal "family tree" is an example of what drives science forward.
+Many questions regarding the origins and evolutionary history of the animal kingdom continue to be researched and debated, as new fossil and molecular evidence change prevailing theories.
+While animal diversity increased during the Cambrian period of the Paleozoic era, 530 million years ago, modern fossil evidence suggests that primitive animal species existed much earlier.
+Ediacaran fossils were first found in the Ediacaran hills of Southern Australia.
+It is believed that early animal life, termed Ediacaran biota, evolved from protists at this time.
+Earth's history is divided into eons, eras, and periods.
+Earth's history is divided into eons, eras.
+Stages on the geological time scale are represented as a spiral.
+Most Ediacaran biota were just a few mm or cm long, but some of the feather-like forms could reach lengths of over a meter.
+Fossils believed to represent the oldest animals with hard body parts were recently discovered in South Australia.
+Another recent fossil discovery may represent the earliest animal species ever found.
+While the validity of this claim is still under investigation, these primitive fossils appear to be small, one-centimeter long, sponge-like creatures, irregularly shaped and with internal tubes or canals.
+Until this discovery, most scientists believed that there was no animal life prior to the Ediacaran period.
+Many scientists now believe that animals may in fact have evolved during the Cryogenian period.
+The Cambrian period, occurring between approximately 542–488 million years ago, marks the most rapid evolution of new animal phyla and animal diversity in Earth's history.
+Animals resembling echinoderms, mollusks, worms, arthropods, and chordates arose during this period.
+chordates arose during this period.
+Obviously, all these Cambrian animals already exhibited complex structures, so their ancestors must have existed much earlier.
+An artist's rendition depicts some organisms from the Cambrian period.
+Anomalocaris is seen in the upper left quadrant of the picture.
+Trilobites were somewhat similar to modern horseshoe crabs.
+Thousands of different species have been identified in fossil sediments of the Cambrian period; not a single species survives today.
+Thousands of different species have been identified in fossil sediments of the Cambrian period.
+The cause of the Cambrian explosion is still debated, and in fact, it may be that a number of interacting causes ushered in this incredible explosion of animal diversity.
+The cause of the Cambrian explosion is still debated.
+in fact, it may be that a number of interacting causes ushered in this incredible explosion of animal diversity.
+Environmental changes may have created a more suitable environment for animal life.
+Some scientists believe that an expansive, continental shelf with numerous shallow lagoons or pools provided the necessary living space for larger numbers of different types of animals to coexist.
+Yet other hypotheses claim genetic and developmental reasons for the Cambrian explosion.
+the answer may very well be a combination of these and other theories.
+The oxygen concentration in Earth's atmosphere rose sharply around 300 million years ago.
+However, unresolved questions about the animal diversification that took place during the Cambrian period remain.
+For example, we do not understand how the evolution of so many species occurred in such a short period of time.
+As animal phyla continued to diversify, new species adapted to new ecological niches.
+During the Ordovician period, which followed the Cambrian period, plant life first appeared on land.
+This change allowed formerly aquatic animal species to invade land, feeding directly on plants or decaying vegetation.
+Changes in the environment often create new niches that invite rapid speciation and increased diversity.
+Some of the dominant phyla in the world's oceans, such as the trilobites, disappeared completely.
+On land, the disappearance of some dominant species of Permian reptiles made it possible for a new line of reptiles to emerge, the dinosaurs.
+climatic conditions of the ensuing Mesozoic Era promoted an explosive diversification of dinosaurs into every conceivable niche in land, air, and water.
+climatic conditions of the ensuing Mesozoic Era promoted an explosive diversification of dinosaurs into every conceivable niche in land, air.
+Plants, too, radiated into new landscapes and empty niches, creating complex communities of producers and consumers, some of which became very large on the abundant food available.
+Another mass extinction event occurred at the end of the Cretaceous period, bringing the Mesozoic Era to an end.
+Skies darkened and temperatures fell after a large meteor impact and tons of volcanic ash ejected into the atmosphere blocked incoming sunlight.
+the dinosaurs ceded their dominance of the landscape to the more warm-blooded mammals.
+In the following Cenozoic Era, mammals radiated into terrestrial and aquatic niches once occupied by dinosaurs, and birds—the warm-blooded direct descendants of one line of the ruling reptiles—became aerial specialists.
+In the following Cenozoic Era, mammals radiated into terrestrial and aquatic niches once occupied by dinosaurs.
+birds—the warm-blooded direct descendants of one line of the ruling reptiles—became aerial specialists.
+The appearance and dominance of flowering plants in the Cretaceous Era created new niches for pollinating insects, as well as for birds and mammals.
+Early in the Cenozoic, new ecosystems appeared, with the evolution of grasses and coral reefs, leading to their wide distribution.
+Late in the Cenozoic, further extinctions followed by speciation occurred during ice ages that covered high latitudes with ice and then retreated, leaving new open spaces for colonization.
+Mass extinctions have occurred repeatedly over geological time.
+Paleontologist Natural history museums contain the fossils of extinct animals as well as information about how these animals evolved, lived, and died.
+Paleontologists are scientists who study prehistoric life.
+They use fossils to observe and explain how life evolved on Earth and how species interacted with each other and with the environment.
+They were aided in their work by surprise discoveries by laypeople, and other more concentrated efforts by self-taught scientists.
+They were aided in their work by surprise discoveries by laypeople.
+Mary Anning, for example, was a well-known fossil hunter who discovered, cataloged, and diagrammed the fossils of significant dinosaurs such as the Plesiosaurus.
+Mary Anning, for example, was a well-known fossil hunter who discovered, cataloged.
+Scientists from throughout Europe consulted with her to deepen their own understanding and draw conclusions that laid the foundation for the discipline.
+Paleontology today relies on far more varied knowledge and technology than it did in Anning's day.
+A paleontologist needs to be knowledgeable in mathematics, biology, ecology, chemistry, geology, and many other scientific disciplines.
+A paleontologist needs to be knowledgeable in mathematics, biology, ecology, chemistry, geology.
+A paleontologist's work may involve field studies: searching for and studying fossils.
+In addition to digging for and finding fossils, paleontologists also prepare fossils for further study and analysis.
+Biophysics, biochemistry, geographic information systems, and data science are all additional fields of knowledge that paleontologists use to uncover the truth of the past.
+data science are all additional fields of knowledge that paleontologists use to uncover the truth of the past.
+An undergraduate degree in earth science or biology is a good place to start toward the career path of becoming a paleontologist.
+Most often, a graduate degree is necessary.
+Additionally, work experience in a museum or in a paleontology lab is useful.
+Although animals range in complexity from specific functions.
+Most animals undergo sexual simple sea sponges to human beings, most members reproduction, leading to a series of developmental of the animal kingdom share certain features.
+A class of transcriptional control that ingest their food and usually develop into motile genes called Hox genes directs the organization of the creatures with a fixed body plan.
+The details of the on their body morphology, their developmental modern phylogenetic tree change frequently as new pathways, and their genetic affinities.
+The details of the on their body morphology, their developmental modern phylogenetic tree change frequently as new pathways.
+However, recent fossil discoveries mesoderm.
+animals is also marked by numerous major extinction 27.3 Animal Phylogeny events, each of which wiped out a majority of extant species.
+If a Hox 13 gene in a mouse was 3.
+a. Animals that display radial symmetry are diploblasts.
+Which of the following statements is b.
+a. Eumetazoans have specialized tissues and c.
+the digestive tract and the respiratory b. Lophotrochozoa and Ecdysozoa are both tract.
+The mesoderm gives rise to the central c. Acoela and Cnidaria both possess radial nervous system.
+As with the emergence of the Acoelomorpha phylum, it is common for ____ data to misplace 5.
+Which of the following phenotypes would most 13.
+Which of the following organisms is most likely 14.
+How is it that morphological data alone might kingdom.
+How is it that most, if not all, of the extant germ layers, coelom, cleavage, embryological animal phyla today evolved during the Cambrian development.

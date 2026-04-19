@@ -1,0 +1,485 @@
+# Biology2e Chapter 14 — DNA Structure and Function
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 481
+
+INTRODUCTION The three letters "DNA" have now become synonymous with crime solving and genetic testing.
+DNA can be retrieved from hair, blood, or saliva.
+DNA can be retrieved from hair, blood.
+Each person's DNA is unique, and it is possible to detect differences between individuals within a species on the basis of these unique features.
+Each person's DNA is unique.
+it is possible to detect differences between individuals within a species on the basis of these unique features.
+DNA analysis has many practical applications beyond forensics.
+In humans, DNA testing is applied to numerous uses: determining paternity, tracing genealogy, identifying pathogens, archeological research, tracing disease outbreaks, and studying human migration patterns.
+In humans, DNA testing is applied to numerous uses: determining paternity, tracing genealogy, identifying pathogens, archeological research, tracing disease outbreaks.
+In the medical field, DNA is used in diagnostics, new vaccine development, and cancer therapy.
+In the medical field, DNA is used in diagnostics, new vaccine development.
+It is now possible to determine predisposition to diseases by looking at genes.
+Each human cell has 23 pairs of chromosomes: one set of chromosomes is inherited from the female parent and the other set is inherited from the male parent.
+A gene is defined as a sequence of DNA that codes for a functional product.
+The human haploid genome contains 3 billion base pairs and has between 20,000 and 25,000 functional genes.
+Our current understanding of DNA began with the discovery of nucleic acids followed by the development of the double-helix model.
+He named these chemicals nuclein because they were isolated from the nuclei of the cells.
+LINK TO LEARNING To see Miescher conduct his experiment that led to his discovery of DNA and associated proteins in the nucleus, click through this review.
+Griffith conducted his experiments with Streptococcus pneumoniae, a bacterium that causes pneumonia.
+Griffith worked with two strains of this bacterium called rough and smooth.
+The R strain is non-pathogenic.
+The S strain is pathogenic, and has a capsule outside its cell wall.
+The S strain is pathogenic.
+The capsule allows the cell to escape the immune responses of the host mouse.
+When Griffith injected the living S strain into mice, they died from pneumonia.
+In contrast, when Griffith injected the live R strain into mice, they survived.
+In another experiment, when he injected mice with the heat-killed S strain, they also survived.
+This experiment showed that the capsule alone was not the cause of death.
+In a third set of experiments, a mixture of live R strain and heat- killed S strain were injected into mice, and—to his surprise—the mice died.
+Upon isolating the live bacteria from the dead mouse, only the S strain of bacteria was recovered.
+Griffith concluded that something had passed from the heat-killed S strain into the live R strain and transformed it into the pathogenic S strain.
+These experiments are now known as Griffith's transformation experiments.
+Two strains of S. pneumoniae were used in Griffith's transformation experiments.
+The R strain is non-pathogenic, whereas the S strain is pathogenic and causes death.
+the S strain is pathogenic and causes death.
+The S strain was recovered from the dead mouse.
+Griffith concluded that something had passed from the heat-killed S strain to the R strain, transforming the R strain into the S strain in the process.
+Scientists Oswald Avery, Colin MacLeod, and Maclyn McCarty were interested in exploring this transforming principle further.
+Maclyn McCarty were interested in exploring this transforming principle further.
+They isolated the S strain from the dead mice and isolated the proteins and nucleic acids as these were possible candidates for the molecule of heredity.
+They used enzymes that specifically degraded each component and then used each mixture separately to transform the R strain.
+They found that when DNA was degraded, the resulting mixture was no longer able to transform the bacteria, whereas all of the other combinations were able to transform the bacteria.
+They found that when DNA was degraded, the resulting mixture was no longer able to transform the bacteria.
+all of the other combinations were able to transform the bacteria.
+This led them to conclude that DNA was the transforming principle.
+Forensic Scientist Forensic Scientists used DNA analysis evidence for the first time to solve an immigration case.
+The story started with a teenage boy returning to London from Ghana to be with his mother.
+Immigration authorities at the airport were suspicious of him, thinking that he was traveling on a forged passport.
+After much persuasion, he was allowed to go live with his mother, but the immigration authorities did not drop the case against him.
+All types of evidence, including photographs, were provided to the authorities, but deportation proceedings were started nevertheless.
+Around the same time, Dr. Alec Jeffreys of Leicester University in the United Kingdom had invented a technique known as DNA fingerprinting.
+The immigration authorities approached Dr. Jeffreys for help.
+He took DNA samples from the mother and three of her children, as well as an unrelated mother, and compared the samples with the boy's DNA.
+He took DNA samples from the mother and three of her children, as well as an unrelated mother.
+Because the biological father was not in the picture, DNA from the three children was compared with the boy's DNA.
+He found a match in the boy's DNA for both the mother and his three siblings.
+He concluded that the boy was indeed the mother's son.
+Forensic scientists analyze many items, including documents, handwriting, firearms, and biological samples.
+Forensic scientists analyze many items, including documents, handwriting, firearms.
+They analyze the DNA content of hair, semen, saliva, and blood, and compare it with a database of DNA profiles of known criminals.
+They analyze the DNA content of hair, semen, saliva.
+Analysis includes DNA isolation, sequencing, and sequence analysis.
+Analysis includes DNA isolation, sequencing.
+Forensic scientists are expected to appear at court hearings to present their findings.
+They are usually employed in crime labs of city and state government agencies.
+Students wishing to pursue a career as a forensic scientist should have at least a bachelor's degree in chemistry, biology, or physics, and preferably some experience working in a laboratory.
+Students wishing to pursue a career as a forensic scientist should have at least a bachelor's degree in chemistry, biology, or physics.
+Students wishing to pursue a career as a forensic scientist should have at least a bachelor's degree in chemistry, biology.
+Proteins, with their 20 different amino acids, were regarded as more likely candidates.
+The decisive experiment, conducted by Martha Chase and Alfred Hershey in 1952, provided confirmatory evidence that DNA was indeed the genetic material and not proteins.
+Chase and Hershey were studying a bacteriophage—a virus that infects bacteria.
+Viruses typically have a simple structure: a protein coat, called the capsid, and a nucleic acid core that contains the genetic material.
+Viruses typically have a simple structure: a protein coat, called the capsid.
+The bacteriophage infects the host bacterial cell by attaching to its surface, and then it injects its nucleic acids inside the cell.
+The bacteriophage infects the host bacterial cell by attaching to its surface.
+then it injects its nucleic acids inside the cell.
+The phage DNA makes multiple copies of itself using the host machinery, and eventually the host cell bursts, releasing a large number of bacteriophages.
+The phage DNA makes multiple copies of itself using the host machinery.
+Hershey and Chase selected radioactive elements that would specifically distinguish the protein from the DNA in infected cells.
+They labeled one batch of phage with radioactive sulfur, 35S, to label the protein coat.
+Likewise, sulfur is absent from DNA, but present in several amino acids such as methionine and cysteine.
+Each batch of phage was allowed to infect the cells separately.
+After infection, the phage bacterial suspension was put in a blender, which caused the phage coat to detach from the host cell.
+Cells exposed long enough for infection to occur were then examined to see which of the two radioactive molecules had entered the cell.
+The phage and bacterial suspension was spun down in a centrifuge.
+the lighter phage particles stayed in the supernatant.
+In the tube that contained phage labeled with 35S, the supernatant contained the radioactively labeled phage, whereas no radioactivity was detected in the pellet.
+In the tube that contained phage labeled with 35S, the supernatant contained the radioactively labeled phage.
+no radioactivity was detected in the pellet.
+Different species had equal amounts of purines and pyrimidines, but different ratios of A+T to G+C. These observations became known as Chargaff's rules.
+You can see after reading the past few pages how science builds upon previous discoveries, sometimes in a slow and laborious process.
+The building blocks of DNA are nucleotides.
+The nucleotide is named depending on the nitrogenous base.
+The nitrogenous base can be a purine such as adenine and guanine, or a pyrimidine such as cytosine and thymine.
+The nitrogenous base can be a purine such as adenine and guanine.
+The purines have a double ring structure with a six-membered ring fused to a five-membered ring.
+Pyrimidines are smaller in size; they have a single six-membered ring structure.
+Pyrimidines are smaller in size.
+they have a single six-membered ring structure.
+The images above illustrate the five bases of DNA and RNA.
+The sugar is deoxyribose in DNA and ribose in RNA.
+In DNA nucleotides, the 3' carbon of the sugar deoxyribose is attached to a hydroxyl group.
+In RNA nucleotides, the 2' carbon of the sugar ribose also contains a hydroxyl group.
+The base is attached to the 1'carbon of the sugar.
+The nucleotides combine with each other to produce phosphodiester bonds.
+In a polynucleotide, one end of the chain has a free 5' phosphate, and the other end has a free 3'-OH.
+In a polynucleotide, one end of the chain has a free 5' phosphate.
+the other end has a free 3'-OH.
+A base attached to a five-carbon sugar represents a nucleoside.
+A nucleotide is composed of one, two, or three phosphate groups attached to a nucleoside.
+A nucleotide is composed of one, two.
+In the 1950s, Francis Crick and James Watson worked together to determine the structure of DNA at the University of Cambridge, England.
+Other scientists like Linus Pauling and Maurice Wilkins were also actively exploring this field.
+Pauling previously had discovered the secondary structure of proteins using X-ray crystallography.
+In Wilkins' lab, researcher Rosalind Franklin was using X-ray diffraction methods to understand the structure of DNA.
+In 1962, James Watson, Francis Crick, and Maurice Wilkins were awarded the Nobel Prize in Medicine.
+Maurice Wilkins were awarded the Nobel Prize in Medicine.
+Unfortunately, by then Franklin had died, and Nobel prizes are not awarded posthumously.
+Unfortunately, by then Franklin had died.
+Nobel prizes are not awarded posthumously.
+Watson and Crick proposed that DNA is made up of two strands that are twisted around each other to form a right- handed helix.
+Base pairing takes place between a purine and pyrimidine on opposite strands, so that A pairs with T, and G pairs with C.
+Base pairing takes place between a purine and pyrimidine on opposite strands, so that A pairs with T.
+Thus, adenine and thymine are complementary base pairs, and cytosine and guanine are also complementary base pairs.
+Thus, adenine and thymine are complementary base pairs.
+cytosine and guanine are also complementary base pairs.
+The base pairs are stabilized by hydrogen bonds: adenine and thymine form two hydrogen bonds and cytosine and guanine form three hydrogen bonds.
+The two strands are anti-parallel in nature; that is, the 3' end of one strand faces the 5' end of the other strand.
+The two strands are anti-parallel in nature.
+that is, the 3' end of one strand faces the 5' end of the other strand.
+The sugar and phosphate of the nucleotides form the backbone of the structure, whereas the nitrogenous bases are stacked inside, like the rungs of a ladder.
+The sugar and phosphate of the nucleotides form the backbone of the structure.
+the nitrogenous bases are stacked inside, like the rungs of a ladder.
+Each base pair is separated from the next base pair by a distance of 0.34 nm, and each turn of the helix measures 3.4 nm.
+Each base pair is separated from the next base pair by a distance of 0.34 nm.
+each turn of the helix measures 3.4 nm.
+Therefore, 10 base pairs are present per turn of the helix.
+The diameter of the DNA double- helix is 2 nm, and it is uniform throughout.
+The diameter of the DNA double- helix is 2 nm.
+it is uniform throughout.
+Only the pairing between a purine and pyrimidine and the antiparallel orientation of the two DNA strands can explain the uniform diameter.
+DNA Sequencing Techniques Until the 1990s, the sequencing of DNA was a relatively expensive and long process.
+With currently available technology and automated machines, the process is cheaper, safer, and can be completed in a matter of hours.
+With currently available technology and automated machines, the process is cheaper, safer.
+LINK TO LEARNING Visit this site to watch a video explaining the DNA sequence-reading technique that resulted from Sanger's work.
+The sequencing method is known as the dideoxy chain termination method.
+The method is based on the use of chain terminators, the dideoxynucleotides.
+The ddNTPs differ from the deoxynucleotides by the lack of a free 3' OH group on the five-carbon sugar.
+By using a predetermined ratio of deoxynucleotides to dideoxynucleotides, it is possible to generate DNA fragments of different sizes.
+The DNA is separated by capillary electrophoresis on the basis of size, and from the order of fragments formed, the DNA sequence can be read.
+The DNA is separated by capillary electrophoresis on the basis of size.
+from the order of fragments formed, the DNA sequence can be read.
+The DNA sequence readout is shown on an electropherogram that is generated by a laser scanner.
+The DNA is divided into four tubes in which a primer, DNA polymerase, and all four nucleoside triphosphates are added.
+The DNA is divided into four tubes in which a primer, DNA polymerase.
+In addition, limited quantities of one of the four dideoxynucleoside triphosphates are added to each tube respectively.
+The tubes are labeled as A, T, G, and C according to the ddNTP added.
+The tubes are labeled as A, T, G.
+For detection purposes, each of the four dideoxynucleotides carries a different fluorescent label.
+The sequence is read from a laser scanner that detects the fluorescent marker of each fragment.
+For his work on DNA sequencing, Sanger received a Nobel Prize in Chemistry in 1980.
+LINK TO LEARNING Sanger's genome sequencing has led to a race to sequence human genomes at rapid speed and low cost.
+Gel electrophoresis is a technique used to separate DNA fragments of different sizes.
+Usually the gel is made of a chemical called agarose.
+Agarose powder is added to a buffer and heated.
+After cooling, the gel solution is poured into a casting tray.
+Once the gel has solidified, the DNA is loaded on the gel and electric current is applied.
+The DNA has a net negative charge and moves from the negative electrode toward the positive electrode.
+The first draft sequence of the Neanderthal genome was recently published by Richard E. Green et al. in 2010.
+Neanderthals are the closest ancestors of present-day humans.
+They were known to have lived in Europe and Western Asia before they disappeared from fossil records approximately 30,000 years ago.
+Green's team studied almost 40,000-year-old fossil remains that were selected from sites across the world.
+Extremely sophisticated means of sample preparation and DNA sequencing were employed because of the fragile nature of the bones and heavy microbial contamination.
+In their study, the scientists were able to sequence some four billion base pairs.
+The Neanderthal sequence was compared with that of present-day humans from across the world.
+After comparing the sequences, the researchers found that the Neanderthal genome had 2 to 3 percent greater similarity to people living outside Africa than to people in Africa.
+Green and his colleagues also discovered DNA segments among people in Europe and Asia that are more similar to Neanderthal sequences than to other contemporary human sequences.
+Another interesting observation was that Neanderthals are as closely related to people from Papua New Guinea as to those from China or France.
+This is surprising because Neanderthal fossil remains have been located only in Europe and West Asia.
+Most likely, genetic exchange took place between Neanderthals and modern humans as modern humans emerged out of Africa, before the divergence of Europeans, East Asians, and Papua New Guineans.
+Most likely, genetic exchange took place between Neanderthals and modern humans as modern humans emerged out of Africa, before the divergence of Europeans, East Asians.
+Several genes seem to have undergone changes from Neanderthals during the evolution of present-day humans.
+These genes are involved in cranial structure, metabolism, skin morphology, and cognitive development.
+These genes are involved in cranial structure, metabolism, skin morphology.
+This gene is responsible for the prominent frontal bone, bell-shaped rib cage, and dental differences seen in Neanderthals.
+This gene is responsible for the prominent frontal bone, bell-shaped rib cage.
+It is speculated that an evolutionary change in RUNX2 was important in the origin of modern-day humans, and this affected the cranium and the upper body.
+It is speculated that an evolutionary change in RUNX2 was important in the origin of modern-day humans.
+this affected the cranium and the upper body.
+A eukaryote contains a well-defined nucleus, whereas in prokaryotes, the chromosome lies in the cytoplasm in an area called the nucleoid.
+A eukaryote contains a well-defined nucleus.
+in prokaryotes, the chromosome lies in the cytoplasm in an area called the nucleoid.
+In eukaryotic cells, DNA and RNA synthesis occur in a separate compartment from protein synthesis.
+In prokaryotic cells, both processes occur together.
+The size of the genome in one of the most well-studied prokaryotes, E.coli, is 4.6 million base pairs.
+The DNA is twisted by what is known as supercoiling.
+Some proteins are known to be involved in the supercoiling.
+At the most basic level, DNA is wrapped around proteins known as histones to form structures called nucleosomes.
+The histones are evolutionarily conserved proteins that are rich in basic amino acids and form an octamer composed of two molecules of each of four different histones.
+Their composition and properties are important to understanding gene expression, and were partially uncovered based on research by Marie M. Daly and Alfred E. Mirsky in the early 1950s.
+Their composition and properties are important to understanding gene expression.
+The DNA is wrapped tightly around the histone core.
+This nucleosome is linked to the next one with the help of a linker DNA.
+This is also known as the "beads on a string" structure.
+With the help of a fifth histone, a string of nucleosomes is further compacted into a 30-nm fiber, which is the diameter of the structure.
+Metaphase chromosomes are even further condensed by association with scaffolding proteins.
+At the metaphase stage, the chromosomes are at their most compact, approximately 700 nm in width.
+In interphase, eukaryotic chromosomes have two distinct regions that can be distinguished by staining.
+The tightly packaged region is known as heterochromatin, and the less dense region is known as euchromatin.
+The tightly packaged region is known as heterochromatin.
+the less dense region is known as euchromatin.
+The euchromatin usually contains genes that are transcribed, with DNA packaged around nucleosomes but not further compacted.
+These figures illustrate the compaction of the eukaryotic chromosome.
+The elucidation of the structure of the double helix provided a hint as to how DNA divides and makes copies of itself.
+With specific base pairs, the sequence of one DNA strand can be predicted from its complement.
+The double-helix model suggests that the two strands of the double helix separate during replication, and each strand serves as a template from which the new complementary strand is copied.
+The double-helix model suggests that the two strands of the double helix separate during replication.
+each strand serves as a template from which the new complementary strand is copied.
+Gray indicates the original DNA strands, and blue indicates newly synthesized DNA.
+Gray indicates the original DNA strands.
+blue indicates newly synthesized DNA.
+In conservative replication, the parental DNA remains together, and the newly formed daughter strands are together.
+In conservative replication, the parental DNA remains together.
+the newly formed daughter strands are together.
+Meselson and Stahl were interested in understanding how DNA replicates.
+These data support the semi-conservative replication model.
+The E. coli culture was then placed into medium containing 14N and allowed to grow for several generations.
+After each of the first few generations, the cells were harvested and the DNA was isolated, then centrifuged at high speeds in an ultracentrifuge.
+Under these circumstances, the DNA will form a band according to its buoyant density: the density within the gradient at which it floats.
+These results could only be explained if DNA replicates in a semi-conservative manner.
+And for this reason, therefore, the other two models were ruled out.
+During DNA replication, each of the two strands that make up the double helix serves as a template from which new strands are copied.
+The new strands will be complementary to the parental or "old" strands.
+When two daughter DNA copies are formed, they have the same sequence and are divided equally into the two daughter cells.
+DNA replication has been well studied in prokaryotes primarily because of the small size of the genome and because of the large variety of mutants that are available.
+This means that approximately 1000 nucleotides are added per second.
+Thus, the process is quite rapid and occurs without many mistakes.
+DNA replication employs a large number of structural proteins and enzymes, each of which plays a critical role during the process.
+The addition of nucleotides requires energy; this energy is obtained from the nucleoside triphosphates dATP, dGTP, dTTP and dCTP.
+The addition of nucleotides requires energy.
+this energy is obtained from the nucleoside triphosphates dATP, dGTP, dTTP and dCTP.
+Like ATP, the other NTPs are high-energy molecules that can serve both as the source of DNA nucleotides and the source of energy to drive the polymerization.
+When the bond between the phosphates is "broken," the energy released is used to form the phosphodiester bond between the incoming nucleotide and the growing chain.
+In prokaryotes, three main types of polymerases are known: DNA pol I, DNA pol II, and DNA pol III.
+In prokaryotes, three main types of polymerases are known: DNA pol I, DNA pol II.
+It turns out that there are specific nucleotide sequences called origins of replication where replication begins.
+The origin of replication is recognized by certain proteins that bind to this site.
+An enzyme called helicase unwinds the DNA by breaking the hydrogen bonds between the nitrogenous base pairs.
+ATP hydrolysis is required for this process.
+Two replication forks are formed at the origin of replication and these get extended bi-directionally as replication proceeds.
+It also requires a free 3'-OH group to which it can add nucleotides by forming a phosphodiester bond between the 3'-OH end and the 5' phosphate of the next nucleotide.
+This essentially means that it cannot add nucleotides if a free 3'-OH group is not available.
+The problem is solved with the help of a primer that provides the free 3'-OH end.
+Another enzyme, RNA primase, synthesizes an RNA segment that is about five to ten nucleotides long and complementary to the template DNA.
+Because this sequence primes the DNA synthesis, it is appropriately called the primer.
+As DNA replication begins, DNA Helicase, a large enzyme, separates the two strands of DNA so that they can act as templates for replication.
+Single-strand binding proteins bind to each strand to stabilize and prevent them from reforming the double helix.
+Primase, an RNA polymerase, binds to the single stranded DNA and synthesizes a short RNA primer in the 5' to 3' direction that is antiparallel to the parental strand.
+Topoisomerase binds to the double helix upstream of the replication fork to prevent additional coiling by making small cuts in one of the DNA strands.
+Because DNA polymerase can only extend in the 5' to 3' direction.
+The two template DNA strands have opposing orientations: one strand is in the 5' to 3' direction and the other is oriented in the 3' to 5' direction.
+Only one new DNA strand, the one that is complementary to the 3' to 5' parental DNA strand, can be synthesized continuously towards the replication fork.
+This continuously synthesized strand is known as the leading strand.
+New primer segments are laid down in the direction of the replication fork, but each pointing away from it.
+(Okazaki fragments are named after the Japanese scientist who first discovered them.
+The leading strand can be extended from a single primer, whereas the lagging strand needs a new primer for each of the short Okazaki fragments.
+The leading strand can be extended from a single primer.
+the lagging strand needs a new primer for each of the short Okazaki fragments.
+A protein called the sliding clamp holds the DNA polymerase in place as it continues to add nucleotides.
+The sliding clamp is a ring-shaped protein that binds to the DNA and holds the polymerase in place.
+As synthesis proceeds, the RNA primers are replaced by DNA.
+Once the chromosome has been completely replicated, the two DNA copies move into two different cells during cell division.
+Helicase opens up the DNA-forming replication forks.
+Topoisomerase binds at the region ahead of the replication fork to prevent supercoiling.
+Primase synthesizes RNA primers complementary to the DNA strand.
+RNA primers are removed by exonuclease activity.
+Gaps are filled by DNA pol I by adding dNTPs.
+The gap between the two DNA fragments is sealed by DNA ligase, which helps in the formation of phosphodiester bonds.
+Eukaryotic genomes are much more complex and larger in size than prokaryotic genomes.
+Eukaryotes also have a number of different linear chromosomes.
+The human genome has 3 billion base pairs per haploid set of chromosomes, and 6 billion base pairs are replicated during the S phase of the cell cycle.
+The human genome has 3 billion base pairs per haploid set of chromosomes.
+There are multiple origins of replication on each eukaryotic chromosome; humans can have up to 100,000 origins of replication across the genome.
+humans can have up to 100,000 origins of replication across the genome.
+The rate of replication is approximately 100 nucleotides per second, much slower than prokaryotic replication.
+In yeast, which is a eukaryote, special sequences known as autonomously replicating sequences are found on the chromosomes.
+These are equivalent to the origin of replication in E. coli.
+They are known as pol α, pol β, pol γ, pol δ, and pol ε.
+They are known as pol α, pol β, pol γ, pol δ.
+The essential steps of replication are the same as in prokaryotes.
+Before replication can start, the DNA has to be made available as a template.
+Eukaryotic DNA is bound to basic proteins known as histones to form structures called nucleosomes.
+At the origin of replication, a pre-replication complex is made with other initiator proteins.
+Helicase and other proteins are then recruited to start the replication process.
+A helicase using the energy from ATP hydrolysis opens up the DNA helix.
+Replication forks are formed at each replication origin as the DNA unwinds.
+The opening of the double helix causes over-winding, or supercoiling, in the DNA ahead of the replication fork.
+The opening of the double helix causes over-winding.
+These are resolved with the action of topoisomerases.
+Primers are formed by the enzyme primase, and using the primer, DNA pol can start synthesis.
+Primers are formed by the enzyme primase.
+using the primer, DNA pol can start synthesis.
+DNA pol α adds a short DNA fragment to the RNA primer on both strands, and then hands off to a second polymerase.
+DNA pol α adds a short DNA fragment to the RNA primer on both strands.
+While the leading strand is continuously synthesized by the enzyme pol ε, the lagging strand is synthesized by pol δ.
+A sliding clamp protein known as PCNA holds the DNA pol in place so that it does not slide off the DNA.
+As pol δ runs into the primer RNA on the lagging strand, it displaces it from the DNA template.
+The gaps that remain are sealed by DNA ligase, which forms the phosphodiester bond.
+Telomere replication Unlike prokaryotic chromosomes, eukaryotic chromosomes are linear.
+As you've learned, the enzyme DNA pol can add nucleotides only in the 5' to 3' direction.
+In the leading strand, synthesis continues until the end of the chromosome is reached.
+On the lagging strand, DNA is synthesized in short stretches, each of which is initiated by a separate primer.
+The DNA at the ends of the chromosome thus remains unpaired, and over time these ends, called telomeres, may get progressively shorter as cells continue to divide.
+The DNA at the ends of the chromosome thus remains unpaired.
+Telomeres comprise repetitive sequences that code for no particular gene.
+In humans, a six-base-pair sequence, TTAGGG, is repeated 100 to 1000 times in the telomere regions.
+In a way, these telomeres protect the genes from getting deleted as cells continue to divide.
+It attaches to the end of the chromosome, and DNA nucleotides complementary to the RNA template are added on the 3' end of the DNA strand.
+It attaches to the end of the chromosome.
+DNA nucleotides complementary to the RNA template are added on the 3' end of the DNA strand.
+Once the 3' end of the lagging strand template is sufficiently elongated, DNA polymerase can add the nucleotides complementary to the ends of the chromosomes.
+Thus, the ends of the chromosomes are replicated.
+The ends of linear chromosomes are maintained by the action of the telomerase enzyme.
+Telomerase is typically active in germ cells and adult stem cells.
+It is not active in adult somatic cells.
+Later research using HeLa cells confirmed that telomerase is present in human cells.
+And in 2001, researchers including Diane L. Wright found that telomerase is necessary for cells in human embryos to rapidly proliferate.
+This essentially means that telomere shortening is associated with aging.
+In 2010, scientists found that telomerase can reverse some age-related conditions in mice.
+This may have potential 2 in regenerative medicine.
+Telomerase-deficient mice were used in these studies; these mice have tissue atrophy, stem cell depletion, organ system failure, and impaired tissue injury responses.
+Telomerase-deficient mice were used in these studies.
+these mice have tissue atrophy, stem cell depletion, organ system failure, and impaired tissue injury responses.
+Telomerase-deficient mice were used in these studies; these mice have tissue atrophy, stem cell depletion, organ system failure.
+Thus, telomere reactivation may have potential for treating age-related diseases in humans.
+Cancer is characterized by uncontrolled cell division of abnormal cells.
+The cells accumulate mutations, proliferate uncontrollably, and can migrate to different parts of the body through a process called metastasis.
+The cells accumulate mutations, proliferate uncontrollably.
+Scientists have observed that cancerous cells have considerably shortened telomeres and that telomerase is active in these cells.
+Interestingly, only after the telomeres were shortened in the cancer cells did the telomerase become active.
+If the action of telomerase in these cells can be inhibited by drugs during cancer therapy, then the cancerous cells could potentially be stopped from further division.
+DNA replication is a highly accurate process, but mistakes can occasionally occur, such as a DNA polymerase inserting a wrong base.
+Uncorrected mistakes may sometimes lead to serious consequences, such as cancer.
+Repair mechanisms correct the mistakes.
+In rare cases, mistakes are not corrected, leading to mutations; in other cases, repair enzymes are themselves mutated or defective.
+In rare cases, mistakes are not corrected, leading to mutations.
+in other cases, repair enzymes are themselves mutated or defective.
+In proofreading, the DNA pol reads the newly added base before adding the next one, so a correction can be made.
+The polymerase checks whether the newly added base has paired correctly with the base in the template strand.
+If an incorrect base has been added, the enzyme makes a cut at the phosphodiester bond and releases the wrong nucleotide.
+This is performed by the 3' exonuclease action of DNA pol.
+Once the incorrect nucleotide has been removed, it can be replaced by the correct one.
+Specific repair enzymes recognize the mispaired nucleotide and excise part of the strand that contains it; the excised region is then resynthesized.
+Specific repair enzymes recognize the mispaired nucleotide and excise part of the strand that contains it.
+the excised region is then resynthesized.
+uncorrected, it may lead to more permanent damage when the mismatched DNA is replicated.
+In E. coli, after replication, the nitrogenous base adenine acquires a methyl group; the parental DNA strand will have methyl groups, whereas the newly synthesized strand lacks them.
+In E. coli, after replication, the nitrogenous base adenine acquires a methyl group.
+the parental DNA strand will have methyl groups, whereas the newly synthesized strand lacks them.
+In E. coli, after replication, the nitrogenous base adenine acquires a methyl group; the parental DNA strand will have methyl groups.
+the newly synthesized strand lacks them.
+Thus, DNA polymerase is able to remove the wrongly incorporated bases from the newly synthesized, non-methylated strand.
+In mismatch repair, the incorrectly added base is detected after replication.
+The mismatch repair proteins detect this base and remove it from the newly synthesized strand by nuclease action.
+The gap is now filled with the correctly paired base.
+Another type of repair mechanism, nucleotide excision repair, is similar to mismatch repair, except that it is used to remove damaged bases rather than mismatched ones.
+Once the bases are filled in, the remaining gap is sealed with a phosphodiester linkage catalyzed by DNA ligase.
+This repair mechanism is often employed when UV exposure causes the formation of pyrimidine dimers.
+In normal cells, they are excised and replaced.
+Affected individuals have skin that is highly sensitive to UV rays from the sun.
+When individuals are exposed to UV light, pyrimidine dimers, especially those of thymine, are formed; people with xeroderma pigmentosa are not able to repair the damage.
+people with xeroderma pigmentosa are not able to repair the damage.
+These are not repaired because of a defect in the nucleotide excision repair enzymes, whereas in normal individuals, the thymine dimers are excised and the defect is corrected.
+These are not repaired because of a defect in the nucleotide excision repair enzymes.
+in normal individuals, the thymine dimers are excised and the defect is corrected.
+The thymine dimers distort the structure of the DNA double helix, and this may cause problems during DNA replication.
+The thymine dimers distort the structure of the DNA double helix.
+this may cause problems during DNA replication.
+People with xeroderma pigmentosa may have a higher risk of contracting skin cancer than those who don't have the condition.
+Errors during DNA replication are not the only reason why mutations arise in DNA.
+Mutations, variations in the nucleotide sequence of a genome, can also occur because of damage to DNA.
+Such mutations may be of two types: induced or spontaneous.
+Induced mutations are those that result from an exposure to chemicals, UV rays, x-rays, or some other environmental agent.
+Induced mutations are those that result from an exposure to chemicals, UV rays, x-rays.
+For example, Charlotte Auerbach and J.M Robson discovered the mutation- inducing effects of mustard gas.
+Spontaneous mutations occur without any exposure to any environmental agent; they are a result of natural reactions taking place within the body.
+Spontaneous mutations occur without any exposure to any environmental agent.
+they are a result of natural reactions taking place within the body.
+Mutations may have a wide range of effects.
+Point mutations are those mutations that affect a single base pair.
+The most common nucleotide mutations are substitutions, in which one base is replaced by another.
+These substitutions can be of two types, either transitions or transversions.
+Transversion substitution refers to a purine being replaced by a pyrimidine, or vice versa; for example, cytosine, a pyrimidine, is replaced by adenine, a purine.
+Transversion substitution refers to a purine being replaced by a pyrimidine, or vice versa.
+for example, cytosine, a pyrimidine, is replaced by adenine, a purine.
+Transversion substitution refers to a purine being replaced by a pyrimidine.
+vice versa; for example, cytosine, a pyrimidine, is replaced by adenine, a purine.
+Some point mutations are not detectable in the final product; these are known as silent mutations.
+Some point mutations are not detectable in the final product.
+these are known as silent mutations.
+Silent mutations are usually due to a substitution in the third base of a codon, which often represents the same amino acid as the original codon.
+Other point mutations can result in the replacement of one amino acid by another, which may alter the function of the protein.
+Some mutations can result in an increased number of copies of the same codon.
+Mutations can also be the result of the addition of a base, known as an insertion, or the removal of a base, also known as deletion.
+Mutations can also be the result of the addition of a base, known as an insertion.
+If an insertion or deletion results in the alteration of the translational reading frame, the resultant protein is usually nonfunctional.
+Sometimes a piece of DNA from one chromosome may get translocated to another chromosome or to another region of the same chromosome; this is also known as translocation.
+Sometimes a piece of DNA from one chromosome may get translocated to another chromosome or to another region of the same chromosome.
+this is also known as translocation.
+A frameshift mutation that results in the insertion of three nucleotides is often less deleterious than a mutation that results in the insertion of one nucleotide.
+Mutations in repair genes have been known to cause cancer.
+Many mutated repair genes have been implicated in certain forms of pancreatic cancer, colon cancer, and colorectal cancer.
+Many mutated repair genes have been implicated in certain forms of pancreatic cancer, colon cancer.
+Mutations can affect either somatic cells or germ cells.
+If many mutations accumulate in a somatic cell, they may lead to problems such as the uncontrolled cell division observed in cancer.
+If a mutation takes place in germ cells, the mutation will be passed on to the next generation, as in the case of hemophilia and xeroderma pigmentosa.
+Friedrich Miescher, who called it nuclein because it was Some of the salient features are that the two strands isolated from nuclei.
+Frederick Griffith's experiments that make up the double helix have complementary with strains of Streptococcus pneumoniae provided the base sequences and anti-parallel orientations.
+McCarty showed that DNA is the backbone of the structure.
+Later bases are stacked like rungs inside.
+The diameter of experiments by Hershey and Chase using the double helix, 2 nm, is uniform throughout.
+A purine bacteriophage T2 proved that DNA is the genetic always pairs with a pyrimidine.
+Chargaff found that the ratio of A = T and C = pairs with C. One turn of the helix has 10 base pairs.
+G, and that the percentage content of A, T, G, and C is Prokaryotes are much simpler than eukaryotes in many different for different species.
+C is Prokaryotes are much simpler than eukaryotes in many different for different species.
+Most prokaryotes contain a single, circular chromosome.
+The mechanism is quite similar to that in During cell division, each daughter cell receives a copy prokaryotes.
+A primer is required to initiate synthesis, of each molecule of DNA by a process known as DNA which is then extended by DNA polymerase as it adds replication.
+The model for DNA replication the lagging strand is synthesized in short stretches suggests that the two strands of the double helix called Okazaki fragments.
+The ends of the chromosomes pose a parental DNA is conserved, and the daughter DNA is problem as the primer RNA at the 5' ends of the DNA newly synthesized.
+The ends of the chromosomes pose a parental DNA is conserved.
+the daughter DNA is problem as the primer RNA at the 5' ends of the DNA newly synthesized.
+The semi-conservative model cannot be replaced with DNA, and the chromosome is suggests that each of the two parental DNA strands progressively shortened.
+The semi-conservative model cannot be replaced with DNA.
+the chromosome is suggests that each of the two parental DNA strands progressively shortened.
+It edits the DNA by proofreading every newly added base.
+Most mistakes are corrected during found on the chromosome called the origin of replication, although when this does not happen, the replication—the point at which the DNA opens up.
+Mismatch Helicase opens up the DNA double helix, resulting in repair enzymes recognize the wrongly incorporated the formation of the replication fork.
+Single-strand base and excise it from the DNA, replacing it with the binding proteins bind to the single-stranded DNA near correct base.
+In yet another type of repair, nucleotide the replication fork to keep the fork open.
+The ends of the newly synthesized new DNA strands grow according to their respective fragment are attached to the rest of the DNA using DNA 5'-3' directions.
+in the direction of the replication fork; this is called the Most mistakes are corrected, and if they are not, they leading strand.
+in the direction of the replication fork; this is called the Most mistakes are corrected.
+if they are not, they leading strand.
+The other strand is synthesized in a may result in a mutation, defined as a permanent direction away from the replication fork, in short change in the DNA sequence.
+Mutations can be of stretches of DNA known as Okazaki fragments.
+This many types, such as substitution, deletion, insertion, strand is known as the lagging strand.
+Mutations in is completed, the RNA primers are replaced by DNA repair genes may lead to serious consequences such nucleotides and the DNA is sealed with DNA ligase, as cancer.
+In prokaryotic cells, both suspect that a mutation has occurred in an processes occur together.
+What advantages enzyme found at the replication fork.
+You isolate a cell strain in which deleterious than a mutation that results in the the joining of Okazaki fragments is impaired and insertion of one nucleotide.
+The experiments by Hershey and Chase helped confirm that DNA was the hereditary material on 10.
+How did Meselson and Stahl support Watson 6.
+They showed that the DNA strands break bacteria.
+helix structure while undergoing semi- c. Bacteriophages could spread DNA conservative replication.
+They demonstrated that conservative d.
+replication maintains the complementary base pairing of each DNA helix.
+RNA primer prokaryotic replication uses a single origin c. Okazaki fragments to rapidly replicate the entire genome.
+d. phosphodiester linkage c. DNA replication always occurs in the nucleus.
+She then sequences the bacterium's d. helicase daughter cells, and finds that the daughters have many errors in their replicated DNA.
+She then sequences the bacterium's d. helicase daughter cells.
+The initial mechanism for repairing nucleotide bacterium likely acquired a mutation in which errors in DNA is ________.
+A scientist creates fruit fly larvae with a 16.
+The ends of the linear chromosomes are mutation that eliminates the exonuclease maintained by function of DNA pol.
+The adults with the DNA pol mutation will d. telomerase have significantly more mutations than average.
+Which of the following is not a true statement b.
+The adults with the DNA pol mutation will polymerases build off RNA primers made have the same number of mutations as by primase.
+b. Eukaryotic DNA replication requires d.
+Why were radioactive sulfur and phosphorous pairing of DNA. used to label bacteriophage in Hershey and 26.
+while eukaryotes have linear chromosomes.
+repeats, was the most widely accepted view of 27.
+How did the scientific community learn that DNA DNA's composition.
+Quinolone antibiotics treat bacterial infections distributions of DNA incorporating 15N and 14N by blocking the activity of topoisomerase.
+DNA replication is bidirectional and at the molecular level.
+How do the linear chromosomes in eukaryotes those concepts.
+What are Okazaki fragments and how they are 36.
+How will this affect 31.
+prokaryote is 900 nucleotides per second, how 37.
+An adult with a history of tanning has his long would it take 1.2 million base pair genomes genome sequenced.
+coding region of his DNA reads 32.
+ATGGGGATATGAGCAT, identify the site and type of mutation.

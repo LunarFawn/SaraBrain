@@ -1,0 +1,450 @@
+# Biology2e Chapter 6 — Metabolism
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 446
+
+The bird obtains its energy from taking in food and transforming the nutrients into energy through a series of biochemical reactions.
+The flight muscles in birds are extremely efficient in energy production.
+INTRODUCTION Virtually every task performed by living organisms requires energy.
+Organisms require energy to perform heavy labor and exercise, but humans also use considerable energy while thinking, and even during sleep.
+Organisms require energy to perform heavy labor and exercise, but humans also use considerable energy while thinking.
+Every organism's living cells constantly use energy.
+For example, the large proteins that make up muscles are actively built from smaller molecules.
+Complex carbohydrates break down into simple sugars that the cell uses for energy.
+Just as energy is required to both build and demolish a building, energy is required to synthesize and break down molecules.
+Cells must also export waste and toxins to stay healthy, and many cells must swim or move surrounding materials via the beating motion of cellular appendages like cilia and flagella.
+Cells must also export waste and toxins to stay healthy.
+The cellular processes that we listed above require a steady supply of energy.
+This chapter will discuss different forms of energy and the physical laws that govern energy transfer.
+This chapter will also describe how cells use energy and replenish it, and how chemical reactions in the cell perform with great efficiency.
+This chapter will also describe how cells use energy and replenish it.
+how chemical reactions in the cell perform with great efficiency.
+Cellular processes such as building and breaking down complex molecules occur through stepwise chemical reactions.
+Some of these chemical reactions are spontaneous and release energy; whereas, others require energy to proceed.
+Some of these chemical reactions are spontaneous and release energy.
+whereas, others require energy to proceed.
+All of the chemical reactions that transpire inside cells, including those that use and release energy, are the cell's metabolism.
+Plants use photosynthesis to capture sunlight, and herbivores eat those plants to obtain energy.
+Plants use photosynthesis to capture sunlight.
+herbivores eat those plants to obtain energy.
+Carnivores eat the herbivores, and decomposers digest plant and animal matter.
+Carnivores eat the herbivores.
+Carbohydrate Metabolism Sugar metabolism is a classic example of the many cellular processes that use and produce energy.
+Living things consume sugar as a major energy source, because sugar molecules have considerable energy stored within their bonds.
+During photosynthesis, plants use the energy of sunlight to convert carbon dioxide gas into sugar molecules, like glucose.
+energy-storing molecule, it requires an energy input to proceed.
+During photosynthesis chemical reactions, energy is in the form of a very high-energy molecule scientists call ATP, or adenosine triphosphate.
+During photosynthesis chemical reactions, energy is in the form of a very high-energy molecule scientists call ATP.
+This is the primary energy currency of all cells.
+Just as the dollar is the currency we use to buy goods, cells use ATP molecules as energy currency to perform immediate work.
+The sugar is stored as starch or glycogen.
+Energy-storing polymers like these break down into glucose to supply ATP molecules.
+Solar energy is required to synthesize a glucose molecule during the photosynthesis reactions.
+In photosynthesis, light energy from the sun initially transforms into chemical energy that temporally stores itself in the energy carrier molecules ATP and NADPH.
+Photosynthesis later uses the stored energy in ATP and NADPH to build one glucose molecule from six molecules of CO2.
+This process is analogous to eating breakfast in the morning to acquire energy for your body that you can use later in the day.
+Under ideal conditions, energy from 18 molecules of ATP is required to synthesize one glucose molecule during photosynthesis reactions.
+Glucose molecules can also combine with and convert into other sugar types.
+When an organism consumes sugars, glucose molecules eventually make their way into each organism's living cell.
+Inside the cell, each sugar molecule breaks down through a complex series of chemical reactions.
+The goal of these reactions is to harvest the energy stored inside the sugar molecules.
+The harvested energy makes high-energy ATP molecules, which perform work, powering many chemical reactions in the cell.
+This process is a fundamental and efficient way for cells to generate the molecular energy that they require.
+Both plants and animals use cellular respiration to derive energy from the organic molecules that plants originally produced.
+The processes of making and breaking down sugar molecules illustrate two types of metabolic pathways.
+In the case of sugar metabolism, the first metabolic pathway synthesized sugar from smaller molecules, and the other pathway broke sugar down into smaller molecules.
+In the case of sugar metabolism, the first metabolic pathway synthesized sugar from smaller molecules.
+the other pathway broke sugar down into smaller molecules.
+Scientists call these two opposite processes—the first requiring energy and the second producing energy—anabolic and catabolic pathways, respectively.
+Consequently, building and degradation comprise metabolism.
+This tree shows the evolution of the various branches of life.
+The vertical dimension is time.
+Early life forms, in blue, used anaerobic metabolism to obtain energy from their surroundings.
+Metabolic complexity varies from organism to organism.
+Photosynthesis is the primary pathway in which photosynthetic organisms like plants harvest the sun's energy and convert it into carbohydrates.
+The by-product of photosynthesis is oxygen, which some cells require to carry out cellular respiration.
+In addition, some eukaryotes perform catabolic processes without oxygen; that is, they perform or use anaerobic metabolism.
+In addition, some eukaryotes perform catabolic processes without oxygen.
+that is, they perform or use anaerobic metabolism.
+Organisms probably evolved anaerobic metabolism to survive.
+Evidence indicates that over time, the pathways diverged, adding specialized enzymes to allow organisms to better adapt to their environment, thus increasing their chance to survive.
+However, the underlying principle remains that all organisms must harvest energy from their environment and convert it to ATP to carry out cellular functions.
+Anabolic and Catabolic Pathways Anabolic pathways require an input of energy to synthesize complex molecules from simpler ones.
+Other examples are synthesizing large proteins from amino acid building blocks, and synthesizing new DNA strands from nucleic acid building blocks.
+Other examples are synthesizing large proteins from amino acid building blocks.
+ATP is an important molecule for cells to have in sufficient supply at all times.
+The breakdown of sugars illustrates how a single glucose molecule can store enough energy to make a great deal of ATP, 36 to 38 molecules.
+This is a catabolic pathway.
+Catabolic pathways involve degrading complex molecules into simpler ones.
+Molecular energy stored in the bonds of complex molecules is released in catabolic pathways and harvested in such a way that it can produce ATP.
+It is important to know that metabolic pathway chemical reactions do not take place spontaneously.
+Enzymes are important for catalyzing all types of biological reactions—those that require energy as well as those that release energy.
+Catabolic pathways are those that generate energy by breaking down larger molecules.
+Both types of pathways are required for maintaining the cell's energy balance.
+We define energy as the ability to do work.
+As you've learned, energy exists in different forms.
+For example, electrical energy, light energy, and heat energy are all different energy types.
+heat energy are all different energy types.
+Scientists associate this energy with something as simple as an object above the ground.
+Energy Types When an object is in motion, there is energy.
+For example, an airplane in flight produces considerable energy.
+Even a slow- moving wrecking ball can do considerable damage to other objects.
+However, a wrecking ball that is not in motion is incapable of performing work.
+Energy with objects in motion is kinetic energy.
+A speeding bullet, a walking person, rapid molecule movement in the air, and electromagnetic radiation like light all have kinetic energy.
+electromagnetic radiation like light all have kinetic energy.
+The answer is yes.
+The suspended wrecking ball has associated energy that is fundamentally different from the kinetic energy of objects in motion.
+This energy form results from the potential for the wrecking ball to do work.
+If we release the ball it would do work.
+Because this energy type refers to the potential to do work, we call it potential energy.
+Objects transfer their energy between kinetic and potential in the following way: As the wrecking ball hangs motionless, it has 0 kinetic and 100 percent potential energy.
+Once it releases, its kinetic energy begins to increase because it builds speed due to gravity.
+Simultaneously, as it nears the ground, it loses potential energy.
+Somewhere mid-fall it has 50 percent kinetic and 50 percent potential energy.
+Just before it hits the ground, the ball has nearly lost its potential energy and has near-maximal kinetic energy.
+Moving water, such as in a waterfall or a rapidly flowing river, has kinetic energy.
+We associate potential energy not only with the matter's location, but also with the matter's structure.
+A spring on the ground has potential energy if it is compressed; so does a tautly pulled rubber band.
+A spring on the ground has potential energy if it is compressed.
+so does a tautly pulled rubber band.
+The very existence of living cells relies heavily on structural potential energy.
+On a chemical level, the bonds that hold the molecules' atoms together have potential energy.
+catabolic pathways release energy when complex molecules break down.
+Chemical energy is responsible for providing living cells with energy from food.
+The molecules in gasoline contain chemical energy within the chemical bonds.
+This energy transforms into kinetic energy that allows a car to race on a racetrack.
+We use a measurement of free energy to quantitate these energy transfers.
+Scientists call this free energy Gibbs free energy after Josiah Willard Gibbs, the scientist who developed the measurement.
+According to the second law of thermodynamics, all energy transfers involve losing some energy in an unusable form such as heat, resulting in entropy.
+Gibbs free energy specifically refers to the energy that takes place with a chemical reaction that is available after we account for entropy.
+In other words, Gibbs free energy is usable energy, or energy that is available to do work.
+In other words, Gibbs free energy is usable energy.
+Every chemical reaction involves a change in free energy, called delta G.
+We can calculate the change in free energy for any system that undergoes such a change, such as a chemical reaction.
+We generally calculate standard pH, temperature, and pressure conditions at pH 7.0 in biological systems, 25 degrees Celsius, and 100 kilopascals, respectively.
+We generally calculate standard pH, temperature.
+so standard calculated ∆G values for biological reactions will be different inside the cell.
+If energy releases during a chemical reaction, then the resulting value from the above equation will be a negative number.
+In other words, reactions that release energy have a ∆G < 0.
+A negative ∆G also means that the reaction's products have less free energy than the reactants, because they gave off some free energy during the reaction.
+Scientists call reactions that have a negative ∆G and consequently release free energy exergonic reactions.
+We also refer to these reactions as spontaneous reactions, because they can occur without adding energy into the system.
+Understanding which chemical reactions are spontaneous and release free energy is extremely useful for biologists, because these reactions can be harnessed to perform work inside the cell.
+We must draw an important distinction between the term spontaneous and the idea of a chemical reaction that occurs immediately.
+Contrary to the everyday use of the term, a spontaneous reaction is not one that suddenly or quickly occurs.
+Rusting iron is an example of a spontaneous reaction that occurs slowly, little by little, over time.
+If a chemical reaction requires an energy input rather than releasing energy, then the ∆G for that reaction will be a positive value.
+In this case, the products have more free energy than the reactants.
+Thus, we can think of the reactions' products as energy-storing molecules.
+they are non-spontaneous.
+An endergonic reaction will not take place on its own without adding free energy.
+Therefore, the chemical reactions involved in anabolic processes are endergonic reactions.
+Alternatively the catabolic process of breaking sugar down into simpler molecules releases energy in a series of exergonic reactions.
+Like the rust example above, the sugar breakdown involves spontaneous reactions, but these reactions do not occur instantaneously.
+These include a compost pile decomposing, a chick developing from a fertilized egg, sand art destruction, and a ball rolling down a hill.
+These include a compost pile decomposing, a chick developing from a fertilized egg, sand art destruction.
+a ball rolling down a hill.
+An important concept in studying metabolism and energy is that of chemical equilibrium.
+Most chemical reactions are reversible.
+In a living cell, chemical reactions are constantly moving towards equilibrium, but never reach it.
+Materials pass in and out, the cell recycles the products of certain chemical reactions into other reactions, and there is never chemical equilibrium.
+Materials pass in and out, the cell recycles the products of certain chemical reactions into other reactions.
+In this way, living organisms are in a constant energy- requiring, uphill battle against equilibrium and entropy.
+This constant energy supply ultimately comes from sunlight, which produces nutrients in the photosynthesis process.
+Exergonic reactions have a net release of energy and are spontaneous reactions.
+Endergonic reactions require an input of energy to proceed and are nonspontaneous reactions.
+Both Exergonic and endergonic reactions require initial activation energy for the reaction to occur.
+Even exergonic reactions require a small amount of energy input before they can proceed with their energy-releasing steps.
+These reactions have a net release of energy, but still require some initial energy.
+The reason lies in the steps that take place during a chemical reaction.
+During chemical reactions, certain chemical bonds break and new ones form.
+For example, when a glucose molecule breaks down, bonds between the molecule's carbon atoms break.
+Since these are energy-storing bonds, they release energy when broken.
+However, to get them into a state that allows the bonds to break, the molecule must be somewhat contorted.
+A small energy input is required to achieve this contorted state.
+This contorted state is the transition state, and it is a high-energy, unstable state.
+This contorted state is the transition state.
+it is a high-energy, unstable state.
+For this reason, reactant molecules do not last long in their transition state, but very quickly proceed to the chemical reaction's next steps.
+Free energy diagrams illustrate the energy profiles for a given reaction.
+Whether the reaction is exergonic or endergonic determines whether the products in the diagram will exist at a lower or higher energy state than both the reactants and the products.
+However, regardless of this measure, the transition state of the reaction exists at a higher energy state than the reactants, and thus, EA is always positive.
+However, regardless of this measure, the transition state of the reaction exists at a higher energy state than the reactants.
+thus, EA is always positive.
+The activation energy's required source to push reactions forward is typically heat energy from the surroundings.
+It also moves atoms and bonds within the molecule slightly, helping them reach their transition state.
+The activation energy of a particular reaction determines the rate at which it will proceed.
+The example of iron rusting illustrates an inherently slow reaction.
+This reaction occurs slowly over time because of its high EA.
+However, once they begin to burn, the chemical reactions release enough heat to continue the burning process, supplying the activation energy for surrounding fuel molecules.
+Like these reactions outside of cells, the activation energy for most cellular reactions is too high for heat energy to overcome at efficient rates.
+Scientist refer to this as catalysis.
+This is a very good thing as far as living cells are concerned.
+Important macromolecules, such as proteins, DNA, and RNA, store considerable energy, and their breakdown is exergonic.
+RNA, store considerable energy.
+their breakdown is exergonic.
+This diagram's horizontal axis describes the sequence of events in time.
+Thermodynamics refers to the study of energy and energy transfer involving physical matter.
+The matter and its environment relevant to a particular case of energy transfer are classified as a system, and everything outside that system is the surroundings.
+The matter and its environment relevant to a particular case of energy transfer are classified as a system.
+everything outside that system is the surroundings.
+For instance, when heating a pot of water on the stove, the system includes the stove, the pot, and the water.
+For instance, when heating a pot of water on the stove, the system includes the stove, the pot.
+An open system is one in which energy and matter can transfer between the system and its surroundings.
+The stovetop system is open because it can lose heat into the air.
+A closed system is one that can transfer energy but not matter to its surroundings.
+Biological organisms are open systems.
+Like all things in the physical world, energy is subject to the laws of physics.
+The laws of thermodynamics govern the transfer of energy in and among all systems in the universe.
+It states that this total amount of energy is constant.
+Energy exists in many different forms.
+According to the first law of thermodynamics, energy may transfer from place to place or transform into different forms, but it cannot be created or destroyed.
+The transfers and transformations of energy take place around us all the time.
+Light bulbs transform electrical energy into light energy.
+Gas stoves transform chemical energy from natural gas into heat energy.
+The challenge for all living organisms is to obtain energy from their surroundings in forms that they can transfer or transform into usable energy to do work.
+Chemical energy stored within organic molecules such as sugars and fats transforms through a series of cellular chemical reactions into energy within ATP molecules.
+Energy in ATP molecules is easily accessible to do work.
+Humans can convert the chemical energy in food, like this ice cream cone, into kinetic energy.
+Plants can convert electromagnetic radiation from the sun into chemical energy.
+However, the second law of thermodynamics explains why these tasks are harder than they appear.
+None of the energy transfers that we have discussed, along with all energy transfers and transformations in the universe, is completely efficient.
+In every energy transfer, some amount of energy is lost in a form that is unusable.
+In most cases, this form is heat energy.
+Thermodynamically, scientists define heat energy as energy that transfers from one system to another that is not doing work.
+For example, when an airplane flies through the air, it loses some of its energy as heat energy due to friction with the surrounding air.
+This friction actually heats the air by temporarily increasing air molecule speed.
+Likewise, some energy is lost as heat energy during cellular metabolic reactions.
+This is good for warm-blooded creatures like us, because heat energy helps to maintain our body temperature.
+Strictly speaking, no energy transfer is completely efficient, because some energy is lost in an unusable form.
+An important concept in physical systems is that of order and disorder.
+Scientists refer to the measure of randomness or disorder within a system as entropy.
+If no energy or work were put into it, the room would quickly become messy.
+It would exist in a very disordered state, one of high entropy.
+This state is one of low entropy.
+Similarly, a car or house must be constantly maintained with work in order to keep it in an ordered state.
+Left alone, a house's or car's entropy gradually increases through rust and degradation.
+Molecules and chemical reactions have varying amounts of entropy as well.
+For example, as chemical reactions reach a state of equilibrium, entropy increases, and as molecules at a high concentration in one place diffuse and spread out, entropy also increases.
+For example, as chemical reactions reach a state of equilibrium, entropy increases.
+as molecules at a high concentration in one place diffuse and spread out, entropy also increases.
+This is water in solid form, so it has a high structural order.
+This means that the molecules cannot move very much and are in a fixed position.
+The ice's temperature is 0°C.
+As a result, the system's entropy is low.
+Think of all physical systems in this way: Living things are highly ordered, requiring constant energy input to maintain themselves in a state of low entropy.
+As living systems take in energy-storing molecules and transform them through chemical reactions, they lose some amount of usable energy in the process, because no reaction is completely efficient.
+They also produce waste and by-products that are not useful energy sources.
+This process increases the entropy of the system's surroundings.
+Since all energy transfers result in losing some usable energy, the second law of thermodynamics states that every energy transfer or transformation increases the universe's entropy.
+Essentially, living things are in a continuous uphill battle against this constant increase in universal entropy.
+Gases have higher entropy than liquids, and liquids have higher entropy than solids.
+Gases have higher entropy than liquids.
+liquids have higher entropy than solids.
+Even exergonic, energy-releasing reactions require a small amount of activation energy in order to proceed.
+The answer lies with an energy-supplying molecule scientists call adenosine triphosphate, or ATP.
+The answer lies with an energy-supplying molecule scientists call adenosine triphosphate.
+same way that money is the currency that people exchange for things they need.
+ATP powers the majority of energy- requiring cellular reactions.
+It has an adenosine backbone with three phosphate groups attached.
+Adenosine is a nucleoside consisting of the nitrogenous base adenine and a five-carbon sugar, ribose.
+The three phosphate groups, in order of closest to furthest from the ribose sugar, are alpha, beta, and gamma.
+The three phosphate groups, in order of closest to furthest from the ribose sugar, are alpha, beta.
+Together, these chemical groups constitute an energy powerhouse.
+However, not all bonds within this molecule exist in a particularly high-energy state.
+Both bonds that link the phosphates are equally high-energy bonds that, when broken, release sufficient energy to power a variety of cellular reactions and processes.
+These high-energy bonds are the bonds between the second and third phosphate groups and between the first and second phosphate groups.
+Because this reaction takes place using a water molecule, it is a hydrolysis reaction.
+The reverse reaction regenerates ATP from ADP + Pi.
+Cells rely on ATP regeneration just as people rely on regenerating spent money through some sort of income.
+Since ATP hydrolysis releases energy, ATP regeneration must require an input of free energy.
+Two prominent questions remain with regard to using ATP as an energy source.
+The calculated ∆G for the hydrolysis of one ATP mole into ADP and Pi is −7.3 kcal/mole.
+Since this calculation is true under standard conditions, one would expect a different value exists under cellular conditions.
+In fact, the ∆G for one ATP mole's hydrolysis in a living cell is almost double the value at standard conditions: –14 kcal/mol.
+ATP is a highly unstable molecule.
+Unless quickly used to perform work, ATP spontaneously dissociates into ADP + Pi, and the free energy released during this process is lost as heat.
+Unless quickly used to perform work, ATP spontaneously dissociates into ADP + Pi.
+the free energy released during this process is lost as heat.
+The second question we posed above discusses how ATP hydrolysis energy release performs work inside the cell.
+This depends on a strategy scientists call energy coupling.
+Cells couple the ATP hydrolysis' exergonic reaction allowing them to proceed.
+One example of energy coupling using ATP involves a transmembrane ion pump that is extremely important for cellular function.
+The pump works constantly to stabilize cellular concentrations of sodium and potassium.
+In order for the pump to turn one cycle, one ATP molecule must hydrolyze.
+When ATP hydrolyzes, its gamma phosphate does not simply float away, but it actually transfers onto the pump protein.
+Scientists call this process of a phosphate group binding to a molecule phosphorylation.
+In a phosphorylated state, the Na+/K+ pump has more free energy and is triggered to undergo a conformational change.
+This change allows it to release Na+ to the cell's outside.
+conformational change, causes the phosphate to detach from the pump.
+This phosphate release triggers the K+ to release to the cell's inside.
+ATP performs cellular work using this basic form of energy coupling through phosphorylation.
+The sodium-potassium pump is an example of energy coupling.
+One ATP molecule's hydrolysis releases 7.3 kcal/mol of energy.
+Often during cellular metabolic reactions, such as nutrient synthesis and breakdown, certain molecules must alter slightly in their conformation to become substrates for the next step in the reaction series.
+One example is during the very first steps of cellular respiration, when a sugar glucose molecule breaks down in the process of glycolysis.
+In the first step, ATP is required to phosphorylate glucose, creating a high-energy but unstable intermediate.
+This phosphorylation reaction powers a conformational change that allows the phosphorylated glucose molecule to convert to the phosphorylated sugar fructose.
+Fructose is a necessary intermediate for glycolysis to move forward.
+Once again, the energy released by breaking a phosphate bond within ATP was used for phosphorylyzing another molecule, creating an unstable intermediate and powering an important conformational change.
+LINK TO LEARNING See an animation of the ATP-producing glycolysis process at this site.
+A substance that helps a chemical reaction to occur is a catalyst, and the special molecules that catalyze biochemical reactions are enzymes.
+A substance that helps a chemical reaction to occur is a catalyst.
+the special molecules that catalyze biochemical reactions are enzymes.
+Almost all enzymes are proteins, comprised of amino acid chains, and they perform the critical task of lowering the activation energies of chemical reactions inside the cell.
+Almost all enzymes are proteins, comprised of amino acid chains.
+they perform the critical task of lowering the activation energies of chemical reactions inside the cell.
+It is important to remember that enzymes do not change the reaction's ∆G. In other words, they do not change whether a reaction is exergonic or endergonic.
+In some reactions, a single-reactant substrate breaks down into multiple products.
+In others, two substrates may come together to create one larger molecule.
+Two reactants might also enter a reaction, both become modified, and leave the reaction as two products.
+Two reactants might also enter a reaction, both become modified.
+The location within the enzyme where the substrate binds is the enzyme's active site.
+Different properties characterize each residue.
+These can be large or small, weakly acidic or basic, hydrophilic or hydrophobic, positively or negatively charged, or neutral.
+These can be large or small, weakly acidic or basic, hydrophilic or hydrophobic, positively or negatively charged.
+The unique combination of amino acid residues, their positions, sequences, structures, and properties, creates a very specific chemical environment within the active site.
+properties, creates a very specific chemical environment within the active site.
+This specific environment is suited to bind, albeit briefly, to a specific chemical substrate.
+The fact that active sites are so perfectly suited to provide specific environmental conditions also means that they are subject to local environmental influences.
+It is true that increasing the environmental temperature generally increases reaction rates, enzyme-catalyzed or otherwise.
+High temperatures will eventually cause enzymes, like other biological molecules, to denature, a process that changes the substance's natural properties.
+Likewise, the local environment's pH can also affect enzyme function.
+Active site amino acid residues have their own acidic or basic properties that are optimal for catalysis.
+These residues are sensitive to changes in pH that can impair the way substrate molecules bind.
+Enzymes are suited to function best within a certain pH range, and, as with temperature, extreme environmental pH values can cause enzymes to denature.
+For many years, scientists thought that enzyme-substrate binding took place in a simple "lock-and-key" fashion.
+This model asserted that the enzyme and substrate fit together perfectly in one instantaneous step.
+When an enzyme binds its substrate, it forms an enzyme-substrate complex.
+This complex lowers the reaction's activation energy and promotes its rapid progression in one of many ways.
+On a basic level, enzymes promote chemical reactions that involve more than one substrate by bringing the substrates together in an optimal orientation.
+The appropriate region of one molecule is juxtaposed to the other molecule's appropriate region with which it must react.
+Another way in which enzymes promote substrate reaction is by creating an optimal environment within the active site for the reaction to occur.
+Certain chemical reactions might proceed best in a slightly acidic or non-polar environment.
+The chemical properties that emerge from the particular arrangement of amino acid residues within an active site create the perfect environment for an enzyme's specific substrates to react.
+Enzymatic action can aid this process.
+The enzyme-substrate complex can lower the activation energy by contorting substrate molecules in such a way as to facilitate bond-breaking, helping to reach the transition state.
+Finally, enzymes can also lower activation energies by taking part in the chemical reaction itself.
+The amino acid residues can provide certain ions or chemical groups that actually form covalent bonds with substrate molecules as a necessary step of the reaction process.
+In these cases, it is important to remember that the enzyme will always return to its original state at the reaction's completion.
+After an enzyme catalyzes a reaction, it releases its product.
+In reality, this is far from the case.
+A variety of mechanisms ensure that this does not happen.
+Cellular needs and conditions vary from cell to cell, and change within individual cells over time.
+Cellular needs and conditions vary from cell to cell.
+The required enzymes and energetic demands of stomach cells are different from those of fat storage cells, skin cells, blood cells, and nerve cells.
+The required enzymes and energetic demands of stomach cells are different from those of fat storage cells, skin cells, blood cells.
+Furthermore, a digestive cell works much harder to process and break down nutrients during the time that closely follows a meal compared with many hours after a meal.
+activation energies for chemical reactions, the relative amounts and functioning of the variety of enzymes within a cell ultimately determine which reactions will proceed and at which rates.
+This determination is tightly controlled.
+In certain cellular environments, environmental factors like pH and temperature partly control enzyme activity.
+Molecular Regulation of Enzymes Enzymes can be regulated in ways that either promote or reduce their activity.
+various mechanisms exist for doing so.
+Competitive inhibitors affect the initial rate but do not affect the maximal rate; whereas, noncompetitive inhibitors affect the maximal rate.
+Competitive inhibitors affect the initial rate but do not affect the maximal rate.
+whereas, noncompetitive inhibitors affect the maximal rate.
+Some inhibitor molecules bind to enzymes in a location where their binding induces a conformational change that reduces the enzyme's affinity for its substrate.
+When an allosteric inhibitor binds to an enzyme, all active sites on the protein subunits change slightly such that they bind their substrates with less efficiency.
+Allosteric activators bind to locations on an enzyme away from the active site, inducing a conformational change that increases the affinity of the enzyme's active site for its substrate.
+In contrast, allosteric activators modify the enzyme's active site so that the affinity for the substrate increases.
+Enzymes are key components of metabolic pathways.
+Biologists working in this field collaborate with other scientists, usually chemists, to design drugs.
+These compounds are essentially inhibitors of the enzyme HMG-CoA reductase.
+HMG-CoA reductase is the enzyme that synthesizes cholesterol from lipids in the body.
+By inhibiting this enzyme, the drug reduces cholesterol levels synthesized in the body.
+While it is effective in providing relief from fever and inflammation, scientists still do not completely understand its mechanism of action.
+In the case of statins, HMG-CoA reductase is the drug target.
+Scientists also need to know how the target acts inside the cell and which reactions go awry in the case of disease.
+Once researchers identify the target and the pathway, then the actual drug design process begins.
+During this stage, chemists and biologists work together to design and synthesize molecules that can either block or activate a particular reaction.
+Many enzymes don't work optimally, or even at all, unless bound to other specific non-protein helper molecules, either temporarily through ionic or hydrogen bonds or permanently through stronger covalent bonds.
+Many enzymes don't work optimally.
+Two types of helper molecules are cofactors and coenzymes.
+Cofactors are inorganic ions such as iron and magnesium.
+Coenzymes are organic helper molecules, with a basic atomic structure comprised of carbon and hydrogen, which are required for enzyme action.
+Some vitamins are precursors to coenzymes and others act directly as coenzymes.
+Vitamin C is a coenzyme for multiple enzymes that take part in building the important connective tissue component, collagen.
+An important step in breaking down glucose to yield energy is catalysis by a multi-enzyme complex scientists call pyruvate dehydrogenase.
+Pyruvate dehydrogenase is a complex of several enzymes that actually requires one cofactor and five different organic coenzymes to catalyze its specific chemical reaction.
+Therefore, enzyme function is, in part, regulated by an abundance of various cofactors and coenzymes, which the diets of most organisms supply.
+Multivitamin capsules usually contain mixtures of all the vitamins at different percentages.
+Enzyme Compartmentalization In eukaryotic cells, molecules such as enzymes are usually compartmentalized into different organelles.
+Enzymes required only for certain cellular processes are sometimes housed separately along with their substrates, allowing for more efficient chemical reactions.
+Feedback Inhibition in Metabolic Pathways Molecules can regulate enzyme function in many ways.
+Some are cofactors and coenzymes, ions, and organic molecules, as you have learned.
+Some are cofactors and coenzymes, ions.
+The answer is that a wide variety of molecules can perform these roles.
+Some include pharmaceutical and non-pharmaceutical drugs, toxins, and poisons from the environment.
+Some include pharmaceutical and non-pharmaceutical drugs, toxins.
+Perhaps the most relevant sources of enzyme regulatory molecules, with respect to cellular metabolism, are cellular metabolic reaction products themselves.
+In a most efficient and elegant way, cells have evolved to use their own reactions' products for feedback inhibition of enzyme activity.
+The cell responds to the abundance of specific products by slowing down production during anabolic or catabolic reactions.
+Such reaction products may inhibit the enzymes that catalyzed their production through the mechanisms that we described above.
+Feedback inhibition, where the pathway's end product inhibits an upstream step, is an important regulatory mechanism in cells.
+Metabolic pathways are a series of reactions catalyzed by multiple enzymes.
+In this example, isoleucine will bind to Threonine Deaminase and prevent threonine from binding to this enzyme's active site, effectively blocking this metabolic pathway.
+When isoleucine levels decrease, Threonine will then bind to Threonine Deaminase's active site and the metabolic pathway will resume.
+This is an important regulatory mechanism in cells to inhibit the overproduction of a product.
+Additionally, ATP is an allosteric regulator of some of the enzymes involved in sugar's catabolic breakdown, the process that produces ATP.
+In this way, when ATP is abundant, the cell can prevent its further production.
+Chapter Summary 6.1 Energy and Metabolism 6.2 Potential, Kinetic, Free, and Activation Cells perform the functions of life through various Energy chemical reactions.
+Activation Cells perform the functions of life through various Energy chemical reactions.
+A cell's metabolism refers to the Energy comes in many different forms.
+kinetic energy is the metabolic reactions that involve breaking down energy of objects in motion.
+Objects that are not in complex chemicals into simpler ones, such as breaking motion may have the potential to do work, and thus, down large macromolecules.
+Objects that are not in complex chemicals into simpler ones, such as breaking motion may have the potential to do work.
+Scientists refer to this have potential energy.
+Molecules also have potential process as catabolism, and we associate such energy because breaking molecular bonds has the reactions an energy release.
+Molecules also have potential process as catabolism.
+we associate such energy because breaking molecular bonds has the reactions an energy release.
+Living cells depend on spectrum, anabolism refers to metabolic processes harvesting potential energy from molecular bonds to that build complex molecules out of simpler ones, such perform work.
+Free energy is a measure of energy that as macromolecule synthesis.
+Anabolic processes is available to do work.
+A system's free energy changes require energy.
+Glucose synthesis and glucose during energy transfers such as chemical reactions, breakdown are examples of anabolic and catabolic and scientists refer to this change as ∆G. pathways, respectively.
+A reaction's ∆G can be negative or positive, meaning molecule via phosphorylation.
+The phosphorylated that the reaction releases energy or consumes energy, molecule is at a higher-energy state and is less stable respectively.
+A reaction with a negative ∆G that gives than its unphosphorylated form, and this added energy off energy is an exergonic reaction.
+this added energy off energy is an exergonic reaction.
+Exergonic reactions are spontaneous because their products have less energy than their reactants.
+Enzymes are usually require an initial proteins consisting of one or more polypeptide chains.
+energy input in order to reach the transition state, at Enzymes have an active site that provides a unique which they will proceed.
+This initial input of energy is chemical environment, comprised of certain amino the activation energy.
+Enzymes and substrates bind with an induced energy transfers.
+Everything outside of the system is fit, which means that enzymes undergo slight the surroundings.
+Single cells are biological systems.
+conformational adjustments upon substrate contact, We can think of systems as having a certain amount of leading to full, optimal binding.
+Enzymes bind to order.
+It takes energy to make a system more ordered.
+The first law states that the total amount of energy in the universe is constant.
+Enzyme inhibition and activation via other molecules are other important ways that enzymes are regulated.
+Noncompetitive inhibitors are usually cells.
+ATP is comprised of a nucleotide, a five-carbon allosteric.
+Activators can also enhance enzyme sugar, and three phosphate groups.
+Activators can also enhance enzyme sugar.
+The most common method by connect the phosphates which cells regulate the enzymes in metabolic have high-energy content.
+The energy released from pathways is through feedback inhibition.
+During ATP hydrolysis into ADP + Pi performs cellular work.
+ATP donates its phosphate group to another pathway) involved in the pathway that produces them.
+Energy is stored long-term in the bonds of _____ d.
+Endergonic reactions take place slowly and used short-term to perform work from a and exergonic reactions take place quickly. _____ molecule.
+Which of the following is the best way to judge b.
+a. This is an anabolic process.
+This is a catabolic process.
+Which of the following is not an example of an c.
+This is both anabolic and catabolic.
+This is a metabolic process but is neither a. turning on a light switch anabolic nor catabolic.
+b. solar panels at work c. formation of static electricity 6. Consider a pendulum swinging.
+The energy released by the hydrolysis of ATP is____ 7.
+Which of the following molecules is likely to have c.
+Which of the following is not true about active site, decreasing its affinity for the enzymes: substrate.
+a. They increase ∆G of reactions.
+They are usually made of amino acids.
+They lower the activation energy of chemical reactions.
+Which of the following analogies best describes d.
+Each one is specific to the particular the induced-fit model of enzyme-substrate substrate to which it binds.
+Does physical exercise involve anabolic and/or a large community.
+In which of these two scenarios, before or after the earthquake, was the ant farm 17.
+Energy transfers take place constantly in everyday activities.
+Do you think that the EA for ATP hydrolysis is 19.
+With regard to enzymes, why are vitamins both endergonic and exergonic reactions.

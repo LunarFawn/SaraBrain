@@ -1,0 +1,429 @@
+# Biology2e Chapter 7 — Cellular Respiration
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 425
+
+This geothermal energy plant transforms thermal energy from deep in the ground into electrical energy, which can be easily used.
+This type of generating plant starts with underground thermal energy and transforms it into electrical energy that will be transported to homes and factories.
+Mass and its stored energy enter an organism's body in one form and are converted into another form that can fuel the organism's life functions.
+Then, a series of metabolic pathways, collectively called cellular respiration, extracts the energy from the bonds in glucose and converts it into a form that all living things can use.
+Energy conversion within a cell involves many coordinated chemical pathways.
+An oxidation reaction strips an electron from an atom in a compound, and the addition of this electron to another compound is a reduction reaction.
+An oxidation reaction strips an electron from an atom in a compound.
+the addition of this electron to another compound is a reduction reaction.
+together, these pairs of reactions are called oxidation reduction reactions, or redox reactions.
+together, these pairs of reactions are called oxidation reduction reactions.
+Electrons are lost from carbon as methane is oxidized to carbon dioxide.
+The loss of electrons is also accompanied by the loss of energy.
+Electrons are gained during the reduction of carbon dioxide to methane.
+The gain of an electron is accompanied by a gain in potential energy and often by the addition of a proton.
+However, the electron does not remain unbonded in the cytoplasm of a cell.
+Rather, the electron is shifted to a second compound, reducing the second compound.
+The transfer of electrons between molecules is important because most of the energy stored in atoms and used to fuel cell functions is in the form of high-energy electrons.
+The principal electron carriers we will consider are derived from the B vitamin group and are derivatives of nucleotides.
+These compounds can be easily reduced or oxidized.
+In the above equation, RH is a reducing agent, and NAD+ is reduced to NADH.
+In the above equation, RH is a reducing agent.
+NAD+ is reduced to NADH.
+In the above equation, NAD+ is an oxidizing agent, and RH is oxidized to R.
+In the above equation, NAD+ is an oxidizing agent.
+RH is oxidized to R.
+Similarly, flavin adenine dinucleotide is derived from vitamin B2, also called riboflavin.
+Its reduced form is FADH2.
+A second variation of NAD, NADP, contains an extra phosphate group.
+Both NAD+ and FAD are extensively used in energy extraction from sugars, and NADP plays an important role in anabolic reactions and photosynthesis in plants.
+Both NAD+ and FAD are extensively used in energy extraction from sugars.
+NADP plays an important role in anabolic reactions and photosynthesis in plants.
+The oxidized form of the electron carrier is shown on the left, and the reduced form is shown on the right.
+The oxidized form of the electron carrier is shown on the left.
+the reduced form is shown on the right.
+The nitrogenous base in NADH has one more hydrogen ion and two more electrons than in NAD+.
+ATP in Living Systems A living cell cannot store significant amounts of free energy.
+Excess free energy would result in an increase of heat in the cell, which would result in excessive thermal motion that could damage and then destroy the cell.
+Rather, a cell must be able to handle that energy in a way that enables the cell to store energy safely and release it for use only as needed.
+Living cells accomplish this by using the compound adenosine triphosphate.
+ATP is often called the "energy currency" of the cell, and, like currency, this versatile compound can be used to fill any energy need of the cell.
+It functions similarly to a rechargeable battery.
+When ATP is broken down, usually by the removal of its terminal phosphate group, energy is released.
+The energy is used to do work by the cell, usually when the released phosphate binds to another molecule, thereby activating it.
+For example, in the mechanical work of muscle contraction, ATP supplies the energy to move the contractile muscle proteins.
+ATP alters the structure of the integral protein that functions as the pump, changing its affinity for sodium and potassium.
+In this way, the cell performs work, pumping ions against their electrochemical gradients.
+Ribose is a five-carbon sugar found in RNA, and AMP is one of the nucleotides in RNA.
+Ribose is a five-carbon sugar found in RNA.
+AMP is one of the nucleotides in RNA.
+The negative charges on the phosphate group naturally repel each other, requiring energy to bond them together and releasing energy when these bonds are broken.
+The addition of a phosphate group to a molecule requires energy.
+Phosphate groups are negatively charged and thus repel one another when they are arranged in series, as they are in ADP and ATP.
+This repulsion makes the ADP and ATP molecules inherently unstable.
+The release of one or two phosphate groups from ATP, a process called dephosphorylation, releases energy.
+Energy from ATP Hydrolysis is the process of breaking complex macromolecules apart.
+During hydrolysis, water is split, or lysed, and the resulting hydrogen atom and a hydroxyl group, or hydroxide, are added to the larger molecule.
+During hydrolysis, water is split, or lysed.
+the resulting hydrogen atom and a hydroxyl group, or hydroxide, are added to the larger molecule.
+During hydrolysis, water is split.
+The hydrolysis of ATP produces ADP, together with an inorganic phosphate ion, and the release of free energy.
+The hydrolysis of ATP produces ADP, together with an inorganic phosphate ion.
+Obviously, energy must be infused into the system to regenerate ATP.
+In nearly every living thing on Earth, the energy comes from the metabolism of glucose, fructose, or galactose, all isomers with the chemical formula C6H12O6 but different molecular configurations.
+In nearly every living thing on Earth, the energy comes from the metabolism of glucose, fructose.
+In this way, ATP is a direct link between the limited set of exergonic pathways of glucose catabolism and the multitude of endergonic pathways that power living cells.
+During an endergonic chemical reaction, ATP forms an intermediate complex with the substrate and enzyme in the reaction.
+This intermediate complex allows the ATP to transfer its third phosphate group, with its energy, to the substrate, a process called phosphorylation.
+Phosphorylation refers to the addition of the phosphate.
+When the intermediate complex breaks apart, the energy is used to modify the substrate and convert it into a product of the reaction.
+The ADP molecule and a free phosphate ion are released into the medium and are available for recycling through cell metabolism.
+Substrate Phosphorylation ATP is generated through two mechanisms during the breakdown of glucose.
+A few ATP molecules are generated as a direct result of the chemical reactions that occur in the catabolic pathways.
+In substrate-level phosphorylation, a phosphate group that is covalently attached to another molecule is transferred to ADP to form ATP.
+The production of ATP using the process of chemiosmosis is called oxidative phosphorylation because of the involvement of oxygen in the process.
+In prokaryotes, this process takes place in the plasma membrane.
+This may happen in mitochondrial diseases, which are genetic disorders of metabolism.
+In type 2 diabetes, for instance, the oxidation efficiency of NADH is reduced, impacting oxidative phosphorylation but not the other steps of respiration.
+Symptoms of mitochondrial diseases can include muscle weakness, lack of coordination, stroke-like episodes, and loss of vision and hearing.
+Symptoms of mitochondrial diseases can include muscle weakness, lack of coordination, stroke-like episodes.
+Most affected people are diagnosed in childhood, although there are some adult-onset diseases.
+The educational preparation for this profession requires a college education, followed by medical school with a specialization in medical genetics.
+As you have read, nearly all of the energy used by living cells comes to them in the bonds of the sugar glucose.
+Glycolysis is the first step in the breakdown of glucose to extract energy for cellular metabolism.
+In fact, nearly all living organisms carry out glycolysis as part of their metabolism.
+The process does not use oxygen directly and therefore is termed anaerobic.
+Glycolysis takes place in the cytoplasm of both prokaryotic and eukaryotic cells.
+Glucose enters heterotrophic cells in two ways.
+One method is through secondary active transport in which the transport takes place against the glucose concentration gradient.
+The other mechanism uses a group of integral proteins called GLUT proteins, also known as glucose transporter proteins.
+These transporters assist in the facilitated diffusion of glucose.
+Glycolysis begins with the six-carbon ring-shaped structure of a single glucose molecule and ends with two molecules of a three-carbon sugar called pyruvate.
+Glycolysis consists of two distinct phases.
+In the energy recovery phase, each 3-carbon sugar is then oxidized to pyruvate with the energy transferred to form NADH and 2 ATP.
+An isomerase is an enzyme that catalyzes the conversion of a molecule into one of its isomers.
+The third step is the phosphorylation of fructose-6-phosphate, catalyzed by the enzyme phosphofructokinase.
+A second ATP molecule donates a high-energy phosphate to fructose-6-phosphate, producing fructose-1,6-bisphosphate.
+underline end underlineIn this pathway, phosphofructokinase is a rate-limiting enzyme.
+It is active when the concentration of ADP is high; it is less active when ADP levels are low and the concentration of ATP is high.
+It is active when the concentration of ADP is high.
+it is less active when ADP levels are low and the concentration of ATP is high.
+Thus, if there is "sufficient" ATP in the system, the pathway slows down.
+This is a type of end product inhibition, since ATP is the end product of glucose catabolism.
+The newly added high-energy phosphates further destabilize fructose-1,6-bisphosphate.
+In the fifth step, an isomerase transforms the dihydroxyacetone-phosphate into its isomer, glyceraldehyde-3-phosphate.
+Thus, the pathway will continue with two molecules of a glyceraldehyde-3-phosphate.
+The first half of glycolysis uses two ATP molecules in the phosphorylation of glucose, which is then split into two three-carbon molecules.
+So far, glycolysis has cost the cell two ATP molecules and produced two small, three-carbon sugar molecules.
+The sugar is then phosphorylated by the addition of a second phosphate group, producing 1,3-bisphosphoglycerate.
+The second half of glycolysis involves phosphorylation without ATP investment and produces two NADH and four ATP molecules per glucose.
+The continuation of the reaction depends upon the availability of the oxidized form of the electron carrier, NAD+.
+Thus, NADH must be continuously oxidized back into NAD+ in order to keep this step going.
+In an environment without oxygen, an alternate pathway can provide the oxidation of NADH to NAD+.
+A carbonyl group on the 1,3-bisphosphoglycerate is oxidized to a carboxyl group, and 3-phosphoglycerate is formed.
+A carbonyl group on the 1,3-bisphosphoglycerate is oxidized to a carboxyl group.
+step is a mutase.
+Enolase catalyzes the ninth step.
+Outcomes of Glycolysis Glycolysis begins with glucose and produces two pyruvate molecules, four new ATP molecules, and two molecules of NADH.
+Outcomes of Glycolysis Glycolysis begins with glucose and produces two pyruvate molecules, four new ATP molecules.
+If the cell cannot catabolize the pyruvate molecules further, it will harvest only two ATP molecules from one molecule of glucose.
+If glycolysis is interrupted, these cells lose their ability to maintain their sodium-potassium pumps, and eventually, they die.
+If glycolysis is interrupted, these cells lose their ability to maintain their sodium-potassium pumps.
+eventually, they die.
+The last step in glycolysis will not occur if pyruvate kinase, the enzyme that catalyzes the formation of pyruvate, is not available in sufficient quantities.
+In this situation, the entire glycolysis pathway will proceed, but only two ATP molecules will be made in the second half.
+Thus, pyruvate kinase is a rate-limiting enzyme for glycolysis.
+If oxygen is available, aerobic respiration will go forward.
+In eukaryotic cells, the pyruvate molecules produced at the end of glycolysis are transported into the mitochondria, which are the sites of cellular respiration.
+There, pyruvate is transformed into an acetyl group that will be picked up and activated by a carrier compound called coenzyme A.
+CoA is derived from vitamin B5, pantothenic acid.
+Breakdown of Pyruvate In order for pyruvate, the product of glycolysis, to enter the next pathway, it must undergo several changes.
+A carboxyl group is removed from pyruvate, releasing a molecule of carbon dioxide into the surrounding medium.
+This reaction creates a two-carbon hydroxyethyl group bound to the enzyme.
+We should note that this is the first of the six carbons from the original glucose molecule to be removed.
+The hydroxyethyl group is oxidized to an acetyl group, and the electrons are picked up by NAD+, forming NADH.
+The hydroxyethyl group is oxidized to an acetyl group.
+the electrons are picked up by NAD+, forming NADH.
+The high-energy electrons from NADH will be used later to generate ATP.
+The enzyme-bound acetyl group is transferred to CoA, producing a molecule of acetyl CoA.
+In the process, carbon dioxide is released, and one molecule of NADH is formed.
+In the process, carbon dioxide is released.
+Citric Acid Cycle Like the conversion of pyruvate to acetyl CoA, the citric acid cycle takes place in the matrix of mitochondria.
+Unlike glycolysis, the citric acid cycle is a closed loop: the last part of the pathway regenerates the compound used in the first step.
+This is considered an aerobic pathway because the NADH and FADH2 produced must transfer their electrons to the next pathway in the system, which will use oxygen.
+If this transfer does not occur, the oxidation steps of the citric acid cycle also do not occur.
+Through a series of steps, citrate is oxidized, releasing two carbon dioxide molecules for each acetyl group fed into the cycle.
+Because the final product of the citric acid cycle is also the first reactant, the cycle runs continuously in the presence of sufficient reactants.
+Prior to the first step, a transitional phase occurs during which pyruvic acid is converted to acetyl CoA.
+Then, the first step of the cycle begins: This condensation step combines the two-carbon acetyl group with a four-carbon oxaloacetate molecule to form a six-carbon molecule of citrate.
+CoA is bound to a sulfhydryl group and diffuses away to eventually combine with another acetyl group.
+This step is irreversible because it is highly exergonic.
+The rate of this reaction is controlled by negative feedback and the amount of ATP available.
+In step two, citrate loses one water molecule and gains another as citrate is converted into its isomer, isocitrate.
+In step three, isocitrate is oxidized, producing a five-carbon molecule, α-ketoglutarate, along with a molecule of CO2 and two electrons, which reduce NAD+ to NADH.
+This step is also regulated by negative feedback from ATP and NADH and a positive effect of ADP.
+Steps three and four are both oxidation and decarboxylation steps, which as we have seen, release electrons that reduce NAD+ to NADH and release carboxyl groups that form CO2 molecules.
+Alpha-ketoglutarate is the product of step three, and a succinyl group is the product of step four.
+Alpha-ketoglutarate is the product of step three.
+a succinyl group is the product of step four.
+In step five, a carboxyl group is substituted for coenzyme A, and a high-energy bond is formed.
+In step five, a carboxyl group is substituted for coenzyme A.
+This energy is used in substrate-level phosphorylation to form either guanosine triphosphate or ATP.
+One form is found in tissues that use large amounts of ATP, such as heart and skeletal muscle.
+This form produces ATP.
+The second form of the enzyme is found in tissues that have a high number of anabolic pathways, such as liver.
+This form produces GTP.
+GTP is energetically equivalent to ATP; however, its use is more restricted.
+GTP is energetically equivalent to ATP.
+however, its use is more restricted.
+In particular, protein synthesis primarily uses GTP.
+Step six is a dehydrogenation process that converts succinate into fumarate.
+Two hydrogen atoms are transferred to FAD, reducing it to FADH2.
+Unlike NADH, this carrier remains attached to the enzyme and transfers the electrons to the electron transport chain directly.
+This process is made possible by the localization of the enzyme catalyzing this step inside the inner membrane of the mitochondrion.
+Water is added by hydration to fumarate during step seven, and malate is produced.
+Water is added by hydration to fumarate during step seven.
+The last step in the citric acid cycle regenerates oxaloacetate by oxidizing malate.
+Another molecule of NADH is then produced in the process.
+Products of the Citric Acid Cycle Two carbon atoms come into the citric acid cycle from each acetyl group, representing four out of the six carbons of one glucose molecule.
+Two carbon dioxide molecules are released on each turn of the cycle; however, these do not necessarily contain the most recently added carbon atoms.
+Two carbon dioxide molecules are released on each turn of the cycle.
+however, these do not necessarily contain the most recently added carbon atoms.
+Each turn of the cycle forms three NADH molecules and one FADH2 molecule.
+These carriers will connect with the last portion of aerobic respiration, the electron transport chain, to produce ATP molecules.
+Several of the intermediate compounds in the citric acid cycle can be used in synthesizing nonessential amino acids; therefore, the cycle is amphibolic.
+therefore, the cycle is amphibolic.
+You have just read about two pathways in glucose catabolism—glycolysis and the citric acid cycle—that generate ATP.
+Instead, it is derived from a process that begins by moving electrons through a series of electron carriers that undergo redox reactions.
+This process causes hydrogen ions to accumulate within the intermembranous space.
+The current of hydrogen ions powers the catalytic action of ATP synthase, which phosphorylates ADP, producing ATP.
+Oxygen continuously diffuses into plant tissues, as well as into fungi and bacteria; however, in animals, oxygen enters the body through a variety of respiratory systems.
+Oxygen continuously diffuses into plant tissues, as well as into fungi and bacteria.
+however, in animals, oxygen enters the body through a variety of respiratory systems.
+that electrons are passed rapidly from one component to the next, to the endpoint of the chain where the electrons reduce molecular oxygen and, along with associated protons, produces water.
+The electron transport chain is present with multiple copies in the inner mitochondrial membrane of eukaryotes and within the plasma membrane of prokaryotes.
+The electron transport chain is a series of electron transporters embedded in the inner mitochondrial membrane that shuttles electrons from NADH and FADH2 to molecular oxygen.
+In the process, protons are pumped from the mitochondrial matrix to the intermembrane space, and oxygen is reduced to form water.
+In the process, protons are pumped from the mitochondrial matrix to the intermembrane space.
+First, two electrons are carried to the first complex via NADH.
+This complex, labeled I, is composed of flavin mononucleotide and an iron-sulfur-containing protein.
+FMN, which is derived from vitamin B2, is one of several prosthetic groups or cofactors in the electron transport chain.
+A prosthetic group is a nonprotein molecule required for the activity of a protein.
+Prosthetic groups are organic or inorganic, nonpeptide molecules bound to a protein that facilitate its function.
+Prosthetic groups include coenzymes, which are the prosthetic groups of enzymes.
+The enzyme in complex I is NADH dehydrogenase and is composed of 44 separate polypeptide chains.
+Q and Complex II Complex II directly receives FADH2—which does not pass through complex I.
+The compound connecting the first and second complexes to the third is ubiquinone B.
+The Q molecule is lipid soluble and freely moves through the hydrophobic core of the membrane.
+Q receives the electrons derived from NADH from complex I, and the electrons derived from FADH2 from complex II.
+Q receives the electrons derived from NADH from complex I.
+This enzyme and FADH2 form a small complex that delivers electrons directly to the electron transport chain, bypassing the first complex.
+Since these electrons bypass and thus do not energize the proton pump in the first complex, fewer ATP molecules are made from the FADH2 electrons.
+The number of ATP molecules ultimately obtained is directly proportional to the number of protons pumped across the inner mitochondrial membrane.
+The third complex is composed of cytochrome b—another Fe-S protein, a Rieske center, and cytochrome c proteins.
+The third complex is composed of cytochrome b—another Fe-S protein, a Rieske center.
+This complex is also called cytochrome oxidoreductase.
+Cytochrome proteins have a prosthetic group of heme.
+The heme molecule is similar to the heme in hemoglobin, but it carries electrons, not oxygen.
+As a result, the iron ion at its core is reduced and oxidized as it passes the electrons, fluctuating between different oxidation states: Fe++ and Fe+++.
+Complex III pumps protons through the membrane and passes its electrons to cytochrome c for transport to the fourth complex of proteins and enzymes.
+The fourth complex is composed of cytochrome proteins c, a, and a3.
+The fourth complex is composed of cytochrome proteins c, a.
+This complex contains two heme groups and three copper ions.
+The cytochromes hold an oxygen molecule very tightly between the iron and copper ions until the oxygen is completely reduced by the gain of two electrons.
+The reduced oxygen then picks up two hydrogen ions from the surrounding medium to make water.
+The removal of the hydrogen ions from the system contributes to the ion gradient that forms the foundation for the process of chemiosmosis.
+Chemiosmosis In chemiosmosis, the free energy from the series of redox reactions just described is used to pump hydrogen ions across the mitochondrial membrane.
+This complex protein acts as a tiny generator, turned by the force of the hydrogen ions diffusing through it, down their electrochemical gradient.
+The turning of parts of this molecular machine facilitates the addition of a phosphate to ADP, forming ATP, using the potential energy of the hydrogen ion gradient.
+Dinitrophenol is an "uncoupler" that makes the inner mitochondrial membrane "leaky" to protons.
+It was used until 1938 as a weight-loss drug.
+The overall result of these reactions is the production of ATP from the energy of the electrons removed from hydrogen atoms.
+These atoms were originally part of a glucose molecule.
+At the end of the pathway, the electrons are used to reduce an oxygen molecule to oxygen ions.
+Thus, oxygen is the final electron acceptor in the electron transport chain.
+For example, the number of hydrogen ions that the electron transport chain complexes can pump through the membrane varies between species.
+Another source of variance stems from the shuttle of electrons across the membranes of the mitochondria.
+Thus, electrons are picked up on the inside of mitochondria by either NAD+ or FAD+.
+As you have learned earlier, these FAD+ molecules can transport fewer ions; consequently, fewer ATP molecules are generated when FAD+ acts as a carrier.
+As you have learned earlier, these FAD+ molecules can transport fewer ions.
+consequently, fewer ATP molecules are generated when FAD+ acts as a carrier.
+NAD+ is used as the electron transporter in the liver and FAD+ acts in the brain.
+Another factor that affects the yield of ATP molecules generated from glucose is the fact that intermediate compounds in these pathways are also used for other purposes.
+Glucose catabolism connects with the pathways that build or break down all other biochemical compounds in cells, and the result is somewhat messier than the ideal situations described thus far.
+Glucose catabolism connects with the pathways that build or break down all other biochemical compounds in cells.
+the result is somewhat messier than the ideal situations described thus far.
+For example, sugars other than glucose are fed into the glycolytic pathway for energy extraction.
+In addition, the five-carbon sugars that form nucleic acids are made from intermediates in glycolysis.
+Certain nonessential amino acids can be made from intermediates of both glycolysis and the citric acid cycle.
+Lipids, such as cholesterol and triglycerides, are also made from intermediates in these pathways, and both amino acids and triglycerides are broken down for energy through these pathways.
+Lipids, such as cholesterol and triglycerides, are also made from intermediates in these pathways.
+both amino acids and triglycerides are broken down for energy through these pathways.
+Overall, in living systems, these pathways of glucose catabolism extract about 34 percent of the energy contained in glucose, with the remainder being released as heat.
+In aerobic respiration, the final electron acceptor is an oxygen molecule, O2.
+If aerobic respiration occurs, then ATP will be produced using the energy of high-energy electrons carried by NADH or FADH2 to the electron transport chain.
+If aerobic respiration does not occur, NADH must be reoxidized to NAD+ for reuse as an electron carrier for the glycolytic pathway to continue.
+Some living systems use an organic molecule as the final electron acceptor.
+Processes that use an organic molecule to regenerate NAD+ from NADH are collectively referred to as fermentation.
+In contrast, in some living systems, the electron transport chain uses an inorganic molecule as a final electron acceptor, which is called anaerobic cellular respiration.
+Both processes allow organisms to convert energy for their use in the absence of oxygen.
+Both methods are anaerobic, in which organisms convert energy for their use in the absence of oxygen.
+LINK TO LEARNING Visit this site to see fermentation in action.
+Anaerobic Cellular Respiration Certain prokaryotes, including some species in the domains Bacteria and Archaea, use anaerobic respiration.
+For example, a group of archaeans called methanogens reduces carbon dioxide to methane to oxidize NADH.
+These microorganisms are found in soil and in the digestive tracts of ruminants, such as cows and sheep.
+The green color seen in these coastal waters is from an eruption of hydrogen sulfide–producing bacteria.
+These anaerobic, sulfate-reducing bacteria release hydrogen sulfide gas as they decompose algae in the water.
+The enzyme used in this reaction is lactate dehydrogenase.
+the reaction from left to right is inhibited by acidic conditions.
+Such lactic acid accumulation was once believed to cause muscle stiffness, fatigue, and soreness, although more recent research disputes this hypothesis.
+Such lactic acid accumulation was once believed to cause muscle stiffness, fatigue.
+Once the lactic acid has been removed from the muscle and circulated to the liver, it can be reconverted into pyruvic acid and further catabolized for energy.
+During glycolysis, glucose is oxidized to pyruvate while NAD+ is reduced to NADH.
+Two molecules of ATP are also produced by substrate level phosphorylation.
+In the absence of oxygen in some cell types, fermentation allows the reduction of pyruvate to lactate and the reoxidation of NADH to NAD+.
+The regeneration of NAD+ allows glycolysis to continue to make ATP by substrate level phosphorylation.
+Tremetol, a metabolic poison found in the white snakeroot plant, prevents the metabolism of lactate.
+Humans who consume the milk can become seriously ill.
+Symptoms of this disease, which include vomiting, abdominal pain, and tremors, become worse after exercise.
+tremors, become worse after exercise.
+The first reaction is catalyzed by pyruvate decarboxylase, a cytoplasmic enzyme, with a coenzyme of thiamine pyrophosphate.
+A carboxyl group is removed from pyruvic acid, releasing carbon dioxide as a gas.
+The loss of carbon dioxide reduces the size of the molecule by one carbon, producing acetaldehyde.
+The second reaction is catalyzed by alcohol dehydrogenase to oxidize NADH to NAD+ and reduce acetaldehyde to ethanol.
+The fermentation of pyruvic acid by yeast produces the ethanol found in alcoholic beverages.
+Ethanol tolerance of yeast is variable, ranging from about 5 percent to 21 percent, depending on the yeast strain and environmental conditions.
+Fermentation tanks have valves so that the pressure inside the tanks created by the carbon dioxide produced can be released.
+Other Types of Fermentation Other fermentation methods take place in bacteria.
+We should note that many prokaryotes are facultatively anaerobic.
+This means that they can switch between aerobic respiration and fermentation, depending on the availability of free oxygen.
+Certain prokaryotes, such as Clostridia, are obligate anaerobes.
+Oxygen is a poison to these microorganisms and kills them on exposure.
+We should also note that most forms of fermentation produce gas.
+The production of particular types of gas is used as an indicator of the fermentation of specific carbohydrates, which plays a role in the laboratory identification of the bacteria.
+Various methods of fermentation are used by assorted organisms to ensure an adequate supply of NAD+ for the sixth step in glycolysis.
+Without these pathways, this step would not occur, and ATP could not be harvested from the breakdown of glucose.
+Without these pathways, this step would not occur.
+ATP could not be harvested from the breakdown of glucose.
+You have learned about the catabolism of glucose, which provides energy to living cells.
+But living things consume organic compounds other than glucose for food.
+Metabolic pathways should be thought of as porous and interconnecting—that is, substances enter from other pathways, and intermediates leave for other pathways.
+Metabolic pathways should be thought of as porous and interconnecting—that is, substances enter from other pathways.
+intermediates leave for other pathways.
+products in a particular pathway are reactants in other pathways.
+Connections of Other Sugars to Glucose Metabolism Glycogen, a polymer of glucose, is an energy storage molecule in animals.
+When there is adequate ATP present, excess glucose is stored as glycogen in both liver and muscle cells.
+The glycogen will be hydrolyzed into glucose 1-phosphate monomers if blood sugar levels drop.
+The presence of glycogen as a source of glucose allows ATP to be produced for a longer period of time during exercise.
+Glycogen is broken down into glucose-1-phosphate and converted into glucose-6-phosphate in both muscle and liver cells, and this product enters the glycolytic pathway.
+Glycogen is broken down into glucose-1-phosphate and converted into glucose-6-phosphate in both muscle and liver cells.
+this product enters the glycolytic pathway.
+Sucrose is a disaccharide with a molecule of glucose and a molecule of fructose bonded together with a glycosidic linkage.
+Fructose is one of the three "dietary" monosaccharides, along with glucose and galactose, which are absorbed directly into the bloodstream during digestion.
+The catabolism of both fructose and galactose produces the same number of ATP molecules as glucose.
+Connections of Proteins to Glucose Metabolism Proteins are hydrolyzed by a variety of enzymes in cells.
+Most of the time, the amino acids are recycled into the synthesis of new proteins.
+It is very important to note that each amino acid must have its amino group removed prior to entry into these pathways.
+The amino group is converted into ammonia.
+In mammals, the liver synthesizes urea from two ammonia molecules and a carbon dioxide molecule.
+Thus, urea is the principal waste product in mammals, produced from the nitrogen originating in amino acids, and it leaves the body in urine.
+Thus, urea is the principal waste product in mammals, produced from the nitrogen originating in amino acids.
+it leaves the body in urine.
+It should be noted that amino acids can be synthesized from the intermediates and reactants in the cellular respiration cycle.
+Connections of Lipid and Glucose Metabolisms The lipids connected to the glucose pathway include cholesterol and triglycerides.
+Cholesterol is a lipid that contributes to cell membrane flexibility and is a precursor of steroid hormones.
+The synthesis of cholesterol starts with acetyl groups and proceeds in only one direction.
+Triglycerides—made from the bonding of glycerol and three fatty acids—are a form of long-term energy storage in animals.
+Animals can make most of the fatty acids they need.
+Glycerol can be phosphorylated to glycerol-3-phosphate, which continues through glycolysis.
+Fatty acids are catabolized in a process called beta-oxidation, which takes place in the matrix of the mitochondria and converts their fatty acid chains into two-carbon units of acetyl groups.
+The acetyl groups are picked up by CoA to form acetyl CoA that proceeds into the citric acid cycle.
+It is generally thought that the first cells arose in an aqueous environment—a "soup" of nutrients—possibly on the surface of some porous clays, perhaps in warm marine environments.
+Selection would favor those organisms that could extract maximal value from the nutrients to which they had access.
+A later form of photosynthesis used water as a source of electrons and hydrogen and generated free oxygen.
+Living things adapted to exploit this new atmosphere that allowed aerobic respiration as we know it to evolve.
+Cellular respiration must be regulated in order to provide balanced amounts of energy in the form of ATP.
+The cell also must generate a number of intermediate compounds that are used in the anabolism and catabolism of macromolecules.
+Without controls, metabolic reactions would quickly come to a standstill as the forward and backward reactions reached a state of equilibrium.
+Resources would be used inappropriately.
+In short, the cell needs to control its metabolism.
+Regulatory Mechanisms A variety of mechanisms is used to control cellular respiration.
+Some type of control exists at each stage of glucose metabolism.
+Some reactions are controlled by having two different enzymes—one each for the two directions of a reversible reaction.
+Reactions that are catalyzed by only one enzyme can go to equilibrium, stalling the reaction.
+The molecules most commonly used in this capacity are the nucleotides ATP, ADP, AMP, NAD+, and NADH.
+The molecules most commonly used in this capacity are the nucleotides ATP, ADP, AMP, NAD+.
+These regulators—allosteric effectors—may increase or decrease enzyme activity, depending on the prevailing conditions.
+The allosteric effector alters the steric structure of the enzyme, usually affecting the configuration of the active site.
+This feedback type of control is effective as long as the chemical affecting it is attached to the enzyme.
+Once the overall concentration of the chemical decreases, it will diffuse away from the protein, and the control is relaxed.
+Once the overall concentration of the chemical decreases, it will diffuse away from the protein.
+the control is relaxed.
+Control of Catabolic Pathways Enzymes, proteins, electron carriers, and pumps that play roles in glycolysis, the citric acid cycle, and the electron transport chain tend to catalyze nonreversible reactions.
+the electron transport chain tend to catalyze nonreversible reactions.
+In other words, if the initial reaction takes place, the pathway is committed to proceeding with the remaining reactions.
+This enzyme catalyzes the phosphorylation of glucose, which helps to prepare the compound for cleavage in a later step.
+The presence of the negatively charged phosphate in the molecule also prevents the sugar from leaving the cell.
+The product of the hexokinase reaction is glucose-6-phosphate, which accumulates when a later enzyme, phosphofructokinase, is inhibited.
+The glycolysis pathway is primarily regulated at the three key enzymatic steps as indicated.
+Phosphofructokinase is the main enzyme controlled in glycolysis.
+High levels of ATP or citrate or a lower, more acidic pH decreases the enzyme's activity.
+An increase in citrate concentration can occur because of a blockage in the citric acid cycle.
+The last step in glycolysis is catalyzed by pyruvate kinase.
+The pyruvate produced can proceed to be catabolized or converted into the amino acid alanine.
+The regulation of pyruvate kinase involves phosphorylation by kinase, resulting in a less-active enzyme.
+Dephosphorylation by a phosphatase reactivates it.
+Pyruvate kinase is also regulated by ATP.
+If more energy is needed, more pyruvate will be converted into acetyl CoA through the action of pyruvate dehydrogenase.
+If either acetyl groups or NADH accumulates, there is less need for the reaction, and the rate decreases.
+If either acetyl groups or NADH accumulates, there is less need for the reaction.
+Pyruvate dehydrogenase is also regulated by phosphorylation: a kinase phosphorylates it to form an inactive enzyme, and a phosphatase reactivates it.
+Pyruvate dehydrogenase is also regulated by phosphorylation: a kinase phosphorylates it to form an inactive enzyme.
+a phosphatase reactivates it.
+The kinase and the phosphatase are also regulated.
+These enzymes are isocitrate dehydrogenase and α-ketoglutarate dehydrogenase.
+Alpha-ketoglutarate dehydrogenase will also be affected by the levels of succinyl CoA—a subsequent intermediate in the cycle—causing a decrease in activity.
+transport through the pathway is affected by the levels of ADP and ATP.
+Greater ATP consumption by a cell is indicated by a buildup of ADP.
+As ATP usage decreases, the concentration of ADP decreases, and now, ATP begins to build up in the cell.
+now, ATP begins to build up in the cell.
+This change in the relative concentration of ADP to ATP triggers the cell to slow down the electron transport chain.
+LINK TO LEARNING Visit this site to see an animation of the electron transport chain and ATP synthesis.
+It allows Glycolysis is the first pathway within the cytoplasm the cell to store energy briefly and transport it within used in the breakdown of glucose to extract energy.
+As ATP is used for energy, a Earth.
+Glycolysis consists of two parts: The first part phosphate group or two are detached, and either ADP prepares the six-carbon ring of glucose for cleavage or AMP is produced.
+Glycolysis consists of two parts: The first part phosphate group or two are detached.
+ATP is invested in the catabolism is used to convert ADP into ATP.
+This produces oxidative phosphorylation through the process of a net gain of two ATP and two NADH molecules for the chemiosmosis.
+The end products of the an acetyl group attached to a carrier molecule of electron transport chain are water and ATP.
+These same molecules can serve as energy molecule of carbon dioxide and two high-energy sources for the glucose pathways.
+The carbon dioxide accounts for two of the 7.5 Metabolism without Oxygen six carbons of the original glucose molecule.
+The If NADH cannot be oxidized through aerobic electrons are picked up by NAD+, and the NADH carries respiration, another electron acceptor is used.
+The If NADH cannot be oxidized through aerobic electrons are picked up by NAD+.
+the NADH carries respiration, another electron acceptor is used.
+The citric acid cycle is a series of redox and 7.6 Connections of Carbohydrate, Protein, decarboxylation reactions that removes high-energy electrons and carbon dioxide.
+The electrons, and Lipid Metabolic Pathways temporarily stored in molecules of NADH and FADH2, The breakdown and synthesis of carbohydrates, are used to generate ATP in a subsequent pathway.
+Lipid Metabolic Pathways temporarily stored in molecules of NADH and FADH2, The breakdown and synthesis of carbohydrates, are used to generate ATP in a subsequent pathway.
+proteins, and lipids connect with the pathways of One molecule of either GTP or ATP is produced by glucose catabolism.
+lipids connect with the pathways of One molecule of either GTP or ATP is produced by glucose catabolism.
+The simple sugars are galactose, substrate-level phosphorylation on each turn of the fructose, glycogen, and pentose.
+The simple sugars are galactose, substrate-level phosphorylation on each turn of the fructose, glycogen.
+These are catabolized cycle.
+The electron transport chain is composed of four large, 7.7 Regulation of Cellular Respiration multiprotein complexes embedded in the inner Cellular respiration is controlled by a variety of means.
+mitochondrial membrane and two small diffusible The entry of glucose into a cell is controlled by the electron carriers shuttling electrons between them.
+This is a membrane.
+This process contributes to the gradient type of negative feedback mechanism, turning the used in chemiosmosis.
+Other intermediates of the pathway NADH or FADH2 complete the chain, as low-energy also affect certain enzymes in the systems.
+Humans who consume the milk can expect the pH of the intermembrane space to become seriously ill.
+The energy currency used by cells is ________.
+a. reduces the compound to a simpler form 11.
+Chemiosmosis involves ________.
+Fructose is split in two.
+mitochondrial membrane d. Glucose becomes fructose.
+c. mixed acid fermentation a. They become part of a fermentation d. propionic fermentation pathway.
+They go to another pathway for ATP 14.
+A major connection for sugars in glycolysis is production.
+They energize the entry of the acetyl group a. glucose-6-phosphate into the citric acid cycle.
+They are converted to NADP.
+c. dihydroxyacetone phosphate d. phosphoenolpyruvate 9.
+The effect of high levels of ADP is to ________ in 17.
+Why is it beneficial for cells to use ATP rather 22.
+How does this fact support or 24.
+Would you describe metabolic pathways as 20.
+aerobic respiration; however, they do perform glycolysis in the cytoplasm.
+however, they do perform glycolysis in the cytoplasm.
+Why might negative feedback mechanisms be 21.

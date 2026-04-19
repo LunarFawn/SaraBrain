@@ -1,0 +1,400 @@
+# Biology2e Chapter 18 — Evolution and the Origin of Species
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 396
+
+All organisms are products of evolution adapted to their environment.
+The Andean semiaquatic lizard discovered in Peru in 2010 lives between 1,570 to 2,100 meters in elevation, and, unlike most lizards, is nocturnal and swims.
+Scientists still do not know how these cold-blood animals are able to move in the cold temperatures of the Andean night.
+Although it may seem that living things today stay much the same, that is not the case—evolution is an ongoing process.
+The theory of evolution is the unifying theory of biology, meaning it is the framework within which biologists ask questions about the living world.
+Its power is that it provides direction for predictions about living things that are borne out in ongoing experiments.
+He meant that the tenet that all life has evolved and diversified from a common ancestor is the foundation from which we approach all questions in biology.
+Evolution by natural selection describes a mechanism for how species change over time.
+Scientists, philosophers, researchers, and others had made suggestions and debated this topic well before Darwin began to explore this idea.
+others had made suggestions and debated this topic well before Darwin began to explore this idea.
+Some at this time also accepted that there were extinct species.
+This contrasted with the predominant view that the planet's geology was a consequence of catastrophic events occurring during a relatively brief past.
+Nineteenth century geologist Charles Lyell popularized Hutton's view.
+In the early nineteenth century, Jean-Baptiste Lamarck published a book that detailed a mechanism for evolutionary change.
+While many discredited this mechanism for evolutionary change, Lamarck's ideas were an important influence on evolutionary thought.
+Charles Darwin and Natural Selection In the mid-nineteenth century, two naturalists, Charles Darwin and Alfred Russel Wallace, independently conceived and described the actual mechanism for evolution.
+Importantly, each naturalist spent time exploring the natural world on expeditions to the tropics.
+From 1831 to 1836, Darwin traveled around the world on H.M.S. Beagle, including stops in South America, Australia, and the southern tip of Africa.
+From 1831 to 1836, Darwin traveled around the world on H.M.S. Beagle, including stops in South America, Australia.
+Wallace traveled to Brazil to collect insects in the Amazon rainforest from 1848 to 1852 and to the Malay Archipelago from 1854 to 1862.
+Darwin's journey, like Wallace's later journeys to the Malay Archipelago, included stops at several island chains, the last being the Galápagos Islands west of Ecuador.
+On these islands, Darwin observed species of organisms on different islands that were clearly similar, yet had distinct differences.
+The species on the islands had a graded series of beak sizes and shapes with very small differences between the most similar.
+He observed that these finches closely resembled another finch species on the South American mainland.
+Darwin imagined that the island species might be species modified from one of the original mainland species.
+Upon further study, he realized that each finch's varied beaks helped the birds acquire a specific type of food.
+For example, seed-eating finches had stronger, thicker beaks for breaking seeds, and insect-eating finches had spear-like beaks for stabbing their prey.
+For example, seed-eating finches had stronger, thicker beaks for breaking seeds.
+insect-eating finches had spear-like beaks for stabbing their prey.
+He postulated that ancestral species' beaks had adapted over time to equip the finches to acquire different food sources.
+Wallace and Darwin both observed similar patterns in other organisms and they independently developed the same explanation for how and why such changes could take place.
+Darwin called this mechanism natural selection.
+Natural selection, or "survival of the fittest," is the more prolific reproduction of individuals with favorable traits that survive environmental change because of those traits.
+"survival of the fittest," is the more prolific reproduction of individuals with favorable traits that survive environmental change because of those traits.
+This leads to evolutionary change.
+For example, Darwin observed a population of giant tortoises in the Galápagos Archipelago to have longer necks than those that lived on other islands with dry lowlands.
+Consequently, long-necked tortoises would be more likely to be reproductively successful and pass the long-necked trait to their offspring.
+Over time, only long-necked tortoises would be present in the population.
+Natural selection, Darwin argued, was an inevitable outcome of three principles that operated in nature.
+First, most characteristics of organisms are inherited, or passed from parent to offspring.
+First, most characteristics of organisms are inherited.
+Although no one, including Darwin and Wallace, knew how this happened at the time, it was a common understanding.
+Second, more offspring are produced than are able to survive, so resources for survival and reproduction are limited.
+The capacity for reproduction in all organisms outstrips the availability of resources to support their numbers.
+Both Darwin and Wallace's understanding of this principle came from reading economist Thomas Malthus' essay that explained this principle in relation to human populations.
+Third, offspring vary among each other in regard to their characteristics and those variations are inherited.
+Because characteristics are inherited, these traits will be better represented in the next generation.
+This will lead to change in populations over generations in a process that Darwin called descent with modification.
+Ultimately, natural selection leads to greater adaptation of the population to its local environment.
+It is the only mechanism known for adaptive evolution.
+His book outlined in considerable detail his arguments for evolution by natural selection.
+The Galápagos finches are an excellent example.
+Peter and Rosemary Grant and their colleagues have studied Galápagos finch populations every year since 1976 and have provided important evidence of natural selection.
+The Grants found changes from one generation to the next in beak shape distribution with the medium ground finch on the Galápagos island of Daphne Major.
+The birds have inherited a variation in their bill shape with some having wide deep bills and others having thinner bills.
+Therefore, the small-billed birds were able to survive and reproduce.
+In the years following this El Niño, the Grants measured beak sizes in the population and found that the average bill size was smaller.
+Since bill size is an inherited trait, parents with smaller bills had more offspring and the bill evolved into a much smaller size.
+As conditions improved in 1987 and larger seeds became more available, the trend toward smaller average bill size ceased.
+People often participate in these activities hoping to see wildlife.
+The term field in this case refers to any location outdoors, even under water.
+A field biologist tranquilizes a polar bear for study.
+One objective of many field biologists includes discovering new, unrecorded species.
+Not only do such findings expand our understanding of the natural world, but they also lead to important innovations in fields such as medicine and agriculture.
+Plant and microbial species, in particular, can reveal new medicinal and nutritive knowledge.
+Other organisms can play key roles in ecosystems or if rare require protection.
+When discovered, researchers can use these important species as evidence for environmental regulations and laws.
+Processes and Patterns of Evolution Natural selection can only take place if there is variation, or differences, among individuals in a population.
+Processes and Patterns of Evolution Natural selection can only take place if there is variation.
+Importantly, these differences must have some genetic basis; otherwise, the selection will not lead to change in the next generation.
+Importantly, these differences must have some genetic basis.
+otherwise, the selection will not lead to change in the next generation.
+This is critical because nongenetic reasons can cause variation among individuals such as an individual's height because of better nutrition rather than different genes.
+Genetic diversity in a population comes from two main mechanisms: mutation and sexual reproduction.
+Mutation, a change in DNA, is the ultimate source of new alleles, or new genetic variation in any population.
+Mutation, a change in DNA, is the ultimate source of new alleles.
+The genetic changes that mutation causes can have one of three outcomes on the phenotype.
+A mutation affects the organism's phenotype in a way that gives it reduced fitness—lower likelihood of survival or fewer offspring.
+A mutation may produce a phenotype with a beneficial effect on fitness.
+Many mutations will also have no effect on the phenotype's fitness.
+We call these neutral mutations.
+Mutations may also have a whole range of effect sizes on the organism's fitness that expresses them in their phenotype, from a small effect to a great effect.
+Sexual reproduction also leads to genetic diversity: when two parents reproduce, unique combinations of alleles assemble to produce the unique genotypes and thus phenotypes in each offspring.
+We call a heritable trait that helps an organism's survival and reproduction in its present environment an adaptation.
+Scientists describe groups of organisms adapting to their environment when a genetic variation occurs over time that increases or maintains the population's "fit" to its environment.
+A platypus's webbed feet are an adaptation for swimming.
+A snow leopard's thick fur is an adaptation for living in the cold.
+A cheetah's fast speed is an adaptation for catching prey.
+The same traits are not always selected because environmental conditions can change.
+Large leaves require more water to maintain than small leaves, and the moist environment provided favorable conditions to support large leaves.
+Large leaves require more water to maintain than small leaves.
+the moist environment provided favorable conditions to support large leaves.
+After thousands of years, the climate changed, and the area no longer had excess water.
+After thousands of years, the climate changed.
+the area no longer had excess water.
+The evolution of species has resulted in enormous variation in form and function.
+We call two species that evolve in diverse directions from a common point divergent evolution.
+Flowering plants evolved from a common ancestor.
+In other cases, similar phenotypes evolve independently in distantly related species.
+For example, flight has evolved in both bats and insects, and they both have structures we refer to as wings, which are adaptations to flight.
+For example, flight has evolved in both bats and insects.
+they both have structures we refer to as wings, which are adaptations to flight.
+However, bat and insect wings have evolved from very different original structures.
+We call this phenomenon convergent evolution, where similar traits evolve independently in species that do not share a recent common ancestry.
+These physical changes occur over enormous time spans and help explain how evolution occurs.
+Although natural selection may work in a single generation on an individual, it can take thousands or even millions of years for an entire species' genotype to evolve.
+It is over these large time spans that life on earth has changed and continues to change.
+Evidence of Evolution The evidence for evolution is compelling and extensive.
+Looking at every level of organization in living systems, biologists see the signature of past and present evolution.
+Fossils Fossils provide solid evidence that organisms from the past are not the same as those today, and fossils show the gradual evolutionary changes over time.
+Fossils Fossils provide solid evidence that organisms from the past are not the same as those today.
+fossils show the gradual evolutionary changes over time.
+Scientists determine the age of fossils and categorize them from all over the world to determine when the organisms lived relative to each other.
+In this display, fossil hominids are arranged from oldest to newest.
+An artist's rendition of extinct species of the genus Equus reveals that these ancient species resembled the modern horse but varied in size.
+Anatomy and Embryology Another type of evidence for evolution is the presence of structures in organisms that share the same basic form.
+Over time, evolution led to changes in the bones' shapes and sizes in different species, but they have maintained the same overall layout.
+Scientists call these synonymous parts homologous structures.
+The similar construction of these appendages indicates that these organisms share a common ancestor.
+Some structures exist in organisms that have no apparent function at all, and appear to be residual parts from a past common ancestor.
+Some structures exist in organisms that have no apparent function at all.
+We call these unused structures without function vestigial structures.
+Other examples of vestigial structures are wings on flightless birds, leaves on some cacti, and hind leg bones in whales.
+Other examples of vestigial structures are wings on flightless birds, leaves on some cacti.
+Not all similarities represent homologous structures.
+As explained in Determining Evolutionary Relationships, when similar characteristics occur because of environmental constraints and not due to a close evolutionary relationship, it is an analogy or homoplasy.
+For example, insects use wings to fly like bats and birds, but the wing structure and embryonic origin are completely different.
+On the other side, the bird and bat wings are homologous because the bones are inherited from a common ancestor, while the wings themselves are analogous as they evolved independently.
+On the other side, the bird and bat wings are homologous because the bones are inherited from a common ancestor.
+the wings themselves are analogous as they evolved independently.
+Another piece of evidence of evolution is the convergence of form in organisms that share similar environments.
+similarities occur not because of common ancestry, but because of similar selection pressures—the benefits of predators not seeing them.
+The white winter coat of the arctic fox and the ptarmigan's plumage are adaptations to their environments.
+Embryology, the study of the anatomy of an organism's development to its adult form, also provides evidence of relatedness between now widely divergent groups of organisms.
+As a result, structures that are absent in some groups often appear in their embryonic forms and disappear when they reach the adult or juvenile form.
+These disappear in the adults of terrestrial groups but adult forms of aquatic groups such as fish and some amphibians maintain them.
+Great ape embryos, including humans, have a tail structure during their development that they lose when they are born.
+Biogeography The geographic distribution of organisms on the planet follows patterns that we can explain best by evolution in conjunction with tectonic plate movement over geological time.
+Broad groups that evolved before the supercontinent Pangaea broke up are distributed worldwide.
+Marsupial diversification in Australia and the absence of other mammals reflect Australia's long isolation.
+Australia has an abundance of endemic species—species found nowhere else—which is typical of islands whose isolation by expanses of water prevents species from migrating.
+Over time, these species diverge evolutionarily into new species that look very different from their ancestors that may exist on the mainland.
+Molecular Biology Like anatomical structures, the molecular structures of life reflect descent with modification.
+DNA's universality reflects evidence of a common ancestor for all of life.
+Fundamental divisions in life between the genetic code, DNA replication, and expression are reflected in major structural differences in otherwise conservative structures such as ribosome components and membrane structures.
+expression are reflected in major structural differences in otherwise conservative structures such as ribosome components and membrane structures.
+DNA sequences have also shed light on some of the mechanisms of evolution.
+Nevertheless, the theory of evolution is a difficult concept and misconceptions about how it works abound.
+LINK TO LEARNING This site addresses some of the main misconceptions associated with the theory of evolution.
+In science, we understand a "theory" to be a body of thoroughly tested and verified explanations for a set of observations of the natural world.
+Scientists have a theory of the atom, a theory of gravity, and the theory of relativity, each which describes understood facts about the world.
+Scientists have a theory of the atom, a theory of gravity.
+In the same way, the theory of evolution describes facts about the living world.
+As such, a theory in science has survived significant efforts to discredit it by scientists.
+In contrast, a "theory" in common vernacular is a word meaning a guess or suggested explanation.
+This is a mischaracterization.
+Individuals Evolve Evolution is the change in a population's genetic composition over time, specifically over generations, resulting from differential reproduction of individuals with certain alleles.
+When thinking about the evolution of a characteristic, it is probably best to think about the change of the average value of the characteristic in the population over time.
+For example, when natural selection leads to bill-size change in medium ground finches in the Galápagos, this does not mean that individual bills on the finches are changing.
+Evolution Explains the Origin of Life It is a common misunderstanding that evolution includes an explanation of life's origins.
+Some of the theory's critics believe that it cannot explain the origin of life.
+The theory does not try to explain the origin of life.
+The theory of evolution explains how populations change over time and how life diversifies the origin of species.
+It does not shed light on the beginnings of life including the origins of the first cells, which define life.
+More effective reproducers would increase in frequency at the expense of inefficient reproducers.
+While evolution does not explain the origin of life, it may have something to say about some of the processes operating once pre-living entities acquired certain properties.
+However, a second misunderstanding may arise by interpreting the statement to mean that the evolution is somehow intentional.
+It is also important to understand that the variation that natural selection works on is already in a population and does not arise in response to an environmental change.
+The resistance, which a gene causes, did not arise by mutation because of applying the antibiotic.
+The gene for resistance was already present in the bacteria's gene pool, likely at a low frequency.
+The antibiotic, which kills the bacterial cells without the resistance gene, strongly selects individuals that are resistant, since these would be the only ones that survived and divided.
+Experiments have demonstrated that mutations for antibiotic resistance do not arise as a result of antibiotic application.
+Species do not become "better" over time.
+They simply track their changing environment with adaptations that maximize their reproduction in a particular environment at a particular time.
+Evolution has no goal of making faster, bigger, more complex, or even smarter species, despite the commonness of this kind of language in popular discourse.
+Evolution has no goal of making faster, bigger, more complex.
+A trait that fits in one environment at one time may well be fatal at some point in the future.
+This holds equally well for insect and human species.
+Although all life on earth shares various genetic similarities, only certain organisms combine genetic information by sexual reproduction and have offspring that can then successfully reproduce.
+Scientists call such organisms members of the same biological species.
+Species and the Ability to Reproduce A species is a group of individual organisms that interbreed and produce fertile, viable offspring.
+According to this definition, one species is distinguished from another when, in nature, it is not possible for matings between individuals from each species to produce fertile offspring.
+Members of the same species share both external and internal characteristics, which develop from their DNA.
+People's DNA is likely to be more like their father or mother's DNA than their cousin or grandparent's DNA.
+Organisms of the same species have the highest level of DNA alignment and therefore share characteristics and behaviors that lead to successful reproduction.
+Species' appearance can be misleading in suggesting an ability or inability to mate.
+The poodle and cocker spaniel can reproduce to produce a breed known as the cockapoo.
+In other cases, individuals may appear similar although they are not members of the same species.
+Different species may have different genes that are active in development; therefore, it may not be possible to develop a viable offspring with two different sets of directions.
+Different species may have different genes that are active in development.
+therefore, it may not be possible to develop a viable offspring with two different sets of directions.
+Thus, even though hybridization may take place, the two species still remain separate.
+The African fish eagle is similar in appearance to the bald eagle, but the two birds are members of different species.
+Populations of species share a gene pool: a collection of all the gene variants in the species.
+Again, the basis to any changes in a group or population of organisms must be genetic for this is the only way to share and pass on traits.
+When variations occur within a species, they can only pass to the next generation along two main pathways: asexual reproduction or sexual reproduction.
+The change will pass on asexually simply if the reproducing cell possesses the changed trait.
+Therefore, reproduction plays a paramount role for genetic change to take root in a population or species.
+In short, organisms must be able to reproduce with each other to pass new traits to offspring.
+Speciation The biological definition of species, which works for sexually reproducing organisms, is a group of actual or potential interbreeding individuals.
+Many species are similar enough that hybrid offspring are possible and may often occur in nature, but for the majority of species this rule generally holds.
+The presence in nature of hybrids between similar species suggests that they may have descended from a single interbreeding species, and the speciation process may not yet be completed.
+The presence in nature of hybrids between similar species suggests that they may have descended from a single interbreeding species.
+the speciation process may not yet be completed.
+The only illustration in Darwin's On the Origin of Species is a diagram showing speciation events leading to biological diversity.
+The diagram shows similarities to phylogenetic charts that today illustrate the relationships of species.
+Modern elephants evolved from the Palaeomastodon, a species that lived in Egypt 35–50 million years ago.
+Biologists have proposed mechanisms by which this could occur that fall into two broad categories.
+Allopatric speciation involves geographic separation of populations from a parent species and subsequent evolution.
+Sympatric speciation involves speciation occurring within a parent species remaining in one location.
+Biologists think of speciation events as the splitting of one ancestral species into two descendant species.
+A geographically continuous population has a gene pool that is relatively homogeneous.
+Gene flow, the movement of alleles across a species' range, is relatively free because individuals can move and then mate with individuals in their new location.
+Thus, an allele's frequency at one end of a distribution will be similar to the allele's frequency at the other end.
+When populations become geographically discontinuous, it prevents alleles' free-flow.
+When that separation lasts for a period of time, the two populations are able to evolve along different trajectories.
+Thus, their allele frequencies at numerous genetic loci gradually become increasingly different as new alleles independently arise by mutation in each population.
+Typically, environmental conditions, such as climate, resources, predators, and competitors for the two populations will differ causing natural selection to favor divergent adaptations in each group.
+competitors for the two populations will differ causing natural selection to favor divergent adaptations in each group.
+The nature of the geographic separation necessary to isolate populations depends entirely on the organism's biology and its potential for dispersal.
+If two flying insect populations took up residence in separate nearby valleys, chances are, individuals from each population would fly back and forth continuing gene flow.
+However, if a new lake divided two rodent populations continued gene flow would be unlikely; therefore, speciation would be more likely.
+However, if a new lake divided two rodent populations continued gene flow would be unlikely.
+therefore, speciation would be more likely.
+Biologists group allopatric processes into two categories: dispersal and vicariance.
+Scientists have documented numerous cases of allopatric speciation taking place.
+For example, along the west coast of the United States, two separate spotted owl subspecies exist.
+The northern spotted owl and the Mexican spotted owl inhabit geographically separate locations with different climates and ecosystems.
+The owl is an example of allopatric speciation.
+Additionally, scientists have found that the further the distance between two groups that once were the same species, the more likely it is that speciation will occur.
+Also, the hunting habits and prey choices of the southern owls vary from the northern owls.
+These variances can lead to evolved differences in the owls, and speciation likely will occur.
+These variances can lead to evolved differences in the owls.
+speciation likely will occur.
+Adaptive Radiation In some cases, a population of one species disperses throughout an area, and each finds a distinct niche or isolated habitat.
+Adaptive Radiation In some cases, a population of one species disperses throughout an area.
+each finds a distinct niche or isolated habitat.
+Over time, the varied demands of their new lifestyles lead to multiple speciation events originating from a single species.
+We call this adaptive radiation because many adaptations evolve from a single point of origin; thus, causing the species to radiate into several new ones.
+We call this adaptive radiation because many adaptations evolve from a single point of origin.
+The Hawaiian honeycreeper illustrates one example of adaptive radiation.
+The honeycreeper birds illustrate adaptive radiation.
+From one original species of bird, multiple others evolved, each with its own distinctive characteristics.
+Evolution in response to natural selection based on specific food sources in each new habitat led to evolution of a different beak suited to the specific food source.
+The seed-eating bird has a thicker, stronger beak which is suited to break hard nuts.
+The nectar-eating birds have long beaks to dip into flowers to reach the nectar.
+The insect-eating birds have beaks like swords, appropriate for stabbing and impaling insects.
+Darwin's finches are another example of adaptive radiation in an archipelago.
+The answer is yes.
+We call the process of speciation within the same space sympatric.
+One form of sympatric speciation can begin with a serious chromosomal error during cell division.
+In this example, the resulting offspring will have 2n+1 or 2n-1 chromosomes.
+Polyploidy is a condition in which a cell or organism has an extra set, or sets, of chromosomes.
+Polyploidy is a condition in which a cell or organism has an extra set.
+Scientists have identified two main types of polyploidy that can lead to reproductive isolation of an individual in the polyploidy state.
+Reproductive isolation is the inability to interbreed.
+These new gametes will be incompatible with the normal gametes that this plant species produces.
+However, they could either self-pollinate or reproduce with other autopolyploid plants with gametes having the same diploid number.
+In this way, sympatric speciation can occur quickly by forming offspring with 4n that we call a tetraploid.
+These individuals would immediately be able to reproduce only with those of this new kind and not those of the ancestral species.
+The prefix "allo-" means "other": therefore, an allopolyploid occurs when gametes from two different species combine.
+In this example, a normal gamete from one species fuses with a polyploidy gamete from another.
+Two matings are necessary to produce viable offspring.
+The cultivated forms of wheat, cotton, and tobacco plants are all allopolyploids.
+tobacco plants are all allopolyploids.
+Although polyploidy occurs occasionally in animals, it takes place most commonly in plants.
+Scientists have discovered more than half of all plant species studied relate back to a species evolved through polyploidy.
+With such a high rate of polyploidy in plants, some scientists hypothesize that this mechanism takes place more as an adaptation than as an error.
+Many types of diverging characters may affect the reproductive isolation, the ability to interbreed, of the two populations.
+Reproductive isolation can take place in a variety of ways.
+Scientists organize them into two groups: prezygotic barriers and postzygotic barriers.
+Therefore, a prezygotic barrier is a mechanism that blocks reproduction from taking place.
+This includes barriers that prevent fertilization when organisms attempt reproduction.
+A postzygotic barrier occurs after zygote formation.
+This includes organisms that don't survive the embryonic stage and those that are born sterile.
+Some types of prezygotic barriers prevent reproduction entirely.
+Many organisms only reproduce at certain times of the year, often just annually.
+Differences in breeding schedules, which we call temporal isolation, can act as a form of reproductive isolation.
+These two related frog species exhibit temporal reproductive isolation.
+Rana aurora breeds earlier in the year than Rana boylii.
+We call this situation habitat isolation.
+a new group exists that is now reproductively and genetically independent.
+The habitats need not be far apart.
+The cricket Gryllus pennsylvanicus prefers sandy soil, and the cricket Gryllus firmus prefers loamy soil.
+The cricket Gryllus pennsylvanicus prefers sandy soil.
+the cricket Gryllus firmus prefers loamy soil.
+The two species can live in close proximity, but because of their different soil preferences, they became genetically isolated.
+For example, male fireflies use specific light patterns to attract females.
+Various firefly species display their lights differently.
+If a male of one species tried to attract the female of another, she would not recognize the light pattern and would not mate with the male.
+We call this a gametic barrier.
+Similarly, in some cases closely related organisms try to mate, but their reproductive structures simply do not fit together.
+For example, damselfly males of different species have differently shaped reproductive organs.
+If one species tries to mate with the female of another, their body parts simply do not fit together.
+The shape of the male reproductive organ varies among male damselfly species, and is only compatible with the female of that species.
+The shape of the male reproductive organ varies among male damselfly species.
+Reproductive organ incompatibility keeps the species reproductively isolated.
+In plants, certain structures aimed to attract one type of pollinator simultaneously prevent a different pollinator from accessing the pollen.
+The wide foxglove flower is adapted for pollination by bees, while the long, tube-shaped trumpet creeper flower is adapted for pollination by hummingbirds.
+The wide foxglove flower is adapted for pollination by bees.
+the long, tube-shaped trumpet creeper flower is adapted for pollination by hummingbirds.
+When fertilization takes place and a zygote forms, postzygotic barriers can prevent reproduction.
+Hybrid individuals in many cases cannot form normally in the womb and simply do not survive past the embryonic stages.
+In another postzygotic situation, reproduction leads to hybrid birth and growth that is sterile.
+Therefore, the organisms are unable to reproduce offspring of their own.
+We call this hybrid sterility.
+Habitat Influence on Speciation Sympatric speciation may also take place in ways other than polyploidy.
+Over time, those feeding on the second food source would interact more with each other than the other fish; therefore, they would breed together as well.
+Over time, those feeding on the second food source would interact more with each other than the other fish.
+therefore, they would breed together as well.
+Offspring of these fish would likely behave as their parents: feeding and living in the same area and keeping separate from the original population.
+If this group of fish continued to remain separate from the first population, eventually sympatric speciation might occur as more genetic differences accumulated between them.
+This scenario does play out in nature, as do others that lead to reproductive isolation.
+One such place is Lake Victoria in Africa, famous for its sympatric speciation of cichlid fish.
+Researchers have found hundreds of sympatric speciation events in these fish, which have not only happened in great number, but also over a short period of time.
+In this locale, two types of cichlids live in the same geographic location but have come to have different morphologies that allow them to eat various food sources.
+Cichlid fish from Lake Apoyeque, Nicaragua, show evidence of sympatric speciation.
+Lake Apoyeque, a crater lake, is 1800 years old, but genetic evidence indicates that a single population of cichlid fish populated the lake only 100 years ago.
+Nevertheless, two populations with distinct morphologies and diets now exist in the lake, and scientists believe these populations may be in an early stage of speciation.
+Nevertheless, two populations with distinct morphologies and diets now exist in the lake.
+scientists believe these populations may be in an early stage of speciation.
+Reconnection After speciation, two species may recombine or even continue interacting indefinitely.
+Individual organisms will mate with any nearby individual with whom they are capable of breeding.
+We call an area where two closely related species continue to interact and reproduce, forming hybrids a hybrid zone.
+the species continue to diverge until they can no longer mate and produce viable offspring.
+Barriers remain the same if hybrids are fit and reproductive: stability may occur and hybridization continues.
+After speciation has occurred, the two separate but closely related species may continue to produce offspring in an area called the hybrid zone.
+Reinforcement, fusion, or stability may result, depending on reproductive barriers and the relative fitness of the hybrids.
+stability may result, depending on reproductive barriers and the relative fitness of the hybrids.
+Hybrids can be either less fit than the parents, more fit, or about the same.
+Hybrids can be either less fit than the parents, more fit.
+Usually hybrids tend to be less fit; therefore, such reproduction diminishes over time, nudging the two species to diverge further in a process we call reinforcement.
+Usually hybrids tend to be less fit.
+therefore, such reproduction diminishes over time, nudging the two species to diverge further in a process we call reinforcement.
+Scientists use this term because the hybrids' low success reinforces the original speciation.
+Scientists have also observed that sometimes two species will remain separate but also continue to interact to produce some individuals.
+Scientists classify this as stability because no real net change is taking place.
+Varying Rates of Speciation Scientists around the world study speciation, documenting observations both of living organisms and those found in the fossil record.
+As their ideas take shape and as research reveals new details about how life evolves, they develop models to help explain speciation rates.
+In terms of how quickly speciation occurs, we can observe two current patterns: gradual speciation model and punctuated equilibrium model.
+In the gradual speciation model, species diverge gradually over time in small steps.
+While punctuated equilibrium suggests a faster tempo, it does not necessarily exclude gradualism.
+In gradual speciation, species diverge at a slow, steady pace as traits change incrementally.
+In punctuated equilibrium, species diverge quickly and then remain unchanged for long periods of time.
+a. Punctuated equilibrium is most likely to occur in a small population that experiences a rapid change in its environment.
+Punctuated equilibrium is most likely to occur in a large population that lives in a stable climate.
+c. Gradual speciation is most likely to occur in species that live in a stable climate.
+Gradual speciation and punctuated equilibrium both result in the divergence of species.
+The primary influencing factor on changes in speciation rate is environmental conditions.
+Under some conditions, selection occurs quickly or radically.
+The tiny population faces new environmental conditions.
+Because its gene pool quickly became so small, any variation that surfaces and that aids in surviving the new conditions becomes the predominant form.
+LINK TO LEARNING Visit this website to continue the speciation story of the snails.
+These organisms pass their favorable traits to their offspring.
+Evolution may be next generation.
+Over time, populations evolve more convergent with similar traits evolving in multiple characteristics that are beneficial to their survival.
+pressures, genetic variation must be present.
+Both pathways isolate a closely related species can occur in areas called hybrid population reproductively in some form.
+Organisms reproduce with other similar of reproductive isolation act as barriers between organisms.
+Scientists exist as genetically independent species.
+The other model demonstrates how change can reproduction after fertilization occurs.
+For a new occur quickly from a parent generation to a new species to develop, something must introduce a species.
+Both models continue to follow natural reproductive barrier.
+Sympatric speciation can occur selection patterns.
+through errors in meiosis that form gametes with extra chromosomes.
+Punctuated equilibrium is most likely to 2.
+Which scientific concept did Charles Darwin and a.
+A certain duck has a blue beak.
+A mutation occurred to a flower.
+Most cheetahs live solitary lives.
+Worms and snakes both move without other and one grows larger than the other.
+Two types of fish eat the same kind of c.
+Some bats and birds have wings that allow food, and one is better able to gather food them to fly.
+Some bats and birds have wings that allow food.
+d. all of the above c. Male lions compete for the right to mate with females, with only one possible 8.
+Which situation would most likely lead to winner.
+d. all of the above a. Flood causes the formation of a new lake.
+A storm causes several large trees to fall 6.
+A mutation causes a new trait to develop.
+An injury causes an organism to seek out a d. when offspring of the same parents new food source.
+What is the main difference between dispersal 13.
+a. One leads to allopatric speciation, a. It does not share its habitat with related whereas the other leads to sympatric species.
+It does not exist out of a single habitat.
+It does not exchange genetic information organism, and the other involves a change with other species.
+It does not exchange genetic information organism.
+It does not undergo evolutionary changes c.
+One involves closely related organisms, 14.
+Which variable increases the likelihood of b.
+Two species of birds display different b. longer distance between divided groups mating dances.
+c. increased instances of hybrid formation d.
+Two species of insects produce infertile d. equivalent numbers of individuals in each offspring.
+Which term is used to describe the continued 11.
+Which components of speciation would be least 12.
+plant seeds in one area, how would natural 21.
+Why do scientists consider vestigial structures 22.
+What might take 24.

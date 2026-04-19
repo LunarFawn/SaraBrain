@@ -1,0 +1,253 @@
+# Biology2e Chapter 8 — Photosynthesis
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 249
+
+This world map shows Earth's distribution of photosynthetic activity determined by chlorophyll a concentrations.
+On land, chlorophyll is evident from terrestrial plants, and within oceanic zones, from chlorophyll from phytoplankton.
+On land, chlorophyll is evident from terrestrial plants.
+To get this energy, many organisms access stored energy by eating, that is, by ingesting other organisms.
+All of this energy can be traced back to photosynthesis.
+Photosynthesis is essential to all life on earth; both plants and animals depend on it.
+Photosynthesis is essential to all life on earth.
+both plants and animals depend on it.
+It is the only biological process that can capture energy that originates from sunlight and convert it into chemical compounds that every organism uses to power its metabolism.
+It is also a source of oxygen necessary for many living organisms.
+The energy extracted today by the burning of coal and petroleum products represents sunlight energy captured and stored by photosynthesis 350 to 200 million years ago during the Carboniferous Period.
+A third very interesting group of bacteria synthesize sugars, not by using sunlight's energy, but by extracting energy from inorganic chemical compounds.
+For this reason, they are referred to as chemoautotrophs.
+Cyanobacteria and planktonic algae can grow over enormous areas in water, at times completely covering the surface.
+The ecosystem surrounding the vents has a diverse array of animals, such as tubeworms, crustaceans, and octopuses that derive energy from the bacteria.
+The ecosystem surrounding the vents has a diverse array of animals, such as tubeworms, crustaceans.
+The importance of photosynthesis is not just that it can capture sunlight's energy.
+After all, a lizard sunning itself on a cold day can use the sun's energy to warm up in a process called behavioral thermoregulation.
+Those carbohydrates are the energy source that heterotrophs use to power the synthesis of ATP via respiration.
+The energy stored in carbohydrate molecules from photosynthesis passes through the food chain.
+The predator that eats these deer receives a portion of the energy that originated in the photosynthetic vegetation that the deer consumed.
+These sugar molecules contain energy and the energized carbon that all living things need to survive.
+Oxygen is generated as a waste product of photosynthesis.
+The basic equation for photosynthesis is deceptively simple.
+In reality, the process takes place in many steps involving intermediate reactants and products.
+Glucose, the primary energy source in cells, is made from two three-carbon G3Ps.
+Although the equation looks simple, the many steps that take place during photosynthesis are actually quite complex.
+Before learning the details of how photoautotrophs turn sunlight into food, it is important to become familiar with the structures involved.
+Basic Photosynthetic Structures In plants, photosynthesis generally takes place in leaves, which consist of several layers of cells.
+The process of photosynthesis occurs in a middle layer called the mesophyll.
+The gas exchange of carbon dioxide and oxygen occurs through small, regulated openings called stomata, which also play roles in the regulation of gas exchange and water balance.
+The stomata are typically located on the underside of the leaf, which helps to minimize water loss due to high temperatures on the upper surface of the leaf.
+Each stoma is flanked by guard cells that regulate the opening and closing of the stomata by swelling or shrinking in response to osmotic changes.
+In all autotrophic eukaryotes, photosynthesis takes place inside an organelle called a chloroplast.
+For plants, chloroplast-containing cells exist mostly in the mesophyll.
+Chloroplasts have a double membrane envelope, and are ancestrally derived from ancient free-living cyanobacteria.
+Chloroplasts have a double membrane envelope.
+The thylakoid membrane encloses an internal space called the thylakoid lumen.
+On a hot, dry day, the guard cells of plants close their stomata to conserve water.
+In the light-dependent reactions, energy from sunlight is absorbed by chlorophyll and that energy is converted into stored chemical energy.
+In the light-independent reactions, the chemical energy harvested during the light-dependent reactions drives the assembly of sugar molecules from carbon dioxide.
+Therefore, although the light-independent reactions do not use light as a reactant, they require the products of the light-dependent reactions to function.
+In addition, however, several enzymes of the light-independent reactions are activated by light.
+The light-dependent reactions utilize certain molecules to temporarily store the energy: These are referred to as energy carriers.
+The energy carriers that move energy from light-dependent reactions to light-independent reactions can be thought of as "full" because they are rich in energy.
+After the energy is released, the "empty" energy carriers return to the light-dependent reaction to obtain more energy.
+Light-dependent reactions, which take place in the thylakoid membrane, use light energy to make ATP and NADPH.
+The Calvin cycle, which takes place in the stroma, uses energy derived from these compounds to make G3P from CO2.
+Major grocery stores in the United States are organized into departments, such as dairy, meats, produce, bread, cereals, and so forth.
+Major grocery stores in the United States are organized into departments, such as dairy, meats, produce, bread, cereals.
+Although there is a large variety, each item ultimately can be linked back to photosynthesis.
+Meats and dairy link, because the animals were fed plant-based foods.
+The breads, cereals, and pastas come largely from starchy grains, which are the seeds of photosynthesis-dependent plants.
+pastas come largely from starchy grains, which are the seeds of photosynthesis-dependent plants.
+All of these products contain sugar—sucrose is a plant product, a disaccharide, a carbohydrate molecule, which is built directly from photosynthesis.
+Virtually every spice and flavoring in the spice aisle was produced by a plant as a leaf, root, bark, flower, fruit, or stem.
+Virtually every spice and flavoring in the spice aisle was produced by a plant as a leaf, root, bark, flower, fruit.
+Ultimately, photosynthesis connects to every meal and every food a person consumes.
+When a person turns on a lamp, electrical energy becomes light energy.
+Like all other forms of kinetic energy, light can travel, change form, and be harnessed to do work.
+Like all other forms of kinetic energy, light can travel, change form.
+However, autotrophs only use a few specific wavelengths of sunlight.
+Photoautotrophs can capture visible light energy in specific wavelengths from the sun, converting it into the chemical energy used to build food molecules.
+The sun emits an enormous amount of electromagnetic radiation.
+Scientists can determine the amount of energy of a wave by measuring its wavelength—the distance between consecutive crest points of a wave.
+Visible light constitutes only one of many types of electromagnetic radiation emitted from the sun and other stars.
+Scientists differentiate the various types of radiant energy from the sun within the electromagnetic spectrum.
+The difference between wavelengths relates to the amount of energy carried by them.
+The sun emits energy in the form of electromagnetic radiation.
+This radiation exists at different wavelengths, each of which has its own characteristic energy.
+All electromagnetic radiation, including visible light, is characterized by its wavelength.
+Short, tight waves carry the most energy.
+It takes little effort by a person to move a rope in long, wide waves.
+To make a rope move in short, tight waves, a person would need to apply significantly more energy.
+The higher-energy waves can penetrate tissues and damage cells and DNA, which explains why both X-rays and UV rays can be harmful to living organisms.
+Absorption of Light Light energy initiates the process of photosynthesis when pigments absorb specific wavelengths of visible light.
+Organic pigments, whether in the human retina or the chloroplast thylakoid, have a narrow range of energy levels that they can absorb.
+Energy levels lower than those represented by red light are insufficient to raise an orbital electron to an excited state.
+Energy levels higher than those in blue light will physically tear the molecules apart, in a process called bleaching.
+Our retinal pigments can only "see" wavelengths between 700 nm and 400 nm of light, a spectrum that is therefore called visible light.
+The visible light seen by humans as white light actually exists in a rainbow of colors.
+Certain objects, such as a prism or a drop of water, disperse white light to reveal the colors to the human eye.
+The visible light portion of the electromagnetic spectrum shows the rainbow of colors, with violet and blue having shorter wavelengths, and therefore higher energy.
+The visible light portion of the electromagnetic spectrum shows the rainbow of colors, with violet and blue having shorter wavelengths.
+When a photon of light energy interacts with an electron, the electron may absorb the energy and jump from its lowest energy ground state to an excited state.
+The colors of visible light do not carry the same amount of energy.
+Violet has the shortest wavelength and therefore carries the most energy, whereas red has the longest wavelength and carries the least amount of energy.
+Violet has the shortest wavelength and therefore carries the most energy.
+red has the longest wavelength and carries the least amount of energy.
+each absorbs only specific wavelengths of visible light.
+Chlorophylls and carotenoids are the two major classes of photosynthetic pigments found in plants and algae; each class has multiple types of pigment molecules.
+Chlorophylls and carotenoids are the two major classes of photosynthetic pigments found in plants and algae.
+each class has multiple types of pigment molecules.
+With dozens of different forms, carotenoids are a much larger group of pigments.
+In photosynthesis, carotenoids function as photosynthetic pigments that are very efficient molecules for the disposal of excess energy.
+Therefore, many carotenoids reside in the thylakoid membrane, absorb excess energy, and safely dissipate that energy as heat.
+Therefore, many carotenoids reside in the thylakoid membrane, absorb excess energy.
+Each type of pigment can be identified by the specific pattern of wavelengths it absorbs from visible light: This is termed the absorption spectrum.
+Carotenoids absorb in the short-wavelength blue region, and reflect the longer yellow, red, and orange wavelengths.
+Carotenoids absorb in the short-wavelength blue region.
+β-carotene is responsible for the orange color in carrots.
+Each pigment has a unique absorbance spectrum.
+Many photosynthetic organisms have a mixture of pigments, and by using these pigments, the organism can absorb energy from a wider range of wavelengths.
+Many photosynthetic organisms have a mixture of pigments.
+by using these pigments, the organism can absorb energy from a wider range of wavelengths.
+Not all photosynthetic organisms have full access to sunlight.
+Some organisms grow underwater where light intensity and quality decrease and change with depth.
+Other organisms grow in competition for light.
+When studying a photosynthetic organism, scientists can determine the types of pigments present by generating absorption spectra.
+An instrument called a spectrophotometer can differentiate which wavelengths of light a substance can absorb.
+By extracting pigments from leaves and placing these samples into a spectrophotometer, scientists can identify which wavelengths of light an organism can absorb.
+Additional methods for the identification of plant pigments include various types of chromatography that separate the pigments by their relative affinities to solid and mobile phases.
+How Light-Dependent Reactions Work The overall function of light-dependent reactions is to convert solar energy into chemical energy in the form of NADPH and ATP.
+This chemical energy supports the light-independent reactions and fuels the assembly of sugar molecules.
+Protein complexes and pigment molecules work together to produce NADPH and ATP.
+The numbering of the photosystems is derived from the order in which they were discovered, not in the order of the transfer of electrons.
+A photosystem consists of 1) a light-harvesting complex and 2) a reaction center.
+The light excites an electron from the chlorophyll a pair, which passes to the primary electron acceptor.
+The excited electron must then be replaced.
+Both photosystems have the same basic structure; a number of antenna pigments to which the chlorophyll molecules are bound surround the reaction center where the photochemistry takes place.
+Both photosystems have the same basic structure.
+a number of antenna pigments to which the chlorophyll molecules are bound surround the reaction center where the photochemistry takes place.
+The absorption of a single photon or distinct quantity or "packet" of light by any of the chlorophylls pushes that molecule into an excited state.
+In short, the light energy has now been captured by biological molecules but is not stored in any useful form yet.
+The energy is transferred from chlorophyll to chlorophyll until eventually, it is delivered to the reaction center.
+Up to this point, only energy has been transferred between molecules, not electrons.
+In the photosystem II reaction center, energy from sunlight is used to extract electrons from water.
+The electrons travel through the chloroplast electron transport chain to photosystem I, which reduces NADP+ to NADPH.
+The electron transport chain moves protons across the thylakoid membrane into the lumen.
+At the same time, splitting of water adds protons to the lumen, and reduction of NADPH removes protons from the stroma.
+At the same time, splitting of water adds protons to the lumen.
+reduction of NADPH removes protons from the stroma.
+The net result is a low pH in the thylakoid lumen, and a high pH in the stroma.
+The net result is a low pH in the thylakoid lumen.
+ATP synthase uses this electrochemical gradient to make ATP.
+The reaction center contains a pair of chlorophyll a molecules with a special property.
+Those two chlorophylls can undergo oxidation upon excitation; they can actually give up an electron in a process called a photoact.
+Those two chlorophylls can undergo oxidation upon excitation.
+they can actually give up an electron in a process called a photoact.
+It is at this step in the reaction center during photosynthesis that light energy is converted into an excited electron.
+PSII and PSI are two major components of the photosynthetic electron transport chain, which also includes the cytochrome complex.
+molecule plastoquinone to the protein plastocyanin, thus enabling both the transfer of protons across the thylakoid membrane and the transfer of electrons from PSII to PSI.
+P680's missing electron is replaced by extracting a low-energy electron from water; thus, water is "split" during this stage of photosynthesis, and PSII is re-reduced after every photoact.
+P680's missing electron is replaced by extracting a low-energy electron from water.
+thus, water is "split" during this stage of photosynthesis, and PSII is re-reduced after every photoact.
+P680's missing electron is replaced by extracting a low-energy electron from water; thus, water is "split" during this stage of photosynthesis.
+PSII is re-reduced after every photoact.
+Splitting one H2O molecule releases two electrons, two hydrogen atoms, and one atom of oxygen.
+Splitting one H2O molecule releases two electrons, two hydrogen atoms.
+About 10 percent of the oxygen is used by mitochondria in the leaf to support oxidative phosphorylation.
+The remainder escapes to the atmosphere where it is used by aerobic organisms to support respiration.
+As electrons move through the proteins that reside between PSII and PSI, they lose energy.
+This energy is used to move hydrogen atoms from the stromal side of the membrane to the thylakoid lumen.
+Those hydrogen atoms, plus the ones produced by splitting water, accumulate in the thylakoid lumen and will be used synthesize ATP in a later step.
+Because the electrons have lost energy prior to their arrival at PSI, they must be re-energized by PSI, hence, another photon is absorbed by the PSI antenna.
+That energy is relayed to the PSI reaction center.
+Thus, PSII captures the energy to create proton gradients to make ATP, and PSI captures the energy to reduce NADP+ into NADPH.
+Thus, PSII captures the energy to create proton gradients to make ATP.
+PSI captures the energy to reduce NADP+ into NADPH.
+The two photosystems work in concert, in part, to guarantee that the production of NADPH will roughly equal the production of ATP.
+Other mechanisms exist to fine-tune that ratio to exactly match the chloroplast's constantly changing energy needs.
+As in the intermembrane space of the mitochondria during cellular respiration, the buildup of hydrogen ions inside the thylakoid lumen creates a concentration gradient.
+The ions build up energy because of diffusion and because they all have the same electrical charge, repelling each other.
+To release this energy, hydrogen ions will rush through any opening, similar to water jetting through a hole in a dam.
+In the thylakoid, that opening is a passage through a specialized protein channel called the ATP synthase.
+LINK TO LEARNING Visit this site and click through the animation to view the process of photosynthesis within a leaf.
+The carbohydrate molecules made will have a backbone of carbon atoms.
+The Calvin Cycle In plants, carbon dioxide enters the leaves through stomata, where it diffuses over short distances through intercellular spaces until it reaches the mesophyll cells.
+Once in the mesophyll cells, CO2 diffuses into the stroma of the chloroplast—the site of light-independent reactions of photosynthesis.
+These reactions actually have several names associated with them.
+Another term, the Calvin cycle, is named for the man who discovered it, and because these reactions function as a cycle.
+Another term, the Calvin cycle, is named for the man who discovered it.
+because these reactions function as a cycle.
+Others call it the Calvin-Benson cycle to include the name of another scientist involved in its discovery.
+These energy-carrying molecules are made in the stroma where carbon fixation takes place.
+The light-independent reactions of the Calvin cycle can be organized into three basic stages: fixation, reduction, and regeneration.
+The light-independent reactions of the Calvin cycle can be organized into three basic stages: fixation, reduction.
+RuBP has five atoms of carbon, flanked by two phosphates.
+The Calvin cycle has three stages.
+In stage 1, the enzyme RuBisCO incorporates carbon dioxide into an organic molecule, 3-PGA.
+In stage 2, the organic molecule is reduced using electrons supplied by NADPH.
+In stage 3, RuBP, the molecule that starts the cycle, is regenerated so that the cycle can continue.
+a. In photosynthesis, oxygen, carbon dioxide, ATP, and NADPH are reactants.
+NADPH are reactants.
+G3P and water are products.
+In photosynthesis, chlorophyll, water, and carbon dioxide are reactants.
+carbon dioxide are reactants.
+G3P and oxygen are products.
+RuBP and oxygen are products.
+In photosynthesis, water and carbon dioxide are reactants.
+RuBisCO catalyzes a reaction between CO2 and RuBP.
+PGA has three carbons and one phosphate.
+Each turn of the cycle involves only one RuBP and one carbon dioxide and forms two molecules of 3-PGA.
+Stage 2: Reduction ATP and NADPH are used to convert the six molecules of 3-PGA into six molecules of a chemical called glyceraldehyde 3-phosphate.
+Both of these molecules return to the nearby light-dependent reactions to be reused and re-energized.
+Three more molecules of ATP are used in these regeneration reactions.
+LINK TO LEARNING This link leads to an animation of photosynthesis and the Calvin cycle.
+This modern oxygenic photosynthesis is used by many organisms—from giant tropical leaves in the rainforest to tiny cyanobacterial cells—and the process and components of this photosynthesis remain largely the same.
+Photosystems absorb light and use electron transport chains to convert energy into the chemical energy of ATP and NADH.
+The subsequent light-independent reactions then assemble carbohydrate molecules with this energy.
+In the harsh dry heat of the desert, plants must conserve and use every drop of water to survive.
+Desert plants have evolved processes to conserve water and deal with harsh conditions.
+During the day cacti use the captured CO2 for photosynthesis, and keep their stomata closed.
+During the day cacti use the captured CO2 for photosynthesis.
+The harsh conditions of the desert have led plants like these cacti to evolve variations of the light-independent reactions of photosynthesis.
+These variations increase the efficiency of water usage, helping to conserve water and energy.
+The Energy Flow Whether the organism is a bacterium, plant, or animal, all living things access energy by breaking down carbohydrate and other carbon-rich organic molecules.
+Remember, living things need energy to perform life functions.
+In addition, an organism can either make its own food or eat another organism—either way, the food still needs to be broken down.
+In reality, CO2 is no more a form of waste than oxygen is wasteful to photosynthesis.
+Both are byproducts of reactions that move on to other reactions.
+Photosynthesis absorbs light energy to build carbohydrates in chloroplasts, and aerobic cellular respiration releases energy by using oxygen to metabolize carbohydrates in the cytoplasm and mitochondria.
+Photosynthesis absorbs light energy to build carbohydrates in chloroplasts.
+aerobic cellular respiration releases energy by using oxygen to metabolize carbohydrates in the cytoplasm and mitochondria.
+Both processes use electron transport chains to capture the energy necessary to drive other reactions.
+Initially, the light energy is converted into chemical energy during ATP synthesis in a process that gives off oxygen.
+The energy in ATP is then used to reduce CO2 to simple sugars.
+In the process of converting the energy stored in the sugars to ATP, CO2 is released and oxygen is consumed.
+Aerobic respiration consumes oxygen and produces carbon dioxide.
+These two processes play an important role in the carbon cycle.
+By harnessing energy from the sun, the evolution action builds up a high concentration of hydrogen ions.
+Photosystem I achieve the biodiversity evident today.
+Eukaryotic autotrophs, such as plants and Calvin cycle, take in CO2 from the atmosphere.
+An algae, have organelles called chloroplasts in which enzyme, RuBisCO, catalyzes a reaction with CO2 and photosynthesis takes place, and starch accumulates.
+An algae, have organelles called chloroplasts in which enzyme, RuBisCO, catalyzes a reaction with CO2 and photosynthesis takes place.
+The extensions of the plasma membrane, and in the remaining G3P molecules stay in the cycle to be cytoplasm.
+Photosynthesis forms an energy cycle 8.2 The Light-Dependent Reactions of with the process of cellular respiration.
+A photon strikes the antenna pigments of able to interconvert essential metabolites.
+On a hot, dry day, the guard cells of a. In photosynthesis, oxygen, carbon dioxide, plants close their stomata to conserve water.
+ATP, and NADPH are reactants.
+water are products.
+G3P and electrons for the chloroplast electron transport oxygen are products.
+RuBP and b. Oxygen oxygen are products.
+b. antenna molecule a. chloroplasts c. reaction center b. chlorophyll d. primary electron acceptor c. carbon dioxide d. water 11.
+c. cytochrome complex a. Thylakoids are assembled into stacks.
+d. ATP synthase b. Thylakoids exist as a maze of folded membranes.
+Plant A is grown under d. Thylakoids contain chlorophyll.
+blue light, Plant B is grown under green light, and Plant C is grown under orange light.
+blue light, Plant B is grown under green light.
+Plant C is grown under orange light.
+How are the NADPH and G3P molecules made 15.
+to radiation with the following wavelengths: a. They are both end products of 10nm, 450nm, 670nm (red photosynthesis.
+a. X-ray irradiated plants c.
+They are both produced from carbon b. Blue light irradiated plants dioxide.
+They both store energy in chemical bonds.
+Which of the following structures is not a 16.
+Why does it take three turns of the Calvin cycle section of Yellowstone National Park.
+How does each organism provide 26.
+What are the roles of ATP and NADPH in 33.

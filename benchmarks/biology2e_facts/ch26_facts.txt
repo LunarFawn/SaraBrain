@@ -1,0 +1,547 @@
+# Biology2e Chapter 26 — Seed Plants
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 543
+
+Seed plants dominate the landscape and play an enormous and integral role in the success of all human societies.
+These palms are seed plants, which have broken free from the need to rely on water for their reproductive needs.
+The seed plants play an integral role in all aspects of life on the planet, shaping the physical terrain, influencing the climate, and maintaining life as we know it.
+The seed plants play an integral role in all aspects of life on the planet, shaping the physical terrain, influencing the climate.
+For millennia, human societies have depended on seed plants for nutrition and medicinal compounds.
+Somewhat more recently, seed plants have served as a source of manufactured products such as timber and paper, dyes, and textiles.
+Somewhat more recently, seed plants have served as a source of manufactured products such as timber and paper, dyes.
+As an example, multiple uses have been found for each of the plants shown above.
+Palms provide materials including rattans, oils, and dates.
+Palms provide materials including rattans, oils.
+Grains like wheat are grown to feed both human and animal populations or fermented to produce alcoholic beverages.
+The fruit of the cotton flower is harvested as a boll, with its fibers transformed into clothing or pulp for paper.
+The showy opium poppy is valued both as an ornamental flower and as a source of potent opiate compounds.
+They were followed by liverworts and primitive vascular plants—the pterophytes—from which modern ferns are descended.
+The life cycle of bryophytes and pterophytes is characterized by the alternation of generations, which is also exhibited in the gymnosperms and angiosperms.
+The completion of the bryophyte and pterophyte life cycle requires water because the male gametophyte releases flagellated sperm, which must swim to reach and fertilize the female gamete or egg.
+In the sporangia, mother cells undergo meiosis and produce the haploid spores.
+Release of spores in a suitable environment will lead to germination and a new generation of gametophytes.
+Megaspores develop into female gametophytes that produce eggs, and microspores mature into male gametophytes that generate sperm.
+Megaspores develop into female gametophytes that produce eggs.
+microspores mature into male gametophytes that generate sperm.
+Because gametophyte maturation depends on water and nutrient supply from the dominant sporophyte tissue, they are not free-living, as are the gametophytes of seedless vascular plants.
+Ancestral heterosporous seedless plants, represented by modern-day plants such as the spike moss Selaginella, are seen as the evolutionary forerunners of seed plants.
+In the life cycle of Selaginella, both male and female sporangia develop within the same stem-like strobilus.
+In each male sporangium, multiple microspores are produced by meiosis.
+As it develops it is released from the strobilus, and a number of flagellated sperm are produced that then leave the spore case.
+As it develops it is released from the strobilus.
+a number of flagellated sperm are produced that then leave the spore case.
+In the female sporangium, a single megaspore mother cell undergoes meiosis to produce four megaspores.
+Gametophytes develop within each megaspore, consisting of a mass of tissue that will later nourish the embryo and a few archegonia.
+The female gametophyte may remain within remnants of the spore wall in the megasporangium until after fertilization has occurred and the embryo begins to develop.
+These innovative structures allowed seed plants to reduce or eliminate their dependence on water for gamete fertilization and development of the embryo, and to conquer dry land.
+These innovative structures allowed seed plants to reduce or eliminate their dependence on water for gamete fertilization and development of the embryo.
+Pollen grains are male gametophytes, which contain the sperm of the plant.
+The small haploid cells are encased in a protective coat that prevents desiccation and mechanical damage.
+Pollen grains can travel far from their original sporophyte, spreading the plant's genes.
+Seeds offer the embryo protection, nourishment, and a mechanism to maintain dormancy for tens or even thousands of years, ensuring that germination can occur when growth conditions are optimal.
+Seeds offer the embryo protection, nourishment.
+Seeds therefore allow plants to disperse the next generation through both space and time.
+With such evolutionary advantages, seed plants have become the most successful and familiar group of plants.
+Both adaptations expanded the colonization of land begun by the bryophytes and their ancestors.
+Fossils place the earliest distinct seed plants at about 350 million years ago.
+Gymnosperms were preceded by progymnosperms, the first naked seed plants, which arose about 380–390 million years ago.
+At least some species were heterosporous.
+Progymnosperms, like the extinct Archaeopteris, dominated the forests of the late Devonian period.
+However, by the early and middle Mesozoic era, the landscape was dominated by the true gymnosperms.
+Various plant species evolved in different eras.
+Seed plants resembling modern tree ferns became more numerous and diverse in the coal swamps of the Carboniferous period.
+This fossilized leaf is from Glossopteris, a seed fern that thrived during the Permian age.
+Fossil records indicate the first gymnosperms most likely originated in the Paleozoic era, during the middle Devonian period: about 390 million years ago.
+The following Carboniferous period was wet and dominated by giant fern trees.
+But the following Permian period was dry, which gave a reproductive edge to seed plants, which are better adapted to survive dry spells.
+The Ginkgoales, a group of gymnosperms with only one surviving species—the Ginkgo biloba—were the first gymnosperms to appear during the early Permian.
+Gymnosperms expanded in the Mesozoic era, supplanting ferns in the landscape, and reaching their greatest diversity during this time.
+Gymnosperms expanded in the Mesozoic era, supplanting ferns in the landscape.
+The Jurassic period was as much the age of the cycads as the age of the dinosaurs.
+Ginkgoales and the more familiar conifers also dotted the landscape.
+This boreal forest has low-lying plants and conifer trees.
+Seeds and Pollen as an Evolutionary Adaptation to Dry Land Bryophyte and fern spores are haploid cells dependent on moisture for rapid development of multicellular gametophytes.
+After fertilization of the egg, the diploid zygote produces an embryo that will grow into the sporophyte when the seed germinates.
+Storage tissue to sustain growth of the embryo and a protective coat give seeds their superior evolutionary advantage.
+Several layers of hardened tissue prevent desiccation, and free the embryo from the need for a constant supply of water.
+Several layers of hardened tissue prevent desiccation.
+Furthermore, seeds remain in a state of dormancy—induced by desiccation and the hormone abscisic acid—until conditions for growth become favorable.
+Whether blown by the wind, floating on water, or carried away by animals, seeds are scattered in an expanding geographic range, thus avoiding competition with the parent plant.
+carried away by animals, seeds are scattered in an expanding geographic range, thus avoiding competition with the parent plant.
+The whole structure is protected from desiccation and can reach the female organs without depending on water.
+After reaching a female gametophyte, the pollen grain grows a tube that will deliver a male nucleus to the egg cell.
+This fossilized pollen is from a Buckbean fen core found in Yellowstone National Park, Wyoming.
+Angiosperms produce a flower containing male and/or female reproductive structures.
+Earlier traces of angiosperms are scarce.
+Fossilized pollen recovered from Jurassic geological material has been attributed to angiosperms.
+A few early Cretaceous rocks show clear imprints of leaves resembling angiosperm leaves.
+By the mid-Cretaceous, a staggering number of diverse flowering plants crowd the fossil record.
+The same geological period is also marked by the appearance of many modern groups of insects, suggesting that pollinating insects played a key role in the evolution of flowering plants.
+New data in comparative genomics and paleobotany have shed some light on the evolution of angiosperms.
+Although the angiosperms appeared after the gymnosperms, they are probably not derived from gymnosperm ancestors.
+Instead, the angiosperms form a sister clade that developed in parallel with the gymnosperms.
+The two innovative structures of flowers and fruit represent an improved reproductive strategy that served to protect the embryo, while increasing genetic variability and range.
+The two innovative structures of flowers and fruit represent an improved reproductive strategy that served to protect the embryo.
+Paleobotanists debate whether angiosperms evolved from small woody bushes, or were related to the ancestors of tropical grasses.
+Paleobotanists debate whether angiosperms evolved from small woody bushes.
+Both views draw support from cladistics, and the so-called woody magnoliid hypothesis—which proposes that the early ancestors of angiosperms were shrubs like modern magnolia—also offers molecular biological evidence.
+Both views draw support from cladistics.
+the so-called woody magnoliid hypothesis—which proposes that the early ancestors of angiosperms were shrubs like modern magnolia—also offers molecular biological evidence.
+The most primitive living angiosperm is considered to be Amborella trichopoda, a small plant native to the rainforest of New Caledonia, an island in the South Pacific.
+Analysis of the genome of A. trichopoda has shown that it is related to all existing flowering plants and belongs to the oldest confirmed branch of the angiosperm family tree.
+The nuclear genome shows evidence of an ancient whole-genome duplication.
+The mitochondrial genome is large and multichromosomal, containing elements from the mitochondrial genomes of several other species, including algae and a moss.
+A few other angiosperm groups, called basal angiosperms, are viewed as having ancestral traits because they branched off early from the phylogenetic tree.
+Most modern angiosperms are classified as either monocots or eudicots, based on the structure of their leaves and embryos.
+This leaf imprint shows a Ficus speciosissima, an angiosperm that flourished during the Cretaceous period.
+Flowers and Fruits as an Evolutionary Adaptation Angiosperms produce their gametes in separate organs, which are usually housed in a flower.
+Both fertilization and embryo development take place inside an anatomical structure that provides a stable system of sexual reproduction largely sheltered from environmental fluctuations.
+With about 300,000 species, flowering plants are the most diverse phylum on Earth after insects, which number about 1,200,000 species.
+Flowers come in a bewildering array of sizes, shapes, colors, smells, and arrangements.
+Flowers come in a bewildering array of sizes, shapes, colors, smells.
+Most flowers have a mutualistic pollinator, with the distinctive features of flowers reflecting the nature of the pollination agent.
+The relationship between pollinator and flower characteristics is one of the great examples of coevolution.
+Following fertilization of the egg, the ovule grows into a seed.
+Not all fruits develop completely from an ovary; such "false fruits" or pseudocarps, develop from tissues adjacent to the ovary.
+Not all fruits develop completely from an ovary.
+such "false fruits" or pseudocarps, develop from tissues adjacent to the ovary.
+Like flowers, fruit can vary tremendously in appearance, size, smell, and taste.
+Like flowers, fruit can vary tremendously in appearance, size, smell.
+Tomatoes, green peppers, corn, and avocados are all examples of fruits.
+avocados are all examples of fruits.
+Along with pollen and seeds, fruits also act as agents of dispersal.
+Some may be carried away by the wind.
+Cockleburs are covered with stiff, hooked spines that can hook into fur and hitch a ride on an animal for long distances.
+The cockleburs that clung to the velvet trousers of an enterprising Swiss hiker, George de Mestral, inspired his invention of the loop and hook fastener he named Velcro.
+Building Phylogenetic Trees with Analysis of DNA Sequence Alignments All living organisms display patterns of relationships derived from their evolutionary history.
+Phylogeny is the science that describes the relative connections between organisms, in terms of ancestral and descendant species.
+Species are found at the tips of the branches.
+This phylogenetic tree shows the evolutionary relationships of plants.
+Traditional methods involve comparison of homologous anatomical structures and embryonic development, assuming that closely related organisms share anatomical features that emerge during embryo development.
+Some traits that disappear in the adult are present in the embryo; for example, an early human embryo has a postanal tail, as do all members of the Phylum Chordata.
+Some traits that disappear in the adult are present in the embryo.
+for example, an early human embryo has a postanal tail, as do all members of the Phylum Chordata.
+The study of fossil records shows the intermediate stages that link an ancestral form to its descendants.
+As the tools of molecular biology and computational analysis have been developed and perfected in recent years, a new generation of tree-building methods has taken shape.
+The genes encoding the 18S ribosomal RNA from the small subunit and plastid genes are frequently chosen for DNA alignment analysis.
+Once the sequences of interest are obtained, they are compared with existing sequences in databases such as GenBank, which is maintained by The National Center for Biotechnology Information.
+tools are available to align and analyze sequences.
+Sophisticated computer analysis programs determine the percentage of sequence identity or homology.
+Sequence homology can be used to estimate the evolutionary distance between two DNA sequences and reflect the time elapsed since the genes separated from a common ancestor.
+Molecular analysis has revolutionized phylogenetic trees.
+In some cases, prior results from morphological studies have been confirmed: for example, confirming Amborella trichopoda as the most primitive angiosperm known.
+However, some groups and relationships have been rearranged as a result of DNA analysis.
+Gymnosperms, meaning "naked seeds," are a diverse group of seed plants.
+According to the "anthophyte" hypothesis, the angiosperms are a sister group of one group of gymnosperms, which makes the gymnosperms a paraphyletic group.
+Paraphyletic groups are those in which not all descendants of a single common ancestor are included in the group.
+However , the "netifer" hypothesis suggests that the gnetophytes are sister to the conifers, making the gymnosperms monophyletic and sister to the angiosperms.
+Further molecular and anatomical studies may clarify these relationships.
+Gymnosperm seeds are not enclosed in an ovary; rather, they are only partially sheltered by modified leaves called sporophylls.
+Gymnosperm seeds are not enclosed in an ovary.
+rather, they are only partially sheltered by modified leaves called sporophylls.
+You may recall the term strobilus describes a tight arrangement of sporophylls around a central stalk, as seen in pine cones.
+Some seeds are enveloped by sporophyte tissues upon maturation.
+The layer of sporophyte tissue that surrounds the megasporangium, and later, the embryo, is called the integument.
+later, the embryo, is called the integument.
+Gymnosperms were the dominant phylum in the Mesozoic era.
+They are adapted to live where fresh water is scarce during part of the year, or in the nitrogen-poor soil of a bog.
+They are adapted to live where fresh water is scarce during part of the year.
+Therefore, they are still the prominent phylum in the coniferous biome or taiga, where the evergreen conifers have a selective advantage in cold and dry weather.
+Evergreen conifers continue low levels of photosynthesis during the cold months, and are ready to take advantage of the first sunny days of spring.
+Evergreen conifers continue low levels of photosynthesis during the cold months.
+One disadvantage is that conifers are more susceptible than deciduous trees to leaf infestations because most conifers do not lose their leaves all at once.
+They cannot, therefore, shed parasites and restart with a fresh supply of leaves in spring.
+The life cycle of a gymnosperm involves alternation of generations, with a dominant sporophyte in which reduced male and female gametophytes reside.
+All gymnosperms are heterosporous.
+The male and female reproductive organs can form in cones or strobili.
+The life cycle of a conifer will serve as our example of reproduction in gymnosperms.
+Life Cycle of a Conifer Pine trees are conifers and carry both male and female sporophylls on the same mature sporophyte.
+Therefore, they are monoecious plants.
+Like all gymnosperms, pines are heterosporous and generate two different types of spores.
+Male and female spores develop in different strobili, with small male cones and larger female cones.
+In the male cones, or staminate cones, the microsporocytes undergo meiosis and the resultant haploid microspores give rise to male gametophytes or "pollen grains" by mitosis.
+staminate cones, the microsporocytes undergo meiosis and the resultant haploid microspores give rise to male gametophytes or "pollen grains" by mitosis.
+Each pollen grain consists of just a few haploid cells enclosed in a tough wall reinforced with sporopollenin.
+In the spring, large amounts of yellow pollen are released and carried by the wind.
+Some gametophytes will land on a female cone.
+Pollination is defined as the initiation of pollen tube growth.
+Female cones, or ovulate cones, contain two ovules per scale.
+ovulate cones, contain two ovules per scale.
+Each ovule has a narrow passage that opens near the base of the sporophyll.
+This passage is the micropyle, through which a pollen tube will later grow.
+One megaspore mother cell, or megasporocyte, undergoes meiosis in each ovule.
+megasporocyte, undergoes meiosis in each ovule.
+Upon fertilization, the diploid egg will give rise to the embryo, which is enclosed in a seed coat of tissue from the parent plant.
+Fertilization and seed development is a long process in pine trees: it may take up to two years after pollination.
+The seed that is formed contains three generations of tissues: the seed coat that originates from the sporophyte tissue, the gametophyte tissue that will provide nutrients, and the embryo itself.
+The seed that is formed contains three generations of tissues: the seed coat that originates from the sporophyte tissue, the gametophyte tissue that will provide nutrients.
+The sporophyte phase is the longest phase in the life of a gymnosperm.
+The gametophytes—produced by microspores and megaspores—are reduced in size.
+It may take more than a year between pollination and fertilization while the pollen tube grows towards the growing female gametophyte, which develops from a single megaspore.
+The slow growth of the pollen tube allows the female gametophyte time to produce eggs.
+This image shows the life cycle of a conifer.
+Pollen from male cones blows up into upper branches, where it fertilizes female cones.
+Diversity of Gymnosperms Modern gymnosperms are classified into four phyla.
+However, the three phyla are not closely related phylogenetically to each other.
+Typical conifers are tall trees that bear scale-like or needle-like leaves.
+Water evaporation from leaves is reduced by their narrow shape and a thick cuticle.
+Snow easily slides off needle-shaped leaves, keeping the snow load light, thus reducing broken branches.
+Such adaptations to cold and dry weather explain the predominance of conifers at high altitudes and in cold climates.
+Conifers include familiar evergreen trees such as pines, spruces, firs, cedars, sequoias, and yews.
+Conifers include familiar evergreen trees such as pines, spruces, firs, cedars, sequoias.
+A few species are deciduous and lose their leaves in fall.
+Many coniferous trees are harvested for paper pulp and timber.
+Conifers are the dominant form of vegetation in cold or arid environments and at high altitudes.
+Cycads Cycads thrive in mild climates, and are often mistaken for palms because of the shape of their large, compound leaves.
+Cycads Cycads thrive in mild climates.
+Large cycads dominated the landscape during the age of dinosaurs in the Mesozoic, but only a hundred or so smaller species persisted to modern times.
+They face possible extinction, and several species are protected through international conventions.
+They face possible extinction.
+several species are protected through international conventions.
+Because of their attractive shape, they are often used as ornamental plants in gardens in the tropics and subtropics.
+This cycad, Encephalartos ferox, has large cones and broad, fern-like leaves.
+Its fan-shaped leaves—unique among seed plants because they feature a dichotomous venation pattern—turn yellow in autumn and fall from the tree.
+For centuries, G. biloba was cultivated by Chinese Buddhist monks in monasteries, which ensured its preservation.
+It is planted in public spaces because it is unusually resistant to pollution.
+Male and female organs are produced on separate plants.
+Typically, gardeners plant only male trees because the seeds produced by the female plant have an off-putting smell of rancid butter.
+This plate from the 1870 book Flora Japonica, Sectio Prima depicts the leaves and fruit of Ginkgo biloba, as drawn by Philipp Franz von Siebold and Joseph Gerhard Zuccarini.
+Their possession of vessel elements suggests they are the closest relative to modern angiosperms.
+However, molecular analysis places them closer to the conifers.
+Like angiosperms, they have broad leaves.
+Ephedra's small, scale-like leaves are the source of the compound ephedrine, which is used in medicine as a potent decongestant.
+Because ephedrine is similar to amphetamines, both in chemical structure and neurological effects, its use is restricted to prescription drugs.
+It produces only two leaves, which grow continuously throughout the life of the plant.
+Like the ginkgos, Welwitschia produces male and female gametes on separate plants.
+Gnetum gnemon grows in Malaysia.
+The large Welwitschia mirabilis can be found in the Namibian desert.
+With more than 300,000 species, the angiosperm phylum is second only to insects in terms of diversification.
+These flowers grow in a botanical garden border in Bellevue, WA.
+Flowering plants dominate terrestrial landscapes.
+The vivid colors of flowers and enticing fragrance of flowers are adaptations to pollination by animals like insects, birds, and bats.
+The vivid colors of flowers and enticing fragrance of flowers are adaptations to pollination by animals like insects, birds.
+The success of angiosperms is due to two novel reproductive structures: flowers and fruits.
+The function of the flower is to ensure pollination, often by arthropods, as well as to protect a developing embryo.
+The colors and patterns on flowers offer specific signals to many pollinating insects or birds and bats that have coevolved with them.
+For example, some patterns are visible only in the ultraviolet range of light, which can be seen by arthropod pollinators.
+For some pollinators, flowers advertise themselves as a reliable source of nectar.
+Flower scent also helps to select its pollinators.
+Sweet scents tend to attract bees and butterflies and moths, but some flies and beetles might prefer scents that signal fermentation or putrefaction.
+Flowers also provide protection for the ovule and developing embryo inside a receptacle.
+The function of the fruit is seed protection and dispersal.
+Different fruit structures or tissues on fruit—such as sweet flesh, wings, parachutes, or spines that grab—reflect the dispersal strategies that help spread seeds.
+Flowers Flowers are modified leaves, or sporophylls, organized around a central receptacle.
+Flowers Flowers are modified leaves.
+Although they vary greatly in appearance, virtually all flowers contain the same structures: sepals, petals, carpels, and stamens.
+Although they vary greatly in appearance, virtually all flowers contain the same structures: sepals, petals, carpels.
+The peduncle typically attaches the flower to the plant proper.
+A whorl of sepals is located at the base of the peduncle and encloses the unopened floral bud.
+Sepals are usually photosynthetic organs, although there are some exceptions.
+For example, the corolla in lilies and tulips consists of three sepals and three petals that look virtually identical.
+Sepals and petals together form the perianth.
+The sexual organs, the female gynoecium and male androecium are located at the center of the flower.
+The female reproductive unit consists of one or more carpels, each of which has a stigma, style, and ovary.
+The female reproductive unit consists of one or more carpels, each of which has a stigma, style.
+The stigma is the location where the pollen is deposited either by wind or a pollinating arthropod.
+The sticky surface of the stigma traps pollen grains, and the style is a connecting structure through which the pollen tube will grow to reach the ovary.
+the style is a connecting structure through which the pollen tube will grow to reach the ovary.
+Flower structure is very diverse, and carpels may be singular, multiple, or fused.
+Flower structure is very diverse.
+carpels may be singular, multiple, or fused.
+Flower structure is very diverse, and carpels may be singular, multiple.
+The androecium, or male reproductive region is composed of multiple stamens surrounding the central carpel.
+male reproductive region is composed of multiple stamens surrounding the central carpel.
+Stamens are composed of a thin stalk called a filament and a sac-like structure called the anther.
+The filament supports the anther, where the microspores are produced by meiosis and develop into haploid pollen grains, or male gametophytes.
+The filament supports the anther, where the microspores are produced by meiosis and develop into haploid pollen grains.
+This image depicts the structure of a perfect flower.
+Perfect flowers produce both male and female floral organs.
+The flower shown has only one carpel, but some flowers have a cluster of carpels.
+Together, all the carpels make up the gynoecium.
+Like gymnosperms, angiosperms are heterosporous.
+Therefore, they produce microspores, which will generate pollen grains as the male gametophytes, and megaspores, which will form an ovule that contains female gametophytes.
+Therefore, they produce microspores, which will generate pollen grains as the male gametophytes.
+Inside the anther's microsporangia, male sporocytes divide by meiosis to generate haploid microspores, which, in turn, undergo mitosis and give rise to pollen grains.
+Each pollen grain contains two cells: one generative cell that will divide into two sperm and a second cell that will become the pollen tube cell.
+Anthers and carpels are structures that shelter the actual gametophytes: the pollen grain and embryo sac.
+Double fertilization is a process unique to angiosperms.
+The ovule, sheltered within the ovary of the carpel, contains the megasporangium protected by two layers of integuments and the ovary wall.
+Only the large megaspore survives; it divides mitotically three times to produce eight nuclei distributed among the seven cells of the female gametophyte or embryo sac.
+it divides mitotically three times to produce eight nuclei distributed among the seven cells of the female gametophyte or embryo sac.
+The three cells at one pole become the egg and two synergids.
+The three cells at the opposite pole become antipodal cells.
+The center cell contains the remaining two nuclei.
+This cell will eventually produce the endosperm of the seed.
+The mature embryo sac then contains one egg cell, two synergids or "helper" cells, three antipodal cells, and a central cell with two polar nuclei.
+The mature embryo sac then contains one egg cell, two synergids or "helper" cells, three antipodal cells.
+The two sperm are deposited in the embryo sac.
+A double fertilization event then occurs.
+The zygote develops into an embryo with a radicle, or small root, and one or two leaf-like organs called cotyledons.
+The zygote develops into an embryo with a radicle, or small root.
+one or two leaf-like organs called cotyledons.
+The zygote develops into an embryo with a radicle.
+small root, and one or two leaf-like organs called cotyledons.
+This difference in the number of embryonic leaves is the basis for the two major groups of angiosperms: the monocots and the eudicots.
+The cotyledons serve as conduits to transmit the broken-down food reserves from their storage site inside the seed to the developing embryo.
+The seed consists of a toughened layer of integuments forming the coat, the endosperm with food reserves, and at the center, the well-protected embryo.
+The seed consists of a toughened layer of integuments forming the coat, the endosperm with food reserves.
+In monoecious plants, male and female flowers are separate, but carried on the same plant.
+In dioecious plants, male and female flowers are found on separate plants.
+Willows and poplars are dioecious.
+In spite of the predominance of perfect flowers, only a few species of angiosperms self-pollinate.
+Both anatomical and environmental barriers promote cross-pollination mediated by a physical agent, or an animal, such as an insect or bird.
+Both anatomical and environmental barriers promote cross-pollination mediated by a physical agent.
+Cross-pollination increases genetic diversity in a species.
+The female inflorescence is at the upper left.
+The male inflorescence is at the lower right.
+The seed forms in an ovary, which also enlarges as the seeds grow.
+Many foods commonly called vegetables are actually fruits.
+Eggplants, zucchini, string beans, tomatoes, and bell peppers are all technically fruits because they contain seeds and are derived from the thick ovary tissue.
+bell peppers are all technically fruits because they contain seeds and are derived from the thick ovary tissue.
+Acorns are true nuts, and winged maple "helicopter seeds" or whirligigs are also fruits.
+Acorns are true nuts.
+Botanists classify fruit into more than two dozen different categories, only a few of which are actually fleshy and sweet.
+Mature fruit can be fleshy or dry.
+Fleshy fruit include the familiar berries, peaches, apples, grapes, and tomatoes.
+Fleshy fruit include the familiar berries, peaches, apples, grapes.
+Rice, wheat, and nuts are examples of dry fruit.
+nuts are examples of dry fruit.
+Another subtle distinction is that not all fruits are derived from just the ovary.
+For instance, strawberries are derived from the ovary as well as the receptacle, and apples are formed from the ovary and the pericarp, or hypanthium.
+For instance, strawberries are derived from the ovary as well as the receptacle.
+apples are formed from the ovary and the pericarp, or hypanthium.
+For instance, strawberries are derived from the ovary as well as the receptacle, and apples are formed from the ovary and the pericarp.
+Some fruits are derived from separate ovaries in a single flower, such as the raspberry.
+Additionally, some fruits, like watermelon and orange, have rinds.
+Regardless of how they are formed, fruits are an agent of seed dispersal.
+The variety of shapes and characteristics reflect the mode of dispersal.
+Wind carries the light dry fruits of trees and dandelions.
+Water transports floating coconuts.
+Some fruits attract herbivores with their color or scent, or as food.
+Some fruits attract herbivores with their color or scent.
+Once eaten, tough, undigested seeds are dispersed through the herbivore's feces.
+Other fruits have burrs and hooks to cling to fur and hitch rides on animals.
+Diversity of Angiosperms Angiosperms are classified in a single phylum: the Anthophyta.
+Modern angiosperms appear to be a monophyletic group, which as you may recall means that they originated from a single ancestor.
+Basal angiosperms are a group of plants that are believed to have branched off before the separation of the monocots and dicots, because they exhibit traits from both groups.
+They are categorized separately in most classification schemes.
+The basal angiosperms include Amborella, water lilies, the Magnoliids, and a group called the Austrobaileyales, which includes the star anise.
+The basal angiosperms include Amborella, water lilies, the Magnoliids.
+The monocots and dicots are differentiated on the basis of the structure of the cotyledons, pollen grains, and other structures.
+The monocots and dicots are differentiated on the basis of the structure of the cotyledons, pollen grains.
+Monocots include grasses and lilies, and the dicots form a multi- branched group that includes roses, cabbages, sunflowers, and mints.
+Monocots include grasses and lilies.
+the dicots form a multi- branched group that includes roses, cabbages, sunflowers.
+Basal Angiosperms The Magnoliidae are represented by the magnolias, laurels, and peppers.
+Basal Angiosperms The Magnoliidae are represented by the magnolias, laurels.
+Laurel trees produce fragrant leaves and small, inconspicuous flowers.
+The Laurales grow mostly in warmer climates and are small trees and shrubs.
+A cluster of carpels can be seen above the stamens, which have shed their pollen and begun to drop from the inflorescence.
+In the flower, the sepals and petals are undifferentiated and are collectively called tepals.
+The common spicebush belongs to the Laurales, the same family as cinnamon and bay laurel.
+The fruit of the Piper nigrum plant is black pepper, the main product that was traded along spice routes.
+The leaf venation resembles that of both the monocots and the dicots.
+Although the leaves of the plant float on the surface of the water, their roots are in the underlying soil at the bottom of the lake.
+The fruit is in its final stage, with its red seeds just starting to appear.
+Monocots Plants in the monocot group are primarily identified by the presence of a single cotyledon in the seedling.
+True woody tissue is rarely found in monocots.
+In palm trees, vascular and parenchyma tissues produced by the primary and secondary thickening meristems form the trunk.
+The pollen from the first angiosperms was likely monosulcate, containing a single furrow or pore through the outer layer.
+This feature is still seen in the modern monocots.
+The root system consists of multiple fibrous roots, with no major tap root.
+Adventitious roots often emerge from the stem or leaves.
+The monocots include familiar plants such as the true lilies, orchids, yucca, asparagus, grasses, and palms.
+The monocots include familiar plants such as the true lilies, orchids, yucca, asparagus, grasses.
+The world's major crops are flowering plants.
+Rice, wheat, and bananas are monocots, while cabbage, beans, and peaches are dicots.
+bananas are monocots, while cabbage, beans.
+peaches are dicots.
+Rice, wheat, and bananas are monocots.
+cabbage, beans, and peaches are dicots.
+Eudicots Eudicots, or true dicots, are characterized by the presence of two cotyledons in the developing shoot.
+true dicots, are characterized by the presence of two cotyledons in the developing shoot.
+Veins form a network in leaves, and flower parts come in four, five, or many whorls.
+Veins form a network in leaves.
+flower parts come in four, five, or many whorls.
+Veins form a network in leaves, and flower parts come in four, five.
+Vascular tissue forms a ring in the stem; in monocots, vascular tissue is scattered in the stem.
+Vascular tissue forms a ring in the stem.
+in monocots, vascular tissue is scattered in the stem.
+Eudicots can be herbaceous, or produce woody tissues.
+Eudicots can be herbaceous.
+Most eudicots produce pollen that is trisulcate or triporate, with three furrows or pores.
+The root system is usually anchored by one main root developed from the embryonic radicle.
+Eudicots comprise two-thirds of all flowering plants.
+The major differences between monocots and eudicots are summarized in.
+However, some species may exhibit characteristics usually associated with the other group, so identification of a plant as a monocot or a eudicot is not always straightforward.
+Without seed plants, life as we know it would not be possible.
+Plants play a key role in the maintenance of terrestrial ecosystems through the stabilization of soils, cycling of carbon, and climate moderation.
+Plants play a key role in the maintenance of terrestrial ecosystems through the stabilization of soils, cycling of carbon.
+Seed plants provide shelter to many life forms, as well as food for herbivores, thereby indirectly feeding carnivores.
+Plant secondary metabolites are used for medicinal purposes and industrial production.
+Virtually all animal life is dependent on plants for survival.
+Many authors have attributed the diversity of plants and insects to both pollination and herbivory, or the consumption of plants by insects and other animals.
+Many authors have attributed the diversity of plants and insects to both pollination and herbivory.
+Herbivory is believed to have been as much a driving force as pollination.
+Coevolution of herbivores and plant defenses is easily and commonly observed in nature.
+Unlike animals, most plants cannot outrun predators or use mimicry to hide from hungry animals.
+A sort of arms race exists between plants and herbivores.
+To "combat" herbivores, some plant seeds—such as acorn and unripened persimmon—are high in alkaloids and therefore unsavory to some animals.
+Other plants are protected by bark, although some animals developed specialized mouth pieces to tear and chew vegetal material.
+Spines and thorns are examples of plant defenses.
+Herbivory has been exploited by seed plants for their own benefit.
+The dispersal of fruits by herbivorous animals is a striking example of mutualistic relationships.
+The plant offers to the herbivore a nutritious source of food in return for spreading the plant's genetic material to a wider area.
+An extreme example of coevolution between an animal and a plant is exemplified by Mexican acacia trees and their attendant acacia ants Pseudomyrmex spp.
+The sugar pellets also help to keep the ants from interfering with insect pollinators.
+In return, ants discourage herbivores, both invertebrates and vertebrates, by stinging and attacking leaf-eaters and insects ovipositing on the plants.
+The ants also help to remove potential plant pathogens, such as fungal growths.
+Another case of insect-plant coevolution is found in bracken fern, whose subspecies are found throughout the world.
+Bracken ferns produce a number of "secondary plant compounds" in their adult fronds that serve as defensive compounds against nonadapted insect attack.
+These opportunistic groups of protective arthropods greatly reduce the damage that otherwise would occur during the early stages of growth.
+Animals and Plants: Pollination Flowers pollinated by wind are usually small, feathery, and visually inconspicuous.
+Animals and Plants: Pollination Flowers pollinated by wind are usually small, feathery.
+Grasses are a successful group of flowering plants that are wind pollinated.
+They produce large amounts of powdery pollen carried over large distances by the wind.
+Some large trees such as oaks, maples, and birches are also wind pollinated.
+birches are also wind pollinated.
+More than 80 percent of angiosperms depend on animals for pollination.
+Consequently, plants have developed many adaptations to attract pollinators.
+With over 200,000 different plants dependent on animal pollination, the plant needs to advertise to its pollinators with some specificity.
+It is possible, for example, to determine the general type of pollinators favored by a plant by observing the flower's physical characteristics.
+They also produce both fertile pollen, for reproduction, and sterile pollen rich in nutrients for birds and insects.
+They also produce both fertile pollen, for reproduction.
+Many butterflies and bees can detect ultraviolet light, and flowers that attract these pollinators usually display a pattern of ultraviolet reflectance that helps them quickly locate the flower's center.
+Many butterflies and bees can detect ultraviolet light.
+Large, red flowers with little smell and a long funnel shape are preferred by hummingbirds, who have good color perception, a poor sense of smell, and need a strong perch.
+Large, red flowers with little smell and a long funnel shape are preferred by hummingbirds, who have good color perception, a poor sense of smell.
+White flowers that open at night attract moths.
+Other animals—such as bats, lemurs, and lizards—can also act as pollinating agents.
+lizards—can also act as pollinating agents.
+As a bee collects nectar from a flower, it is dusted by pollen, which it then disperses to other flowers.
+Background: Visitation of flowers by pollinating flies is a function mostly of smell.
+Flies are attracted by rotting flesh and carrions.
+The putrid odor seems to be the major attractant.
+Some plants strategically attract flies by synthesizing polyamines similar to those generated by decaying flesh and thereby attract carrion flies.
+Flies seek out dead animals because they normally lay their eggs on them and their maggots feed on the decaying flesh.
+Interestingly, time of death can be determined by a forensic entomologist based on the stages and type of maggots recovered from cadavers.
+White petunia may be a good choice.
+Given the rapid movement of flies, it may be beneficial to use a video camera to record the fly–flower interaction.
+Many societies eat almost exclusively vegetarian fare and depend solely on seed plants for their nutritional needs.
+A few crops dominate the agricultural landscape.
+Many crops were developed during the agricultural revolution, when human societies made the transition from nomadic hunter–gatherers to horticulture and agriculture.
+Cereals, rich in carbohydrates, provide the staple of many human diets.
+Fats are derived from crushed seeds, as is the case for peanut and rapeseed oils, or fruits such as olives.
+Fats are derived from crushed seeds, as is the case for peanut and rapeseed oils.
+Animal husbandry also consumes large quantities of crop plants.
+Staple crops are not the only food derived from seed plants.
+Various fruits and vegetables provide nutrient macromolecules, vitamins, minerals, and fiber.
+Various fruits and vegetables provide nutrient macromolecules, vitamins, minerals.
+Sugar, to sweeten dishes, is produced from the monocot sugarcane and the eudicot sugar beet.
+Drinks are made from infusions of tea leaves, chamomile flowers, crushed coffee beans, or powdered cocoa beans.
+Drinks are made from infusions of tea leaves, chamomile flowers, crushed coffee beans.
+The volatile oils of a number of flowers and bark provide the scent of perfumes.
+Additionally, no discussion of seed plant contribution to human diet would be complete without the mention of alcohol.
+Fermentation of plant-derived sugars and starches is used to produce alcoholic beverages in all societies.
+The sharing of foods and beverages also contributes to human social ritual.
+Seed plants have many other uses, including providing wood as a source of timber for construction, fuel, and material to build furniture.
+Seed plants have many other uses, including providing wood as a source of timber for construction, fuel.
+Most paper is derived from the pulp of coniferous trees.
+Fibers of seed plants such as cotton, flax, and hemp are woven into cloth.
+hemp are woven into cloth.
+Textile dyes, such as indigo, were mostly of plant origin until the advent of synthetic chemical dyes.
+Lastly, it is more difficult to quantify the benefits of ornamental seed plants.
+Humans rely on plants for a variety of reasons.
+Cacao beans were introduced to Europe from the New World, where they were used by Mesoamerican civilizations.
+Combined with sugar, another plant product, chocolate is a popular food.
+Flowers like the tulip are cultivated for their beauty.
+Quinine, extracted from cinchona trees, is used to treat malaria, to reduce fever, and to alleviate pain.
+Quinine, extracted from cinchona trees, is used to treat malaria, to reduce fever.
+Alice Ball developed a way to use a plant-based substance to treat leprosy.
+The medicinal properties of plants have been known to human societies since ancient times.
+Very often, the raw form of the plant or plant-based substance may be unusable even if it demonstrates helpful properties.
+For example, chaulmoogra oil was somewhat effective for treating leprosy, but it was difficult to apply and painful for patients.
+The "Ball Technique" remained the preferred method until synthetic medicines replaced it decades later.
+Plant-based medicines are critical to health, but another challenge to their use is the availability and localization of the source.
+In many cases, as a medicine becomes widely used, supply limitations may lead to high costs and shortages, and any unforeseen issues, such as natural disasters, create challenges with availability.
+In many cases, as a medicine becomes widely used, supply limitations may lead to high costs and shortages.
+any unforeseen issues, such as natural disasters, create challenges with availability.
+In most cases, scientists and pharmaceutical producers seek synthetic versions of the chemicals, and/or ways to mass produce them outside the normal process of plant growth.
+Efforts like these greatly increased both the access and consistency of medicines.
+Seed plants have a large influence on day-to-day human life.
+Not only are plants the major source of food and medicine, they also influence many other aspects of society, from clothing to industry.
+The medicinal properties of plants were recognized early on in human cultures.
+From the mid-1900s, synthetic chemicals began to supplant plant-based remedies.
+Pharmacognosy is the branch of pharmacology that focuses on medicines derived from natural sources.
+With massive globalization and industrialization, it is possible that much human knowledge of plants and their medicinal purposes will disappear with the cultures that fostered them.
+This is where ethnobotanists come in.
+To become an ethnobotanist, a person must acquire a broad knowledge of plant biology, ecology, and sociology.
+To become an ethnobotanist, a person must acquire a broad knowledge of plant biology, ecology.
+The convergence of molecular biology, anthropology, and ecology make the field of ethnobotany a truly multidisciplinary science.
+ecology make the field of ethnobotany a truly multidisciplinary science.
+Biodiversity of Plants Biodiversity ensures a resource for new food crops and medicines.
+Threats to plant diversity, however, come from many sources.
+To feed the growing population, humans need to obtain arable land, so there has been and continues to be massive clearing of trees.
+The need for more energy to power larger cities and economic growth therein leads to the construction of dams, the consequent flooding of ecosystems, and increased emissions of pollutants.
+The need for more energy to power larger cities and economic growth therein leads to the construction of dams, the consequent flooding of ecosystems.
+Other threats to tropical forests come from poachers, who log trees for their precious wood.
+Ebony and Brazilian rosewood, both on the endangered list, are examples of tree species driven almost to extinction by indiscriminate logging.
+This unfortunate practice continues unabated today largely due to lack of population control and political willpower.
+The number of plant species becoming extinct is increasing at an alarming rate.
+A real and pressing issue is that many plant species have not yet been catalogued, and so their place in the ecosystem is unknown.
+A real and pressing issue is that many plant species have not yet been catalogued.
+so their place in the ecosystem is unknown.
+These unknown species are threatened by logging, habitat destruction, and loss of pollinators.
+These unknown species are threatened by logging, habitat destruction.
+They may become extinct before we have the chance to begin to understand the possible impacts from their disappearance.
+Efforts to preserve biodiversity take several lines of action, from preserving heirloom seeds to barcoding species.
+Heirloom seeds come from plants that were traditionally grown in human populations, as opposed to the seeds used for large-scale agricultural production.
+Most crops and ornamental plants are angiosperms.
+Two major reproduction from variability in the environment: the innovations were seeds and pollen.
+Seeds protect the flower and the fruit.
+Seeds are also equipped to delay are the sepals and petals, which protect the germination until growth conditions are optimal.
+The allows seed plants to reproduce in the absence of stamens produce the male gametes in pollen grains.
+Permian period and became the dominant group during The angiosperm life cycle is dominated by the the Triassic, pollen was dispersed by wind, and their sporophyte stage.
+Permian period and became the dominant group during The angiosperm life cycle is dominated by the the Triassic, pollen was dispersed by wind.
+Double fertilization is an event naked seeds developed in the sporophylls of a unique to angiosperms.
+Angiosperms bear both flowers and fruit.
+Fruits offer additional protection to called the endosperm.
+Flowering plants are divided the embryo during its development, and also assist into two main groups, the monocots and eudicots, with seed dispersal.
+Flowering plants are divided the embryo during its development.
+Angiosperms appeared during the according to the number of cotyledons in the seedlings.
+Mesozoic era and have become the dominant plant life Basal angiosperms belong to an older lineage than in terrestrial habitats.
+They appeared in the Paleozoic interactions with animals.
+Herbivory has favored the period and were the dominant plant life during the development of defense mechanisms in plants, and Mesozoic.
+Herbivory has favored the period and were the dominant plant life during the development of defense mechanisms in plants.
+Modern-day gymnosperms belong to four avoidance of those defense mechanisms in animals.
+The largest phylum, Coniferophyta, is Conversely, seed dispersal can be aided by animals represented by conifers, the predominant plants at that eat plant fruits.
+Cycads is mainly carried out by wind and animals, Cycadophyta) resemble palm trees and grow in tropical and angiosperm fruits and seeds have evolved climates.
+Ginkgophyta is represented today by a single numerous adaptations to capture the wind or attract species, Ginkgo biloba.
+The last phylum, Gnetophyta, is specific classes of animals.
+Plants play a key role in ecosystems.
+They are a source of food and medicinal compounds, and provide raw 26.3 Angiosperms materials for many industries.
+They are a source of food and medicinal compounds.
+most terrestrial ecosystems, comprising about 90 In turn, this threatens the ecosystem.
+when the pollen tube begins to grow a. when the female cone begins to bud from the tree 2.
+Seed plants are ________.
+In the northern forests of Siberia, a tall tree is 4.
+Which of the following structures widens the b.
+In the course of double fertilization, one sperm c. leaf cell fuses with the egg and the second one fuses d. root with ________.
+The plants carry exposed seeds on d.
+the antipodal cells modified leaves.
+Reproductive structures are located in a 14.
+Corn develops from a seedling with a single flower.
+cotyledon, displays parallel veins on its leaves, c.
+It is most forms a fruit.
+The gametophyte is the longest phase of a. a gymnosperm the life cycle.
+White and sweet-smelling flowers with c. birds abundant nectar are probably pollinated by d. wind a. bees and butterflies b. flies 18.
+Plants are a source of ________.
+The Cretaceous Period was marked by the species and their trade is severely restricted.
+Customs officials stop suspected smugglers who Insects also diversified enormously during the claim that the plants in their possession are same period.
+Can you propose the reason or palm trees, not cycads.
+What role did the adaptations of seed and pollen 24.
+Biosynthesis of nectar and nutrient-rich pollen is shore is dotted with pines and cypresses.
+Yet, weather is not cold, and the trees grow at sea plants funnel large amounts of energy into level.
+Yet, weather is not cold.
+the trees grow at sea plants funnel large amounts of energy into level.
+What are the four modern-day phyla of 26.

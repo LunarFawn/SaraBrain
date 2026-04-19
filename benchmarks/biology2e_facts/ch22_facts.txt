@@ -1,0 +1,615 @@
+# Biology2e Chapter 22 — Prokaryotes: Bacteria and Archaea
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 611
+
+The spring's vivid blue color is from the prokaryotes that thrive in its very hot waters.
+Based on differences in the structure of cell membranes and in rRNA, Woese and his colleagues proposed that all life on Earth evolved along three lineages, called domains.
+Prokaryotes were the first inhabitants on Earth, appearing 3.5 to 3.8 billion years ago.
+These organisms are abundant and ubiquitous; that is, they are present everywhere.
+These organisms are abundant and ubiquitous.
+that is, they are present everywhere.
+Prokaryotes reside in the human digestive system and on the skin, are responsible for certain illnesses, and serve an important role in the preparation of many foods.
+Prokaryotes reside in the human digestive system and on the skin, are responsible for certain illnesses.
+Prokaryotes are ubiquitous.
+They cover every imaginable surface where there is sufficient moisture, and they also live on and inside virtually all other living things.
+They cover every imaginable surface where there is sufficient moisture.
+they also live on and inside virtually all other living things.
+In the typical human body, prokaryotic cells outnumber human body cells by about ten to one.
+They comprise the majority of living things in all ecosystems.
+Some prokaryotes thrive in environments that are inhospitable for most living things.
+Prokaryotes have been on Earth since long before multicellular life appeared.
+Indeed, eukaryotic cells are thought to be the descendants of ancient prokaryotic communities.
+We now know that prokaryotes were likely the first forms of cellular life on Earth, and they existed for billions of years before plants and animals appeared.
+We now know that prokaryotes were likely the first forms of cellular life on Earth.
+they existed for billions of years before plants and animals appeared.
+The Earth and its moon are dated at about 4.54 billion years in age.
+This estimate is based on evidence from radiometric dating of meteorite material together with other substrate material from Earth and the moon.
+Strong volcanic activity was common on Earth at this time, so it is likely that these first organisms—the first prokaryotes—were adapted to very high temperatures.
+Microbial Mats Microbial mats or large biofilms may represent the earliest forms of prokaryotic life on Earth.
+It is remarkable that cellular life appeared on Earth only a billion years after the Earth itself formed, suggesting that pre-cellular "life" that could replicate itself had evolved much earlier.
+Microbial mats are only a few centimeters thick, and they typically grow where different types of materials interface, mostly on moist surfaces.
+Microbial mats are only a few centimeters thick.
+they typically grow where different types of materials interface, mostly on moist surfaces.
+that is the reason for their various colors.
+Prokaryotes in a microbial mat are held together by a glue-like sticky substance that they secrete called extracellular matrix.
+The first microbial mats likely obtained their energy from chemicals found near hydrothermal vents.
+A hydrothermal vent is a breakage or fissure in the Earth's surface that releases geothermally heated water.
+The mat's colony of bacteria helps retain microbial nutrients.
+Chimneys such as the one indicated by the arrow allow gases to escape.
+In this micrograph, bacteria are visualized using fluorescence microscopy.
+Stromatolites Fossilized microbial mats represent the earliest record of life on Earth.
+Stromatolites form layered rocks made of carbonate or silicate.
+For example, growing stromatolites have been found in the Anza-Borrego Desert State Park in San Diego County, California.
+These living stromatolites are located in Shark Bay, Australia.
+These fossilized stromatolites, found in Glacier National Park, Montana, are nearly 1.5 billion years old.
+The Ancient Atmosphere Evidence indicates that during the first two billion years of Earth's existence, the atmosphere was anoxic, meaning that there was no molecular oxygen.
+Therefore, only those organisms that can grow without oxygen—anaerobic organisms—were able to live.
+they appeared within one billion years of the formation of Earth.
+Then, cyanobacteria, also known as "blue-green algae," evolved from these simple phototrophs at least one billion years later.
+The current evidence suggests that the increase in O2 concentrations allowed the evolution of other life forms.
+This hot spring in Yellowstone National Park flows toward the foreground.
+Cyanobacteria in the spring are green, and as water flows down the gradient, the intensity of the color increases as cell density increases.
+Cyanobacteria in the spring are green.
+as water flows down the gradient, the intensity of the color increases as cell density increases.
+The water is cooler at the edges of the stream than in the center, causing the edges to appear greener.
+Microbes Are Adaptable: Life in Moderate and Extreme Environments Some organisms have developed strategies that allow them to survive harsh conditions.
+Almost all prokaryotes have a cell wall, a protective structure that allows them to survive in both hypertonic and hypotonic aqueous conditions.
+Some soil bacteria are able to form endospores that resist heat and drought, thereby allowing the organism to survive until favorable conditions recur.
+These adaptations, along with others, allow bacteria to remain the most abundant life form in all terrestrial and aquatic ecosystems.
+Because they have specialized adaptations that allow them to live in extreme conditions, many extremophiles cannot survive in moderate environments.
+There are many different groups of extremophiles: They are identified based on the conditions in which they grow best, and several habitats are extreme in multiple ways.
+There are many different groups of extremophiles: They are identified based on the conditions in which they grow best.
+several habitats are extreme in multiple ways.
+For example, a soda lake is both salty and alkaline, so organisms that live in a soda lake must be both alkaliphiles and halophiles.
+Deinococcus radiodurans, visualized in this false color transmission electron micrograph, is a prokaryote that can tolerate very high doses of ionizing radiation.
+It has developed DNA repair mechanisms that allow it to reconstruct its chromosome even if it has been broken into hundreds of pieces by radiation or heat.
+Prokaryotes in the Dead Sea One example of a very harsh environment is the Dead Sea, a hypersaline basin that is located between Jordan and Israel.
+Hypersaline environments are essentially concentrated seawater.
+Iron, calcium, and magnesium, elements that form divalent ions, produce what is commonly referred to as "hard" water.
+magnesium, elements that form divalent ions, produce what is commonly referred to as "hard" water.
+The Dead Sea is hypersaline.
+Nevertheless, salt-tolerant bacteria thrive in this sea.
+These halobacteria cells can form salt-tolerant bacterial mats.
+The process of culturing bacteria is complex and is one of the greatest discoveries of modern science.
+German physician Robert Koch is credited with discovering the techniques for pure culture, including staining and using growth media.
+Microbiologists typically grow prokaryotes in the laboratory using an appropriate culture medium containing all the nutrients needed by the target organism.
+The medium can be liquid, broth, or solid.
+The medium can be liquid, broth.
+Koch's assistant Julius Petri invented the Petri dish, whose use persists in today's laboratories.
+Koch worked primarily with the Mycobacterium tuberculosis bacterium that causes tuberculosis and developed guidelines, called Koch's postulates, to identify the organisms responsible for specific diseases.
+Koch's postulates continue to be widely used in the medical community.
+Today, cultures remain a primary diagnostic tool in medicine and other areas of molecular biology.
+In these agar plates, the growth medium is supplemented with red blood cells.
+Blood agar becomes transparent in the presence of hemolytic Streptococcus, which destroys red blood cells and is used to diagnose Streptococcus infections.
+The plate on the left is inoculated with non-hemolytic Staphylococcus, and the plate on the right is inoculated with hemolytic Streptococcus.
+The plate on the left is inoculated with non-hemolytic Staphylococcus.
+the plate on the right is inoculated with hemolytic Streptococcus.
+If you look closely at the right plate, you can see that the agar surrounding the bacteria has turned clear.
+Koch's postulates can be fully applied only to organisms that can be isolated and cultured.
+Some prokaryotes, however, cannot grow in a laboratory setting.
+In fact, over 99 percent of bacteria and archaea are unculturable.
+Some bacteria cannot be cultured because they are obligate intracellular parasites and cannot be grown outside a host cell.
+In other cases, culturable organisms become unculturable under stressful conditions, even though the same organism could be cultured previously.
+Those organisms that cannot be cultured but are not dead are in a viable- but-non-culturable state.
+The criteria for entering into the VBNC state are not completely understood.
+It has been said that only a small fraction, perhaps one percent, of prokaryotes can be cultured under laboratory conditions.
+Microbiologists use molecular techniques, such as the polymerase chain reaction, to amplify selected portions of DNA of prokaryotes, e.g., 16S rRNA genes, demonstrating their existence.
+The Ecology of Biofilms Some prokaryotes may be unculturable because they require the presence of other prokaryotic species.
+Until a couple of decades ago, microbiologists used to think of prokaryotes as isolated entities living apart.
+This model, however, does not reflect the true ecology of prokaryotes, most of which prefer to live in communities where they can interact.
+Biofilms typically grow attached to surfaces.
+Some of the best-studied biofilms are composed of prokaryotes, although fungal biofilms have also been described, as well as some composed of a mixture of fungi and bacteria.
+Biofilms are present almost everywhere: they can cause the clogging of pipes and readily colonize surfaces in industrial settings.
+In recent, large-scale outbreaks of bacterial contamination of food, biofilms have played a major role.
+They also colonize household surfaces, such as kitchen counters, cutting boards, sinks, and toilets, as well as places on the human body, such as the surfaces of our teeth.
+They also colonize household surfaces, such as kitchen counters, cutting boards, sinks.
+Interactions among the organisms that populate a biofilm, together with their protective exopolysaccharidic environment, make these communities more robust than free-living, or planktonic, prokaryotes.
+Interactions among the organisms that populate a biofilm, together with their protective exopolysaccharidic environment, make these communities more robust than free-living.
+The sticky substance that holds bacteria together also excludes most antibiotics and disinfectants, making biofilm bacteria hardier than their planktonic counterparts.
+Overall, biofilms are very difficult to destroy because they are resistant to many common forms of sterilization.
+During stage 1, initial attachment, bacteria adhere to a solid surface via weak van der Waals interactions.
+During stage 3, maturation I, the biofilm grows through cell division and recruitment of other bacteria.
+An extracellular matrix composed primarily of polysaccharides holds the biofilm together.
+During stage 4, maturation II, the biofilm continues to grow and takes on a more complex shape.
+During stage 5, dispersal, the biofilm matrix is partly broken down, allowing some bacteria to escape and colonize another surface.
+Compared to free-floating bacteria, bacteria in biofilms often show increased resistance to antibiotics and detergents.
+The name "prokaryote" suggests that prokaryotes are defined by exclusion—they are not eukaryotes, or organisms whose cells contain a nucleus and other internal membrane-bound organelles.
+The name "prokaryote" suggests that prokaryotes are defined by exclusion—they are not eukaryotes.
+Their chromosome—usually single—consists of a piece of circular, double-stranded DNA located in an area of the cell called the nucleoid.
+Most prokaryotes have a cell wall outside the plasma membrane.
+The cell wall functions as a protective layer, and it is responsible for the organism's shape.
+it is responsible for the organism's shape.
+Some bacterial species have a capsule outside the cell wall.
+The capsule enables the organism to attach to surfaces, protects it from dehydration and attack by phagocytic cells, and makes pathogens more resistant to our immune responses.
+The capsule enables the organism to attach to surfaces, protects it from dehydration and attack by phagocytic cells.
+Some species also have flagella used for locomotion, and pili used for attachment to surfaces including the surfaces of other cells.
+Some species also have flagella used for locomotion.
+Plasmids, which consist of extra-chromosomal DNA, are also present in many species of bacteria and archaea.
+Flagella, capsules, and pili are not found in all prokaryotes.
+pili are not found in all prokaryotes.
+Bacteria and Archaea are both prokaryotes but differ enough to be placed in separate domains.
+An ancestor of modern Archaea is believed to have given rise to Eukarya, the third domain of life.
+Major bacterial phyla include the Proteobacteria, the Chlamydias, the Spirochaetes, the photosynthetic Cyanobacteria, and the Gram-positive bacteria.
+Major bacterial phyla include the Proteobacteria, the Chlamydias, the Spirochaetes, the photosynthetic Cyanobacteria.
+Eukaryotic mitochondria are thought to be the descendants of alphaproteobacteria, while eukaryotic chloroplasts are derived from cyanobacteria.
+Eukaryotic mitochondria are thought to be the descendants of alphaproteobacteria.
+eukaryotic chloroplasts are derived from cyanobacteria.
+Phylum Proteobacteria is one of up to 52 bacteria phyla.
+Proteobacteria is further subdivided into five classes, Alpha through Epsilon.
+Chlamydia, Spirochetes, Cyanobacteria, and Gram-positive bacteria are described in this table.
+Gram-positive bacteria are described in this table.
+Note that bacterial shape is not phylum-dependent; bacteria within a phylum may be cocci, rod-shaped, or spiral.
+bacteria within a phylum may be cocci, rod-shaped, or spiral.
+Note that bacterial shape is not phylum-dependent; bacteria within a phylum may be cocci, rod-shaped.
+Archaea are separated into four phyla: the Korarchaeota, Euryarchaeota, Crenarchaeota, and Nanoarchaeota.
+Archaea are separated into four phyla: the Korarchaeota, Euryarchaeota, Crenarchaeota.
+The Plasma Membrane of Prokaryotes The prokaryotic plasma membrane is a thin lipid bilayer that completely surrounds the cell and separates the inside from the outside.
+Its selectively permeable nature keeps ions, proteins, and other molecules within the cell and prevents them from diffusing into the extracellular environment, while other molecules may move through the membrane.
+Its selectively permeable nature keeps ions, proteins.
+other molecules within the cell and prevents them from diffusing into the extracellular environment, while other molecules may move through the membrane.
+Its selectively permeable nature keeps ions, proteins, and other molecules within the cell and prevents them from diffusing into the extracellular environment.
+other molecules may move through the membrane.
+In archaeal cell membranes, isoprene chains linked to glycerol replace the fatty acids linked to glycerol in bacterial membranes.
+Archaeal phospholipids differ from those found in Bacteria and Eukarya in two ways.
+First, they have branched phytanyl sidechains instead of linear ones.
+Second, an ether bond instead of an ester bond connects the lipid to the glycerol.
+The Cell Wall of Prokaryotes The cytoplasm of prokaryotic cells has a high concentration of dissolved solutes.
+Therefore, the osmotic pressure within the cell is relatively high.
+The cell wall is a protective layer that surrounds some cells and gives them shape and rigidity.
+It is located outside the cell membrane and prevents osmotic lysis.
+The chemical composition of the cell wall varies between Archaea and Bacteria, and also varies between bacterial species.
+The chemical composition of the cell wall varies between Archaea and Bacteria.
+Bacterial cell walls contain peptidoglycan, composed of polysaccharide chains that are cross-linked by unusual peptides containing both L- and D-amino acids including D-glutamic acid and D-alanine.
+S- layer proteins are also present on the outside of cell walls of both Archaea and Bacteria.
+Bacteria are divided into two major groups: Gram positive and Gram negative, based on their reaction to Gram staining.
+Note that all Gram-positive bacteria belong to two phyla; bacteria in the other phyla are Gram-negative.
+bacteria in the other phyla are Gram-negative.
+The Gram staining method is named after its inventor, Danish scientist Hans Christian Gram.
+The different bacterial responses to the staining procedure are ultimately due to cell wall structure.
+Up to 90 percent of the cell- wall in Gram-positive bacteria is composed of peptidoglycan, and most of the rest is composed of acidic substances called teichoic acids.
+Up to 90 percent of the cell- wall in Gram-positive bacteria is composed of peptidoglycan.
+Teichoic acids may be covalently linked to lipids in the plasma membrane to form lipoteichoic acids.
+Lipoteichoic acids anchor the cell wall to the cell membrane.
+This outer envelope is sometimes referred to as a second lipid bilayer.
+The chemistry of this outer envelope is very different, however, from that of the typical lipid bilayer that forms plasma membranes.
+Bacteria are divided into two major groups: Gram positive and Gram negative.
+Both groups have a cell wall composed of peptidoglycan: in Gram-positive bacteria, the wall is thick, whereas in Gram-negative bacteria, the wall is thin.
+Both groups have a cell wall composed of peptidoglycan: in Gram-positive bacteria, the wall is thick.
+in Gram-negative bacteria, the wall is thin.
+In Gram-negative bacteria, the cell wall is surrounded by an outer membrane that contains lipopolysaccharides and lipoproteins.
+Porins are proteins in this cell membrane that allow substances to pass through the outer membrane of Gram-negative bacteria.
+In Gram-positive bacteria, lipoteichoic acid anchors the cell wall to the cell membrane.
+a. Gram-positive bacteria have a single cell wall anchored to the cell membrane by lipoteichoic acid.
+b. Porins allow entry of substances into both Gram-positive and Gram-negative bacteria.
+The cell wall of Gram-negative bacteria is thick, and the cell wall of Gram-positive bacteria is thin.
+The cell wall of Gram-negative bacteria is thick.
+the cell wall of Gram-positive bacteria is thin.
+Gram-negative bacteria have a cell wall made of peptidoglycan, whereas Gram-positive bacteria have a cell wall made of lipoteichoic acid.
+Gram-negative bacteria have a cell wall made of peptidoglycan.
+Gram-positive bacteria have a cell wall made of lipoteichoic acid.
+Archaean cell walls do not have peptidoglycan.
+One type is composed of pseudopeptidoglycan, which is similar to peptidoglycan in morphology but contains different sugars in the polysaccharide chain.
+The other three types of cell walls are composed of polysaccharides, glycoproteins, or pure protein.
+The other three types of cell walls are composed of polysaccharides, glycoproteins.
+Other differences between Bacteria and Archaea are seen in.
+Reproduction Reproduction in prokaryotes is asexual and usually takes place by binary fission.
+Prokaryotes do not undergo mitosis; instead, the chromosome is replicated and the two resulting copies separate from one another, due to the growth of the cell.
+Prokaryotes do not undergo mitosis.
+instead, the chromosome is replicated and the two resulting copies separate from one another, due to the growth of the cell.
+Binary fission does not provide an opportunity for genetic recombination or genetic diversity, but prokaryotes can share genes by three other mechanisms.
+In transformation, the prokaryote takes in DNA shed by other prokaryotes into its environment.
+If a nonpathogenic bacterium takes up DNA for a toxin gene from a pathogen and incorporates the new DNA into its own chromosome, it too may become pathogenic.
+In transduction, bacteriophages, the viruses that infect bacteria, may move short pieces of chromosomal DNA from one bacterium to another.
+Archaea also have viruses that may translocate genetic material from one individual to another.
+The DNA transferred can be in the form of a plasmid or as a composite molecule, containing both plasmid and chromosomal DNA.
+Reproduction can be very rapid: a few minutes for some species.
+In transformation, the cell takes up prokaryotic DNA directly from the environment.
+The DNA may remain separate as plasmid DNA or be incorporated into the host genome.
+In transduction, a bacteriophage injects DNA into the cell that contains a small fragment of DNA from a different prokaryote.
+Unlike with animals, artifacts in the fossil record of prokaryotes offer very little information.
+Fossils of ancient prokaryotes look like tiny bubbles in rock.
+Conversely, species that diverged long ago will have more genes that are dissimilar.
+Scientists at the NASA Astrobiology Institute and at the European Molecular Biology Laboratory collaborated to 2 analyze the molecular evolution of 32 specific proteins common to 72 species of prokaryotes.
+The model they derived from their data indicates that three important groups of bacteria—Actinobacteria, Deinococcus, and Cyanobacteria—were the first to colonize land.
+The model they derived from their data indicates that three important groups of bacteria—Actinobacteria, Deinococcus.
+Cyanobacteria—were the first to colonize land.
+Actinobacteria are a group of very common Gram-positive bacteria that produce branched structures like fungal mycelia, and include species important in decomposition of organic wastes.
+Actinobacteria are a group of very common Gram-positive bacteria that produce branched structures like fungal mycelia.
+You will recall that Deinococcus is a genus of bacterium that is highly resistant to ionizing radiation.
+It has a thick peptidoglycan layer in addition to a second external membrane, so it has features of both Gram-positive and Gram-negative bacteria.
+Cyanobacteria are photosynthesizers, and were probably responsible for the production of oxygen on the ancient earth.
+Cyanobacteria are photosynthesizers.
+Eukarya later diverged from the archaean line.
+Prokaryotes are metabolically diverse organisms.
+Since metabolism and metabolites are the product of enzyme pathways, and enzymes are encoded in genes, the metabolic capabilities of a prokaryote are a reflection of its genome.
+enzymes are encoded in genes, the metabolic capabilities of a prokaryote are a reflection of its genome.
+variable conditions to which prokaryotes may be able to adapt.
+Prokaryotes have been able to live in every environment from deep-water volcanic vents to Antarctic ice by using whatever energy and carbon sources are available.
+The very broad range of environments that prokaryotes occupy is possible because they have diverse metabolic processes.
+Needs of Prokaryotes The diverse environments and ecosystems on Earth have a wide range of conditions in terms of temperature, available nutrients, acidity, salinity, oxygen availability, and energy sources.
+Needs of Prokaryotes The diverse environments and ecosystems on Earth have a wide range of conditions in terms of temperature, available nutrients, acidity, salinity, oxygen availability.
+Prokaryotes are very well equipped to make their living out of a vast array of nutrients and environmental conditions.
+Macronutrients Cells are essentially a well-organized assemblage of macromolecules and water.
+For cells to build all of the molecules required to sustain life, they need certain substances, collectively called nutrients.
+When prokaryotes grow in nature, they must obtain their nutrients from the environment.
+They are the components of organic compounds in cells, including water.
+Carbon is the major element in all macromolecules: carbohydrates, proteins, nucleic acids, lipids, and many other compounds.
+Carbon is the major element in all macromolecules: carbohydrates, proteins, nucleic acids, lipids.
+Carbon accounts for about 50 percent of the composition of the cell.
+In contrast, nitrogen represents only 12 percent of the total dry weight of a typical cell.
+Nitrogen is a component of proteins, nucleic acids, and other cell constituents.
+Nitrogen is a component of proteins, nucleic acids.
+Diatomic nitrogen, however, can be converted into an organic form only by certain microorganisms, called nitrogen-fixing organisms.
+Both hydrogen and oxygen are part of many organic compounds and of water.
+Phosphorus is required by all organisms for the synthesis of nucleotides and phospholipids.
+Sulfur is part of the structure of some amino acids such as cysteine and methionine, and is also present in several vitamins and coenzymes.
+Sulfur is part of the structure of some amino acids such as cysteine and methionine.
+Other important macronutrients are potassium, magnesium, calcium, and sodium.
+Other important macronutrients are potassium, magnesium, calcium.
+Although these elements are required in smaller amounts, they are very important for the structure and function of the prokaryotic cell.
+These are referred to as micronutrients or trace elements.
+For example, iron is necessary for the function of the cytochromes involved in electron-transport reactions.
+Some prokaryotes require other elements—such as boron, chromium, and manganese—primarily as enzyme cofactors.
+Some prokaryotes require other elements—such as boron, chromium.
+The Ways in Which Prokaryotes Obtain Energy Prokaryotes are classified both by the way they obtain energy, and by the carbon source they use for producing organic molecules.
+The Ways in Which Prokaryotes Obtain Energy Prokaryotes are classified both by the way they obtain energy.
+These categories are summarized in.
+Prokaryotes can use different sources of energy to generate the ATP needed for biosynthesis and other cellular activities.
+Phototrophs obtain their energy from sunlight.
+Phototrophs trap the energy of light using chlorophylls, or in a few cases, bacterial rhodopsin.
+Phototrophs trap the energy of light using chlorophylls.
+Chemotrophs obtain their energy from chemical compounds.
+Energy-producing pathways may be either aerobic, using oxygen as the terminal electron acceptor, or anaerobic, using either simple inorganic compounds or organic molecules as the terminal electron acceptor.
+Energy-producing pathways may be either aerobic, using oxygen as the terminal electron acceptor.
+The Ways in Which Prokaryotes Obtain Carbon Prokaryotes not only can use different sources of energy, but also different sources of carbon compounds.
+In contrast, heterotrophic prokaryotes obtain carbon from organic compounds.
+Thus, photoautotrophs use energy from sunlight, and carbon from carbon dioxide and water, whereas chemoheterotrophs obtain both energy and carbon from an organic chemical source.
+Thus, photoautotrophs use energy from sunlight.
+Thus, photoautotrophs use energy from sunlight, and carbon from carbon dioxide and water.
+chemoheterotrophs obtain both energy and carbon from an organic chemical source.
+Chemolithoautotrophs obtain their energy from inorganic compounds, and they build their complex molecules from carbon dioxide.
+Chemolithoautotrophs obtain their energy from inorganic compounds.
+they build their complex molecules from carbon dioxide.
+Prokaryotes play many roles in the environments they occupy.
+The roles they play in the carbon and nitrogen cycles are vital to life on Earth.
+In addition, the current scientific consensus suggests that metabolically interactive prokaryotic communities may have been the basis for the emergence of eukaryotic cells.
+The carbon cycle traces the movement of carbon from inorganic to organic compounds and back again.
+Carbon is cycled through Earth's major reservoirs: land, the atmosphere, aquatic environments, sediments and rocks, and biomass.
+Carbon is cycled through Earth's major reservoirs: land, the atmosphere, aquatic environments, sediments and rocks.
+In a way, the carbon cycle echoes the role of the "four elements" first proposed by the ancient Greek philosopher, Empedocles: fire, water, earth, and air.
+In a way, the carbon cycle echoes the role of the "four elements" first proposed by the ancient Greek philosopher, Empedocles: fire, water, earth.
+Carbon dioxide is removed from the atmosphere by land plants and marine prokaryotes, and is returned to the atmosphere via the respiration of chemoorganotrophic organisms, including prokaryotes, fungi, and animals.
+Carbon dioxide is removed from the atmosphere by land plants and marine prokaryotes.
+Although the largest carbon reservoir in terrestrial ecosystems is in rocks and sediments, that carbon is not readily available.
+Participants in the carbon cycle are roughly divided among producers, consumers, and decomposers of organic carbon compounds.
+Participants in the carbon cycle are roughly divided among producers, consumers.
+The primary producers of organic carbon compounds from CO2 are land plants and photosynthetic bacteria.
+A large amount of available carbon is found in living land plants.
+A related source of carbon compounds is humus, which is a mixture of organic materials from dead plants and prokaryotes that have resisted decomposition.
+Consumers such as animals and other heterotrophs use organic compounds generated by producers and release carbon dioxide to the atmosphere.
+Other bacteria and fungi, collectively called decomposers, carry out the breakdown of plants and animals and their organic compounds.
+In this case, the cycle is based on one-carbon compounds.
+Prokaryotes play a significant role in continuously moving carbon through the biosphere.
+Prokaryotes and the Nitrogen Cycle Nitrogen is a very important element for life because it is a major constituent of proteins and nucleic acids.
+The largest pool of nitrogen available in the terrestrial ecosystem is gaseous nitrogen from the air, but this nitrogen is not usable by plants, which are primary producers.
+Nitrogen-fixing bacteria include Azotobacter in soil and the ubiquitous photosynthetic cyanobacteria.
+Some nitrogen fixing bacteria, like Rhizobium, live in symbiotic relationships in the roots of legumes.
+Another source of ammonia is ammonification, the process by which ammonia is released during the decomposition of nitrogen-containing organic compounds.
+The ammonium ion is progressively oxidized by different species of bacteria in a process called nitrification.
+The nitrification process begins with the conversion of ammonium to nitrite, and continues with the conversion of nitrite to nitrate.
+The nitrification process begins with the conversion of ammonium to nitrite.
+Nitrification in soils is carried out by bacteria belonging to the genera Nitrosomas, Nitrobacter, and Nitrospira.
+Nitrification in soils is carried out by bacteria belonging to the genera Nitrosomas, Nitrobacter.
+Most nitrogen in soil is in the form of ammonium or nitrate.
+Ammonia and nitrate can be used by plants or converted to other forms.
+Ammonia released into the atmosphere, however, represents only 15 percent of the total nitrogen released; the rest is as N2 and N2O.
+the rest is as N2 and N2O.
+Ammonia is catabolized anaerobically by some prokaryotes, yielding N2 as the final product.
+Denitrifying bacteria reverse the process of nitrification, reducing the nitrate from soils to gaseous compounds such as N2O, NO, and N2.
+Denitrifying bacteria reverse the process of nitrification, reducing the nitrate from soils to gaseous compounds such as N2O, NO.
+Prokaryotes play a key role in the nitrogen cycle.
+a. Nitrogen-fixing bacteria exist on the root nodules of legumes and in the soil.
+Denitrifying bacteria convert nitrates into nitrogen gas.
+c. Ammonification is the process by which ammonium ion is released from decomposing organic compounds.
+d. Nitrification is the process by which nitrites are converted to ammonium ion.
+To a prokaryote, humans may be just another housing opportunity.
+Unfortunately, the tenancy of some species can have harmful effects and cause disease.
+Devastating pathogen-borne diseases and plagues, both viral and bacterial in nature, have affected humans and their ancestors for millions of years.
+corpses and personal belongings of victims of illness, and sanitation practices reduced their own chances of getting sick.
+sanitation practices reduced their own chances of getting sick.
+Epidemiologists study how diseases are transmitted and how they affect a population.
+Often, they must following the course of an epidemic—a disease that occurs in an unusually high number of individuals in a population at the same time.
+In contrast, a pandemic is a widespread, and usually worldwide, epidemic.
+In contrast, a pandemic is a widespread.
+An endemic disease is a disease that is always present, usually at low incidence, in a population.
+Long History of Bacterial Disease There are records about infectious diseases as far back as 3000 B.C.
+A number of significant pandemics caused by bacteria have been documented over several hundred years.
+Some of the most memorable pandemics led to the decline of cities and entire nations.
+In the 21st century, infectious diseases remain among the leading causes of death worldwide, despite advances made in medical research and treatments in recent decades.
+For a pathogen to cause disease, it must be able to reproduce in the host's body and damage the host in some way.
+The plague impacted people living in overcrowded Athens as well as troops aboard ships that had to return to Athens.
+The source of the plague may have been identified recently when researchers from the University of Athens were able to use DNA from teeth recovered from a mass grave.
+This disease is commonly seen in overcrowded areas and has caused epidemics throughout recorded history.
+Salmonella enterica serovar Typhi, the causative agent of Typhoid fever, is a Gram-negative, rod- shaped gamma proteobacterium.
+Typhoid fever, which is spread through feces, causes intestinal hemorrhage, high fever, delirium, and dehydration.
+Typhoid fever, which is spread through feces, causes intestinal hemorrhage, high fever, delirium.
+Carriers of the disease can be asymptomatic.
+In a famous case in the early 1900s, a cook named Mary Mallon unknowingly spread the disease to over fifty people, three of whom died.
+Other serotypes of Salmonella cause food poisoning.
+The population in Europe dropped by 50 percent during this outbreak.
+Bubonic plague is caused by the bacterium Yersinia pestis.
+The "buboes" of bubonic plague were painfully swollen areas of lymphatic tissue.
+A pneumonic form of the plague, spread by the coughing and sneezing of infected individuals, spreads directly from human to human and can cause death within a week.
+The pneumonic form was responsible for the rapid spread of the Black Death in Europe.
+The Black Death reduced the world's population from an estimated 450 million to about 350 to 375 million.
+Although contracting bubonic plague before antibiotics meant almost certain death, the bacterium responds to several types of modern antibiotics, and mortality rates from plague are now very low.
+Although contracting bubonic plague before antibiotics meant almost certain death, the bacterium responds to several types of modern antibiotics.
+mortality rates from plague are now very low.
+The Great Plague of London killed an estimated 200,000 people, or about 20 percent of the city's population.
+The Great Plague of London killed an estimated 200,000 people.
+The causative agent, the bacterium Yersinia pestis, is a Gram-negative, rod-shaped bacterium from the class Gammaproteobacteria.
+The disease is transmitted through the bite of an infected flea, which is carried on a rodent.
+Symptoms include swollen lymph nodes, fever, seizure, vomiting of blood, and gangrene.
+Symptoms include swollen lymph nodes, fever, seizure, vomiting of blood.
+It has been estimated that up to 90 percent of Native Americans died from infectious diseases after the arrival of Europeans, making conquest of the New World a foregone conclusion.
+Emerging and Re-emerging Diseases The distribution of a particular disease is dynamic.
+Changes in the environment, the pathogen, or the host population can dramatically impact the spread of a disease.
+the host population can dramatically impact the spread of a disease.
+This definition also includes re-emerging diseases that were previously under control.
+Approximately 75 percent of recently emerging infectious diseases affecting humans are zoonotic diseases.
+Zoonoses are diseases that primarily infect animals but can be transmitted to humans; some are of viral origin and some are of bacterial origin.
+Zoonoses are diseases that primarily infect animals but can be transmitted to humans.
+some are of viral origin and some are of bacterial origin.
+The map shows regions where bacterial diseases are emerging or re-emerging.
+They devastated populations and became dormant for a while, just to come back, sometimes more virulent than before, as was the case with bubonic plague.
+WHO has identified certain diseases whose worldwide re- emergence should be monitored.
+Among these are three viral diseases, and three bacterial diseases.
+The war against infectious diseases has no foreseeable end.
+The disease is caused by a Gram-negative spirochete bacterium of the genus Borrelia.
+The bacteria infect ticks, which in turn infect mice.
+Deer are the preferred secondary host, but the ticks also may feed on humans.
+Untreated, the disease causes chronic disorders in the nervous system, eyes, joints, and heart.
+Untreated, the disease causes chronic disorders in the nervous system, eyes, joints.
+The disease is named after Lyme, Connecticut, where an outbreak occurred in 1995 and has subsequently spread.
+The disease is not new, however.
+Foodborne Diseases Prokaryotes are everywhere: They readily colonize the surface of any type of material, and food is not an exception.
+Foodborne Diseases Prokaryotes are everywhere: They readily colonize the surface of any type of material.
+food is not an exception.
+Outbreaks of bacterial infection related to food consumption are common.
+A foodborne disease is an illness resulting from the consumption the pathogenic bacteria, viruses, or other parasites that contaminate food.
+A foodborne disease is an illness resulting from the consumption the pathogenic bacteria, viruses.
+The characteristics of foodborne illnesses have changed over time.
+In the past, it was relatively common to hear about sporadic cases of botulism, the potentially fatal disease produced by a toxin from the anaerobic bacterium Clostridium botulinum.
+Some of the most common sources for this bacterium were non-acidic canned foods, homemade pickles, and processed meat and sausages.
+Some of the most common sources for this bacterium were non-acidic canned foods, homemade pickles.
+The can, jar, or package created a suitable anaerobic environment where Clostridium could grow.
+package created a suitable anaerobic environment where Clostridium could grow.
+Proper sterilization and canning procedures have reduced the incidence of this disease.
+While people may tend to think of foodborne illnesses as associated with animal-based foods, most cases are now linked to produce.
+these types of outbreaks have become more common.
+A serotype is a strain of bacteria that carries a set of similar antigens on its cell surface, and there are often many different serotypes of a bacterial species.
+A serotype is a strain of bacteria that carries a set of similar antigens on its cell surface.
+All types of food can potentially be contaminated with bacteria.
+Recent outbreaks of Salmonella reported by the CDC occurred in foods as diverse as peanut butter, alfalfa sprouts, and eggs.
+Recent outbreaks of Salmonella reported by the CDC occurred in foods as diverse as peanut butter, alfalfa sprouts.
+Outbreaks of listeriosis, due to contamination of meats, raw cheeses, and frozen or fresh vegetables with Listeria monocytogenes, are becoming more frequent.
+frozen or fresh vegetables with Listeria monocytogenes, are becoming more frequent.
+Vegetable sprouts grown at an organic farm were the cause of an E. coli outbreak that killed 32 people and sickened 3,800 in Germany in 2011.
+The strain responsible, E. coli O104:H4, produces Shiga toxin, a substance that inhibits protein synthesis in the host cell.
+The toxin destroys red blood cells resulting in bloody diarrhea.
+Deformed red blood cells clog the capillaries of the kidney, which can lead to kidney failure, as happened to 845 patients in the 2011 outbreak.
+Kidney failure is usually reversible, but some patients experience kidney problems years later.
+They are responsible for diseases such as Legionnaires' disease, otitis media, and various infections in patients with cystic fibrosis.
+They are responsible for diseases such as Legionnaires' disease, otitis media.
+They produce dental plaque and colonize catheters, prostheses, transcutaneous and orthopedic devices, contact lenses, and internal devices such as pacemakers.
+They produce dental plaque and colonize catheters, prostheses, transcutaneous and orthopedic devices, contact lenses.
+They also form in open wounds and burned tissue.
+In healthcare environments, biofilms grow on hemodialysis machines, mechanical ventilators, shunts, and other medical equipment.
+In healthcare environments, biofilms grow on hemodialysis machines, mechanical ventilators, shunts.
+In fact, 65 percent of all infections acquired in the hospital are attributed to biofilms.
+Biofilm infections develop gradually and may not cause immediate symptoms.
+They are rarely resolved by host defense mechanisms.
+Once an infection by a biofilm is established, it is very difficult to eradicate, because biofilms tend to be resistant to most methods used to control microbial growth, including antibiotics.
+The matrix that attaches the cells to a substrate and to other another protects the cells from antibiotics or drugs.
+In addition, since biofilms grow slowly, they are less responsive to agents that interfere with cell growth.
+It has been reported that biofilms can resist up to 1,000 times the antibiotic concentrations used to kill the same bacteria when they are free- living or planktonic.
+An antibiotic dose that large would harm the patient; therefore, scientists are working on new ways to get rid of biofilms.
+therefore, scientists are working on new ways to get rid of biofilms.
+An antibiotic is a chemical, produced either by microbes or synthetically, that is hostile to or prevents the growth of other organisms.
+Today's media often address concerns about an antibiotic crisis.
+All these questions challenge the healthcare community.
+The imprudent and excessive use of antibiotics has resulted in the natural selection of resistant forms of bacteria.
+therefore only the resistant forms remain.
+In addition to transmission of resistance genes to progeny, lateral transfer of resistance genes on plasmids can rapidly spread these genes through a bacterial population.
+A major misuse of antibiotics is in patients with viral infections like colds or the flu, against which antibiotics are useless.
+Another problem is the excessive use of antibiotics in livestock.
+The routine use of antibiotics in animal feed promotes bacterial resistance as well.
+In the United States, 70 percent of the antibiotics produced are fed to animals.
+these resistant bacteria are readily transferred to humans.
+One of the Superbugs: MRSA The imprudent use of antibiotics has paved the way for the expansion of resistant bacterial populations.
+For example, Staphylococcus aureus, often called "staph," is a common bacterium that can live in the human body and is usually easily treated with antibiotics.
+This strain is resistant to many commonly used antibiotics, including methicillin, amoxicillin, penicillin, and oxacillin.
+This strain is resistant to many commonly used antibiotics, including methicillin, amoxicillin, penicillin.
+MRSA can cause infections of the skin, but it can also infect the bloodstream, lungs, urinary tract, or sites of injury.
+MRSA can cause infections of the skin, but it can also infect the bloodstream, lungs, urinary tract.
+Researchers have expressed concern about the way this latter source of MRSA targets a much younger population than those residing in care facilities.
+S. aureus is not always pathogenic, but can cause diseases such as food poisoning and skin and respiratory infections.
+In summary, the medical community is facing an antibiotic crisis.
+Researchers are developing new antibiotics, but it takes many years of research and clinical trials, plus financial investments in the millions of dollars, to generate an effective and approved drug.
+Epidemiologist Epidemiology is the study of the occurrence, distribution, and determinants of health and disease in a population.
+Epidemiologist Epidemiology is the study of the occurrence, distribution.
+It is, therefore, part of public health.
+An epidemiologist studies the frequency and distribution of diseases within human populations and environments.
+Epidemiologists collect data about a particular disease and track its spread to identify the original mode of transmission.
+They sometimes work in close collaboration with historians to try to understand the way a disease evolved geographically and over time, tracking the natural history of pathogens.
+They gather information from clinical records, patient interviews, surveillance, and any other available means.
+They gather information from clinical records, patient interviews, surveillance.
+Epidemiologists also conduct rapid investigations in case of an outbreak to recommend immediate measures to control it.
+An epidemiologist has a bachelor's degree, plus a master's degree in public health.
+Many epidemiologists are also physicians, or they have a Ph.D. in an associated field, such as biology or microbiology.
+Many epidemiologists are also physicians.
+they have a Ph.D. in an associated field, such as biology or microbiology.
+Vaccinations can slow the spread of communicable diseases.
+Prokaryotes also interact with humans and other organisms in a number of ways that are beneficial.
+For example, prokaryotes are major participants in the carbon and nitrogen cycles.
+Prokaryotes are used in the production of some human foods, and also have been recruited for the degradation of hazardous materials.
+Prokaryotes are used in the production of some human foods.
+Nitrogen is usually the most limiting element in terrestrial ecosystems, with atmospheric nitrogen, N2, providing the largest pool of available nitrogen.
+However, eukaryotes cannot use atmospheric, gaseous nitrogen to synthesize macromolecules.
+Fortunately, nitrogen can be "fixed," meaning it is converted into a more accessible form—ammonia—either biologically or abiotically.
+Abiotic nitrogen fixation occurs as a result of physical processes such as lightning or by industrial processes.
+Biological nitrogen fixation is exclusively carried out by prokaryotes: soil bacteria, cyanobacteria, and Frankia spp.
+Biological nitrogen fixation is exclusively carried out by prokaryotes: soil bacteria, cyanobacteria.
+After photosynthesis, BNF is the most important biological process on Earth.
+The overall nitrogen fixation equation below represents a series of redox reactions.
+The total fixed nitrogen through BNF is about 100 to 180 million metric tons per year, which contributes about 65 percent of the nitrogen used in agriculture.
+Cyanobacteria are the most important nitrogen fixers in aquatic environments.
+In soil, members of the genera Clostridium and Azotobacter are examples of free-living, nitrogen-fixing bacteria.
+Other bacteria live symbiotically with legume plants, providing the most important source of fixed nitrogen.
+Symbionts may fix more nitrogen in soils than free-living organisms by a factor of 10.
+Nitrogenase, the enzyme that fixes nitrogen, is inactivated by oxygen, so the nodule provides an oxygen-free area for nitrogen fixation to take place.
+The oxygen is sequestered by a form of plant hemoglobin called leghemoglobin, which protects the nitrogenase, but releases enough oxygen to support respiratory activity.
+Symbiotic nitrogen fixation provides a natural and inexpensive plant fertilizer: It reduces atmospheric nitrogen to ammonia, which is easily usable by plants.
+The bacteria benefit from using photosynthates from the plant and having a protected niche.
+Therefore, the use of rhizobia as biofertilizers is a sustainable practice.
+Some, like soybeans, are key sources of agricultural protein.
+Some of the most important legumes consumed by humans are soybeans, peanuts, peas, chickpeas, and beans.
+Some of the most important legumes consumed by humans are soybeans, peanuts, peas, chickpeas.
+Other legumes, such as alfalfa, are used to feed cattle.
+Soybean is a legume that interacts symbiotically with the soil bacterium Bradyrhizobium japonicum to form specialized structures on the roots called nodules where nitrogen fixation occurs.
+EVERYDAY CONNECTION Microbes on the Human Body The commensal bacteria that inhabit our skin and gastrointestinal tract do a host of good things for us.
+They protect us from pathogens, help us digest our food, and produce some of our vitamins and other nutrients.
+They protect us from pathogens, help us digest our food.
+These activities have been known for a long time.
+The Human Microbiome Project has begun the process of cataloging our normal bacteria so we can better understand these functions.
+A particularly fascinating example of our normal flora relates to our digestive systems.
+However, it has been successfully treated by giving the patients fecal transplants from healthy donors to reestablish the normal intestinal microbial community.
+Clinical trials are underway to ensure the safety and effectiveness of this technique.
+Infection commonly occurs after the normal gut fauna are eradicated by antibiotics, and in the hospital can be deadly to seriously ill patients.
+Infection commonly occurs after the normal gut fauna are eradicated by antibiotics.
+Scientists are also discovering that the absence of certain key microbes from our intestinal tract may set us up for a variety of problems.
+This seems to be particularly true regarding the appropriate functioning of the immune system.
+The concept of "specific use" involves some sort of commercial application.
+Genetic engineering, artificial selection, antibiotic production, and cell culture are current topics of study in biotechnology and will be described in later chapters.
+cell culture are current topics of study in biotechnology and will be described in later chapters.
+However, humans were using prokaryotes before the term biotechnology was even coined.
+Some of the products derived from the use of prokaryotes in early biotechnology include cheese, wine, beer and bread, and yogurt.
+Some of the products derived from the use of prokaryotes in early biotechnology include cheese, wine, beer and bread.
+Cheese production began around 4,000 to 7,000 years ago when humans began to breed animals and process their milk.
+Fermentation in this case preserves nutrients: Milk will spoil relatively quickly, but when processed as cheese, it is more stable.
+As for beer, the oldest records of brewing are about 6,000 years old and were an integral part of the Sumerian culture.
+Evidence indicates that the Sumerians discovered fermentation by chance.
+Wine has been produced for about 4,500 years, and evidence suggests that cultured milk products, like yogurt, have existed for at least 4,000 years.
+Wine has been produced for about 4,500 years.
+evidence suggests that cultured milk products, like yogurt, have existed for at least 4,000 years.
+Using Prokaryotes to Clean up Our Planet: Bioremediation Microbial bioremediation is the use of prokaryotes to remove pollutants.
+Bioremediation has been used to remove agricultural chemicals that leach from soil into groundwater and the subsurface.
+Certain toxic metals and oxides, such as selenium and arsenic compounds, can also be removed from water by bioremediation.
+The reduction of SeO4-2 to SeO3-2 and to Se0 is a method used to remove selenium ions from water.
+Mercury is an example of a toxic metal that can be removed from an environment by bioremediation.
+As an active ingredient of some pesticides, mercury is used in industry and is also a by-product of certain processes, such as battery production.
+Methyl mercury is usually present in very low concentrations in natural environments, but it is highly toxic because it accumulates in living tissues.
+Several species of bacteria can carry out the biotransformation of toxic mercury into nontoxic forms.
+These bacteria, such as Pseudomonas aeruginosa, can convert Hg+2 into Hg0, which is nontoxic to humans.
+In the case of oil spills in the ocean, ongoing natural bioremediation tends to occur, since there are oil-consuming bacteria in the ocean prior to the spill.
+Bioremediation is enhanced by the addition of inorganic nutrients that help bacteria to grow.
+Some hydrocarbon-degrading bacteria feed on hydrocarbons in the oil droplet, breaking down the hydrocarbons into smaller subunits.
+Some species, such as Alcanivorax borkumensis, produce surfactants that solubilize the oil, whereas other bacteria degrade the oil into carbon dioxide.
+Some species, such as Alcanivorax borkumensis, produce surfactants that solubilize the oil.
+other bacteria degrade the oil into carbon dioxide.
+Under ideal conditions, it has been reported that up to 80 percent of the nonvolatile components in oil can be degraded within one year of the spill.
+Other oil fractions containing aromatic and highly branched hydrocarbon chains are more difficult to remove and remain in the environment for longer periods of time.
+Some species of bacteria are able to solubilize and degrade the oil.
+Most prokaryotes have a cell wall that lies Prokaryotes existed for billions of years before plants outside the boundary of the plasma membrane.
+Hot springs and hydrothermal prokaryotes may have additional structures such as a vents may have been the environments in which life capsule, flagella, and pili.
+Hot springs and hydrothermal prokaryotes may have additional structures such as a vents may have been the environments in which life capsule, flagella.
+Microbial mats are thought to represent the in the lipid composition of their cell membranes and earliest forms of life on Earth.
+A microbial mat is a the characteristics of the cell wall.
+Some archaeal membranes are lipid on moist surfaces.
+stromatolites and consist of laminated organo- sedimentary structures formed by precipitation of The cell wall is located outside the cell membrane and minerals by prokaryotes.
+They represent the earliest prevents osmotic lysis.
+cell walls varies between species.
+Bacterial cell walls contain peptidoglycan.
+Archaean cell walls do not have During the first two billion years, the atmosphere was peptidoglycan, but they may have anoxic and only anaerobic organisms were able to live.
+pseudopeptidoglycan, polysaccharides, glycoproteins, Cyanobacteria evolved from early phototrophs and or protein-based cell walls.
+The increase into two major groups: Gram positive and Gram in oxygen concentration allowed the evolution of other negative, based on the Gram stain reaction.
+positive organisms have a thick peptidoglycan layer Bacteria and archaea grow in virtually every fortified with teichoic acids.
+Those that survive under extreme have a thin cell wall and an outer envelope containing conditions are called extremophiles.
+Some prokaryotes cannot grow in a laboratory setting, Prokaryotes can transfer DNA from one cell to another but they are not dead.
+They are in the viable-but-non- by three mechanisms: transformation state.
+Most prokaryotes are colonial direct cell contact).
+A biofilm is a microbial community held 22.3 Prokaryotic Metabolism together in a gummy-textured matrix.
+Macronutrients Some bacterial infections have been associated with include C, H, O, N, P, S, K, Mg, Ca, and Na.
+Macronutrients Some bacterial infections have been associated with include C, H, O, N, P, S, K, Mg, Ca.
+Biofilms can metallic elements for growth and enzyme function.
+grow on human tissues, like dental plaque; colonize Prokaryotes use different sources of energy to medical devices; and cause infection or produce assemble macromolecules from smaller molecules.
+foodborne disease by growing on the surfaces of food Phototrophs obtain their energy from sunlight, whereas and food-processing equipment.
+foodborne disease by growing on the surfaces of food Phototrophs obtain their energy from sunlight.
+Biofilms are resistant chemotrophs obtain energy from chemical compounds.
+The excessive use of antibiotics has resulted in anaerobic.
+a major global problem, since resistant forms of Prokaryotes play roles in the carbon and nitrogen bacteria have been selected over time.
+Producers capture carbon dioxide from the dangerous strain, methicillin-resistant Staphylococcus atmosphere and convert it to organic compounds.
+aureus, has wreaked havoc recently across the Consumers (animals and other chemoorganotrophic world.
+organisms) use organic compounds generated by producers and release carbon dioxide into the 22.5 Beneficial Prokaryotes atmosphere by respiration.
+Carbon dioxide is also Pathogens are only a small percentage of all returned to the atmosphere by the microbial prokaryotes.
+Nitrogen also cycles services to humans and other organisms.
+Prokaryotes are essential for most of ammonia either biologically or abiotically.
+Gaseous nitrogen is transformed Biological nitrogen fixation is exclusively carried into ammonia through nitrogen fixation.
+Ammonia is out by prokaryotes, and constitutes the second most anaerobically catabolized by some prokaryotes, important biological process on Earth.
+Ammonia is out by prokaryotes.
+Although some yielding N2 as the final product.
+Nitrification is the terrestrial nitrogen is fixed by free-living bacteria, most conversion of ammonium into nitrite.
+Nitrification in BNF comes from the symbiotic interaction between soil soils is carried out by bacteria.
+Denitrification is also rhizobia and the roots of legume plants.
+diseases and plagues have been among us since early times and remain among the leading causes of death Microbial bioremediation is the use of microbial worldwide.
+Emerging diseases are those rapidly metabolism to remove pollutants.
+Bioremediation has increasing in incidence or geographic range.
+They can been used to remove agricultural chemicals that leach be new or re-emerging diseases (previously under from soil into groundwater and the subsurface.
+A compounds, can also be removed by bioremediation.
+Foodborne diseases purposes is the cleanup of oil spills.
+b. Porins allow entry of substances into both a. Nitrogen fixing bacteria exist on the root Gram-positive and Gram-negative nodules of legumes and in the soil.
+Denitrifying bacteria convert nitrates c.
+The cell wall of Gram-negative bacteria is into nitrogen gas.
+the cell wall of Gram-positive c. Ammonification is the process by which bacteria is thin.
+ammonium ion is released from d. Gram-negative bacteria have a cell wall decomposing organic compounds.
+Gram- d. Nitrification is the process by which positive bacteria have a cell wall made of nitrites are converted to lipoteichoic acid.
+The first forms of life on Earth were thought to prokaryotes.
+Pathogenic bacteria can grow as free a. single-celled plants bacteria, but non-pathogenic bacteria only b. prokaryotes grow as parts of large colonies.
+c. insects d. large animals such as dinosaurs 9.
+The presence of a membrane-enclosed nucleus is a characteristic of ________.
+a. prokaryotic cells a. are the earliest forms of life on Earth b. eukaryotic cells b. obtained their energy and food from c.
+all cells hydrothermal vents d. viruses c. are multi-layered sheets of prokaryotes including mostly bacteria but also archaea 10.
+The first organisms that oxygenated the b. archaea and fungi atmosphere were c. protists and animals a. cyanobacteria d. bacteria and archaea b. phototrophic organisms c. anaerobic organisms 11.
+The cell wall is ________.
+Halophiles are organisms that require________.
+Organisms most likely to be found in extreme environments are ________.
+d. archaea a. Pathogenic prokaryotes are hardier than non-pathogenic prokaryotes.
+Pseudopeptidoglycan is a characteristic of the d. chemo-organotrophs walls of ________.
+The lipopolysaccharide layer is a d. re-emerging characteristic of the wall of ________.
+b. Biofilms produce dental plaque, and 16.
+b. Biofilms produce dental plaque.
+Which of the following elements is not a colonize catheters and prostheses.
+c. Biofilms colonize open wounds and a. boron burned tissue.
+All statements are correct.
+An antibiotic is any substance produced by 17.
+An antibiotic is any substance produced by b. auxotrophs a prokaryote that is antagonistic to the c. chemotrophs growth of other viruses.
+An antibiotic is any substance produced by a prokaryote that is antagonistic to the 18.
+Ammonification is the process by which _____.
+a. ammonia is released during the d.
+An antibiotic is any substance produced by decomposition of nitrogen-containing a prokaryote that prevents growth of the organic compounds same prokaryote.
+b. ammonium is converted to nitrite and nitrate in soils 24.
+Plants use carbon dioxide from the air and are b. Borrelia burgdorferi therefore called _____.
+MRSA has emerged as a serious infectious d. carbon fixers disease, with the first case of methicillin- resistant S. aureus being detected in 1961.
+Thus, a. MRSA can transfer methicillin-resistance we classify cyanobacteria as _________.
+b. Patients are not treated with correct a. pesticides antibiotics rapidly enough to prevent b. bioremediators serious illness.
+Bioremediation includes _____.
+flavor and texture, lactic acid-producing bacteria c. Bacteria benefit from using also provide which additional benefit during food photosynthates from the plant.
+Farmers continually rotate the crops grown in different fields to maintain nutrients in the soil.
+How would this effect the carbon cycle 33.
+A scientist isolates a new species of prokaryote.
+Is the specimen most likely an Archaea, a Gram- 41.
+Your friend believes that prokaryotes are always positive bacterium, or a Gram-negative detrimental and pathogenic.
+Your friend believes that prokaryotes are always positive bacterium.
+Many people use antimicrobial soap to kill pressure, and organic and inorganic materials) bacteria on their hands.
+Many people use antimicrobial soap to kill pressure.
+However, overuse may that you may find in a deep-sea hydrothermal actually increase the risk of infection.

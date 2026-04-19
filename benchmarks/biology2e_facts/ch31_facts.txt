@@ -1,0 +1,291 @@
+# Biology2e Chapter 31 — Soil and Plant Nutrition
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 287
+
+INTRODUCTION Cucurbitaceae is a family of plants first cultivated in Mesoamerica, although several species are native to North America.
+The family includes many edible species, such as squash and pumpkin, as well as inedible gourds.
+In order to grow and develop into mature, fruit- bearing plants, many requirements must be met and events must be coordinated.
+Seeds must germinate under the right conditions in the soil; therefore, temperature, moisture, and soil quality are important factors that play a role in germination and seedling development.
+Seeds must germinate under the right conditions in the soil.
+therefore, temperature, moisture, and soil quality are important factors that play a role in germination and seedling development.
+soil quality are important factors that play a role in germination and seedling development.
+Soil quality and climate are significant to plant distribution and growth.
+The young seedling will eventually grow into a mature plant, and the roots will absorb nutrients and water from the soil.
+The young seedling will eventually grow into a mature plant.
+the roots will absorb nutrients and water from the soil.
+At the same time, the aboveground parts of the plant will absorb carbon dioxide from the atmosphere and use energy from sunlight to produce organic compounds through photosynthesis.
+This chapter will explore the complex dynamics between plants and soils, and the adaptations that plants have evolved to make better use of nutritional resources.
+This chapter will explore the complex dynamics between plants and soils.
+Plants are unique organisms that can absorb nutrients and water through their root system, as well as carbon dioxide from the atmosphere.
+Soil quality and climate are the major determinants of plant distribution and growth.
+The combination of soil nutrients, water, and carbon dioxide, along with sunlight, allows plants to grow.
+carbon dioxide, along with sunlight, allows plants to grow.
+The Chemical Composition of Plants Since plants require nutrients in the form of elements such as carbon and potassium, it is important to understand the chemical composition of plants.
+The majority of volume in a plant cell is water; it typically comprises 80 to 90 percent of the plant's total weight.
+The majority of volume in a plant cell is water.
+it typically comprises 80 to 90 percent of the plant's total weight.
+Soil is the water source for land plants, and can be an abundant source of water, even if it appears dry.
+Soil is the water source for land plants.
+Plant roots absorb water from the soil through root hairs and transport it up to the leaves through the xylem.
+Plants need water to support cell structure, for metabolic functions, to carry nutrients, and for photosynthesis.
+Plants need water to support cell structure, for metabolic functions, to carry nutrients.
+Plant cells need essential substances, collectively called nutrients, to sustain life.
+Plant nutrients may be composed of either organic or inorganic compounds.
+An organic compound is a chemical compound that contains carbon, such as carbohydrates, lipids, proteins, and nucleic acids and is made by a living organism.
+An organic compound is a chemical compound that contains carbon, such as carbohydrates, lipids, proteins.
+nucleic acids and is made by a living organism.
+Carbon that was obtained from atmospheric CO2 is incorporated into organic molecules by plants and as such, composes the majority of the dry mass within most plants.
+An inorganic compound does not contain carbon and is not part of, or produced by, a living organism.
+An inorganic compound does not contain carbon and is not part of.
+Inorganic substances, which form the majority of the soil solution, are commonly called minerals: those required by plants include nitrogen and potassium for structure and regulation.
+Essential Nutrients Plants require only light, water, and about 20 elements to support all their biochemical needs: these 20 elements are called essential nutrients.
+Essential Nutrients Plants require only light, water.
+Macronutrients and Micronutrients The essential elements can be divided into two groups: macronutrients and micronutrients.
+The first of these macronutrients, carbon, is required to form carbohydrates, proteins, nucleic acids, and many other compounds; it is therefore present in all macromolecules.
+it is therefore present in all macromolecules.
+many other compounds; it is therefore present in all macromolecules.
+On average, the dry weight of a cell is 45 percent carbon.
+It is the most abundant organic compound on earth.
+The third most abundant element in plant cells is nitrogen; it is part of proteins and nucleic acids.
+The third most abundant element in plant cells is nitrogen.
+it is part of proteins and nucleic acids.
+Nitrogen is also used in the synthesis of some vitamins.
+Oxygen is necessary for cellular respiration; plants use oxygen to store energy in the form of ATP.
+Oxygen is necessary for cellular respiration.
+plants use oxygen to store energy in the form of ATP.
+Phosphorus, another macromolecule, is necessary to synthesize nucleic acids and phospholipids.
+As part of ATP, phosphorus enables food energy to be converted into chemical energy through oxidative phosphorylation.
+Likewise, light energy is converted into chemical energy during photophosphorylation in photosynthesis, and into chemical energy to be extracted during respiration.
+Likewise, light energy is converted into chemical energy during photophosphorylation in photosynthesis.
+Sulfur is part of certain amino acids, such as cysteine and methionine, and is present in several coenzymes.
+Sulfur is part of certain amino acids, such as cysteine and methionine.
+Sulfur also plays a role in photosynthesis as part of the electron transport chain, where hydrogen gradients play a key role in the conversion of light energy into ATP.
+Potassium is important because of its role in regulating stomatal opening and closing.
+As the openings for gas exchange, stomata help maintain a healthy water balance; a potassium ion pump supports this process.
+As the openings for gas exchange, stomata help maintain a healthy water balance.
+a potassium ion pump supports this process.
+Magnesium and calcium are also important macronutrients.
+The role of calcium is twofold: to regulate nutrient transport, and to support many enzyme functions.
+The role of calcium is twofold: to regulate nutrient transport.
+Magnesium is important to the photosynthetic process.
+These minerals, along with the micronutrients, which are described below, also contribute to the plant's ionic balance.
+In addition to macronutrients, organisms require various elements in small amounts.
+These micronutrients, or trace elements, are present in very small quantities.
+trace elements, are present in very small quantities.
+They include boron, chlorine, manganese, iron, zinc, copper, molybdenum, nickel, silicon, and sodium.
+They include boron, chlorine, manganese, iron, zinc, copper, molybdenum, nickel, silicon.
+Extreme deficiencies may result in leaves showing signs of cell death.
+LINK TO LEARNING Visit this website to participate in an interactive experiment on plant nutrient deficiencies.
+You can adjust the amounts of N, P, K, Ca, Mg, and Fe that plants receive . . .
+You can adjust the amounts of N, P, K, Ca, Mg.
+Nutrient deficiency is evident in the symptoms these plants show.
+Inadequate magnesium also leads to interveinal chlorosis, seen here in a sweetgum leaf.
+This palm is affected by potassium deficiency.
+The other plants are Bibb lettuce and radishes.
+Hydroponics is a method of growing plants in a water-nutrient solution instead of soil.
+Since its advent, hydroponics has developed into a growing process that researchers often use.
+Hydroponics has also developed as a way to grow flowers, vegetables, and other crops in greenhouse environments.
+Hydroponics has also developed as a way to grow flowers, vegetables.
+You might find hydroponically grown produce at your local grocery store.
+Today, many lettuces and tomatoes in your market have been hydroponically grown.
+Plants obtain inorganic elements from the soil, which serves as a natural medium for land plants.
+Soil is the outer loose layer that covers the surface of Earth.
+Soil quality is a major determinant, along with climate, of plant distribution and growth.
+Soil quality depends not only on the chemical composition of the soil, but also the topography and the presence of living organisms.
+In agriculture, the history of the soil, such as the cultivating practices and previous crops, modify the characteristics and fertility of that soil.
+Soil develops very slowly over long periods of time, and its formation results from natural and environmental forces acting on mineral, rock, and organic compounds.
+Soil develops very slowly over long periods of time.
+its formation results from natural and environmental forces acting on mineral, rock.
+weathering of rocks and are primarily composed of inorganic material are called mineral soils.
+Mineral soils are predominant in terrestrial ecosystems, where soils may be covered by water for part of the year or exposed to the atmosphere.
+The amount of each of the four major components of soil depends on the amount of vegetation, soil compaction, and water present in the soil.
+The amount of each of the four major components of soil depends on the amount of vegetation, soil compaction.
+A good healthy soil has sufficient air, water, minerals, and organic material to promote and sustain plant life.
+A good healthy soil has sufficient air, water, minerals.
+The four major components of soil are shown: inorganic minerals, organic matter, water, and air.
+The four major components of soil are shown: inorganic minerals, organic matter, water.
+The organic material of soil, called humus, is made up of microorganisms, and dead animals and plants in varying stages of decay.
+The organic material of soil, called humus, is made up of microorganisms.
+Humus improves soil structure and provides plants with water and minerals.
+The inorganic material of soil consists of rock, slowly broken down into smaller particles that vary in size.
+Soil particles that are 0.1 to 2 mm in diameter are sand.
+Some soils have no dominant particle size and contain a mixture of sand, silt, and humus; these soils are called loams.
+Some soils have no dominant particle size and contain a mixture of sand, silt, and humus.
+Some soils have no dominant particle size and contain a mixture of sand, silt.
+Soil Formation Soil formation is the consequence of a combination of biological, physical, and chemical processes.
+Soil Formation Soil formation is the consequence of a combination of biological, physical.
+the other half should contain air.
+Most soil microorganisms—bacteria, algae, or fungi—are dormant in dry soil, but become active once moisture is available.
+fungi—are dormant in dry soil, but become active once moisture is available.
+Soil distribution is not homogenous because its formation results in the production of layers; together, the vertical section of a soil is called the soil profile.
+Soil distribution is not homogenous because its formation results in the production of layers.
+together, the vertical section of a soil is called the soil profile.
+Within the soil profile, soil scientists define zones called horizons.
+A horizon is a soil layer with distinct physical and chemical properties that differ from those of other layers.
+Five factors account for soil formation: parent material, climate, topography, biological factors, and time.
+Five factors account for soil formation: parent material, climate, topography, biological factors.
+Mineral soils form directly from the weathering of bedrock, the solid rock that lies beneath the soil, and therefore, they have a similar composition to the original rock.
+Mineral soils form directly from the weathering of bedrock, the solid rock that lies beneath the soil.
+therefore, they have a similar composition to the original rock.
+Materials located in the depth of the soil are relatively unchanged compared with the deposited material.
+Sediments in rivers may have different characteristics, depending on whether the stream moves quickly or slowly.
+A fast-moving river could have sediments of rocks and sand, whereas a slow-moving river could have fine-textured material, such as clay.
+A fast-moving river could have sediments of rocks and sand.
+a slow-moving river could have fine-textured material, such as clay.
+Climate Temperature, moisture, and wind cause different patterns of weathering and therefore affect soil characteristics.
+wind cause different patterns of weathering and therefore affect soil characteristics.
+The presence of moisture and nutrients from weathering will also promote biological activity: a key component of a quality soil.
+Topography Regional surface features can have a major influence on the characteristics and fertility of a soil.
+Topography affects water runoff, which strips away parent material and affects plant growth.
+Steeps soils are more prone to erosion and may be thinner than soils that are relatively flat or level.
+Biological factors The presence of living organisms greatly affects soil formation and structure.
+Animals and microorganisms can produce pores and crevices, and plant roots can penetrate into crevices to produce more fragmentation.
+Animals and microorganisms can produce pores and crevices.
+plant roots can penetrate into crevices to produce more fragmentation.
+Plant secretions promote the development of microorganisms around the root, in an area known as the rhizosphere.
+Additionally, leaves and other material that fall from plants decompose and contribute to soil composition.
+Time Time is an important factor in soil formation because soils develop over long periods.
+Soil formation is a dynamic process.
+Materials are deposited over time, decompose, and transform into other materials that can be used by living organisms or deposited onto the surface of the soil.
+Materials are deposited over time, decompose.
+The O horizon has freshly decomposing organic matter—humus—at its surface, with decomposed vegetation at its base.
+Humus enriches the soil with nutrients and enhances soil moisture retention.
+Topsoil—the top layer of soil—is usually two to three inches deep, but this depth can vary considerably.
+For instance, river deltas like the Mississippi River delta have deep layers of topsoil.
+Topsoil is rich in organic material; microbial processes occur there, and it is the "workhorse" of plant production.
+Topsoil is rich in organic material.
+microbial processes occur there, and it is the "workhorse" of plant production.
+Topsoil is rich in organic material; microbial processes occur there.
+it is the "workhorse" of plant production.
+The A horizon consists of a mixture of organic material with inorganic products of weathering, and it is therefore the beginning of true mineral soil.
+The A horizon consists of a mixture of organic material with inorganic products of weathering.
+it is therefore the beginning of true mineral soil.
+This horizon is typically darkly colored because of the presence of organic matter.
+In this area, rainwater percolates through the soil and carries materials from the surface.
+The B horizon is an accumulation of mostly fine material that has moved downward, resulting in a dense layer in the soil.
+In some soils, the B horizon contains nodules or a layer of calcium carbonate.
+The C horizon, or soil base, includes the parent material, plus the organic and inorganic material that is broken down to form soil.
+soil base, includes the parent material, plus the organic and inorganic material that is broken down to form soil.
+The parent material may be either created in its natural place, or transported from elsewhere to its present location.
+The parent material may be either created in its natural place.
+This soil profile shows the different soil layers found in typical soils.
+Some soils may have additional layers, or lack one of these layers.
+Some soils may have additional layers.
+The thickness of the layers is also variable, and depends on the factors that influence soil formation.
+The thickness of the layers is also variable.
+The San Joaquin soil profile has an O horizon, A horizon, B horizon, and C horizon.
+The San Joaquin soil profile has an O horizon, A horizon, B horizon.
+Soil Scientist A soil scientist studies the biological components, physical and chemical properties, distribution, formation, and morphology of soils.
+Soil Scientist A soil scientist studies the biological components, physical and chemical properties, distribution, formation.
+Soil scientists need to have a strong background in physical and life sciences, plus a foundation in mathematics.
+They may work for federal or state agencies, academia, or the private sector.
+They may work for federal or state agencies, academia.
+Their work may involve collecting data, carrying out research, interpreting results, inspecting soils, conducting soil surveys, and recommending soil management programs.
+Their work may involve collecting data, carrying out research, interpreting results, inspecting soils, conducting soil surveys.
+This soil scientist is studying the horizons and composition of soil at a research site.
+Many soil scientists work both in an office and in the field.
+According to the United States Department of Agriculture: "a soil scientist needs good observation skills to analyze and determine the characteristics of different types of soils.
+Soil types are complex and the geographical areas a soil scientist may survey are varied.
+Aerial photos or various satellite images are often used to research the areas.
+Soil scientists play a key role in understanding the soil's past, analyzing present conditions, and making recommendations for future soil-related practices.
+Soil scientists play a key role in understanding the soil's past, analyzing present conditions.
+Plants obtain food in two different ways.
+Autotrophic plants can make their own food from inorganic raw materials, such as carbon dioxide and water, through photosynthesis in the presence of sunlight.
+Green plants are included in this group.
+Some plants, however, are heterotrophic: they are totally parasitic and lacking in chlorophyll.
+plants, referred to as holo-parasitic plants, are unable to synthesize organic carbon and draw all of their nutrients from the host plant.
+Plants may also enlist the help of microbial partners in nutrient acquisition.
+Particular species of bacteria and fungi have evolved along with certain plants to create a mutualistic symbiotic relationship with roots.
+This improves the nutrition of both the plant and the microbe.
+The formation of nodules in legume plants and mycorrhization can be considered among the nutritional adaptations of plants.
+However, these are not the only type of adaptations that we may find; many plants have other adaptations that allow them to thrive under specific conditions.
+However, these are not the only type of adaptations that we may find.
+many plants have other adaptations that allow them to thrive under specific conditions.
+Nitrogen Fixation: Root and Bacteria Interactions Nitrogen is an important macronutrient because it is part of nucleic acids and proteins.
+Atmospheric nitrogen, which is the diatomic molecule N2, or dinitrogen, is the largest pool of nitrogen in terrestrial ecosystems.
+dinitrogen, is the largest pool of nitrogen in terrestrial ecosystems.
+However, plants cannot take advantage of this nitrogen because they do not have the necessary enzymes to convert it into biologically useful forms.
+However, nitrogen can be "fixed," which means that it can be converted to ammonia through biological, physical, or chemical processes.
+However, nitrogen can be "fixed," which means that it can be converted to ammonia through biological, physical.
+As you have learned, biological nitrogen fixation is the conversion of atmospheric nitrogen into ammonia, exclusively carried out by prokaryotes such as soil bacteria or cyanobacteria.
+Biological processes contribute 65 percent of the nitrogen used in agriculture.
+The NH3 resulting from fixation can be transported into plant tissue and incorporated into amino acids, which are then made into plant proteins.
+Some legume seeds, such as soybeans and peanuts, contain high levels of protein, and serve among the most important agricultural sources of protein in the world.
+Some legume seeds, such as soybeans and peanuts, contain high levels of protein.
+Farmers often rotate corn and soy beans, planting a field with each crop in alternate seasons.
+Soil bacteria, collectively called rhizobia, symbiotically interact with legume roots to form specialized structures called nodules, in which nitrogen fixation takes place.
+This process entails the reduction of atmospheric nitrogen to ammonia, by means of the enzyme nitrogenase.
+The process simultaneously contributes to soil fertility because the plant root system leaves behind some of the biologically available nitrogen.
+Cells within the nodules are infected with Bradyrhyzobium japonicum, a rhizobia or "root-loving" bacterium.
+The bacteria are encased in vesicles inside the cell, as can be seen in this transmission electron micrograph.
+These conditions are very common; therefore, most plants rely on fungi to facilitate the uptake of minerals from the soil.
+These conditions are very common.
+therefore, most plants rely on fungi to facilitate the uptake of minerals from the soil.
+The fungi colonize the living root tissue during active plant growth.
+Hyphae can grow into small soil pores that allow access to phosphorus that would otherwise be unavailable to the plant.
+The beneficial effect on the plant is best observed in poor soils.
+The benefit to fungi is that they can obtain up to 20 percent of the total carbon accessed by plants.
+It also provides an induction of generalized host defense mechanisms, and sometimes involves production of antibiotic compounds by the fungi.
+It also provides an induction of generalized host defense mechanisms.
+This type of mycorrhizae is found in forest trees, especially conifers, birches, and oaks.
+This type of mycorrhizae is found in forest trees, especially conifers, birches.
+Endomycorrhizae, also called arbuscular mycorrhizae, do not form a dense sheath over the root.
+Instead, the fungal mycelium is embedded within the root tissue.
+Endomycorrhizae are found in the roots of more than 80 percent of terrestrial plants.
+Nutrients from Other Sources Some plants cannot produce their own food and must obtain their nutrition from outside sources.
+This may occur with plants that are parasitic or saprophytic.
+Some plants are mutualistic symbionts, epiphytes, or insectivorous.
+Some plants are mutualistic symbionts, epiphytes.
+Plant Parasites A parasitic plant depends on its host for survival.
+Some parasitic plants have no leaves.
+From these suckers, cells invade the host stem and grow to connect with the vascular bundles of the host.
+The parasitic plant obtains water and nutrients through these connections.
+The plant is a total parasite because it is completely dependent on its host.
+Other parasitic plants are fully photosynthetic and only use the host for water and minerals.
+The dodder is a holoparasite that penetrates the host's vascular tissue and diverts nutrients for its own growth.
+The dodder has no chlorophyll and cannot produce its own food.
+Saprophytic plants are uncommon; only a few species are described.
+Saprophytic plants are uncommon.
+Epiphytes have two types of roots: clinging aerial roots, which absorb nutrients from humus that accumulates in the crevices of trees; and aerial roots, which absorb moisture from the atmosphere.
+Epiphytes have two types of roots: clinging aerial roots, which absorb nutrients from humus that accumulates in the crevices of trees.
+These epiphyte plants grow in the main greenhouse of the Jardin des Plantes in Paris.
+An insectivorous plant has specialized leaves to attract and digest insects.
+The edges of each leaf are covered with long spines.
+Nectar secreted by the plant attracts flies to the leaf.
+When a fly touches the sensory hairs, the leaf immediately closes.
+Next, fluids and enzymes break down the prey and minerals are absorbed by the leaf.
+Since this plant is popular in the horticultural trade, it is threatened in its original habitat.
+A Venus flytrap has specialized leaves to trap insects.
+The Soil Plants can absorb inorganic nutrients and water Plants obtain mineral nutrients from the soil.
+Soil is the through their root system, and carbon dioxide from the outer loose layer that covers the surface of Earth.
+Soil is the through their root system.
+Agricultural practice and history compounds form the majority of the soil solution.
+They are divided into macronutrients and water and minerals.
+Soil inorganic material consists of micronutrients.
+Important Soil formation results from a combination of biological, micronutrients include iron, manganese, boron, physical, and chemical processes.
+Important Soil formation results from a combination of biological, micronutrients include iron, manganese, boron, physical.
+Soil is not molybdenum, copper, zinc, chlorine, nickel, cobalt, homogenous because its formation results in the silicon, and sodium.
+Soil is not molybdenum, copper, zinc, chlorine, nickel, cobalt, homogenous because its formation results in the silicon.
+Soils are bacteria form nodules on the legume's roots in which classified based on their horizons, soil particle size, and nitrogen fixation takes place.
+Soils are bacteria form nodules on the legume's roots in which classified based on their horizons, soil particle size.
+nitrogen fixation takes place.
+Fungi form symbiotic proportions.
+Most soils have four distinct horizons: O, associations with plants, becoming A, B, and C. integrated into the physical structure of the root.
+Most soils have four distinct horizons: O, associations with plants, becoming A, B.
+C. integrated into the physical structure of the root.
+Ectomycorrhizae form an extensive nitrogen in terrestrial ecosystems.
+endomycorrhizae cannot use this nitrogen because they do not have the are embedded within the root tissue.
+Biological nitrogen fixation plants—parasites, saprophytes, symbionts, epiphytes, is the conversion of atmospheric nitrogen to ammonia.
+and insectivores—have evolved adaptations to obtain The most important source of BNF is the symbiotic their organic or mineral nutrition from various sources.
+the following criteria must be met, except: a. chemical composition a.
+No other element can perform the b. history of the soil function.
+The element is directly involved in plant topography nutrition.
+The element is inorganic.
+The plant cannot complete its lifecycle 9.
+A soil consists of layers called ________ that c. magnesium taken together are called a ________.
+c. clay a. rain d. loam b. soil c. biomolecules 12.
+b. nitrogen fixation a. parasite c. mycorrhization b. saprophyte d. Calvin cycle c. epiphyte d. insectivorous 13.
+Through mycorrhization, a plant obtains important nutrients such as ________.
+What type of plant problems result from nitrogen 21.
+What is the main difference, from an energy point of view, between photosynthesis and 19.
+Why is a root nodule a nutritional adaptation of a 20.

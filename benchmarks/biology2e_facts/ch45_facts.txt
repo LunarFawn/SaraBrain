@@ -1,0 +1,697 @@
+# Biology2e Chapter 45 — Population and Community Ecology
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 693
+
+This is now a risk on many rivers and canal systems in Illinois and Missouri because of the presence of Asian carp.
+It is one of the most important aquaculture food resources worldwide.
+In the United States, however, Asian carp is considered a dangerous invasive species that disrupts community structure and composition to the point of threatening native species.
+Populations are dynamic entities.
+A population consists of all of the individuals of a particular species that occur in a particular area and have the potential to interact with one another.
+The statistical study of population dynamics, demography, uses a series of mathematical tools to investigate how populations respond to changes in their biotic and abiotic environments.
+For example, life tables, which detail the life expectancy of individuals within a population, were initially developed by life insurance companies to set insurance rates.
+In fact, while the term "demographics" is commonly used when discussing humans, all living populations can be studied using this approach.
+the term "demographics" is commonly used when discussing humans, all living populations can be studied using this approach.
+Population Size and Density The study of any population usually begins by determining how many individuals of a particular species exist, and how closely associated they are with each other.
+Population Size and Density The study of any population usually begins by determining how many individuals of a particular species exist.
+how closely associated they are with each other.
+Population size and density are the two main characteristics used to describe and understand populations.
+For example, populations with more individuals may be more stable than smaller populations based on their genetic variability, and thus their potential to adapt to the environment.
+For example, populations with more individuals may be more stable than smaller populations based on their genetic variability.
+As this graph shows, population density typically decreases with increasing body size.
+Population Research Methods The most accurate way to determine population size is to simply count all of the individuals within the habitat.
+However, this method is often not logistically or economically feasible, especially when studying large habitats.
+Thus, scientists usually study populations by sampling a representative portion of each habitat and using this data to make inferences about the habitat as a whole.
+After setting the quadrats, researchers then count the number of individuals that lie within their boundaries.
+Multiple quadrat samples are performed throughout the habitat at several random locations to estimate the population size and density within the entire habitat.
+The number and size of quadrat samples depends on the type of organisms under study and other factors, including the density of the organism.
+For example, if sampling daffodils, a 1 m2 quadrat might be used.
+With giant redwoods, on the other hand, a larger quadrat of 100 m2 might be employed.
+This ensures that enough individuals of the species are counted to get an accurate sample that correlates with the habitat, including areas not sampled.
+A scientist uses a quadrat to measure population size and density.
+For mobile organisms, such as mammals, birds, or fish, scientists use a technique called mark and recapture.
+fish, scientists use a technique called mark and recapture.
+Using the ratio of marked and unmarked individuals, scientists determine how many individuals are in the sample.
+From this, calculations are used to estimate the total population size.
+This method assumes that the larger the population, the lower the percentage of tagged organisms that will be recaptured since they will have mixed with more untagged individuals.
+Using our example, the population size would be estimated at 400.
+Some animals from the first catch may learn to avoid capture in the second round, thus inflating population estimates.
+Alternatively, some animals may prefer to be retrapped, resulting in an underestimate of population size.
+Also, some species may be harmed by the marking technique, reducing their survival.
+Species Distribution In addition to measuring simple density, further information about a population can be obtained by looking at the distribution of the individuals.
+Species dispersion patterns show the spatial relationship between members of a population within a habitat at a particular point in time.
+In other words, they show whether members of the species live close together or far apart, and what patterns are evident when they are spaced apart.
+In other words, they show whether members of the species live close together or far apart.
+what patterns are evident when they are spaced apart.
+Individuals in a population can be equally spaced apart, dispersed randomly with no predictable pattern, or clustered in groups.
+Individuals in a population can be equally spaced apart, dispersed randomly with no predictable pattern.
+An example of random dispersion occurs with dandelion and other plants that have wind-dispersed seeds that germinate wherever they happen to fall in a favorable environment.
+Clumped dispersions may also be a function of habitat heterogeneity.
+Thus, the dispersion of the individuals within a population provides more information about how they interact with each other than does a simple density measurement.
+Territorial birds such as penguins tend to have uniform distribution.
+Plants such as dandelions with wind-dispersed seeds tend to be randomly distributed.
+Animals such as elephants that travel in groups exhibit clumped distribution.
+Demography While population size and density describe a population at one particular point in time, scientists must use demography to study the dynamics of a population.
+Demography is the statistical study of population changes over time: birth rates, death rates, and life expectancies.
+Demography is the statistical study of population changes over time: birth rates, death rates.
+Each of these measures, especially birth rates, may be affected by the population characteristics described above.
+For example, a large population size results in a higher birth rate because more potentially reproductive individuals are present.
+In contrast, a large population size can also result in a higher death rate because of competition, disease, and the accumulation of waste.
+In contrast, a large population size can also result in a higher death rate because of competition, disease.
+proportion of population members at specific age ranges) composed of many individuals of reproductive age can increase birth rates.
+In addition, the demographic characteristics of a population can influence how the population grows or declines over time.
+If birth and death rates are equal, the population remains stable.
+However, the population size will increase if birth rates exceed death rates; the population will decrease if birth rates are less than death rates.
+However, the population size will increase if birth rates exceed death rates.
+Life expectancy is another important factor; the length of time individuals remain in the population impacts local resources, reproduction, and the overall health of the population.
+Life expectancy is another important factor.
+the length of time individuals remain in the population impacts local resources, reproduction, and the overall health of the population.
+Life expectancy is another important factor; the length of time individuals remain in the population impacts local resources, reproduction.
+These demographic characteristics are often displayed in the form of a life table.
+Life Tables Life tables provide important information about the life history of an organism.
+Life tables divide the population into age groups and often sexes, and show how long a member of that group is likely to live.
+Life tables divide the population into age groups and often sexes.
+They are modeled after actuarial tables used by the insurance industry for estimating human life expectancy.
+An example of a life table is shown in from a study of Dall mountain sheep, a species native to northwestern North America.
+For example, between ages three and four, 12 individuals die out of the 776 that were remaining from the original 1000 sheep.
+This number is then multiplied by 1000 to get the mortality rate per thousand.
+This life table of Ovis dalli shows the number of deaths, number of survivors, mortality rate, and life expectancy at each age interval for the Dall mountain sheep.
+This life table of Ovis dalli shows the number of deaths, number of survivors, mortality rate.
+Humans and most primates exhibit a Type I survivorship curve because a high percentage of offspring survive their early and middle years—death occurs predominantly in older individuals.
+These types of species usually have small numbers of offspring at one time, and they give a high amount of parental care to them to ensure their survival.
+These types of species usually have small numbers of offspring at one time.
+they give a high amount of parental care to them to ensure their survival.
+Birds are an example of an intermediate or Type II survivorship curve because birds die more or less equally at each age interval.
+These organisms also may have relatively few offspring and provide significant parental care.
+Organisms in this category usually have a very large number of offspring, but once they are born, little parental care is provided.
+Thus these offspring are "on their own" and vulnerable to predation, but their sheer numbers assure the survival of enough individuals to perpetuate the species.
+Humans and most mammals have a Type I survivorship curve because death primarily occurs in the older years.
+Birds have a Type II survivorship curve, as death at any age is equally probable.
+Trees have a Type III survivorship curve because very few survive the younger years, but after a certain age, individuals are much more likely to survive.
+A species' life history describes the series of events over its lifetime, such as how resources are allocated for growth, maintenance, and reproduction.
+A species' life history describes the series of events over its lifetime, such as how resources are allocated for growth, maintenance.
+Life history traits affect the life table of an organism.
+Plants, for example, acquire energy from the sun via photosynthesis, but must expend this energy to grow, maintain health, and produce energy-rich seeds to produce the next generation.
+Plants, for example, acquire energy from the sun via photosynthesis, but must expend this energy to grow, maintain health.
+Animals have the additional burden of using some of their energy reserves to acquire food.
+Furthermore, some animals must expend energy caring for their offspring.
+Parental Care and Fecundity Fecundity is the potential reproductive capacity of an individual within a population.
+In animals, fecundity is inversely related to the amount of parental care given to an individual offspring.
+Animals with this strategy are often self-sufficient at a very early age.
+This is because of the energy tradeoff these organisms have made to maximize their evolutionary fitness.
+Even with these abilities, their small size makes them extremely vulnerable to predation, so the production of many offspring allows enough of them to survive to maintain the species.
+This is the case with many mammals, such as humans, kangaroos, and pandas.
+This is the case with many mammals, such as humans, kangaroos.
+Although it may seem that coconuts and chestnuts have a better chance of surviving, the energy tradeoff of the orchid is also very effective.
+It is a matter of where the energy is used, for large numbers of seeds or for fewer seeds with more energy.
+The timing of reproduction in a life history also affects species survival.
+Organisms that reproduce at an early age have a greater chance of producing offspring, but this is usually at the expense of their growth and the maintenance of their health.
+Examples of this can be seen in fishes.
+Small fish, like guppies, use their energy to reproduce rapidly, but never attain the size that would give them defense against some predators.
+These different energy strategies and tradeoffs are key to understanding the evolution of each species as it maximizes its fitness and fills its niche.
+In terms of energy budgeting, some species "blow it all" and use up most of their energy reserves to reproduce early before they die.
+Other species delay having reproduction to become stronger, more experienced individuals and to make sure that they are strong enough to provide parental care if necessary.
+Semelparity occurs when a species reproduces only once during its lifetime and then dies.
+Such species use most of their resource budget during a single reproductive event, sacrificing their health to the point that they do not survive.
+Iteroparity describes species that reproduce repeatedly during their lives.
+Some animals are able to mate only once per year, but survive multiple mating seasons.
+Primates, such as humans and chimpanzees, may mate on any day, independent of ovulation.
+Energy Budgets, Reproductive Costs, and Sexual Selection in Drosophila Research into how animals allocate their energy resources for growth, maintenance, and reproduction has used a variety of experimental animal models.
+reproduction has used a variety of experimental animal models.
+Fruit flies maximize their last chances at reproduction by selecting optimal mates.
+In a 1981 study, male fruit flies were placed in enclosures with either virgin or inseminated females.
+The males that mated with virgin females had shorter life spans than those in contact with the same number of inseminated females with which they were unable to mate.
+Thus, males that did not mate lived longer, allowing them more opportunities to find mates in the future.
+Males were allowed to select between smaller and larger females.
+Findings showed that larger females had greater fecundity, producing twice as many offspring per mating as the smaller females did.
+The study showed that although non-resource-depleted males preferentially mated with larger females, this selection of partners was more pronounced in the resource-depleted males.
+This change in behavior causes an increase in the efficiency of a limited reproductive resource: sperm.
+These studies demonstrate two ways in which the energy budget is a factor in reproduction.
+These changes in behavior, so important to evolution, are studied in a discipline known as behavioral biology, or ethology, at the interface between population biology and psychology.
+These changes in behavior, so important to evolution, are studied in a discipline known as behavioral biology.
+These more precise models can then be used to accurately describe changes occurring in a population and better predict future changes.
+Certain long-accepted models are now being modified or even abandoned due to their lack of predictive ability, and scholars strive to create effective new models.
+Certain long-accepted models are now being modified or even abandoned due to their lack of predictive ability.
+scholars strive to create effective new models.
+Exponential Growth Charles Darwin, in his theory of natural selection, was greatly influenced by the English clergyman Thomas Malthus.
+The best example of exponential growth is seen in bacteria.
+Bacteria reproduce by prokaryotic fission.
+This division takes about an hour for many bacterial species.
+In another hour, each of the 2000 organisms will double, producing 4000, an increase of 2000 organisms.
+The important concept of exponential growth is the accelerating population growth rate—the number of organisms added in each reproductive generation—that is, it is increasing at a greater and greater rate.
+After 1 day and 24 of these cycles, the population would have increased from 1000 to more than 16 billion.
+The bacteria example is not representative of the real world where resources are limited.
+Furthermore, some bacteria will die during the experiment and thus not reproduce, lowering the growth rate.
+The birth rate is usually expressed on a per capita basis.
+Additionally, ecologists are interested in the population at a particular point in time, an infinitely small time interval.
+Obviously, a bacterium can reproduce more rapidly and have a higher intrinsic rate of growth than a human.
+When resources are unlimited, populations exhibit exponential growth, resulting in a J-shaped curve.
+When resources are limited, populations exhibit logistic growth.
+In logistic growth, population expansion decreases as resources become scarce, and it levels off when the carrying capacity of the environment is reached, resulting in an S-shaped curve.
+In logistic growth, population expansion decreases as resources become scarce.
+Logistic Growth Exponential growth is possible only when infinite natural resources are available; this is not the case in the real world.
+Logistic Growth Exponential growth is possible only when infinite natural resources are available.
+this is not the case in the real world.
+Charles Darwin recognized this fact in his description of the "struggle for existence," which states that individuals will compete for limited resources.
+To model the reality of limited resources, population ecologists developed the logistic growth model.
+In the real world, with its limited resources, exponential growth cannot continue indefinitely.
+The formula we use to calculate logistic growth adds the carrying capacity as a moderating force in the growth rate.
+Thus, population growth is greatly slowed in large populations by the carrying capacity K.
+This model also allows for the population of a negative population growth, or a population decline.
+This model also allows for the population of a negative population growth.
+This occurs when the number of individuals in the population exceeds the carrying capacity/K is negative).
+Initially, growth is exponential because there are few individuals and ample resources available.
+Then, as resources begin to become limited, the growth rate decreases.
+Role of Intraspecific Competition The logistic model assumes that every individual within a population will have equal access to resources and, thus, an equal chance for survival.
+For plants, the amount of water, sunlight, nutrients, and the space to grow are the important resources, whereas in animals, important resources include food, water, shelter, nesting space, and mates.
+the space to grow are the important resources, whereas in animals, important resources include food, water, shelter, nesting space.
+For plants, the amount of water, sunlight, nutrients, and the space to grow are the important resources.
+in animals, important resources include food, water, shelter, nesting space, and mates.
+In the real world, phenotypic variation among individuals within a population means that some individuals will be better adapted to their environment than others.
+Intraspecific competition for resources may not affect populations that are well below their carrying capacity—resources are plentiful and all individuals can obtain what they need.
+In addition, the accumulation of waste products can reduce an environment's carrying capacity.
+In both examples, the population size exceeds the carrying capacity for short periods of time and then falls below the carrying capacity afterwards.
+This fluctuation in population size continues to occur as the population oscillates around its carrying capacity.
+Still, even with this oscillation, the logistic model is confirmed.
+The carrying capacity of seals would remain the same, but the population of seals would decrease.
+The logistic model of population growth, while valid in many natural populations and a useful model, is a simplification of real-world population dynamics.
+Implicit in the model is that the carrying capacity of the environment does not change, which is not the case.
+The carrying capacity varies annually: for example, some summers are hot and dry whereas others are cold and wet.
+In many areas, the carrying capacity during the winter is much lower than it is during the summer.
+Also, natural events such as earthquakes, volcanoes, and fires can alter an environment and hence its carrying capacity.
+fires can alter an environment and hence its carrying capacity.
+Additionally, populations do not usually exist in isolation.
+They engage in interspecific competition: that is, they share the environment with other species competing for the same resources.
+These factors are also important to understanding how a specific population will grow.
+Nature regulates population growth in a variety of ways.
+Conservation biologists want to understand both types because this helps them manage populations and prevent extinction or overpopulation.
+Density-Dependent Regulation Most density-dependent factors are biological in nature, and include predation, inter- and intraspecific competition, accumulation of waste, and diseases such as those caused by parasites.
+Density-Dependent Regulation Most density-dependent factors are biological in nature.
+Usually, the denser a population is, the greater its mortality rate.
+For example, during intra- and interspecific competition, the reproductive rates of the individuals will usually be lower, reducing their population's rate of growth.
+In addition, low prey density increases the mortality of its predator because it has more difficulty locating its food source.
+Denser populations of the parasite exhibited lower fecundity: they contained fewer eggs.
+One possible explanation for this is that females would be smaller in more dense populations and that smaller females would have fewer eggs.
+The actual cause of the density-dependence of fecundity in this organism is still unclear and awaiting further investigation.
+In this population of roundworms, fecundity decreases with population density.
+An individual deer may be killed in a forest fire regardless of how many deer happen to be in that area.
+Its chances of survival are the same whether the population density is high or low.
+In real-life situations, population regulation is very complicated and density-dependent and independent factors can interact.
+A dense population that is reduced in a density-independent manner by some environmental factor will be able to recover differently than a sparse population.
+For example, a population of deer affected by a harsh winter will recover faster if there are more deer remaining to reproduce.
+It's easy to get lost in the discussion about why dinosaurs went extinct 65 million years ago.
+Scientists are continually exploring these and other theories.
+Mammoths survived in isolated island populations as recently as 1700 BC.
+Scientists have sequenced at least 50 percent of its genome and believe mammoths are between 98 and 99 percent identical to modern elephants.
+It is commonly thought that climate change and human hunting led to their extinction.
+A 2008 study estimated that climate change reduced the mammoth's range from 3,000,000 square miles 42,000 years ago to 310,000 square 6 miles 6,000 years ago.
+A 2012 study showed that 7 no single factor was exclusively responsible for the extinction of these magnificent creatures.
+It is important to remember that humans are also part of nature.
+We once contributed to a species' decline using only primitive hunting technology.
+Life Histories of K-selected and r-selected Species While reproductive strategies play a key role in life histories, they do not account for important factors like limited resources and competition.
+The regulation of population growth by these factors can be used to introduce a classical concept in population biology, that of K-selected versus r-selected species.
+The concept relates to a species' reproductive strategies, habitat, and behavior, especially in the way that they obtain resources and care for their young.
+The concept relates to a species' reproductive strategies, habitat.
+It includes length of life and survivorship factors as well.
+Population biologists have grouped species into the two large categories—K-selected and r-selected—although the categories are really two ends of a continuum.
+K-selected species are species selected by stable, predictable environments.
+Populations of K-selected species tend to exist close to their carrying capacity where intraspecific competition is high.
+These species have few, large offspring, a long gestation period, and often give long-term care to their offspring.
+These species have few, large offspring, a long gestation period.
+While larger in size when born, the offspring are relatively helpless and immature at birth.
+By the time they reach adulthood, they must develop skills to compete for natural resources.
+Oak trees grow very slowly and take, on average, 20 years to produce their first seeds, known as acorns.
+In some years, oaks may produce an exceptionally large number of acorns, and these years may be on a two- or three-year cycle depending on the species of oak.
+In some years, oaks may produce an exceptionally large number of acorns.
+these years may be on a two- or three-year cycle depending on the species of oak.
+The tree's height and size allow it to dominate other plants in the competition for sunlight, the oak's primary energy resource.
+Furthermore, when it does reproduce, the oak produces large, energy-rich seeds that use their energy reserve to become quickly established.
+In contrast, r-selected species have a large number of small offspring).
+This strategy is often employed in unpredictable or changing environments.
+Animals that are r-selected do not give long- term parental care and the offspring are relatively mature and self-sufficient at birth.
+Dandelions have small seeds that are wind dispersed long distances.
+Many seeds are produced simultaneously to ensure that at least some of them reach a hospitable environment.
+Seeds that land in inhospitable environments have little chance for survival since their seeds are low in energy content.
+Oak trees produce many offspring that do not receive parental care, but are considered K-selected species based on longevity and late maturation.
+Modern Theories of Life History By the second half of the twentieth century, the concept of K- and r-selected species was used extensively and successfully to study populations.
+The r- and K-selection theory, although accepted for decades and used for much groundbreaking research, has now been reconsidered, and many population biologists have abandoned or modified it.
+The r- and K-selection theory, although accepted for decades and used for much groundbreaking research, has now been reconsidered.
+Over the years, several studies attempted to confirm the theory, but these attempts have largely failed.
+Furthermore, the theory ignored the age-specific mortality of the populations which scientists now know is very important.
+Population dynamics can be applied to human population growth.
+Earth's human population is growing rapidly, to the extent that some worry about the ability of the earth's environment to sustain this population.
+Long-term exponential growth carries the potential risks of famine, disease, and large-scale death.
+Long-term exponential growth carries the potential risks of famine, disease.
+The depletion of the ozone layer, erosion due to acid rain, and damage from global climate change are caused by human activities.
+damage from global climate change are caused by human activities.
+The ultimate effect of these changes on our carrying capacity is unknown.
+As some point out, it is likely that the negative effects of increasing carrying capacity will outweigh the positive ones—the world's carrying capacity for human beings might actually decrease.
+To reach its biotic potential, all females would have to become pregnant every nine months or so during their reproductive years.
+Also, resources would have to be such that the environment would support such growth.
+In spite of this fact, human population is still growing exponentially.
+A consequence of exponential human population growth is a reduction in time that it takes to add a particular number of humans to the Earth.
+As already discussed, our ability to increase our carrying capacity indefinitely may be limited.
+Without new technological advances, the human growth rate has been predicted to slow in the coming decades.
+However, the population will still be increasing and the threat of overpopulation remains.
+The time between the addition of each billion human beings to Earth decreases over time.
+Overcoming Density-Dependent Regulation Humans are unique in their ability to alter their environment with the conscious purpose of increasing carrying capacity.
+This ability is a major factor responsible for human population growth and a way of overcoming density- dependent growth regulation.
+Humans can construct shelter to protect them from the elements and have developed agriculture and domesticated animals to increase their food supplies.
+In addition, humans use language to communicate this technology to new generations, allowing them to improve upon previous accomplishments.
+Other factors in human population growth are migration and public health.
+Humans originated in Africa, but have since migrated to nearly all inhabitable land on the Earth.
+Public health, sanitation, and the use of antibiotics and vaccines have decreased the ability of infectious disease to limit human population growth.
+the use of antibiotics and vaccines have decreased the ability of infectious disease to limit human population growth.
+Today, the threat of infectious disease, while not gone, is certainly less severe.
+According to the Institute for Health Metrics and Evaluation in Seattle, global death from infectious disease declined from 15.4 million in 1990 to 10.4 million in 2017.
+Thus, infectious disease influence on human population growth is becoming less significant.
+The age structure of a population is an important factor in population dynamics.
+Age structure is the proportion of a population at different age ranges.
+Age structure allows better prediction of population growth, plus the ability to associate this growth with the level of economic development in the region.
+This pattern is most often observed in underdeveloped countries where individuals do not live to old age because of less-than-optimal living conditions.
+Other developed countries, such as Italy, have zero population growth.
+The rapid growth diagram narrows to a point, indicating that the number of individuals decreases rapidly with age.
+In the slow growth model, the number of individuals decreases steadily with age.
+Age structure diagrams for rapidly growing, slow growing, and stable populations are shown in stages 1 through 3.
+stable populations are shown in stages 1 through 3.
+In the 1968 book The Population Bomb, biologist Dr. Paul R. Ehrlich wrote, "The battle to feed all of humanity is over.
+In the 1970s hundreds of millions of people will starve to death in spite of any crash programs 8 embarked upon now.
+While many experts view this statement as incorrect based on evidence, the laws of exponential population growth are still in effect, and unchecked human population growth cannot continue indefinitely.
+While many experts view this statement as incorrect based on evidence, the laws of exponential population growth are still in effect.
+unchecked human population growth cannot continue indefinitely.
+Several nations have instituted policies aimed at influencing population.
+Efforts to control population growth led to the one-child policy in China, which is now being phased out.
+India also implements national and regional policies to encourage family planning.
+On the other hand, Japan, Spain, Russia, Iran, and other countries have made efforts to increase population growth after birth rates dipped.
+other countries have made efforts to increase population growth after birth rates dipped.
+Such policies are controversial, and the human population continues to grow.
+Such policies are controversial.
+the human population continues to grow.
+At some point the food supply may run out, but the outcomes are difficult to predict.
+Nations estimates that future world population growth may vary from 6 billion to 16 billion people by the year 2100.
+Another result of population growth is the endangerment of the natural environment.
+Many countries have attempted to reduce the human impact on climate change by reducing their emission of the greenhouse gas carbon dioxide.
+However, these treaties have not been ratified by every country.
+The role of human activity in causing climate change has become a hotly debated socio-political issue in some countries, including the United States.
+Thus, we enter the future with considerable uncertainty about our ability to curb human population growth and protect our environment.
+LINK TO LEARNING Visit this website and choose a video to watch about human population issues.
+Populations rarely, if ever, live in isolation from populations of other species.
+In most cases, numerous species share a habitat.
+The interactions between these populations play a major role in regulating population growth and abundance.
+The number of species occupying the same habitat and their relative abundance is known as species diversity.
+Ecology is studied at the community level to understand how species interact with each other and compete for the same resources.
+Predation and Herbivory Perhaps the classical example of species interaction is predation: the consumption of prey by its predator.
+Nature shows on television highlight the drama of one living organism killing another.
+Populations of predators and prey in a community are not constant over time: in most cases, they vary in cycles that appear to be related.
+This cycle of predator and prey lasts approximately 10 years, with the predator population lagging 1–2 years behind that of the prey population.
+When the lynx population is low, the hare population size begins to increase due, at least in part, to low predation pressure, starting the cycle anew.
+The cycling of lynx and snowshoe hare populations in Northern Ontario is an example of predator-prey dynamics.
+Some researchers question the idea that predation models entirely control the population cycling of the two species.
+More recent studies have pointed to undefined density-dependent factors as being important in the cycling, in addition to predation.
+The hare cycling would then induce the cycling of the lynx because it is the lynxes' major food source.
+The more we study communities, the more complexities we find, allowing ecologists to derive more accurate and sophisticated models of population dynamics.
+Herbivory describes the consumption of plants by insects and other animals, and it is another interspecific relationship that affects populations.
+Herbivory describes the consumption of plants by insects and other animals.
+it is another interspecific relationship that affects populations.
+Unlike animals, most plants cannot outrun predators or use mimicry to hide from hungry animals.
+Some plants have developed mechanisms to defend against herbivory.
+Other species have developed mutualistic relationships; for example, herbivory provides a mechanism of seed distribution that aids in plant reproduction.
+Other species have developed mutualistic relationships.
+for example, herbivory provides a mechanism of seed distribution that aids in plant reproduction.
+Defense Mechanisms against Predation and Herbivory The study of communities must consider evolutionary forces that act on the members of the various populations contained within it.
+Species are not static, but slowly changing and adapting to their environment by natural selection and other evolutionary forces.
+Species have evolved numerous mechanisms to escape predation and herbivory.
+These defenses may be mechanical, chemical, physical, or behavioral.
+These defenses may be mechanical, chemical, physical.
+Chemical defenses are produced by many animals as well as plants, such as the foxglove which is extremely toxic when eaten.
+Foxglove uses a chemical defense: toxins produced by the plant can cause nausea, vomiting, hallucinations, convulsions, or death when consumed.
+Foxglove uses a chemical defense: toxins produced by the plant can cause nausea, vomiting, hallucinations, convulsions.
+Many species use physical appearance, such as body shape and coloration, to avoid being detected by predators.
+Both of these are examples of camouflage, or avoiding detection by blending in with the background.
+Both of these are examples of camouflage.
+Some species use coloration as a way of warning predators that they are not good to eat.
+Predators that ignore this coloration and eat the organisms will experience their unpleasant taste or presence of toxic chemicals and learn not to eat them in the future.
+In Batesian mimicry, a harmless species imitates the warning coloration of a harmful one.
+In Müllerian mimicry, multiple species share the same warning coloration, but all of them actually have defenses.
+This type of mimicry is extremely rare and more difficult to understand than the previous two types.
+For this type of mimicry to work, it is essential that eating the milk snake has unpleasant but not fatal consequences.
+Then, these predators learn not to eat snakes with this coloration, protecting the coral snake as well.
+Competitive Exclusion Principle Resources are often limited within a habitat and multiple species may compete to obtain them.
+All species have an ecological niche in the ecosystem, which describes how they acquire the resources they need and how they interact with other species in the community.
+The competitive exclusion principle states that two species cannot occupy the same niche in a habitat.
+In other words, different species cannot coexist in a community if they are competing for all the same resources.
+But when they are placed together in the same test tube, P. aurelia outcompetes P. caudatum for food, leading to the latter's eventual extinction.
+The two organisms are then said to occupy different microniches.
+These organisms coexist by minimizing direct competition.
+Symbiosis Symbiotic relationships, or symbioses, are close interactions between individuals of different species over an extended period of time which impact the abundance and distribution of the associating populations.
+symbioses, are close interactions between individuals of different species over an extended period of time which impact the abundance and distribution of the associating populations.
+Most scientists accept this definition, but some restrict the term to only those species that are mutualistic, where both individuals benefit from the interaction.
+In this discussion, the broader definition will be used.
+The tree is not harmed by the presence of the nest among its branches.
+The bird, on the other hand, benefits greatly.
+If the bird had to nest in the open, its eggs and young would be vulnerable to predators.
+Another example of a commensal relationship is the pilot fish and the shark.
+the host is not affected in any way.
+The southern masked-weaver bird is starting to make a nest in a tree in Zambezi Valley, Zambia.
+This is an example of a commensal relationship, in which one species benefits, while the other neither benefits nor is harmed.
+This is an example of a commensal relationship, in which one species benefits.
+Some scientists believe that these are the only true examples of symbiosis.
+The termite itself cannot do this, and without the protozoa, it would not be able to obtain energy from its food.
+The termite itself cannot do this.
+without the protozoa, it would not be able to obtain energy from its food.
+The protozoa and the bacterial symbionts benefit by having a protective environment and a constant supply of food from the wood chewing actions of the termite.
+Lichen is a fungus that has symbiotic photosynthetic algae living inside its cells.
+Parasitism A parasite is an organism that lives in or on another living organism and derives nutrients from it.
+The host is usually weakened by the parasite as it siphons resources the host would normally use to maintain itself.
+The reproductive cycles of parasites are often very complex, sometimes requiring more than one host species.
+The parasite moves from species to species in a cycle, making two hosts necessary to complete its life cycle.
+Another common parasite is Plasmodium falciparum, the protozoan cause of malaria, a significant disease in many parts of the world.
+Living in human liver and red blood cells, the organism reproduces asexually in the gut of blood- feeding mosquitoes to complete its life cycle.
+Thus malaria is spread from human to human by mosquitoes, one of many arthropod-borne infectious diseases.
+This diagram shows the life cycle of a pork tapeworm, a human worm parasite.
+Characteristics of Communities Communities are complex entities that can be characterized by their structure and dynamics.
+Understanding community structure and dynamics enables community ecologists to manage ecosystems more effectively.
+They are usually the primary producers: organisms that bring most of the energy into the community.
+Kelp, or brown algae, is a foundation species, forming the basis of the kelp forests off the coast of California.
+brown algae, is a foundation species, forming the basis of the kelp forests off the coast of California.
+Foundation species may physically modify the environment to produce and maintain habitats that benefit the other organisms that use them.
+Corals themselves are not photosynthetic, but harbor symbionts within their body tissues that perform photosynthesis; this is another example of a mutualism.
+Corals themselves are not photosynthetic, but harbor symbionts within their body tissues that perform photosynthesis.
+this is another example of a mutualism.
+The exoskeletons of living and dead coral make up most of the reef structure, which protects many other species from waves and ocean currents.
+Coral is the foundation species of coral reef ecosystems.
+The area in question could be a habitat, a biome, or the entire biosphere.
+The area in question could be a habitat, a biome.
+Species richness is the term that is used to describe the number of species living in a habitat or biome.
+The lowest species richness occurs near the poles, which are much colder, drier, and thus less conducive to life in recent geologic time.
+The lowest species richness occurs near the poles, which are much colder, drier.
+The predictability of climate or productivity is also an important factor.
+Other factors influence species richness as well.
+For example, the study of island biogeography attempts to explain the relatively high species richness found in certain isolated island chains, including the Galápagos Islands that inspired the young Darwin.
+Relative species abundance is the number of individuals in a species relative to the total number of individuals in all species within a habitat, ecosystem, or biome.
+Relative species abundance is the number of individuals in a species relative to the total number of individuals in all species within a habitat, ecosystem.
+Foundation species often have the highest relative abundance of species.
+The greatest species richness for mammals in North and South America is associated with the equatorial latitudes.
+Keystone Species A keystone species is one whose presence is key to maintaining biodiversity within an ecosystem and to upholding an ecological community's structure.
+Studies have shown that when this organism is removed from communities, populations of their natural prey increase, completely altering the species composition and reducing biodiversity.
+If these fish were to become extinct, the community would be greatly affected.
+The Pisaster ochraceus sea star is a keystone species.
+EVERYDAY CONNECTION Invasive Species Invasive species are nonnative organisms that, when introduced to an area out of their native range, threaten the ecosystem balance of that habitat.
+Whether enjoying a forest hike, taking a summer boat trip, or simply walking down an urban street, you have likely encountered an invasive species.
+simply walking down an urban street, you have likely encountered an invasive species.
+Some forests are threatened by the spread of common buckthorn, garlic mustard, and the emerald ash borer.
+Some forests are threatened by the spread of common buckthorn, garlic mustard.
+The European starling may compete with native bird species for nest holes.
+Some of the fish escaped, however, and by the 1980s they had colonized many waterways of the Mississippi River basin, including the Illinois and Missouri Rivers.
+Some of the fish escaped, however.
+by the 1980s they had colonized many waterways of the Mississippi River basin, including the Illinois and Missouri Rivers.
+For example, black carp are voracious eaters of native mussels and snails, limiting this food source for native fish species.
+Silver carp eat plankton that native mussels and snails feed on, reducing this food source by a different alteration of the food web.
+In some areas of the Mississippi River, Asian carp species have become the most predominant, effectively outcompeting native fishes for habitat.
+In some parts of the Illinois River, Asian carp constitute 95 percent of the community's biomass.
+Although edible, the fish is bony and not a desired food in the United States.
+Moreover, their presence threatens the native fish and fisheries of the Great Lakes, which are important to local economies and recreational anglers.
+The fish, frightened by the sound of approaching motorboats, thrust themselves into the air, often landing in the boat or directly hitting the boaters.
+The Great Lakes and their prized salmon and lake trout fisheries are also being threatened by these invasive fish.
+Asian carp have already colonized rivers and canals that lead into Lake Michigan.
+One infested waterway of particular importance is the Chicago Sanitary and Ship Channel, the major supply waterway linking the Great Lakes to the Mississippi River.
+The issues associated with Asian carp show how population and community ecology, fisheries management, and politics intersect on issues of vital importance to the human food supply and economy.
+The issues associated with Asian carp show how population and community ecology, fisheries management.
+Community Dynamics Community dynamics are the changes in community structure and composition over time.
+Sometimes these changes are induced by environmental disturbances such as volcanoes, earthquakes, storms, fires, and climate change.
+Sometimes these changes are induced by environmental disturbances such as volcanoes, earthquakes, storms, fires.
+Communities with a stable structure are said to be at equilibrium.
+Following a disturbance, the community may or may not return to the equilibrium state.
+Succession describes the sequential appearance and disappearance of species in a community over time.
+In primary succession, newly exposed or newly formed land is colonized by living things; in secondary succession, part of an ecosystem is disturbed and remnants of the previous community remain.
+In primary succession, newly exposed or newly formed land is colonized by living things.
+in secondary succession, part of an ecosystem is disturbed and remnants of the previous community remain.
+As lava flows into the ocean, new land is continually being formed.
+On the Big Island, approximately 32 acres of land is added each year.
+These species help to further break down the mineral rich lava into soil where other, less hardy species will grow and eventually replace the pioneer species.
+In addition, as these early species grow and die, they add to an ever-growing layer of decomposing organic material and contribute to soil formation.
+Over time the area will reach an equilibrium state, with a set of organisms quite different from the pioneer species.
+Wildfires will burn most vegetation and kill those animals unable to flee the area.
+Their nutrients, however, are returned to the ground in the form of ash.
+Thus, even when areas are devoid of life due to severe fires, the area will soon be ready for new life to take hold.
+Before the fire, the vegetation was dominated by tall trees with access to the major plant energy resource: sunlight.
+Their height gave them access to sunlight while also shading the ground and other low-lying species.
+After the fire, though, these trees are no longer dominant.
+Thus, the first plants to grow back are usually annual plants followed within a few years by quickly growing and spreading grasses and other pioneer species.
+Eventually, over 150 years, the forest will reach its equilibrium point where species composition is no longer changing and resembles the community before the fire.
+This equilibrium state is referred to as the climax community, which will remain stable until the next disturbance.
+Behavior is the change in activity of an organism in response to a stimulus.
+Behavioral biology is the study of the biological and evolutionary bases for such changes.
+natural selection is not new.
+For decades, several types of scientists have studied animal behavior.
+Biologists do so in the science of ethology.
+They are "hard wired" into the system.
+Innate Behaviors: Movement and Migration Innate or instinctual behaviors rely on response to stimuli.
+The simplest example of this is a reflex action, an involuntary and rapid response to stimulus.
+To test the "knee-jerk" reflex, a doctor taps the patellar tendon below the kneecap with a rubber hammer.
+The stimulation of the nerves leads to the reflex of extending the leg at the knee.
+This is similar to the reaction of someone who touches a hot stove and instinctually pulls their hand away.
+Even humans, with our great capacity to learn, still exhibit a variety of innate behaviors.
+Kinesis and Taxis Another activity or movement of innate behavior is kinesis, or the undirected movement in response to a stimulus.
+Kinesis and Taxis Another activity or movement of innate behavior is kinesis.
+Orthokinesis is the increased or decreased speed of movement of an organism in response to a stimulus.
+Woodlice, for example, increase their speed of movement when exposed to high or low temperatures.
+This movement, although random, increases the probability that the insect spends less time in the unfavorable environment.
+Another example is klinokinesis, an increase in turning behaviors.
+It is exhibited by bacteria such as E. coli which, in association with orthokinesis, helps the organisms randomly find a more hospitable environment.
+A similar, but more directed version of kinesis is taxis: the directed movement towards or away from a stimulus.
+This movement can be in response to light, chemical signals, or gravity and can be directed toward or away from the source of the stimulus.
+This movement can be in response to light, chemical signals.
+gravity and can be directed toward or away from the source of the stimulus.
+An example of a positive chemotaxis is exhibited by the unicellular protozoan Tetrahymena thermophila.
+This organism swims using its cilia, at times moving in a straight line, and at other times making turns.
+This organism swims using its cilia, at times moving in a straight line.
+The attracting chemotactic agent alters the frequency of turning as the organism moves directly toward the source, following the increasing concentration gradient.
+Fixed Action Patterns A fixed action pattern is a series of movements elicited by a stimulus such that even when the stimulus is removed, the pattern goes on to completion.
+Males of this species develop a red belly during breeding season and show instinctual aggressiveness to other males during this time.
+In laboratory experiments, researchers exposed such fish to objects that in no way resemble a fish in their shape, but which were painted red on their lower halves.
+The male sticklebacks responded aggressively to the objects just as if they were real male sticklebacks.
+During mating season, the males, which develop a bright red belly, react strongly to red-bottomed objects that in no way resemble fish.
+Migration Migration is the long-range seasonal movement of animals.
+It is an evolved, adapted response to variation in resource availability, and it is a common phenomenon found in all major groups of animals.
+It is an evolved, adapted response to variation in resource availability.
+it is a common phenomenon found in all major groups of animals.
+Birds fly south for the winter to get to warmer climates with sufficient food, and salmon migrate to their spawning grounds.
+Birds fly south for the winter to get to warmer climates with sufficient food.
+The popular 2005 documentary March of the Penguins followed the 62-mile migration of emperor penguins through Antarctica to bring food back to their breeding site and to their young.
+Although migration is thought of as innate behavior, only some migrating species always migrate.
+Animals that exhibit facultative migration can choose to migrate or not.
+Additionally, in some animals, only a portion of the population migrates, whereas the rest does not migrate.
+Foraging Foraging is the act of searching for and exploiting food resources.
+these are favored by natural selection.
+The painted stork uses its long beak to forage.
+Innate Behaviors: Living in Groups Not all animals live in groups, but even those that live relatively solitary lives, with the exception of those that can reproduce asexually, must mate.
+Mating usually involves one animal signaling another so as to communicate the desire to mate.
+Other behaviors found in populations that live in groups are described in terms of which animal benefits from the behavior.
+In selfish behavior, only the animal in question benefits; in altruistic behavior, one animal's actions benefit another animal; cooperative behavior describes when both animals benefit.
+in altruistic behavior, one animal's actions benefit another animal.
+All of these behaviors involve some sort of communication between population members.
+Communication within a Species Animals communicate with each other using stimuli known as signals.
+Other signals are chemical, aural, visual, or tactile.
+Other signals are chemical, aural, visual.
+These types of communication may be instinctual or learned or a combination of both.
+These are not the same as the communication we associate with language, which has been observed only in humans and perhaps in some species of primates and cetaceans.
+A pheromone is a secreted chemical signal used to obtain a response from another individual of the same species.
+The purpose of pheromones is to elicit a specific behavior from the receiving individual.
+Even humans are thought to respond to certain pheromones called axillary steroids.
+These chemicals influence human perception of other people, and in one study were responsible for a group of people synchronizing their menstrual cycles.
+These chemicals influence human perception of other people.
+The role of pheromones in human-to- human communication is not fully understood and continues to be researched.
+Songs are an example of an aural signal, one that needs to be heard by the recipient.
+Other well-known songs are those of whales, which are of such low frequency that they can travel long distances underwater.
+Dolphin species communicate with each other using a wide variety of vocalizations.
+Male crickets make chirping sounds using a specialized organ to attract a mate, repel other males, and to announce a successful mating.
+Male crickets make chirping sounds using a specialized organ to attract a mate, repel other males.
+Courtship displays are a series of ritualized visual behaviors designed to attract and convince a member of the opposite sex to mate.
+These displays are ubiquitous in the animal kingdom.
+Often these displays involve a series of steps, including an initial display by one member followed by a response from the other.
+Aggressive displays are also common in the animal kingdom.
+For example, a dog bares its teeth when it wants another dog to back down.
+Presumably, these displays communicate not only the willingness of the animal to fight, but also its fighting ability.
+This type of interaction, even if "dishonest," would be favored by natural selection if it is successful more times than not.
+This stork's courtship display is designed to attract potential mates.
+Distraction displays are seen in birds and some fish.
+They are designed to attract a predator away from the nest.
+This is an example of an altruistic behavior: it benefits the young more than the individual performing the display, which is putting itself at risk by doing so.
+Many animals, especially primates, communicate with other members in the group through touch.
+Similar behaviors are found in other primates, especially in the great apes.
+LINK TO LEARNING The killdeer bird distracts predators from its eggs by faking a broken wing display in this video taken in Boise, Idaho.
+Examples of such behaviors are seen widely across the animal kingdom.
+Social insects such as worker bees have no ability to reproduce, yet they maintain the queen so she can populate the hive with her offspring.
+Meerkats keep a sentry standing guard to warn the rest of the colony about intruders, even though the sentry is putting itself at risk.
+Wolves and wild dogs bring meat to pack members not present during a hunt.
+Lemurs take care of infants unrelated to them.
+Although on the surface, these behaviors appear to be altruistic, the truth may not be so simple.
+One explanation for altruistic-type behaviors is found in the genetics of natural selection.
+In the 1976 book, The Selfish Gene, scientist Richard Dawkins attempted to explain many seemingly altruistic behaviors from the viewpoint of the gene itself.
+Mammal parents make this sacrifice to take care of their offspring.
+Emperor penguins migrate miles in harsh conditions to bring food back for their young.
+Selfish gene theory has been controversial over the years and is still discussed among scientists in related fields.
+Even less-related individuals, those with less genetic identity than that shared by parent and offspring, benefit from seemingly altruistic behavior.
+The activities of social insects such as bees, wasps, ants, and termites are good examples.
+termites are good examples.
+Thus, it is of fitness benefit for the worker to maintain the queen without having any direct chance of passing on its genes due to its sterility.
+The lowering of individual fitness to enhance the reproductive fitness of a relative and thus one's inclusive fitness evolves through kin selection.
+This phenomenon can explain many superficially altruistic behaviors seen in animals.
+Unrelated individuals may also act altruistically to each other, and this seems to defy the "selfish gene" explanation.
+Unrelated individuals may also act altruistically to each other.
+this seems to defy the "selfish gene" explanation.
+After a certain amount of time, the roles are reversed and the first monkey now grooms the second monkey.
+Both benefit from the interaction and their fitness is raised more than if neither cooperated nor if one cooperated and the other did not cooperate.
+Reciprocal altruism requires that individuals repeatedly encounter each other, often the result of living in the same social group, and that cheaters are punished.
+Reciprocal altruism requires that individuals repeatedly encounter each other, often the result of living in the same social group.
+Evolutionary game theory, a modification of classical game theory in mathematics, has shown that many of these so-called "altruistic behaviors" are not altruistic at all.
+The definition of "pure" altruism, based on human behavior, is an action that benefits another without any direct benefit to oneself.
+game theorists are good at finding "selfish" components in them.
+These instinctual behaviors may then be applied, in special circumstances, to other species, as long as it doesn't lower the animal's fitness.
+Significant energy is spent in the process of locating, attracting, and mating with the sex partner.
+Significant energy is spent in the process of locating, attracting.
+Intersexual selection is often complex because choosing a mate may be based on a variety of visual, aural, tactile, and chemical cues.
+Intersexual selection is often complex because choosing a mate may be based on a variety of visual, aural, tactile.
+Intrasexual selection involves mating displays and aggressive mating rituals such as rams butting heads—the winner of these battles is the one that is able to mate.
+Three general mating systems, all involving innate as opposed to learned behaviors, are seen in animal populations: monogamous, polygynous, and polyandrous.
+Three general mating systems, all involving innate as opposed to learned behaviors, are seen in animal populations: monogamous, polygynous.
+LINK TO LEARNING Visit this website for informative videos on sexual selection.
+In monogamous systems, one male and one female are paired for at least one breeding season.
+In some animals, such as the gray wolf, these associations can last much longer, even a lifetime.
+Several theories may explain this type of mating system.
+The "mate-guarding hypothesis" states that males stay with the female to prevent other males from mating with her.
+This behavior is advantageous in such situations where mates are scarce and difficult to find.
+Another explanation is the "male-assistance hypothesis," where males that help guard and rear their young will have more and healthier offspring.
+Monogamy is observed in many bird populations where, in addition to the parental care from the female, the male is also a major provider of parental care for the chicks.
+Polygynous mating refers to one male mating with multiple females.
+In these situations, the female must be responsible for most of the parental care as the single male is not capable of providing care to that many offspring.
+In resourced-based polygyny, males compete for territories with the best resources, and then mate with females that enter the territory, drawn to its resource richness.
+In resourced-based polygyny, males compete for territories with the best resources.
+The female benefits by mating with a dominant, genetically fit male; however, it is at the cost of having no male help in caring for the offspring.
+however, it is at the cost of having no male help in caring for the offspring.
+An example is seen in the yellow- rumped honeyguide, a bird whose males defend beehives because the females feed on their wax.
+As the females approach, the male defending the nest will mate with them.
+Harem mating structures are a type of polygynous system where certain males dominate mating while controlling a territory with resources.
+Harem mating occurs in elephant seals, where the alpha male dominates the mating within the group.
+A third type of polygyny is a lek system.
+the females choose their mate from this group.
+This behavior is observed in several bird species including the sage grouse and the prairie chicken.
+These types of systems are much rarer than monogamous and polygynous mating systems.
+Therefore, the female is able to provide eggs to several males without the burden of carrying the fertilized eggs.
+The majority of the behaviors previously discussed were innate or at least have an innate component.
+Conversely, learned behaviors, even though they may have instinctive components, allow an organism to adapt to changes in the environment and are modified by previous experiences.
+Simple learned behaviors include habituation and imprinting—both are important to the maturation process of young animals.
+Habituation Habituation is a simple form of learning in which an animal stops responding to a stimulus after a period of repeated exposure.
+This is a form of non-associative learning, as the stimulus is not associated with any punishment or reward.
+In this example, habituation is specific to the sound of human footsteps, as the animals still respond to the sounds of potential predators.
+Imprinting Imprinting is a type of learning that occurs at a particular age or a life stage that is rapid and independent of the species involved.
+Hatchling ducks recognize the first adult they see, their mother, and make a bond with her.
+Hatchling ducks recognize the first adult they see, their mother.
+The attachment of ducklings to their mother is an example of imprinting.
+Imprinting hatchlings has been a key to success: biologists wear full crane costumes so the birds never "see" humans.
+Conditioned Behavior Conditioned behaviors are types of associative learning, where a stimulus becomes associated with a consequence.
+During operant conditioning, the behavioral response is modified by its consequences, with regards to its form, strength, or frequency.
+During operant conditioning, the behavioral response is modified by its consequences, with regards to its form, strength.
+Classical Conditioning In classical conditioning, a response called the conditioned response is associated with a stimulus that it had previously not been associated with, the conditioned stimulus.
+In Pavlov's experiments, the unconditioned response was the salivation of dogs in response to the unconditioned stimulus of seeing or smelling their food.
+During conditioning, every time the animal was given food, the bell was rung.
+This was repeated during several trials.
+After some time, the dog learned to associate the ringing of the bell with food and to respond by salivating.
+After the conditioning period was finished, the dog would respond by salivating when the bell was rung, even when the unconditioned stimulus, the food, was absent.
+Thus, the ringing of the bell became the conditioned stimulus and the salivation became the conditioned response.
+In the classic Pavlovian response, the dog becomes conditioned to associate the ringing of the bell with food.
+Operant Conditioning In operant conditioning, the conditioned behavior is gradually modified by its consequences as the animal responds to the stimulus.
+A major proponent of such conditioning was psychologist B.F. Skinner, the inventor of the Skinner box.
+Skinner put rats in his boxes that contained a lever that would dispense food to the rat when depressed.
+While initially the rat would push the lever a few times by accident, it eventually associated pushing the lever with getting the food.
+This type of learning is an example of operant conditioning.
+Operant learning is the basis of most animal training.
+The conditioned behavior is continually modified by positive or negative reinforcement, often a reward such as food or some type of punishment, respectively.
+The training of dolphins by rewarding them with food is an example of positive reinforcement operant conditioning.
+Cognitive Learning Classical and operant conditioning are inefficient ways for humans and other intelligent animals to learn.
+Some primates, including humans, are able to learn by imitating the behavior of others and by taking instructions.
+The development of complex language by humans has made cognitive learning, the manipulation of information using the mind, the most prominent method of human learning.
+In fact, that is how students are learning right now by reading this book.
+As students read, they can make mental images of objects or organisms and imagine changes to them, or behaviors by them, and anticipate the consequences.
+As students read, they can make mental images of objects or organisms and imagine changes to them, or behaviors by them.
+As students read, they can make mental images of objects or organisms and imagine changes to them.
+behaviors by them, and anticipate the consequences.
+In addition to visual processing, cognitive learning is also enhanced by remembering past experiences, touching physical objects, hearing sounds, tasting food, and a variety of other sensory-based inputs.
+In addition to visual processing, cognitive learning is also enhanced by remembering past experiences, touching physical objects, hearing sounds, tasting food.
+Cognitive learning is so powerful that it can be used to understand conditioning in detail.
+In the reverse scenario, conditioning cannot help someone learn about cognition.
+Classic work on cognitive learning was done by Wolfgang Köhler with chimpanzees.
+He demonstrated that these animals were capable of abstract thought by showing that they could learn how to solve a puzzle.
+This implies that they could visualize the result of stacking the boxes even before they had performed the action.
+This type of learning is much more powerful and versatile than conditioning.
+Cognitive learning is not limited to primates, although they are the most efficient in using it.
+Maze running experiments done with rats by H.C. Blodgett in the 1920s were the first to show cognitive skills in a simple mammal.
+The motivation for the animals to work their way through the maze was a piece of food at its end.
+Group II rats were not fed in the maze for the first six days and subsequent runs were done with food starting at day seven.
+Group III rats were not fed for two days, and runs with food started on day three.
+Group III rats were not fed for two days.
+The results were that the control rats, Group I, learned quickly, and figured out how to run the maze in seven days.
+The results were that the control rats, Group I, learned quickly.
+Group III did not learn much during the two days without food, but rapidly caught up to the control group when given the food reward.
+The orange dots on the group II and III lines show the days when food rewards were added to the mazes.
+It may not be immediately obvious that this type of learning is different than conditioning.
+This was an early demonstration of the power of cognitive learning and how these abilities were not just limited to humans.
+Sociobiology Sociobiology is an interdisciplinary science originally popularized by social insect researcher E.O. Wilson in the 1970s.
+The main thrust of sociobiology is that animal and human behavior, including aggressiveness and other social interactions, can be explained almost solely in terms of genetics and natural selection.
+This science is controversial; noted scientists such as the late Stephen Jay Gould criticized the approach for ignoring the environmental effects on behavior.
+This science is controversial.
+This is another example of the "nature versus nurture" debate of the role of genetics versus the role of environment in determining an organism's characteristics.
+Sociobiology also links genes with behaviors and has been associated with "biological determinism," the belief that all behaviors are hardwired into our genes.
+It is the application of such principles to human behavior that sparks this controversy, which remains active today.
+Chapter Summary 45.1 Population Demography calculate life expectancies of individual population members.
+Survivorship curves show the number of Populations are individuals of a species that live in a individuals surviving at each age interval plotted versus particular habitat.
+Humans have increased the world's carrying capacity through migration, agriculture, All species have evolved a pattern of living, called a life medical advances, and communication.
+Humans have increased the world's carrying capacity through migration, agriculture, All species have evolved a pattern of living, called a life medical advances.
+The age history strategy, in which they partition energy for structure of a population allows us to predict growth, maintenance, and reproduction.
+The age history strategy, in which they partition energy for structure of a population allows us to predict growth, maintenance.
+Unchecked human population patterns evolve through natural selection; they allow growth could have dire long-term effects on our species to adapt to their environment to obtain the environment.
+Unchecked human population patterns evolve through natural selection.
+they allow growth could have dire long-term effects on our species to adapt to their environment to obtain the environment.
+A species may reproduce early in life to Communities include all the different species living in a ensure surviving to a reproductive age or reproduce given area.
+The variety of these species is called later in life to become larger and healthier and better species richness.
+A species may reproduce defenses against predation and herbivory, including once or many times in its mechanical defenses, warning coloration, and mimicry, life.
+A species may reproduce defenses against predation and herbivory, including once or many times in its mechanical defenses, warning coloration.
+Two species cannot exist Growth in the same habitat competing directly for the same resources.
+Species may form symbiotic relationships Populations with unlimited resources grow such as commensalism or mutualism.
+When structure is described by its foundation and keystone resources become limiting, populations follow a species.
+Communities respond to environmental logistic growth curve.
+The population of a species will disturbances by succession (the predictable level off at the carrying capacity of its environment.
+Populations are regulated by a variety of density- 45.7 Behavioral Biology: Proximate and dependent and density-independent factors.
+Species Ultimate Causes of Behavior are divided into two categories based on a variety of Behaviors are responses to stimuli.
+Instinctual and K-selection theory has fallen out of use; however, behaviors include mating systems and methods of many of its key features are still used in newer, communication.
+Instinctual and K-selection theory has fallen out of use.
+however, behaviors include mating systems and methods of many of its key features are still used in newer, communication.
+Learned behaviors include imprinting demographically-based models of population and habituation, conditioning, and, most powerfully, dynamics.
+The carrying capacity of seals would 2.
+If the major food source of the remain the same, but the population of seals declines due to pollution or overfishing, seals would decrease.
+The carrying capacity of seals would 3.
+The carrying capacity of seals would are shown in stages 1 through 3.
+What type of decrease, but the seal population would population change do you think stage 4 remain the same.
+Species with limited resources usually exhibit d. life table a ________ growth curve.
+How is a clumped population distribution ________.
+Prey animals rely on each other to acquire food.
+Species that have many offspring at one time are c. Prey animals live in small family groups to usually: raise young.
+A forest fire is an example of ________ 8.
+Which of the following is associated with long- regulation.
+Primates are examples of: 9.
+c. Emsleyan/Mertensian mimicry b. Wild giraffes begin mating at 6-7 years of d. Mertensian mimicry age.
+c. Newborn giraffes are capable of 24.
+Giraffes rarely give birth to twins.
+A country with zero population growth is likely to d. bacteria living in the gut of humans be ________.
+The ability of rats to learn how to run a maze is b. in Asia an example of ________.
+c. economically developed a. imprinting d. economically underdeveloped b. classical conditioning c. operant conditioning 20.
+a. economically developed 27.
+The training of animals usually involves b. economically underdeveloped ________.
+b. keystone species a. Only males are capable of multiple rounds c. foundation species of reproduction within a single breeding d. pioneer species season.
+Only females care for the young.
+multiple species c. Females usually experience more with similar warning coloration that are all toxic intrasexual selection pressure than males.
+Females usually devote more energy to a. Batesian mimicry offspring production and development.
+The CDC released the following data in its 2013 Vital shaped curve of logistic growth.
+Since the introduction of the Endangered Species Act the number of species on the 31-40 1,234 98,164 protected list has more than doubled.
+Jaguars are a keystone species in the Amazon.
+Why is long-term parental care not associated 42.

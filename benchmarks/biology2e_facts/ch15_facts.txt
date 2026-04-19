@@ -1,0 +1,424 @@
+# Biology2e Chapter 15 — Genes and Proteins
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 420
+
+The interleukin-2 protein and alpha-2u-globulin protein are just two examples of the array of different molecular structures that are encoded by genes.
+Genes are composed of DNA and are linearly arranged on chromosomes.
+Genes specify the sequences of amino acids, which are the building blocks of proteins.
+In turn, proteins are responsible for orchestrating nearly every function of the cell.
+Both genes and the proteins they encode are absolutely essential to life as we know it.
+The cellular process of transcription generates messenger RNA, a mobile molecular copy of one or more genes with an alphabet of A, C, G, and uracil.
+The cellular process of transcription generates messenger RNA, a mobile molecular copy of one or more genes with an alphabet of A, C, G.
+That is the central dogma of DNA-protein synthesis.
+Variation in amino acid sequence is responsible for the enormous variation in protein structure and function.
+Each amino acid is composed of an amino group, a carboxyl group, and a side chain.
+Each amino acid is composed of an amino group, a carboxyl group.
+The side chain may be nonpolar, polar, or charged, as well as large or small.
+The side chain may be nonpolar, polar.
+It is the variety of amino acid side chains that gives rise to the incredible variation of protein structure and function.
+The decoding of one molecule to another is performed by specific proteins and RNAs.
+The copying of DNA to RNA is relatively straightforward, with one nucleotide being added to the mRNA strand for every nucleotide read in the DNA strand.
+The translation to protein is a bit more complex because three mRNA nucleotides correspond to one amino acid in the polypeptide sequence.
+The Genetic Code Is Degenerate and Universal Each amino acid is defined by a three-nucleotide sequence called the triplet codon.
+Given the different numbers of "letters" in the mRNA and protein "alphabets," scientists theorized that single amino acids must be represented by combinations of nucleotides.
+Nucleotide doublets would not be sufficient to specify every amino acid because there are only 16 possible two-nucleotide combinations.
+In other words, a given amino acid could be encoded by more than one nucleotide triplet.
+This was later confirmed experimentally: Francis Crick and Sydney Brenner used the chemical mutagen proflavin to insert one, two, or three nucleotides into the gene of a virus.
+This was later confirmed experimentally: Francis Crick and Sydney Brenner used the chemical mutagen proflavin to insert one, two.
+This demonstrated that the amino acids must be specified by groups of three nucleotides.
+This figure shows the genetic code for translating each nucleotide triplet in mRNA into an amino acid or a termination signal in a protein.
+Another codon, AUG, also has a special function.
+In addition to specifying the amino acid methionine, it also serves as the start codon to initiate translation.
+The reading frame for translation is set by the AUG start codon near the 5' end of the mRNA.
+Following the start codon, the mRNA is read in groups of three until a stop codon is encountered.
+The arrangement of the coding table reveals the structure of the code.
+Some blocks are divided into a pyrimidine half, in which the codon ends with U or C, and a purine half, in which the codon ends with A or G.
+Some blocks are divided into a pyrimidine half, in which the codon ends with U or C.
+Some amino acids get a whole block of four codons, like alanine, threonine and proline.
+Some get the pyrimidine half of their block, like histidine and asparagine.
+Others get the purine half of their block, like glutamate and lysine.
+Degeneracy is believed to be a cellular mechanism to reduce the negative impact of random mutations.
+Codons that specify the same amino acid typically only differ by one nucleotide.
+In addition, amino acids with chemically similar side chains are encoded by similar codons.
+The genetic code is nearly universal.
+With a few minor exceptions, virtually all species use the same genetic code for protein synthesis.
+Conservation of codons means that a purified mRNA encoding the globin protein in horses could be transferred to a tulip cell, and the tulip would synthesize horse globin.
+Conservation of codons means that a purified mRNA encoding the globin protein in horses could be transferred to a tulip cell.
+the tulip would synthesize horse globin.
+Background: Genes are carried on chromosomes and are made of DNA.
+All mammals are diploid, meaning they have two copies of each chromosome.
+However, not all plants are diploid.
+The common strawberry is octoploid and the cultivated kiwi is hexaploid.
+You should observe white, precipitated DNA.
+The prokaryotes, which include Bacteria and Archaea, are mostly single-celled organisms that, by definition, lack membrane-bound nuclei and other organelles.
+A bacterial chromosome is a closed circle that, unlike eukaryotic chromosomes, is not organized around histone proteins.
+In addition, prokaryotes often have abundant plasmids, which are shorter, circular DNA molecules that may only contain one or a few genes.
+Plasmids can be transferred independently of the bacterial chromosome during cell division and often carry traits such as those involved with antibiotic resistance.
+Transcription in prokaryotes requires the DNA double helix to partially unwind in the region of mRNA synthesis.
+Transcription always proceeds from the same DNA strand for each gene, which is called the template strand.
+The mRNA product is complementary to the template strand and is almost identical to the other DNA strand, called the nontemplate strand, or the coding strand.
+The mRNA product is complementary to the template strand and is almost identical to the other DNA strand, called the nontemplate strand.
+In an RNA double helix, A can bind U via two hydrogen bonds, just as in A–T pairing in a DNA double helix.
+RNA is synthesized in its 5'-3' direction, using the enzyme RNA polymerase.
+Nucleotides preceding the initiation site are denoted with a "- " and are designated upstream nucleotides.
+Conversely, nucleotides following the initiation site are denoted with "+" numbering and are called downstream nucleotides.
+Initiation of Transcription in Prokaryotes Prokaryotes do not have membrane-enclosed nuclei.
+Therefore, the processes of transcription, translation, and mRNA degradation can all occur simultaneously.
+mRNA degradation can all occur simultaneously.
+The intracellular level of a bacterial protein can quickly be amplified by multiple transcription and translation events that occur concurrently on the same DNA template.
+Prokaryotic genomes are very compact, and prokaryotic transcripts often cover more than one gene or cistron.
+Prokaryotic genomes are very compact.
+prokaryotic transcripts often cover more than one gene or cistron.
+Polycistronic mRNAs are then translated to produce more than one kind of protein.
+Our discussion here will exemplify transcription by describing this process in Escherichia coli, a well-studied eubacterial species.
+Although some differences exist between transcription in E. coli and transcription in archaea, an understanding of E. coli transcription can be applied to virtually all bacterial species.
+Prokaryotic RNA Polymerase Prokaryotes use the same RNA polymerase to transcribe all of their genes.
+In E. coli, the polymerase is composed of five polypeptide subunits, two of which are identical.
+The fifth subunit, σ, is involved only in transcription initiation.
+It confers transcriptional specificity such that the polymerase begins to synthesize mRNA from an appropriate initiation site.
+Without σ, the core enzyme would transcribe from random sites and would produce mRNA molecules that specified protein gibberish.
+A promoter is a DNA sequence onto which the transcription machinery, including RNA polymerase, binds and initiates transcription.
+In most cases, promoters exist upstream of the genes they regulate.
+The specific sequence of a promoter is very important because it determines whether the corresponding gene is transcribed all the time, some of the time, or infrequently.
+The specific sequence of a promoter is very important because it determines whether the corresponding gene is transcribed all the time, some of the time.
+Although promoters vary among prokaryotic genomes, a few elements are evolutionarily conserved in many species.
+The -10 sequence, called the -10 region, has the consensus sequence TATAAT.
+The -35 sequence has the consensus sequence TTGACA.
+The A–T-rich -10 region facilitates unwinding of the DNA template, and several phosphodiester bonds are made.
+The A–T-rich -10 region facilitates unwinding of the DNA template.
+The transcription initiation phase ends with the production of abortive transcripts, which are polymers of approximately 10 nucleotides that are made and released.
+The σ subunit of prokaryotic RNA polymerase recognizes consensus sequences found in the promoter region upstream of the transcription start site.
+The σ subunit dissociates from the polymerase after transcription has been initiated.
+Elongation and Termination in Prokaryotes The transcription elongation phase begins with the release of the σ subunit from the polymerase.
+As elongation proceeds, the DNA is continuously unwound ahead of the core enzyme and rewound behind it.
+The base pairing between DNA and RNA is not stable enough to maintain the stability of the mRNA synthesis components.
+Instead, the RNA polymerase acts as a stable linker between the DNA template and the nascent RNA strands to ensure that elongation is not interrupted prematurely.
+Prokaryotic Termination Signals Once a gene is transcribed, the prokaryotic polymerase needs to be instructed to dissociate from the DNA template and liberate the newly made mRNA.
+Rho-dependent termination is controlled by the rho protein, which tracks along behind the polymerase on the growing mRNA chain.
+Near the end of the gene, the polymerase encounters a run of G nucleotides on the DNA template and it stalls.
+As a result, the rho protein collides with the polymerase.
+Rho-independent termination is controlled by specific sequences in the DNA template strand.
+As the polymerase nears the end of the gene being transcribed, it encounters a region rich in C–G nucleotides.
+The mRNA folds back on itself, and the complementary C–G nucleotides bind together.
+The mRNA folds back on itself.
+the complementary C–G nucleotides bind together.
+The result is a stable hairpin that causes the polymerase to stall as soon as it begins to transcribe a region rich in A–T nucleotides.
+The complementary U–A region of the mRNA transcript forms only a weak interaction with the template DNA.
+This, coupled with the stalled polymerase, induces enough instability for the core enzyme to break away and liberate the new mRNA transcript.
+Upon termination, the process of transcription is complete.
+By the time termination occurs, the prokaryotic transcript would already have been used to begin synthesis of numerous copies of the encoded protein because these processes can occur concurrently.
+In contrast, the presence of a nucleus in eukaryotic cells precludes simultaneous transcription and translation.
+In this way, a specific protein can rapidly reach a high concentration in the bacterial cell.
+LINK TO LEARNING Visit this BioStudio animation to see the process of prokaryotic transcription.
+Prokaryotes and eukaryotes perform fundamentally the same process of transcription, with a few key differences.
+The most important difference between prokaryote and eukaryote transcription is due to the latter's membrane- bound nucleus and organelles.
+Eukaryotes also employ three different polymerases that each transcribe a different subset of genes.
+Eukaryotic mRNAs are usually monogenic, meaning that they specify a single protein.
+The Three Eukaryotic RNA Polymerases The features of eukaryotic mRNA synthesis are markedly more complex than those of prokaryotes.
+Instead of a single polymerase comprising five subunits, the eukaryotes have three polymerases that are each made up of 10 subunits or more.
+Each eukaryotic polymerase also requires a distinct set of transcription factors to bring it to the DNA template.
+The rRNAs are components of the ribosome and are essential to the process of translation.
+RNA polymerase II is located in the nucleus and synthesizes all protein-coding nuclear pre-mRNAs.
+mRNAs undergo extensive processing after transcription but before translation.
+For clarity, this module's discussion of transcription and translation in eukaryotes will use the term "mRNAs" to describe only the mature, processed molecules that are ready to be translated.
+RNA polymerase II is responsible for transcribing the overwhelming majority of eukaryotic genes.
+RNA polymerase III is also located in the nucleus.
+This polymerase transcribes a variety of structural RNAs that includes the 5S pre-rRNA, transfer pre-RNAs, and small nuclear pre-RNAs.
+This polymerase transcribes a variety of structural RNAs that includes the 5S pre-rRNA, transfer pre-RNAs.
+The tRNAs have a critical role in translation; they serve as the "adaptor molecules" between the mRNA template and the growing polypeptide chain.
+The tRNAs have a critical role in translation.
+they serve as the "adaptor molecules" between the mRNA template and the growing polypeptide chain.
+Small nuclear RNAs have a variety of functions, including "splicing" pre-mRNAs and regulating transcription factors.
+Interestingly, the α-amanitin affects the three polymerases very differently.
+RNA polymerase I is completely insensitive to α-amanitin, meaning that the polymerase can transcribe DNA in vitro in the presence of this poison.
+RNA polymerase III is moderately sensitive to the toxin.
+In contrast, RNA polymerase II is extremely sensitive to α-amanitin.
+The toxin prevents the enzyme from progressing down the DNA, and thus inhibits transcription.
+The toxin prevents the enzyme from progressing down the DNA.
+Because RNA polymerase II transcribes the vast majority of genes, we will focus on this polymerase in our subsequent discussions about eukaryotic transcription factors and promoters.
+RNA Polymerase II Promoters and Transcription Factors Eukaryotic promoters are much larger and more intricate than prokaryotic promoters.
+However, both have a sequence similar to the -10 sequence of prokaryotes.
+In eukaryotes, this sequence is called the TATA box, and has the consensus sequence TATAAA on the coding strand.
+In eukaryotes, this sequence is called the TATA box.
+This sequence is not identical to the E. coli -10 box, but it conserves the A–T rich element.
+The thermostability of A–T bonds is low and this helps the DNA template to locally unwind in preparation for transcription.
+The core complex is TFIID, which includes a TATA-binding protein.
+The other transcription factors systematically fall into place on the DNA template, with each one further stabilizing the pre-initiation complex and contributing to the recruitment of RNA polymerase II.
+Transcription factors recognize the promoter.
+Some eukaryotic promoters also have a conserved CAAT box at approximately -80.
+Further upstream of the TATA box, eukaryotic promoters may also contain one or more GC-rich boxes or octamer boxes.
+These elements bind cellular factors that increase the efficiency of transcription initiation and are often identified in more "active" genes that are constantly being expressed by the cell.
+Basal transcription factors are crucial in the formation of a preinitiation complex on the DNA template that subsequently recruits RNA polymerase II for transcription initiation.
+The complexity of eukaryotic transcription does not end with the polymerases and promoters.
+An army of other transcription factors, which bind to upstream enhancers and silencers, also help to regulate the frequency with which pre-mRNA is synthesized from a gene.
+Enhancers and silencers affect the efficiency of transcription but are not necessary for transcription to proceed.
+The processes of bringing RNA polymerases I and III to the DNA template involve slightly less complex collections of transcription factors, but the general theme is the same.
+Genes that are transcribed by RNA polymerase III have upstream promoters or promoters that occur within the genes themselves.
+Eukaryotic transcription is a tightly regulated process that requires a variety of proteins to interact with each other and with the DNA strand.
+The Evolution of Promoters The evolution of genes may be a familiar concept.
+Mutations can occur in genes during DNA replication, and the result may or may not be beneficial to the cell.
+Mutations can occur in genes during DNA replication.
+the result may or may not be beneficial to the cell.
+By altering an enzyme, structural protein, or some other factor, the process of mutation can transform functions or physical features.
+some other factor, the process of mutation can transform functions or physical features.
+However, eukaryotic promoters and other gene regulatory sequences may evolve as well.
+Maybe the gene encodes a structural protein that the cell needs to synthesize in abundance for a certain function.
+If this is the case, it would be beneficial to the cell for that gene's promoter to recruit transcription factors more efficiently and increase gene expression.
+Scientists examining the evolution of promoter sequences have reported varying results.
+In part, this is because it is difficult to infer exactly where a eukaryotic promoter begins and ends.
+Some promoters occur within genes; others are located very far upstream, or even downstream, of the genes they are regulating.
+Some promoters occur within genes.
+others are located very far upstream, or even downstream, of the genes they are regulating.
+Some promoters occur within genes; others are located very far upstream.
+It is still unclear how promoter evolution might correspond to the evolution of humans or other complex organisms.
+However, the evolution of a promoter to effectively make more or less of a given gene product is an intriguing 1 alternative to the evolution of the genes themselves.
+As discussed previously, RNA polymerase II transcribes the major share of eukaryotic genes, so in this section we will focus on how this polymerase accomplishes elongation and termination.
+Although the enzymatic process of elongation is essentially the same in eukaryotes and prokaryotes, the DNA template is considerably more complex.
+When eukaryotic cells are not dividing, their genes exist as a diffuse mass of DNA and proteins called chromatin.
+The DNA is tightly packaged around charged histone proteins at repeated intervals.
+These DNA–histone complexes, collectively called nucleosomes, are regularly spaced and include 146 nucleotides of DNA wound around eight histones like thread around a spool.
+For polynucleotide synthesis to occur, the transcription machinery needs to move histones out of the way every time it encounters a nucleosome.
+Once the pre-mRNA is synthesized, the FACT complex replaces the histones to recreate the nucleosomes.
+The termination of transcription is different for the different polymerases.
+Unlike in prokaryotes, elongation by RNA polymerase II in eukaryotes takes place 1,000 to 2,000 nucleotides beyond the end of the gene being transcribed.
+This pre-mRNA tail is subsequently removed by cleavage during mRNA processing.
+On the other hand, RNA polymerases I and III require termination signals.
+Genes transcribed by RNA polymerase I contain a specific 18-nucleotide sequence that is recognized by a termination protein.
+The process of termination in RNA polymerase III involves an mRNA hairpin similar to rho-independent termination of transcription in prokaryotes.
+After transcription, eukaryotic pre-mRNAs must undergo several processing steps before they can be translated.
+Eukaryotic tRNAs and rRNAs also undergo processing before they can function as components in the protein-synthesis machinery.
+Eukaryotic protein- coding sequences are not continuous, as they are in prokaryotes.
+The coding sequences are interrupted by noncoding introns, which must be removed to make a translatable mRNA.
+The additional steps involved in eukaryotic mRNA maturation also create a molecule with a much longer half-life than a prokaryotic mRNA.
+Eukaryotic mRNAs last for several hours, whereas the typical E. coli mRNA lasts no more than five seconds.
+Eukaryotic mRNAs last for several hours.
+Pre-mRNAs are first coated in RNA-stabilizing proteins; these protect the pre-mRNA from degradation while it is processed and exported out of the nucleus.
+Pre-mRNAs are first coated in RNA-stabilizing proteins.
+these protect the pre-mRNA from degradation while it is processed and exported out of the nucleus.
+In rare cases, the mRNA transcript can be "edited" after it is transcribed.
+Nucleotides upstream of the translation START codon are part of the 5' untranslated region.
+Both 5' and 3' UTRs are important for regulating translation initiation and mRNA stability.
+The trypanosome is carried by biting flies in the genus Glossina.
+Trypanosomes, and virtually all other eukaryotes, have organelles called mitochondria that supply the cell with chemical energy.
+virtually all other eukaryotes, have organelles called mitochondria that supply the cell with chemical energy.
+Mitochondria are organelles that express their own DNA and are believed to be the remnants of a symbiotic relationship between a eukaryote and an engulfed prokaryote.
+The mitochondrial DNA of trypanosomes exhibit an interesting exception to the central dogma: their pre-mRNAs do not have the correct information to specify a functional protein.
+Usually, this is because the mRNA is missing several U nucleotides.
+The cell performs an additional RNA processing step called RNA editing to remedy this.
+The mRNAs of this pathogen must be modified by the addition of nucleotides before protein synthesis can occur.
+However, the guide RNA has more A nucleotides than the pre-mRNA has U nucleotides with which to bind.
+In these regions, the guide RNA loops out.
+The 3' ends of guide RNAs have a long poly-U tail, and these U bases are inserted in regions of the pre-mRNA transcript at which the guide RNAs are looped.
+The 3' ends of guide RNAs have a long poly-U tail.
+these U bases are inserted in regions of the pre-mRNA transcript at which the guide RNAs are looped.
+This process is entirely mediated by RNA molecules.
+RNA editing is not just a phenomenon of trypanosomes.
+In the mitochondria of some plants, almost all pre-mRNAs are edited.
+RNA editing has also been identified in mammals such as rats, rabbits, and even humans.
+RNA editing has also been identified in mammals such as rats, rabbits.
+One possibility is that the mitochondria, being remnants of ancient prokaryotes, have an equally ancient RNA-based method for regulating gene expression.
+In support of this hypothesis, edits made to pre-mRNAs differ depending on cellular conditions.
+Although speculative, the process of RNA editing may be a holdover from a primordial time when RNA molecules, instead of proteins, were responsible for catalyzing reactions.
+This functional group protects the nascent mRNA from degradation.
+In addition, factors involved in protein synthesis recognize the cap to help initiate translation by ribosomes.
+Once elongation is complete, the pre-mRNA is cleaved by an endonuclease between an AAUAAA consensus sequence and a GU-rich sequence, leaving the AAUAAA sequence on the pre-mRNA.
+An enzyme called poly-A polymerase then adds a string of approximately 200 A residues, called the poly-A tail.
+This modification further protects the pre-mRNA from degradation and is also the binding site for a protein necessary for exporting the processed mRNA to the cytoplasm.
+Intron sequences in mRNA do not encode functional proteins.
+The discovery of introns came as a surprise to researchers in the 1970s who expected that pre-mRNAs would specify protein sequences without further processing, as they had observed in prokaryotes.
+The genes of higher eukaryotes very often contain one or more introns.
+These regions may correspond to regulatory sequences; however, the biological significance of having many introns or having very long introns in a gene is unclear.
+These regions may correspond to regulatory sequences.
+however, the biological significance of having many introns or having very long introns in a gene is unclear.
+Alternatively, introns may be nonfunctional sequence remnants left over from the fusion of ancient genes throughout the course of evolution.
+This is supported by the fact that separate exons often encode separate protein subunits or domains.
+For the most part, the sequences of introns can be mutated without ultimately affecting the protein product.
+the resulting protein would be dysfunctional.
+Splicing occurs by a sequence-specific mechanism that ensures introns will be removed and exons rejoined with the accuracy and precision of a single nucleotide.
+The splicing of pre-mRNAs is conducted by complexes of proteins and RNA molecules called spliceosomes.
+Pre-mRNA splicing involves the precise removal of introns from the primary RNA transcript.
+The splicing process is catalyzed by protein complexes called spliceosomes that are composed of proteins and RNA molecules called small nuclear RNAs.
+Spliceosomes recognize sequences at the 5' and 3' end of the intron.
+Errors in splicing are implicated in cancers and other human diseases.
+The tRNAs and rRNAs are structural molecules that have roles in protein synthesis; however, these RNAs are not themselves translated.
+The tRNAs and rRNAs are structural molecules that have roles in protein synthesis.
+however, these RNAs are not themselves translated.
+tRNAs are transcribed and processed in the nucleus and then released into the cytoplasm where they are linked to free amino acids for protein synthesis.
+Enzymes then cleave the precursors into subunits corresponding to each structural RNA.
+Some of the bases of pre-rRNAs are methylated; that is, a –CH3 methyl functional group is added for stability.
+that is, a –CH3 methyl functional group is added for stability.
+Pre-tRNA molecules also undergo methylation.
+Mature rRNAs make up approximately 50 percent of each ribosome.
+Some of a ribosome's RNA molecules are purely structural, whereas others have catalytic or binding activities.
+Some of a ribosome's RNA molecules are purely structural.
+others have catalytic or binding activities.
+Mature tRNAs take on a three-dimensional structure through local regions of base pairing stabilized by intramolecular hydrogen bonding.
+The anticodon is a three-nucleotide sequence in a tRNA that interacts with an mRNA codon through complementary base pairing.
+This is a space-filling model of a tRNA molecule that adds the amino acid phenylalanine to a growing polypeptide chain.
+The anticodon AAG binds the Codon UUC on the mRNA.
+The amino acid phenylalanine is attached to the other end of the tRNA.
+The synthesis of proteins consumes more of a cell's energy than any other metabolic process.
+In turn, proteins account for more mass than any other component of living organisms, and proteins perform virtually every function of a cell.
+In turn, proteins account for more mass than any other component of living organisms.
+proteins perform virtually every function of a cell.
+The process of translation, or protein synthesis, involves the decoding of an mRNA message into a polypeptide product.
+protein synthesis, involves the decoding of an mRNA message into a polypeptide product.
+Amino acids are covalently strung together by interlinking peptide bonds in lengths ranging from approximately 50 to more than 1000 amino acid residues.
+Each individual amino acid has an amino group and a carboxyl group.
+This reaction is catalyzed by ribosomes and generates one water molecule.
+For simplicity in this image, only the functional groups involved in the peptide bond are shown.
+The R and R' designations refer to the rest of each amino acid structure.
+The Protein Synthesis Machinery In addition to the mRNA template, many molecules and macromolecules contribute to the process of translation.
+The composition of each component may vary across species.
+However, the general structures and functions of the protein synthesis machinery are comparable from bacteria to human cells.
+Translation requires the input of an mRNA template, ribosomes, tRNAs, and various enzymatic factors.
+Translation requires the input of an mRNA template, ribosomes, tRNAs.
+Ribosomes Even before an mRNA is translated, a cell must invest energy to build each of its ribosomes.
+A ribosome is a complex macromolecule composed of structural and catalytic rRNAs, and many distinct polypeptides.
+A ribosome is a complex macromolecule composed of structural and catalytic rRNAs.
+In eukaryotes, the nucleolus is completely specialized for the synthesis and assembly of rRNAs.
+In E. coli, the small subunit is described as 30S, and the large subunit is 50S, for a total of 70S.
+In E. coli, the small subunit is described as 30S.
+the large subunit is 50S, for a total of 70S.
+tRNAs The tRNAs are structural RNA molecules that were transcribed from genes by RNA polymerase III.
+Depending on the species, 40 to 60 types of tRNAs exist in the cytoplasm.
+Therefore, tRNAs are the molecules that actually "translate" the language of RNA into the language of proteins.
+synthesis and 61 specify the addition of amino acids to the polypeptide chain.
+Of these 61, one codon also encodes the initiation of translation.
+Each tRNA anticodon can base pair with one or more of the mRNA codons for its amino acid.
+For instance, if the sequence CUA occurred on an mRNA template in the proper reading frame, it would bind a leucine tRNA expressing the complementary sequence, GAU.
+The ability of some tRNAs to match more than one codon is what gives the genetic code its blocky structure.
+As the adaptor molecules of translation, it is surprising that tRNAs can fit so much specificity into such a small package.
+The ribosome is responsible for translating the mRNA into protein.
+The ribosome consists of a large and small ribosomal subunit.
+This movement will transfer the tRNA with the growing polypeptide to the Peptidyl-tRNA binding site and allow the empty tRNA to exit at the Exit site.
+Aminoacyl tRNA Synthetases The process of pre-tRNA synthesis by RNA polymerase III only creates the RNA portion of the adaptor molecule.
+The corresponding amino acid must be added later, once the tRNA is processed and exported to the cytoplasm.
+Through the process of tRNA "charging," each tRNA molecule is linked to its correct amino acid by one of a group of enzymes called aminoacyl tRNA synthetases.
+At least one type of aminoacyl tRNA synthetase exists for each of the 20 amino acids; the exact number of aminoacyl tRNA synthetases varies by species.
+At least one type of aminoacyl tRNA synthetase exists for each of the 20 amino acids.
+the exact number of aminoacyl tRNA synthetases varies by species.
+hydrolyze ATP to catalyze a high-energy bond between an amino acid and adenosine monophosphate; a pyrophosphate molecule is expelled in this reaction.
+a pyrophosphate molecule is expelled in this reaction.
+The activated amino acid is then transferred to the tRNA, and AMP is released.
+The activated amino acid is then transferred to the tRNA.
+Each tRNA is named for its amino acid.
+Aminoacyl-tRNA synthetases catalyze covalent bond formation between the tRNA and the correct amino acid in preparation for translation.
+All of the synthetases require energy, in the form of ATP, to make sure the correct amino acid is attached to the tRNA with the correct anticodon sequence.
+The Mechanism of Protein Synthesis As with mRNA synthesis, protein synthesis can be divided into three phases: initiation, elongation, and termination.
+The Mechanism of Protein Synthesis As with mRNA synthesis, protein synthesis can be divided into three phases: initiation, elongation.
+The process of translation is similar in prokaryotes and eukaryotes.
+Here we'll explore how translation occurs in E. coli, a representative prokaryote, and specify any differences between prokaryotic and eukaryotic translation.
+Here we'll explore how translation occurs in E. coli, a representative prokaryote.
+Initiation of Translation Protein synthesis begins with the formation of an initiation complex.
+In E. coli, this complex involves the small 30S ribosome, the mRNA template, three initiation factors, and a special initiator tRNA, called tRNAfMet.
+In E. coli, this complex involves the small 30S ribosome, the mRNA template, three initiation factors.
+This interaction anchors the 30S ribosomal subunit at the correct location on the mRNA template.
+Guanosine triphosphate, which is a purine nucleotide triphosphate, acts as an energy source during translation—both at the start of elongation and during the ribosome's translocation.
+The initiator tRNA then interacts with the start codon AUG.
+The formylation creates a "faux" peptide bond between the formyl carboxyl group and the amino group of the methionine.
+The fMet begins every polypeptide chain synthesized by E. coli, but it is usually removed after translation is complete.
+When an in-frame AUG is encountered during translation elongation, a non-formylated methionine is inserted by a regular Met-tRNAMet.
+30S ribosomal subunit is joined by the 50S subunit to form the translation complex.
+However, Met-tRNAi is distinct from other Met-tRNAs in that it can bind IFs.
+Instead of depositing at the Shine-Dalgarno sequence, the eukaryotic initiation complex recognizes the 7-methylguanosine cap at the 5' end of the mRNA.
+A cap-binding protein and several other IFs assist the movement of the ribosome to the 5' cap.
+Once at the cap, the initiation complex tracks along the mRNA in the 5' to 3' direction, searching for the AUG start codon.
+Many eukaryotic mRNAs are translated from the first AUG, but this is not always the case.
+According to Kozak's rules, the nucleotides around the AUG indicate whether it is the correct start codon.
+Kozak's rules state that the following consensus sequence must appear around the AUG of vertebrate genes: 5'-gccRccAUGG-3'.
+Once the appropriate AUG is identified, the other proteins and CBP dissociate, and the 60S subunit binds to the complex of Met-tRNAi, mRNA, and the 40S subunit.
+Once the appropriate AUG is identified, the other proteins and CBP dissociate.
+the 60S subunit binds to the complex of Met-tRNAi, mRNA.
+This step completes the initiation of translation in eukaryotes.
+Translation, Elongation, and Termination In prokaryotes and eukaryotes, the basics of elongation are the same, so we will review elongation from the perspective of E. coli.
+Termination In prokaryotes and eukaryotes, the basics of elongation are the same, so we will review elongation from the perspective of E. coli.
+When the translation complex is formed, the tRNA binding region of the ribosome consists of three compartments.
+The A site binds incoming charged aminoacyl tRNAs.
+The P site binds charged tRNAs carrying amino acids that have formed peptide bonds with the growing polypeptide chain but have not yet dissociated from their corresponding tRNA.
+The E site releases dissociated tRNAs so that they can be recharged with free amino acids.
+The initiating methionyl-tRNA, however, occupies the P site at the beginning of the elongation phase of translation in both prokaryotes and eukaryotes.
+During translation elongation, the mRNA template provides tRNA binding specificity.
+As the ribosome moves along the mRNA, each mRNA codon comes into register, and specific binding with the corresponding charged tRNA anticodon is ensured.
+As the ribosome moves along the mRNA, each mRNA codon comes into register.
+Elongation proceeds with charged tRNAs sequentially entering and leaving the ribosome as each new amino acid is added to the polypeptide chain.
+Movement of a tRNA from A to P to E site is induced by conformational changes that advance the ribosome by three bases in the 3' direction.
+The energy for each step along the ribosome is donated by elongation factors that hydrolyze GTP.
+GTP energy is required both for the binding of a new aminoacyl-tRNA to the A site and for its translocation to the P site after formation of the peptide bond.
+Peptide bonds form between the amino group of the amino acid attached to the A-site tRNA and the carboxyl group of the amino acid attached to the P-site tRNA.
+The formation of each peptide bond is catalyzed by peptidyl transferase, an RNA-based enzyme that is integrated into the 50S ribosomal subunit.
+The energy for each peptide bond formation is derived from the high- energy bond linking each amino acid to its tRNA.
+Amazingly, the E. coli translation apparatus takes only 0.05 seconds to add each amino acid, meaning that a 200-amino-acid protein can be translated in just 10 seconds.
+The large ribosomal subunit joins the small subunit, and a second tRNA is recruited.
+The large ribosomal subunit joins the small subunit.
+Entry of a release factor into the A site terminates translation and the components dissociate.
+Many antibiotics inhibit bacterial protein synthesis.
+For example, tetracycline blocks the A site on the bacterial ribosome, and chloramphenicol blocks peptidyl transfer.
+For example, tetracycline blocks the A site on the bacterial ribosome.
+Upon aligning with the A site, these nonsense codons are recognized by protein release factors that resemble tRNAs.
+The releasing factors in both prokaryotes and eukaryotes instruct peptidyl transferase to add a water molecule to the carboxyl end of the P-site amino acid.
+This reaction forces the P-site amino acid to detach from its tRNA, and the newly made protein is released.
+This reaction forces the P-site amino acid to detach from its tRNA.
+The small and large ribosomal subunits dissociate from the mRNA and from each other; they are recruited almost immediately into another translation initiation complex.
+The small and large ribosomal subunits dissociate from the mRNA and from each other.
+they are recruited almost immediately into another translation initiation complex.
+This hydrolysis releases the free carboxyl terminus of the protein.
+Additional factors use the energy in GTP hydrolysis to disassemble the large and small ribosomal subunits and mRNA.
+A signal sequence is a short sequence at the amino end of a protein that directs it to a specific cellular compartment.
+These sequences can be thought of as the protein's "train ticket" to its ultimate destination, and are recognized by signal-recognition proteins that act as conductors.
+These sequences can be thought of as the protein's "train ticket" to its ultimate destination.
+For instance, a specific signal sequence terminus will direct a protein to the mitochondria or chloroplasts.
+Once the protein reaches its cellular destination, the signal sequence is usually clipped off.
+Many proteins fold spontaneously, but some proteins require helper molecules, called chaperones, to prevent them from aggregating during the complicated process of folding.
+Even if a protein is properly specified by its corresponding mRNA, it could take on a completely dysfunctional shape if abnormal temperature or pH conditions prevent it from folding correctly.
+Proteins that will be secreted from the cell will contain a signal sequence at the N-terminus.
+The rest of the protein will go directly from the ribosome, across the ER membrane and into the ER lumen.
+From the ER, proteins can be secreted from the cell via vesicle trafficking.
+Whereas RNA polymerases I and III terminate describes the flow of genetic information in the cell transcription by protein- or RNA hairpin-dependent from genes to mRNA to proteins.
+The genetic code is degenerate because 64 triplet codons in mRNA specify only 20 amino acids 15.4 RNA Processing in Eukaryotes and three nonsense codons.
+Most amino acids have Eukaryotic pre-mRNAs are modified with a 5' several similar codons.
+These planet uses the same genetic code.
+structures protect the mature mRNA from degradation 15.2 Prokaryotic Transcription and help export it from the nucleus.
+Only finished mRNAs that have undergone 5' two consensus sequences that recruit RNA capping, 3' polyadenylation, and intron splicing are polymerase.
+intron splicing are polymerase.
+The prokaryotic polymerase consists of a exported from the nucleus to the cytoplasm.
+core enzyme of four protein subunits and a σ protein rRNAs and pre-tRNAs may be processed by that assists only with initiation.
+Elongation synthesizes intramolecular cleavage, splicing, methylation, and mRNA in the 5' to 3' direction at a rate of 40 chemical conversion of nucleotides.
+Elongation synthesizes intramolecular cleavage, splicing, methylation.
+Termination liberates the editing is also performed to insert missing bases after mRNA and occurs either by rho protein interaction or an mRNA has been synthesized.
+The players in translation include the mRNA template, Transcription in eukaryotes involves one of three types ribosomes, tRNAs, and various enzymatic factors.
+The players in translation include the mRNA template, Transcription in eukaryotes involves one of three types ribosomes, tRNAs.
+The of polymerases, depending on the gene being small ribosomal subunit binds to the mRNA template transcribed.
+Translation begins at the transcribes the tandemly duplicated rRNA genes, and initiating AUG on the mRNA, specifying methionine.
+Translation begins at the transcribes the tandemly duplicated rRNA genes.
+RNA polymerase III transcribes various small RNAs, The formation of peptide bonds occurs between like the 5S rRNA, tRNA, and small nuclear RNA genes.
+RNA polymerase III transcribes various small RNAs, The formation of peptide bonds occurs between like the 5S rRNA, tRNA.
+sequential amino acids matched to the mRNA template The initiation of transcription in eukaryotes involves the by their tRNAs according to the genetic code.
+The entire release factor binds and dissociates the components mRNA is translated in three-nucleotide "steps" of the and frees the new protein.
+When a nonsense codon is encountered, a during and after translation.
+What promoter in front of a bacterial gene and inserts specific effect would you expect each of these the gene in a bacterial chromosome.
+Tetracycline would directly affect: a. tRNA binding to the ribosome 2.
+Many antibiotics inhibit bacterial c. growth of the protein chain protein synthesis.
+The AUC and AUA codons in mRNA both specify promoters are called consensus sequences isoleucine.
+a. they are identical in all bacterial species a. complementarity b.
+they are similar in all bacterial species b. nonsense codons c. they exist in all organisms c. universality d.
+Three different bacteria species have the following a. 12 consensus sequences upstream of a conserved gene.
+c. Scientists use reverse transcriptase a. A > B > C enzymes to make DNA from RNA.
+Which subunit of the E. coli polymerase confers 10.
+295bp a. Enhancers bind transcription factors to c. 140bp silence gene expression, while promoters d. 435bp activate transcription.
+295bp a. Enhancers bind transcription factors to c. 140bp silence gene expression.
+Enhancers increase the efficiency of gene 16.
+The RNA components of ribosomes are expression, but are not essential for synthesized in the ________.
+Promoter recognition is a. cytoplasm essential to transcription initiation.
+b. nucleus c. Promoters bind transcription factors to c. nucleolus increase the efficiency of transcription.
+d. endoplasmic reticulum Enhancers bind RNA polymerases to initiate transcription.
+A scientist introduces a mutation that makes the b. RNA editing 60S ribosomal subunit nonfunctional in a human c. splicing cell line.
+a. Translation stalls after the initiation AUG 14.
+What processing step enhances the stability of codon is identified.
+d. tRNAs cannot exit the E site of the 15.
+A scientist identifies a pre-mRNA with the ribosome.
+A scientist sequencing mRNA identifies the termination of transcription in prokaryotes.
+A scientist observes that a cell has an RNA vastly different effects on protein function.
+Chronic lymphocytic leukemia patients often mRNA, and explain how insertion mutations can harbor nonsense mutations in their spliceosome have dramatic effects on proteins.
+Chronic lymphocytic leukemia patients often mRNA.
+spliceosome would change the final location and sequence of a pre-mRNA.

@@ -1,0 +1,543 @@
+# Biology2e Chapter 25 — Seedless Plants
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 539
+
+Seedless plants, like these horsetails, thrive in damp, shaded environments under a tree canopy where dryness is rare.
+INTRODUCTION An incredible variety of seedless plants populates the terrestrial landscape.
+Mosses may grow on a tree trunk, and horsetails may display their jointed stems and spindly leaves across the forest floor.
+Mosses may grow on a tree trunk.
+horsetails may display their jointed stems and spindly leaves across the forest floor.
+Their decomposition created large deposits of coal that we mine today.
+Current evolutionary thought holds that all plants—some green algae as well as land plants—are monophyletic; that is, they are descendants of a single common ancestor.
+Current evolutionary thought holds that all plants—some green algae as well as land plants—are monophyletic.
+that is, they are descendants of a single common ancestor.
+The evolutionary transition from water to land imposed severe constraints on plants.
+They had to develop strategies to avoid drying out, to disperse reproductive cells in air, for structural support, and for capturing and filtering sunlight.
+They had to develop strategies to avoid drying out, to disperse reproductive cells in air, for structural support.
+While seed plants have developed adaptations that allow them to populate even the most arid habitats on Earth, full independence from water did not happen in all plants.
+Most seedless plants still require a moist environment for reproduction.
+The kingdom Plantae constitutes large and varied groups of organisms.
+Mosses, ferns, conifers, and flowering plants are all members of the plant kingdom.
+flowering plants are all members of the plant kingdom.
+Land plants arose within the Archaeplastida, which includes the red algae and two groups of green algae, Chlorophyta and Charaphyta.
+Most biologists also consider at least some green algae to be plants, although others exclude all algae from the plant kingdom.
+These characteristics are absent from other types of algae.
+Algae and Evolutionary Paths to Photosynthesis Some scientists consider all algae to be plants, while others assert that only the green algae belong in the kingdom Plantae.
+Algae and Evolutionary Paths to Photosynthesis Some scientists consider all algae to be plants.
+others assert that only the green algae belong in the kingdom Plantae.
+Still others include only the Charophytes among the plants.
+These divergent opinions are related to the different evolutionary paths to photosynthesis selected for in different types of algae.
+While all algae are photosynthetic—that is, they contain some form of a chloroplast—they didn't all become photosynthetic via the same path.
+The ancestors to the Archaeplastida became photosynthetic by forming an endosymbiotic relationship with a green, photosynthetic bacterium about 1.65 billion years ago.
+That algal line evolved into the red and green algae, and eventually into the modern mosses, ferns, gymnosperms, and angiosperms.
+That algal line evolved into the red and green algae.
+Their evolutionary trajectory was relatively straight and monophyletic.
+Scientists who solely track evolutionary straight lines, consider only the Charophytes as plants.
+The common ancestor of Charophytes and land plants excludes the other members of the Archaeplastida.
+Charophytes also share other features with the land plants.
+These will be discussed in more detail in another section.
+Plant Adaptations to Life on Land As organisms adapted to life on land, they had to contend with several challenges in the terrestrial environment.
+The cell's interior is a thick soup: in this medium, most small molecules dissolve and diffuse, and the majority of the chemical reactions of metabolism take place.
+The cell's interior is a thick soup: in this medium, most small molecules dissolve and diffuse.
+the majority of the chemical reactions of metabolism take place.
+Desiccation, or drying out, is a constant danger for an organism exposed to air.
+Even when parts of a plant are close to a source of water, the aerial structures are likely to dry out.
+Water also provides buoyancy to organisms.
+On land, plants need to develop structural support in a medium that does not give the same lift as water.
+The organism is also subject to bombardment by mutagenic radiation, because air does not filter out ultraviolet rays of sunlight.
+Additionally, the male gametes must reach the female gametes using new strategies, because swimming is no longer possible.
+Therefore, both gametes and zygotes must be protected from desiccation.
+Not all adaptations appeared at once.
+Some species never moved very far from the aquatic environment, whereas others went on to conquer the driest environments on Earth.
+Some species never moved very far from the aquatic environment.
+To balance these survival challenges, life on land offers several advantages.
+First, sunlight is abundant.
+Water acts as a filter, altering the spectral quality of light absorbed by the photosynthetic pigment chlorophyll.
+Second, carbon dioxide is more readily available in air than in water, since it diffuses faster in air.
+Third, land plants evolved before land animals; therefore, until dry land was colonized by animals, no predators threatened plant life.
+Third, land plants evolved before land animals.
+therefore, until dry land was colonized by animals, no predators threatened plant life.
+In turn, plants developed strategies to deter predation: from spines and thorns to toxic chemicals.
+Early land plants, like the early land animals, did not live very far from an abundant source of water and developed survival strategies to combat dryness.
+Another strategy is to colonize environments with high humidity, where droughts are uncommon.
+Ferns, which are considered an early lineage of plants, thrive in damp and cool places such as the understory of temperate forests.
+Later, plants moved away from moist or aquatic environments using resistance to desiccation, rather than tolerance.
+These plants, like cacti, minimize the loss of water to such an extent they can survive in extremely dry environments.
+The most successful adaptation solution was the development of new structures that gave plants the advantage when colonizing new and dry environments.
+Four major adaptations contribute to the success of terrestrial plants.
+Second is an apical meristem tissue in roots and shoots.
+Third is the evolution of a waxy cuticle to resist desiccation.
+Alternation of Generations All sexually reproducing organisms have both haploid and diploid cells in their life cycles.
+In organisms with haplontic life cycles, the haploid stage is dominant, while in organisms with a diplontic life cycle, the diploid stage is the dominant life stage.
+In organisms with haplontic life cycles, the haploid stage is dominant.
+in organisms with a diplontic life cycle, the diploid stage is the dominant life stage.
+Dominant in this context means both the stage in which the organism spends most of its time, and the stage in which most mitotic cell reproduction occurs—the multicellular stage.
+Dominant in this context means both the stage in which the organism spends most of its time.
+In haplontic life cycles, the only diploid cell is the zygote, which undergoes immediate meiosis to restore the haploid state.
+In diplontic life cycles, the only haploid cells are the gametes, which combine to restore the diploid state at their earliest convenience.
+Humans, for example, are diplontic.
+This type of life cycle, which is found in all plants, is described as haplodiplontic.
+Mitosis occurs in both gametophyte and sporophyte generations.
+Diploid sporophytes produce haploid spores by meiosis, while haploid gametophytes produce gametes by mitosis.
+Diploid sporophytes produce haploid spores by meiosis.
+haploid gametophytes produce gametes by mitosis.
+In alternation of generations, the multicellular haploid form, known as a gametophyte, is followed in the developmental sequence by a multicellular diploid form, the sporophyte.
+The evolution of the land plants is marked by increasing prominence of the sporophyte generation.
+The sporophyte stage is barely noticeable in non- vascular plants.
+In the seed plants, the sporophyte phase can be a towering tree, as in sequoias and pines.
+Protection of the embryo is a major requirement for land plants.
+The vulnerable embryo must be sheltered from desiccation and other environmental hazards.
+In both seedless and seed plants, the female gametophyte provides protection and nutrients to the embryo as it develops into the new sporophyte.
+This distinguishing feature of land plants gave the group its alternate name of embryophytes.
+The sporophyte of seedless plants is diploid and results from syngamy of two gametes.
+The spores are later released by the sporangia and disperse in the environment.
+When the haploid spore germinates in a hospitable environment, it generates a multicellular gametophyte by mitosis.
+The gametophyte supports the zygote formed from the fusion of gametes and the resulting young sporophyte.
+The cycle then begins anew.
+Spore-producing sacs called sporangia grow at the ends of long, thin stalks in this photo of the moss Bryum capillare.
+Non-vascular plants are homosporous, and the gametophyte is the dominant generation in the life cycle.
+Non-vascular plants are homosporous.
+the gametophyte is the dominant generation in the life cycle.
+The male spores are called microspores, because of their smaller size, and develop into the male gametophyte; the comparatively larger megaspores develop into the female gametophyte.
+The male spores are called microspores, because of their smaller size, and develop into the male gametophyte.
+the comparatively larger megaspores develop into the female gametophyte.
+The male spores are called microspores, because of their smaller size.
+develop into the male gametophyte; the comparatively larger megaspores develop into the female gametophyte.
+A few seedless vascular plants and all seed plants are heterosporous, and the sporophyte is the dominant generation.
+A few seedless vascular plants and all seed plants are heterosporous.
+the sporophyte is the dominant generation.
+The spores of seedless plants are surrounded by thick cell walls containing a tough polymer known as sporopollenin.
+As the name suggests, it is also found in the walls of pollen grains.
+This complex substance is characterized by long chains of organic molecules related to fatty acids and carotenoids: hence the yellow color of most pollen.
+Sporopollenin is unusually resistant to chemical and biological degradation.
+In seed plants, in which pollen is the male gametophyte, the toughness of sporopollenin explains the existence of well-preserved pollen fossils.
+Sporopollenin was once thought to be an innovation of land plants; however, the charophyte Coleochaetes also forms spores that contain sporopollenin.
+Sporopollenin was once thought to be an innovation of land plants.
+however, the charophyte Coleochaetes also forms spores that contain sporopollenin.
+Gametangia in Seedless Plants Gametangia are structures observed on multicellular haploid gametophytes.
+In the gametangia, precursor cells give rise to gametes by mitosis.
+Seedless plants produce sperm equipped with flagella that enable them to swim in a moist environment to the archegonium: the female gametangium.
+The embryo develops inside the archegonium as the sporophyte.
+Gametangia are prominent in seedless plants, but are absent or rudimentary in seed plants.
+The apical meristem is made of undifferentiated cells that continue to proliferate throughout the life of the plant.
+Meristematic cells give rise to all the specialized tissues of the organism.
+Addition of new cells in a root occurs at the apical meristem.
+Subsequent enlargement of these cells causes the organ to grow and elongate.
+The root cap protects the fragile apical meristem as the root tip is pushed through the soil by cell elongation.
+Additional Land Plant Adaptations As plants adapted to dry land and became independent from the constant presence of water in damp habitats, new organs and structures made their appearance.
+Early land plants did not grow more than a few inches off the ground, competing for light on these low mats.
+By developing a shoot and growing taller, individual plants captured more light.
+Because air offers substantially less support than water, land plants incorporated more rigid molecules in their stems.
+In small plants such as single-celled algae, simple diffusion suffices to distribute water and nutrients throughout the organism.
+However, for plants to evolve larger forms, the evolution of a conductive tissue for the distribution of water and solutes was a prerequisite.
+The evolution of vascular tissue in plants met both of these needs.
+The vascular system contains two types of conductive tissue: xylem and phloem.
+Xylem conducts water and minerals absorbed from the soil up to the shoot, while phloem transports food derived from photosynthesis throughout the entire plant.
+Xylem conducts water and minerals absorbed from the soil up to the shoot.
+phloem transports food derived from photosynthesis throughout the entire plant.
+In xylem, the cells walls are reinforced with lignin, whose tough hydrophobic polymers help prevent the seepage of water across the xylem cell walls.
+Lignin also adds to the strength of these tissues in supporting the plant.
+The vascular tissues extend into the root of land plants.
+In land plants, a waxy, waterproof cover called a cuticle protects the leaves and stems from desiccation.
+However, the cuticle also prevents intake of carbon dioxide needed for the synthesis of carbohydrates through photosynthesis.
+Water filters ultraviolet-B light, which is harmful to all organisms, especially those that must absorb light to survive.
+This filtering does not occur for land plants.
+Plants cannot avoid being eaten by animals.
+These toxic compounds can also cause severe diseases and even death, thus discouraging predation.
+Humans have used many of these compounds for centuries as drugs, medications, or spices.
+Humans have used many of these compounds for centuries as drugs, medications.
+In contrast, as plants co-evolved with animals, the development of sweet and nutritious metabolites lured animals into providing valuable assistance in dispersing pollen grains, fruit, or seeds.
+In contrast, as plants co-evolved with animals, the development of sweet and nutritious metabolites lured animals into providing valuable assistance in dispersing pollen grains, fruit.
+Plants have been enlisting animals to be their helpers in this way for hundreds of millions of years.
+Evolution of Land Plants No discussion of the evolution of plants on land can be undertaken without a brief review of the timeline of the geological eras.
+The early era, known as the Paleozoic, is divided into six periods.
+It starts with the Cambrian period, followed by the Ordovician, Silurian, Devonian, Carboniferous, and Permian.
+It starts with the Cambrian period, followed by the Ordovician, Silurian, Devonian, Carboniferous.
+The major event to mark the Ordovician, more than 500 million years ago, was the colonization of land by the ancestors of modern land plants.
+Fossilized cells, cuticles, and spores of early land plants have been dated as far back as the Ordovician period in the early Paleozoic era.
+spores of early land plants have been dated as far back as the Ordovician period in the early Paleozoic era.
+The oldest-known vascular plants have been identified in deposits from the late Silurian and early Devonian.
+This Rhynie chert contains fossilized material from vascular plants.
+Reconstruction of Cooksonia, is shown based upon the fossilized remains inside the circle in.
+Paleobotanists distinguish between extinct species, as fossils, and extant species, which are still living.
+Paleobotanists distinguish between extinct species, as fossils.
+These extinct vascular plants most probably lacked true leaves and roots and formed low vegetation mats similar in size to modern-day mosses, although some could reach one meter in height.
+The later genus Cooksonia, which flourished during the Silurian, has been extensively studied from well-preserved examples.
+Imprints of Cooksonia show slender branching stems ending in what appear to be sporangia.
+From the recovered specimens, it is not possible to establish for certain whether Cooksonia possessed vascular tissues.
+Fossils indicate that by the end of the Devonian period, ferns, horsetails, and seed plants populated the landscape, giving rising to trees and forests.
+Fossils indicate that by the end of the Devonian period, ferns, horsetails.
+seed plants populated the landscape, giving rising to trees and forests.
+This luxuriant vegetation helped enrich the atmosphere with oxygen, making it easier for air-breathing animals to colonize dry land.
+Paleobotany addresses these questions through the analysis of fossilized specimens retrieved from field studies, reconstituting the morphology of organisms that disappeared long ago.
+Paleobotanists trace the evolution of plants by following the modifications in plant morphology: shedding light on the connection between existing plants by identifying common ancestors that display the same traits.
+This field seeks to find transitional species that bridge gaps in the path to the development of modern organisms.
+Paleobotanists collect fossil specimens in the field and place them in the context of the geological sediments and other fossilized organisms surrounding them.
+The activity requires great care to preserve the integrity of the delicate fossils and the layers of rock in which they are found.
+Preservation of molecular structures requires an environment free of oxygen, since oxidation and degradation of material through the activity of microorganisms depend on its presence.
+One example of the use of analytical chemistry and molecular biology is the identification of oleanane, a compound that deters pests.
+Through this analysis, evolutionary relationships can be built for plant lineages.
+Some paleobotanists are skeptical of the conclusions drawn from the analysis of molecular fossils.
+Nevertheless, as technology is refined, the analysis of DNA from fossilized plants will provide invaluable information on the evolution of plants and their adaptation to an ever-changing environment.
+The Major Divisions of Land Plants The green algae and land plants are grouped together into a subphylum called the Streptophyta, and thus are called Streptophytes.
+The Major Divisions of Land Plants The green algae and land plants are grouped together into a subphylum called the Streptophyta.
+Plants that lack vascular tissue, which is formed of specialized cells for the transport of water and nutrients, are referred to as non-vascular plants.
+Liverworts, mosses, and hornworts are seedless, non-vascular plants that likely appeared early in land plant evolution.
+hornworts are seedless, non-vascular plants that likely appeared early in land plant evolution.
+Vascular plants developed a network of cells that conduct water and solutes.
+Lycophytes and monilophytes are referred to as seedless vascular plants, because they do not produce seeds.
+The seed plants, or spermatophytes, form the largest group of all existing plants, and hence dominate the landscape.
+The seed plants, or spermatophytes, form the largest group of all existing plants.
+Seed plants include gymnosperms, most notably conifers, which produce "naked seeds," and the most successful of all plants, the flowering plants.
+Angiosperms protect their seeds inside chambers at the center of a flower; the walls of the chamber later develop into a fruit.
+Angiosperms protect their seeds inside chambers at the center of a flower.
+the walls of the chamber later develop into a fruit.
+This table shows the major divisions of green plants.
+a. Lycophytes and monilophytes are seedless vascular plants.
+All vascular plants produce seeds.
+All non-vascular embryophytes are bryophytes.
+Seed plants include angiosperms and gymnosperms.
+Streptophytes Until recently, all photosynthetic eukaryotes were classified as members of the kingdom Plantae.
+The brown and golden algae, however, are now reassigned to the protist supergroup Chromalveolata.
+The plants are now classified, along with the red and green algae, in the protist supergroup Archaeplastida.
+Their cells contain chloroplasts that display a dizzying variety of shapes, and their cell walls contain cellulose, as do land plants.
+Their cells contain chloroplasts that display a dizzying variety of shapes.
+their cell walls contain cellulose, as do land plants.
+Green algae fall into two major groups, the chlorophytes and the charophytes.
+The chlorophytes include the genera Chlorella, Chlamydomonas, the "sea lettuce" Ulva, and the colonial alga Volvox.
+The chlorophytes include the genera Chlorella, Chlamydomonas, the "sea lettuce" Ulva.
+The charophytes include desmids, as well as the genera Spirogyra, Coleochaete, and Chara.
+The charophytes include desmids, as well as the genera Spirogyra, Coleochaete.
+Some green algae are single cells, such as Chlamydomonas and desmids, which adds to the ambiguity of green algae classification, because plants are multicellular.
+Spirogyra is a long filament of colonial cells.
+Most members of this genus live in fresh water, brackish water, seawater, or even in snow patches.
+Most members of this genus live in fresh water, brackish water, seawater.
+A few green algae can survive on soil, provided it is covered by a thin film of moisture within which they can live.
+Periodic dry spells provide a selective advantage to algae that can survive water stress.
+Charophyta include Spirogyra and desmids.
+Chlorophyta include Chlamydomonas, and Ulva.
+Chlorophyta include Chlamydomonas.
+The chlorophytes and the charophytes differ in a few respects that, in addition to molecular analysis, place the land plants as a sister group of the charophytes.
+In the chlorophytes, the cell plate is organized by a phycoplast, in which the microtubules are perpendicular to the spindle.
+Second, only the charophytes and the land plants have plasmodesmata, or intercellular channels that allow the transfer of materials from cell to cell.
+Second, only the charophytes and the land plants have plasmodesmata.
+In the chlorophytes, intercellular connections do not persist in mature multicellular forms.
+Finally, both charophytes and the land plants show apical growth—growth from the tips of the plant rather than throughout the plant body.
+Consequently, land plants and the charophytes are now part of a new monophyletic group called Streptophyta.
+Reproduction of Green Algae Green algae reproduce both asexually, by fragmentation or dispersal of spores, or sexually, by producing gametes that fuse during fertilization.
+Reproduction of Green Algae Green algae reproduce both asexually, by fragmentation or dispersal of spores.
+Both Chlamydomonas and Ulva produce flagellated gametes.
+The charophytes include several different algal orders that have each been suggested to be the closest relatives of the land plants: the Charales, the Zygnematales, and the Coleochaetales.
+The charophytes include several different algal orders that have each been suggested to be the closest relatives of the land plants: the Charales, the Zygnematales.
+The Charales can be traced back 420 million years.
+They live in a range of freshwater habitats and vary in size from a few millimeters to a meter in length.
+Large cells form the thallus: the main stem of the alga.
+Branches arising from the nodes are made of smaller cells.
+Male and female reproductive structures are found on the nodes, and the sperm have flagella.
+Male and female reproductive structures are found on the nodes.
+the sperm have flagella.
+Although Chara looks superficially like some land plants, a major difference is that the stem has no supportive tissue.
+However, the Charales exhibit a number of traits that are significant for adaptation to land life.
+They produce the compounds lignin and sporopollenin, and form plasmodesmata that connect the cytoplasm of adjacent cells.
+They produce the compounds lignin and sporopollenin.
+The representative alga, Chara, is a noxious weed in Florida, where it clogs waterways.
+They can produce both sexually and asexually, but the life cycle is basically haplontic.
+Recent extensive DNA sequence analysis of charophytes indicates that the Zygnematales are more closely related to the embryophytes than the Charales or the Coleochaetales.
+The Zygnematales include the familiar genus Spirogyra, as well as the desmids.
+Bryophytes are the closest extant relatives of early terrestrial plants.
+The first bryophytes most likely appeared in the Ordovician period, about 450 million years ago.
+Because they lack lignin and other resistant structures, the likelihood of bryophytes forming fossils is rather small.
+By the Silurian period, however, vascular plants had spread through the continents.
+This compelling fact is used as evidence that non-vascular plants must have preceded the Silurian period.
+More than 25,000 species of bryophytes thrive in mostly damp habitats, although some live in deserts.
+They constitute the major flora of inhospitable environments like the tundra, where their small size and tolerance to desiccation offer distinct advantages.
+They generally lack lignin and do not have actual tracheids.
+Rather, water and nutrients circulate inside specialized conducting cells.
+Although the term non-tracheophyte is more accurate, bryophytes are commonly called non-vascular plants.
+The male gametes formed by bryophytes swim with a flagellum, so fertilization is dependent on the presence of water.
+The bryophyte embryo also remains attached to the parent plant, which protects and nourishes it.
+The sporophyte that develops from the embryo is barely noticeable.
+The sporangium—the multicellular sexual reproductive structure in which meiosis produces haploid spores—is present in bryophytes and absent in the majority of algae.
+This is also a characteristic of land plants.
+The bryophytes are divided into three phyla: the liverworts or Marchantiophyta, the hornworts or Anthocerotophyta, and the mosses or true Bryophyta.
+The bryophytes are divided into three phyla: the liverworts or Marchantiophyta, the hornworts or Anthocerotophyta.
+Liverworts Liverworts are currently classified as the plants most closely related to the ancestor of vascular plants that adapted to terrestrial environments.
+Leafy liverworts have tiny leaflike structures attached to a stalk.
+This 1904 drawing shows the variety of forms of Marchantiophyta.
+A liverwort, Lunularia cruciata, displays its lobate, flat thallus.
+The organism in the photograph is in the gametophyte stage, but has not yet produced gametangia.
+Lunularia gametophytes produce crescent-shaped gemmae, which contain asexual spores.
+The tiny white dots on the surface of the thallus are air pores.
+However, these are not stomata, because they do not actively open and close by the action of guard cells.
+Instead, the thallus takes up water over its entire surface and has no cuticle to prevent desiccation, which explains their preferred wet habitats.
+Haploid spores germinate into flattened thalli attached to the substrate by thin, single-celled filaments.
+Stalk-like structures grow from the thallus and carry male and female gametangia, which may develop on separate, individual plants, or on the same plant, depending on the species.
+Stalk-like structures grow from the thallus and carry male and female gametangia, which may develop on separate, individual plants.
+Flagellated male gametes develop within antheridia.
+The female gametes develop within archegonia.
+Once released, the male gametes swim with the aid of their flagella to an archegonium, and fertilization ensues.
+Once released, the male gametes swim with the aid of their flagella to an archegonium.
+The zygote grows into a small sporophyte still contained in the archegonium.
+The diploid zygote will give rise, by meiosis, to the next generation of haploid spores, which can be disseminated by wind or water.
+In many liverworts, spore dispersal is facilitated by elaters—long single cells that suddenly change shape as they dry out and throw adjacent spores out of the spore capsule.
+Liverwort plants can also reproduce asexually, by the breaking of "branches" or the spreading of leaf fragments called gemmae.
+The gemmae then land nearby and develop into gametophytes.
+This image shows a liverwort in which antheridia and archegonia are produced on separate gametophytes.
+The defining characteristic of the hornworts is the narrow, pipe-like sporophyte.
+Hornworts have colonized a variety of habitats on land, although they are never far from a source of moisture.
+The short, blue-green gametophyte is the dominant phase of the life cycle of a hornwort.
+Hornworts grow a tall and slender sporophyte.
+Stomata appear in the hornworts and are abundant on the sporophyte.
+Photosynthetic cells in the thallus each contain a single chloroplast.
+Meristem cells at the base of the plant keep dividing and adding to the height of the sporophyte.
+This growth pattern is unique to the hornworts.
+Many hornworts establish symbiotic relationships with cyanobacteria that fix nitrogen from the environment.
+The gametophytes grow as flat thalli on the soil with embedded male and female gametangia.
+The zygote develops into a long and slender sporophyte that eventually splits open down the side, releasing spores.
+The mosses are the most numerous of the non-vascular plants.
+Their habitats vary from the tundra, where they are the main vegetation, to the understory of tropical forests.
+In the tundra, the mosses' shallow rhizoids allow them to fasten to a substrate without penetrating the frozen soil.
+Mosses slow down erosion, store moisture and soil nutrients, and provide shelter for small animals as well as food for larger herbivores, such as the musk ox.
+Mosses slow down erosion, store moisture and soil nutrients.
+Mosses are very sensitive to air pollution and are used to monitor air quality.
+They are also sensitive to copper salts, so these salts are a common ingredient of compounds marketed to eliminate mosses from lawns.
+Mosses form diminutive gametophytes, which are the dominant phase of the lifecycle.
+Mosses have stomata only on the sporophyte.
+Water and nutrients are absorbed directly through the leaflike structures of the gametophyte.
+Some mosses have small branches.
+Additionally, mosses are anchored to the substrate—whether it is soil, rock, or roof tiles—by multicellular rhizoids, precursors of roots.
+Additionally, mosses are anchored to the substrate—whether it is soil, rock.
+They originate from the base of the gametophyte, but are not the major route for the absorption of water and minerals.
+The lack of a true root system explains why it is so easy to rip moss mats from a tree trunk.
+The mosses therefore occupy a threshold position between other bryophytes and the vascular plants.
+The most familiar structure is the haploid gametophyte, which germinates from a haploid spore and forms first a protonema—usually, a tangle of single-celled filaments that hug the ground.
+Cells akin to an apical meristem actively divide and give rise to a gametophore, consisting of a photosynthetic stem and foliage-like structures.
+The antheridia produce many sperm, whereas the archegonia each form a single egg at the base of a flask-shaped structure.
+The antheridia produce many sperm.
+the archegonia each form a single egg at the base of a flask-shaped structure.
+The archegonium produces attractant substances and at fertilization, the sperm swims down the neck to the venter and unites with the egg inside the archegonium.
+This illustration shows the life cycle of mosses.
+a. The mature gametophyte is haploid.
+The sporophyte produces haploid spores.
+The calyptra buds to form a mature gametophyte.
+The zygote is housed in the venter.
+The moss sporophyte is dependent on the gametophyte for nutrients.
+This photograph shows the long slender stems, called setae, connected to capsules of the moss Thamnobryum alopecurum.
+The operculum and remnants of the calyptra are visible in some capsules.
+Spore mother cells in the sporangium undergo meiosis to produce haploid spores.
+The sporophyte has several features that protect the developing spores and aid in their dispersal.
+The calyptra, derived from the walls of the archegonium, covers the sporangium.
+A structure called the operculum is at the tip of the spore capsule.
+The peristome opens and closes, depending on moisture levels, and periodically releases spores.
+The peristome opens and closes, depending on moisture levels.
+The vascular plants, or tracheophytes, are the dominant and most conspicuous group of land plants.
+tracheophytes, are the dominant and most conspicuous group of land plants.
+More than 260,000 species of tracheophytes represent more than 90 percent of Earth's vegetation.
+Several evolutionary innovations explain their success and their ability to spread to all habitats.
+The lack of roots for absorbing water and minerals from the soil, as well as a lack of lignin-reinforced conducting cells, limit bryophytes to small sizes.
+Vascular plants, on the other hand, can achieve enormous heights, thus competing successfully for light.
+Photosynthetic organs become leaves, and pipe-like cells or vascular tissues transport water, minerals, and fixed carbon organic compounds throughout the organism.
+Photosynthetic organs become leaves.
+In seedless vascular plants, the diploid sporophyte is the dominant phase of the life cycle.
+The gametophyte is now less conspicuous, but still independent of the sporophyte.
+Seedless vascular plants still depend on water during fertilization, as the flagellated sperm must swim on a layer of moisture to reach the egg.
+This step in reproduction explains why ferns and their relatives are more abundant in damp environments.
+The simplest arrangement of conductive cells shows a pattern of xylem at the center surrounded by phloem.
+The tissue consists of conducting cells, known as tracheids, and supportive filler tissue, called parenchyma.
+The tissue consists of conducting cells, known as tracheids.
+Xylem conductive cells incorporate the compound lignin into their walls, and are thus described as lignified.
+Xylem conductive cells incorporate the compound lignin into their walls.
+Lignin itself is a complex polymer: It is impermeable to water and confers mechanical strength on vascular tissue.
+With their rigid cell walls, the xylem cells provide support to the plant and allow it to achieve impressive heights.
+Tall plants have a selective advantage by being able to reach unfiltered sunlight and disperse their spores or seeds away from the parent plant, thus expanding the species' range.
+By growing higher than other plants, tall trees cast their shadows on shorter plants and thereby outcompete them for water and precious nutrients in the soil.
+Phloem is the second type of vascular tissue; it transports sugars, proteins, and other solutes throughout the plant.
+Phloem is the second type of vascular tissue.
+it transports sugars, proteins, and other solutes throughout the plant.
+Phloem is the second type of vascular tissue; it transports sugars, proteins.
+Phloem cells are divided into sieve elements and cells that support the sieve elements.
+This cross section of a celery stalk shows a number of vascular bundles.
+The xylem is on the inner part of each bundle.
+Roots: Support for the Plant Roots are not well-preserved in the fossil record.
+Nevertheless, it seems that roots appeared later in evolution than vascular tissue.
+The development of an extensive network of roots represented a significant new feature of vascular plants.
+The extensive network of roots that penetrates deep into the soil to reach sources of water also stabilizes plants by acting as a ballast or anchor.
+Leaves, Sporophylls, and Strobili A third innovation marks the seedless vascular plants.
+Strobili A third innovation marks the seedless vascular plants.
+Accompanying the prominence of the sporophyte and the development of vascular tissue, the appearance of true leaves improved their photosynthetic efficiency.
+The carbohydrates are exported to the rest of the plant by the conductive cells of phloem tissue.
+The existence of two types of leaf morphology—microphylls and megaphylls—suggests that leaves evolved independently in several groups of plants.
+Microphylls are small and have a simple vascular system.
+The first microphylls in the fossil record can be dated to 350 million years ago in the Carboniferous era.
+A single unbranched vein—a bundle of vascular tissue made of xylem and phloem—runs through the center of the leaf.
+Microphylls may have originated from the flattening of lateral branches, or from sporangia that lost their reproductive capabilities.
+Microphylls may have originated from the flattening of lateral branches.
+Microphylls are seen in club mosses.
+Microphylls probably preceded the development of megaphylls, which are larger leaves with a pattern of multiple veins.
+Megaphylls most likely appeared independently several times during the course of evolution.
+Their complex networks of veins suggest that several branches may have combined into a flattened organ, with the gaps between the branches being filled with photosynthetic tissue.
+Megaphylls are seen in ferns and more derived vascular plants.
+In addition to photosynthesis, leaves play another role in the life of the plants.
+Pine cones, mature fronds of ferns, and flowers are all sporophylls—leaves that were modified structurally to bear sporangia.
+flowers are all sporophylls—leaves that were modified structurally to bear sporangia.
+In conifers, the commonly named pine cones, strobili are cone-like structures that contain sporangia.
+Ferns and Other Seedless Vascular Plants By the late Devonian period, plants had evolved vascular tissue, well-defined leaves, and root systems.
+Ferns and Other Seedless Vascular Plants By the late Devonian period, plants had evolved vascular tissue, well-defined leaves.
+With these advantages, plants increased in height and size.
+During the Carboniferous period, swamp forests of club mosses and horsetails—some specimens reaching heights of more than 30 m—covered most of the land.
+These forests gave rise to the extensive coal deposits that gave the Carboniferous its name.
+Water is still required as a medium of sperm transport during the fertilization of seedless vascular plants, and most favor a moist environment.
+Water is still required as a medium of sperm transport during the fertilization of seedless vascular plants.
+Modern-day seedless tracheophytes include club mosses, horsetails, ferns, and whisk ferns.
+Modern-day seedless tracheophytes include club mosses, horsetails, ferns.
+Phylum Lycophyta: Club Mosses The club mosses, or phylum Lycophyta, are the earliest group of seedless vascular plants.
+phylum Lycophyta, are the earliest group of seedless vascular plants.
+They dominated the landscape of the Carboniferous, growing into tall trees and forming large swamp forests.
+The phylum Lycophyta consists of close to 1,200 species, including the quillworts, the club mosses, and spike mosses, none of which are true mosses or bryophytes.
+The phylum Lycophyta consists of close to 1,200 species, including the quillworts, the club mosses.
+Lycophytes follow the pattern of alternation of generations seen in the bryophytes, except that the sporophyte is the major stage of the life cycle.
+Some lycophytes, like the club moss Lycopodium, produce gametophytes that are independent of the sporophyte, developing underground or in other locations where they can form mycorrhizal associations with fungi.
+Lycophytes can be homosporous or heterosporous.
+The spike moss Selaginella is a heterosporous lycophyte.
+The same strobilus will contain microsporangia, which produce spores that will develop into the male gametophyte, and megasporangia, which produce spores that will develop into the female gametophyte.
+The same strobilus will contain microsporangia, which produce spores that will develop into the male gametophyte.
+Both gametophytes develop within the protective strobilus.
+The generic name means "wolf-foot" from the resemblance of the branched sporophyte to a paw.
+The specific epithet clavatum refers to the club-shaped strobilus, and reflects the common name of the phylum.
+The specific epithet clavatum refers to the club-shaped strobilus.
+ferns belong to the phylum Monilophyta, with horsetails placed in the class Equisetopsida.
+The single genus Equisetum is the survivor of a large group of plants, known as Arthrophyta, which produced large trees and entire swamp forests in the Carboniferous.
+Horsetails, named for the brushy appearance of the sporophyte, thrive in a marsh.
+The stem of a horsetail is characterized by the presence of joints or nodes, hence the name Arthrophyta.
+Leaves and branches come out as whorls from the evenly spaced joints.
+Thin leaves originating at the joints are noticeable on the horsetail plant.
+Silica collected by in the epidermal cells contributes to the stiffness of horsetail plants, but underground stems known as rhizomes anchor the plants to the ground.
+Modern-day horsetails are homosporous.
+The spores then germinate to produce small bisexual gametophytes.
+Photosynthesis takes place in their green stems, which branch dichotomously.
+Spores develop into gametophytes that are only a few millimeters across, but which produce both male and female gametangia.
+However, recent comparative DNA analysis suggests that this group may have lost both vascular tissue and roots through evolution, and is more closely related to ferns.
+However, recent comparative DNA analysis suggests that this group may have lost both vascular tissue and roots through evolution.
+The whisk fern Psilotum nudum has conspicuous green stems with knob-shaped sporangia.
+Phylum Monilophyta: Class Polypodiopsida With their large fronds, the true ferns are perhaps the most readily recognizable seedless vascular plants.
+More than 20,000 species of ferns live in environments ranging from the tropics to temperate forests.
+Although some species survive in dry environments, most ferns are restricted to moist, shaded places.
+Ferns made their appearance in the fossil record during the Devonian period and expanded during the Carboniferous.
+The dominant stage of the life cycle of a fern is the sporophyte, which consists of large compound leaves called fronds.
+Fronds may be either finely divided or broadly lobed.
+Fronds fulfill a double role; they are photosynthetic organs that also carry reproductive organs.
+Fronds fulfill a double role.
+they are photosynthetic organs that also carry reproductive organs.
+Adventitious organs are those that grow in unusual places, such as roots growing from the side of a stem.
+Some specimens of this short tree-fern species can grow very tall.
+Croziers, or fiddleheads, are the tips of fern fronds.
+Most ferns are homosporous.
+Spores are produced by meiosis and are released into the air from the sporangium.
+Gametophytes produce both antheridia and archegonia.
+Like the sperm cells of other pterophytes, fern sperm have multiple flagella and must swim to the archegonium, which releases a chemoattractant to guide them.
+The zygote develops into a fern sporophyte, which emerges from the archegonium of the gametophyte.
+Maturation of antheridia and archegonia at different times encourages cross- fertilization.
+a. Sporangia produce haploid spores.
+The sporophyte is diploid and the gametophyte is haploid.
+LINK TO LEARNING To see an animation of the life cycle of a fern and to test your knowledge, go to the website.
+They were also familiar with the biology of the plants they chose.
+Landscape design also has strong roots in the United States' tradition.
+A prime example of early American classical design is Monticello, Thomas Jefferson's private estate.
+Among his many interests, Jefferson maintained a strong passion for botany.
+A landscape designer will plan traditional public spaces—such as botanical gardens, parks, college campuses, gardens, and larger developments—as well as natural areas and private gardens.
+A landscape designer will plan traditional public spaces—such as botanical gardens, parks, college campuses, gardens.
+The restoration of natural places encroached on by human intervention, such as wetlands, also requires the expertise of a landscape designer.
+With such an array of necessary skills, a landscape designer's education should include a solid background in botany, soil science, plant pathology, entomology, and horticulture.
+With such an array of necessary skills, a landscape designer's education should include a solid background in botany, soil science, plant pathology, entomology.
+Coursework in architecture and design software is also required for the completion of the degree.
+Mosses and ferns will thrive in a shaded area, where fountains provide moisture.
+The future growth of individual plants must be taken into account, to avoid crowding and competition for light and nutrients.
+The appearance of the space over time is also of concern.
+Shapes, colors, and biology must be balanced for a well-maintained and sustainable green space.
+biology must be balanced for a well-maintained and sustainable green space.
+This landscaped border at a college campus was designed by students in the horticulture and landscaping department of the college.
+Their spores are carried by the wind, birds, or insects.
+Their spores are carried by the wind, birds.
+Once mosses and liverworts are established, they provide food and shelter for other plant species.
+Mosses are at the base of the food chain in the tundra biome.
+Many species—from small herbivorous insects to musk oxen and reindeer—depend on mosses for food.
+In turn, predators feed on the herbivores, which are the primary consumers.
+Some reports indicate that bryophytes make the soil more amenable to colonization by other plants.
+relationships with nitrogen-fixing cyanobacteria, mosses replenish the soil with nitrogen.
+By the end of the nineteenth century, scientists had observed that lichens and mosses were becoming increasingly rare in urban and suburban areas.
+Therefore, pollutants dissolved in rainwater penetrate plant tissues readily and have a larger impact on mosses than on other plants.
+Ferns contribute to the environment by promoting the weathering of rock, accelerating the formation of topsoil, and slowing down erosion as rhizomes spread throughout the soil.
+Ferns contribute to the environment by promoting the weathering of rock, accelerating the formation of topsoil.
+The water ferns of the genus Azolla harbor nitrogen- fixing cyanobacteria and restore this important nutrient to aquatic habitats.
+Seedless plants have historically played a role in human life with uses as tools, fuel, and medicine.
+Seedless plants have historically played a role in human life with uses as tools, fuel.
+For example, dried peat moss, Sphagnum, is commonly used as fuel in some parts of Europe and is considered a renewable resource.
+In addition, the ability of Sphagnum to hold moisture makes the moss a common soil conditioner.
+Sphagnum acutifolium is dried peat moss and can be used as fuel.
+The attractive fronds of ferns make them a favorite ornamental plant.
+Because they thrive in low light, they are well suited as house plants.
+More importantly, fiddleheads of bracken fern are a traditional spring food of Native Americans, and are popular as a side dish in French cuisine.
+More importantly, fiddleheads of bracken fern are a traditional spring food of Native Americans.
+The licorice fern, Polypodium glycyrrhiza, is part of the diet of the Pacific Northwest coastal tribes, owing in part to the sweetness of its rhizomes.
+It has a faint licorice taste and serves as a sweetener.
+The rhizome also figures in the pharmacopeia of Native Americans for its medicinal properties and is used as a remedy for sore throat.
+The tall club mosses, horsetails, and tree-like ferns that flourished in the swampy forests of the Carboniferous period gave rise to large deposits of coal throughout the world.
+tree-like ferns that flourished in the swampy forests of the Carboniferous period gave rise to large deposits of coal throughout the world.
+Coal is still a prime source of energy and also a major contributor to global warming.
+Chapter Summary 25.1 Early Plant Life tough outer layer that protects the spores contributed to the adaptation of plants to dry land.
+Land plants Land plants acquired traits that made it possible to appeared about 500 million years ago in the Ordovician colonize land and survive out of the water.
+Some and precursors of lignin, phragmoplasts, and have sporophylls are arranged in cone structures called flagellated sperm.
+They do not exhibit alternation of strobili.
+The support and conductive properties of vascular 25.3 Bryophytes tissues have allowed the sporophyte generation of vascular plants to become increasingly dominant.
+The Seedless non-vascular plants are small, having the seedless vascular plants include club mosses, which gametophyte as the dominant stage of the lifecycle.
+Ferns are the most advanced group of seedless Collectively known as bryophytes, the three main vascular plants.
+They are distinguished by large leaves groups include the liverworts, the hornworts, and the called fronds and small sporangia-containing mosses.
+They are distinguished by large leaves groups include the liverworts, the hornworts.
+Liverworts are the most primitive plants and structures called sori, which are found on the are closely related to the first land plants.
+Mosses have simple conductive cells and are Both mosses and ferns play an essential role in the attached to the substrate by rhizoids.
+They colonize balance of the ecosystems.
+Mosses are pioneering harsh habitats and can regain moisture after drying species that colonize bare or devastated environments out.
+The moss sporangium is a complex structure that and make it possible for succession to occur.
+They allows release of spores away from the parent plant.
+Mosses are important biological The seedless vascular plants show several features indicators of environmental pollution.
+Ferns are important to living on land: vascular tissue, roots, and important for providing natural habitats, as soil leaves.
+Ferns are important to living on land: vascular tissue, roots.
+Vascular systems consist of xylem tissue, which stabilizers, and as decorative plants.
+Vascular systems consist of xylem tissue, which stabilizers.
+Both mosses and transports water and minerals, and phloem tissue, ferns are part of traditional medical practice.
+phloem tissue, ferns are part of traditional medical practice.
+a. Lycophytes and monilophytes are seedless d.
+Seed plants include angiosperms and b.
+The sporophyte is diploid and the 2.
+Which of the following statements gametophyte is haploid.
+The mature gametophyte is haploid.
+d. angiosperms 11.
+Which of the following features does not support 5.
+a. only haploid multicellular organisms a. Charophyte chloroplasts contain b.
+organisms c. Charophytes do not exhibit growth throughout the entire plant body.
+d. root a. Zygotes are produced by random fusion.
+b. Gametes are created through meiosis.
+c. Diploid spores undergo independent a. Charales assortment during mitosis.
+The zygote undergoes meiosis to generate c. hornworts a haploid sporophyte.
+Which one of these characteristics is present in 15.
+a. They grow better at cold temperatures.
+They do not require moisture.
+They do not have true roots and can grow c. phragmoplasts on hard surfaces.
+A scientist sequences the genome of Chara, red 16.
+What result would experienced a long, severe drought.
+The Chara genome is more similar to the stage.
+Which life-cycle stage should be the most red algae than the tomato plant.
+All three genomes are distinctly different.
+The Chara genome is more similar to the b. gametophyte tomato plant genome than the red algae c. sporophyte genome.
+d. ferns a. club moss b. horsetail 18.
+It is probably a ________.
+c. fern a. Mosses fix nitrogen from the air.
+Mosses harbor cyanobacteria that fix nitrogen.
+The following structures are found on the c. Mosses die and return nitrogen to the soil.
+Mosses decompose rocks and release a. sori nitrogen.
+The dominant organism in fern is the ________.
+What is the difference between extant and 32.
+Ferns are simultaneously involved in promoting 29.
+In areas where it rains often, mosses grow on rock weathering, while preventing soil erosion.
+In areas where it rains often, mosses grow on rock weathering.
+how these functions are 30.

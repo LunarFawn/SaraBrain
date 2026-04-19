@@ -1,0 +1,516 @@
+# Biology2e Chapter 2 — The Chemical Foundation of Life
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 512
+
+In this model of an organic molecule, the atoms of carbon, hydrogen, nitrogen, oxygen, and phosphorus are in proportional atomic size.
+phosphorus are in proportional atomic size.
+The silver rods indicate chemical bonds.
+INTRODUCTION Elements in various combinations comprise all matter, including living things.
+Some of the most abundant elements in living organisms include carbon, hydrogen, nitrogen, oxygen, sulfur, and phosphorus.
+Some of the most abundant elements in living organisms include carbon, hydrogen, nitrogen, oxygen, sulfur.
+These form the nucleic acids, proteins, carbohydrates, and lipids that are the fundamental components of living matter.
+These form the nucleic acids, proteins, carbohydrates.
+Biologists must understand these important building blocks and the unique structures of the atoms that comprise molecules, allowing for cells, tissues, organ systems, and entire organisms to form.
+Biologists must understand these important building blocks and the unique structures of the atoms that comprise molecules, allowing for cells, tissues, organ systems.
+All biological processes follow the laws of physics and chemistry, so in order to understand how biological systems work, it is important to understand the underlying physics and chemistry.
+For example, the flow of blood within the circulatory system follows the laws of physics that regulate the modes of fluid flow.
+The properties of water and the formation of hydrogen bonds are key to understanding living processes.
+Therefore, the fundamentals of physics and chemistry are important for gaining insight into biological processes.
+At its most fundamental level, life is made up of matter.
+Elements are unique forms of matter with specific chemical and physical properties that cannot break down into smaller substances by ordinary chemical reactions.
+The remaining elements are unstable and require scientists to synthesize them in laboratories.
+Each element is designated by its chemical symbol, which is a single capital letter or, when the first letter is already "taken" by another element, a combination of two letters.
+Some elements follow the English term for the element, such as C for carbon and Ca for calcium.
+Other elements' chemical symbols derive from their Latin names.
+For example, the symbol for sodium is Na, referring to natrium, the Latin word for sodium.
+The four elements common to all living organisms are oxygen, carbon, hydrogen, and nitrogen.
+The four elements common to all living organisms are oxygen, carbon, hydrogen.
+In the nonliving world, elements are found in different proportions, and some elements common to living organisms are relatively rare on the earth as a whole, as shows.
+In the nonliving world, elements are found in different proportions.
+some elements common to living organisms are relatively rare on the earth as a whole, as shows.
+The Structure of the Atom To understand how elements come together, we must first discuss the element's smallest component or building block, the atom.
+An atom is the smallest unit of matter that retains all of the element's chemical properties.
+For example, one gold atom has all of the properties of gold, like its chemical reactivity.
+A gold coin is simply a very large number of gold atoms molded into the shape of a coin and contains small amounts of other elements known as impurities.
+We cannot break down gold atoms into anything smaller while still retaining the properties of gold.
+An atom is composed of two regions: the nucleus, which is in the atom's center and contains protons and neutrons.
+Atoms contain protons, electrons, and neutrons, among other subatomic particles.
+Atoms contain protons, electrons.
+The most common isotope of hydrogen is the only exception and is made of one proton and one electron with no neutrons.
+Atoms are made up of protons and neutrons located within the nucleus, with electrons in orbitals surrounding the nucleus.
+Protons and neutrons have approximately the same mass, about 1.67 × 10-24 grams.
+Scientists arbitrarily define this amount of mass as one atomic mass unit or one Dalton, as shows.
+A proton is positively charged; whereas, a neutron is uncharged.
+A proton is positively charged.
+whereas, a neutron is uncharged.
+Therefore, the number of neutrons in an atom contributes significantly to its mass, but not to its charge.
+Electrons are much smaller in mass than protons, weighing only 9.11 × 10-28 grams, or about 1/1800 of an atomic mass unit.
+Electrons are much smaller in mass than protons, weighing only 9.11 × 10-28 grams.
+Hence, they do not contribute much to an element's overall atomic mass.
+Therefore, when considering atomic mass, it is customary to ignore the mass of any electrons and calculate the atom's mass based on the number of protons and neutrons alone.
+Although not significant contributors to mass, electrons do contribute greatly to the atom's charge, as each electron has a negative charge equal to the proton's positive charge.
+In uncharged, neutral atoms, the number of electrons orbiting the nucleus is equal to the number of protons inside the nucleus.
+In these atoms, the positive and negative charges cancel each other out, leading to an atom with no net charge.
+electrons, most of the atom's volume—greater than 99 percent—is empty space.
+With all this empty space, one might ask why so-called solid objects do not just pass through one another.
+The reason they do not is that the electrons that surround all atoms are negatively charged and negative charges repel each other.
+Atomic Number and Mass Atoms of each element contain a characteristic number of protons and electrons.
+The number of protons determines an element's atomic number, which scientists use to distinguish one element from another.
+The number of neutrons is variable, resulting in isotopes, which are different forms of the same atom that vary only in the number of neutrons they possess.
+We can use this approximation of mass to easily calculate how many neutrons an element has by simply subtracting the number of protons from the mass number.
+have slightly different mass numbers, scientists also determine the atomic weight, which is the calculated mean of the atomic weights of its naturally occurring isotopes.
+Often, the resulting number contains a fraction.
+Isotopes Isotopes are different forms of an element that have the same number of protons but a different number of neutrons.
+Some elements—such as carbon, potassium, and uranium—have naturally occurring isotopes.
+uranium—have naturally occurring isotopes.
+Carbon-12 contains six protons, six neutrons, and six electrons; therefore, it has a mass number of 12.
+Carbon-12 contains six protons, six neutrons, and six electrons.
+therefore, it has a mass number of 12.
+Carbon-12 contains six protons, six neutrons.
+six electrons; therefore, it has a mass number of 12.
+Carbon-14 contains six protons, eight neutrons, and six electrons; its atomic mass is 14.
+Carbon-14 contains six protons, eight neutrons, and six electrons.
+its atomic mass is 14.
+Carbon-14 contains six protons, eight neutrons.
+six electrons; its atomic mass is 14.
+These two alternate forms of carbon are isotopes.
+Some isotopes may emit neutrons, protons, and electrons, and attain a more stable atomic configuration; these are radioactive isotopes, or radioisotopes.
+Some isotopes may emit neutrons, protons, and electrons, and attain a more stable atomic configuration.
+these are radioactive isotopes, or radioisotopes.
+Some isotopes may emit neutrons, protons.
+attain a more stable atomic configuration; these are radioactive isotopes, or radioisotopes.
+Some isotopes may emit neutrons, protons, and electrons, and attain a more stable atomic configuration; these are radioactive isotopes.
+Radioactive decay describes the energy loss that occurs when an unstable atom's nucleus releases radiation.
+Carbon Dating Carbon is normally present in the atmosphere in the form of gaseous compounds like carbon dioxide and methane.
+Because the half-life of 14C is long, scientists use it to date formerly living objects such as old bones or wood.
+Other elements have isotopes with different half lives.
+For example, 40K has a half-life of 1.25 billion years, and 235U has a half-life of about 700 million years.
+For example, 40K has a half-life of 1.25 billion years.
+scientists can study the age of fossils or other remains of extinct organisms to understand how organisms have evolved from earlier species.
+LINK TO LEARNING To learn more about atoms, isotopes, and how to tell one isotope from another, run the simulation.
+The properties of elements are responsible for their physical state at room temperature: they may be gases, solids, or liquids.
+The properties of elements are responsible for their physical state at room temperature: they may be gases, solids.
+Elements also have specific chemical reactivity, the ability to combine and to chemically bond with each other.
+In addition to providing the atomic number for each element, the periodic table also displays the element's atomic mass.
+Looking at carbon, for example, its symbol and name appear, as well as its atomic number of six and its atomic mass of 12.01.
+The periodic table shows each element's atomic mass and atomic number.
+The atomic number appears above the symbol for the element and the approximate atomic mass appears below it.
+Scientists base the differences in chemical reactivity between the elements on the number and spatial distribution of an atom's electrons.
+Molecules are simply two or more atoms chemically bonded together.
+Logically, when two atoms chemically bond to form a molecule, their electrons, which form the outermost region of each atom, come together first as the atoms form a chemical bond.
+In all electrically neutral atoms, the number of electrons is the same as the number of protons.
+Thus, each element, at least when electrically neutral, has a characteristic number of electrons equal to its atomic number.
+In 1913, Danish scientist Niels Bohr developed an early model of the atom.
+These energy levels are designated by a number and the symbol "n." For example, 1n represents the first energy level located closest to the nucleus.
+An electron normally exists in the lowest energy shell available, which is the one closest to the nucleus.
+Energy from a photon of light can bump it up to a higher energy shell, but this situation is unstable, and the electron quickly decays back to the ground state.
+Energy from a photon of light can bump it up to a higher energy shell, but this situation is unstable.
+the electron quickly decays back to the ground state.
+In the process, it releases a photon of light.
+Electrons fill orbitals in a consistent order: they first fill the orbitals closest to the nucleus, then they continue to fill orbitals of increasing energy further from the nucleus.
+If there are multiple orbitals of equal energy, they fill with one electron in each energy level before adding a second electron.
+The electrons of the outermost energy level determine the atom's energetic stability and its tendency to form chemical bonds with other atoms to form molecules.
+Under standard conditions, atoms fill the inner shells first, often resulting in a variable number of electrons in the outermost shell.
+The innermost shell has a maximum of two electrons but the next two electron shells can each have a maximum of eight electrons.
+Similarly, neon has a complete outer 2n shell containing eight electrons.
+Group 18 elements have a full outer, or valence, shell.
+Group 18 elements have a full outer.
+A full valence shell is the most stable electron configuration.
+Elements in other groups have partially filled valence shells and gain or lose electrons to achieve a stable electron configuration.
+The periodic table is arranged in columns and rows based on the number of electrons and their location.
+They are highly stable as single atoms.
+Because they are non reactive, scientists coin them inert.
+These elements, including hydrogen, lithium, and sodium, all have one electron in their outermost shells.
+sodium, all have one electron in their outermost shells.
+That means that they can achieve a stable configuration and a filled outer shell by donating or sharing one electron with another atom or a molecule such as water.
+lithium and sodium will donate their electron to become stable.
+As a result of losing a negatively charged electron, they become positively charged ions.
+Thus, the periodic table's columns represent the potential shared state of these elements' outer electron shells that is responsible for their similar chemical characteristics.
+Although useful to explain the reactivity and chemical bonding of certain elements, the Bohr model does not accurately reflect how electrons spatially distribute themselves around the nucleus.
+They do not circle the nucleus like the earth orbits the sun, but we find them in electron orbitals.
+These relatively complex shapes result from the fact that electrons behave not just like particles, but also like waves.
+Scientists call the area where an electron is most likely to be found its orbital.
+each subshell has a specified number of orbitals containing electrons.
+While it is impossible to calculate exactly an electron's location, scientists know that it is most probably located within its orbital path.
+f designate the subshells.
+The s subshell is spherical in shape and has one orbital.
+Principal shell 1n has only a single s orbital, which can hold two electrons.
+Principal shell 2n has one s and one p subshell, and can hold a total of eight electrons.
+Principal shell 2n has one s and one p subshell.
+and f have more complex shapes and contain five and seven orbitals, respectively.
+We do not show these in the illustration.
+Principal shell 3n has s, p, and d subshells and can hold 18 electrons.
+Principal shell 3n has s, p.
+Principal shell 4n has s, p, d and f orbitals and can hold 32 electrons.
+Progressing from one atom to the next in the periodic table, we can determine the electron structure by fitting an extra electron into the next available orbital.
+The s subshells are shaped like spheres.
+Both the 1n and 2n principal shells have an s orbital, but the size of the sphere is larger in the 2n orbital.
+Each sphere is a single orbital.
+Three dumbbell-shaped orbitals comprise p subshells.
+Principal shell 2n has a p subshell, but shell 1 does not.
+The closest orbital to the nucleus, the 1s orbital, can hold up to two electrons.
+This orbital is equivalent to the Bohr model's innermost electron shell.
+The 1s orbital is the closest orbital to the nucleus, and it is always filled first, before any other orbital fills.
+The 1s orbital is the closest orbital to the nucleus.
+it is always filled first, before any other orbital fills.
+Hydrogen has one electron; therefore, it occupies only one spot within the 1s orbital.
+Hydrogen has one electron.
+therefore, it occupies only one spot within the 1s orbital.
+We designate this as 1s1, where the superscripted 1 refers to the one electron within the 1s orbital.
+Helium has two electrons; therefore, it can completely fill the 1s orbital with its two electrons.
+Helium has two electrons.
+therefore, it can completely fill the 1s orbital with its two electrons.
+We designate this as 1s2, referring to the two electrons of helium in the 1s orbital.
+Hydrogen and helium are the only two elements that have the 1s and no other electron orbitals in the electrically neutral state.
+The second electron shell may contain eight electrons.
+After the 1s orbital fills, the second electron shell fills, first filling its 2s orbital and then its three p orbitals.
+When filling the p orbitals, each takes a single electron.
+Once each p orbital has an electron, it may add a second.
+Lithium contains three electrons that occupy the first and second shells.
+Two electrons fill the 1s orbital, and the third electron then fills the 2s orbital.
+Two electrons fill the 1s orbital.
+the third electron then fills the 2s orbital.
+Its electron configuration is 1s22s1.
+Thus it is an inert gas and energetically stable as a single atom that will rarely form a chemical bond with other atoms.
+Larger elements have additional orbitals, comprising the third electron shell.
+Chemical Reactions and Molecules All elements are most stable when their outermost shell is filled with electrons according to the octet rule.
+When two or more atoms chemically bond with each other, the resultant chemical structure is a molecule.
+The familiar water molecule, H2O, consists of two hydrogen atoms and one oxygen atom.
+Atoms can form molecules by donating, accepting, or sharing electrons to fill their outer shells.
+Atoms can form molecules by donating, accepting.
+When two hydrogens and an oxygen share electrons via covalent bonds it forms a water molecule.
+We typically draw an arrow between the reactants and products to indicate the chemical reaction's direction.
+An example of a simple chemical reaction is breaking down hydrogen peroxide molecules, each of which consists of two hydrogen atoms bonded to two oxygen atoms.
+The reactant hydrogen peroxide breaks down into water, containing one oxygen atom bound to two hydrogen atoms, and oxygen, which consists of two bonded oxygen atoms.
+The reactant hydrogen peroxide breaks down into water, containing one oxygen atom bound to two hydrogen atoms.
+In the equation below, the reaction includes two hydrogen peroxide molecules and two water molecules.
+This is an example of a balanced chemical equation, wherein each element's number of atoms is the same on each side of the equation.
+Some chemical reactions, such as the one above, can proceed in one direction until they expend all the reactants.
+The equations that describe these reactions contain a unidirectional arrow and are irreversible.
+Reversible reactions are those that can go in either direction.
+In reversible reactions, reactants turn into products, but when the product's concentration goes beyond a certain threshold, some of these products convert back into reactants.
+At this point, product and reactant designations reverse.
+A chemical equation with a double headed arrow pointing towards both the reactants and products often denote these reversible reaction situations.
+For example, in human blood, excess hydrogen ions bind to bicarbonate ions forming an equilibrium state with carbonic acid.
+If we added carbonic acid to this system, some of it would convert to bicarbonate and hydrogen ions.
+However, biological reactions rarely obtain equilibrium because the concentrations of the reactants or products or both are constantly changing, often with one reaction's product a reactant for another.
+To return to the example of excess hydrogen ions in the blood, forming carbonic acid will be the reaction's major direction.
+These reactions are important for maintaining homeostasis in our blood.
+Ions and Ionic Bonds Some atoms are more stable when they gain or lose an electron and form ions.
+This fills their outermost electron shell and makes them energetically more stable.
+Because the number of electrons does not equal the number of protons, each ion has a net charge.
+Cations are positive ions that form by losing electrons.
+Negative ions form by gaining electrons, which we call anions.
+We designate anions by their elemental name and change the ending to "-ide", thus the anion of chlorine is chloride, and the anion of sulfur is sulfide.
+We designate anions by their elemental name and change the ending to "-ide", thus the anion of chlorine is chloride.
+the anion of sulfur is sulfide.
+Scientists refer to this movement of electrons from one element to another as electron transfer.
+It takes less energy for sodium to donate that one electron than it does to accept seven more electrons to fill the outer shell.
+If sodium loses an electron, it now has 11 protons, 11 neutrons, and only 10 electrons, leaving it with an overall charge of +1.
+If sodium loses an electron, it now has 11 protons, 11 neutrons.
+We now refer to it as a sodium ion.
+Chlorine in its lowest energy state has seven electrons in its outer shell.
+Again, it is more energy-efficient for chlorine to gain one electron than to lose seven.
+Therefore, it tends to gain an electron to create an ion with 17 protons, 17 neutrons, and 18 electrons, giving it a net negative charge.
+Therefore, it tends to gain an electron to create an ion with 17 protons, 17 neutrons.
+We now refer to it as a chloride ion.
+In this example, sodium will donate its one electron to empty its shell, and chlorine will accept that electron to fill its shell.
+In this example, sodium will donate its one electron to empty its shell.
+chlorine will accept that electron to fill its shell.
+Both ions now satisfy the octet rule and have complete outermost shells.
+Because the number of electrons is no longer equal to the number of protons, each is now an ion and has a +1 or –1 charge.
+Ionic bonds form between ions with opposite charges.
+Physiologists refer to certain salts as electrolytes, ions necessary for nerve impulse conduction, muscle contractions, and water balance.
+Physiologists refer to certain salts as electrolytes, ions necessary for nerve impulse conduction, muscle contractions.
+Many sports drinks and dietary supplements provide these ions to replace those lost from the body via sweating during exercise.
+Covalent Bonds and Other Bonds and Interactions Another way to satisfy the octet rule is by sharing electrons between atoms to form covalent bonds.
+These bonds are stronger and much more common than ionic bonds in the molecules of living organisms.
+We commonly find covalent bonds in carbon-based organic molecules, such as our DNA and proteins.
+We also find covalent bonds in inorganic molecules like H2O, CO2, and O2.
+We also find covalent bonds in inorganic molecules like H2O, CO2.
+The bonds may share one, two, or three pairs of electrons, making single, double, and triple bonds, respectively.
+The bonds may share one, two, or three pairs of electrons, making single, double.
+The bonds may share one, two.
+Thus, triple bonds are the strongest.
+This strong triple bond makes it difficult for living systems to break apart this nitrogen in order to use it as constituents of proteins and DNA.
+Forming water molecules provides an example of covalent bonding.
+The electron from the hydrogen splits its time between the hydrogen atoms' incomplete outer shell and the oxygen atoms' incomplete outer shell.
+The two elements share the electrons to fill the outer shell of each, making both elements more stable.
+Because of the unequal electron distribution between the atoms of different elements, a slightly positive or slightly negative charge develops.
+This partial charge is an important property of water and accounts for many of its characteristics.
+Water is a polar molecule, with the hydrogen atoms acquiring a partial positive charge and the oxygen a partial negative charge.
+Another way of stating this is that the probability of finding a shared electron near an oxygen nucleus is more likely than finding it near a hydrogen nucleus.
+Since macromolecules often have atoms within them that differ in electronegativity, polar bonds are often present in organic molecules.
+Nonpolar Covalent Bonds Nonpolar covalent bonds form between two atoms of the same element or between different elements that share electrons equally.
+For example, molecular oxygen is nonpolar because the electrons distribute equally between the two oxygen atoms.
+Carbon has four electrons in its outermost shell and needs four more to fill it.
+It obtains these four from four hydrogen atoms, each atom providing one, making a stable outer shell of eight electrons.
+Carbon and hydrogen do not have the same electronegativity but are similar; thus, nonpolar bonds form.
+Carbon and hydrogen do not have the same electronegativity but are similar.
+thus, nonpolar bonds form.
+The hydrogen atoms each need one electron for their outermost shell, which is filled when it contains two electrons.
+These elements share the electrons equally among the carbons and the hydrogen atoms, creating a nonpolar covalent molecule.
+Both water and carbon dioxide have polar covalent bonds, but carbon dioxide is linear, so the partial charges on the molecule cancel each other out.
+Hydrogen Bonds and Van Der Waals Interactions Ionic and covalent bonds between elements require energy to break.
+Ionic bonds are not as strong as covalent, which determines their behavior in biological systems.
+However, not all bonds are ionic or covalent bonds.
+Weaker bonds can also form between molecules.
+Two weak bonds that occur frequently are hydrogen bonds and van der Waals interactions.
+Without these two types of bonds, life as we know it would not exist.
+Hydrogen bonds provide many of the critical, life-sustaining properties of water and also stabilize the structures of proteins and DNA, the building block of cells.
+Because the hydrogen is slightly positive, it will be attracted to neighboring negative charges.
+When this happens, a weak interaction occurs between the hydrogen's δ+ from one molecule and the molecule's δ– charge on another molecule with the more electronegative atoms, usually oxygen.
+Scientists call this interaction a hydrogen bond.
+This type of bond is common and occurs regularly between water molecules.
+easily broken; however, they occur in very large numbers in water and in organic polymers, creating a major force in combination.
+however, they occur in very large numbers in water and in organic polymers, creating a major force in combination.
+Hydrogen bonds are also responsible for zipping together the DNA double helix.
+Like hydrogen bonds, van der Waals interactions are weak attractions or interactions between molecules.
+Van der Waals attractions can occur between any two or more molecules and are dependent on slight fluctuations of the electron densities, which are not always symmetrical around an atom.
+For these attractions to happen, the molecules need to be very close to one another.
+These bonds—along with ionic, covalent, and hydrogen bonds—contribute to the proteins' three-dimensional structure in our cells that is necessary for their proper function.
+hydrogen bonds—contribute to the proteins' three-dimensional structure in our cells that is necessary for their proper function.
+Pharmaceutical Chemist Pharmaceutical chemists are responsible for developing new drugs and trying to determine the mode of action of both old and new drugs.
+They are involved in every step of the drug development process.
+We can find drugs in the natural environment or we can synthesize them in the laboratory.
+Then, the process of approving the drug for human use begins.
+In the United States, the Food and Drug Administration handles drug approval.
+This involves a series of large-scale experiments using human subjects to ensure the drug is not harmful and effectively treats the condition for which it is intended.
+This process often takes several years and requires the participation of physicians and scientists, in addition to chemists, to complete testing and gain approval.
+An example of a drug that was originally discovered in a living organism is Paclitaxel, an anti-cancer drug used to treat breast cancer.
+This drug was discovered in the bark of the pacific yew tree.
+Another example is aspirin, originally isolated from willow tree bark.
+Sometimes, traditional medicine can give modern medicine clues as to where to find an active compound.
+For example, mankind has used willow bark to make medicine for thousands of years, dating back to ancient Egypt.
+However, it was not until the late 1800s that scientists and pharmaceutical companies purified and marketed the aspirin molecule, acetylsalicylic acid, for human use.
+Occasionally, drugs developed for one use have unforeseen effects that allow usage in other, unrelated ways.
+For example, scientists originally developed the drug minoxidil to treat high blood pressure.
+When tested on humans, researchers noticed that individuals taking the drug would grow new hair.
+Eventually the pharmaceutical company marketed the drug to people with baldness to restore lost hair.
+Finally, a pharmaceutical chemist may discover negative effects or even lack of effects.
+In the early 1960s, inventors, doctors, and even a U.S. senator claimed anti-cancer properties of a new drug, Krebiozen, and began to market and sell it aggressively.
+even a U.S. senator claimed anti-cancer properties of a new drug, Krebiozen.
+Through the process of infrared spectrometry, FDA chemist Alma Levant Hayden and her team discovered that the "miracle drug" was nothing more than a common compound called creatine.
+A pharmaceutical chemist's career may involve detective work, experimentation, and drug development, all with the goal of making human beings healthier.
+A pharmaceutical chemist's career may involve detective work, experimentation.
+Water is one of the more abundant molecules and the one most critical to life on Earth.
+Water comprises approximately 60–70 percent of the human body.
+The polarity of the water molecule and its resulting hydrogen bonding make water a unique substance with special properties that are intimately tied to the processes of life.
+Life originally evolved in a watery environment, and most of an organism's cellular chemistry and metabolism occur inside the watery contents of the cell's cytoplasm.
+Life originally evolved in a watery environment.
+As a result of water's polarity, each water molecule attracts other water molecules because of the opposite charges between water molecules, forming hydrogen bonds.
+Water also attracts or is attracted to other polar molecules and ions.
+A good example of this is vinegar and oil salad dressing.
+We call such nonpolar compounds hydrophobic.
+The polarity of water is due to the differing electronegativities of hydrogen and oxygen.
+As a consequence, hydrogen bonds are formed when the slightly negative oxygen on one water molecule is attracted to the slightly positive hydrogen of another water molecule.
+Water's States: Gas, Liquid, and Solid The formation of hydrogen bonds is an important quality of the liquid water that is crucial to life as we know it.
+Solid The formation of hydrogen bonds is an important quality of the liquid water that is crucial to life as we know it.
+In liquid water, hydrogen bonds constantly form and break as the water molecules slide past each other.
+The water molecules' motion causes the bonds to break due to the heat contained in the system.
+Water's lower density in its solid form is due to the way hydrogen bonds orient as they freeze: the water molecules push farther apart compared to liquid water.
+In lakes and ponds, ice will form on the water's surface creating an insulating barrier that protects the animals and plant life in the pond from freezing.
+The expansion of ice relative to liquid water causes the detrimental effect of freezing on living organisms.
+The ice crystals that form upon freezing rupture the delicate membranes essential for living cells to function, irreversibly damaging them.
+Cells can only survive freezing if another liquid like glycerol temporarily replaces the water in them.
+The lattice structure of ice makes it less dense than the liquid water's freely flowing molecules, enabling it to float on water.
+Water's High Heat Capacity Water's high heat capacity is a property that hydrogen bonding among water molecules causes.
+Water has the highest specific heat capacity of any liquid.
+We define specific heat as the amount of heat one gram of a substance must absorb or lose to change its temperature by one degree Celsius.
+For water, this amount is one calorie.
+It therefore takes water a long time to heat and a long time to cool.
+In fact, water's specific heat capacity is about five times more than that of sand.
+This explains why the land cools faster than the sea.
+Water's Heat of Vaporization Water also has a high heat of vaporization, the amount of energy required to change one gram of a liquid substance to a gas.
+A considerable amount of heat energy is required to accomplish this change in water.
+This process occurs on the water's surface.
+As liquid water heats up, hydrogen bonding makes it difficult to separate the liquid water molecules from each other, which is required for it to enter its gaseous phase.
+As the water evaporates, energy is taken up by the process, cooling the environment where the evaporation is taking place.
+In many living organisms, including in humans, the evaporation of sweat, which is 90 percent water, allows the organism to cool so that it can maintain homeostasis of body temperature.
+Water's Solvent Properties Since water is a polar molecule with slightly positive and slightly negative charges, ions and polar molecules can readily dissolve in it.
+Therefore, we refer to water as a solvent, a substance capable of dissolving other polar molecules and ionic compounds.
+The charges associated with these molecules will form hydrogen bonds with water, surrounding the particle with water molecules.
+When we add ionic compounds to water, the individual ions react with the water molecules' polar regions and their ionic bonds are disrupted in the process of dissociation.
+The partially negative charge of the water molecule's oxygen surrounds the positively charged sodium ion.
+The hydrogen's partially positive charge on the water molecule surrounds the negatively charged chloride ion.
+Before it overflows, the water forms a dome-like shape above the rim of the glass.
+This water can stay above the glass because of the property of cohesion.
+Cohesion allows for surface tension, the capacity of a substance to withstand rupturing when placed under tension or stress.
+This is also why water forms droplets when on a dry surface rather than flattening by gravity.
+When we place a small scrap of paper onto a water droplet, the paper floats on top even though paper is denser than the water.
+Cohesion and surface tension keep the water molecules' hydrogen bonds intact and support the item floating on the top.
+A needle's weight pulls the surface downward.
+At the same time, the surface tension pulls it up, suspending it on the water's surface preventing it from sinking.
+These cohesive forces are related to water's property of adhesion, or the attraction between water molecules and other molecules.
+These cohesive forces are related to water's property of adhesion.
+The adhesive forces exerted by the glass' internal surface exceeding the cohesive forces between the water molecules themselves causes capillary action in a glass tube.
+Cohesive and adhesive forces are important for transporting water from the roots to the leaves in plants.
+These forces create a "pull" on the water column.
+This pull results from the tendency of water molecules evaporating on the plant's surface to stay connected to water molecules below them, and so they are pulled along.
+This pull results from the tendency of water molecules evaporating on the plant's surface to stay connected to water molecules below them.
+so they are pulled along.
+Plants use this natural phenomenon to help transport water from their roots to their leaves.
+Without these properties of water, plants would be unable to receive the water and the dissolved minerals they require.
+pH, Buffers, Acids, and Bases The pH of a solution indicates its acidity or basicity.
+Bases The pH of a solution indicates its acidity or basicity.
+You may have used litmus or pH paper, filter paper treated with a natural water-soluble dye for use as a pH indicator.
+It tests how much acid or base exists in a solution.
+You might have even used some to test whether the water in a swimming pool is properly treated.
+Hydrogen ions spontaneously generate in pure water by the dissociation of a small percentage of water molecules into equal numbers of hydrogen ions and hydroxide ions.
+Still, by convention, scientists refer to hydrogen ions and their concentration as if they were free in this state in liquid water.
+Moles are a way to express the amount of a substance.
+Therefore, 1 mole of water is equal to 6.02 × 1023 water molecules.
+We calculate the pH as the negative of the base 10 logarithm of this concentration.
+Non-neutral pH readings result from dissolving acids or bases in water.
+Using the negative logarithm to generate positive integers, high concentrations of hydrogen ions yield a low pH number; whereas, low levels of hydrogen ions result in a high pH.
+whereas, low levels of hydrogen ions result in a high pH.
+An acid is a substance that increases hydrogen ions' concentration in a solution, usually by having one of its hydrogen atoms dissociate.
+The stronger the acid, the more readily it donates H+.
+Conversely, strong bases are those substances that readily donate OH– or take up hydrogen ions.
+Sodium hydroxide and many household cleaners are highly alkaline and give up OH– rapidly when we place them in water, thereby raising the pH.
+This is close enough to a neutral pH that marine organisms have adapted in order to live and thrive in a saline environment.
+Anything below 7.0 is acidic, and anything above 7.0 is alkaline.
+Anything below 7.0 is acidic.
+anything above 7.0 is alkaline.
+Extremes in pH in either direction from 7.0 are usually inhospitable to life.
+However, the environment in the stomach is highly acidic, with a pH of 1 to 2.
+The answer is that they cannot do it and are constantly dying.
+The stomach constantly produces new cells to replace dead ones, which stomach acids digest.
+Scientists estimate that the human body completely replaces the stomach lining every seven to ten days.
+The pH scale measures hydrogen ions' concentration in a solution.
+Buffers are the key.
+Buffers readily absorb excess H+ or OH–, keeping the body's pH carefully maintained in the narrow range required for survival.
+The buffer maintaining the pH of human blood involves carbonic acid, bicarbonate ion, and carbon dioxide.
+The buffer maintaining the pH of human blood involves carbonic acid, bicarbonate ion.
+When bicarbonate ions combine with free hydrogen ions and become carbonic acid, it removes hydrogen ions and moderates pH changes.
+This prevents too many free hydrogen ions from building up in the blood and dangerously reducing the blood's pH.
+This diagram shows the body's buffering of blood pH levels.
+The blue arrows show the process of raising pH as more CO2 is made.
+The purple arrows indicate the reverse process: the lowering of pH as more bicarbonate is created.
+Other examples of buffers are antacids that some people use to combat excess stomach acid.
+Water's unique properties that contribute to this capacity to balance pH—as well as water's other characteristics—are essential to sustaining life on Earth.
+Many complex molecules called macromolecules, such as proteins, nucleic acids, carbohydrates, and lipids comprise cells.
+lipids comprise cells.
+The macromolecules are a subset of organic molecules that are especially important for life.
+The fundamental component for all of these macromolecules is carbon.
+Individual carbon atoms have an incomplete outermost electron shell.
+With an atomic number of 6, the first two electrons fill the inner shell, leaving four in the second shell.
+Therefore, carbon atoms can form up to four covalent bonds with other atoms to satisfy the octet rule.
+The methane molecule provides an example: it has the chemical formula CH4.
+Each of its four hydrogen atoms forms a single covalent bond with the carbon atom by sharing a pair of electrons.
+Hydrocarbons Hydrocarbons are organic molecules consisting entirely of carbon and hydrogen, such as methane described above.
+We often use hydrocarbons in our daily lives as fuels—like the propane in a gas grill or the butane in a lighter.
+The many covalent bonds between the atoms in hydrocarbons store a great amount of energy, which releases when these molecules burn.
+The shape of its electron orbitals determines the shape of the methane molecule's geometry, where the atoms reside in three dimensions.
+The carbons and the four hydrogen atoms form a tetrahedron, with four triangular faces.
+For this reason, we describe methane as having tetrahedral geometry.
+As the backbone of the large molecules of living things, hydrocarbons may exist as linear carbon chains, carbon rings, or combinations of both.
+As the backbone of the large molecules of living things, hydrocarbons may exist as linear carbon chains, carbon rings.
+Furthermore, individual carbon-to-carbon bonds may be single, double, or triple covalent bonds, and each type of bond affects the molecule's geometry in a specific way.
+Furthermore, individual carbon-to-carbon bonds may be single, double, or triple covalent bonds.
+each type of bond affects the molecule's geometry in a specific way.
+Furthermore, individual carbon-to-carbon bonds may be single, double.
+triple covalent bonds, and each type of bond affects the molecule's geometry in a specific way.
+This three-dimensional shape or conformation of the large molecules of life is critical to how they function.
+Hydrocarbon Chains Successive bonds between carbon atoms form hydrocarbon chains.
+ethyne serve as examples of how different carbon-to-carbon bonds affect the molecule's geometry.
+The names of all three molecules start with the prefix "eth-," which is the prefix for two carbon hydrocarbons.
+The suffixes "-ane," "-ene," and "-yne" refer to the presence of single, double, or triple carbon-carbon bonds, respectively.
+The suffixes "-ane," "-ene," and "-yne" refer to the presence of single, double.
+Thus, propane, propene, and propyne follow the same pattern with three carbon molecules, butane, butene, and butyne for four carbon molecules, and so on.
+propyne follow the same pattern with three carbon molecules, butane, butene.
+These geometries have a significant impact on the shape a particular molecule can assume.
+When two carbon atoms form a double bond, the shape is planar, or flat.
+When two carbon atoms form a double bond, the shape is planar.
+Single bonds, like those in ethane, are able to rotate.
+Double bonds, like those in ethene, cannot rotate, so the atoms on either side are locked in place.
+Another type of hydrocarbon, aromatic hydrocarbons, consists of closed rings of carbon atoms with alternating single and double bonds.
+Examples of biological molecules that incorporate the benzene ring include some amino acids and cholesterol and its derivatives, including the hormones estrogen and testosterone.
+We also find the benzene ring in the herbicide 2,4-D. Benzene is a natural component of crude oil and has been classified as a carcinogen.
+Some hydrocarbons have both aliphatic and aromatic portions.
+Beta-carotene is an example of such a hydrocarbon.
+Carbon can form five- and six-membered rings.
+Single or double bonds may connect the carbons in the ring, and nitrogen may be substituted for carbon.
+Single or double bonds may connect the carbons in the ring.
+nitrogen may be substituted for carbon.
+Isomers The three-dimensional placement of atoms and chemical bonds within organic molecules is central to understanding their chemistry.
+We call molecules that share the same chemical formula but differ in the placement of their atoms and/or chemical bonds isomers.
+For example, butane is suited for use as a fuel for cigarette lighters and torches.
+Geometric isomers, alternatively have similar placements of their covalent bonds but differ in how these bonds are made to the surrounding atoms, especially in carbon-to-carbon double bonds.
+When the carbons are bound on the same side of the double bond, this is the cis configuration.
+If they are on opposite sides of the double bond, it is a trans configuration.
+In the trans configuration, the carbons form a more or less linear structure; whereas, the carbons in the cis configuration make a bend of the carbon backbone.
+In the trans configuration, the carbons form a more or less linear structure.
+whereas, the carbons in the cis configuration make a bend of the carbon backbone.
+Structural isomers have a different covalent arrangement of atoms.
+Geometric isomers have a different arrangement of atoms around a double bond.
+Enantiomers are mirror images of each other.
+a. Molecules with the formulas CH3CH2COOH and C3H6O2 could be structural isomers.
+b. Molecules must have a double bond to be cis-trans isomers.
+To be enantiomers, a molecule must have at least three different atoms or groups connected to a central carbon.
+To be enantiomers, a molecule must have at least four different atoms or groups connected to a central carbon.
+Fats with at least one double bond between carbon atoms are unsaturated fats.
+Alternatively, triglycerides with trans double bonds, have relatively linear fatty acids that are able to pack tightly together at room temperature and form solid fats.
+In the human diet, trans fats are linked to an increased risk of cardiovascular disease, so many food manufacturers have reduced or eliminated their use in recent years.
+In contrast to unsaturated fats, we call triglycerides without double bonds between carbon atoms saturated fats, meaning that they contain all the hydrogen atoms available.
+Saturated fats are a solid at room temperature and usually of animal origin.
+Enantiomers Enantiomers are molecules that share the same chemical structure and chemical bonds but differ in the three- dimensional placement of atoms so that they are non-superimposable mirror images.
+In nature, the L-forms of amino acids are predominant in proteins.
+Some D forms of amino acids are seen in the cell walls of bacteria and polypeptides in other organisms.
+Similarly, the D-form of glucose is the main product of photosynthesis and we rarely see the molecule's L-form in nature.
+The L/D naming system is from the Latin words for left and right: laevus and dexter, respectively.
+This example shows the L and D isomers of the amino acid alanine.
+Functional Groups Functional groups are groups of atoms that occur within molecules and confer specific chemical properties to those molecules.
+We find them along the "carbon backbone" of macromolecules.
+Molecules with other elements in their carbon backbone are substituted hydrocarbons.
+The functional groups in a macromolecule are usually attached to the carbon backbone at one or several different places along its chain and/or ring structure.
+A functional group can participate in specific chemical reactions.
+They include: hydroxyl, methyl, carbonyl, carboxyl, amino, phosphate, and sulfhydryl.
+They include: hydroxyl, methyl, carbonyl, carboxyl, amino, phosphate.
+These groups play an important role in forming molecules like DNA, proteins, carbohydrates, and lipids.
+These groups play an important role in forming molecules like DNA, proteins, carbohydrates.
+We usually classify functional groups as hydrophobic or hydrophilic depending on their charge or polarity characteristics.
+An example of a hydrophobic group is the nonpolar methyl molecule.
+Among the hydrophilic functional groups is the carboxyl group in amino acids, some amino acid side chains, and the fatty acids that form triglycerides and phospholipids.
+Among the hydrophilic functional groups is the carboxyl group in amino acids, some amino acid side chains.
+This carboxyl group ionizes to release hydrogen ions from the COOH group resulting in the negatively charged COO- group.
+This contributes to the hydrophilic nature of whatever molecule on which it is found.
+Other functional groups, such as the carbonyl group, have a partially negatively charged oxygen atom that may form hydrogen bonds with water molecules, again making the molecule more hydrophilic.
+These functional groups are in many different biological molecules.
+R, also known as R-group, is an abbreviation for any group in which a carbon or hydrogen atom is attached to the rest of the molecule.
+It ionic, covalent, and hydrogen bonds, as well as van der is comprised of elements.
+hydrogen bonds, as well as van der is comprised of elements.
+Hydrogen bonds allow ions homeostasis.
+Acids and bases can change pH values, and other polar molecules to dissolve in water.
+Acids and bases can change pH values.
+but buffers tend to moderate the changes they cause.
+Therefore, water is an excellent solvent.
+the temperature rises, the hydrogen bonds between water continually break and form anew.
+This allows for 2.3 Carbon the overall temperature to remain stable, although The unique properties of carbon make it a central part energy is added to the system.
+Water also exhibits a of biological molecules.
+Carbon binds to oxygen, high heat of vaporization, which is key to how hydrogen, and nitrogen covalently to form the many organisms cool themselves by evaporating sweat.
+Carbon binds to oxygen, high heat of vaporization, which is key to how hydrogen.
+nitrogen covalently to form the many organisms cool themselves by evaporating sweat.
+Carbon has Water's cohesive forces allow for the property of four electrons in its outermost shell and can form four surface tension; whereas, we see its adhesive bonds.
+Carbon has Water's cohesive forces allow for the property of four electrons in its outermost shell and can form four surface tension.
+whereas, we see its adhesive bonds.
+Carbon and hydrogen can form hydrocarbon properties as water rises inside capillary tubes.
+a. Molecules with the formulas CH3CH2COOH and C3H6O2 could be 2.
+electrons with another atom to achieve a full b. Molecules must have a double bond to be valence shell, the most stable electron cis-trans isomers.
+How many electrons do elements in groups 14 d.
+Atoms that vary in the number of neutrons found 7.
+Which type of bond represents a weak chemical in their nuclei are called ________.
+a. Water is polar.
+a. shells 1 and 2 are full, and shell 3 has nine b. Water stabilizes temperature.
+a. shells 1 and 2 are full.
+shell 3 has nine b. Water stabilizes temperature.
+c. Water is essential for life.
+Acids and bases will neutralize each other.
+d. Water is the most abundant molecule in c. Acids, but not bases, can change the pH of the Earth's atmosphere.
+Acids donate hydroxide ions.
+Each carbon atom can bond with as many b. increase as________ other atom or molecule.
+c. stay the same a. one d. cannot tell without testing b. two c. six 10.
+We call a molecule that binds up excess d. four hydrogen ions in a solution a ________.
+d. carbonyl a. Acids and bases cannot mix together.
+What makes ionic bonds different from covalent 17.
+What property of carbon makes it essential for 15.

@@ -1,0 +1,437 @@
+# Biology2e Chapter 33 — The Animal Body: Basic Form and
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 433
+
+An arctic fox is a complex animal, well adapted to its environment.
+It changes coat color with the seasons, and has longer fur in winter to trap heat.
+It changes coat color with the seasons.
+The arctic fox is an example of a complex animal that has adapted to its environment and illustrates the relationships between an animal's form and function.
+The structures of animals consist of primary tissues that make up more complex organs and organ systems.
+Homeostasis allows an animal to maintain a balance between its internal and external environments.
+Animals vary in form and function.
+From a sponge to a worm to a goat, an organism has a distinct body plan that limits its size and shape.
+Animals' bodies are also designed to interact with their environments, whether in the deep sea, a rainforest canopy, or the desert.
+Animals' bodies are also designed to interact with their environments, whether in the deep sea, a rainforest canopy.
+The sponge is asymmetrical, the sea anemone has radial symmetry, and the goat has bilateral symmetry.
+The sponge is asymmetrical, the sea anemone has radial symmetry.
+the goat has bilateral symmetry.
+Animal body plans follow set patterns related to symmetry.
+Asymmetrical animals are animals with no pattern or symmetry; an example of an asymmetrical animal is a sponge.
+Asymmetrical animals are animals with no pattern or symmetry.
+an example of an asymmetrical animal is a sponge.
+Bilateral symmetry is illustrated in the same figure by a goat.
+The goat also has an upper and lower component to it, but a plane cut from front to back separates the animal into definite right and left sides.
+Additional terms used when describing positions in the body are anterior, posterior, dorsal, and ventral.
+Additional terms used when describing positions in the body are anterior, posterior, dorsal.
+Bilateral symmetry is found in both land-based and aquatic animals; it enables a high level of mobility.
+Bilateral symmetry is found in both land-based and aquatic animals.
+it enables a high level of mobility.
+This shape decreases the drag on the body as it moves through water and allows the animal to swim at high speeds.
+Certain types of sharks can swim at fifty kilometers per hour and some dolphins at 32 to 40 kilometers per hour.
+Land animals frequently travel faster, although the tortoise and snail are significantly slower than cheetahs.
+On the other hand, land- dwelling organisms are constrained mainly by gravity, and drag is relatively unimportant.
+On the other hand, land- dwelling organisms are constrained mainly by gravity.
+drag is relatively unimportant.
+For example, most adaptations in birds are for gravity not for drag.
+Most animals have an exoskeleton, including insects, spiders, scorpions, horseshoe crabs, centipedes, and crustaceans.
+Scientists estimate that, of insects alone, there are over 30 million species on our planet.
+This is fused to the animal's epidermis.
+In order to grow, the animal must first synthesize a new exoskeleton underneath the old one and then shed or molt the original covering.
+This limits the animal's ability to grow continually, and may limit the individual's ability to mature if molting does not occur at the proper time.
+This limits the animal's ability to grow continually.
+The thickness of the exoskeleton must be increased significantly to accommodate any increase in weight.
+It is estimated that a doubling of body size increases body weight by a factor of eight.
+The same principles apply to endoskeletons, but they are more efficient because muscles are attached on the outside, making it easier to compensate for increased mass.
+Contraction of muscles attached to the apodemes pulls the claw closed.
+The exchange of nutrients and wastes between a cell and its watery environment occurs through the process of diffusion.
+All living cells are bathed in liquid, whether they are in a single-celled organism or a multicellular one.
+Diffusion is effective over a specific distance and limits the size that an individual cell can attain.
+If a cell is a single- celled microorganism, such as an amoeba, it can satisfy all of its nutrient and waste needs through diffusion.
+cell is too large, then diffusion is ineffective and the center of the cell does not receive adequate nutrients nor is it able to effectively dispel its waste.
+Recall that any three-dimensional object has a surface area and volume; the ratio of these two quantities is the surface-to-volume ratio.
+the ratio of these two quantities is the surface-to-volume ratio.
+Consider a cell shaped like a perfect sphere: it has a surface area of 4πr2, and a volume ofπr3.
+Consider a cell shaped like a perfect sphere: it has a surface area of 4πr2.
+The surface-to-volume ratio of a sphere is 3/r; as the cell gets bigger, its surface to volume ratio decreases, making diffusion less efficient.
+The surface-to-volume ratio of a sphere is 3/r.
+Specialization occurs in complex organisms, allowing cells to become more efficient at doing fewer tasks.
+For example, circulatory systems bring nutrients and remove waste, while respiratory systems provide oxygen for the cells and remove carbon dioxide from them.
+For example, circulatory systems bring nutrients and remove waste.
+respiratory systems provide oxygen for the cells and remove carbon dioxide from them.
+Other organ systems have developed further specialization of cells and tissues and efficiently control body functions.
+LINK TO LEARNING Visit this site to see a time-lapse video of zebrafish development.
+Animal Bioenergetics All animals must obtain their energy from food they ingest or absorb.
+Some animals store energy for slightly longer times as glycogen, and others store energy for much longer times in the form of triglycerides housed in specialized adipose tissues.
+Some animals store energy for slightly longer times as glycogen.
+others store energy for much longer times in the form of triglycerides housed in specialized adipose tissues.
+No energy system is one hundred percent efficient, and an animal's metabolism produces waste energy in the form of heat.
+No energy system is one hundred percent efficient.
+an animal's metabolism produces waste energy in the form of heat.
+If an animal can conserve that heat and maintain a relatively constant body temperature, it is classified as a warm-blooded animal and called an endotherm.
+The insulation used to conserve the body heat comes in the forms of fur, fat, or feathers.
+The insulation used to conserve the body heat comes in the forms of fur, fat.
+The absence of insulation in ectothermic animals increases their dependence on the environment for body heat.
+The rate is measured variously in joules, calories, or kilocalories.
+The rate is measured variously in joules, calories.
+Human males have a BMR of 1600 to 1800 kcal/day, and human females have a BMR of 1300 to 1500 kcal/day.
+Human males have a BMR of 1600 to 1800 kcal/day.
+human females have a BMR of 1300 to 1500 kcal/day.
+Even with insulation, endothermal animals require extensive amounts of energy to maintain a constant body temperature.
+An ectotherm such as an alligator has an SMR of 60 kcal/day.
+Therefore, smaller animals lose heat at a faster rate than larger animals and require more energy to maintain a constant internal temperature.
+The mouse has a much higher metabolic rate than the elephant.
+Energy Requirements Related to Levels of Activity The more active an animal is, the more energy is needed to maintain that activity, and the higher its BMR or SMR.
+Energy Requirements Related to Levels of Activity The more active an animal is, the more energy is needed to maintain that activity.
+The average daily rate of energy consumption is about two to four times an animal's BMR or SMR.
+Humans are more sedentary than most animals and have an average daily rate of only 1.5 times the BMR.
+The diet of an endothermic animal is determined by its BMR.
+For example: the type of grasses, leaves.
+The relative caloric content of herbivore foods, in descending order, is tall grasses > legumes > short grasses > forbs > subshrubs > annuals/biennials.
+Energy Requirements Related to Environment Animals adapt to extremes of temperature or food availability through torpor.
+Torpor is a process that leads to a decrease in activity and metabolism and allows animals to survive adverse conditions.
+During hibernation, ground squirrels can achieve an abdominal temperature of 0° C, while a bear's internal temperature is maintained higher at about 37° C.
+During hibernation, ground squirrels can achieve an abdominal temperature of 0° C.
+a bear's internal temperature is maintained higher at about 37° C.
+Some desert animals use this to survive the harshest months of the year.
+Torpor can occur on a daily basis; this is seen in bats and hummingbirds.
+Torpor can occur on a daily basis.
+this is seen in bats and hummingbirds.
+This allows them to conserve energy during the colder parts of the day, when they consume more energy to maintain their body temperature.
+Animal Body Planes and Cavities A standing vertebrate animal can be divided by several planes.
+A sagittal plane divides the body into right and left portions.
+A midsagittal plane divides the body exactly in the middle, making two equal right and left halves.
+A frontal plane separates the front from the back.
+A transverse plane divides the animal into upper and lower portions.
+This is sometimes called a cross section, and, if the transverse cut is at an angle, it is called an oblique plane.
+The midsagittal plane divides the body exactly in half, into right and left portions.
+The frontal plane divides the front and back, and the transverse plane divides the body into upper and lower portions.
+The frontal plane divides the front and back.
+the transverse plane divides the body into upper and lower portions.
+The dorsal cavity contains the cranial and the vertebral cavities.
+The ventral cavity contains the thoracic cavity, which in turn contains the pleural cavity around the lungs and the pericardial cavity, which surrounds the heart.
+The ventral cavity also contains the abdominopelvic cavity, which can be separated into the abdominal and the pelvic cavities.
+The dorsal cavity contains the cranial and the spinal cavity.
+The ventral cavity contains the thoracic cavity and the abdominopelvic cavity.
+The thoracic cavity is separated from the abdominopelvic cavity by the diaphragm.
+The abdominopelvic cavity is separated into the abdominal cavity and the pelvic cavity by an imaginary line parallel to the pelvis bones.
+Physical Anthropologist Physical anthropologists study the adaptation, variability, and evolution of human beings, plus their living and fossil relatives.
+Physical Anthropologist Physical anthropologists study the adaptation, variability.
+They can work in a variety of settings, although most will have an academic appointment at a university, usually in an anthropology department or a biology, genetics, or zoology department.
+They can work in a variety of settings, although most will have an academic appointment at a university, usually in an anthropology department or a biology, genetics.
+Nonacademic positions are available in the automotive and aerospace industries where the focus is on human size, shape, and anatomy.
+Nonacademic positions are available in the automotive and aerospace industries where the focus is on human size, shape.
+Research by these professionals might range from studies of how the human body reacts to car crashes to exploring how to make seats more comfortable.
+Other nonacademic positions can be obtained in museums of natural history, anthropology, archaeology, or science and technology.
+Other nonacademic positions can be obtained in museums of natural history, anthropology, archaeology.
+These positions involve educating students from grade school through graduate school.
+Physical anthropologists serve as education coordinators, collection managers, writers for museum publications, and as administrators.
+Physical anthropologists serve as education coordinators, collection managers, writers for museum publications.
+Zoos employ these professionals, especially if they have an expertise in primate biology; they work in collection management and captive breeding programs for endangered species.
+Zoos employ these professionals, especially if they have an expertise in primate biology.
+they work in collection management and captive breeding programs for endangered species.
+Forensic science utilizes physical anthropology expertise in identifying human and animal remains, assisting in determining the cause of death, and for expert testimony in trials.
+Forensic science utilizes physical anthropology expertise in identifying human and animal remains, assisting in determining the cause of death.
+The tissues of multicellular, complex animals are four primary types: epithelial, connective, muscle, and nervous.
+The tissues of multicellular, complex animals are four primary types: epithelial, connective, muscle.
+Organ systems come together to create an entire organism.
+Epithelial Tissues Epithelial tissues cover the outside of organs and structures in the body and line the lumens of organs in a single layer or multiple layers of cells.
+The types of epithelia are classified by the shapes of cells present and the number of layers of cells.
+Epithelia composed of a single layer of cells is called simple epithelia; epithelial tissue composed of multiple layers is called stratified epithelia.
+Squamous Epithelia Squamous epithelial cells are generally round, flat, and have a small, centrally located nucleus.
+Squamous Epithelia Squamous epithelial cells are generally round, flat.
+The cell outline is slightly irregular, and cells fit together to form a covering or lining.
+The cell outline is slightly irregular.
+cells fit together to form a covering or lining.
+They are most commonly found in a single layer representing a simple epithelia in glandular tissues throughout the body where they prepare and secrete glandular material.
+They are also found in the walls of tubules and in the ducts of the kidney and liver.
+Columnar Epithelia Columnar epithelial cells are taller than they are wide: they resemble a stack of columns in an epithelial layer, and are most commonly found in a single-layer arrangement.
+Columnar Epithelia Columnar epithelial cells are taller than they are wide: they resemble a stack of columns in an epithelial layer.
+These cells absorb material from the lumen of the digestive tract and prepare it for entry into the body through the circulatory and lymphatic systems.
+Columnar epithelial cells lining the respiratory tract appear to be stratified.
+However, each cell is attached to the base membrane of the tissue and, therefore, they are simple tissues.
+This cellular covering has cilia at the apical, or free, surface of the cells.
+This cellular covering has cilia at the apical.
+Goblet cells are interspersed in some tissues.
+The goblet cells contain mucus that traps irritants, which in the case of the trachea keep these irritants from getting into the lungs.
+They exist in one layer, but the arrangement of nuclei at different levels makes it appear that there is more than one layer.
+Goblet cells interspersed between the columnar epithelial cells secrete mucus into the respiratory tract.
+Transitional Epithelia Transitional or uroepithelial cells appear only in the urinary system, primarily in the bladder and ureter.
+As the urinary bladder fills, the epithelial layer unfolds and expands to hold the volume of urine introduced into it.
+a. Simple columnar epithelial cells line the tissue of the lung.
+Simple cuboidal epithelial cells are involved in the filtering of blood in the kidney.
+c. Pseudostratisfied columnar epithilia occur in a single layer, but the arrangement of nuclei makes it appear that more than one layer is present.
+Connective Tissues Connective tissues are made up of a matrix consisting of living cells and a nonliving substance, called the ground substance.
+The ground substance is made of an organic substance and an inorganic substance.
+The principal cell of connective tissues is the fibroblast.
+This cell makes the fibers found in nearly all of the connective tissues.
+Fibroblasts are motile, able to carry out mitosis, and can synthesize whichever connective tissue is needed.
+Fibroblasts are motile, able to carry out mitosis.
+Some tissues have specialized cells that are not found in the others.
+Connective tissues are made up of living cells and a nonliving matrix of organic substances and inorganic substances.
+The organic portion or protein fibers found in connective tissues are either collagen, elastic, or reticular fibers.
+The organic portion or protein fibers found in connective tissues are either collagen, elastic.
+Collagen fibers provide strength to the tissue, preventing it from being torn or separated from the surrounding tissues.
+Elastic fibers are made of the protein elastin; this fiber can stretch to one and one half of its length and return to its original size and shape.
+Elastic fibers are made of the protein elastin.
+this fiber can stretch to one and one half of its length and return to its original size and shape.
+Elastic fibers provide flexibility to the tissues.
+Reticular fibers are the third type of protein fiber found in connective tissues.
+This fiber consists of thin strands of collagen that form a network of fibers to support the tissue and other organs to which it is connected.
+The various types of connective tissues, the types of cells and fibers they are made of, and sample locations of the tissues is summarized in.
+sample locations of the tissues is summarized in.
+Collagen fibers are relatively wide and stain a light pink, while elastic fibers are thin and stain dark blue to black.
+Collagen fibers are relatively wide and stain a light pink.
+elastic fibers are thin and stain dark blue to black.
+The material in the connective tissue gives it a loose consistency similar to a cotton ball that has been pulled apart.
+Loose connective tissue is found around every blood vessel and helps to keep the vessel in place.
+The tissue is also found around and between most body organs.
+In summary, areolar tissue is tough, yet flexible, and comprises membranes.
+In summary, areolar tissue is tough, yet flexible.
+The fibers and other components of the connective tissue matrix are secreted by fibroblasts.
+Fibrous Connective Tissue Fibrous connective tissues contain large amounts of collagen fibers and few cells or matrix material.
+The fibers can be arranged irregularly or regularly with the strands lined up in parallel.
+Irregularly arranged fibrous connective tissues are found in areas of the body where stress occurs from all directions, such as the dermis of the skin.
+Cartilage Cartilage is a connective tissue with a large amount of the matrix of variable composition.
+The cells, called chondrocytes, make the matrix and fibers of the tissue.
+Chondrocytes are found in spaces within the tissue called lacunae.
+The lacunae are randomly scattered throughout the tissue and the matrix takes on a milky or scrubbed appearance with routine histological stains.
+Sharks have cartilaginous skeletons, as does nearly the entire human skeleton during a specific pre-birth developmental stage.
+A remnant of this cartilage persists in the outer portion of the human nose.
+Hyaline cartilage is also found at the ends of long bones, reducing friction and cushioning the articulations of these bones.
+The chondrocytes exist in cavities in the matrix called lacunae.
+Elastic cartilage has a large amount of elastic fibers, giving it tremendous flexibility.
+The ears of most vertebrate animals contain this cartilage as do portions of the larynx, or voice box.
+The ears of most vertebrate animals contain this cartilage as do portions of the larynx.
+Fibrocartilage contains a large amount of collagen fibers, giving the tissue tremendous strength.
+Fibrocartilage comprises the intervertebral discs in vertebrate animals.
+Hyaline cartilage found in movable joints such as the knee and shoulder becomes damaged as a result of age or trauma.
+Bone Bone, or osseous tissue, is a connective tissue that has a large amount of two different types of matrix material.
+osseous tissue, is a connective tissue that has a large amount of two different types of matrix material.
+The organic matrix is similar to the matrix material found in other connective tissues, including some amount of collagen and elastic fibers.
+This gives strength and flexibility to the tissue.
+The inorganic matrix consists of mineral salts—mostly calcium salts—that give the tissue hardness.
+Osteoblasts are active in making bone for growth and remodeling.
+Osteocytes are found in lacunae of the bone.
+Osteoclasts are active in breaking down bone for bone remodeling, and they provide access to calcium stored in tissues.
+Osteoclasts are active in breaking down bone for bone remodeling.
+they provide access to calcium stored in tissues.
+Osteoclasts are usually found on the surface of the tissue.
+Bone can be divided into two types: compact and spongy.
+A blood vessel and a nerve are found in the center of the structure within the Haversian canal, with radiating circles of lacunae around it known as lamellae.
+The wavy lines seen between the lacunae are microchannels called canaliculi; they connect the lacunae to aid diffusion between the cells.
+The wavy lines seen between the lacunae are microchannels called canaliculi.
+they connect the lacunae to aid diffusion between the cells.
+Spongy bone is made of tiny plates called trabeculae; these plates serve as struts to give the spongy bone strength.
+Spongy bone is made of tiny plates called trabeculae.
+these plates serve as struts to give the spongy bone strength.
+Over time, these plates can break causing the bone to become less resilient.
+Bone tissue forms the internal skeleton of vertebrate animals, providing structure to the animal and points of attachment for tendons.
+Spongy bone, inside the compact bone, is porous with web-like trabeculae.
+Compact bone is organized into rings called osteons.
+Blood vessels, nerves, and lymphatic vessels are found in the central Haversian canal.
+lymphatic vessels are found in the central Haversian canal.
+Rings of lamellae surround the Haversian canal.
+Canaliculi are microchannels connecting the lacunae together.
+Osteoblasts surround the exterior of the bone.
+Osteoclasts bore tunnels into the bone and osteocytes are found in the lacunae.
+Adipose tissue is made up of cells called adipocytes that collect and store fat in the form of triglycerides, for energy metabolism.
+Adipose tissues additionally serve as insulation to help maintain body temperatures, allowing animals to be endothermic, and they function as cushioning against damage to body organs.
+Adipose tissues additionally serve as insulation to help maintain body temperatures, allowing animals to be endothermic.
+they function as cushioning against damage to body organs.
+The thin lines in the image are the cell membranes, and the nuclei are the small, black dots at the edges of the cells.
+The thin lines in the image are the cell membranes.
+the nuclei are the small, black dots at the edges of the cells.
+Adipose is a connective tissue made up of cells called adipocytes.
+Adipocytes have small nuclei localized at the cell edge.
+The living cell types are red blood cells, also called erythrocytes, and white blood cells, also called leukocytes.
+The living cell types are red blood cells, also called erythrocytes.
+white blood cells, also called leukocytes.
+The fluid portion of whole blood, its matrix, is commonly called plasma.
+Erythrocytes, the predominant cell type, are involved in the transport of oxygen and carbon dioxide.
+Also present are various leukocytes involved in immune response.
+Erythrocytes are counted in millions in a blood sample: the average number of red blood cells in primates is 4.7 to 5.5 million cells per microliter.
+Erythrocytes are consistently the same size in a species, but vary in size between species.
+For example, the average diameter of a primate red blood cell is 7.5 µm, a dog is close at 7.0 µm, but a cat's RBC diameter is 5.9 µm.
+Sheep erythrocytes are even smaller at 4.6 µm.
+Mammalian erythrocytes lose their nuclei and mitochondria when they are released from the bone marrow where they are made.
+Fish, amphibian, and avian red blood cells maintain their nuclei and mitochondria throughout the cell's life.
+avian red blood cells maintain their nuclei and mitochondria throughout the cell's life.
+The principal job of an erythrocyte is to carry and deliver oxygen to the tissues.
+Leukocytes are the predominant white blood cells found in the peripheral blood.
+Different types of lymphocytes make antibodies tailored to the foreign antigens and control the production of those antibodies.
+Another leukocyte that is found in the peripheral blood is the monocyte.
+Monocytes give rise to phagocytic macrophages that clean up dead and damaged cells in the body, whether they are foreign or from the host animal.
+Two additional leukocytes in the blood are eosinophils and basophils—both help to facilitate the inflammatory response.
+The slightly granular material among the cells is a cytoplasmic fragment of a cell in the bone marrow.
+Platelets participate in the stages leading up to coagulation of the blood to stop bleeding through damaged blood vessels.
+Blood has a number of functions, but primarily it transports material through the body to bring nutrients to cells and remove waste material from them.
+They differ by the presence or absence of striations or bands, the number and location of nuclei, whether they are voluntarily or involuntarily controlled, and their location within the body.
+They differ by the presence or absence of striations or bands, the number and location of nuclei, whether they are voluntarily or involuntarily controlled.
+Smooth Muscle Smooth muscle does not have striations in its cells.
+Constriction of smooth muscle occurs under involuntary, autonomic nervous control and in response to local conditions in the tissues.
+Smooth muscle tissue is also called non-striated as it lacks the banded appearance of skeletal and cardiac muscle.
+The walls of blood vessels, the tubes of the digestive system, and the tubes of the reproductive systems are composed of mostly smooth muscle.
+the tubes of the reproductive systems are composed of mostly smooth muscle.
+Cardiac muscle cells have striations, but, unlike the multinucleate skeletal cells, they have only one nucleus.
+Skeletal Muscle Skeletal muscle has striations across its cells caused by the arrangement of the contractile proteins actin and myosin.
+These muscle cells are relatively long and have multiple nuclei along the edge of the cell.
+Skeletal muscle is under voluntary, somatic nervous system control and is found in the muscles that move bones.
+Cardiac muscle is not under voluntary control but can be influenced by the autonomic nervous system to speed up or slow down.
+An added feature to cardiac muscle cells is a line than extends along the end of the cell as it abuts the next cardiac cell in the row.
+This line is called an intercalated disc: it assists in passing electrical impulse efficiently from one cell to the next and maintains the strong connection between neighboring cardiac cells.
+The large structure with a central nucleus is the cell body of the neuron.
+Projections from the cell body are either dendrites specialized in receiving input or a single axon specialized in transmitting impulses.
+Some glial cells are also shown.
+Astrocytes regulate the chemical environment of the nerve cell, and oligodendrocytes insulate the axon so the electrical nerve impulse is transferred more efficiently.
+Astrocytes regulate the chemical environment of the nerve cell.
+oligodendrocytes insulate the axon so the electrical nerve impulse is transferred more efficiently.
+Other glial cells that are not shown support the nutritional and waste requirements of the neuron.
+Some of the glial cells are phagocytic and remove debris or damaged cells from the tissue.
+A nerve consists of neurons and glial cells.
+The neuron has projections called dendrites that receive signals and projections called axons that send signals.
+Pathologist A pathologist is a medical doctor or veterinarian who has specialized in the laboratory detection of disease in animals, including humans.
+These professionals complete medical school education and follow it with an extensive post-graduate residency at a medical center.
+A pathologist may oversee clinical laboratories for the evaluation of body tissue and blood samples for the detection of disease or infection.
+They examine tissue specimens through a microscope to identify cancers and other diseases.
+Some pathologists perform autopsies to determine the cause of death and the progression of disease.
+Animal organs and organ systems constantly adjust to internal and external changes through a process called homeostasis.
+These changes might be in the level of glucose or calcium in blood or in external temperatures.
+Homeostasis means to maintain dynamic equilibrium in the body.
+It is dynamic because it is constantly adjusting to the changes that the body's systems encounter.
+It is equilibrium because body functions are kept within specific ranges.
+Even an animal that is apparently inactive is maintaining this homeostatic equilibrium.
+The goal of homeostasis is the maintenance of equilibrium around a point or value called a set point.
+While there are normal fluctuations from the set point, the body's systems will usually attempt to go back to this point.
+For instance, if the body becomes too warm, adjustments are made to cool the animal.
+The effector is a muscle or a gland that secretes.
+Homeostatsis is maintained by negative feedback loops.
+Positive feedback loops actually push the organism further out of homeostasis, but may be necessary for life to occur.
+Homeostasis is controlled by the nervous and endocrine system of mammals.
+Negative Feedback Mechanisms Any homeostatic process that changes the direction of the stimulus is a negative feedback loop.
+An example is animal maintenance of blood glucose levels.
+This is sensed by the nervous system.
+Specialized cells in the pancreas sense this, and the hormone insulin is released by the endocrine system.
+the hormone insulin is released by the endocrine system.
+Another example of an increase as a result of the feedback loop is the control of blood calcium.
+The effects of PTH are to raise blood levels of the element.
+Negative feedback loops are the predominant mechanism used in homeostasis.
+Positive Feedback Loop A positive feedback loop maintains the direction of the stimulus, possibly accelerating it.
+Few examples of positive feedback loops exist in animal bodies, but one is found in the cascade of chemical reactions that result in blood clotting, or coagulation.
+Few examples of positive feedback loops exist in animal bodies, but one is found in the cascade of chemical reactions that result in blood clotting.
+Thrombin also activates additional clotting factor molecules earlier in the cascade, resulting in the activation of even more thrombin.
+This positive feedback loop amplifies the cascade for faster, more effective formation of a blood clot.
+The hormone oxytocin, made by the endocrine system, stimulates the contraction of the uterus.
+This stimulation is sensed by the nervous system.
+Instead of lowering the oxytocin, more oxytocin is produced until the contractions are powerful enough to produce childbirth.
+The birth of a human infant is the result of positive feedback.
+a. A person feels satiated after eating a large meal.
+The blood has plenty of red blood cells.
+As a result, erythropoietin, a hormone that stimulates the production of new red blood cells, is no longer released from the kidney.
+Set Point It is possible to adjust a system's set point.
+When this happens, the feedback loop works to maintain the new setting.
+An example of this is blood pressure: over time, the normal or set point for blood pressure can increase as a result of continued increases in blood pressure.
+The body no longer recognizes the elevation as abnormal and no attempt is made to return to the lower set point.
+The result is the maintenance of an elevated blood pressure that can have harmful effects on the body.
+Medication can lower blood pressure and lower the set point in the system to a more healthy level.
+Changes can be made in a group of body organ systems in order to maintain a set point in another system.
+This occurs, for instance, when an animal migrates to a higher altitude than that to which it is accustomed.
+Homeostasis: Thermoregulation Body temperature affects body activities.
+Generally, as body temperature rises, enzyme activity rises as well.
+For every ten degree centigrade rise in temperature, enzyme activity doubles, up to a point.
+Body proteins, including enzymes, begin to denature and lose their function with high heat.
+Enzyme activity will decrease by half for every ten degree centigrade drop in temperature, to the point of freezing, with a few exceptions.
+Some fish can withstand freezing solid and return to normal with thawing.
+Animals that rely on external temperatures to set their body temperature are ectotherms.
+In contrast to ectotherms, poikilotherms are animals with constantly varying internal temperatures.
+Endotherms are animals that rely on internal sources for maintenance of relatively constant body temperature in varying environmental temperatures.
+These animals are able to maintain a level of metabolic activity in cooler external temperatures, which an ectotherm cannot due to differing enzyme levels of activity.
+It is worth mentioning that some ectotherms and poikilotherms have relatively constant body temperatures due to the constant environmental temperatures in their habitats.
+These animals are so-called ectothermic homeotherms, like some deep sea fish species.
+Radiation is the emission of electromagnetic "heat" waves.
+Heat comes from the sun in this manner and radiates from dry skin the same way.
+Heat can be removed with liquid from a surface during evaporation.
+Convection currents of air remove heat from the surface of dry skin as the air passes over it.
+Heat will be conducted from one surface to another during direct contact with the surfaces, such as an animal resting on a warm rock.
+In certain climates, endothermic animals have some form of insulation, such as fur, fat, feathers, or some combination thereof.
+In certain climates, endothermic animals have some form of insulation, such as fur, fat, feathers.
+Thick fur and feathers trap a layer of air that helps to provide thermal insulation.
+The arctic fox, for example, uses its fluffy tail as extra insulation when it curls up to sleep in cold weather.
+Mammals use layers of fat to achieve the same end.
+Loss of significant amounts of body fat will compromise an individual's ability to conserve heat.
+Endotherms use their circulatory systems to help maintain body temperature.
+Vasodilation brings more blood and heat to the body surface, facilitating radiation and evaporative heat loss, which helps to cool the body.
+Vasoconstriction reduces blood flow in peripheral blood vessels, forcing blood toward the core and the vital organs found there, and conserving heat.
+Vasoconstriction reduces blood flow in peripheral blood vessels, forcing blood toward the core and the vital organs found there.
+Some animals have adaptations to their circulatory system that enable them to transfer heat from arteries to veins, warming blood returning to the heart.
+This is called a countercurrent heat exchange; it prevents the cold venous blood from cooling the heart and other internal organs.
+it prevents the cold venous blood from cooling the heart and other internal organs.
+This adaptation can be shut down in some animals to prevent overheating the internal organs.
+The countercurrent adaptation is found in many animals, including dolphins, sharks, bony fish, bees, and hummingbirds.
+The countercurrent adaptation is found in many animals, including dolphins, sharks, bony fish, bees.
+In contrast, similar adaptations can help cool endotherms when needed, such as dolphin flukes and elephant ears.
+Some ectothermic animals use changes in their behavior to help regulate body temperature.
+For example, a desert ectothermic animal may simply seek cooler areas during the hottest part of the day in the desert to keep from getting too warm.
+The same animals may climb onto rocks to capture heat during a cold desert night.
+Some animals seek water to aid evaporation in cooling them, as seen with reptiles.
+Other ectotherms use group activity such as the activity of bees to warm a hive to survive winter.
+Many animals, especially mammals, use metabolic waste heat as a heat source.
+that specializes in generating heat.
+The processes of homeostasis and temperature control are centered in the hypothalamus of the advanced animal brain.
+The body is able to regulate temperature in response to signals from the nervous system.
+When bacteria are destroyed by leukocytes, pyrogens are released into the blood.
+Pyrogens reset the body's thermostat to a higher temperature, resulting in fever.
+It responds to chemicals from the body.
+When a bacterium is destroyed by phagocytic leukocytes, chemicals called endogenous pyrogens are released into the blood.
+These pyrogens circulate to the hypothalamus and reset the thermostat.
+This allows the body's temperature to increase in what is commonly called a fever.
+An increase in body temperature causes iron to be conserved, which reduces a nutrient needed by bacteria.
+An increase in body heat also increases the activity of the animal's enzymes and protective cells while inhibiting the enzymes and activity of the invading microorganisms.
+A fever that was once thought to be a complication of an infection is now understood to be a normal defense mechanism.
+Animal bodies come in a variety of sizes and shapes.
+Limits on animal size and shape include impacts to 33.2 Animal Primary Tissues their movement.
+Diffusion affects their size and The basic building blocks of complex animals are four development.
+Bioenergetics describes how animals primary tissues.
+which have a specific, specialized function within the 33.3 Homeostasis body, such as the skin or kidney.
+Organs are organized Homeostasis is a dynamic equilibrium that is together to perform common functions in the form of maintained in body tissues and organs.
+It is dynamic systems.
+The four primary tissues are epithelia, because it is constantly adjusting to the changes that connective tissues, muscle tissues, and nervous the systems encounter.
+The four primary tissues are epithelia, because it is constantly adjusting to the changes that connective tissues, muscle tissues.
+It is in equilibrium because tissues.
+body functions are kept within a normal range, with some fluctuations around a set point for the processes.
+a. A person feels satiated after eating a large a. Simple columnar epithelial cells line the meal.
+As b. Simple cuboidal epithelial cells are a result, erythropoietin, a hormone that involved in the filtering of blood in the stimulates the production of new red kidney.
+blood cells, is no longer released from the c. Pseudostratisfied columnar epithilia occur kidney.
+in a single layer, but the arrangement of nuclei makes it appear that more than one 3.
+leukocytes, pyrogens are released into the d. Transitional epithelia change in thickness blood.
+Pyrogens reset the body's thermostat to a depending on how full the bladder is.
+How might pyrogens cause the body temperature to 2.
+A plane that divides an animal into dorsal and d. mesoderm ventral portions is ________.
+The symmetry found in animals that move b. midsagittal swiftly is ________.
+d. interrupted a. dorsal cavity b. thoracic cavity 6.
+d. normal sleep pattern a. Ectotherm diversity will decrease in cool regions.
+A plane that divides an animal into equal right b. Ectotherms will be able to be active all day and left portions is ________.
+c. osteoclast d. Ectotherms will be able to expand into d. osteon new habitats.
+The cell found in bone that makes the bone is 11.
+Although most animals are bilaterally called an ________.
+b. osteocyte a. It confuses predators.
+It allows the animal to gather food from all d. osteon sides.
+It allows the animal to undergo rapid, 19.
+Plasma is the ________.
+It lets an animal use its dorsal surface to b. matrix of blood sense its environment.
+The type of muscle cell under voluntary control a. squamous is the ________.
+The part of a neuron that contains the nucleus is b. cuboidal the c. columnar a. cell body d. transitional b. dendrite c. axon 14.
+c. columnar a. The discs maintain the barriers between d. transitional the cells.
+The discs pass nutrients between cells.
+Which type of connective tissue has the most c.
+muscle cells beat as a single unit.
+The discs control the heart rate.
+The cell found in bone that breaks it down is b. blood clotting after an injury called an ________.
+Which method of heat exchange occurs during environment.
+Acclimatization improves function in a new a. radiation environment.
+Acclimatization is passed on to offspring of 26.
+The body's thermostat is located in the acclimated individuals.
+Which of the following is not true about activities.
+a. Acclimatization allows animals to d. Huddle in a group.
+When a person leads a sedentary life his skeletal muscles atrophy, but his smooth muscles do 31.
+Why are negative feedback loops used to control 32.
+On a molecular level, how can endotherms produce their own heat by adjusting processes 35.

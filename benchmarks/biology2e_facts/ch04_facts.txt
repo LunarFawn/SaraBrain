@@ -1,0 +1,476 @@
+# Biology2e Chapter 4 — Cell Structure
+# Auto-extracted from Biology2e-WEB.txt via ingest_biology2e.py
+# Fact count: 472
+
+It is a single brick.
+Like a brick wall, cells are the building blocks that make up your body.
+Your body has many kinds of cells, each specialized for a specific purpose.
+Just as we use a variety of materials to build a home, the human body is constructed from many cell types.
+For example, epithelial cells protect the body's surface and cover the organs and body cavities within.
+Bone cells help to support and protect the body.
+Immune system cells fight invading bacteria.
+Additionally, blood and blood cells carry nutrients and oxygen throughout the body while removing carbon dioxide.
+Each of these cell types plays a vital role during the body's growth, development, and day-to-day maintenance.
+Each of these cell types plays a vital role during the body's growth, development.
+In spite of their enormous variety, however, cells from all organisms—even ones as diverse as bacteria, onion, and human—share certain fundamental characteristics.
+human—share certain fundamental characteristics.
+A cell is the smallest unit of a living thing.
+Whether comprised of one cell or many cells, we call it an organism.
+several organs comprise an organ system.
+Several systems that function together form an organism.
+Here, we will examine the structure and function of cells.
+For example, we classify both animal and plant cells as eukaryotic cells; whereas, we classify bacterial cells as prokaryotic.
+For example, we classify both animal and plant cells as eukaryotic cells.
+whereas, we classify bacterial cells as prokaryotic.
+Before discussing the criteria for determining whether a cell is prokaryotic or eukaryotic, we will first examine how biologists study cells.
+Microscopy Cells vary in size.
+With few exceptions, we cannot see individual cells with the naked eye, so scientists use microscopes to study them.
+A microscope is an instrument that magnifies an object.
+We photograph most cells with a microscope, so we can call these images micrographs.
+The optics of a microscope's lenses change the image orientation that the user sees.
+Similarly, if one moves the slide left while looking through the microscope, it will appear to move right, and if one moves it down, it will seem to move up.
+Similarly, if one moves the slide left while looking through the microscope, it will appear to move right.
+if one moves it down, it will seem to move up.
+A pin head is about two thousandths of a meter in diameter.
+That means about 250 red blood cells could fit on a pinhead.
+Visible light passes and bends through the lens system to enable the user to see the specimen.
+Light microscopes are advantageous for viewing living organisms, but since individual cells are generally transparent, their components are not distinguishable unless they are colored with special stains.
+Two parameters that are important in microscopy are magnification and resolving power.
+Magnification is the process of enlarging an object in appearance.
+When one uses oil immersion lenses to study small objects, magnification usually increases to 1,000 times.
+In order to gain a better understanding of cellular structure and function, scientists typically use electron microscopes.
+Electron microscopes provide a much higher magnification, 100,000x, and have a resolution of 50 picometers.
+Electron microscopes provide a much higher magnification, 100,000x.
+The method to prepare the specimen for viewing with an electron microscope kills the specimen.
+Electrons have short wavelengths that move best in a vacuum, so we cannot view living cells with an electron microscope.
+In a scanning electron microscope, a beam of electrons moves back and forth across a cell's surface, creating details of cell surface characteristics.
+In a transmission electron microscope, the electron beam penetrates the cell and provides details of a cell's internal structures.
+As you might imagine, electron microscopes are significantly more bulky and expensive than light microscopes.
+These Salmonella bacteria appear as tiny purple dots when viewed with a light microscope.
+Even though subfigure shows a different Salmonella specimen than subfigure, you can still observe the comparative increase in magnification and detail.
+LINK TO LEARNING For another perspective on cell size, try the HowBig interactive at this underline siteend underline.
+The microscopes we use today are far more complex than those that Dutch shopkeeper Antony van Leeuwenhoek, used in the 1600s.
+In the 1665 publication Micrographia, experimental scientist Robert Hooke coined the term "cell" for the box-like structures he observed when viewing cork tissue through a lens.
+In the 1670s, van Leeuwenhoek discovered bacteria and protozoa.
+staining techniques enabled other scientists to see some components inside cells.
+the unified cell theory, which states that one or more cells comprise all living things, the cell is the basic unit of life, and new cells arise from existing cells.
+the unified cell theory, which states that one or more cells comprise all living things, the cell is the basic unit of life.
+new cells arise from existing cells.
+Rudolf Virchow later made important contributions to this theory.
+Cytotechnologists are professionals who study cells via microscopic examinations and other laboratory tests.
+They are trained to determine which cellular changes are within normal limits and which are abnormal.
+They study cellular specimens that come from all organs.
+When they notice abnormalities, they consult a pathologist, a medical doctor who interprets and diagnoses changes that disease in body tissue and fluids cause.
+Cytotechnologists play a vital role in saving people's lives.
+When doctors discover abnormalities early, a patient's treatment can begin sooner, which usually increases the chances of a successful outcome.
+These uterine cervix cells, viewed through a light microscope, are from a Pap smear.
+Normal cells are on the left.
+The cells on the right are infected with human papillomavirus.
+Cells fall into one of two broad categories: prokaryotic and eukaryotic.
+We classify only the predominantly single- celled organisms Bacteria and Archaea as prokaryotes.
+Animal cells, plants, fungi, and protists are all eukaryotes.
+protists are all eukaryotes.
+However, prokaryotes differ from eukaryotic cells in several ways.
+We will shortly come to see that this is significantly different in eukaryotes.
+This figure shows the generalized structure of a prokaryotic cell.
+All prokaryotes have chromosomal DNA localized in a nucleoid, ribosomes, a cell membrane, and a cell wall.
+All prokaryotes have chromosomal DNA localized in a nucleoid, ribosomes, a cell membrane.
+The other structures shown are present in some, but not all, bacteria.
+The cell wall acts as an extra layer of protection, helps the cell maintain its shape, and prevents dehydration.
+The cell wall acts as an extra layer of protection, helps the cell maintain its shape.
+The capsule enables the cell to attach to surfaces in its environment.
+Some prokaryotes have flagella, pili, or fimbriae.
+Some prokaryotes have flagella, pili.
+Flagella are used for locomotion.
+Bacteria use fimbriae to attach to a host cell.
+The most effective action anyone can take to prevent the spread of contagious illnesses is to wash their hands.
+Because microbes are ubiquitous.
+They live on doorknobs, money, your hands, and many other surfaces.
+They live on doorknobs, money, your hands.
+If someone sneezes into his hand and touches a doorknob, and afterwards you touch that same doorknob, the microbes from the sneezer's mucus are now on your hands.
+If someone sneezes into his hand and touches a doorknob.
+afterwards you touch that same doorknob, the microbes from the sneezer's mucus are now on your hands.
+If you touch your hands to your mouth, nose, or eyes, those microbes can enter your body and could make you sick.
+If you touch your hands to your mouth, nose.
+eyes, those microbes can enter your body and could make you sick.
+However, not all microbes cause disease.
+You have microbes in your gut that make vitamin K. Other microorganisms are used to ferment beer and wine.
+Microbiologists are scientists who study microbes.
+Microbiologists can pursue a number of careers.
+Not only do they work in the food industry, they are also employed in the veterinary and medical fields.
+They can work in the pharmaceutical sector, serving key roles in research and development by identifying new antibiotic sources that can treat bacterial infections.
+Environmental microbiologists may look for new ways to use specially selected or genetically engineered microbes to remove pollutants from soil or groundwater, as well as hazardous elements from contaminated sites.
+We call using these microbes bioremediation technologies.
+Microbiologists can also work in the bioinformatics field, providing specialized knowledge and insight for designing, developing, and optimizing specificity of computer models of, for example, bacterial epidemics.
+Microbiologists can also work in the bioinformatics field, providing specialized knowledge and insight for designing, developing.
+The prokaryotes' small size allows ions and organic molecules that enter them to quickly diffuse to other parts of the cell.
+Similarly, any wastes produced within a prokaryotic cell can quickly diffuse.
+This figure shows relative sizes of microbes on a logarithmic scale.
+Small size, in general, is necessary for all cells, whether prokaryotic or eukaryotic.
+First, we'll consider the area and volume of a typical cell.
+Not all cells are spherical in shape, but most tend to approximate a sphere.
+You may remember from your high school geometry course that the formula for the surface area of a sphere is 4πr2, while the formula for its volume is 4πr3/3.
+You may remember from your high school geometry course that the formula for the surface area of a sphere is 4πr2.
+the formula for its volume is 4πr3/3.
+Therefore, as a cell increases in size, its surface area-to-volume ratio decreases.
+If the cell grows too large, the plasma membrane will not have sufficient surface area to support the rate of diffusion required for the increased volume.
+In other words, as a cell grows, it becomes less efficient.
+One way to become more efficient is to divide.
+Other ways are to increase surface area by foldings of the cell membrane, become flat or thin and elongated, or develop organelles that perform specific tasks.
+Other ways are to increase surface area by foldings of the cell membrane, become flat or thin and elongated.
+These adaptations lead to developing more sophisticated cells, which we call eukaryotic cells.
+Prokaryotic cells are much smaller than eukaryotic cells.
+It's a philosophy that many industries follow.
+In architecture, this means that buildings should be constructed to support the activities that will be carried out inside them.
+For example, a skyscraper should include several elevator banks.
+A hospital should have its emergency room easily accessible.
+The word "organelle" means "little organ," and, as we already mentioned, organelles have specialized cellular functions, just as your body's organs have specialized functions.
+At this point, it should be clear to you that eukaryotic cells have a more complex structure than prokaryotic cells.
+Organelles allow different functions to be compartmentalized in different areas of the cell.
+These figures show the major organelles and other cell components of a typical animal cell and a typical eukaryotic plant cell.
+The plant cell has a cell wall, chloroplasts, plastids, and a central vacuole—structures not in animal cells.
+The plant cell has a cell wall, chloroplasts, plastids.
+Most cells do not have lysosomes or centrosomes.
+A phospholipid is a lipid molecule with two fatty acid chains and a phosphate-containing group.
+The plasma membrane controls the passage of organic molecules, ions, water, and oxygen into and out of the cell.
+The plasma membrane controls the passage of organic molecules, ions, water.
+Wastes also leave the cell by passing through the plasma membrane.
+The eukaryotic plasma membrane is a phospholipid bilayer with proteins and cholesterol embedded in it.
+Such cells typically line the small intestine, the organ that absorbs nutrients from digested food.
+This is an excellent example of form following function.
+The immune response damages microvilli, and thus, afflicted individuals cannot absorb nutrients.
+The immune response damages microvilli.
+thus, afflicted individuals cannot absorb nutrients.
+This leads to malnutrition, cramping, and diarrhea.
+This leads to malnutrition, cramping.
+Patients suffering from celiac disease must follow a gluten-free diet.
+These microvilli are only on the area of the plasma membrane that faces the cavity from which substances will be absorbed.
+The Cytoplasm The cytoplasm is the cell's entire region between the plasma membrane and the nuclear envelope.
+Even though the cytoplasm consists of 70 to 80 percent water, it has a semi-solid consistency, which comes from the proteins within it.
+However, proteins are not the only organic molecules in the cytoplasm.
+Glucose and other simple sugars, polysaccharides, amino acids, nucleic acids, fatty acids, and derivatives of glycerol are also there.
+derivatives of glycerol are also there.
+Ions of sodium, potassium, calcium, and many other elements also dissolve in the cytoplasm.
+many other elements also dissolve in the cytoplasm.
+Many metabolic reactions, including protein synthesis, take place in the cytoplasm.
+The nucleus houses the cell's DNA and directs the synthesis of ribosomes and proteins.
+The nucleolus is a condensed chromatin region where ribosome synthesis occurs.
+It consists of two phospholipid bilayers: an outer and an inner membrane.
+The nuclear membrane is continuous with the endoplasmic reticulum.
+Nuclear pores allow substances to enter and exit the nucleus.
+Both the nuclear envelope's inner and outer membranes are phospholipid bilayers.
+The nuclear envelope is punctuated with pores that control the passage of ions, molecules, and RNA between the nucleoplasm and cytoplasm.
+The nuclear envelope is punctuated with pores that control the passage of ions, molecules.
+Chromatin and Chromosomes To understand chromatin, it is helpful to first explore chromosomes, structures within the nucleus that are made up of DNA, the hereditary material.
+You may remember that in prokaryotes, DNA is organized into a single circular chromosome.
+In eukaryotes, chromosomes are linear structures.
+Every eukaryotic species has a specific number of chromosomes in the nucleus of each cell.
+For example, in humans, the chromosome number is 46, while in fruit flies, it is eight.
+For example, in humans, the chromosome number is 46.
+in fruit flies, it is eight.
+Chromosomes are only visible and distinguishable from one another when the cell is getting ready to divide.
+When the cell is in the growth and maintenance phases of its life cycle, proteins attach to chromosomes, and they resemble an unwound, jumbled bunch of threads.
+When the cell is in the growth and maintenance phases of its life cycle, proteins attach to chromosomes.
+they resemble an unwound, jumbled bunch of threads.
+Chromatin describes the material that makes up the chromosomes both when condensed and decondensed.
+This image shows various levels of chromatin's organization.
+This image shows paired chromosomes.
+Some chromosomes have sections of DNA that encode ribosomal RNA.
+Ribosomes Ribosomes are the cellular structures responsible for protein synthesis.
+Amino acids are the building blocks of proteins.
+A large subunit and a small subunit comprise ribosomes.
+For example, the pancreas is responsible for creating several digestive enzymes and the cells that produce these enzymes contain many ribosomes.
+Thus, we see another example of form following function.
+ATP represents the cell's short-term stored energy.
+Cellular respiration is the process of making ATP using the chemical energy in glucose and other nutrients.
+In mitochondria, this process uses oxygen and produces carbon dioxide as a waste product.
+In fact, the carbon dioxide that you exhale with every breath comes from the cellular reactions that produce carbon dioxide as a byproduct.
+In keeping with our theme of form following function, it is important to point out that muscle cells have a very high concentration of mitochondria that produce ATP.
+Your muscle cells need considerable energy to keep your body moving.
+When your cells don't get enough oxygen, they do not make much ATP.
+Each membrane is a phospholipid bilayer embedded with proteins.
+The inner layer has folds called cristae.
+We call the area surrounded by the folds the mitochondrial matrix.
+The cristae and the matrix have different roles in cellular respiration.
+This electron micrograph shows a mitochondrion through an electron microscope.
+This organelle has an outer membrane and an inner membrane.
+The inner membrane contains folds, called cristae, which increase its surface area.
+We call the space between the two membranes the intermembrane space, and the space inside the inner membrane the mitochondrial matrix.
+We call the space between the two membranes the intermembrane space.
+Peroxisomes Peroxisomes are small, round organelles enclosed by single membranes.
+They carry out oxidation reactions that break down fatty acids and amino acids.
+They also detoxify many poisons that may enter the body.
+For example, peroxisomes in liver cells detoxify alcohol.
+Glyoxysomes, which are specialized peroxisomes in plants, are responsible for converting stored fats into sugars.
+Plant cells contain many different types of peroxisomes that play a role in metabolism, pathogene defense, and stress response, to mention a few.
+Plant cells contain many different types of peroxisomes that play a role in metabolism, pathogene defense.
+Vesicles and Vacuoles Vesicles and vacuoles are membrane-bound sacs that function in storage and transport.
+Vesicle membranes can fuse with either the plasma membrane or other membrane systems within the cell.
+Additionally, some agents such as enzymes within plant vacuoles break down macromolecules.
+The vacuole's membrane does not fuse with the membranes of other cellular components.
+While both animal and plant cells have microtubule organizing centers, animal cells also have centrioles associated with the MTOC: a complex we call the centrosome.
+Animal cells each have a centrosome and lysosomes; whereas, most plant cells do not.
+Animal cells each have a centrosome and lysosomes.
+whereas, most plant cells do not.
+Plant cells have a cell wall, chloroplasts and other specialized plastids, and a large central vacuole; whereas, animal cells do not.
+Plant cells have a cell wall, chloroplasts and other specialized plastids, and a large central vacuole.
+whereas, animal cells do not.
+Plant cells have a cell wall, chloroplasts and other specialized plastids.
+a large central vacuole; whereas, animal cells do not.
+The Centrosome The centrosome is a microtubule-organizing center found near the nuclei of animal cells.
+Each centriole is a cylinder of nine triplets of microtubules.
+The centrosome consists of two centrioles that lie at right angles to each other.
+Each centriole is a cylinder comprised of nine triplets of microtubules.
+Nontubulin proteins hold the microtubule triplets together.
+Lysosomes Animal cells have another set of organelles that most plant cells do not: lysosomes.
+In plant cells, the digestive processes take place in vacuoles.
+This is the cell wall, a rigid covering that protects the cell, provides structural support, and gives shape to the cell.
+This is the cell wall, a rigid covering that protects the cell, provides structural support.
+Fungal and some protistan cells also have cell walls.
+Cellulose is a long chain of β-glucose molecules connected by a 1-4 linkage.
+The dashed lines at each end of the figure indicate a series of many more glucose units.
+The size of the page makes it impossible to portray an entire cellulose molecule.
+Chloroplasts Like the mitochondria, chloroplasts have their own DNA and ribosomes, but chloroplasts have an entirely different function.
+Chloroplasts are plant cell organelles that carry out photosynthesis.
+Photosynthesis is the series of reactions that use carbon dioxide, water, and light energy to make glucose and oxygen.
+Photosynthesis is the series of reactions that use carbon dioxide, water.
+This is a major difference between plants and animals.
+Plants are able to make their own food, like sugars used in cellular respiration to provide ATP energy generated in the plant mitochondria.
+Animals must ingest their food.
+Each thylakoid stack is a granum.
+We call the fluid enclosed by the inner membrane that surrounds the grana the stroma.
+The chloroplast has an outer membrane, an inner membrane, and membrane structures - thylakoids that are stacked into grana.
+The chloroplast has an outer membrane, an inner membrane.
+We call the space inside the thylakoid membranes the thylakoid space.
+The light harvesting reactions take place in the thylakoid membranes, and sugar synthesis takes place in the fluid inside the inner membrane, which we call the stroma.
+The light harvesting reactions take place in the thylakoid membranes.
+sugar synthesis takes place in the fluid inside the inner membrane, which we call the stroma.
+Chloroplasts also have their own genome, which is contained on a single circular chromosome.
+The chloroplasts contain a green pigment, chlorophyll, which captures the light energy that drives the reactions of photosynthesis.
+Endosymbiosis We have mentioned that both mitochondria and chloroplasts contain DNA and ribosomes.
+Symbiosis is any type of close and long term relationship between two organisms from different species depend on each other for their survival.
+In some cases both organisms benefit from the relationship.
+Endosymbiosis is a mutually beneficial relationship in which one organism lives inside the other.
+Endosymbiotic relationships abound in nature.
+We have already mentioned that microbes that produce vitamin K live inside the human gut.
+This relationship is beneficial for us because we are unable to synthesize vitamin K.
+It is also beneficial for the microbes because they are protected from other organisms and from drying out, and they receive abundant food from the environment of the large intestine.
+It is also beneficial for the microbes because they are protected from other organisms and from drying out.
+they receive abundant food from the environment of the large intestine.
+Scientists have long noticed that bacteria, mitochondria, and chloroplasts are similar in size.
+Scientists have long noticed that bacteria, mitochondria.
+chloroplasts are similar in size.
+We also know that bacteria have DNA and ribosomes, just like mitochondria and chloroplasts.
+Scientists believe that host cells and bacteria formed an endosymbiotic relationship when the host cells ingested both aerobic and autotrophic bacteria but did not destroy them.
+Through many millions of years of evolution, these ingested bacteria became more specialized in their functions, with the aerobic bacteria becoming mitochondria and the autotrophic bacteria becoming chloroplasts.
+The Central Vacuole Previously, we mentioned vacuoles as essential components of plant cells.
+The central vacuole plays a key role in regulating the cell's concentration of water in changing environmental conditions.
+That's because as the water concentration in the soil becomes lower than the water concentration in the plant, water moves out of the central vacuoles and cytoplasm.
+As the central vacuole shrinks, it leaves the cell wall unsupported.
+The central vacuole also supports the cell's expansion.
+When the central vacuole holds more water, the cell becomes larger without having to invest considerable energy in synthesizing new cytoplasm.
+It includes the nuclear envelope, lysosomes, and vesicles, which we have already mentioned, and the endoplasmic reticulum and Golgi apparatus, which we will cover shortly.
+It includes the nuclear envelope, lysosomes.
+Although not technically within the cell, the plasma membrane is included in the endomembrane system because, as you will see, it interacts with the other endomembranous organelles.
+The endomembrane system does not include either mitochondria or chloroplast membranes.
+The RER also sometimes modifies proteins.
+In this illustration, a integral membrane protein is modified by attachment of a carbohydrate in the ER.
+As the protein passes along the Golgi's cisternae, the addition of more carbohydrates further modifies it.
+After its synthesis is complete, it exits as an integral membrane protein of the vesicle that buds from the Golgi's trans face.
+When the vesicle fuses with the cell membrane, the protein becomes an integral portion of that cell membrane.
+However, these two functions take place in separate areas of the ER: the rough ER and the smooth ER, respectively.
+We call the ER tubules' hollow portion the lumen or cisternal space.
+The ER's membrane, which is a phospholipid bilayer embedded with proteins, is continuous with the nuclear envelope.
+This transmission electron micrograph shows the rough endoplasmic reticulum and other organelles in a pancreatic cell.
+These modified proteins incorporate into cellular membranes—the ER or the ER's or other organelles' membranes.
+The proteins can also secrete from the cell.
+The RER also makes phospholipids for cellular membranes.
+This is the case with liver cells, for example.
+SER functions include synthesis of carbohydrates, lipids, and steroid hormones; detoxification of medications and poisons; and storing calcium ions.
+SER functions include synthesis of carbohydrates, lipids, and steroid hormones.
+SER functions include synthesis of carbohydrates, lipids.
+In muscle cells, a specialized SER, the sarcoplasmic reticulum, is responsible for storing calcium ions that are needed to trigger the muscle cells' coordinated contractions.
+LINK TO LEARNING You can watch an excellent animation of the endomembrane system here.
+Cardiologist Heart disease is the leading cause of death in the United States.
+This is primarily due to our sedentary lifestyle and our high trans-fat diets.
+Heart failure is just one of many disabling heart conditions.
+Heart failure does not mean that the heart has stopped working.
+Rather, it means that the heart can't pump with sufficient force to transport oxygenated blood to all the vital organs.
+Left untreated, heart failure can lead to kidney failure and other organ failure.
+Cardiac muscle tissue comprises the heart's wall.
+As a result, an insufficient number of calcium ions are available to trigger a sufficient contractile force.
+Cardiologists are doctors who specialize in treating heart diseases, including heart failure.
+Before reaching their final destination, the lipids or proteins within the transport vesicles still need sorting, packaging, and tagging so that they end up in the right place.
+Before reaching their final destination, the lipids or proteins within the transport vesicles still need sorting, packaging.
+You can see several vesicles near the Golgi apparatus.
+The opposite side is the trans face.
+The transport vesicles that formed from the ER travel to the cis face, fuse with it, and empty their contents into the Golgi apparatus' lumen.
+The transport vesicles that formed from the ER travel to the cis face, fuse with it.
+As the proteins and lipids travel through the Golgi, they undergo further modifications that allow them to be sorted.
+The most frequent modification is adding short sugar molecule chains.
+These newly modified proteins and lipids then tag with phosphate groups or other small molecules in order to travel to their proper destinations.
+Finally, the modified and tagged proteins are packaged into secretory vesicles that bud from the Golgi's trans face.
+In plant cells, the Golgi apparatus has the additional role of synthesizing polysaccharides, some of which are incorporated into the cell wall and some of which other cell parts use.
+Geneticist Many diseases arise from genetic mutations that prevent synthesizing critical proteins.
+One such disease is Lowe disease.
+Children with Lowe disease are born with cataracts, typically develop kidney disease after the first year of life, and may have intellectual disabilities.
+Children with Lowe disease are born with cataracts, typically develop kidney disease after the first year of life.
+A mutation on the X chromosome causes Lowe disease.
+The X chromosome is one of the two human sex chromosomes, as these chromosomes determine a person's sex.
+Females possess two X chromosomes while males possess one X and one Y chromosome.
+In females, the genes on only one of the two X chromosomes are expressed.
+Females who carry the Lowe disease gene on one of their X chromosomes are carriers and do not show symptoms of the disease.
+However, males only have one X chromosome and the genes on this chromosome are always expressed.
+Therefore, males will always have Lowe disease if their X chromosome carries the Lowe disease gene.
+Geneticists have identified the mutated gene's location, as well as many other mutation locations that cause genetic diseases.
+Through prenatal testing, a pregnant person can find out if the fetus they are carrying may be afflicted with one of several genetic diseases.
+Geneticists analyze prenatal genetic test results and may counsel pregnant people on available options.
+They may also conduct genetic research that leads to new drugs or foods, or perform DNA analyses for forensic investigations.
+They may also conduct genetic research that leads to new drugs or foods.
+Lysosomes In addition to their role as the digestive component and organelle-recycling facility of animal cells, lysosomes are part of the endomembrane system.
+Lysosomes also use their hydrolytic enzymes to destroy pathogens that might enter the cell.
+A good example of this occurs in macrophages, a group of white blood cells which are part of your body's immune system.
+In a process that scientists call phagocytosis or endocytosis, a section of the macrophage's plasma membrane invaginates and engulfs a pathogen.
+The invaginated section, with the pathogen inside, then pinches itself off from the plasma membrane and becomes a vesicle.
+The vesicle fuses with a lysosome.
+A macrophage has engulfed a potentially pathogenic bacterium and then fuses with lysosomes within the cell to destroy the pathogen.
+Other organelles are present in the cell but for simplicity we do not show them.
+Collectively, scientists call this network of protein fibers the cytoskeleton.
+Here, we will examine each.
+Like rubber bands, they resist tension.
+Microfilaments Of the three types of protein fibers in the cytoskeleton, microfilaments are the narrowest.
+For this reason, we also call microfilaments actin filaments.
+ATP powers actin to assemble its filamentous form, which serves as a track for the movement of a motor protein we call myosin.
+This enables actin to engage in cellular events requiring motion, such as cell division in eukaryotic cells and cytoplasmic streaming, which is the cell cytoplasm's circular movement in plant cells.
+Actin and myosin are plentiful in muscle cells.
+Microfilaments also provide some rigidity and shape to the cell.
+White blood cells make good use of this ability.
+They can move to an infection site and phagocytize the pathogen.
+It engulfs one and then moves on to the other.
+Cytoskeleton elements get their name from the fact that their diameter, 8 to 10 nm, is between those of microfilaments and microtubules.
+Intermediate filaments have no role in cell movement.
+Their function is purely structural.
+They bear tension, thus maintaining the cell's shape, and anchor the nucleus and other organelles in place.
+They bear tension, thus maintaining the cell's shape.
+The intermediate filaments are the most diverse group of cytoskeletal elements.
+Several fibrous protein types are in the intermediate filaments.
+You are probably most familiar with keratin, the fibrous protein that strengthens your hair, nails, and the skin's epidermis.
+Microtubules As their name implies, microtubules are small hollow tubes.
+With a diameter of about 25 nm, microtubules are cytoskeletons' widest components.
+They help the cell resist compression, provide a track along which vesicles move through the cell, and pull replicated chromosomes to opposite ends of a dividing cell.
+They help the cell resist compression, provide a track along which vesicles move through the cell.
+Like microfilaments, microtubules can disassemble and reform quickly.
+Their walls consist of 13 polymerized dimers of α-tubulin and β-tubulin.
+The left image shows the tube's molecular structure.
+Microtubules are also the structural elements of flagella, cilia, and centrioles.
+Microtubules are also the structural elements of flagella, cilia.
+In animal cells, the centrosome is the microtubule-organizing center.
+In eukaryotic cells, flagella and cilia are quite different structurally from their counterparts in prokaryotes, as we discuss below.
+When present, the cell has just one flagellum or a few flagella.
+This transmission electron micrograph of two flagella shows the microtubules' 9 + 2 array: nine microtubule doublets surround a single microtubule doublet.
+You have now completed a broad survey of prokaryotic and eukaryotic cell components.
+You already know that tissue is a group of similar cells working together.
+Extracellular Matrix of Animal Cells While cells in most multicellular organisms release materials into the extracellular space, animal cells will be discussed as an example.
+The primary components of these materials are proteins, and the most abundant protein is collagen.
+The primary components of these materials are proteins.
+the most abundant protein is collagen.
+Collagen fibers are interwoven with proteoglycans, which are carbohydrate-containing protein molecules.
+Not only does the extracellular matrix hold the cells together to form a tissue, but it also allows the cells within the tissue to communicate with each other.
+The extracellular matrix consists of a network of proteins and carbohydrates.
+Cells have protein receptors on their plasma membranes' extracellular surfaces.
+When a molecule within the matrix binds to the receptor, it changes the receptor's molecular structure.
+The receptor, in turn, changes the microfilaments' conformation positioned just inside the plasma membrane.
+Blood clotting provides an example of the extracellular matrix's role in cell communication.
+When the cells lining a blood vessel are damaged, they display a protein receptor, which we call tissue factor.
+Intercellular Junctions Cells can also communicate with each other via direct contact, or intercellular junctions.
+Intercellular Junctions Cells can also communicate with each other via direct contact.
+Plasmodesmata are junctions between plant cells; whereas, animal cell contacts include tight junctions, gap junctions, and desmosomes.
+Plasmodesmata are junctions between plant cells.
+whereas, animal cell contacts include tight junctions, gap junctions, and desmosomes.
+Plasmodesmata are junctions between plant cells; whereas, animal cell contacts include tight junctions, gap junctions.
+Such transport uses the vascular tissues primarily.
+A plasmodesma is a channel between two adjacent plant cells' cell walls.
+Plasmodesmata allow materials to pass from one plant cell's cytoplasm to an adjacent cell's cytoplasm.
+Proteins tightly hold the cells against each other.
+Proteins create tight junction adherence.
+This tight adherence prevents materials from leaking between the cells; tight junctions are typically found in epithelial tissues that line internal organs and cavities, and comprise most of the skin.
+This tight adherence prevents materials from leaking between the cells.
+tight junctions are typically found in epithelial tissues that line internal organs and cavities, and comprise most of the skin.
+This tight adherence prevents materials from leaking between the cells; tight junctions are typically found in epithelial tissues that line internal organs and cavities.
+Cadherins, short proteins in the plasma membrane connect to intermediate filaments to create desmosomes.
+Linking cadherins and intermediate filaments create it.
+A gap junction is a protein-lined pore that allows water and small molecules to pass between adjacent animal cells.
+Gap junctions are particularly important in cardiac muscle.
+The electrical signal for the muscle to contract passes efficiently through gap junctions, allowing the heart muscle cells to contract in tandem.
+LINK TO LEARNING To conduct a virtual microscopy lab and review the parts of a cell, work through the steps of this interactive assignment.
+Chapter Summary 4.1 Studying Cells membrane is a phospholipid bilayer embedded with proteins.
+The nucleus's nucleolus is the site of A cell is the smallest unit of life.
+Most cells are so tiny ribosome assembly.
+We find ribosomes either in the that we cannot see them with the naked eye.
+cytoplasm or attached to the cytoplasmic side of the Therefore, scientists use microscopes to study cells.
+They Electron microscopes provide higher magnification, perform protein synthesis.
+Mitochondria participate in higher resolution, and more detail than light cellular respiration.
+Mitochondria participate in higher resolution.
+They are responsible for the microscopes.
+The unified cell theory states that one or majority of ATP produced in the cell.
+Peroxisomes more cells comprise all organisms, the cell is the basic hydrolyze fatty acids, amino acids, and some toxins.
+Peroxisomes more cells comprise all organisms, the cell is the basic hydrolyze fatty acids, amino acids.
+Vesicles and vacuoles are storage and transport 4.2 Prokaryotic Cells compartments.
+In plant cells, vacuoles also help break down macromolecules.
+Prokaryotes are single-celled organisms of the domains Bacteria and Archaea.
+All prokaryotes have Animal cells also have a centrosome and lysosomes.
+The centrosome has two bodies perpendicular to each that is not membrane-bound.
+Lysosomes are the digestive organelles of Prokaryotic cells range in diameter from 0.1 to 5.0 μm.
+As a cell increases in size, its surface area-to-volume Plant cells and plant-like cells each have a cell wall, ratio decreases.
+Photosynthesis takes place in chloroplasts.
+The central vacuole can expand without having to produce 4.3 Eukaryotic Cells more cytoplasm.
+They are also the structural element of centrioles, flagella, and cilia.
+They are also the structural element of centrioles, flagella.
+The RER modifies proteins and synthesizes phospholipids in cell membranes.
+Sorting, tagging, packaging, and matrices and are connected to each other via tight distributing lipids and proteins take place in the Golgi junctions, desmosomes, and gap junctions.
+matrices and are connected to each other via tight distributing lipids and proteins take place in the Golgi junctions, desmosomes.
+Budding RER and Golgi membranes create are connected and communicate with each other via lysosomes.
+From narrowest to widest, they are the changes activities taking place within the cell.
+microfilaments, intermediate Plasmodesmata are channels between adjacent plant filaments, and microtubules.
+microfilaments, intermediate Plasmodesmata are channels between adjacent plant filaments.
+Biologists often associate cells, while gap junctions are channels between microfilaments with myosin.
+Biologists often associate cells.
+gap junctions are channels between microfilaments with myosin.
+They provide rigidity and adjacent animal cells.
+However, their structures are shape to the cell and facilitate cellular movements.
+A tight junction is a watertight seal Intermediate filaments bear tension and anchor the between two adjacent cells, while a desmosome acts nucleus and other organelles in place.
+A tight junction is a watertight seal Intermediate filaments bear tension and anchor the between two adjacent cells.
+What advantages might 3.
+would it end up on the inside or outside of the 2.
+When viewing a specimen through a light d. diffusion microscope, scientists use ________ to distinguish the individual components of cells.
+b. radioactive isotopes a. adhere to cell surfaces c. special stains b. swim through bodily fluids d. high temperatures c. synthesize proteins d. retain the ability to divide 5.
+Prokaryotes depend on ________ to obtain d. E. coli some materials and to get rid of wastes.
+Which of the following sequences correctly lists 10.
+In plant cells, the function of the lysosomes is tagging in the Golgi; packaging in the carried out by __________.
+In plant cells, the function of the lysosomes is tagging in the Golgi.
+packaging in the carried out by __________.
+Congenital disorders of glycosylation are a growing class of rare diseases.
+Which of the following is most likely to have the the environment relative to the cell.
+Diseased animal cells may produce molecules a. gap junctions that activate death cascades to kill the cells in a b. desmosomes controlled manner.
+The death molecule is passed through desmosomes.
+The key components of desmosomes are b.
+The death molecule is passed through cadherins and __________.
+The death molecule disrupts the b. microfilaments extracellular matrix.
+The death molecule passes through gap d. microtubules junctions.
+that certain instruments are ideal for certain 34.
+Why are plasma membranes arranged as a situations.
+soup would slip 35.
+In the context of cell biology, what do we mean between the tines of a fork.
+What are at least two instruments also applies in science.
+In what situation would the use of a scanning Defend your answer.
+What are the similarities and differences 27.
+What are the advantages and disadvantages of 38.
+Antibiotics are medicines that are used to fight 40.
+These medicines kill animal, and bacteria cells use to separate prokaryotic cells without harming human cells.
+These medicines kill animal.
+bacteria cells use to separate prokaryotic cells without harming human cells.
+What part or parts of the bacterial cell do you 41.
+You already know that ribosomes are abundant 43.
+Pathogenic E. coli have recently been shown to in red blood cells.
+In what other cells of the body degrade tight junction proteins during infection.
+How would this provide an advantage to the 33.

@@ -173,7 +173,24 @@ PATTERN = frozenset({
     "rule", "exception", "conditional",
 })
 
-_ALL = SENSORY | STRUCTURAL | RELATIONAL | ETHICAL | SAFETY | SOCIAL | CLEANUP | TEMPORAL | PATTERN
+# Operation: the six ALU-level arithmetic primitives. Every other
+# mathematical operation (halve, double, percentage, probability, mean,
+# variance, etc.) is TAUGHT as a composition of these six — see
+# benchmarks/curriculum_math.txt and project_math_primitives memory.
+# Keeping the primitive set at six matches the classical ALU boundary
+# between "instruction" and "program"; making multiplication primitive
+# (rather than looping over addition) avoids pathological runtime.
+OPERATION = frozenset({
+    "add",
+    "subtract",
+    "multiply",
+    "divide",
+    "abs",
+    "negate",
+})
+
+_ALL = (SENSORY | STRUCTURAL | RELATIONAL | ETHICAL | SAFETY
+        | SOCIAL | CLEANUP | TEMPORAL | PATTERN | OPERATION)
 
 
 def get_sensory() -> frozenset[str]:
@@ -242,3 +259,11 @@ def get_pattern() -> frozenset[str]:
 
 def is_pattern(label: str) -> bool:
     return label.strip().lower() in PATTERN
+
+
+def get_operation() -> frozenset[str]:
+    return OPERATION
+
+
+def is_operation(label: str) -> bool:
+    return label.strip().lower() in OPERATION

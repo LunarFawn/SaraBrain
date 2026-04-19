@@ -128,8 +128,11 @@ def load_region_paths(brain, region: str, nlp=None) -> list[dict]:
     # content lemmas as the authoritative word-bag.
     for p in paths.values():
         src = p.get("source_text") or ""
+        p["triples"] = []
         if src and nlp is not None:
-            for tok in nlp(src):
+            src_doc = nlp(src)
+            p["triples"] = extract_directional_triples(src_doc)
+            for tok in src_doc:
                 if tok.is_punct or tok.is_space:
                     continue
                 lemma = tok.lemma_.lower().strip()
@@ -460,6 +463,15 @@ _TOPIC_PREPS = frozenset({
     "about", "regarding", "concerning", "respecting", "on",
 })
 
+# Directional prepositions — connect a source noun-phrase to a target
+# noun-phrase. Exploration verified these are reliably marked in spaCy
+# as dep=prep with a pobj child. "by" and "to" are EXCLUDED because
+# they fire on non-directional uses ("increased by 5", "identical to
+# parent") and would create false reversals.
+_DIRECTIONAL_PREPS = frozenset({
+    "into", "from", "onto", "via", "through",
+})
+
 # Critical short tokens that carry meaning despite being too short for
 # the generic content_lemmas / path_words length filter. Roman numerals
 # distinguish phases (meiosis I vs meiosis II) and Barr body cytology
@@ -541,6 +553,231 @@ def _is_ordinal_near_miss(c_lemmas: set[str], path_words: set[str],
     return True
 
 
+# ── Directional relations ────────────────────────────────────────────
+# When a taught fact or a multiple-choice option contains a directional
+# preposition ("viral DNA INTO host genome"), the LEFT side is the
+# source content and the RIGHT side is the target content. Bag-of-
+# lemmas scoring cannot distinguish "viral into host" from "host into
+# viral" — they have identical word sets. These helpers extract the
+# directional STRUCTURE from spaCy's dependency parse so the scorer can
+# reward aligned directions and penalise reversed ones.
+
+def _np_span_lemmas(tok) -> set[str]:
+    """Collect content-lemma set for the noun-phrase around `tok`.
+
+    Includes the token's own lemma plus compound / amod / poss / det
+    modifiers. Filters by POS so short stopwords and punctuation do
+    not pollute the span. Used on both sides of a directional
+    preposition to get "source content" vs "target content".
+    """
+    out: set[str] = set()
+
+    def _add(t) -> None:
+        if t.is_punct or t.is_space:
+            return
+        if t.pos_ not in {"NOUN", "PROPN", "VERB", "ADJ", "NUM"}:
+            return
+        lem = t.lemma_.lower().strip().rstrip(".,;:!?\"')]}")
+        if not lem or lem in STOP:
+            return
+        if _WORD_RE.fullmatch(lem):
+            out.add(lem)
+            s = _singularize_fallback(lem)
+            if s:
+                out.add(s)
+
+    _add(tok)
+    for child in tok.children:
+        if child.dep_ in {"compound", "amod", "poss", "nmod", "nummod"}:
+            _add(child)
+            # Compound chains can be deeper: "the host's genome" has
+            # genome → host (poss) → the (det). Walk one level deeper
+            # for poss/compound heads.
+            for gc in child.children:
+                if gc.dep_ in {"compound", "amod", "poss"}:
+                    _add(gc)
+    return out
+
+
+def extract_directional_triples(doc) -> list[dict]:
+    """Extract (source_span, relation, target_span) for each directional
+    preposition in the doc.
+
+    spaCy's structure varies by sentence:
+      - Noun-phrase fragment ("viral genome INTO mammalian DNA") — the
+        preposition attaches to the noun (head = genome, pobj = DNA).
+        Source content is the head's NP span.
+      - Full sentence ("X incorporates viral DNA INTO host genome") —
+        the preposition attaches to the VERB (head = incorporates).
+        The actual moving entity is the verb's DIRECT OBJECT ("viral
+        DNA"), not the verb itself. When the head is a VERB, the
+        source_span is built from the verb's dobj + its modifiers.
+
+    This unification lets the scorer compare a verb-driven sentence
+    against a noun-phrase choice on the same directional footing.
+    """
+    triples: list[dict] = []
+    for tok in doc:
+        if tok.dep_ != "prep":
+            continue
+        prep = tok.text.lower()
+        if prep not in _DIRECTIONAL_PREPS:
+            continue
+        pobj = next(
+            (c for c in tok.children if c.dep_ == "pobj"),
+            None,
+        )
+        if pobj is None:
+            continue
+        head = tok.head
+
+        source_span: set[str] | None = None
+        source_head: str | None = None
+
+        if head.pos_ in {"VERB", "AUX"}:
+            # Verb-driven — the semantic source is the verb's dobj.
+            dobj = next(
+                (c for c in head.children
+                 if c.dep_ in {"dobj", "nsubjpass"}),
+                None,
+            )
+            if dobj is None:
+                dobj = next(
+                    (c for c in head.children if c.dep_ == "nsubj"),
+                    None,
+                )
+            if dobj is not None:
+                source_span = _np_span_lemmas(dobj)
+                source_head = dobj.lemma_.lower()
+        else:
+            # Noun-phrase fragment. If the head is a deverbal noun
+            # like "conversion" / "incorporation" / "transformation",
+            # it often carries an "of X" prep child where X is the
+            # real semantic source.
+            of_prep = next(
+                (c for c in head.children
+                 if c.dep_ == "prep" and c.text.lower() == "of"),
+                None,
+            )
+            if of_prep is not None:
+                of_pobj = next(
+                    (c for c in of_prep.children if c.dep_ == "pobj"),
+                    None,
+                )
+                if of_pobj is not None:
+                    source_span = _np_span_lemmas(of_pobj)
+                    source_head = of_pobj.lemma_.lower()
+            if source_span is None:
+                source_span = _np_span_lemmas(head)
+                source_head = head.lemma_.lower()
+
+        # Surface-level fallback: if the dependency-tree result is
+        # unsatisfyingly thin (e.g. single token that is a deverbal
+        # noun) or empty, scan the doc for any "of" preposition that
+        # occurs BEFORE the directional preposition in text order and
+        # take its pobj as the source. Covers cases where spaCy's
+        # small-model parser mis-tags a noun-phrase fragment's
+        # dependencies.
+        deverbal_suffixes = ("ion", "ment", "sion", "tion")
+        single_deverbal = (
+            source_head is not None
+            and len(source_span or set()) <= 2
+            and any(source_head.endswith(s) for s in deverbal_suffixes)
+        )
+        if not source_span or single_deverbal:
+            for other in doc:
+                if other.i >= tok.i:
+                    break
+                if other.dep_ == "prep" and other.text.lower() == "of":
+                    of_pobj = next(
+                        (c for c in other.children if c.dep_ == "pobj"),
+                        None,
+                    )
+                    if of_pobj is not None:
+                        recovered = _np_span_lemmas(of_pobj)
+                        # Also pull siblings tagged VERB that may be
+                        # mis-tagged nouns (spaCy's common error on
+                        # "host genome" → "genome" as VERB).
+                        for sib in doc:
+                            if (sib.i > of_pobj.i
+                                and sib.i < tok.i
+                                and sib.head == of_pobj.head
+                                and sib.pos_ in {"NOUN", "PROPN", "VERB"}):
+                                lem = sib.lemma_.lower().strip()
+                                if lem and _WORD_RE.fullmatch(lem) \
+                                        and lem not in STOP:
+                                    recovered.add(lem)
+                        if recovered:
+                            source_span = recovered
+                            source_head = of_pobj.lemma_.lower()
+
+        if source_span is None:
+            continue
+
+        target_span = _np_span_lemmas(pobj)
+        if not source_span or not target_span:
+            continue
+        triples.append({
+            "relation": prep,
+            "source_span": source_span,
+            "target_span": target_span,
+            "source_head": source_head,
+            "target_head": pobj.lemma_.lower(),
+        })
+    return triples
+
+
+def _directional_triple_score(
+    c_triples: list[dict],
+    p_triples: list[dict],
+    topic: set[str] | None = None,
+) -> tuple[float, str | None]:
+    """Compare directional triples between a choice and a path.
+
+    For each (choice_triple, path_triple) sharing the same relation
+    (preposition):
+      - aligned: c_source ∩ p_source AND c_target ∩ p_target → +1
+      - reversed: c_source ∩ p_target AND c_target ∩ p_source → -1
+      - neither: 0 (preps match, content does not)
+
+    Topic words are stripped from the spans before intersection so
+    that the question's topic (which typically sits on both sides)
+    does not create false same-side votes.
+
+    Returns (summed_score, human_readable_reason).
+    """
+    topic = topic or set()
+    total = 0.0
+    reasons: list[str] = []
+    for c_t in c_triples:
+        for p_t in p_triples:
+            if c_t["relation"] != p_t["relation"]:
+                continue
+            c_src = c_t["source_span"] - topic
+            c_tgt = c_t["target_span"] - topic
+            p_src = p_t["source_span"] - topic
+            p_tgt = p_t["target_span"] - topic
+            same_src = c_src & p_src
+            same_tgt = c_tgt & p_tgt
+            swap_src = c_src & p_tgt
+            swap_tgt = c_tgt & p_src
+            if same_src and same_tgt:
+                aligned = len(same_src) + len(same_tgt)
+                total += float(aligned)
+                reasons.append(
+                    f"{c_t['relation']} aligned "
+                    f"(src∩{sorted(same_src)}, tgt∩{sorted(same_tgt)})"
+                )
+            elif swap_src and swap_tgt:
+                reversed_ = len(swap_src) + len(swap_tgt)
+                total -= float(reversed_)
+                reasons.append(
+                    f"{c_t['relation']} REVERSED "
+                    f"(src↔{sorted(swap_src)}, tgt↔{sorted(swap_tgt)})"
+                )
+    return total, " / ".join(reasons) if reasons else None
+
+
 def score_choice_by_property(q_topic: set[str], c_lemmas: set[str],
                              region_paths: list[list[dict]],
                              choice_doc, q_temporal: dict,
@@ -563,6 +800,8 @@ def score_choice_by_property(q_topic: set[str], c_lemmas: set[str],
     zero topic-relevant paths signals the caller to fall back to path-mode.
     """
     c_neg = detect_polarity(choice_text)
+    # Extract the choice's directional triples ONCE per choice.
+    c_triples = extract_directional_triples(choice_doc)
     best_score = 0.0
     best_path_info: dict | None = None
     topic_relevant_count = 0
@@ -609,12 +848,25 @@ def score_choice_by_property(q_topic: set[str], c_lemmas: set[str],
 
             property_words = words - q_topic
             hits = c_lemmas & property_words
-            # For near-miss hits, count shared content — the ordinal
-            # mismatch is the signal, not the overlap. Add a small bonus
-            # to break ties in favour of the contradicting choice.
+            # Base property-match score = count of shared content lemmas.
             score = float(len(hits))
             if is_near_miss:
+                # Near-miss contradiction — ordinal swap against taught
+                # fact. Small bonus to break ties under q_neg=True.
                 score += 0.5
+
+            # Directional alignment: when the taught path and the choice
+            # both use a directional preposition (into/from/onto/via/
+            # through), reward matching direction and penalise reversed.
+            # See _directional_triple_score — aligned sides are additive,
+            # reversed sides are subtractive. This is the principled fix
+            # for direction-sensitive claims (e.g. viral→host vs
+            # host→viral in Q251).
+            dir_score, dir_reason = _directional_triple_score(
+                c_triples, p.get("triples", []), q_topic,
+            )
+            score += dir_score
+
             if score > best_score:
                 best_score = score
                 best_path_info = {
@@ -624,6 +876,8 @@ def score_choice_by_property(q_topic: set[str], c_lemmas: set[str],
                     "path_negated": p_neg,
                     "choice_negated": c_neg,
                     "near_miss": is_near_miss,
+                    "directional_score": dir_score,
+                    "directional_reason": dir_reason,
                 }
 
     # Temporal/causal fit — kept as a small side-signal for parity with

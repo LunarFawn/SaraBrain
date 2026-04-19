@@ -1,11 +1,11 @@
 {
-  "accuracy_of_answered": 0.9629629629629629,
+  "accuracy_of_answered": 1.0,
   "coverage": 0.8181818181818182,
-  "correct": 26,
-  "wrong": 1,
+  "correct": 27,
+  "wrong": 0,
   "abstained": 6,
   "total": 33,
-  "seconds": 0.9815168380737305,
+  "seconds": 1.0072240829467773,
   "abstain_threshold": 1.0,
   "results": [
     {
@@ -60,7 +60,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -98,7 +100,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -176,7 +180,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -284,7 +290,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -310,7 +318,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -339,7 +349,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -367,7 +379,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         }
       ]
@@ -438,7 +452,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -463,7 +479,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -569,7 +587,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         }
       ]
@@ -638,7 +658,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -763,7 +785,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         }
       ]
@@ -820,7 +844,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -845,7 +871,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -870,7 +898,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -896,7 +926,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         }
       ]
@@ -963,7 +995,9 @@
             ],
             "path_negated": true,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -988,7 +1022,9 @@
             ],
             "path_negated": true,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -1013,7 +1049,9 @@
             ],
             "path_negated": true,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -1121,7 +1159,9 @@
             ],
             "path_negated": true,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         }
       ]
@@ -1383,7 +1423,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -1460,7 +1502,9 @@
             ],
             "path_negated": true,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -1510,7 +1554,9 @@
             ],
             "path_negated": true,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         }
       ]
@@ -1581,7 +1627,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -1606,7 +1654,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -1634,7 +1684,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -1659,7 +1711,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         }
       ]
@@ -1734,7 +1788,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -1765,7 +1821,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -1789,7 +1847,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -1814,7 +1874,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         }
       ]
@@ -1875,7 +1937,9 @@
             ],
             "path_negated": true,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -1917,7 +1981,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": true
+            "near_miss": true,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -1986,7 +2052,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -2014,7 +2082,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -2041,7 +2111,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -2067,7 +2139,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         }
       ]
@@ -2142,7 +2216,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -2394,7 +2470,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -2419,7 +2497,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -2729,7 +2809,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -2755,7 +2837,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -2780,7 +2864,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -2805,7 +2891,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         }
       ]
@@ -2873,7 +2961,9 @@
             ],
             "path_negated": true,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -2898,7 +2988,9 @@
             ],
             "path_negated": true,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -2925,7 +3017,9 @@
             ],
             "path_negated": true,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -3027,7 +3121,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -3101,7 +3197,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -3139,7 +3237,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -3246,7 +3346,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         }
       ]
@@ -3315,7 +3417,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -3343,7 +3447,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -3379,10 +3485,10 @@
       "question": "Some strains of viruses can change normal mammalian cells into cancer cells in vitro. This transformation of the mammalian cell is usually associated with the",
       "correct": "B",
       "correct_text": "incorporation of the viral genome into the mammalian cell's nuclear DNA",
-      "pick": "C",
-      "outcome": "wrong",
-      "best_score": 4.0,
-      "gap_pct": 25.0,
+      "pick": "B",
+      "outcome": "correct",
+      "best_score": 6.0,
+      "gap_pct": 66.7,
       "regions": [
         "cancer",
         "cell_division",
@@ -3431,19 +3537,19 @@
         {
           "letter": "B",
           "text": "incorporation of the viral genome into the mammalian cell's nuclear DNA",
-          "score": 3.0,
+          "score": 6.0,
           "scored_by": "property",
-          "property_score": 3.0,
+          "property_score": 6.0,
           "temp": 0.0,
           "topic_relevant_paths": 18,
           "polarity_skips": 4,
           "c_neg": false,
           "q_neg": false,
           "best_path": {
-            "source": "viral transformation incorporates viral DNA into the host cell genome",
+            "source": "viral transformation places viral DNA into mammalian nuclear DNA",
             "property_hits": [
               "dna",
-              "genome",
+              "nuclear",
               "viral"
             ],
             "terminus_words": [
@@ -3452,26 +3558,26 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 3.0,
+            "directional_reason": "into aligned (src\u2229['viral'], tgt\u2229['dna', 'nuclear'])"
           }
         },
         {
           "letter": "C",
           "text": "conversion of the host's genome into the viral DNA",
-          "score": 4.0,
+          "score": 2.0,
           "scored_by": "property",
-          "property_score": 4.0,
+          "property_score": 2.0,
           "temp": 0.0,
           "topic_relevant_paths": 18,
           "polarity_skips": 4,
           "c_neg": false,
           "q_neg": false,
           "best_path": {
-            "source": "viral transformation incorporates viral DNA into the host cell genome",
+            "source": "viral transformation places viral DNA into mammalian nuclear DNA",
             "property_hits": [
               "dna",
-              "genome",
-              "host",
               "viral"
             ],
             "terminus_words": [
@@ -3480,7 +3586,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -3558,7 +3666,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -3598,7 +3708,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -3624,7 +3736,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         }
       ]
@@ -3691,7 +3805,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -3717,7 +3833,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -3742,7 +3860,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -3770,7 +3890,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         }
       ]
@@ -3831,7 +3953,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {
@@ -3873,7 +3997,9 @@
             ],
             "path_negated": false,
             "choice_negated": false,
-            "near_miss": false
+            "near_miss": false,
+            "directional_score": 0.0,
+            "directional_reason": null
           }
         },
         {

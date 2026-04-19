@@ -1,6 +1,5 @@
 {
   "permissions": {
-    "defaultMode": "acceptEdits",
     "allow": [
       "WebSearch",
       "Bash(python3:*)",
@@ -22,7 +21,10 @@
       "Bash(curl:*)",
       "Bash(cat:*)",
       "Bash(ollama list:*)",
-      "Bash(echo:*)"
-    ]
+      "Bash(echo:*)",
+      "Bash(sqlite3 *)",
+      "Bash(.venv/bin/python *)"
+    ],
+    "defaultMode": "acceptEdits"
   }
 }

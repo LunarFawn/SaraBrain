@@ -1,11 +1,11 @@
 {
-  "accuracy_of_answered": 0.8636363636363636,
+  "accuracy_of_answered": 0.9090909090909091,
   "coverage": 0.6666666666666665,
-  "correct": 19,
-  "wrong": 3,
+  "correct": 20,
+  "wrong": 2,
   "abstained": 11,
   "total": 33,
-  "seconds": 1.071676254272461,
+  "seconds": 0.9483640193939209,
   "abstain_threshold": 1.0,
   "results": [
     {
@@ -246,6 +246,7 @@
       },
       "correct_lemmas": [
         "inactivated",
+        "x",
         "chromosome",
         "result",
         "female",
@@ -705,7 +706,7 @@
       "regions": [
         "cell_division",
         "meiosis",
-        "cell_cycle"
+        "genetics"
       ],
       "q_lemmas": [
         "crossover",
@@ -827,10 +828,10 @@
       "question": "In modern terminology, diversity is understood to be a result of genetic variation. Sources of variation for evolution include all of the following except",
       "correct": "A",
       "correct_text": "mistakes in translation of structural genes.",
-      "pick": "B",
-      "outcome": "wrong",
-      "best_score": 3.0,
-      "gap_pct": 33.3,
+      "pick": "A",
+      "outcome": "correct",
+      "best_score": 2.0,
+      "gap_pct": 50.0,
       "regions": [
         "genetics",
         "cell_division",
@@ -864,106 +865,88 @@
         {
           "letter": "A",
           "text": "mistakes in translation of structural genes.",
-          "score": 1.0,
+          "score": 2.0,
           "scored_by": "property",
-          "property_score": 1.0,
+          "property_score": 2.0,
           "temp": 0.0,
           "topic_relevant_paths": 7,
-          "polarity_skips": 2,
+          "polarity_skips": 5,
           "c_neg": false,
-          "q_neg": false,
+          "q_neg": true,
           "best_path": {
-            "source": "DNA replication mistakes are a source of genetic variation",
+            "source": "translation mistakes are not a source of genetic variation for evolution",
             "property_hits": [
-              "mistake"
+              "mistake",
+              "translation"
             ],
             "terminus_words": [
-              "dna",
               "mistake",
-              "replication"
+              "translation"
             ],
-            "path_negated": false,
+            "path_negated": true,
             "choice_negated": false
           }
         },
         {
           "letter": "B",
           "text": "mistakes in DNA replication.",
-          "score": 3.0,
+          "score": 1.0,
           "scored_by": "property",
-          "property_score": 3.0,
+          "property_score": 1.0,
           "temp": 0.0,
           "topic_relevant_paths": 7,
-          "polarity_skips": 2,
+          "polarity_skips": 5,
           "c_neg": false,
-          "q_neg": false,
+          "q_neg": true,
           "best_path": {
-            "source": "DNA replication mistakes are a source of genetic variation",
+            "source": "translation mistakes are not a source of genetic variation for evolution",
             "property_hits": [
-              "dna",
-              "mistake",
-              "replication"
+              "mistake"
             ],
             "terminus_words": [
-              "dna",
               "mistake",
-              "replication"
+              "translation"
             ],
-            "path_negated": false,
+            "path_negated": true,
             "choice_negated": false
           }
         },
         {
           "letter": "C",
           "text": "translocations and mistakes in meiosis.",
-          "score": 2.0,
+          "score": 1.0,
           "scored_by": "property",
-          "property_score": 2.0,
+          "property_score": 1.0,
           "temp": 0.0,
           "topic_relevant_paths": 7,
-          "polarity_skips": 2,
+          "polarity_skips": 5,
           "c_neg": false,
-          "q_neg": false,
+          "q_neg": true,
           "best_path": {
-            "source": "meiosis errors are a source of genetic variation",
+            "source": "translation mistakes are not a source of genetic variation for evolution",
             "property_hits": [
-              "meiosi",
-              "meiosis"
+              "mistake"
             ],
             "terminus_words": [
-              "error",
-              "meiosi",
-              "meiosis"
+              "mistake",
+              "translation"
             ],
-            "path_negated": false,
+            "path_negated": true,
             "choice_negated": false
           }
         },
         {
           "letter": "D",
           "text": "recombination at fertilization.",
-          "score": 2.0,
+          "score": 0.0,
           "scored_by": "property",
-          "property_score": 2.0,
+          "property_score": 0.0,
           "temp": 0.0,
           "topic_relevant_paths": 7,
-          "polarity_skips": 2,
+          "polarity_skips": 5,
           "c_neg": false,
-          "q_neg": false,
-          "best_path": {
-            "source": "recombination at fertilization is a source of genetic variation",
-            "property_hits": [
-              "fertilization",
-              "recombination"
-            ],
-            "terminus_words": [
-              "at",
-              "fertilization",
-              "recombination"
-            ],
-            "path_negated": false,
-            "choice_negated": false
-          }
+          "q_neg": true,
+          "best_path": null
         }
       ]
     },
@@ -1454,8 +1437,8 @@
       "correct_text": "lack an X chromosome",
       "pick": "C",
       "outcome": "correct",
-      "best_score": 2.0,
-      "gap_pct": 50.0,
+      "best_score": 3.0,
+      "gap_pct": 33.3,
       "regions": [
         "genetics",
         "cell_division",
@@ -1469,6 +1452,7 @@
         "incidence",
         "hemophilia",
         "recessive",
+        "x",
         "link",
         "trait",
         "base",
@@ -1482,15 +1466,16 @@
       },
       "correct_lemmas": [
         "lack",
+        "x",
         "chromosome"
       ],
       "choices": [
         {
           "letter": "A",
           "text": "have an extra X chromosome",
-          "score": 1.0,
+          "score": 2.0,
           "scored_by": "property",
-          "property_score": 1.0,
+          "property_score": 2.0,
           "temp": 0.0,
           "topic_relevant_paths": 4,
           "polarity_skips": 0,
@@ -1499,7 +1484,8 @@
           "best_path": {
             "source": "Turner syndrome is caused by lacking an X chromosome",
             "property_hits": [
-              "chromosome"
+              "chromosome",
+              "x"
             ],
             "terminus_words": [
               "syndrome",
@@ -1536,9 +1522,9 @@
         {
           "letter": "C",
           "text": "lack an X chromosome",
-          "score": 2.0,
+          "score": 3.0,
           "scored_by": "property",
-          "property_score": 2.0,
+          "property_score": 3.0,
           "temp": 0.0,
           "topic_relevant_paths": 4,
           "polarity_skips": 0,
@@ -1548,7 +1534,8 @@
             "source": "Turner syndrome is caused by lacking an X chromosome",
             "property_hits": [
               "chromosome",
-              "lack"
+              "lack",
+              "x"
             ],
             "terminus_words": [
               "syndrome",
@@ -1589,10 +1576,10 @@
       "question": "Regarding meiosis and mitosis, one difference between the two forms of cellular reproduction is that in meiosis",
       "correct": "B",
       "correct_text": "separation of sister chromatids occurs during the second division, whereas in mitosis separation of sister chromatids occurs during the first division",
-      "pick": "D",
+      "pick": "A",
       "outcome": "wrong",
-      "best_score": 2.0,
-      "gap_pct": 50.0,
+      "best_score": 4.0,
+      "gap_pct": 25.0,
       "regions": [
         "cell_cycle",
         "meiosis",
@@ -1631,28 +1618,56 @@
         {
           "letter": "A",
           "text": "there is one round of cell division, whereas in mitosis there are two rounds of cell division",
-          "score": 0.0,
+          "score": 4.0,
           "scored_by": "property",
-          "property_score": 0.0,
+          "property_score": 4.0,
           "temp": 0.0,
-          "topic_relevant_paths": 1,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 26,
+          "polarity_skips": 4,
           "c_neg": false,
           "q_neg": false,
-          "best_path": null
+          "best_path": {
+            "source": "meiosis has two rounds of cell division",
+            "property_hits": [
+              "cell",
+              "division",
+              "round",
+              "two"
+            ],
+            "terminus_words": [
+              "meiosi"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "B",
           "text": "separation of sister chromatids occurs during the second division, whereas in mitosis separation of sister chromatids occurs during the first division",
-          "score": 0.0,
+          "score": 3.0,
           "scored_by": "property",
-          "property_score": 0.0,
+          "property_score": 3.0,
           "temp": 0.0,
-          "topic_relevant_paths": 1,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 26,
+          "polarity_skips": 4,
           "c_neg": false,
           "q_neg": false,
-          "best_path": null
+          "best_path": {
+            "source": "sister chromatids separate during meiosis II",
+            "property_hits": [
+              "chromatid",
+              "chromatids",
+              "sister"
+            ],
+            "terminus_words": [
+              "chromatid",
+              "chromatids",
+              "separate",
+              "sister"
+            ],
+            "path_negated": false,
+            "choice_negated": false
+          }
         },
         {
           "letter": "C",
@@ -1661,19 +1676,17 @@
           "scored_by": "property",
           "property_score": 1.0,
           "temp": 0.0,
-          "topic_relevant_paths": 1,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 26,
+          "polarity_skips": 4,
           "c_neg": false,
           "q_neg": false,
           "best_path": {
-            "source": "the mitotic spindle forms during prophase",
+            "source": "mitosis has four stages prophase metaphase anaphase and telophase",
             "property_hits": [
               "prophase"
             ],
             "terminus_words": [
-              "form",
-              "mitotic",
-              "spindle"
+              "mitosi"
             ],
             "path_negated": false,
             "choice_negated": false
@@ -1686,20 +1699,18 @@
           "scored_by": "property",
           "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 1,
-          "polarity_skips": 0,
+          "topic_relevant_paths": 26,
+          "polarity_skips": 4,
           "c_neg": false,
           "q_neg": false,
           "best_path": {
-            "source": "the mitotic spindle forms during prophase",
+            "source": "mitosis has four stages prophase metaphase anaphase and telophase",
             "property_hits": [
-              "prophase",
-              "spindle"
+              "metaphase",
+              "prophase"
             ],
             "terminus_words": [
-              "form",
-              "mitotic",
-              "spindle"
+              "mitosi"
             ],
             "path_negated": false,
             "choice_negated": false
@@ -1869,14 +1880,15 @@
           "c_neg": false,
           "q_neg": false,
           "best_path": {
-            "source": "crossing-over occurs during prophase I of meiosis",
+            "source": "sister chromatids separate during meiosis II",
             "property_hits": [
-              "prophase"
+              "ii"
             ],
             "terminus_words": [
-              "crossing",
-              "occur",
-              "over"
+              "chromatid",
+              "chromatids",
+              "separate",
+              "sister"
             ],
             "path_negated": false,
             "choice_negated": false
@@ -2782,6 +2794,7 @@
         "follow",
         "disorder",
         "result",
+        "x",
         "chromosome",
         "aneuploidy",
         "woman"

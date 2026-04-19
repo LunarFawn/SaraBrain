@@ -132,14 +132,17 @@ def load_region_paths(brain, region: str, nlp=None) -> list[dict]:
             for tok in nlp(src):
                 if tok.is_punct or tok.is_space:
                     continue
-                if tok.pos_ not in {
-                    "NOUN", "PROPN", "VERB", "ADJ", "NUM", "ADP"
-                }:
-                    # ADP (prepositions) kept because "by", "of" etc.
-                    # don't matter here but we strip them via STOP check.
-                    continue
                 lemma = tok.lemma_.lower().strip()
                 if not lemma or lemma in STOP:
+                    continue
+                # Accept if POS is content-ish OR if this is a critical
+                # short token (Roman numeral, ordinal). spaCy sometimes
+                # tags "II" as PRON or X depending on context; critical
+                # tokens must survive regardless.
+                pos_ok = tok.pos_ in {
+                    "NOUN", "PROPN", "VERB", "ADJ", "NUM", "ADP"
+                }
+                if not pos_ok and lemma not in _CRITICAL_TOKENS:
                     continue
                 if _WORD_RE.fullmatch(lemma):
                     p["words"].add(lemma)
@@ -159,13 +162,15 @@ _NEG_TOKENS = {
     "except", "excluding", "excludes",
     "false", "incorrect", "wrong",
 }
-# Strong question-level markers — require capitalisation or a multi-word
-# phrase so we don't mis-fire on an incidental lowercase 'not' inside a
-# clause. Questions that want a FALSE answer almost always signal it
-# strongly ("Which is NOT true", "all of the following EXCEPT", etc.).
+# Strong question-level markers — specific tokens and phrases that
+# explicitly signal the question wants a FALSE answer. Case-insensitive
+# so we catch "EXCEPT", "Except", and "except" equally; the specificity
+# comes from the alternation set, not the case. Plain lowercase "not"
+# inside a clause is NOT a trigger because it's not in the alternation.
 _QUESTION_NEG_RE = re.compile(
     r"\bNOT\b|\bEXCEPT\b|\bEXCLUDING\b|\bfalse\b|\bincorrect\b"
-    r"|\bwrong\b|\bnone of\b|\bleast likely\b"
+    r"|\bwrong\b|\bnone of\b|\bleast likely\b",
+    re.IGNORECASE,
 )
 
 
@@ -240,21 +245,32 @@ def content_lemmas(doc) -> list[str]:
         lemma = tok.lemma_.lower().strip()
         if lemma in STOP:
             continue
-        # Normally filter short tokens as noise. Exception: when the
-        # entire choice is a short token (e.g. "S", "48"), keep it.
-        if len(lemma) < 3 and not is_very_short:
+        # Normally filter short tokens as noise. Two exceptions:
+        #   - when the entire choice is a short token (e.g. "S", "48");
+        #   - when the token is semantically critical (Roman numerals,
+        #     ordinals, chromosome-arm symbols) — these distinguish
+        #     concepts like "meiosis I" vs "meiosis II" and must
+        #     survive the length filter.
+        if (len(lemma) < 3
+                and not is_very_short
+                and lemma not in _CRITICAL_TOKENS):
             continue
         _add(lemma)
 
     # Fallback: spaCy's POS tagger is unreliable on short isolated phrases
     # like "Prophase I" (tagged INTJ+PRON instead of PROPN+PROPN). When the
-    # POS-filtered pass yields nothing, fall back to raw words minus
-    # stopwords — correctness over elegance on short choices.
-    if not out:
+    # POS-filtered pass yields nothing meaningful, fall back to raw words.
+    # "Meaningful" = at least one token that is NOT a critical short
+    # token — so a choice whose only content_lemma is "i" still triggers
+    # the fallback to pick up "prophase" via the raw-word scan.
+    has_substantive = any(w not in _CRITICAL_TOKENS for w in out)
+    if not has_substantive:
         for w in _WORD_RE.findall(doc.text.lower()):
             if w in STOP:
                 continue
-            if len(w) < 3 and not is_very_short:
+            if (len(w) < 3
+                    and not is_very_short
+                    and w not in _CRITICAL_TOKENS):
                 continue
             _add(w)
     return out
@@ -333,12 +349,18 @@ def extract_topic(doc) -> set[str]:
                 "NOUN", "PROPN", "ADJ"}:
                 _add(child.lemma_)
 
-    # 1. 'about X' preposition → pobj child
+    # 1. Topic-preposition → pobj child. Handles "about X", "regarding X",
+    #    "concerning X", "on X" (e.g. "Questions on meiosis"). Conjuncts
+    #    of the pobj are pulled too ("Regarding meiosis and mitosis").
     for tok in doc:
-        if tok.text.lower() == "about" and tok.dep_ == "prep":
+        if tok.text.lower() in _TOPIC_PREPS and tok.dep_ == "prep":
             for child in tok.children:
                 if child.dep_ == "pobj" and child.pos_ in {"NOUN", "PROPN"}:
                     _add_np_chain(child)
+                    for conj in child.children:
+                        if conj.dep_ == "conj" and conj.pos_ in {
+                            "NOUN", "PROPN"}:
+                            _add_np_chain(conj)
 
     # 2. Root verb's nsubj + 3. its prep-phrase objects
     for tok in doc:
@@ -389,6 +411,30 @@ _META_TERMS = frozenset({
 # that dilutes the property-match signal (every added topic removes
 # one more word from the property phrase during scoring).
 _MAX_TOPICS = 6
+
+# Prepositions whose pobj carries the question's topic. "about" is the
+# canonical form; "regarding", "concerning", "on" are equivalents
+# commonly used in biology MC stems ("Regarding meiosis and mitosis...",
+# "Questions on genetic variation...").
+_TOPIC_PREPS = frozenset({
+    "about", "regarding", "concerning", "respecting", "on",
+})
+
+# Critical short tokens that carry meaning despite being too short for
+# the generic content_lemmas / path_words length filter. Roman numerals
+# distinguish phases (meiosis I vs meiosis II) and Barr body cytology
+# (p arm vs q arm of a chromosome). These bypass the <3-char cutoff so
+# that "meiosis I" and "meiosis II" are distinguishable at lemma level.
+_CRITICAL_TOKENS = frozenset({
+    # Roman numerals 1-10
+    "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x",
+    # Ordinals used as phase / order identifiers
+    "first", "second", "third", "fourth", "fifth",
+    # Chromosome arm symbols
+    "p", "q",
+    # Haploid shorthand (2n is caught by numeric patterns elsewhere)
+    "n",
+})
 
 
 def score_choice_by_property(q_topic: set[str], c_lemmas: set[str],

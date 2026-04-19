@@ -1,0 +1,6 @@
+# Ch10 round 3b — cancer region, Q251 directional correction.
+# Re-teach with phrasing that does not share the word "host" with the
+# distractor choice. Emphasize viral DNA entering mammalian nuclear DNA.
+viral transformation places viral DNA into mammalian nuclear DNA
+cancerous viral transformation incorporates viral genome into the mammalian cell
+viral DNA inserts into the mammalian cell's nuclear DNA during transformation

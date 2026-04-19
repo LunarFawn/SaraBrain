@@ -1,11 +1,11 @@
 {
-  "accuracy_of_answered": 1.0,
-  "coverage": 0.6666666666666665,
-  "correct": 22,
-  "wrong": 0,
-  "abstained": 11,
+  "accuracy_of_answered": 0.9629629629629629,
+  "coverage": 0.8181818181818182,
+  "correct": 26,
+  "wrong": 1,
+  "abstained": 6,
   "total": 33,
-  "seconds": 1.1357009410858154,
+  "seconds": 0.9815168380737305,
   "abstain_threshold": 1.0,
   "results": [
     {
@@ -46,7 +46,7 @@
           "scored_by": "property",
           "property_score": 1.0,
           "temp": 0.0,
-          "topic_relevant_paths": 30,
+          "topic_relevant_paths": 32,
           "polarity_skips": 3,
           "c_neg": false,
           "q_neg": false,
@@ -70,7 +70,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 30,
+          "topic_relevant_paths": 32,
           "polarity_skips": 3,
           "c_neg": false,
           "q_neg": false,
@@ -83,7 +83,7 @@
           "scored_by": "property",
           "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 30,
+          "topic_relevant_paths": 32,
           "polarity_skips": 3,
           "c_neg": false,
           "q_neg": false,
@@ -108,7 +108,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 30,
+          "topic_relevant_paths": 32,
           "polarity_skips": 3,
           "c_neg": false,
           "q_neg": false,
@@ -225,10 +225,10 @@
       "question": "Which of the following statements best describes what a Barr body is and its significance?",
       "correct": "C",
       "correct_text": "It is an inactivated X chromosome and results in females with half their cells having one X inactivated and the other half of their cells having the other X inactivated.",
-      "pick": "-",
-      "outcome": "abstain",
-      "best_score": 0.0,
-      "gap_pct": 0.0,
+      "pick": "C",
+      "outcome": "correct",
+      "best_score": 5.0,
+      "gap_pct": 20.0,
       "regions": [
         "genetics",
         "meiosis",
@@ -264,58 +264,111 @@
         {
           "letter": "A",
           "text": "It is an inactivated Y chromosome and results in a man being sterile.",
-          "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
+          "topic_relevant_paths": 2,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "a Barr body is an inactivated X chromosome",
+            "property_hits": [
+              "chromosome",
+              "inactivated"
+            ],
+            "terminus_words": [
+              "barr",
+              "body"
+            ],
+            "path_negated": false,
+            "choice_negated": false,
+            "near_miss": false
+          }
         },
         {
           "letter": "B",
           "text": "It is an inactivated Y chromosome, and the person who has it appears female.",
-          "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
+          "topic_relevant_paths": 2,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "a Barr body is an inactivated X chromosome",
+            "property_hits": [
+              "chromosome",
+              "inactivated"
+            ],
+            "terminus_words": [
+              "barr",
+              "body"
+            ],
+            "path_negated": false,
+            "choice_negated": false,
+            "near_miss": false
+          }
         },
         {
           "letter": "C",
           "text": "It is an inactivated X chromosome and results in females with half their cells having one X inactivated and the other half of their cells having the other X inactivated.",
-          "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "score": 5.0,
+          "scored_by": "property",
+          "property_score": 5.0,
           "temp": 0.0,
+          "topic_relevant_paths": 2,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "Barr bodies are condensed inactive X chromosomes in female cells",
+            "property_hits": [
+              "cell",
+              "chromosome",
+              "female",
+              "tenth",
+              "x"
+            ],
+            "terminus_words": [
+              "barr",
+              "body"
+            ],
+            "path_negated": false,
+            "choice_negated": false,
+            "near_miss": false
+          }
         },
         {
           "letter": "D",
           "text": "It is an inactivated X chromosome and results in females who are sterile.",
-          "score": 0.0,
-          "scored_by": "path-fallback",
-          "path": 0.0,
-          "terminus": 0.0,
+          "score": 4.0,
+          "scored_by": "property",
+          "property_score": 4.0,
           "temp": 0.0,
+          "topic_relevant_paths": 2,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "best_path": {
+            "source": "a Barr body is an inactivated X chromosome",
+            "property_hits": [
+              "chromosome",
+              "inactivated",
+              "tenth",
+              "x"
+            ],
+            "terminus_words": [
+              "barr",
+              "body"
+            ],
+            "path_negated": false,
+            "choice_negated": false,
+            "near_miss": false
+          }
         }
       ]
     },
@@ -357,7 +410,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 5,
+          "topic_relevant_paths": 7,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -370,7 +423,7 @@
           "scored_by": "property",
           "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 5,
+          "topic_relevant_paths": 7,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -395,7 +448,7 @@
           "scored_by": "property",
           "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 5,
+          "topic_relevant_paths": 7,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -420,7 +473,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 5,
+          "topic_relevant_paths": 7,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -526,10 +579,10 @@
       "question": "In humans, fertilization normally occurs in the",
       "correct": "B",
       "correct_text": "fallopian tube",
-      "pick": "-",
-      "outcome": "abstain",
-      "best_score": 0.0,
-      "gap_pct": 0.0,
+      "pick": "B",
+      "outcome": "correct",
+      "best_score": 2.0,
+      "gap_pct": 100.0,
       "regions": [
         "reproduction",
         "cell_division",
@@ -553,53 +606,66 @@
           "letter": "A",
           "text": "ovary",
           "score": 0.0,
-          "scored_by": "path-fallback-all-zero",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": []
+          "best_path": null
         },
         {
           "letter": "B",
           "text": "fallopian tube",
-          "score": 0.0,
-          "scored_by": "path-fallback-all-zero",
-          "path": 0.0,
-          "terminus": 0.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": []
+          "best_path": {
+            "source": "fertilization in humans occurs in the fallopian tube",
+            "property_hits": [
+              "fallopian",
+              "tube"
+            ],
+            "terminus_words": [
+              "fertilization",
+              "in"
+            ],
+            "path_negated": false,
+            "choice_negated": false,
+            "near_miss": false
+          }
         },
         {
           "letter": "C",
           "text": "uterus",
           "score": 0.0,
-          "scored_by": "path-fallback-all-zero",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": []
+          "best_path": null
         },
         {
           "letter": "D",
           "text": "placenta",
           "score": 0.0,
-          "scored_by": "path-fallback-all-zero",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
+          "topic_relevant_paths": 4,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
-          "convergent_paths": []
+          "best_path": null
         }
       ]
     },
@@ -1001,7 +1067,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 11,
+          "topic_relevant_paths": 13,
           "polarity_skips": 9,
           "c_neg": false,
           "q_neg": true,
@@ -1014,7 +1080,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 11,
+          "topic_relevant_paths": 13,
           "polarity_skips": 9,
           "c_neg": false,
           "q_neg": true,
@@ -1027,7 +1093,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 11,
+          "topic_relevant_paths": 13,
           "polarity_skips": 9,
           "c_neg": false,
           "q_neg": true,
@@ -1040,7 +1106,7 @@
           "scored_by": "property",
           "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 11,
+          "topic_relevant_paths": 13,
           "polarity_skips": 9,
           "c_neg": false,
           "q_neg": true,
@@ -1498,7 +1564,7 @@
           "scored_by": "property",
           "property_score": 3.0,
           "temp": 0.0,
-          "topic_relevant_paths": 4,
+          "topic_relevant_paths": 5,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -1525,7 +1591,7 @@
           "scored_by": "property",
           "property_score": 1.0,
           "temp": 0.0,
-          "topic_relevant_paths": 4,
+          "topic_relevant_paths": 5,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -1550,7 +1616,7 @@
           "scored_by": "property",
           "property_score": 4.0,
           "temp": 0.0,
-          "topic_relevant_paths": 4,
+          "topic_relevant_paths": 5,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -1578,7 +1644,7 @@
           "scored_by": "property",
           "property_score": 1.0,
           "temp": 0.0,
-          "topic_relevant_paths": 4,
+          "topic_relevant_paths": 5,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -1765,7 +1831,7 @@
       "regions": [
         "meiosis",
         "cell_division",
-        "genetics"
+        "reproduction"
       ],
       "q_lemmas": [
         "meiosis",
@@ -1792,7 +1858,7 @@
           "scored_by": "property",
           "property_score": 1.0,
           "temp": 0.0,
-          "topic_relevant_paths": 17,
+          "topic_relevant_paths": 18,
           "polarity_skips": 13,
           "c_neg": false,
           "q_neg": true,
@@ -1819,7 +1885,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 17,
+          "topic_relevant_paths": 18,
           "polarity_skips": 13,
           "c_neg": false,
           "q_neg": true,
@@ -1832,7 +1898,7 @@
           "scored_by": "property",
           "property_score": 3.5,
           "temp": 0.0,
-          "topic_relevant_paths": 17,
+          "topic_relevant_paths": 18,
           "polarity_skips": 11,
           "c_neg": false,
           "q_neg": true,
@@ -1861,7 +1927,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 17,
+          "topic_relevant_paths": 18,
           "polarity_skips": 13,
           "c_neg": false,
           "q_neg": true,
@@ -2131,8 +2197,8 @@
       "gap_pct": 0.0,
       "regions": [
         "cancer",
-        "cell_cycle_control",
-        "prokaryotic_division"
+        "genetics",
+        "cell_cycle_control"
       ],
       "q_lemmas": [
         "seasonal",
@@ -2419,57 +2485,53 @@
           "letter": "A",
           "text": "In the early female embryo, one copy of the X chromosome becomes inactivated in every body cell.",
           "score": 0.0,
-          "scored_by": "path-fallback",
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "polarity_skips": 2,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "convergent_paths": []
         },
         {
           "letter": "B",
           "text": "The same chromosome in every cell of a normal female is inactivated.",
           "score": 0.0,
-          "scored_by": "path-fallback",
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "polarity_skips": 2,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "convergent_paths": []
         },
         {
           "letter": "C",
           "text": "A male with the XXY genotype will have one Barr body.",
           "score": 0.0,
-          "scored_by": "path-fallback",
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "polarity_skips": 2,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "convergent_paths": []
         },
         {
           "letter": "D",
           "text": "Barr bodies consist of highly methylated DNA.",
           "score": 0.0,
-          "scored_by": "path-fallback",
+          "scored_by": "path-fallback-all-zero",
           "path": 0.0,
           "terminus": 0.0,
           "temp": 0.0,
-          "polarity_skips": 0,
+          "polarity_skips": 2,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": [],
-          "fallback": "no-topic-paths"
+          "convergent_paths": []
         }
       ]
     },
@@ -2753,14 +2815,14 @@
       "question": "All of the following support the endosymbiotic theory that ancestors of mitochondria and chloroplasts were once independent, free-living prokaryotes EXCEPT:",
       "correct": "C",
       "correct_text": "Mitochondria and chloroplasts function independently from the eukaryotic host cell.",
-      "pick": "-",
-      "outcome": "abstain",
-      "best_score": 0.0,
-      "gap_pct": 0.0,
+      "pick": "C",
+      "outcome": "correct",
+      "best_score": 4.0,
+      "gap_pct": 25.0,
       "regions": [
         "cell_division",
-        "prokaryotic_division",
-        "cell_cycle"
+        "evolution",
+        "prokaryotic_division"
       ],
       "q_lemmas": [
         "support",
@@ -2791,54 +2853,93 @@
         {
           "letter": "A",
           "text": "Mitochondria and chloroplasts divide independently of the eukaryotic host cell by a process similar to binary fission.",
-          "score": 0.0,
-          "scored_by": "path-fallback-all-zero",
-          "path": 0.0,
-          "terminus": 0.0,
+          "score": 3.0,
+          "scored_by": "property",
+          "property_score": 3.0,
           "temp": 0.0,
-          "polarity_skips": 2,
+          "topic_relevant_paths": 5,
+          "polarity_skips": 3,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": []
+          "best_path": {
+            "source": "mitochondria do not function independently from the eukaryotic host cell",
+            "property_hits": [
+              "cell",
+              "eukaryotic",
+              "host"
+            ],
+            "terminus_words": [
+              "mitochondria"
+            ],
+            "path_negated": true,
+            "choice_negated": false,
+            "near_miss": false
+          }
         },
         {
           "letter": "B",
           "text": "Mitochondria and chloroplasts have ribosomes that more closely resemble those of bacteria than of eukaryotic cells.",
-          "score": 0.0,
-          "scored_by": "path-fallback-all-zero",
-          "path": 0.0,
-          "terminus": 0.0,
+          "score": 2.0,
+          "scored_by": "property",
+          "property_score": 2.0,
           "temp": 0.0,
-          "polarity_skips": 1,
+          "topic_relevant_paths": 5,
+          "polarity_skips": 3,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": []
+          "best_path": {
+            "source": "mitochondria do not function independently from the eukaryotic host cell",
+            "property_hits": [
+              "cell",
+              "eukaryotic"
+            ],
+            "terminus_words": [
+              "mitochondria"
+            ],
+            "path_negated": true,
+            "choice_negated": false,
+            "near_miss": false
+          }
         },
         {
           "letter": "C",
           "text": "Mitochondria and chloroplasts function independently from the eukaryotic host cell.",
-          "score": 0.0,
-          "scored_by": "path-fallback-all-zero",
-          "path": 0.0,
-          "terminus": 0.0,
+          "score": 4.0,
+          "scored_by": "property",
+          "property_score": 4.0,
           "temp": 0.0,
-          "polarity_skips": 1,
+          "topic_relevant_paths": 5,
+          "polarity_skips": 3,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": []
+          "best_path": {
+            "source": "mitochondria do not function independently from the eukaryotic host cell",
+            "property_hits": [
+              "cell",
+              "eukaryotic",
+              "function",
+              "host"
+            ],
+            "terminus_words": [
+              "mitochondria"
+            ],
+            "path_negated": true,
+            "choice_negated": false,
+            "near_miss": false
+          }
         },
         {
           "letter": "D",
           "text": "Mitochondria, chloroplasts, and bacteria have a single, circular chromosome without histones or proteins.",
           "score": 0.0,
-          "scored_by": "path-fallback-all-zero",
-          "path": 0.0,
-          "terminus": 0.0,
+          "scored_by": "property",
+          "property_score": 0.0,
           "temp": 0.0,
+          "topic_relevant_paths": 5,
           "polarity_skips": 3,
           "c_neg": false,
           "q_neg": true,
-          "convergent_paths": []
+          "best_path": null
         }
       ]
     },
@@ -2884,7 +2985,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 14,
+          "topic_relevant_paths": 16,
           "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
@@ -2897,7 +2998,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 14,
+          "topic_relevant_paths": 16,
           "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
@@ -2910,7 +3011,7 @@
           "scored_by": "property",
           "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 14,
+          "topic_relevant_paths": 16,
           "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
@@ -2936,7 +3037,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 14,
+          "topic_relevant_paths": 16,
           "polarity_skips": 1,
           "c_neg": false,
           "q_neg": false,
@@ -2986,7 +3087,7 @@
           "scored_by": "property",
           "property_score": 1.0,
           "temp": 0.0,
-          "topic_relevant_paths": 4,
+          "topic_relevant_paths": 5,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -3010,7 +3111,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 4,
+          "topic_relevant_paths": 5,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -3023,7 +3124,7 @@
           "scored_by": "property",
           "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 4,
+          "topic_relevant_paths": 5,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -3048,8 +3149,8 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 4,
-          "polarity_skips": 4,
+          "topic_relevant_paths": 5,
+          "polarity_skips": 5,
           "c_neg": true,
           "q_neg": false,
           "best_path": null
@@ -3155,10 +3256,10 @@
       "question": "Which of the following statements best explains why Mendel's principle of segregation was deemed a law?",
       "correct": "B",
       "correct_text": "The patterns of trait inheritance observed in pea plants were repeatedly demonstrated in other eukaryotes.",
-      "pick": "-",
-      "outcome": "tie",
-      "best_score": 1.0,
-      "gap_pct": 0.0,
+      "pick": "B",
+      "outcome": "correct",
+      "best_score": 2.0,
+      "gap_pct": 50.0,
       "regions": [
         "genetics",
         "cell_cycle",
@@ -3197,7 +3298,7 @@
           "scored_by": "property",
           "property_score": 1.0,
           "temp": 0.0,
-          "topic_relevant_paths": 1,
+          "topic_relevant_paths": 2,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -3220,18 +3321,19 @@
         {
           "letter": "B",
           "text": "The patterns of trait inheritance observed in pea plants were repeatedly demonstrated in other eukaryotes.",
-          "score": 1.0,
+          "score": 2.0,
           "scored_by": "property",
-          "property_score": 1.0,
+          "property_score": 2.0,
           "temp": 0.0,
-          "topic_relevant_paths": 1,
+          "topic_relevant_paths": 2,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
           "best_path": {
-            "source": "Mendel principle of segregation is a law because it was demonstrated in many organisms",
+            "source": "Mendel's principle of segregation was repeatedly demonstrated in many eukaryotes",
             "property_hits": [
-              "demonstrate"
+              "demonstrate",
+              "eukaryote"
             ],
             "terminus_words": [
               "mendel",
@@ -3251,7 +3353,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 1,
+          "topic_relevant_paths": 2,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -3264,7 +3366,7 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 1,
+          "topic_relevant_paths": 2,
           "polarity_skips": 0,
           "c_neg": false,
           "q_neg": false,
@@ -3277,14 +3379,14 @@
       "question": "Some strains of viruses can change normal mammalian cells into cancer cells in vitro. This transformation of the mammalian cell is usually associated with the",
       "correct": "B",
       "correct_text": "incorporation of the viral genome into the mammalian cell's nuclear DNA",
-      "pick": "-",
-      "outcome": "tie",
-      "best_score": 2.0,
-      "gap_pct": 0.0,
+      "pick": "C",
+      "outcome": "wrong",
+      "best_score": 4.0,
+      "gap_pct": 25.0,
       "regions": [
+        "cancer",
         "cell_division",
-        "cell_cycle",
-        "cancer"
+        "evolution"
       ],
       "q_lemmas": [
         "strain",
@@ -3320,8 +3422,8 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 23,
-          "polarity_skips": 3,
+          "topic_relevant_paths": 18,
+          "polarity_skips": 4,
           "c_neg": false,
           "q_neg": false,
           "best_path": null
@@ -3329,22 +3431,24 @@
         {
           "letter": "B",
           "text": "incorporation of the viral genome into the mammalian cell's nuclear DNA",
-          "score": 2.0,
+          "score": 3.0,
           "scored_by": "property",
-          "property_score": 2.0,
+          "property_score": 3.0,
           "temp": 0.0,
-          "topic_relevant_paths": 23,
-          "polarity_skips": 3,
+          "topic_relevant_paths": 18,
+          "polarity_skips": 4,
           "c_neg": false,
           "q_neg": false,
           "best_path": {
-            "source": "a genome is a cell DNA packaged as double-stranded molecule",
+            "source": "viral transformation incorporates viral DNA into the host cell genome",
             "property_hits": [
               "dna",
-              "genome"
+              "genome",
+              "viral"
             ],
             "terminus_words": [
-              "genome"
+              "transformation",
+              "viral"
             ],
             "path_negated": false,
             "choice_negated": false,
@@ -3354,22 +3458,25 @@
         {
           "letter": "C",
           "text": "conversion of the host's genome into the viral DNA",
-          "score": 2.0,
+          "score": 4.0,
           "scored_by": "property",
-          "property_score": 2.0,
+          "property_score": 4.0,
           "temp": 0.0,
-          "topic_relevant_paths": 23,
-          "polarity_skips": 3,
+          "topic_relevant_paths": 18,
+          "polarity_skips": 4,
           "c_neg": false,
           "q_neg": false,
           "best_path": {
-            "source": "a genome is a cell DNA packaged as double-stranded molecule",
+            "source": "viral transformation incorporates viral DNA into the host cell genome",
             "property_hits": [
               "dna",
-              "genome"
+              "genome",
+              "host",
+              "viral"
             ],
             "terminus_words": [
-              "genome"
+              "transformation",
+              "viral"
             ],
             "path_negated": false,
             "choice_negated": false,
@@ -3383,8 +3490,8 @@
           "scored_by": "property",
           "property_score": 0.0,
           "temp": 0.0,
-          "topic_relevant_paths": 23,
-          "polarity_skips": 3,
+          "topic_relevant_paths": 18,
+          "polarity_skips": 4,
           "c_neg": false,
           "q_neg": false,
           "best_path": null

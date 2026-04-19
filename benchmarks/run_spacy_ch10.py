@@ -156,6 +156,85 @@ def load_region_paths(brain, region: str, nlp=None) -> list[dict]:
                     if r:
                         p["words"].add(r)
     return list(paths.values())
+
+
+def load_concept_paths(conn, nlp=None) -> list[dict]:
+    """Same as load_region_paths but for a per-concept DB (no prefix).
+
+    Concept DBs use the standard table names (neurons, segments, paths,
+    path_steps) without any region prefix.
+    """
+    rows = conn.execute(
+        """
+        SELECT ps.path_id,
+               ns.label AS source_label,
+               nt.label AS target_label,
+               p.source_text,
+               p.terminus_id,
+               nt.id AS target_id
+        FROM path_steps ps
+        JOIN segments s ON s.id = ps.segment_id
+        JOIN neurons ns ON ns.id = s.source_id
+        JOIN neurons nt ON nt.id = s.target_id
+        JOIN paths p ON p.id = ps.path_id
+        ORDER BY ps.path_id, ps.step_order
+        """
+    ).fetchall()
+
+    paths: dict[int, dict] = {}
+    for pid, sl, tl, src, term_id, tgt_id in rows:
+        entry = paths.setdefault(
+            pid,
+            {"words": set(), "source_text": src,
+             "terminus_words": set(),
+             "negated": detect_polarity(src)},
+        )
+        entry["words"].update(path_words(sl, nlp))
+        entry["words"].update(path_words(tl, nlp))
+        if tgt_id == term_id:
+            entry["terminus_words"].update(path_words(tl, nlp))
+
+    for p in paths.values():
+        src = p.get("source_text") or ""
+        p["triples"] = []
+        if src and nlp is not None:
+            src_doc = nlp(src)
+            p["triples"] = extract_directional_triples(src_doc)
+            for tok in src_doc:
+                if tok.is_punct or tok.is_space:
+                    continue
+                lemma = tok.lemma_.lower().strip()
+                if not lemma or lemma in STOP:
+                    continue
+                pos_ok = tok.pos_ in {
+                    "NOUN", "PROPN", "VERB", "ADJ", "NUM", "ADP"
+                }
+                if not pos_ok and lemma not in _CRITICAL_TOKENS:
+                    continue
+                if _WORD_RE.fullmatch(lemma):
+                    p["words"].add(lemma)
+                    s = _singularize_fallback(lemma)
+                    if s:
+                        p["words"].add(s)
+                    r = _ordinal_roman_equiv(lemma)
+                    if r:
+                        p["words"].add(r)
+    return list(paths.values())
+
+
+def select_concepts_from_backend(routing_lemmas: list[str],
+                                 backend,
+                                 subject: str,
+                                 top_k: int = 5) -> list[str]:
+    """Route a question to the top-k concept DBs using concept_vocab.
+
+    Falls back to an empty list if the subject has no concepts yet.
+    The caller is responsible for opening those concept DBs and loading
+    their paths.
+    """
+    return backend.route_query(subject, routing_lemmas, top_k=top_k)
+
+
 CAUSAL_LEMMAS = {"because", "cause", "therefore", "thus", "result",
                  "produce", "lead"}
 
@@ -1450,24 +1529,31 @@ def main():
     except FileNotFoundError:
         regions = [r["name"] for r in brain.db.list_regions()]
 
+    # ── Hierarchical brain_root vs legacy monolithic DB ──
+    hierarchical = brain.backend is not None
+    subject = "biology"   # hard-coded for now; extend via flag if needed
+    # Per-concept path bag cache (hierarchical mode — populated per question)
+    concept_paths_cache: dict[str, list[dict]] = {}
+
     print(f"\n  spaCy Compartmentalized Exam")
     print(f"  Mode: {args.mode}")
     print(f"  Brain: {args.db}")
-    print(f"  Regions: {', '.join(regions)}")
+    if hierarchical:
+        print(f"  Storage: hierarchical (per-concept DBs)")
+    else:
+        print(f"  Regions: {', '.join(regions)}")
     print(f"  Questions: {len(questions)}\n")
 
     nlp = spacy.load("en_core_web_sm")
 
     # Preload per-region path bags for path/property-mode scoring.
+    # Hierarchical mode skips preloading — concept DBs are opened
+    # lazily per question so only the routed subset is in memory.
     region_paths_cache: dict[str, list[dict]] = {}
     lemma_idf: dict[str, float] | None = None
-    if args.mode in {"path", "property"}:
+    if args.mode in {"path", "property"} and not hierarchical:
         for region in regions:
             region_paths_cache[region] = load_region_paths(brain, region, nlp)
-        # Compute corpus-wide IDF across all loaded paths. Rare-lemma
-        # matches will dominate common-lemma matches at score time —
-        # addresses the "routed right, scorer picked wrong" failure
-        # identified by routing_audit.py on biology2e.db.
         if args.use_idf:
             lemma_idf = compute_lemma_idf(region_paths_cache)
             print(f"  Computed IDF for {len(lemma_idf)} unique lemmas.")
@@ -1488,14 +1574,42 @@ def main():
         q_topic = extract_topic(q_doc) if args.mode == "property" else set()
         q_neg = detect_polarity(q["question"], question_mode=True)
 
-        # Route using question + all choices combined — the correct region
+        # Route using question + all choices combined — the correct concept
         # for an MC question is often driven by choice vocabulary.
         routing_lemmas = list(q_lemmas)
         for choice in q["choices"]:
             routing_lemmas.extend(content_lemmas(nlp(choice)))
-        selected = select_regions(
-            routing_lemmas, brain, regions, top_k=args.top_k,
-        )
+
+        if hierarchical:
+            # Route to per-concept DBs via concept_vocab index.
+            # Per-question IDF is computed over only the opened concepts.
+            selected_concepts = select_concepts_from_backend(
+                routing_lemmas, brain.backend, subject, top_k=args.top_k,
+            )
+            if not selected_concepts:
+                selected_concepts = ["_unclassified"]
+            selected = selected_concepts
+
+            # Load path bags for routed concepts (cache for re-use within run)
+            if args.mode in {"path", "property"}:
+                for concept in selected_concepts:
+                    if concept not in concept_paths_cache:
+                        conn = brain.backend.concept_conn(subject, concept)
+                        concept_paths_cache[concept] = load_concept_paths(
+                            conn, nlp
+                        )
+                # Per-question IDF from only the opened concept DBs
+                q_concept_cache = {
+                    c: concept_paths_cache[c] for c in selected_concepts
+                    if c in concept_paths_cache
+                }
+                lemma_idf = (
+                    compute_lemma_idf(q_concept_cache) if args.use_idf else None
+                )
+        else:
+            selected = select_regions(
+                routing_lemmas, brain, regions, top_k=args.top_k,
+            )
 
         choice_scores = []
         per_choice_detail = []
@@ -1506,10 +1620,19 @@ def main():
             c_lemmas = content_lemmas(c_doc)
             c_lemmas_set = set(c_lemmas)
 
-            selected_path_bags = (
-                [region_paths_cache[r] for r in selected]
-                if args.mode in {"path", "property"} else []
-            )
+            if args.mode in {"path", "property"}:
+                if hierarchical:
+                    selected_path_bags = [
+                        concept_paths_cache[c] for c in selected
+                        if c in concept_paths_cache
+                    ]
+                else:
+                    selected_path_bags = [
+                        region_paths_cache[r] for r in selected
+                        if r in region_paths_cache
+                    ]
+            else:
+                selected_path_bags = []
             if args.mode == "property":
                 # Try property first; detail + score computed once. We
                 # may still fall through later if the whole choice-set
@@ -1600,9 +1723,16 @@ def main():
                 # All-zero fallback: polarity is applied ONLY for
                 # explicitly-negative questions (same rule as the
                 # per-choice path-fallback).
+                _fallback_bags = (
+                    [concept_paths_cache[c] for c in selected
+                     if c in concept_paths_cache]
+                    if hierarchical else
+                    [region_paths_cache[r] for r in selected
+                     if r in region_paths_cache]
+                )
                 score, detail = score_choice_by_path(
                     q_lemmas_set, c_lemmas_set,
-                    [region_paths_cache[r] for r in selected],
+                    _fallback_bags,
                     q_temporal, c_doc,
                     q_neg=q_neg, choice_text=choice,
                     apply_polarity=q_neg,

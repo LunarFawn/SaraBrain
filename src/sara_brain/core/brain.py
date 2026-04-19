@@ -42,7 +42,19 @@ class Brain:
     _last_perception = None  # Set by Perceiver after perceive()
 
     def __init__(self, db_path: str = ":memory:") -> None:
-        self.db = Database(db_path)
+        from pathlib import Path as _Path
+        from ..storage.hierarchical_backend import HierarchicalBackend
+
+        _p = _Path(db_path)
+        if _p.is_dir() or (db_path != ":memory:" and not db_path.endswith(".db")):
+            # Hierarchical brain_root/ directory
+            self.backend: HierarchicalBackend | None = HierarchicalBackend(db_path)
+            # Connect brain.db for stats / settings operations
+            _brain_db_path = str(_p / "brain.db")
+            self.db = Database(_brain_db_path)
+        else:
+            self.backend = None
+            self.db = Database(db_path)
         self.conn = self.db.conn
 
         # Repos
@@ -1097,6 +1109,8 @@ class Brain:
     def close(self) -> None:
         gate = self._ethics.check_shutdown()
         # Always allowed — shutdown is sleep, not death
+        if self.backend is not None:
+            self.backend.close()
         self.db.close()
 
     def __enter__(self) -> Brain:

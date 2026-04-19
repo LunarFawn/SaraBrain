@@ -66,6 +66,12 @@ class ParsedStatement:
     obj: str
     original: str
     negated: bool = False  # True if "X is not Y" form — caller should refute, not teach
+    # operation: optional arithmetic intent detected in the statement.
+    # Populated by MathResolver during parse() when the text contains
+    # phrases like "by half", "doubles", "reduces by 2", etc. The
+    # learner attaches this to the relation segment at teach time.
+    # Typed as Any to avoid circular imports; checked with hasattr.
+    operation: object | None = None
 
 
 class StatementParser:
@@ -278,12 +284,23 @@ class StatementParser:
         else:
             relation = verb_word
 
+        # Detect an arithmetic operation embedded in the statement
+        # (e.g., "by half", "doubles"). MathResolver is imported here
+        # lazily to avoid a circular dependency at module import time.
+        op = None
+        try:
+            from ..core.math import MathResolver
+            op = MathResolver().resolve(original)
+        except Exception:
+            op = None
+
         return ParsedStatement(
             subject=subject,
             relation=relation,
             obj=obj,
             original=original,
             negated=negated,
+            operation=op,
         )
 
     @staticmethod

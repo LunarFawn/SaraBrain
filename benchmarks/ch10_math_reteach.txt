@@ -1,0 +1,12 @@
+# Re-teach of the math-aware biology facts so MathResolver can tag
+# their relation segments with operation_tag. The original teachings
+# landed before the math hook existed, so those segments are untagged.
+#
+# Re-teaching is safe (get_or_create + strengthen) and uses the same
+# wording as the original batch_teach rounds.
+
+# meiosis region
+meiosis reduces chromosome number by half
+
+# cell_cycle region
+DNA doubles during S phase

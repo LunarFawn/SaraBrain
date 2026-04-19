@@ -7,15 +7,20 @@ CREATE TABLE IF NOT EXISTS neurons (
 );
 
 CREATE TABLE IF NOT EXISTS segments (
-    id          INTEGER PRIMARY KEY,
-    source_id   INTEGER NOT NULL REFERENCES neurons(id),
-    target_id   INTEGER NOT NULL REFERENCES neurons(id),
-    relation    TEXT NOT NULL,
-    strength    REAL NOT NULL DEFAULT 1.0,
-    traversals  INTEGER NOT NULL DEFAULT 0,
-    refutations INTEGER NOT NULL DEFAULT 0,
-    created_at  REAL,
-    last_used   REAL,
+    id            INTEGER PRIMARY KEY,
+    source_id     INTEGER NOT NULL REFERENCES neurons(id),
+    target_id     INTEGER NOT NULL REFERENCES neurons(id),
+    relation      TEXT NOT NULL,
+    strength      REAL NOT NULL DEFAULT 1.0,
+    traversals    INTEGER NOT NULL DEFAULT 0,
+    refutations   INTEGER NOT NULL DEFAULT 0,
+    created_at    REAL,
+    last_used     REAL,
+    -- operation_tag: arithmetic operation hint for math-aware segments.
+    -- Format "primitive:operand" (e.g. "multiply:0.5", "add:-2",
+    -- "halve:" for a taught composition). NULL for descriptive
+    -- segments with no arithmetic meaning.
+    operation_tag TEXT,
     UNIQUE(source_id, target_id, relation)
 );
 

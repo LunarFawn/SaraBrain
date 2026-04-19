@@ -16,6 +16,12 @@ class Segment:
     refutations: int = 0
     created_at: float = field(default_factory=time.time)
     last_used: float = field(default_factory=time.time)
+    # operation_tag — optional arithmetic hint. When a segment represents
+    # a relation like "reduces chromosome number by half", this field
+    # carries the primitive + operand as a string ("multiply:0.5") that
+    # MathCompute interprets at query time. None for the vast majority
+    # of biological/descriptive segments.
+    operation_tag: str | None = None
 
     def _recalculate(self) -> None:
         """Recalculate strength from traversals and refutations.

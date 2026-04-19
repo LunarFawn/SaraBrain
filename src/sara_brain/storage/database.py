@@ -30,21 +30,62 @@ class Database:
         self.conn.executescript(schema_sql)
 
     def _migrate(self) -> None:
-        """Add columns to existing tables if missing (safe for fresh DBs)."""
-        # Skip if segments table doesn't exist yet (fresh DB)
+        """Add columns to existing tables if missing (safe for fresh DBs).
+
+        Migrates both the main `segments` table and any regional
+        `<region>_segments` tables that predate a new column. Running
+        twice is idempotent — PRAGMA table_info plus a presence check
+        guard every ALTER.
+        """
+        # Main segments table
         try:
             cols = {
                 r[1]
                 for r in self.conn.execute("PRAGMA table_info(segments)").fetchall()
             }
         except sqlite3.OperationalError:
-            return
-        if not cols:
-            return
-        if "refutations" not in cols:
-            self.conn.execute(
-                "ALTER TABLE segments ADD COLUMN refutations INTEGER NOT NULL DEFAULT 0"
-            )
+            cols = set()
+        if cols:
+            if "refutations" not in cols:
+                self.conn.execute(
+                    "ALTER TABLE segments ADD COLUMN refutations "
+                    "INTEGER NOT NULL DEFAULT 0"
+                )
+            if "operation_tag" not in cols:
+                self.conn.execute(
+                    "ALTER TABLE segments ADD COLUMN operation_tag TEXT"
+                )
+
+        # Regional segments tables (created by create_region for
+        # compartmentalized brains). Each needs the same migrations.
+        try:
+            region_tables = [
+                r[0] for r in self.conn.execute(
+                    "SELECT name FROM sqlite_master WHERE type='table' "
+                    "AND name LIKE '%_segments' AND name != 'segments'"
+                ).fetchall()
+            ]
+        except sqlite3.OperationalError:
+            region_tables = []
+        for table in region_tables:
+            try:
+                region_cols = {
+                    r[1]
+                    for r in self.conn.execute(
+                        f"PRAGMA table_info({table})"
+                    ).fetchall()
+                }
+            except sqlite3.OperationalError:
+                continue
+            if "refutations" not in region_cols:
+                self.conn.execute(
+                    f"ALTER TABLE {table} ADD COLUMN refutations "
+                    f"INTEGER NOT NULL DEFAULT 0"
+                )
+            if "operation_tag" not in region_cols:
+                self.conn.execute(
+                    f"ALTER TABLE {table} ADD COLUMN operation_tag TEXT"
+                )
 
     def create_region(self, name: str, description: str = "") -> None:
         """Create a new brain region — its own set of tables."""
@@ -61,15 +102,16 @@ class Database:
                 metadata    TEXT
             );
             CREATE TABLE IF NOT EXISTS {prefix}_segments (
-                id          INTEGER PRIMARY KEY,
-                source_id   INTEGER NOT NULL REFERENCES {prefix}_neurons(id),
-                target_id   INTEGER NOT NULL REFERENCES {prefix}_neurons(id),
-                relation    TEXT NOT NULL,
-                strength    REAL NOT NULL DEFAULT 1.0,
-                traversals  INTEGER NOT NULL DEFAULT 0,
-                refutations INTEGER NOT NULL DEFAULT 0,
-                created_at  REAL,
-                last_used   REAL,
+                id            INTEGER PRIMARY KEY,
+                source_id     INTEGER NOT NULL REFERENCES {prefix}_neurons(id),
+                target_id     INTEGER NOT NULL REFERENCES {prefix}_neurons(id),
+                relation      TEXT NOT NULL,
+                strength      REAL NOT NULL DEFAULT 1.0,
+                traversals    INTEGER NOT NULL DEFAULT 0,
+                refutations   INTEGER NOT NULL DEFAULT 0,
+                created_at    REAL,
+                last_used     REAL,
+                operation_tag TEXT,
                 UNIQUE(source_id, target_id, relation)
             );
             CREATE TABLE IF NOT EXISTS {prefix}_paths (

@@ -770,6 +770,68 @@ def _write_gap_markdown(gap_summary: list[dict], by_kind: dict[str, int],
         f.write("\n".join(lines))
 
 
+# ── Math pass: apply taught operations when the question has numbers ──
+
+def math_pass(question_text: str, choices: list[str],
+              selected_regions: list[str], brain: Brain
+              ) -> tuple[set[float], dict[int, str]]:
+    """Compute candidate numeric answers for the question by applying
+    every operation-tagged segment in the selected regions to every
+    number extracted from the question. Match results against MC
+    choices.
+
+    Returns:
+        candidates: set of computed numeric results (for logging).
+        choice_matches: {choice_idx: computed_value_that_matched_it}.
+    """
+    from sara_brain.core.math import (
+        NumberExtractor, tag_to_operation, MathCompute,
+    )
+
+    numbers = NumberExtractor().extract(question_text)
+    if not numbers:
+        return set(), {}
+
+    compute = MathCompute()
+    candidates: set[float] = set()
+
+    for region in selected_regions:
+        seg_repo = SegmentRepo(brain.conn, prefix=region)
+        for seg in seg_repo.list_all():
+            if not seg.operation_tag:
+                continue
+            op = tag_to_operation(seg.operation_tag)
+            if op is None:
+                continue
+            for val in numbers.values():
+                try:
+                    candidates.add(compute.apply(op, val))
+                except (NotImplementedError, ZeroDivisionError, ValueError):
+                    continue
+
+    if not candidates:
+        return candidates, {}
+
+    # Match computed numbers against integer/float tokens in each choice.
+    _num_in_choice_re = re.compile(r"-?\d+(?:\.\d+)?")
+    choice_matches: dict[int, str] = {}
+    for idx, choice in enumerate(choices):
+        choice_nums = set()
+        for m in _num_in_choice_re.finditer(choice):
+            try:
+                choice_nums.add(float(m.group()))
+            except ValueError:
+                pass
+        if not choice_nums:
+            continue
+        for ans in candidates:
+            # Integer equality (96.0 == 96) is handled by float compare.
+            if ans in choice_nums:
+                choice_matches[idx] = f"computed {ans} from {question_text[:40]}…"
+                break
+    return candidates, choice_matches
+
+
 # ── Main ──
 
 def main():
@@ -964,6 +1026,26 @@ def main():
                     "scored_by": "path-fallback-all-zero",
                     **detail,
                 })
+
+        # Math pass: if the question contains numbers and an
+        # operation-tagged segment in the selected regions can produce
+        # a numeric answer that uniquely matches one MC choice, boost
+        # that choice so the scoring pipeline picks it. The STM/math
+        # module is where the math actually runs; the scorer is just
+        # the gate that funnels the boost in.
+        math_candidates, math_matches = math_pass(
+            q["question"], q["choices"], selected, brain,
+        )
+        math_note: str | None = None
+        if len(math_matches) == 1:
+            (mi,) = math_matches.keys()
+            # Override with a dominant score so abstain+tie-margin logic
+            # picks this choice cleanly.
+            prior = choice_scores[mi]
+            choice_scores[mi] = max(prior, 1000.0)
+            per_choice_detail[mi]["score"] = round(choice_scores[mi], 2)
+            per_choice_detail[mi]["math_match"] = math_matches[mi]
+            math_note = f"math→{labels[mi]} candidates={sorted(math_candidates)}"
 
         best_idx = max(range(len(choice_scores)), key=lambda i: choice_scores[i])
         best_score = choice_scores[best_idx]

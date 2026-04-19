@@ -92,3 +92,43 @@ class TestLearner:
         seg = brain.segment_repo.find(blue.id, apple_color.id, "has_color")
         assert seg is not None
         assert seg.refutations > 0
+
+    # ── Math-aware teaching ───────────────────────────────────────────
+    # When a taught statement contains an arithmetic phrase ("by half",
+    # "doubles", etc.), MathResolver detects the Operation and the
+    # learner attaches it as operation_tag on the relation segment.
+
+    def test_teach_math_phrase_writes_operation_tag(self, brain):
+        """Teaching "meiosis reduces chromosome number by half" stores
+        a segment tagged with multiply:0.5 on the relation edge."""
+        result = brain.teach(
+            "meiosis reduces chromosome number by half"
+        )
+        assert result is not None
+        # Walk the relation segments looking for any with an operation_tag.
+        tagged = [
+            s for s in brain.segment_repo.list_all()
+            if s.operation_tag is not None
+        ]
+        assert len(tagged) >= 1, "expected at least one tagged segment"
+        assert any(
+            s.operation_tag.startswith("multiply:") and "0.5" in s.operation_tag
+            for s in tagged
+        )
+
+    def test_teach_doubles_phrase(self, brain):
+        brain.teach("DNA doubles during S phase")
+        tagged = [
+            s for s in brain.segment_repo.list_all()
+            if s.operation_tag is not None
+        ]
+        assert any(
+            s.operation_tag.startswith("multiply:") and "2.0" in s.operation_tag
+            for s in tagged
+        )
+
+    def test_teach_descriptive_fact_leaves_operation_tag_none(self, brain):
+        """Non-math facts must NOT acquire an operation_tag."""
+        brain.teach("apples are red")
+        for s in brain.segment_repo.list_all():
+            assert s.operation_tag is None

@@ -166,6 +166,20 @@ class Learner:
             if source_label is None or is_new_witness_2:
                 self.segment_repo.strengthen(seg2)
 
+        # 4b. Attach arithmetic operation if the parser detected one.
+        # Operation lives on the relation segment (property → relation)
+        # because the operation describes HOW the property transforms
+        # the concept. Lazy import to avoid circular dependency.
+        if getattr(parsed, "operation", None) is not None:
+            try:
+                from .math import MathLinker
+                MathLinker(self.segment_repo).link(seg1.id, parsed.operation)
+            except Exception:
+                # Never let math linking break a teaching — if the link
+                # fails, the fact is still stored in the graph without
+                # the operation tag.
+                pass
+
         # 5. Record the path. Source_text is NEVER prefixed or mutated.
         # Refutation state is tracked in the graph via CLEANUP primitives,
         # not via string hacks on source_text.

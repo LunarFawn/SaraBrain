@@ -48,6 +48,18 @@ class ShortTerm:
     # Each entry is a dict like {"type": "correction", "content": "..."}.
     significance: list[dict] = field(default_factory=list)
 
+    # Numeric bindings — values currently bound to neurons during a math
+    # computation. Populated by NumberExtractor at question time and
+    # updated as compute_over_segments walks operation-tagged segments.
+    numeric_bindings: dict[int, float] = field(default_factory=dict)
+
+    # Provenance of arithmetic steps applied in this event, for the
+    # audit-trail promise. Each entry: (segment_id, op_tag, input,
+    # output). The list grows left-to-right as operations fire.
+    applied_ops: list[tuple[int, str, float, float]] = field(
+        default_factory=list,
+    )
+
     def add_convergence(self, neuron_id: int, weight: float,
                         source_id: int) -> None:
         """Record that a wavefront from source_id reached neuron_id with weight."""
@@ -86,6 +98,59 @@ class ShortTerm:
                 weight += self.convergence_map[nid]
                 hits += 1
         return weight, hits
+
+    def bind_numeric(self, neuron_id: int, value: float) -> None:
+        """Bind a numeric value to a neuron for the current event.
+
+        Called by a question-side NumberExtractor before wavefront
+        propagation; the value then flows along operation-tagged
+        segments during compute_over_segments.
+        """
+        self.numeric_bindings[neuron_id] = value
+
+    def compute_over_segments(self, segments, compute=None
+                              ) -> dict[int, float]:
+        """Walk a sequence of segments, applying each segment's
+        operation_tag to the numeric value bound to its source neuron,
+        and bind the result to its target neuron.
+
+        Returns the (possibly updated) numeric_bindings dict. Every
+        step is appended to applied_ops for provenance. Untagged
+        segments pass the value through unchanged (value binds to the
+        downstream neuron, no math applied).
+
+        compute: an optional MathCompute instance. Constructed lazily
+            if not provided. Passed so tests can inject a stub.
+        """
+        if compute is None:
+            from .math import MathCompute
+            compute = MathCompute()
+        from .math import tag_to_operation
+
+        for seg in segments:
+            src_val = self.numeric_bindings.get(seg.source_id)
+            if src_val is None:
+                continue  # no value to transform through this segment
+            tag = getattr(seg, "operation_tag", None)
+            if not tag:
+                # Untagged: propagate the value downstream unchanged.
+                self.numeric_bindings[seg.target_id] = src_val
+                continue
+            op = tag_to_operation(tag)
+            if op is None:
+                self.numeric_bindings[seg.target_id] = src_val
+                continue
+            try:
+                result = compute.apply(op, src_val)
+            except (NotImplementedError, ZeroDivisionError, ValueError):
+                # Abstain silently — downstream is left unbound so the
+                # caller can detect "computation failed" as missing key.
+                continue
+            self.numeric_bindings[seg.target_id] = result
+            self.applied_ops.append(
+                (seg.id, tag, src_val, result),
+            )
+        return self.numeric_bindings
 
     def mark_significant(self, marker_type: str, content: str) -> None:
         """Attach a significance marker — justification for consolidation.

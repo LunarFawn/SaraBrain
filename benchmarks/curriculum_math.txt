@@ -1,0 +1,37 @@
+# Sara's math curriculum — composite operations taught on top of the
+# six ALU primitives (add, subtract, multiply, divide, abs, negate).
+#
+# Teach with:
+#   .venv/bin/python benchmarks/batch_teach.py \
+#       --db <brain.db> --file benchmarks/curriculum_math.txt
+#
+# Every line is a fact. Composite operations defined here are later
+# executed by MathCompute.execute() walking the graph's stated rule.
+# The curriculum mirrors how a child is taught elementary arithmetic:
+# the primitive is trusted; the composition is what is learned.
+
+# Halving and doubling — one-step composites of the primitives
+to halve a number is to divide the number by two
+to double a number is to multiply the number by two
+halving reduces a number to half its value
+doubling increases a number to twice its value
+
+# Ratio and proportion
+a ratio is a division of two numbers
+a fraction is a division of numerator by denominator
+
+# Percentage
+a percentage is a fraction with denominator of one hundred
+
+# Probability and chance
+probability is favorable outcomes divided by total outcomes
+chance is the probability of an outcome
+
+# Summation and averages
+the sum of numbers is their addition
+the mean of a set is the sum divided by the count
+the average of a set is the mean of the set
+
+# Magnitude and difference
+the difference of two numbers is their subtraction
+the magnitude of a number is the absolute value of the number

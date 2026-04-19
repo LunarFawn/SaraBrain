@@ -12,14 +12,23 @@ class SegmentRepo:
 
     def create(self, segment: Segment) -> Segment:
         cur = self.conn.execute(
-            f"INSERT INTO {self._t} (source_id, target_id, relation, strength, traversals, refutations, created_at, last_used) "
-            "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+            f"INSERT INTO {self._t} (source_id, target_id, relation, "
+            f"strength, traversals, refutations, created_at, last_used, "
+            f"operation_tag) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
             (segment.source_id, segment.target_id, segment.relation,
              segment.strength, segment.traversals, segment.refutations,
-             segment.created_at, segment.last_used),
+             segment.created_at, segment.last_used, segment.operation_tag),
         )
         segment.id = cur.lastrowid
         return segment
+
+    def set_operation_tag(self, segment_id: int, tag: str | None) -> None:
+        """Attach (or clear) the arithmetic operation tag on a segment."""
+        self.conn.execute(
+            f"UPDATE {self._t} SET operation_tag = ? WHERE id = ?",
+            (tag, segment_id),
+        )
 
     def get_by_id(self, segment_id: int) -> Segment | None:
         row = self.conn.execute(f"SELECT * FROM {self._t} WHERE id = ?", (segment_id,)).fetchone()
@@ -83,15 +92,21 @@ class SegmentRepo:
 
     @staticmethod
     def _row_to_segment(row: tuple) -> Segment:
-        # Schema: id, source_id, target_id, relation, strength, traversals,
-        #         refutations (new), created_at, last_used
-        # Backward compat: if refutations column missing, default to 0
+        # Schema evolution:
+        #   8 cols  = oldest (pre-refutations)
+        #   9 cols  = +refutations
+        #  10 cols  = +operation_tag (current)
         if len(row) == 8:
-            # Old schema without refutations
             return Segment(
-                id=row[0], source_id=row[1], target_id=row[2], relation=row[3],
-                strength=row[4], traversals=row[5], refutations=0,
-                created_at=row[6], last_used=row[7],
+                id=row[0], source_id=row[1], target_id=row[2],
+                relation=row[3], strength=row[4], traversals=row[5],
+                refutations=0, created_at=row[6], last_used=row[7],
+            )
+        if len(row) == 9:
+            return Segment(
+                id=row[0], source_id=row[1], target_id=row[2],
+                relation=row[3], strength=row[4], traversals=row[5],
+                refutations=row[6], created_at=row[7], last_used=row[8],
             )
         return Segment(
             id=row[0],
@@ -103,4 +118,5 @@ class SegmentRepo:
             refutations=row[6],
             created_at=row[7],
             last_used=row[8],
+            operation_tag=row[9],
         )

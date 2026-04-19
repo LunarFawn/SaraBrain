@@ -1339,6 +1339,11 @@ def main():
     ap.add_argument("--verbose", action="store_true")
     ap.add_argument("--abstain-threshold", type=float, default=1.0,
                     help="If top choice score < this, abstain instead of guessing.")
+    ap.add_argument("--top-k", type=int, default=3,
+                    help="Number of regions to select per question. "
+                         "Default 3. Raise when the brain has many "
+                         "regions (e.g. a full-book brain) so the "
+                         "right chapter isn't missed.")
     ap.add_argument("--tie-margin", type=float, default=0.05,
                     help="If (top - runner_up) / top < this, abstain. "
                          "Default 0.05 = 5%%.")
@@ -1406,7 +1411,9 @@ def main():
         routing_lemmas = list(q_lemmas)
         for choice in q["choices"]:
             routing_lemmas.extend(content_lemmas(nlp(choice)))
-        selected = select_regions(routing_lemmas, brain, regions)
+        selected = select_regions(
+            routing_lemmas, brain, regions, top_k=args.top_k,
+        )
 
         choice_scores = []
         per_choice_detail = []

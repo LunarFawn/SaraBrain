@@ -778,11 +778,59 @@ def _directional_triple_score(
     return total, " / ".join(reasons) if reasons else None
 
 
+def compute_lemma_idf(region_paths_cache: dict[str, list[dict]]
+                      ) -> dict[str, float]:
+    """Compute inverse-document-frequency per lemma across all paths.
+
+    IDF = log((N + 1) / (1 + df)) + 1   (smoothed; always >= 1)
+
+    Where:
+      - N   = total number of paths across all regions.
+      - df  = number of paths containing this lemma.
+
+    Rationale: a lemma that appears in many paths (`cell`, `gene`,
+    `protein`) is nearly uninformative — it tells the scorer little
+    about whether a choice's match is semantically sound or a
+    surface coincidence. A rare lemma (`oxidize`, `parthenogenesis`,
+    `phagocyte`) is strong evidence of a specific taught concept and
+    should outweigh several common-lemma hits when scoring.
+
+    Used as a weight on each lemma contribution in
+    `score_choice_by_property` so that rare-lemma matches dominate
+    common-lemma matches.
+    """
+    import math
+    df: dict[str, int] = {}
+    total = 0
+    for paths in region_paths_cache.values():
+        for p in paths:
+            total += 1
+            for lemma in p.get("words", set()):
+                df[lemma] = df.get(lemma, 0) + 1
+    if total == 0:
+        return {}
+    idf: dict[str, float] = {}
+    for lemma, count in df.items():
+        idf[lemma] = math.log((total + 1) / (1 + count)) + 1.0
+    return idf
+
+
+def _weighted_sum(lemmas: set[str], idf: dict[str, float] | None) -> float:
+    """Sum IDF weights across the lemma set (or fall back to count)."""
+    if idf is None:
+        return float(len(lemmas))
+    total = 0.0
+    for lem in lemmas:
+        total += idf.get(lem, 1.0)
+    return total
+
+
 def score_choice_by_property(q_topic: set[str], c_lemmas: set[str],
                              region_paths: list[list[dict]],
                              choice_doc, q_temporal: dict,
                              q_neg: bool = False,
                              choice_text: str = "",
+                             idf: dict[str, float] | None = None,
                              ) -> tuple[float, dict]:
     """Topic-filtered property match, MAX-over-paths.
 
@@ -848,8 +896,13 @@ def score_choice_by_property(q_topic: set[str], c_lemmas: set[str],
 
             property_words = words - q_topic
             hits = c_lemmas & property_words
-            # Base property-match score = count of shared content lemmas.
-            score = float(len(hits))
+            # Base property-match score: IDF-weighted when idf map is
+            # provided, otherwise fall back to count-of-hits. IDF makes
+            # rare-word matches (oxidize, phagocyte) dominate common-
+            # word matches (cell, gene) — the architectural fix for
+            # "routed right, scorer picked wrong" identified by the
+            # routing_audit.
+            score = _weighted_sum(hits, idf)
             if is_near_miss:
                 # Near-miss contradiction — ordinal swap against taught
                 # fact. Small bonus to break ties under q_neg=True.
@@ -961,7 +1014,9 @@ def score_choice_by_path(q_lemmas: set[str], c_lemmas: set[str],
                          choice_doc,
                          q_neg: bool = False,
                          choice_text: str = "",
-                         apply_polarity: bool = True) -> tuple[float, dict]:
+                         apply_polarity: bool = True,
+                         idf: dict[str, float] | None = None,
+                         ) -> tuple[float, dict]:
     """Rank by path co-occurrence, not activation magnitude.
 
     A choice wins when its lemmas and the question's lemmas land on the
@@ -990,15 +1045,22 @@ def score_choice_by_path(q_lemmas: set[str], c_lemmas: set[str],
                 if apply_polarity and (c_neg != p_neg) != q_neg:
                     polarity_skips += 1
                     continue
-                # Tightness: min(q_overlap, c_overlap) — both must be present
-                # in strength for the path to count as a convergence.
-                tight = min(len(q_hits), len(c_hits))
-                path_score += tight
+                # Tightness weighted by IDF when available. The tighter
+                # side of the convergence (min count) bounds contribution;
+                # rare-lemma overlap outweighs common-lemma overlap.
+                if idf is not None:
+                    tight_side = q_hits if len(q_hits) <= len(c_hits) \
+                        else c_hits
+                    path_score += _weighted_sum(tight_side, idf)
+                else:
+                    path_score += min(len(q_hits), len(c_hits))
                 # Extra bonus if the choice's lemmas name the path's terminus
                 # (the concept the path describes). This is "this choice IS
                 # the answer", not "this choice mentions words on the path".
-                if c_lemmas & p["terminus_words"]:
-                    terminus_bonus += 1.0
+                term_hits = c_lemmas & p["terminus_words"]
+                if term_hits:
+                    terminus_bonus += _weighted_sum(term_hits, idf) if idf \
+                        else 1.0
                 convergent_paths.append({
                     "source": p["source_text"],
                     "q_hits": sorted(q_hits),
@@ -1344,6 +1406,19 @@ def main():
                          "Default 3. Raise when the brain has many "
                          "regions (e.g. a full-book brain) so the "
                          "right chapter isn't missed.")
+    ap.add_argument("--use-idf", action="store_true",
+                    help="Weight lemma matches by corpus-wide IDF. "
+                         "Makes rare-word hits (oxidize, phagocyte) "
+                         "dominate common-word hits (cell, gene). "
+                         "Addresses 'routed right, scorer picked wrong' "
+                         "on dense brains like biology2e.")
+    ap.add_argument("--idf-gate", type=float, default=2.0,
+                    help="Fix-2 rare-lemma gate (applies when --use-idf "
+                         "is set). The winning choice must carry a "
+                         "unique lemma whose IDF is >= this threshold "
+                         "that the runner-up's best path does NOT carry; "
+                         "otherwise abstain. Default 2.0. Raise to get "
+                         "more honest abstains, lower to loosen.")
     ap.add_argument("--tie-margin", type=float, default=0.05,
                     help="If (top - runner_up) / top < this, abstain. "
                          "Default 0.05 = 5%%.")
@@ -1383,12 +1458,19 @@ def main():
 
     nlp = spacy.load("en_core_web_sm")
 
-    # Preload per-region path bags for path/property-mode scoring
-    # (cheap: < 200 paths total across all regions).
+    # Preload per-region path bags for path/property-mode scoring.
     region_paths_cache: dict[str, list[dict]] = {}
+    lemma_idf: dict[str, float] | None = None
     if args.mode in {"path", "property"}:
         for region in regions:
             region_paths_cache[region] = load_region_paths(brain, region, nlp)
+        # Compute corpus-wide IDF across all loaded paths. Rare-lemma
+        # matches will dominate common-lemma matches at score time —
+        # addresses the "routed right, scorer picked wrong" failure
+        # identified by routing_audit.py on biology2e.db.
+        if args.use_idf:
+            lemma_idf = compute_lemma_idf(region_paths_cache)
+            print(f"  Computed IDF for {len(lemma_idf)} unique lemmas.")
     labels = ["A", "B", "C", "D"]
     correct = 0
     wrong = 0
@@ -1437,6 +1519,7 @@ def main():
                         q_topic, c_lemmas_set, selected_path_bags,
                         c_doc, q_temporal,
                         q_neg=q_neg, choice_text=choice,
+                        idf=lemma_idf,
                     )
                     scored_by = "property"
                     if detail["topic_relevant_paths"] == 0:
@@ -1450,6 +1533,7 @@ def main():
                             selected_path_bags, q_temporal, c_doc,
                             q_neg=q_neg, choice_text=choice,
                             apply_polarity=q_neg,
+                            idf=lemma_idf,
                         )
                         score = p_score
                         detail = {**p_detail, "fallback": "no-topic-paths"}
@@ -1461,6 +1545,7 @@ def main():
                         selected_path_bags, q_temporal, c_doc,
                         q_neg=q_neg, choice_text=choice,
                         apply_polarity=q_neg,
+                        idf=lemma_idf,
                     )
                     detail = {**detail, "fallback": "no-topic"}
                     scored_by = "path-fallback"
@@ -1476,6 +1561,7 @@ def main():
                     q_lemmas_set, c_lemmas_set,
                     selected_path_bags, q_temporal, c_doc,
                     q_neg=q_neg, choice_text=choice,
+                    idf=lemma_idf,
                 )
                 per_choice_detail.append({
                     "letter": labels[i],
@@ -1520,6 +1606,7 @@ def main():
                     q_temporal, c_doc,
                     q_neg=q_neg, choice_text=choice,
                     apply_polarity=q_neg,
+                    idf=lemma_idf,
                 )
                 choice_scores.append(score)
                 per_choice_detail.append({
@@ -1563,6 +1650,51 @@ def main():
             gap = 0.0
         correct_letter = labels[q["answer_idx"]]
 
+        # Fix 2 (rare-lemma gate) — when IDF is active, require the
+        # winning choice to carry a *distinctive* rare-lemma hit that
+        # the runner-up's best path does not carry. Without this gate,
+        # IDF expands coverage by letting Sara commit on any above-
+        # threshold score — including ones where no rare signal
+        # actually separates her top pick from its nearest rival.
+        # With this gate, commits only happen when a genuine rare-
+        # word discrimination exists.
+        rare_gate_abstain = False
+        rare_gate_detail: dict | None = None
+        if (lemma_idf is not None
+                and best_score >= args.abstain_threshold
+                and gap >= args.tie_margin
+                and args.use_idf):
+            best_bp = per_choice_detail[best_idx].get("best_path") or {}
+            best_hits = set(best_bp.get("property_hits") or [])
+            # Runner-up index = highest-scoring index other than best_idx.
+            other_scores = [
+                (i, s) for i, s in enumerate(choice_scores) if i != best_idx
+            ]
+            other_scores.sort(key=lambda x: -x[1])
+            ru_idx = other_scores[0][0] if other_scores else None
+            ru_bp = (
+                per_choice_detail[ru_idx].get("best_path") or {}
+                if ru_idx is not None else {}
+            )
+            ru_hits = set(ru_bp.get("property_hits") or [])
+            # Lemmas the winner contributed that the runner-up did NOT.
+            unique_to_best = best_hits - ru_hits
+            max_unique_idf = max(
+                (lemma_idf.get(lem, 1.0) for lem in unique_to_best),
+                default=0.0,
+            )
+            # Gate threshold: the unique lemma must be at least somewhat
+            # rare (IDF >= args.idf_gate). A unique lemma whose IDF is
+            # near 1 means the runner-up just happened to miss a common
+            # word — not a real discrimination signal.
+            if max_unique_idf < args.idf_gate:
+                rare_gate_abstain = True
+                rare_gate_detail = {
+                    "unique_to_best": sorted(unique_to_best),
+                    "max_unique_idf": round(max_unique_idf, 2),
+                    "gate": args.idf_gate,
+                }
+
         if best_score < args.abstain_threshold:
             answer = "-"
             outcome = "abstain"
@@ -1573,6 +1705,11 @@ def main():
             outcome = "tie"
             abstained += 1
             status = "≈"
+        elif rare_gate_abstain:
+            answer = "-"
+            outcome = "rare_gate"
+            abstained += 1
+            status = "⊘"
         else:
             answer = labels[best_idx]
             if answer == correct_letter:

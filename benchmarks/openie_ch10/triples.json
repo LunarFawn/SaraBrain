@@ -1,0 +1,8130 @@
+[
+  {
+    "sentence": "After many rounds of cell division, the individual develops into a complex, multicellular organism, as seen in this mature sea urchin.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "the individual",
+        "relation": "develops",
+        "obj": "After many rounds of cell division",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the individual",
+        "relation": "develops",
+        "obj": "into a complex , multicellular organism",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "INTRODUCTION A human, like every sexually reproducing organism, begins life as a fertilized egg or zygote.",
+    "triple_count": 4,
+    "triples": [
+      {
+        "subject": "A human",
+        "relation": "begins",
+        "obj": "like every sexually reproducing organism",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "A human",
+        "relation": "begins",
+        "obj": "life",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "A human",
+        "relation": "begins",
+        "obj": "as a fertilized egg or zygote",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "A human",
+        "relation": "begins",
+        "obj": "as zygote",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "In our species, billions of cell divisions subsequently must occur in a controlled manner in order to produce a complex, multicellular human comprising trillions of cells.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "billions of cell divisions",
+        "relation": "must occur",
+        "obj": "In our species",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "billions of cell divisions",
+        "relation": "must occur",
+        "obj": "in a controlled manner",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "billions of cell divisions",
+        "relation": "must occur",
+        "obj": "in order to produce a complex , multicellular human comprising trillions of cells",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Thus, the original single-celled zygote is literally the ancestor of all cells in the body.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "the original single - celled zygote",
+        "relation": "is",
+        "obj": "the ancestor of all cells in the body",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "In fact, all multicellular organisms use cell division for growth and the maintenance and repair of cells and tissues.",
+    "triple_count": 4,
+    "triples": [
+      {
+        "subject": "all multicellular organisms",
+        "relation": "use",
+        "obj": "In fact",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "all multicellular organisms",
+        "relation": "use",
+        "obj": "cell division for growth and the maintenance and repair of cells and tissues",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "all multicellular organisms",
+        "relation": "use",
+        "obj": "the maintenance and repair of cells and tissues",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "all multicellular organisms",
+        "relation": "use",
+        "obj": "repair",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Cell division is closely regulated, and the occasional failure of this regulation can have life-threatening consequences.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "the occasional failure of this regulation",
+        "relation": "can have",
+        "obj": "life - threatening consequences",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the occasional failure of this regulation",
+        "relation": "have",
+        "obj": "life - threatening consequences",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Cell division is closely regulated.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "the occasional failure of this regulation can have life-threatening consequences.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "the occasional failure of this regulation",
+        "relation": "can have",
+        "obj": "life - threatening consequences",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the occasional failure of this regulation",
+        "relation": "have",
+        "obj": "life - threatening consequences",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Single-celled organisms may also use cell division as their method of reproduction.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "Single - celled organisms",
+        "relation": "may use",
+        "obj": "cell division",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Single - celled organisms",
+        "relation": "may use",
+        "obj": "as their method of reproduction",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Single - celled organisms",
+        "relation": "use",
+        "obj": "cell division",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The continuity of life from one cell to another has its foundation in the reproduction of cells by way of the cell cycle.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The continuity of life from one cell to another",
+        "relation": "has",
+        "obj": "its foundation in the reproduction of cells",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "The continuity of life from one cell to another",
+        "relation": "has",
+        "obj": "by way of the cell cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "understanding of the structure and function of a cell's genetic information is necessary.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "understanding of the structure and function of a cell 's genetic information",
+        "relation": "is",
+        "obj": "necessary",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Some prokaryotes also have smaller loops of DNA called plasmids that are not essential for normal growth.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Some prokaryotes",
+        "relation": "have",
+        "obj": "smaller loops of DNA called plasmids that are not essential for normal growth",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "are not",
+        "obj": "essential for normal growth",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Bacteria can exchange these plasmids with other bacteria, sometimes receiving beneficial new genes that the recipient can add to their chromosomal DNA.",
+    "triple_count": 6,
+    "triples": [
+      {
+        "subject": "Bacteria",
+        "relation": "can exchange",
+        "obj": "these plasmids",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Bacteria",
+        "relation": "can exchange",
+        "obj": "with other bacteria",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the recipient",
+        "relation": "can add",
+        "obj": "that",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the recipient",
+        "relation": "can add",
+        "obj": "to their chromosomal DNA",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Bacteria",
+        "relation": "exchange",
+        "obj": "these plasmids",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      },
+      {
+        "subject": "the recipient",
+        "relation": "add",
+        "obj": "that",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Antibiotic resistance is one trait that often spreads through a bacterial colony through plasmid exchange from resistant donors to recipient cells.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "Antibiotic resistance",
+        "relation": "is",
+        "obj": "one trait that often spreads through a bacterial colony through plasmid exchange from resistant donors to recipient cells",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "spreads",
+        "obj": "through a bacterial colony",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "spreads",
+        "obj": "through plasmid exchange from resistant donors to recipient cells",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Each species of eukaryotes has a characteristic number of chromosomes in the nuclei of its cells.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Each species of eukaryotes",
+        "relation": "has",
+        "obj": "a characteristic number of chromosomes in the nuclei of its cells",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Human body cells have 46 chromosomes, while human gametes have 23 chromosomes each.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Human body cells",
+        "relation": "have",
+        "obj": "46 chromosomes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "human gametes",
+        "relation": "have",
+        "obj": "23 chromosomes each",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Human body cells have 46 chromosomes.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Human body cells",
+        "relation": "have",
+        "obj": "46 chromosomes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "human gametes have 23 chromosomes each.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "human gametes",
+        "relation": "have",
+        "obj": "23 chromosomes each",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "A typical body cell contains two matched or homologous sets of chromosomes—a configuration known as diploid.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "A typical body cell",
+        "relation": "contains",
+        "obj": "two matched or homologous sets of chromosomes — a configuration known as diploid",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Human cells that contain one set of chromosomes are called gametes, or sex cells; these are eggs and sperm, and are designated 1n, or haploid.",
+    "triple_count": 5,
+    "triples": [
+      {
+        "subject": "that",
+        "relation": "contain",
+        "obj": "one set of chromosomes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "Human cells that contain one set of chromosomes",
+        "relation": "are called",
+        "obj": "gametes , or sex cells",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "Human cells that contain one set of chromosomes",
+        "relation": "are called",
+        "obj": "sex cells",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "these",
+        "relation": "are",
+        "obj": "eggs and sperm",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "these",
+        "relation": "are",
+        "obj": "sperm",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "these are eggs and sperm, and are designated 1n, or haploid.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "these",
+        "relation": "are",
+        "obj": "eggs and sperm",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "these",
+        "relation": "are",
+        "obj": "sperm",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Human cells that contain one set of chromosomes are called gametes, or sex cells; these are eggs and sperm.",
+    "triple_count": 5,
+    "triples": [
+      {
+        "subject": "that",
+        "relation": "contain",
+        "obj": "one set of chromosomes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "Human cells that contain one set of chromosomes",
+        "relation": "are called",
+        "obj": "gametes , or sex cells",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "Human cells that contain one set of chromosomes",
+        "relation": "are called",
+        "obj": "sex cells",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "these",
+        "relation": "are",
+        "obj": "eggs and sperm",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "these",
+        "relation": "are",
+        "obj": "sperm",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "sex cells; these are eggs and sperm, and are designated 1n.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "these",
+        "relation": "are",
+        "obj": "eggs and sperm",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "these",
+        "relation": "are",
+        "obj": "sperm",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Upon fertilization, each gamete contributes one set of chromosomes, creating a diploid cell containing matched pairs of chromosomes called homologous chromosomes.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "each gamete",
+        "relation": "contributes",
+        "obj": "Upon fertilization",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "each gamete",
+        "relation": "contributes",
+        "obj": "one set of chromosomes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Homologous chromosomes are the same length and have specific nucleotide segments called genes in exactly the same location, or locus.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Homologous chromosomes",
+        "relation": "are",
+        "obj": "the same length",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Homologous chromosomes are the same length and have specific nucleotide segments called genes in exactly the same location.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Homologous chromosomes",
+        "relation": "are",
+        "obj": "the same length",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Genes, the functional units of chromosomes, determine specific characteristics by coding for specific proteins.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Genes , the functional units of chromosomes ,",
+        "relation": "determine",
+        "obj": "specific characteristics",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Traits are the variations of those characteristics.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Traits",
+        "relation": "are",
+        "obj": "the variations of those characteristics",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "For example, hair color is a characteristic with traits that are blonde, brown, or black, and many colors in between.",
+    "triple_count": 6,
+    "triples": [
+      {
+        "subject": "hair color",
+        "relation": "is",
+        "obj": "For example",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "hair color",
+        "relation": "is",
+        "obj": "a characteristic with traits that are blonde , brown , or black , and many colors in between",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "are",
+        "obj": "blonde , brown , or black , and many colors in between",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "are",
+        "obj": "brown , or black , and many colors in between",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "are",
+        "obj": "black , and",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "are",
+        "obj": "many colors in between",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "For example, hair color is a characteristic with traits that are blonde, brown, or black.",
+    "triple_count": 5,
+    "triples": [
+      {
+        "subject": "hair color",
+        "relation": "is",
+        "obj": "For example",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "hair color",
+        "relation": "is",
+        "obj": "a characteristic with traits that are blonde , brown , or black",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "are",
+        "obj": "blonde , brown , or black",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "are",
+        "obj": "brown , or black",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "are",
+        "obj": "black",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "For example, hair color is a characteristic with traits that are blonde, brown.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "hair color",
+        "relation": "is",
+        "obj": "For example",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "hair color",
+        "relation": "is",
+        "obj": "a characteristic with traits that are blonde , brown",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "are",
+        "obj": "blonde , brown",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "In this image, the chromosomes were exposed to fluorescent stains for differentiation of the different chromosomes.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "the chromosomes",
+        "relation": "were exposed",
+        "obj": "In this image",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the chromosomes",
+        "relation": "were exposed",
+        "obj": "to fluorescent stains",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the chromosomes",
+        "relation": "were exposed",
+        "obj": "for differentiation of the different chromosomes",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "A method of staining called \"chromosome painting\" employs fluorescent dyes that highlight chromosomes in different colors.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "A method of staining called \" chromosome painting \"",
+        "relation": "employs",
+        "obj": "fluorescent dyes that highlight chromosomes in different colors",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "highlight",
+        "obj": "chromosomes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "highlight",
+        "obj": "in different colors",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The variation of individuals within a species is due to the specific combination of the genes inherited from both parents.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The variation of individuals within a species",
+        "relation": "is",
+        "obj": "due to the specific combination of the genes inherited from both parents",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Even a slightly altered sequence of nucleotides within a gene can result in an alternative trait.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Even a slightly altered sequence of nucleotides within a gene",
+        "relation": "can result",
+        "obj": "in an alternative trait",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "However, if the entire DNA sequence from any pair of human homologous chromosomes is compared, the difference is much less than one percent.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "the difference",
+        "relation": "is",
+        "obj": "much less than one percent",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "At the same time, it must also be readily accessible for the genes to be expressed.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "it",
+        "relation": "must be",
+        "obj": "At the same time",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "it",
+        "relation": "must be",
+        "obj": "readily accessible",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "it",
+        "relation": "be",
+        "obj": "readily accessible",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "For this reason, the long strands of DNA are condensed into compact chromosomes during certain stages of the cell cycle.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "the long strands of DNA",
+        "relation": "are condensed",
+        "obj": "For this reason",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the long strands of DNA",
+        "relation": "are condensed",
+        "obj": "into compact chromosomes",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the long strands of DNA",
+        "relation": "are condensed",
+        "obj": "during certain stages of the cell cycle",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The second level of compaction occurs as the nucleosomes and the linker DNA between them coil into a 30-nm chromatin fiber.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The second level of compaction",
+        "relation": "occurs",
+        "obj": "as the nucleosomes and the linker DNA between them",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "The second level of compaction",
+        "relation": "occurs",
+        "obj": "as the linker DNA between them",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Each linear chromosome in a eukaryotic cell is packaged into chromatin, a combination of DNA and proteins.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Each linear chromosome in a eukaryotic cell a combination of DNA and proteins",
+        "relation": "is packaged",
+        "obj": "into chromatin",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "These nucleosomes are further organized into a 30 nm fiber by the linker histone, H1.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "These nucleosomes",
+        "relation": "are organized",
+        "obj": "into a 30 nm fiber by the linker histone , H1",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The fiber then associates with additional proteins to form loops and higher-order heterochromatin packing.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The fiber",
+        "relation": "associates",
+        "obj": "with additional proteins",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "DNA packing reaches its most condensed state during metaphase in mitosis in preparation for chromosome separation.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "DNA packing",
+        "relation": "reaches",
+        "obj": "its most condensed state",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "DNA packing",
+        "relation": "reaches",
+        "obj": "during metaphase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "DNA packing",
+        "relation": "reaches",
+        "obj": "in mitosis in preparation for chromosome separation",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Chromatin packing is dynamic and undergoes reversible changes in response to changes in gene expression and the cell cycle.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Chromatin packing",
+        "relation": "is",
+        "obj": "dynamic",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "After replication, the chromosomes are composed of two linked sister chromatids.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "the chromosomes",
+        "relation": "are composed",
+        "obj": "After replication",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the chromosomes",
+        "relation": "are composed",
+        "obj": "of two linked sister chromatids",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "When fully compact, the pairs of identically packed chromosomes are bound to each other by cohesin proteins.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "the pairs of identically packed chromosomes",
+        "relation": "are bound",
+        "obj": "to each other",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The connection between the sister chromatids is closest in a region called the centromere.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The connection between the sister chromatids",
+        "relation": "is",
+        "obj": "closest in a region called the centromere",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The conjoined sister chromatids, with a diameter of about 1 µm, are visible under a light microscope.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The conjoined sister chromatids , with a diameter of about 1 µm ,",
+        "relation": "are",
+        "obj": "visible",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "The conjoined sister chromatids , with a diameter of about 1 µm ,",
+        "relation": "are",
+        "obj": "under a light microscope",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The centromeric region is highly condensed and thus will appear as a constricted area.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The centromeric region",
+        "relation": "is",
+        "obj": "highly condensed",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "LINK TO LEARNING This animation illustrates the different levels of chromosome packing.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "LINK",
+        "relation": "illustrates",
+        "obj": "the different levels of chromosome packing",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The cell cycle is an ordered series of events involving cell growth and cell division that produces two new daughter cells.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The cell cycle",
+        "relation": "is",
+        "obj": "an ordered series of events involving cell growth and cell division that produces two new daughter cells",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "produces",
+        "obj": "two new daughter cells",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "During interphase, the cell grows and DNA is replicated.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "the cell",
+        "relation": "grows",
+        "obj": "During interphase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "During the mitotic phase, the replicated DNA and cytoplasmic contents are separated, and the cell cytoplasm is typically partitioned by a third process of the cell cycle called cytokinesis.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "the replicated DNA and cytoplasmic contents",
+        "relation": "are separated",
+        "obj": "During the mitotic phase",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "cytoplasmic contents",
+        "relation": "are separated",
+        "obj": "During the mitotic phase",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "During the mitotic phase, the replicated DNA and cytoplasmic contents are separated.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "the replicated DNA and cytoplasmic contents",
+        "relation": "are separated",
+        "obj": "During the mitotic phase",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "cytoplasmic contents",
+        "relation": "are separated",
+        "obj": "During the mitotic phase",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "the cell cytoplasm is typically partitioned by a third process of the cell cycle called cytokinesis.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "We should note, however, that interphase and mitosis may take place without cytokinesis, in which case cells with multiple nuclei are produced.",
+    "triple_count": 5,
+    "triples": [
+      {
+        "subject": "that interphase and mitosis",
+        "relation": "may take",
+        "obj": "place",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that interphase and mitosis",
+        "relation": "may take",
+        "obj": "without cytokinesis",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "mitosis",
+        "relation": "may take",
+        "obj": "place",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "mitosis",
+        "relation": "may take",
+        "obj": "without cytokinesis",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that interphase and mitosis",
+        "relation": "take",
+        "obj": "place",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The cell cycle in multicellular organisms consists of interphase and the mitotic phase.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The cell cycle in multicellular organisms",
+        "relation": "consists",
+        "obj": "of interphase and the mitotic phase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "The cell cycle in multicellular organisms",
+        "relation": "consists",
+        "obj": "of the mitotic phase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "During interphase, the cell grows and the nuclear DNA is duplicated.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "the cell",
+        "relation": "grows",
+        "obj": "During interphase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Interphase is followed by the mitotic phase.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "During the mitotic phase, the duplicated chromosomes are segregated and distributed into daughter nuclei.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "the duplicated chromosomes",
+        "relation": "are segregated",
+        "obj": "During the mitotic phase",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Following mitosis, the cytoplasm is usually divided as well by cytokinesis, resulting in two genetically identical daughter cells.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "the cytoplasm",
+        "relation": "is divided",
+        "obj": "Following mitosis",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Interphase During interphase, the cell undergoes normal growth processes while also preparing for cell division.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "the cell",
+        "relation": "undergoes",
+        "obj": "During interphase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the cell",
+        "relation": "undergoes",
+        "obj": "normal growth processes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "However, during the G1 stage, the cell is quite active at the biochemical level.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "the cell",
+        "relation": "is",
+        "obj": "during the G1 stage",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the cell",
+        "relation": "is",
+        "obj": "quite active",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "the cell",
+        "relation": "is",
+        "obj": "at the biochemical level",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "S Phase Throughout interphase, nuclear DNA remains in a semi-condensed chromatin configuration.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "nuclear DNA",
+        "relation": "remains",
+        "obj": "in a semi - condensed chromatin configuration",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "In the S phase, DNA replication can proceed through the mechanisms that result in the formation of identical pairs of DNA molecules—sister chromatids—that are firmly attached at the centromeric region.",
+    "triple_count": 4,
+    "triples": [
+      {
+        "subject": "DNA replication",
+        "relation": "can proceed",
+        "obj": "In the S phase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "DNA replication",
+        "relation": "can proceed",
+        "obj": "through the mechanisms that result in the formation of identical pairs of DNA molecules — sister chromatids — that are firmly attached at the centromeric region",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "result",
+        "obj": "in the formation of identical pairs of DNA molecules — sister chromatids — that are firmly attached at the centromeric region",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "are attached",
+        "obj": "at the centromeric region",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The centrosome is also duplicated during the S phase.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The centrosome",
+        "relation": "is duplicated",
+        "obj": "during the S phase",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The two centrosomes will give rise to the mitotic spindle, the apparatus that orchestrates the movement of chromosomes during mitosis.",
+    "triple_count": 5,
+    "triples": [
+      {
+        "subject": "The two centrosomes the apparatus that orchestrates the movement of chromosomes during mitosis",
+        "relation": "will give",
+        "obj": "rise",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "The two centrosomes the apparatus that orchestrates the movement of chromosomes during mitosis",
+        "relation": "will give",
+        "obj": "to the mitotic spindle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "orchestrates",
+        "obj": "the movement of chromosomes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "orchestrates",
+        "obj": "during mitosis",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "The two centrosomes the apparatus that orchestrates the movement of chromosomes during mitosis",
+        "relation": "give",
+        "obj": "rise",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Centrioles help organize cell division.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "We should note, however, that centrioles are not present in the centrosomes of other eukaryotic organisms, such as plants and most fungi.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "centrioles",
+        "relation": "are not",
+        "obj": "present in the centrosomes of other eukaryotic organisms , such as plants and most fungi",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "In the G2 phase, the cell replenishes its energy stores and synthesizes proteins necessary for chromosome manipulation and movement.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "the cell",
+        "relation": "replenishes",
+        "obj": "In the G2 phase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the cell",
+        "relation": "replenishes",
+        "obj": "its energy stores",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "the cytoskeleton is dismantled to provide resources for the mitotic phase.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "The Mitotic Phase The mitotic phase is a multistep process during which the duplicated chromosomes are aligned, separated, and move into two new, identical daughter cells.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The Mitotic Phase",
+        "relation": "is",
+        "obj": "a multistep process during which the duplicated chromosomes are aligned , separated , and move into two new , identical daughter cells",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "the duplicated chromosomes",
+        "relation": "are aligned",
+        "obj": "during which",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The Mitotic Phase The mitotic phase is a multistep process during which the duplicated chromosomes are aligned, separated.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "The Mitotic Phase",
+        "relation": "is",
+        "obj": "a multistep process during which the duplicated chromosomes are aligned",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "The Mitotic Phase",
+        "relation": "is",
+        "obj": ", separated",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "the duplicated chromosomes",
+        "relation": "are aligned",
+        "obj": "during which",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "During this stage, cells grow, replenish energy and synthesize needed macromolecules, such as proteins and lipids.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "cells",
+        "relation": "grow",
+        "obj": "During this stage",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Mitosis - When G2 is complete, the cell will enter mitosis.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "G2",
+        "relation": "is",
+        "obj": "complete",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "the cell",
+        "relation": "will enter",
+        "obj": "mitosis",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the cell",
+        "relation": "enter",
+        "obj": "mitosis",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Although there are 5 phases in mitosis, with the exception of the metaphase to anaphase transition, these phases are not discrete and happen as a continuous process.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "these phases",
+        "relation": "are not",
+        "obj": "discrete and happen as a continuous process",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "these phases",
+        "relation": "are not",
+        "obj": "happen as a continuous process",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Prophase is the first stage in mitosis.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Prophase",
+        "relation": "is",
+        "obj": "the first stage in mitosis",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The nuclear envelope begins to break down and chromosomes condense and are now visible.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "Spindle fibers start to appear and centrosomes begin to move towards opposite poles.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "Prometaphase - Chromosomes continue to condense and are more visible.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "Kinetochores appear at the centromere and kinetochore microtubules attach.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Kinetochores",
+        "relation": "appear",
+        "obj": "at the centromere and kinetochore microtubules",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Kinetochores",
+        "relation": "appear",
+        "obj": "attach",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Centrosomes continue to move towards opposite poles.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "each sister chromatid rests on one side of the plate, with spindle fibers attached to them.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "each sister chromatid",
+        "relation": "rests",
+        "obj": "on one side of the plate",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "spindle fibers",
+        "relation": "attached",
+        "obj": "to them",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Anaphase - Sister chromatids are pulled apart by spindle fibers and are separated from each other.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "Each chromatid is now a chromosome.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Each chromatid",
+        "relation": "is",
+        "obj": "a chromosome",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "This physical separation into two cells are remarkably different processes in plant and animal cells.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "This physical separation into two cells",
+        "relation": "are",
+        "obj": "remarkably different processes in plant and animal cells",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "a. Sister chromatids line up at the metaphase plate.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "a. Sister chromatids",
+        "relation": "line up",
+        "obj": "at the metaphase plate",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The kinetochore becomes attached to the mitotic spindle.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The kinetochore",
+        "relation": "becomes",
+        "obj": "attached to the mitotic spindle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Sister chromatids line up at the metaphase plate.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Sister chromatids",
+        "relation": "line up",
+        "obj": "at the metaphase plate",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The kinetochore becomes attached to the cohesin proteins.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The kinetochore",
+        "relation": "becomes",
+        "obj": "attached to the cohesin proteins",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The nucleolus disappears as well, and the centrosomes begin to move to opposite poles of the cell.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "The nucleolus disappears as well.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "the centrosomes begin to move to opposite poles of the cell.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "The sister chromatids begin to coil more tightly with the aid of condensin proteins and now become visible under a light microscope.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "Prometaphase: Many processes that began in prophase continue to advance.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "that",
+        "relation": "began",
+        "obj": "in prophase",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The remnants of the nuclear envelope fragment further, and the mitotic spindle continues to develop as more microtubules assemble and stretch across the length of the former nuclear area.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "the mitotic spindle continues to develop as more microtubules assemble and stretch across the length of the former nuclear area.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "Chromosomes become even more condensed and discrete.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Chromosomes",
+        "relation": "become",
+        "obj": "even more condensed and discrete",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "Chromosomes",
+        "relation": "become",
+        "obj": "discrete",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "As the spindle microtubules extend from the centrosomes, some of these microtubules come into contact with and firmly bind to the kinetochores.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "the spindle microtubules",
+        "relation": "extend",
+        "obj": "from the centrosomes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "some of these microtubules",
+        "relation": "come",
+        "obj": "into contact with",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Eventually, all the sister chromatids will be attached via their kinetochores to microtubules from opposing poles.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "all the sister chromatids",
+        "relation": "will be attached",
+        "obj": "via their kinetochores",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "all the sister chromatids",
+        "relation": "will be attached",
+        "obj": "to microtubules",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "all the sister chromatids",
+        "relation": "will be attached",
+        "obj": "from opposing poles",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "These microtubules overlap each other midway between the two poles and contribute to cell elongation.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "These microtubules",
+        "relation": "overlap",
+        "obj": "each other",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "These microtubules",
+        "relation": "overlap",
+        "obj": "midway between the two poles",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Astral microtubules are located near the poles, aid in spindle orientation, and are required for the regulation of mitosis.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Astral microtubules",
+        "relation": "are located",
+        "obj": "near the poles",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Astral microtubules are located near the poles, aid in spindle orientation.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Astral microtubules",
+        "relation": "are located",
+        "obj": "near the poles",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "During prometaphase, mitotic spindle microtubules from opposite poles attach to each sister chromatid at the kinetochore.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "mitotic spindle microtubules from opposite poles",
+        "relation": "attach",
+        "obj": "During prometaphase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "mitotic spindle microtubules from opposite poles",
+        "relation": "attach",
+        "obj": "to each sister chromatid",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "mitotic spindle microtubules from opposite poles",
+        "relation": "attach",
+        "obj": "at the kinetochore",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "In anaphase, the connection between the sister chromatids breaks down, and the microtubules pull the chromosomes toward opposite poles.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "the connection between the sister chromatids",
+        "relation": "breaks down",
+        "obj": "In anaphase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the microtubules",
+        "relation": "pull",
+        "obj": "the chromosomes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "the microtubules",
+        "relation": "pull",
+        "obj": "toward opposite poles",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "In anaphase, the connection between the sister chromatids breaks down.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "the connection between the sister chromatids",
+        "relation": "breaks down",
+        "obj": "In anaphase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "the microtubules pull the chromosomes toward opposite poles.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "the microtubules",
+        "relation": "pull",
+        "obj": "the chromosomes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "the microtubules",
+        "relation": "pull",
+        "obj": "toward opposite poles",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "At this time, the chromosomes are maximally condensed.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "the chromosomes",
+        "relation": "are condensed",
+        "obj": "At this time",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "the sister chromatids separate at the centromere.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "Each chromatid, now called a single chromosome, is pulled rapidly toward the centrosome to which its microtubule is attached.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Each chromatid ,",
+        "relation": "called",
+        "obj": "a single chromosome",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "its microtubule",
+        "relation": "is attached",
+        "obj": "to which",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The cell becomes visibly elongated as the polar microtubules slide against each other at the metaphase plate where they overlap.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "the polar microtubules",
+        "relation": "slide",
+        "obj": "against each other",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the polar microtubules",
+        "relation": "slide",
+        "obj": "at the metaphase plate where they overlap",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Telophase: the chromosomes reach the opposite poles and begin to decondense, relaxing once again into a stretched-out chromatin configuration.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Telophase :",
+        "relation": "reach",
+        "obj": "the opposite poles",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "the chromosomes",
+        "relation": "reach",
+        "obj": "the opposite poles",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The mitotic spindles are depolymerized into tubulin monomers that will be used to assemble cytoskeletal components for each daughter cell.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The mitotic spindles",
+        "relation": "are depolymerized",
+        "obj": "into tubulin monomers that will be used to assemble cytoskeletal components for each daughter cell",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Nuclear envelopes form around the chromosomes, and nucleosomes appear within the nuclear area.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Nuclear envelopes",
+        "relation": "form",
+        "obj": "around the chromosomes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "nucleosomes",
+        "relation": "appear",
+        "obj": "within the nuclear area",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Nuclear envelopes form around the chromosomes.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Nuclear envelopes",
+        "relation": "form",
+        "obj": "around the chromosomes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "nucleosomes appear within the nuclear area.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "nucleosomes",
+        "relation": "appear",
+        "obj": "within the nuclear area",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The microtubule spindle has completed the alignment of chromosomes at the metaphase plate in preparation for the separation of sister chromatids during anaphase.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "The microtubule spindle",
+        "relation": "has completed",
+        "obj": "the alignment of chromosomes at the metaphase plate",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "The microtubule spindle",
+        "relation": "has completed",
+        "obj": "in preparation for the separation of sister chromatids during anaphase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "The microtubule spindle",
+        "relation": "completed",
+        "obj": "the alignment of chromosomes at the metaphase plate",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "If cytokinesis does take place, cell division is not complete until the cell components have been apportioned and completely separated into the two daughter cells.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "cytokinesis",
+        "relation": "does take",
+        "obj": "place",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "cell division",
+        "relation": "is not",
+        "obj": "complete",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "cytokinesis",
+        "relation": "take",
+        "obj": "place",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Although the stages of mitosis are similar for most eukaryotes, the process of cytokinesis is quite different for eukaryotes that have cell walls, such as plant cells.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "the stages of mitosis",
+        "relation": "are",
+        "obj": "similar for most eukaryotes",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "the process of cytokinesis",
+        "relation": "is",
+        "obj": "quite different for eukaryotes that have cell walls , such as plant cells",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "have",
+        "obj": "cell walls , such as plant cells",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "In animal cells, cytokinesis typically starts during late anaphase.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "cytokinesis",
+        "relation": "starts",
+        "obj": "In animal cells",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "cytokinesis",
+        "relation": "starts",
+        "obj": "during late anaphase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The actin filaments pull the equator of the cell inward, forming a fissure.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The actin filaments",
+        "relation": "pull",
+        "obj": "the equator of the cell",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "In plant cells, a new cell wall must form between the daughter cells.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "a new cell wall",
+        "relation": "must form",
+        "obj": "In plant cells",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "a new cell wall",
+        "relation": "must form",
+        "obj": "between the daughter cells",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "During interphase, the Golgi apparatus accumulates enzymes, structural proteins, and glucose molecules prior to breaking into vesicles and dispersing throughout the dividing cell.",
+    "triple_count": 4,
+    "triples": [
+      {
+        "subject": "the Golgi apparatus",
+        "relation": "accumulates",
+        "obj": "During interphase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the Golgi apparatus",
+        "relation": "accumulates",
+        "obj": "enzymes , structural proteins , and glucose molecules",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "the Golgi apparatus",
+        "relation": "accumulates",
+        "obj": "structural proteins , and glucose molecules",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the Golgi apparatus",
+        "relation": "accumulates",
+        "obj": "glucose molecules",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "During interphase, the Golgi apparatus accumulates enzymes, structural proteins.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "the Golgi apparatus",
+        "relation": "accumulates",
+        "obj": "During interphase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the Golgi apparatus",
+        "relation": "accumulates",
+        "obj": "enzymes , structural proteins",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "the Golgi apparatus",
+        "relation": "accumulates",
+        "obj": "structural proteins",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "During telophase, these Golgi vesicles are transported on microtubules to form a phragmoplast at the metaphase plate.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "these Golgi vesicles",
+        "relation": "are transported",
+        "obj": "During telophase",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "these Golgi vesicles",
+        "relation": "are transported",
+        "obj": "on microtubules",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "There, the vesicles fuse and coalesce from the center toward the cell walls; this structure is called a cell plate.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "this structure",
+        "relation": "is called",
+        "obj": "a cell plate",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Enzymes use the glucose that has accumulated between the membrane layers to build a new cell wall.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Enzymes",
+        "relation": "use",
+        "obj": "the glucose that has accumulated between the membrane layers to build a new cell wall",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "has accumulated",
+        "obj": "between the membrane layers",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The cleavage furrow gets continuously deeper until it eventually divides the cell into two new, independent daughter cells.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "The cleavage furrow",
+        "relation": "gets",
+        "obj": "continuously deeper",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "it",
+        "relation": "divides",
+        "obj": "the cell",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "it",
+        "relation": "divides",
+        "obj": "into two new , independent daughter cells",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "A mixture of enzymes, proteins, and glucose molecules are transported via vesicles to the center of the cell.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "A mixture of enzymes , proteins , and glucose molecules",
+        "relation": "are transported",
+        "obj": "via vesicles",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "A mixture of enzymes , proteins , and glucose molecules",
+        "relation": "are transported",
+        "obj": "to the center of the cell",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "glucose molecules are transported via vesicles to the center of the cell.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "glucose molecules",
+        "relation": "are transported",
+        "obj": "via vesicles",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "glucose molecules",
+        "relation": "are transported",
+        "obj": "to the center of the cell",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "These vesicles continuously build upon each other until a completely new cell wall has emerged and two new cells are formed, independent of one another.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "These vesicles",
+        "relation": "build",
+        "obj": "upon each other",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Cells in G0 phase are not actively preparing to divide.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "The cell is in a quiescent stage that occurs when cells exit the cell cycle.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The cell",
+        "relation": "is",
+        "obj": "in a quiescent stage that occurs when cells exit the cell cycle",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "cells",
+        "relation": "exit",
+        "obj": "the cell cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Some cells enter G0 temporarily due to environmental conditions such as availability of nutrients, or stimulation by growth factors.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Some cells",
+        "relation": "enter",
+        "obj": "G0",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Some cells enter G0 temporarily due to environmental conditions such as availability of nutrients.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Some cells",
+        "relation": "enter",
+        "obj": "G0",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The cell will remain in this phase until conditions improve or until an external signal triggers the onset of G1.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The cell",
+        "relation": "will remain",
+        "obj": "in this phase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "an external signal",
+        "relation": "triggers",
+        "obj": "the onset of G1",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Other cells that never or rarely divide, such as mature cardiac muscle and nerve cells, remain in G0 permanently.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Other cells that never or rarely divide , such as mature cardiac muscle and nerve cells",
+        "relation": "remain",
+        "obj": "in G0",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "With this objective, individual cells are clearly visible, but the chromosomes will still be very small.",
+    "triple_count": 4,
+    "triples": [
+      {
+        "subject": "individual cells",
+        "relation": "are",
+        "obj": "With this objective",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "individual cells",
+        "relation": "are",
+        "obj": "visible",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "the chromosomes",
+        "relation": "will be",
+        "obj": "very small",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the chromosomes",
+        "relation": "be",
+        "obj": "very small",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The length of the cell cycle is highly variable, even within the cells of a single organism.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The length of the cell cycle",
+        "relation": "is",
+        "obj": "highly variable",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "The length of the cell cycle",
+        "relation": "is",
+        "obj": "within the cells of a single organism",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "When rapidly dividing mammalian cells are grown in a culture, the length of the cell cycle is about 24 hours.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "the length of the cell cycle",
+        "relation": "is",
+        "obj": "about 24 hours",
+        "sensors": [
+          "definition",
+          "datetime"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "By comparison, in fertilized eggs of fruit flies, the cell cycle is completed in about eight minutes.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "the cell cycle",
+        "relation": "is completed",
+        "obj": "By comparison",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the cell cycle",
+        "relation": "is completed",
+        "obj": "in fertilized eggs of fruit flies",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the cell cycle",
+        "relation": "is completed",
+        "obj": "in about eight minutes",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The timing of events in the cell cycle of both \"invertebrates\" and \"vertebrates\" is controlled by mechanisms that are both internal and external to the cell.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "that",
+        "relation": "are",
+        "obj": "internal and external to the cell",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "are",
+        "obj": "external to the cell",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "An event may be as simple as the death of nearby cells or as sweeping as the release of growth-promoting hormones, such as human growth hormone.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "An event",
+        "relation": "may be",
+        "obj": "as simple as the death of nearby cells or as sweeping as the release of growth - promoting hormones , such as human growth hormone",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "An event",
+        "relation": "may be",
+        "obj": "as sweeping as the release of growth - promoting hormones , such as human growth hormone",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "An event",
+        "relation": "be",
+        "obj": "as simple as the death of nearby cells or as sweeping as the release of growth - promoting hormones , such as human growth hormone",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "A lack of HGH can inhibit cell division, resulting in dwarfism, whereas too much HGH can result in gigantism.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "A lack of HGH",
+        "relation": "can inhibit",
+        "obj": "cell division",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "too much HGH",
+        "relation": "can result",
+        "obj": "in gigantism",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "A lack of HGH",
+        "relation": "inhibit",
+        "obj": "cell division",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "A lack of HGH can inhibit cell division, resulting in dwarfism.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "A lack of HGH",
+        "relation": "can inhibit",
+        "obj": "cell division",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "A lack of HGH",
+        "relation": "inhibit",
+        "obj": "cell division",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "too much HGH can result in gigantism.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "too much HGH",
+        "relation": "can result",
+        "obj": "in gigantism",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "In contrast, a factor that can initiate cell division is the size of the cell: As a cell grows, it becomes physiologically inefficient due to its decreasing surface-to-volume ratio.",
+    "triple_count": 6,
+    "triples": [
+      {
+        "subject": "that",
+        "relation": "can initiate",
+        "obj": "cell division",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "a factor that can initiate cell division",
+        "relation": "is",
+        "obj": "In contrast",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "a factor that can initiate cell division",
+        "relation": "is",
+        "obj": "the size of the cell",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "it",
+        "relation": "becomes",
+        "obj": "physiologically inefficient",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "it",
+        "relation": "becomes",
+        "obj": "due its decreasing surface - to - volume ratio",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "initiate",
+        "obj": "cell division",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The solution to this problem is to divide.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "Regulation at Internal Checkpoints It is essential that the daughter cells produced be exact duplicates of the parent cell.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "It",
+        "relation": "is",
+        "obj": "essential",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "the daughter cells produced",
+        "relation": "be",
+        "obj": "exact duplicates of the parent cell",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Mistakes in the duplication or distribution of the chromosomes lead to mutations that may be passed forward to every new cell produced from an abnormal cell.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Mistakes in the duplication or distribution of the chromosomes",
+        "relation": "lead",
+        "obj": "to mutations that may be passed forward to every new cell produced from an abnormal cell",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "may be passed",
+        "obj": "to every new cell produced from an abnormal cell",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The cell cycle is controlled at three checkpoints.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The cell cycle",
+        "relation": "is controlled",
+        "obj": "at three checkpoints",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The integrity of the DNA is assessed at the G1 checkpoint.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The integrity of the DNA",
+        "relation": "is assessed",
+        "obj": "at the G1 checkpoint",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Proper chromosome duplication is assessed at the G2 checkpoint.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Proper chromosome duplication",
+        "relation": "is assessed",
+        "obj": "at the G2 checkpoint",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Attachment of each kinetochore to a spindle fiber is assessed at the M checkpoint.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Attachment of each kinetochore to a spindle fiber",
+        "relation": "is assessed",
+        "obj": "at the M checkpoint",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The G1 Checkpoint The G1 checkpoint determines whether all conditions are favorable for cell division to proceed.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "all conditions",
+        "relation": "are",
+        "obj": "favorable for cell division to proceed",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The G1 checkpoint, also called the restriction point, is a point at which the cell irreversibly commits to the cell division process.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "The G1 checkpoint ,",
+        "relation": "called",
+        "obj": "the restriction point",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "the cell",
+        "relation": "commits",
+        "obj": "at which",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the cell",
+        "relation": "commits",
+        "obj": "to the cell division process",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "External influences, such as growth factors, play a large role in carrying the cell past the G1 checkpoint.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "External influences , such as growth factors ,",
+        "relation": "play",
+        "obj": "a large role",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "A cell that does not meet all the requirements will not be allowed to progress into the S phase.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "that",
+        "relation": "does not meet",
+        "obj": "all the requirements",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "not meet",
+        "obj": "all the requirements",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The cell can halt the cycle and attempt to remedy the problematic condition, or the cell can advance into G0 and await further signals when conditions improve.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "The cell",
+        "relation": "can halt",
+        "obj": "the cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the cell",
+        "relation": "can advance",
+        "obj": "into G0",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "The cell",
+        "relation": "halt",
+        "obj": "the cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The cell can halt the cycle and attempt to remedy the problematic condition.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The cell",
+        "relation": "can halt",
+        "obj": "the cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "The cell",
+        "relation": "halt",
+        "obj": "the cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "the cell can advance into G0 and await further signals when conditions improve.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "the cell",
+        "relation": "can advance",
+        "obj": "into G0",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "However, the most important role of the G2 checkpoint is to ensure that all of the chromosomes have been replicated and that the replicated DNA is not damaged.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "the cell attempts to either complete DNA replication or repair the damaged DNA.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "the cell",
+        "relation": "attempts",
+        "obj": "to either complete DNA replication",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The M Checkpoint The M checkpoint occurs near the end of the metaphase stage of karyokinesis.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The M Checkpoint The M checkpoint",
+        "relation": "occurs",
+        "obj": "near the end of the metaphase stage of karyokinesis",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The M checkpoint is also known as the spindle checkpoint, because it determines whether all the sister chromatids are correctly attached to the spindle microtubules.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The M checkpoint",
+        "relation": "is known",
+        "obj": "as the spindle checkpoint",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "all the sister chromatids",
+        "relation": "are attached",
+        "obj": "to the spindle microtubules",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Regulator Molecules of the Cell Cycle In addition to the internally controlled checkpoints, there are two groups of intracellular molecules that regulate the cell cycle.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "Regulator Molecules of the Cell Cycle",
+        "relation": "are",
+        "obj": "In addition to the internally controlled checkpoints",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Regulator Molecules of the Cell Cycle",
+        "relation": "are",
+        "obj": "two groups of intracellular molecules that regulate the cell cycle",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "regulate",
+        "obj": "the cell cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "These regulatory molecules either promote progress of the cell to the next phase or halt the cycle.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "These regulatory molecules",
+        "relation": "promote",
+        "obj": "progress of the cell",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "These regulatory molecules",
+        "relation": "promote",
+        "obj": "to the next phase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Regulator molecules may act individually, or they can influence the activity or production of other regulatory proteins.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "they",
+        "relation": "can influence",
+        "obj": "the activity or production of other regulatory proteins",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "they",
+        "relation": "can influence",
+        "obj": "production",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "they",
+        "relation": "influence",
+        "obj": "the activity or production of other regulatory proteins",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Regulator molecules may act individually.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "they can influence the activity or production of other regulatory proteins.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "they",
+        "relation": "can influence",
+        "obj": "the activity or production of other regulatory proteins",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "they",
+        "relation": "can influence",
+        "obj": "production",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "they",
+        "relation": "influence",
+        "obj": "the activity or production of other regulatory proteins",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Therefore, the failure of a single regulator may have almost no effect on the cell cycle, especially if more than one mechanism controls the same event.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "the failure of a single regulator",
+        "relation": "may have",
+        "obj": "almost no effect on the cell cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "more than one mechanism",
+        "relation": "controls",
+        "obj": "the same event",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "the failure of a single regulator",
+        "relation": "have",
+        "obj": "almost no effect on the cell cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "However, the effect of a deficient or non- functioning regulator can be wide-ranging and possibly fatal to the cell if multiple processes are affected.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "the effect of a deficient or non- functioning regulator",
+        "relation": "can be",
+        "obj": "wide - ranging and possibly fatal to the cell",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the effect of a deficient or non- functioning regulator",
+        "relation": "can be",
+        "obj": "possibly fatal to the cell",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the effect of a deficient or non- functioning regulator",
+        "relation": "be",
+        "obj": "wide - ranging and possibly fatal to the cell",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "They are responsible for the progress of the cell through the various checkpoints.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "They",
+        "relation": "are",
+        "obj": "responsible for the progress of the cell through the various checkpoints",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Increases in the concentration of cyclin proteins are triggered by both external and internal signals.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "The concentrations of cyclin proteins change throughout the cell cycle.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The concentrations of",
+        "relation": "change",
+        "obj": "throughout the cell cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Cyclins regulate the cell cycle only when they are tightly bound to Cdks.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Cyclins",
+        "relation": "regulate",
+        "obj": "the cell cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "they",
+        "relation": "are bound",
+        "obj": "to Cdks",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "To be fully active, the Cdk/cyclin complex must also be phosphorylated in specific locations to activate the complex.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "the Cdk / cyclin complex",
+        "relation": "must be phosphorylated",
+        "obj": "in specific locations",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Like all kinases, Cdks are enzymes that in turn phosphorylate other proteins.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Cdks",
+        "relation": "are",
+        "obj": "Like all kinases",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Cdks",
+        "relation": "are",
+        "obj": "enzymes that in turn phosphorylate other proteins",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Phosphorylation activates the protein by changing its shape.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Phosphorylation",
+        "relation": "activates",
+        "obj": "the protein",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The proteins phosphorylated by Cdks are involved in advancing the cell to the next phase.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "The levels of Cdk proteins are relatively stable throughout the cell cycle; however, the concentrations of cyclin fluctuate and determine when Cdk/cyclin complexes form.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The levels of Cdk proteins",
+        "relation": "are",
+        "obj": "relatively stable",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "The levels of Cdk proteins",
+        "relation": "are",
+        "obj": "throughout the cell cycle",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The levels of Cdk proteins are relatively stable throughout the cell cycle.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The levels of Cdk proteins",
+        "relation": "are",
+        "obj": "relatively stable",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "The levels of Cdk proteins",
+        "relation": "are",
+        "obj": "throughout the cell cycle",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "however, the concentrations of cyclin fluctuate and determine when Cdk/cyclin complexes form.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "Cyclin-dependent kinases are protein kinases that, when fully activated, can phosphorylate and thus activate other proteins that advance the cell cycle past a checkpoint.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "Cyclin - dependent kinases",
+        "relation": "are",
+        "obj": "protein kinases that , when fully activated , can phosphorylate and thus activate other proteins that advance the cell cycle past a checkpoint",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "advance",
+        "obj": "the cell cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "advance",
+        "obj": "past a checkpoint",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "To become fully activated, a Cdk must bind to a cyclin protein and then be phosphorylated by another kinase.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "a Cdk",
+        "relation": "must bind",
+        "obj": "to a cyclin protein",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Without a specific concentration of fully activated cyclin/Cdk complexes, the cell cycle cannot proceed through the checkpoints.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "the cell cycle",
+        "relation": "can not proceed",
+        "obj": "Without a specific concentration of fully activated cyclin / Cdk complexes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the cell cycle",
+        "relation": "can not proceed",
+        "obj": "through the checkpoints",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "These mechanisms essentially block the progression of the cell cycle until problematic conditions are resolved.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "These mechanisms",
+        "relation": "block",
+        "obj": "the progression of the cell cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The block placed on Cdks by inhibitor molecules will not be removed until the specific event that the inhibitor monitors is completed.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The block placed on Cdks by inhibitor molecules",
+        "relation": "will not be removed",
+        "obj": "until the specific event that the inhibitor monitors is completed",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Negative Regulation of the Cell Cycle The second group of cell-cycle regulatory molecules are negative regulators, which stop the cell cycle.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "Negative Regulation of the Cell Cycle",
+        "relation": "are",
+        "obj": "negative regulators , which stop the cell cycle",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "The second group of cell - cycle regulatory molecules",
+        "relation": "are",
+        "obj": "negative regulators , which stop the cell cycle",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "which",
+        "relation": "stop",
+        "obj": "the cell cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The best understood negative regulatory molecules are retinoblastoma protein, p53, and p21.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "The best understood negative regulatory molecules",
+        "relation": "are",
+        "obj": "retinoblastoma protein , p53 , and p21",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "The best understood negative regulatory molecules",
+        "relation": "are",
+        "obj": "p53 , and p21",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "The best understood negative regulatory molecules",
+        "relation": "are",
+        "obj": "p21",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The best understood negative regulatory molecules are retinoblastoma protein, p53.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The best understood negative regulatory molecules",
+        "relation": "are",
+        "obj": "retinoblastoma protein , p53",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Retinoblastoma proteins are a group of tumor-suppressor proteins common in many cells.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Retinoblastoma proteins",
+        "relation": "are",
+        "obj": "a group of tumor - suppressor proteins common in many cells",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "In each case, the main cause of the unchecked progress through the cell cycle was a faulty copy of the regulatory protein.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "the main cause of the unchecked progress through the cell cycle",
+        "relation": "was",
+        "obj": "In each case",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the main cause of the unchecked progress through the cell cycle",
+        "relation": "was",
+        "obj": "a faulty copy of the regulatory protein",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "If the DNA cannot be repaired, p53 can trigger apoptosis, or cell suicide, to prevent the duplication of damaged chromosomes.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "p53",
+        "relation": "can trigger",
+        "obj": "apoptosis , or cell suicide",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "p53",
+        "relation": "can trigger",
+        "obj": "cell suicide",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "p53",
+        "relation": "trigger",
+        "obj": "apoptosis , or cell suicide",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "If the DNA cannot be repaired, p53 can trigger apoptosis.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "p53",
+        "relation": "can trigger",
+        "obj": "apoptosis",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "p53",
+        "relation": "trigger",
+        "obj": "apoptosis",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "As a cell is exposed to more stress, higher levels of p53 and p21 accumulate, making it less likely that the cell will move into the S phase.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "a cell",
+        "relation": "is exposed",
+        "obj": "to more stress , higher levels of p53 and p21 accumulate",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the cell",
+        "relation": "will move",
+        "obj": "into the S phase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Rb, which largely monitors cell size, exerts its regulatory influence on other positive regulator proteins.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "which",
+        "relation": "monitors",
+        "obj": "cell size",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "Rb , which largely monitors cell size ,",
+        "relation": "exerts",
+        "obj": "its regulatory influence on other positive regulator proteins",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Transcription factors \"turn on\" specific genes, allowing the production of proteins encoded by that gene.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Transcription factors",
+        "relation": "turn on",
+        "obj": "specific genes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "As the cell increases in size, Rb is slowly phosphorylated until it becomes inactivated.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "it",
+        "relation": "becomes",
+        "obj": "inactivated",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Rb releases E2F, which can now turn on the gene that produces the transition protein, and this particular block is removed.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "Rb",
+        "relation": "releases",
+        "obj": "E2F , which can now turn on the gene that produces the transition protein ,",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "which",
+        "relation": "can turn",
+        "obj": "on the gene that produces the transition protein",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "produces",
+        "obj": "the transition protein",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Rb releases E2F, which can now turn on the gene that produces the transition protein.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "Rb",
+        "relation": "releases",
+        "obj": "E2F , which can now turn on the gene that produces the transition protein",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "which",
+        "relation": "can turn",
+        "obj": "on the gene that produces the transition protein",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "produces",
+        "obj": "the transition protein",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Rb halts the cell cycle and releases its hold in response to cell growth.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Rb",
+        "relation": "halts",
+        "obj": "the cell cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Rb and other proteins that negatively regulate the cell cycle are sometimes called tumor suppressors.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "that",
+        "relation": "regulate",
+        "obj": "the cell cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "Rb and other proteins that negatively regulate the cell cycle",
+        "relation": "are called",
+        "obj": "tumor suppressors",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "other proteins that negatively regulate the cell cycle",
+        "relation": "are called",
+        "obj": "tumor suppressors",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Cancer comprises many different diseases caused by a common mechanism: uncontrolled cell growth.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Cancer",
+        "relation": "comprises",
+        "obj": "many different diseases caused by a common mechanism : uncontrolled cell growth",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Despite the redundancy and overlapping levels of cell-cycle control, errors do occur.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "errors",
+        "relation": "do occur",
+        "obj": "Despite the redundancy and overlapping levels of cell - cycle control",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "errors",
+        "relation": "do occur",
+        "obj": "Despite overlapping levels of cell - cycle control",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Even when all of the cell-cycle controls are fully functional, a small percentage of replication errors will be passed on to the daughter cells.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "all of the cell - cycle controls",
+        "relation": "are",
+        "obj": "fully functional",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "a small percentage of replication errors",
+        "relation": "will be passed on",
+        "obj": "to the daughter cells",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Even minor mistakes, however, may allow subsequent mistakes to occur more readily.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "Over and over, small uncorrected errors are passed from the parent cell to the daughter cells and amplified as each generation produces more non-functional proteins from uncorrected DNA damage.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "small uncorrected errors",
+        "relation": "are passed",
+        "obj": "from the parent cell",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "small uncorrected errors",
+        "relation": "are passed",
+        "obj": "to the daughter cells",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "each generation",
+        "relation": "produces",
+        "obj": "more non - functional proteins from uncorrected DNA damage",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Eventually, the pace of the cell cycle speeds up as the effectiveness of the control and repair mechanisms decreases.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "the pace of the cell cycle",
+        "relation": "speeds up",
+        "obj": "as the effectiveness of the control and repair mechanisms",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Uncontrolled growth of the mutated cells outpaces the growth of normal cells in the area, and a tumor can result.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Uncontrolled growth of the mutated cells",
+        "relation": "outpaces",
+        "obj": "the growth of normal cells in the area",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Uncontrolled growth of the mutated cells outpaces the growth of normal cells in the area.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Uncontrolled growth of the mutated cells",
+        "relation": "outpaces",
+        "obj": "the growth of normal cells in the area",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "In an adult organism, normal cell division is balanced by apoptosis to maintain a constant cell number in homeostasis.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "normal cell division",
+        "relation": "is balanced",
+        "obj": "In an adult organism",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Either an increase in cell division or a decrease in apoptosis leads an increase in the number of cells and tumor formation.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Either an increase in cell division or a decrease in apoptosis",
+        "relation": "leads",
+        "obj": "an increase in the number of cells and tumor formation",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "a decrease in apoptosis",
+        "relation": "leads",
+        "obj": "an increase in the number of cells and tumor formation",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "In most instances, the alteration of the DNA sequence will result in a less functional protein.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "the alteration of the DNA sequence",
+        "relation": "will result",
+        "obj": "In most instances",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the alteration of the DNA sequence",
+        "relation": "will result",
+        "obj": "in a less functional protein",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Occasionally, however, a gene mutation causes a change that increases the activity of a positive regulator.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "a gene mutation",
+        "relation": "causes",
+        "obj": "a change that increases the activity of a positive regulator",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "increases",
+        "obj": "the activity of a positive regulator",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The Cdk gene in the above example is only one of many genes that are considered proto-oncogenes.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The Cdk gene in the above example",
+        "relation": "is",
+        "obj": "only one of many genes that are considered proto - oncogenes",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "are considered",
+        "obj": "proto - oncogenes",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "In addition to the cell-cycle regulatory proteins, any protein that influences the cycle can be altered in such a way as to override cell-cycle checkpoints.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "that",
+        "relation": "influences",
+        "obj": "the cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "any protein that influences the cycle",
+        "relation": "can be altered",
+        "obj": "In addition to the cell - cycle regulatory proteins",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "any protein that influences the cycle",
+        "relation": "can be altered",
+        "obj": "in such a way",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "An oncogene is any gene that, when altered, leads to an increase in the rate of cell-cycle progression.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "An oncogene",
+        "relation": "is",
+        "obj": "any gene that , when altered , leads to an increase in the rate of cell - cycle progression",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "leads",
+        "obj": "to an increase in the rate of cell - cycle progression",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Tumor suppressor genes are segments of DNA that code for negative regulator proteins, the type of regulators that, when activated, can prevent the cell from undergoing uncontrolled division.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "Tumor suppressor genes the type of regulators that , when activated , can prevent the cell from undergoing uncontrolled division",
+        "relation": "are",
+        "obj": "segments of DNA that code for negative regulator proteins",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "can prevent",
+        "obj": "the cell",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "prevent",
+        "obj": "the cell",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The collective function of the best-understood tumor suppressor gene proteins, Rb, p53, and p21, is to put up a roadblock to cell-cycle progression until certain events are completed.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "p21, is to put up a roadblock to cell-cycle progression until certain events are completed.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "A cell that carries a mutated form of a negative regulator might not be able to halt the cell cycle if there is a problem.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "that",
+        "relation": "carries",
+        "obj": "a mutated form of a negative regulator",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "A cell that carries a mutated form of a negative regulator",
+        "relation": "might not be",
+        "obj": "able to halt the cell cycle",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "A cell that carries a mutated form of a negative regulator",
+        "relation": "not be",
+        "obj": "able to halt the cell cycle",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Mutated p53 genes have been identified in more than 50 percent of all human tumor cells.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Mutated p53 genes",
+        "relation": "have been identified",
+        "obj": "in more than 50 percent of all human tumor cells",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "This discovery is not surprising in light of the multiple roles that the p53 protein plays at the G1 checkpoint.",
+    "triple_count": 4,
+    "triples": [
+      {
+        "subject": "This discovery",
+        "relation": "is not",
+        "obj": "surprising",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "This discovery",
+        "relation": "is not",
+        "obj": "in light of the multiple roles that the p53 protein plays at the G1 checkpoint",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the p53 protein",
+        "relation": "plays",
+        "obj": "that",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "the p53 protein",
+        "relation": "plays",
+        "obj": "at the G1 checkpoint",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Even if a partially functional p53 does identify the mutations, it may no longer be able to signal the necessary DNA repair enzymes.",
+    "triple_count": 4,
+    "triples": [
+      {
+        "subject": "a partially functional p53",
+        "relation": "does identify",
+        "obj": "the mutations",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "it",
+        "relation": "may be",
+        "obj": "able to signal the necessary DNA repair enzymes",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "a partially functional p53",
+        "relation": "identify",
+        "obj": "the mutations",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      },
+      {
+        "subject": "it",
+        "relation": "be",
+        "obj": "able to signal the necessary DNA repair enzymes",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Either way, damaged DNA will remain uncorrected.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "damaged DNA",
+        "relation": "will remain",
+        "obj": "uncorrected",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "damaged DNA",
+        "relation": "remain",
+        "obj": "uncorrected",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "At this point, a functional p53 will deem the cell unsalvageable and trigger programmed cell death.",
+    "triple_count": 6,
+    "triples": [
+      {
+        "subject": "a functional p53",
+        "relation": "will deem",
+        "obj": "At this point",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "a functional p53",
+        "relation": "will deem",
+        "obj": "the cell",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "a functional p53",
+        "relation": "will deem",
+        "obj": "unsalvageable",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "trigger",
+        "relation": "programmed",
+        "obj": "cell death",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "a functional p53",
+        "relation": "deem",
+        "obj": "the cell",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      },
+      {
+        "subject": "a functional p53",
+        "relation": "deem",
+        "obj": "unsalvageable",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The damaged version of p53 found in cancer cells, however, cannot trigger apoptosis.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The damaged version of p53 found in cancer cells",
+        "relation": "can not trigger",
+        "obj": "apoptosis",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "The damaged version of p53 found in cancer cells",
+        "relation": "not trigger",
+        "obj": "apoptosis",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The role of normal p53 is to monitor DNA and the supply of oxygen.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "If repairs are unsuccessful, p53 signals apoptosis.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "repairs",
+        "relation": "are",
+        "obj": "unsuccessful , p53 signals apoptosis",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "A cell with an abnormal p53 protein cannot repair damaged DNA and thus cannot signal apoptosis.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "A cell with an abnormal p53 protein",
+        "relation": "can not repair",
+        "obj": "damaged DNA",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "A cell with an abnormal p53 protein",
+        "relation": "not repair",
+        "obj": "damaged DNA",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Cells with abnormal p53 can become cancerous.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Cells with abnormal p53",
+        "relation": "can become",
+        "obj": "cancerous",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Cells with abnormal p53",
+        "relation": "become",
+        "obj": "cancerous",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Human papillomavirus can cause cervical cancer.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Human papillomavirus",
+        "relation": "can cause",
+        "obj": "cervical cancer",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Human papillomavirus",
+        "relation": "cause",
+        "obj": "cervical cancer",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The virus encodes E6, a protein that binds p53.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The virus",
+        "relation": "encodes",
+        "obj": "E6 , a protein that binds p53",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "binds",
+        "obj": "p53",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The loss of p53 function has other repercussions for the cell cycle.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The loss of p53 function",
+        "relation": "has",
+        "obj": "other repercussions for the cell cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Mutated p53 might lose its ability to trigger p21 production.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Mutated p53",
+        "relation": "might lose",
+        "obj": "its ability to trigger p21 production",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Mutated p53",
+        "relation": "lose",
+        "obj": "its ability to trigger p21 production",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Essentially, without a fully functional p53, the G1 checkpoint is severely compromised and the cell proceeds directly from G1 to S regardless of internal and external conditions.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "the G1 checkpoint",
+        "relation": "is compromised",
+        "obj": "without a fully functional p53",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the cell",
+        "relation": "proceeds",
+        "obj": "from G1",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the cell",
+        "relation": "proceeds",
+        "obj": "to S",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "At the completion of this shortened cell cycle, two daughter cells are produced that have inherited the mutated p53 gene.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "two daughter cells that have inherited the mutated p53 gene",
+        "relation": "are produced",
+        "obj": "At the completion of this shortened cell cycle",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "have inherited",
+        "obj": "the mutated p53 gene",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "inherited",
+        "obj": "the mutated p53 gene",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Given the non-optimal conditions under which the parent cell reproduced, it is likely that the daughter cells will have acquired other mutations in addition to the faulty tumor-suppressor gene.",
+    "triple_count": 6,
+    "triples": [
+      {
+        "subject": "the parent cell",
+        "relation": "reproduced",
+        "obj": "under which",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "it",
+        "relation": "is",
+        "obj": "Given the non - optimal conditions under which the parent cell reproduced",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "it",
+        "relation": "is",
+        "obj": "likely",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "the daughter cells",
+        "relation": "will have acquired",
+        "obj": "other mutations",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the daughter cells",
+        "relation": "will have acquired",
+        "obj": "in addition to the faulty tumor - suppressor gene",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the daughter cells",
+        "relation": "acquired",
+        "obj": "other mutations",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Cells such as these daughter cells quickly accumulate both oncogenes and non-functional tumor-suppressor genes.",
+    "triple_count": 4,
+    "triples": [
+      {
+        "subject": "Cells such as",
+        "relation": "accumulate",
+        "obj": "both oncogenes and non - functional tumor - suppressor genes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "Cells such as",
+        "relation": "accumulate",
+        "obj": "non - functional tumor - suppressor genes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "these daughter cells",
+        "relation": "accumulate",
+        "obj": "both oncogenes and non - functional tumor - suppressor genes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "these daughter cells",
+        "relation": "accumulate",
+        "obj": "non - functional tumor - suppressor genes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Again, the result is tumor growth.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "the result",
+        "relation": "is",
+        "obj": "tumor growth",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Prokaryotes, such as bacteria, produce daughter cells by binary fission.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Prokaryotes , such as bacteria ,",
+        "relation": "produce",
+        "obj": "daughter cells",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "Prokaryotes , such as bacteria ,",
+        "relation": "produce",
+        "obj": "by binary fission",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "For unicellular organisms, cell division is the only method to produce new individuals.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "cell division",
+        "relation": "is",
+        "obj": "For unicellular organisms",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "cell division",
+        "relation": "is",
+        "obj": "the only method to produce new individuals",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "In both prokaryotic and eukaryotic cells, the outcome of cell reproduction is a pair of daughter cells that are genetically identical to the parent cell.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "the outcome of cell reproduction",
+        "relation": "is",
+        "obj": "In both prokaryotic and eukaryotic cells",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the outcome of cell reproduction",
+        "relation": "is",
+        "obj": "a pair of daughter cells that are genetically identical to the parent cell",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "are",
+        "obj": "genetically identical to the parent cell",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "In unicellular organisms, daughter cells are individuals.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "daughter cells",
+        "relation": "are",
+        "obj": "In unicellular organisms",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "daughter cells",
+        "relation": "are",
+        "obj": "individuals",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "To achieve the outcome of cloned offspring, certain steps are essential.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "certain steps",
+        "relation": "are",
+        "obj": "essential",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "As we've seen with bacterial cells, the genome consists of a single, circular DNA chromosome; therefore, the process of cell division is simplified.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "we",
+        "relation": "'ve seen",
+        "obj": "with bacterial cells",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the genome",
+        "relation": "consists",
+        "obj": "of a single , circular DNA chromosome",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "As we've seen with bacterial cells, the genome consists of a single, circular DNA chromosome.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "we",
+        "relation": "'ve seen",
+        "obj": "with bacterial cells",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the genome",
+        "relation": "consists",
+        "obj": "of a single , circular DNA chromosome",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "therefore, the process of cell division is simplified.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "Karyokinesis is unnecessary because there is no true nucleus and thus no need to direct one copy of the multiple chromosomes into each daughter cell.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Karyokinesis",
+        "relation": "is",
+        "obj": "unnecessary",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Binary Fission Due to the relative simplicity of the prokaryotes, the cell division process is a less complicated and much more rapid process than cell division in eukaryotes.",
+    "triple_count": 4,
+    "triples": [
+      {
+        "subject": "Binary Fission",
+        "relation": "is",
+        "obj": "Due the relative simplicity of the prokaryotes",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Binary Fission",
+        "relation": "is",
+        "obj": "a less complicated and much more rapid process than cell division in eukaryotes",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "the cell division process",
+        "relation": "is",
+        "obj": "Due the relative simplicity of the prokaryotes",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the cell division process",
+        "relation": "is",
+        "obj": "a less complicated and much more rapid process than cell division in eukaryotes",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The packing proteins of bacteria are, however, related to the cohesin and condensin proteins involved in the chromosome compaction of eukaryotes.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The packing proteins of bacteria",
+        "relation": "are",
+        "obj": "related to the cohesin and condensin proteins involved in the chromosome compaction of eukaryotes",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The bacterial chromosome is attached to the plasma membrane at about the midpoint of the cell.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The bacterial chromosome",
+        "relation": "is attached",
+        "obj": "to the plasma membrane",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "The bacterial chromosome",
+        "relation": "is attached",
+        "obj": "at about the midpoint of the cell",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Replication of the DNA is bidirectional, moving away from the origin on both strands of the loop simultaneously.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Replication of the DNA",
+        "relation": "is",
+        "obj": "bidirectional",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "As the new double strands are formed, each origin point moves away from the cell wall attachment toward the opposite ends of the cell.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "each origin point",
+        "relation": "moves",
+        "obj": "toward the opposite ends of the cell",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The formation of a ring composed of repeating units of a protein called FtsZ directs the partition between the nucleoids.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The formation of a ring composed of repeating units of a protein called FtsZ",
+        "relation": "directs",
+        "obj": "the partition between the nucleoids",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Formation of the FtsZ ring triggers the accumulation of other proteins that work together to recruit new membrane and cell wall materials to the site.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Formation of the FtsZ ring",
+        "relation": "triggers",
+        "obj": "the accumulation of other proteins that work together to recruit new membrane and cell wall materials to the site",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "A septum is formed between the daughter nucleoids, extending gradually from the periphery toward the center of the cell.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "A septum",
+        "relation": "is formed",
+        "obj": "between the daughter nucleoids",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "These images show the steps of binary fission in prokaryotes.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "These images",
+        "relation": "show",
+        "obj": "the steps of binary fission in prokaryotes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The precise timing and formation of the mitotic spindle is critical to the success of eukaryotic cell division.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The precise timing and formation of the mitotic spindle",
+        "relation": "is",
+        "obj": "critical to the success of eukaryotic cell division",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "formation",
+        "relation": "is",
+        "obj": "critical to the success of eukaryotic cell division",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Prokaryotic cells, on the other hand, do not undergo karyokinesis and therefore have no need for a mitotic spindle.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "Prokaryotic cells",
+        "relation": "do not undergo",
+        "obj": "on the other hand",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Prokaryotic cells",
+        "relation": "do not undergo",
+        "obj": "karyokinesis",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Prokaryotic cells",
+        "relation": "not undergo",
+        "obj": "karyokinesis",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "FtsZ proteins can form filaments, rings, and other three-dimensional structures that resemble the way tubulin forms microtubules, centrioles, and various cytoskeletal components.",
+    "triple_count": 8,
+    "triples": [
+      {
+        "subject": "FtsZ proteins",
+        "relation": "can form",
+        "obj": "filaments , rings , and other three - dimensional structures that resemble the way tubulin forms microtubules , centrioles , and various cytoskeletal components",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "FtsZ proteins",
+        "relation": "can form",
+        "obj": "rings , and other three - dimensional structures that resemble the way tubulin forms microtubules , centrioles , and various cytoskeletal components",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "FtsZ proteins",
+        "relation": "can form",
+        "obj": "other three - dimensional structures that resemble the way tubulin forms microtubules , centrioles , and various cytoskeletal components",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "resemble",
+        "obj": "the way tubulin forms microtubules , centrioles , and various cytoskeletal components",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "tubulin",
+        "relation": "forms",
+        "obj": "microtubules , centrioles , and various cytoskeletal components",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "tubulin",
+        "relation": "forms",
+        "obj": "centrioles , and various cytoskeletal components",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "tubulin",
+        "relation": "forms",
+        "obj": "various cytoskeletal components",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "FtsZ proteins",
+        "relation": "form",
+        "obj": "filaments , rings , and other three - dimensional structures that resemble the way tubulin forms microtubules , centrioles , and various cytoskeletal components",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "FtsZ proteins can form filaments, rings.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "FtsZ proteins",
+        "relation": "can form",
+        "obj": "filaments , rings",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "FtsZ proteins",
+        "relation": "form",
+        "obj": "filaments , rings",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "In this example, FtsZ is the ancestor protein to tubulin.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "FtsZ",
+        "relation": "is",
+        "obj": "In this example",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "FtsZ",
+        "relation": "is",
+        "obj": "the ancestor protein",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "FtsZ",
+        "relation": "is",
+        "obj": "to tubulin",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "A survey of mitotic assembly components found in present-day unicellular eukaryotes reveals crucial intermediary steps to the complex membrane-enclosed genomes of multicellular eukaryotes.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "A survey of mitotic assembly components found in present - day unicellular eukaryotes",
+        "relation": "reveals",
+        "obj": "crucial intermediary steps to the complex membrane - enclosed genomes of multicellular eukaryotes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Microfilaments Chromosomes attach to the nuclear envelope, form a Some Linear chromosomes which remains intact.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Microfilaments Chromosomes",
+        "relation": "attach",
+        "obj": "to the nuclear envelope",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "which",
+        "relation": "remains",
+        "obj": "intact",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The mitotic spindle passes cleavage protists exist in the nucleus.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "cleavage protists",
+        "relation": "exist",
+        "obj": "in the nucleus",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Microfilaments A mitotic spindle forms from the centrioles and Linear chromosomes form a passes through the nuclear membrane, which Other wrapped around cleavage remains intact.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "A mitotic spindle forms from the centrioles and Linear chromosomes",
+        "relation": "form",
+        "obj": "a passes through the nuclear membrane , which Other wrapped around cleavage remains intact",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "Other",
+        "relation": "wrapped",
+        "obj": "which",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "Other",
+        "relation": "wrapped",
+        "obj": "around cleavage",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Chromosomes attach to the mitotic protists histones exist in the furrow that spindle, which separates the chromosomes and nucleus.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "the mitotic protists histones",
+        "relation": "exist",
+        "obj": "in the furrow",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "which",
+        "relation": "separates",
+        "obj": "the chromosomes and nucleus",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "which",
+        "relation": "separates",
+        "obj": "nucleus",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Chromosomes attach to cleavage cells exist in the nucleus.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "cleavage cells",
+        "relation": "exist",
+        "obj": "in the nucleus",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Chapter Summary 10.1 Cell Division karyokinesis, which consists of five stages: prophase, prometaphase, metaphase, anaphase, and Prokaryotes have a single circular chromosome telophase.",
+    "triple_count": 7,
+    "triples": [
+      {
+        "subject": "which",
+        "relation": "consists",
+        "obj": "of five stages :",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "which",
+        "relation": "consists",
+        "obj": "prophase , prometaphase , metaphase , anaphase , and",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "which",
+        "relation": "consists",
+        "obj": "prometaphase , metaphase , anaphase , and",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "which",
+        "relation": "consists",
+        "obj": "metaphase , anaphase , and",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "which",
+        "relation": "consists",
+        "obj": "anaphase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Chapter Summary 10.1 Cell Division karyokinesis , which consists of five stages : prophase , prometaphase , metaphase , anaphase , and",
+        "relation": "have",
+        "obj": "a single circular chromosome telophase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "Prokaryotes",
+        "relation": "have",
+        "obj": "a single circular chromosome telophase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Prokaryotes have a single circular chromosome telophase.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Prokaryotes",
+        "relation": "have",
+        "obj": "a single circular chromosome telophase",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "This is the 2n or diploid state.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "This",
+        "relation": "is",
+        "obj": "the 2n or diploid state",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "This",
+        "relation": "is",
+        "obj": "diploid state",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Human Each step of the cell cycle is monitored by internal gametes have 23 chromosomes, or one complete set controls called checkpoints.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "Human Each step of the cell cycle is monitored by internal gametes have 23 chromosomes.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "This is second at the G2/M transition, and the third during the n or haploid state.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "This",
+        "relation": "is",
+        "obj": "second",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "This",
+        "relation": "is",
+        "obj": "at the G2 / M transition",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "This is second at the G2/M transition.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "This",
+        "relation": "is",
+        "obj": "second",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "This",
+        "relation": "is",
+        "obj": "at the G2 / M transition",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Genes are segments of DNA that metaphase.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Genes",
+        "relation": "are",
+        "obj": "segments of DNA that metaphase",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Positive regulator molecules allow the cell code for a specific functional molecule (a protein or cycle to advance to the next stage of cell division.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "the cell code for a specific functional molecule ( a protein or cycle",
+        "relation": "to advance",
+        "obj": "to the next stage of cell division",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "An organism's traits are determined by the genes Negative regulator molecules monitor cellular inherited from each parent.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Negative regulator molecules",
+        "relation": "monitor",
+        "obj": "cellular",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Faulty instructions lead to a mitosis.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Faulty instructions",
+        "relation": "lead",
+        "obj": "to a mitosis",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Any 10.2 The Cell Cycle disruption of the monitoring system can allow other mistakes to be passed on to the daughter cells.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "other mistakes",
+        "relation": "to be passed on",
+        "obj": "to the daughter cells",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Each The cell cycle is an orderly sequence of events.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Each The cell cycle",
+        "relation": "is",
+        "obj": "an orderly sequence of events",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Cells on successive cell division will give rise to daughter cells the path to cell division proceed through a series of with even more accumulated damage.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "Cells on successive cell division",
+        "relation": "will give",
+        "obj": "rise",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Cells on successive cell division",
+        "relation": "will give",
+        "obj": "to daughter cells the path to cell division",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Cells on successive cell division",
+        "relation": "give",
+        "obj": "rise",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Interphase is divided into G1, S, and G2 phases.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "Interphase",
+        "relation": "is divided",
+        "obj": "into G1 , S , and G2 phases",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Interphase",
+        "relation": "is divided",
+        "obj": "into S , and G2 phases",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Interphase",
+        "relation": "is divided",
+        "obj": "into G2 phases",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Interphase is divided into G1, S.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Interphase",
+        "relation": "is divided",
+        "obj": "into G1 , S.",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Therefore, mitosis is not necessary in bacterial cell division.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "mitosis",
+        "relation": "is not",
+        "obj": "necessary",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "mitosis",
+        "relation": "is not",
+        "obj": "in bacterial cell division",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Based on this fact and what you negatively regulate the cell cycle are sometimes know about p53, what effect do you think E6 called tumor suppressors.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "you",
+        "relation": "regulate",
+        "obj": "what",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "you",
+        "relation": "regulate",
+        "obj": "the cell cycle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "E6",
+        "relation": "called",
+        "obj": "tumor suppressors",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "b. E6 inactivates p53 c. E6 mutates p53 2.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "b. E6",
+        "relation": "inactivates",
+        "obj": "p53 c. E6 mutates p53 2",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Human papillomavirus can cause d. E6 binding marks p53 for degradation cervical cancer.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Human papillomavirus",
+        "relation": "can cause",
+        "obj": "d. E6 binding marks p53 for degradation cervical cancer",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "Human papillomavirus",
+        "relation": "cause",
+        "obj": "d. E6 binding marks p53 for degradation cervical cancer",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "An organism's traits are determined by the d. separation of sister chromatids specific combination of inherited _____.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "The mitotic spindles arise from which cell b. genes.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The mitotic spindles",
+        "relation": "arise",
+        "obj": "from which cell b. genes",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "a new nuclear envelope is a characteristic of d. sister chromatids.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "a new nuclear envelope",
+        "relation": "is",
+        "obj": "a characteristic of d. sister chromatids",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "d. telophase a. cell has reached a sufficient size b. an adequate stockpile of nucleotides 13.",
+    "triple_count": 4,
+    "triples": [
+      {
+        "subject": "d. telophase a. cell",
+        "relation": "has reached",
+        "obj": "a sufficient size",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "d. telophase a. cell",
+        "relation": "has reached",
+        "obj": "an adequate stockpile of nucleotides 13",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "d. telophase a. cell",
+        "relation": "reached",
+        "obj": "a sufficient size",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      },
+      {
+        "subject": "d. telophase a. cell",
+        "relation": "reached",
+        "obj": "an adequate stockpile of nucleotides 13",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "d. cyclin-dependent kinase a. Sister chromatids line up at the metaphase plate.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "d. cyclin - dependent kinase a. Sister chromatids",
+        "relation": "line up",
+        "obj": "at the metaphase plate",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The kinetochore becomes attached to the d. stem cells mitotic spindle.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The kinetochore",
+        "relation": "becomes",
+        "obj": "attached to the d. stem cells mitotic spindle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Which negative regulatory molecule can trigger Sister chromatids line up at the cell suicide if vital cell cycle events metaphase plate.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Sister chromatids",
+        "relation": "line up",
+        "obj": "at the cell suicide",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "The kinetochore becomes attached to the b. p21 cohesin proteins.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "The kinetochore",
+        "relation": "becomes",
+        "obj": "attached to the b. p21 cohesin proteins",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Sister chromatids line up c. retinoblastoma protein at the metaphase plate.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "The nucleus reforms and the cell 22. ___________ are changes to the order of divides.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "The nucleus reforms and the cell 22 . _ _ _ _ _ _ _ _ _ _ _",
+        "relation": "are",
+        "obj": "changes to the order of divides",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "the cell 22",
+        "relation": "are",
+        "obj": "changes to the order of divides",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Sister chromatids line up a. Proto-oncogenes at the metaphase plate.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "At which of the cell-cycle checkpoints do regulator is called a _____.",
+    "triple_count": 5,
+    "triples": [
+      {
+        "subject": "regulator",
+        "relation": "do is called",
+        "obj": "At which of the cell - cycle checkpoints",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "regulator",
+        "relation": "do is called",
+        "obj": "a",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "regulator",
+        "relation": "do is called",
+        "obj": "_",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "regulator",
+        "relation": "is called",
+        "obj": "a",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "strict"
+        ]
+      },
+      {
+        "subject": "regulator",
+        "relation": "is called",
+        "obj": "_",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "FtsZ proteins direct the formation of a _______ 25.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "FtsZ proteins",
+        "relation": "direct",
+        "obj": "the formation of a _ _ _ _ _ _ _",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Eukaryotic chromosomes are thousands of times longer than a typical cell.",
+    "triple_count": 1,
+    "triples": [
+      {
+        "subject": "Eukaryotic chromosomes",
+        "relation": "are",
+        "obj": "thousands of times longer than a typical cell",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Rb is a negative regulator that blocks the cell 31.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "Rb",
+        "relation": "is",
+        "obj": "a negative regulator that blocks the cell 31",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "blocks",
+        "obj": "the cell 31",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "Exactly what mitotic structure is targeted by these drugs 42.",
+    "triple_count": 0,
+    "triples": []
+  },
+  {
+    "sentence": "p53 can trigger apoptosis if certain cell-cycle between the cytokinesis mechanisms found in events fail.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "p53",
+        "relation": "can trigger",
+        "obj": "apoptosis",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "p53",
+        "relation": "trigger",
+        "obj": "apoptosis",
+        "sensors": [
+          "causation"
+        ],
+        "engines": [
+          "strict"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "What cell-cycle events will be affected in a cell chromosomes are distributed into new daughter that produces mutated cohesin cells without the direction of the mitotic spindle.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "What cell - cycle events",
+        "relation": "will be affected",
+        "obj": "in a cell chromosomes",
+        "sensors": [
+          "definition"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "produces",
+        "obj": "mutated cohesin cells",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "that",
+        "relation": "produces",
+        "obj": "without the direction of the mitotic spindle",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  }
+]

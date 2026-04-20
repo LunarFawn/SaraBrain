@@ -30,6 +30,23 @@ class NeuronRepo:
             return None
         return self._row_to_neuron(row)
 
+    def is_verb(self, label: str) -> bool:
+        """True if `label` has been taught as a verb (via `X is a verb`).
+
+        Looks for an IS-A edge from the label's neuron to a neuron named
+        `verb`. No new table — rides the standard graph machinery.
+        """
+        label = label.strip().lower()
+        row = self.conn.execute(
+            "SELECT 1 FROM segments s "
+            f"JOIN {self._t} n1 ON n1.id = s.source_id "
+            f"JOIN {self._t} n2 ON n2.id = s.target_id "
+            "WHERE LOWER(n1.label) = ? AND LOWER(n2.label) = 'verb' "
+            "AND s.relation = 'is_a' LIMIT 1",
+            (label,),
+        ).fetchone()
+        return row is not None
+
     def resolve(self, label: str, exact_only: bool = False) -> Neuron | None:
         """Neuron lookup — returns best match or None.
 

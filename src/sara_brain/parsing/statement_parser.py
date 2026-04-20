@@ -68,27 +68,57 @@ class ParsedStatement:
     negated: bool = False
     operation: object | None = None
     compounds: list[tuple[str, str]] | None = None
+    verb_unknown: str | None = None
+
+
+_VERB_SUFFIXES_GUESS = (
+    "tes", "ses", "zes", "ges", "ces", "ves", "nes",
+    "des", "kes", "les", "mes", "pes", "res",
+    "ms", "ns", "rs", "ts", "ls", "ds", "gs", "ks", "ps",
+    "ed", "ing",
+)
+_GUESS_NOT_VERBS = frozenset({
+    "cells", "molecules", "proteins", "organisms",
+    "genes", "chromosomes", "species", "processes",
+    "tissues", "structures", "phases", "stages",
+    "things", "names", "ones", "types", "kinds",
+})
+
+
+def _guess_unknown_verb(words: list[str]) -> str | None:
+    """Heuristic: pick the inner word most likely to be the verb Sara
+    is missing. Used only to populate ParsedStatement.verb_unknown so
+    callers can queue the word for a teach — never for silent
+    acceptance.
+    """
+    for i, w in enumerate(words):
+        if i == 0 or i >= len(words) - 1:
+            continue
+        if len(w) <= 3:
+            continue
+        if w in _GUESS_NOT_VERBS:
+            continue
+        if w.endswith(_VERB_SUFFIXES_GUESS):
+            return w
+    return None
 
 
 class StatementParser:
-    def __init__(self, taxonomy: Taxonomy, strict_dialect: bool = False) -> None:
+    def __init__(self, taxonomy: Taxonomy, strict_dialect: bool = False,
+                 is_learned_verb=None) -> None:
         """Construct a parser.
 
         Args:
             taxonomy: The brain's property/category taxonomy.
-            strict_dialect: When True, the parser makes ZERO assumptions
-                about word roles. No articles stripped, no canonicalization.
-                Use this for any context where the user may speak a creole,
-                pidgin, or non-standard dialect — what looks like a typo
-                may be the correct spelling in their language.
-
-                Default is False for backward compatibility with existing
-                tests and the bare REPL. The cortex defaults this to True
-                because it enforces "never assume" as a foundational
-                principle.
+            strict_dialect: dialect-safe mode (see class docstring).
+            is_learned_verb: optional callable `word -> bool` consulted
+                when scanning for verbs. Lets the parser accept verbs
+                that were TAUGHT (`produces is a verb`) in addition to
+                the innate RELATIONAL set.
         """
         self.taxonomy = taxonomy
         self.strict_dialect = strict_dialect
+        self.is_learned_verb = is_learned_verb or (lambda w: False)
 
     def parse(self, text: str) -> ParsedStatement | None:
         """Parse a natural-language teaching statement."""
@@ -170,10 +200,12 @@ class StatementParser:
                     aux_negated_verb = main_verb
                     break
 
-        # If no auxiliary pattern, fall back to the regular verb scan
+        # If no auxiliary pattern, fall back to the regular verb scan.
+        # Innate verbs first; then words taught as verbs (via
+        # `X is a verb`) are accepted as learned verbs.
         if verb_idx is None:
             for i, w in enumerate(words):
-                if w in _ALL_VERBS:
+                if w in _ALL_VERBS or self.is_learned_verb(w):
                     verb_idx = i
                     verb_word = w
                     break
@@ -191,30 +223,22 @@ class StatementParser:
                     verb_word = w
                     break
 
-        # ── Fallback 2: any-verb heuristic (verb suffixes) ──
-        # "apoptosis eliminateS damaged cells" — verb ends in -s/-es/-ed/-ing
-        # Only fires when both verb scan AND preposition scan failed.
-        if verb_idx is None:
-            _VERB_SUFFIXES = (
-                "tes", "ses", "zes", "ges", "ces", "ves", "nes",
-                "des", "kes", "les", "mes", "pes", "res",
-                "ms", "ns", "rs", "ts", "ls", "ds", "gs", "ks", "ps",
-                "ed", "ing",
-            )
-            _NOT_VERBS = frozenset({
-                "cells", "molecules", "proteins", "organisms",
-                "genes", "chromosomes", "species", "processes",
-                "tissues", "structures", "phases", "stages",
-                "things", "names", "ones", "types", "kinds",
-            })
-            for i, w in enumerate(words):
-                if i > 0 and i < len(words) - 1 and len(w) > 3:
-                    if w not in _NOT_VERBS and w.endswith(_VERB_SUFFIXES):
-                        verb_idx = i
-                        verb_word = w
-                        break
+        # Fallback 2 (verb-suffix heuristic) removed deliberately:
+        # Sara should REQUEST a verb teach rather than silently accept
+        # any -s / -es / -ed / -ing word as a relation. Unknown verbs
+        # surface via ParsedStatement.verb_unknown when the caller wants
+        # to queue them for teaching.
 
         if verb_idx is None or verb_idx == 0 or verb_idx >= len(words) - 1:
+            # Surface the most-verb-looking unknown word so callers can
+            # queue it for a teach. Heuristic: any inner word ending in
+            # a common verb suffix is the candidate.
+            unknown = _guess_unknown_verb(words)
+            if unknown is not None:
+                return ParsedStatement(
+                    subject="", relation="", obj="", original=original,
+                    verb_unknown=unknown,
+                )
             return None
 
         # Subject is everything before the verb. Reject pronoun-only

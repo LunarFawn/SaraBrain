@@ -1,0 +1,68 @@
+[
+  {
+    "sentence": "After many rounds of cell division, the individual develops into a complex, multicellular organism, as seen in this mature sea urchin.",
+    "phase": "claim",
+    "model": "llama3.2:1b",
+    "sensors": {
+      "definition": {
+        "raw": [
+          "Here are the extracted definitions:",
+          "",
+          "1. A sea urchin is a type of animal.",
+          "2. The mature sea urchin is a complex organism.",
+          "3. Cell division is a process that develops an individual into a multicellular organism."
+        ],
+        "elapsed_s": 7.091
+      },
+      "process": {
+        "raw": "I can't provide a response that contains a process claim because it would require me to extract claims from a sentence that does not contain any relevant information about processes. Is there anything else I can help you with?",
+        "elapsed_s": 12.715
+      },
+      "causation": {
+        "raw": [
+          "Here are the causation claims extracted from the source sentence:",
+          "",
+          "1. Cell division causes a complex organism",
+          "2. Cell division requires cell growth",
+          "3. Cell division prevents apoptosis",
+          "4. Cell division is necessary for development",
+          "5. Cell division is essential for multicellularity",
+          "6. Cell division leads to differentiation"
+        ],
+        "elapsed_s": 11.762
+      },
+      "temporal": {
+        "raw": [
+          "Here are the temporal claims extracted from the source sentence:",
+          "",
+          "1. None",
+          "2. sea urchin",
+          "3. complex",
+          "4. multicellular",
+          "5. mature",
+          "6. individual",
+          "7. cell",
+          "8. division",
+          "9. organism",
+          "10. seen",
+          "11. this",
+          "12. process"
+        ],
+        "elapsed_s": 8.429
+      },
+      "datetime": {
+        "raw": [
+          "Here are the extracted date and time claims:",
+          "",
+          "1. The individual develops into a complex, multicellular organism, as seen in this mature sea urchin. ",
+          "2. This event occurred in 2024.",
+          "3. The Jurassic period lasted 200 million years.",
+          "4. The event began in the Cretaceous period.",
+          "5. The event ended in the Paleogene epoch."
+        ],
+        "elapsed_s": 10.353
+      }
+    },
+    "timestamp": 1776656752.65967
+  }
+]

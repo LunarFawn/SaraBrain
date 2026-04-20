@@ -78,7 +78,10 @@ class Brain:
 
         # Taxonomy & parser
         self.taxonomy = Taxonomy()
-        self.parser = StatementParser(self.taxonomy)
+        self.parser = StatementParser(
+            self.taxonomy,
+            is_learned_verb=self.neuron_repo.is_verb,
+        )
 
         # Core algorithms
         self.learner = Learner(
@@ -180,6 +183,35 @@ class Brain:
             if seg.relation == "refutation_of":
                 return True
         return False
+
+    def teach_verb(self, word: str) -> None:
+        """Register `word` as a verb Sara's parser will accept.
+
+        Writes `word —is_a→ verb` directly as a graph segment. The
+        parser consults this via NeuronRepo.is_verb() on every parse.
+        Bypasses the property-relation parser path because "X is a
+        verb" would otherwise be stored as a property relation with
+        the subject singularized.
+        """
+        from ..models.neuron import Neuron, NeuronType
+        from ..models.segment import Segment
+
+        word = word.strip().lower()
+        if not word:
+            return
+        verb_node = self.neuron_repo.get_by_label("verb")
+        if verb_node is None:
+            verb_node = self.neuron_repo.create(
+                Neuron(id=None, label="verb", neuron_type=NeuronType.CONCEPT)
+            )
+        word_node = self.neuron_repo.get_by_label(word)
+        if word_node is None:
+            word_node = self.neuron_repo.create(
+                Neuron(id=None, label=word, neuron_type=NeuronType.CONCEPT)
+            )
+        # is_verb() reads this exact shape: source=word, target=verb, relation=is_a
+        self.segment_repo.get_or_create(word_node.id, verb_node.id, "is_a")
+        self.conn.commit()
 
     def teach(self, statement: str, *, user_initiated: bool = True) -> LearnResult | None:
         """Teach a fact. Returns None if unparseable.

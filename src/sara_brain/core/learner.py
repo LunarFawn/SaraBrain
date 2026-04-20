@@ -67,11 +67,10 @@ class Learner:
         parsed = self.parser.parse(text)
         if parsed is None:
             return None
-        # First-class negation: when the parser detects a negated
-        # statement (e.g., "X is not Y", "X does not Y"), flow that
-        # through as a refutation of the positive relation — same
-        # storage path as unlearn()/brain.refute(). Sara now
-        # distinguishes "X is Y" from "X is not Y" at the graph level.
+        # Unknown-verb signal: the parser found a word that looks like
+        # a verb but isn't in innate ∪ learned. Surface it, don't teach.
+        if parsed.verb_unknown:
+            return None
         return self._build_chain(
             parsed,
             initial_strength=initial_strength,
@@ -226,15 +225,7 @@ class Learner:
                 PathStep(id=None, path_id=refute_path.id, step_order=1, segment_id=seg_r2.id)
             )
 
-        # 7. Sub-concept linking: decompose multi-word labels into
-        #    individual word neurons with part_of segments so wavefronts
-        #    from any single word can reach the compound concept.
-        for neuron in (concept_neuron, prop_neuron):
-            nc, sc = self._link_sub_concepts(neuron)
-            neurons_created += nc
-            segments_created += sc
-
-        # 8. Compound IS-A: for each (compound_label, head_lemma) the
+        # 7. Compound IS-A: for each (compound_label, head_lemma) the
         #    parser detected, ensure the head neuron exists and add
         #    compound —is_a→ head.
         for compound_label, head_lemma in (parsed.compounds or []):
@@ -290,31 +281,3 @@ class Learner:
             return False
         return self.segment_source_repo.add(segment.id, source_label)
 
-    def _link_sub_concepts(self, neuron) -> tuple[int, int]:
-        """If neuron label is multi-word, create word → compound segments.
-
-        Returns (neurons_created, segments_created).
-        """
-        words = neuron.label.split()
-        if len(words) < 2:
-            return 0, 0
-
-        neurons_created = 0
-        segments_created = 0
-        for word in words:
-            word = word.strip()
-            if not word:
-                continue
-            word_neuron, created = self.neuron_repo.get_or_create(
-                word, NeuronType.PROPERTY
-            )
-            if created:
-                neurons_created += 1
-            seg, created = self.segment_repo.get_or_create(
-                word_neuron.id, neuron.id, "part_of"
-            )
-            if created:
-                segments_created += 1
-            else:
-                self.segment_repo.strengthen(seg)
-        return neurons_created, segments_created

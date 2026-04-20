@@ -1,0 +1,120 @@
+[
+  {
+    "sentence": "After many rounds of cell division, the individual develops into a complex, multicellular organism, as seen in this mature sea urchin.",
+    "triple_count": 2,
+    "triples": [
+      {
+        "subject": "the individual",
+        "relation": "develops",
+        "obj": "After many rounds of cell division",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "the individual",
+        "relation": "develops",
+        "obj": "into a complex , multicellular organism",
+        "sensors": [
+          "process"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "INTRODUCTION A human, like every sexually reproducing organism, begins life as a fertilized egg or zygote.",
+    "triple_count": 4,
+    "triples": [
+      {
+        "subject": "A human",
+        "relation": "begins",
+        "obj": "like every sexually reproducing organism",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "A human",
+        "relation": "begins",
+        "obj": "life",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad",
+          "strict"
+        ]
+      },
+      {
+        "subject": "A human",
+        "relation": "begins",
+        "obj": "as a fertilized egg or zygote",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "A human",
+        "relation": "begins",
+        "obj": "as zygote",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  },
+  {
+    "sentence": "In our species, billions of cell divisions subsequently must occur in a controlled manner in order to produce a complex, multicellular human comprising trillions of cells.",
+    "triple_count": 3,
+    "triples": [
+      {
+        "subject": "billions of cell divisions",
+        "relation": "must occur",
+        "obj": "In our species",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "billions of cell divisions",
+        "relation": "must occur",
+        "obj": "in a controlled manner",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad"
+        ]
+      },
+      {
+        "subject": "billions of cell divisions",
+        "relation": "must occur",
+        "obj": "in order to produce a complex , multicellular human comprising trillions of cells",
+        "sensors": [
+          "temporal"
+        ],
+        "engines": [
+          "broad"
+        ]
+      }
+    ]
+  }
+]

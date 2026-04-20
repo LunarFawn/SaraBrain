@@ -1,0 +1,628 @@
+# Ch10 hand-curated teaching statements (2026-04-19)
+# One statement per line. Replay with benchmarks/reteach_curated.py
+
+cell division produces daughter cells
+a multicellular organism contains many cells
+a zygote is a fertilized egg
+a human begins as a zygote
+a zygote contains chromosomes
+cell division supports growth
+cell division supports repair
+a prokaryote reproduces by cell division
+a plasmid is a loop of DNA
+a prokaryote contains plasmids
+antibiotic resistance is a trait
+a plasmid transfers antibiotic resistance
+a chromosome contains DNA
+a human body cell has 46 chromosomes
+a human gamete has 23 chromosomes
+a diploid cell has two sets of chromosomes
+a gamete is a sex cell
+an egg is a gamete
+a sperm is a gamete
+a haploid cell has one set of chromosomes
+carries is contains
+chromatin is DNA
+chromatin contains proteins
+a chromosome is condensed chromatin
+a nucleosome contains DNA
+a nucleosome contains histone
+a histone is a protein
+DNA condenses during mitosis
+a chromatid is half of a chromosome
+sister chromatids are joined
+a centromere joins sister chromatids
+cohesin is a protein
+cohesin joins sister chromatids
+the cell cycle produces daughter cells
+the cell cycle includes interphase
+the cell cycle includes mitosis
+the cell cycle includes cytokinesis
+interphase precedes mitosis
+mitosis precedes cytokinesis
+interphase is a phase of the cell cycle
+mitosis is a phase of the cell cycle
+cytokinesis is a phase of the cell cycle
+interphase includes G1 phase
+interphase includes S phase
+interphase includes G2 phase
+G1 phase precedes S phase
+S phase precedes G2 phase
+G2 phase precedes mitosis
+DNA replicates during S phase
+a cell grows during G1 phase
+a cell grows during G2 phase
+mitosis includes prophase
+mitosis includes prometaphase
+mitosis includes metaphase
+mitosis includes anaphase
+mitosis includes telophase
+prophase precedes prometaphase
+prometaphase precedes metaphase
+metaphase precedes anaphase
+anaphase precedes telophase
+telophase precedes cytokinesis
+chromosomes condense during prophase
+the nuclear envelope breaks down during prometaphase
+spindle fibers form during prophase
+a spindle fiber is a microtubule
+a microtubule is a protein
+a centrosome organizes microtubules
+centrosomes separate during prophase
+chromosomes align during metaphase
+a kinetochore is a protein
+spindle fibers attach to kinetochores
+sister chromatids separate during anaphase
+cohesin breaks down during anaphase
+a nuclear envelope forms during telophase
+chromosomes decondense during telophase
+cytokinesis divides the cytoplasm
+cytokinesis produces two daughter cells
+a cleavage furrow forms during cytokinesis
+a contractile ring contains actin
+a contractile ring causes a cleavage furrow
+a plant cell forms a cell plate
+a cell plate becomes a cell wall
+a kinetochore includes a centromere connection
+chromatids travel during anaphase
+the cell cycle contains checkpoints
+the G1 checkpoint controls cell cycle entry
+the G2 checkpoint controls mitosis entry
+the M checkpoint controls anaphase entry
+the G1 checkpoint requires nutrients
+the G1 checkpoint requires growth factors
+the G2 checkpoint requires DNA replication
+the M checkpoint requires chromosome attachment
+a checkpoint prevents errors
+a cyclin is a protein
+a CDK is a protein
+CDK includes cyclin binding
+a cyclin activates a CDK
+a CDK regulates the cell cycle
+p53 is a protein
+p53 prevents mitosis
+p53 requires DNA damage
+cancer is uncontrolled cell division
+a tumor is a mass of cells
+a tumor contains many cells
+a proto-oncogene regulates cell division
+an oncogene causes cancer
+a tumor suppressor prevents cancer
+p53 is a tumor suppressor
+mutation causes cancer
+binary fission is a type of cell division
+binary fission produces two daughter cells
+a prokaryote divides by binary fission
+a bacterium divides by binary fission
+an FtsZ protein causes binary fission
+the origin of replication is a site on DNA
+a chromosome contains genes
+a gene is a sequence of DNA
+a gene codes for a protein
+a daughter cell is a cell
+a daughter cell contains chromosomes
+mitosis produces daughter cells
+mitosis produces identical cells
+meiosis is a type of cell division
+meiosis produces gametes
+meiosis produces haploid cells
+a zygote divides by mitosis
+growth includes cell division
+repair includes cell division
+a cell contains a nucleus
+a nucleus contains chromosomes
+a nucleus contains DNA
+a chromosome is DNA
+DNA includes genes
+a somatic cell is a body cell
+a somatic cell is diploid
+a germ cell produces gametes
+a nuclear envelope is a membrane
+a membrane contains lipids
+a centriole is a structure
+a centrosome contains centrioles
+a centrosome is a structure
+a parent cell divides into daughter cells
+a diploid cell contains homologous chromosomes
+homologous chromosomes are a pair of chromosomes
+homologous chromosomes have the same genes
+homologous chromosomes have different alleles
+an allele is a variant of a gene
+a chromatid contains DNA
+a chromatid contains a centromere
+a replicated chromosome has two chromatids
+an egg is a haploid cell
+a sperm is a haploid cell
+an egg contains 23 chromosomes
+a sperm contains 23 chromosomes
+fertilization produces a zygote
+fertilization combines egg and sperm
+a growth factor is a protein
+a growth factor causes cell division
+a growth factor requires a receptor
+apoptosis is programmed cell death
+apoptosis prevents cancer
+apoptosis removes damaged cells
+contact inhibition prevents cell division
+a cancer cell lacks contact inhibition
+a stem cell is a cell
+a stem cell produces specialized cells
+DNA damage triggers p53
+p53 causes apoptosis
+p53 prevents DNA replication
+a telomere is a sequence of DNA
+a telomere is at the end of a chromosome
+a telomere shortens during cell division
+telomerase is a protein
+telomerase extends a telomere
+the mitotic spindle contains microtubules
+the mitotic spindle separates chromosomes
+a polar microtubule is a microtubule
+a kinetochore microtubule is a microtubule
+an astral microtubule is a microtubule
+the metaphase plate is a region
+a cleavage furrow forms in an animal cell
+a cell plate forms in a plant cell
+separase is a protein
+separase breaks cohesin
+a checkpoint contains proteins
+a CDK inhibitor prevents cell cycle progression
+interphase includes DNA replication
+mitosis divides a nucleus
+cytokinesis divides a cell
+the cell cycle includes cell growth
+the cell cycle includes DNA replication
+the cell cycle includes chromosome separation
+a normal cell requires contact inhibition
+a stem cell produces daughter cells
+metaphase includes chromosome alignment
+a centrosome is composed of centrioles
+the spindle pole is at a centrosome
+the mitotic spindle forms during prophase
+sister chromatids are genetically identical
+sister chromatids become daughter chromosomes
+a daughter chromosome is a chromosome
+the nuclear envelope reforms during telophase
+a nucleolus forms during telophase
+binary fission produces identical cells
+binary fission requires DNA replication
+binary fission requires cell elongation
+an FtsZ ring causes a septum
+a septum divides a prokaryote
+a proto-oncogene becomes an oncogene by mutation
+a tumor suppressor gene codes for a tumor suppressor
+a mutation changes a gene
+nondisjunction causes aneuploidy
+aneuploidy is abnormal chromosome number
+nondisjunction occurs during meiosis
+nondisjunction occurs during mitosis
+a hormone causes cell division
+a receptor detects a growth factor
+signal transduction includes receptor activation
+a carcinogen causes mutation
+radiation causes DNA damage
+a chemical carcinogen causes cancer
+a stem cell divides frequently
+a neuron divides rarely
+a cardiac muscle cell divides rarely
+a bacterial cell divides by binary fission
+a eukaryotic cell divides by mitosis
+a eukaryotic cell contains a nucleus
+a prokaryotic cell lacks a nucleus
+mitosis produces two daughter cells
+mitosis is nuclear division
+cytokinesis is cytoplasmic division
+cell division requires DNA replication
+cell division requires chromosome separation
+DNA replication precedes mitosis
+chromosome separation follows DNA replication
+a daughter cell has the same DNA as the parent cell
+MPF is a protein complex
+MPF causes mitosis entry
+MPF contains cyclin
+MPF contains CDK
+a nucleolus contains RNA
+a nucleolus contains ribosomal RNA
+the nucleolus produces ribosomes
+the restriction point is in G1 phase
+the restriction point controls cell cycle commitment
+a centrosome contains microtubules
+a chromosome includes a microtubule attachment
+G0 phase is a resting phase
+a cell enters G0 phase
+a neuron is in G0 phase
+retinoblastoma is a protein
+retinoblastoma regulates the G1 checkpoint
+retinoblastoma is a tumor suppressor
+actin is a protein
+myosin is a protein
+actin forms a contractile ring
+a cell cycle has a duration
+a typical cell cycle requires 24 hours
+haploid is one set of chromosomes
+diploid is two sets of chromosomes
+a human zygote is diploid
+a human gamete is haploid
+a human has 46 chromosomes
+a fruit fly has 8 chromosomes
+a dog has 78 chromosomes
+a centromere has a position
+a karyotype is a display of chromosomes
+a wound triggers cell division
+growth requires cell division
+one chromatid is one DNA molecule
+two chromatids are two DNA molecules
+a replicated chromosome contains two DNA molecules
+prophase follows G2 phase
+metaphase follows prometaphase
+anaphase follows metaphase
+telophase follows anaphase
+cytokinesis follows telophase
+mitosis is different from meiosis
+mitosis produces diploid cells
+meiosis produces haploid cells
+mitosis occurs in somatic cells
+meiosis occurs in germ cells
+the G2 checkpoint prevents mitosis
+the G2 checkpoint requires intact DNA
+DNA is a double helix
+DNA contains nucleotides
+a nucleotide contains a base
+a base is adenine
+a base is thymine
+a base is guanine
+a base is cytosine
+DNA replication produces two DNA molecules
+DNA replication requires DNA polymerase
+DNA polymerase is a protein
+a cell cycle checkpoint requires proteins
+a CDK requires a cyclin
+a benign tumor is a tumor
+a malignant tumor is a tumor
+metastasis includes cancer spread
+cancer includes mutation
+a bacterium exchanges plasmids
+a plasmid is a small DNA molecule
+a stem cell supports repair
+a stem cell supports growth
+cell division follows DNA replication
+DNA replication follows cell growth
+growth precedes DNA replication
+a karyotype includes chromosome number
+a karyotype includes chromosome shape
+a cyclin controls a CDK
+a skin cell is a somatic cell
+a bone marrow cell is a somatic cell
+a liver cell is a somatic cell
+mitosis maintains chromosome number
+mitosis produces genetically identical cells
+mitosis supports tissue repair
+mitosis supports organism growth
+meiosis reduces chromosome number
+meiosis produces four daughter cells
+meiosis includes two divisions
+meiosis II separates sister chromatids
+crossing over occurs during meiosis
+crossing over produces genetic variation
+the G1 phase is the longest phase
+the M phase is the shortest phase
+during prometaphase the nuclear envelope breaks down
+during anaphase chromatids separate
+cytokinesis is not mitosis
+cytokinesis is not mitosis
+mitosis does not divide the cytoplasm
+mitosis does not divide the cytoplasm
+cytokinesis divides cytoplasm
+the cell cycle produces two daughter cells
+the cell cycle requires one parent cell
+a mutation of p53 causes cancer
+a mutation of a tumor suppressor causes cancer
+a mutation of a proto-oncogene causes cancer
+loss of apoptosis causes cancer
+loss of contact inhibition causes cancer
+cyclin D drives G1 progression
+cyclin E drives S phase entry
+cyclin A drives S phase progression
+cyclin B drives mitosis entry
+cell division produces tissues
+cell division produces organs
+a tissue contains cells
+an organ contains tissues
+a prokaryote has a single chromosome
+a prokaryote chromosome is circular
+a eukaryote has linear chromosomes
+binary fission is simpler than mitosis
+the spindle assembly checkpoint is the M checkpoint
+the spindle assembly checkpoint requires kinetochore attachment
+anaphase includes chromatid movement
+kinetochore microtubules shorten during anaphase
+polar microtubules elongate during anaphase
+cell division limits cell size
+a large cell has a low surface to volume ratio
+diffusion requires a small cell
+an error in mitosis causes aneuploidy
+aneuploidy causes genetic disease
+Down syndrome is a trisomy
+trisomy is an aneuploidy
+a skin cell divides by mitosis
+a bone marrow cell divides by mitosis
+a liver cell divides by mitosis
+meiosis includes homologous chromosome separation
+prophase includes chromosome condensation
+metaphase includes chromosome alignment
+telophase includes nucleus reformation
+a bacterial cell is a cell
+a bacterial cell is a prokaryote
+a liver cell is a cell
+a skin cell is a cell
+a bone marrow cell is a cell
+a muscle cell is a cell
+a nerve cell is a cell
+a blood cell is a cell
+a red blood cell is a blood cell
+a white blood cell is a blood cell
+a body cell is a somatic cell
+a somatic cell is a cell
+a red blood cell contains hemoglobin
+hemoglobin contains oxygen
+a white blood cell is an immune cell
+an immune cell is a cell
+a quiescent cell is in G0 phase
+a terminally differentiated cell is in G0 phase
+G0 phase is a non-dividing state
+a centriole contains microtubules
+a centriole is a cylinder
+an animal cell has centrioles
+a plant cell lacks centrioles
+an aster is a structure of microtubules
+an aster forms at a centrosome
+chromatids are connected at the centromere
+positive regulator promotes cell cycle progression
+negative regulator inhibits cell cycle progression
+a cyclin is a positive regulator
+a CDK is a positive regulator
+p53 is a negative regulator
+Rb is a negative regulator
+S phase is DNA synthesis phase
+G1 phase is first gap phase
+G2 phase is second gap phase
+M phase is mitotic phase
+cancer is a disease
+cancer includes uncontrolled growth
+cancer requires multiple mutations
+a cancer cell is a cell
+a cancer cell divides uncontrollably
+metastasis is cancer spread
+angiogenesis supports a tumor
+angiogenesis is blood vessel formation
+a cancer cell is uncontrolled
+a chromosome separates during anaphase
+a chromosome condenses during prophase
+a chromosome decondenses during telophase
+cohesin is cleaved by separase
+cleavage of cohesin causes chromatid separation
+unattached kinetochores delay anaphase
+the spindle checkpoint is the M checkpoint
+the bacterial chromosome is circular
+the bacterial chromosome replicates before division
+binary fission starts with DNA replication
+binary fission ends with cell separation
+the FtsZ ring is a protein ring
+the FtsZ ring forms at the midpoint
+a centromere is a region of a chromosome
+a telomere is a region of a chromosome
+a gene is a region of DNA
+a promoter is a region of DNA
+binary fission is faster than mitosis
+daughter cells have identical chromosomes
+daughter cells have the same ploidy as parent
+a cell cycle includes growth phases
+a cell cycle includes division phases
+an epithelial cell divides frequently
+an epithelial cell is a cell
+a gut cell is an epithelial cell
+UV radiation causes mutation
+smoking causes mutation
+a virus causes cancer
+cell reproduction is cell division
+cell theory includes cell division
+E2F is a transcription factor
+Rb inhibits E2F
+E2F activates S phase genes
+a benign tumor is localized
+a malignant tumor is invasive
+a cell produces other cells by division
+mitosis occurs in eukaryotes
+binary fission occurs in prokaryotes
+an archaeon divides by binary fission
+a daughter cell is produced by mitosis
+a daughter cell is produced by cell division
+a gamete is produced by meiosis
+a zygote is produced by fertilization
+a human somatic cell has 46 chromosomes
+a human somatic cell has 23 pairs of chromosomes
+each human chromosome pair contains homologous chromosomes
+bone marrow produces blood cells by mitosis
+skin produces skin cells by mitosis
+the liver regenerates by mitosis
+mitosis preserves chromosome number
+mitosis preserves genetic identity
+meiosis reduces chromosome number by half
+the G1 checkpoint requires healthy DNA
+the G2 checkpoint requires complete DNA replication
+the M checkpoint requires aligned chromosomes
+APC is a protein complex
+APC degrades cyclin B
+cyclin degradation causes mitosis exit
+interphase is longer than mitosis
+the spindle apparatus includes microtubules
+the spindle apparatus includes centrosomes
+the spindle apparatus includes kinetochores
+a cell plate contains vesicles
+cell division passes DNA to daughter cells
+cell division distributes chromosomes
+the cell cycle ensures accurate division
+a chromosome error causes aneuploidy
+aneuploidy leads to genetic disease
+chromosome misalignment causes nondisjunction
+a chromatid is a copy of a chromosome
+sister chromatids are identical DNA
+a diploid cell is 2n
+a haploid cell is 1n
+2n means two sets
+1n means one set
+an embryo requires mitosis
+a Golgi vesicle contributes to a cell plate
+chromatids separate during anaphase
+the cell cycle is a life cycle of a cell
+cell division completes the cell cycle
+a cyclin-CDK complex drives cell cycle phases
+cyclin B binds CDK1
+CDK1 causes mitosis entry
+G1-S transition requires cyclin E
+G2-M transition requires cyclin B
+the restriction point commits a cell to division
+loss of restriction point causes cancer
+a histone is a basic protein
+a nucleosome is a histone complex
+heterochromatin is condensed chromatin
+euchromatin is open chromatin
+heterochromatin is inactive
+euchromatin is active
+a chromosome is visible during mitosis
+a chromosome is invisible during interphase
+chromatin is DNA and protein
+a prokaryote has one origin of replication
+DNA replication starts at the origin
+two replication forks move in opposite directions
+meiosis produces genetic diversity
+meiosis includes recombination
+recombination is crossing over
+DNA polymerase synthesizes DNA
+DNA polymerase requires a template
+DNA replication is semiconservative
+semiconservative replication produces one old strand and one new strand
+condensin compacts chromatin
+cohesin holds sister chromatids
+a caspase is a protein
+a caspase causes apoptosis
+cytochrome c activates caspases
+mitosis is a nuclear event
+cytokinesis is a cytoplasmic event
+cell division requires both mitosis and cytokinesis
+an incomplete cytokinesis produces a multinucleate cell
+cancer results from checkpoint failure
+a tumor suppressor stops cell division
+loss of a tumor suppressor enables cancer
+a proto-oncogene is normal
+an oncogene is mutated
+an oncogene causes uncontrolled division
+a microtubule is dynamic
+dynamic instability enables spindle assembly
+a spindle fiber pulls a chromatid
+anaphase A includes chromatid movement to poles
+anaphase B includes pole separation
+cytokinesis begins during anaphase
+cytokinesis ends after telophase
+polyploidy is extra chromosome sets
+polyploidy is common in plants
+a triploid has three sets of chromosomes
+a tetraploid has four sets of chromosomes
+monosomy is one chromosome copy
+trisomy is three chromosome copies
+monosomy causes genetic disease
+Down syndrome is trisomy 21
+Turner syndrome is X0
+Klinefelter syndrome is XXY
+DNA replication doubles chromosomes
+mitosis halves doubled chromosomes
+a multicellular life cycle includes mitosis and meiosis
+meiosis produces gametes for reproduction
+mitosis produces body cells for growth
+the origin of replication initiates DNA replication
+replication forks separate during DNA replication
+the chromosomes move to opposite ends of the cell
+the FtsZ ring constricts the cell
+cell wall forms at the division site
+a prokaryote includes bacteria and archaea
+Wee1 is a kinase
+Wee1 inhibits CDK1
+Cdc25 is a phosphatase
+Cdc25 activates CDK1
+CDK1 activation is rapid
+MPF activation is a positive feedback loop
+chemotherapy targets dividing cells
+radiation damages DNA
+radiation kills cancer cells
+a somatic cell is a body cell
+a germ cell is a reproductive cell
+a reproductive cell is a cell
+a stem cell is an undifferentiated cell
+a muscle cell is a differentiated cell
+a nerve cell is a differentiated cell
+a neuron is a nerve cell
+mitosis includes division of the nucleus
+cytokinesis includes division of the cytoplasm
+an organism grows by producing cells
+a chromatid is attached to its sister chromatid
+a chromatid becomes a chromosome after separation
+a plasmid contains genes
+a plasmid encodes antibiotic resistance
+a plasmid provides genes
+a histone includes DNA wrapping
+a mitochondrion includes cytochrome c release
+a microtubule includes growth
+a microtubule includes shrinking
+a spindle fiber includes chromosome force
+DNA replication produces two circular chromosomes
+binary fission produces two daughter cells
+an archaeon is a prokaryote
+a bacterium is a prokaryote
+a eukaryote includes a nucleus
+a checkpoint regulates a cell cycle phase
+chromosomes align during metaphase
+the metaphase plate is a cell equator
+a G0 cell stops dividing
+a G0 cell is non-dividing
+the cell cycle is a repeating sequence
+DNA damage triggers a checkpoint
+a checkpoint triggers cell cycle arrest
+cell cycle arrest prevents division
+cancer disrupts contact inhibition
+cancer disrupts apoptosis
+cancer disrupts checkpoints
+a cancer cell divides without growth factors
+telomerase requires RNA
+telomerase is active in stem cells
+telomerase is active in cancer cells
+a differentiated cell has low telomerase
+differentiation produces specialized cells
+differentiation requires gene expression
+a differentiated cell has a specific function
+a pea plant has 14 chromosomes
+a corn plant has 20 chromosomes
+a mouse has 40 chromosomes
+a chimpanzee has 48 chromosomes
+mitosis conserves genetic information
+meiosis creates genetic variation
+fertilization restores diploid number

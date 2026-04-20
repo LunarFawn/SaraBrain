@@ -101,6 +101,7 @@ class TestLearner:
     def test_teach_math_phrase_writes_operation_tag(self, brain):
         """Teaching "meiosis reduces chromosome number by half" stores
         a segment tagged with multiply:0.5 on the relation edge."""
+        brain.teach_verb("reduces")
         result = brain.teach(
             "meiosis reduces chromosome number by half"
         )

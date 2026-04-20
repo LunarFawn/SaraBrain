@@ -1,0 +1,37 @@
+[
+  {
+    "sentence": "After many rounds of cell division, the individual develops into a complex, multicellular organism, as seen in this mature sea urchin.",
+    "phase": "prose",
+    "model": "llama3.2:1b",
+    "sensors": {
+      "topic": {
+        "raw": "Sea urchin",
+        "elapsed_s": 0.594
+      },
+      "relation": {
+        "raw": "sequence",
+        "elapsed_s": 0.727
+      },
+      "context": {
+        "raw": [
+          "Here are the scope qualifiers identified from the source sentence:",
+          "",
+          "1. After",
+          "2. many",
+          "3. complex",
+          "4. multicellular",
+          "5. as",
+          "6. seen",
+          "7. this",
+          "8. mature",
+          "9. sea ",
+          "10. urchin ",
+          "",
+          "These are the scope qualifiers in the given source sentence."
+        ],
+        "elapsed_s": 2.129
+      }
+    },
+    "timestamp": 1776656754.8104682
+  }
+]

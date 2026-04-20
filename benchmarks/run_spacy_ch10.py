@@ -1410,7 +1410,8 @@ def _write_gap_markdown(gap_summary: list[dict], by_kind: dict[str, int],
 # ── Math pass: apply taught operations when the question has numbers ──
 
 def math_pass(question_text: str, choices: list[str],
-              selected_regions: list[str], brain: Brain
+              selected_regions: list[str], brain: Brain,
+              subject: str = "biology"
               ) -> tuple[set[float], dict[int, str]]:
     """Compute candidate numeric answers for the question by applying
     every operation-tagged segment in the selected regions to every
@@ -1433,7 +1434,11 @@ def math_pass(question_text: str, choices: list[str],
     candidates: set[float] = set()
 
     for region in selected_regions:
-        seg_repo = SegmentRepo(brain.conn, prefix=region)
+        if brain.backend is not None:
+            conn = brain.backend.concept_conn(subject, region)
+            seg_repo = SegmentRepo(conn, prefix="")
+        else:
+            seg_repo = SegmentRepo(brain.conn, prefix=region)
         for seg in seg_repo.list_all():
             if not seg.operation_tag:
                 continue
@@ -1755,6 +1760,7 @@ def main():
         # the gate that funnels the boost in.
         math_candidates, math_matches = math_pass(
             q["question"], q["choices"], selected, brain,
+            subject=subject,
         )
         math_note: str | None = None
         if len(math_matches) == 1:

@@ -8,6 +8,17 @@ from ..storage.neuron_repo import NeuronRepo
 from ..storage.segment_repo import SegmentRepo
 
 
+# IS-A segments carry inheritance semantics, not propagation semantics.
+# A wavefront arriving at `nerve_cell` may INHERIT definitional paths
+# attached to `cell` (via upward IS-A walk at scoring time), but it
+# must NOT leave `nerve_cell` via the IS-A edge to continue outward
+# through `cell`'s other children (`daughter_cell`, `bacterial_cell`,
+# …). That would cross-contaminate unrelated specializations sharing
+# a head noun — the transformer polysemy problem this graph is meant
+# to solve.
+_NON_PROPAGATING_RELATIONS = frozenset({"is_a"})
+
+
 class Recognizer:
     def __init__(
         self,
@@ -134,6 +145,8 @@ class Recognizer:
                 for seg in self.segment_repo.get_outgoing(current.id):
                     if seg.strength < min_strength:
                         continue
+                    if seg.relation in _NON_PROPAGATING_RELATIONS:
+                        continue
                     if seg.target_id in visited:
                         continue
                     target = self.neuron_repo.get_by_id(seg.target_id)
@@ -147,6 +160,8 @@ class Recognizer:
                 if bidirectional:
                     for seg in self.segment_repo.get_incoming(current.id):
                         if seg.strength < min_strength:
+                            continue
+                        if seg.relation in _NON_PROPAGATING_RELATIONS:
                             continue
                         if seg.source_id in visited:
                             continue
@@ -179,6 +194,37 @@ class Recognizer:
                         for seg in segments:
                             if seg.target_id == pair[1]:
                                 self.segment_repo.strengthen(seg)
+
+    def inherit_definitions(self, node_id: int,
+                            max_hops: int = 4) -> list[int]:
+        """Walk IS-A edges upward from node_id, returning ancestor node ids.
+
+        IS-A is traversed ONLY here, not during wavefront propagation.
+        This lets the scorer pull in definitional paths attached to a
+        compound's head (`nerve_cell`'s ancestors include `cell` and
+        `container`) without letting wavefronts leak sideways across
+        IS-A siblings.
+
+        Returns ancestors in order of distance (nearest first).
+        """
+        ancestors: list[int] = []
+        seen = {node_id}
+        frontier = [node_id]
+        for _ in range(max_hops):
+            next_frontier: list[int] = []
+            for nid in frontier:
+                for seg in self.segment_repo.get_outgoing(nid):
+                    if seg.relation != "is_a":
+                        continue
+                    if seg.target_id in seen:
+                        continue
+                    seen.add(seg.target_id)
+                    ancestors.append(seg.target_id)
+                    next_frontier.append(seg.target_id)
+            if not next_frontier:
+                break
+            frontier = next_frontier
+        return ancestors
 
     def trace(self, label: str,
               min_strength: float | None = None) -> list[PathTrace]:

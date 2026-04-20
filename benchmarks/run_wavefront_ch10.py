@@ -22,7 +22,7 @@ from pathlib import Path
 import spacy
 
 from sara_brain.core.brain import Brain
-from sara_brain.core.wavefront_scorer import score_choices
+from sara_brain.core.wavefront_scorer import score_choices, pick_choice
 
 
 def run(db_path: Path, questions_path: Path,
@@ -53,26 +53,21 @@ def run(db_path: Path, questions_path: Path,
         )
         dt = time.time() - t0
 
-        if not ranked or ranked[0].score <= 0:
-            abstained += 1
-            outcome = "abstain"
-            pick = None
-        else:
-            top = ranked[0]
-            # Tie detection — more than one choice sharing the top score
-            top_tied = [r for r in ranked if r.score == top.score]
-            if len(top_tied) > 1:
+        pick, reason = pick_choice(ranked, text)
+        if pick is None:
+            if reason == "tie":
                 ties += 1
                 outcome = "tie"
-                pick = None
             else:
-                pick = top.index
-                if pick == correct_idx:
-                    correct += 1
-                    outcome = "correct"
-                else:
-                    wrong += 1
-                    outcome = "wrong"
+                abstained += 1
+                outcome = "abstain"
+        else:
+            if pick == correct_idx:
+                correct += 1
+                outcome = "correct"
+            else:
+                wrong += 1
+                outcome = "wrong"
 
         mark = {
             "correct": "✓", "wrong": "✗",

@@ -44,25 +44,47 @@ def _reached_with_power(recognizer: Recognizer,
     """Return {neuron_id: accumulated_power} for nodes reached by
     any seed's wavefront, plus the seeds themselves.
 
-    Power at a node = sum of `seed.power` for each seed whose wavefront
-    reached it. Each seed's own resolved neuron starts at `seed.power`.
+    Each seed has a fixed evidence mass (`seed.power`). That mass is
+    distributed across every node the wavefront reaches: a seed whose
+    wavefront reaches R nodes contributes `seed.power / (R + 1)` to
+    each reached node (and the seed itself counts as the +1).
+
+    This keeps witness-counting honest: a focused wavefront (few
+    nodes reached) gives each convergence point strong evidence; a
+    diffuse wavefront (hub seed fanning to hundreds of nodes) gives
+    each node weak evidence. No invented statistic — just dividing
+    the mass among witnesses.
     """
     power: dict[int, float] = defaultdict(float)
     for seed in seeds:
         n = recognizer.neuron_repo.resolve(seed.label, exact_only=True)
         if n is None:
             continue
-        # Seed node itself carries the seed's power
-        power[n.id] += seed.power
-        # Propagation reach — bidirectional so subject-seeded wavefronts
-        # can reach the properties Sara was taught about them (facts are
-        # stored with a direction; a forward-only walk starves subjects).
         reached = recognizer._propagate(n, bidirectional=True)
-        for target_id in reached:
-            if target_id == n.id:
-                continue
-            power[target_id] += seed.power
+        # Seed node is one witness; other reached nodes are the rest.
+        # Mass divided across (seed + reached-non-self).
+        targets = [tid for tid in reached if tid != n.id]
+        total_witnesses = 1 + len(targets)
+        per_witness = seed.power / total_witnesses
+        power[n.id] += per_witness
+        for target_id in targets:
+            power[target_id] += per_witness
     return dict(power)
+
+
+_NEGATION_CUES = ("NOT", "EXCEPT", "LEAST", " FALSE", "UNLESS")
+
+
+def _is_negation_question(question: str) -> bool:
+    """Detect whether the question is asking for the OUTLIER choice —
+    the one that DOES NOT match the category the other choices match.
+    Common cues: 'NOT', 'EXCEPT', 'LEAST', 'FALSE', 'UNLESS'.
+
+    Case-sensitive on uppercase forms to avoid false positives from
+    words like 'note' or 'except' in normal prose. Textbook MC questions
+    use the uppercase convention for emphasis (e.g., 'EXCEPT:').
+    """
+    return any(cue in question for cue in _NEGATION_CUES)
 
 
 def score_choices(question: str,
@@ -110,5 +132,43 @@ def score_choices(question: str,
             seeds=c_seeds,
         ))
 
-    results.sort(key=lambda r: r.score, reverse=True)
+    # Negation-aware ranking: if the question asks for the choice that
+    # does NOT belong (NOT, EXCEPT, LEAST, FALSE, UNLESS), the correct
+    # answer is the OUTLIER with the LEAST convergence to the question's
+    # category. Path evidence logic unchanged — just read inverted.
+    negated = _is_negation_question(question)
+    results.sort(key=lambda r: r.score, reverse=not negated)
     return results
+
+
+def pick_choice(ranked: list[ChoiceScore], question: str
+                ) -> tuple[int | None, str]:
+    """Given a ranked list from `score_choices`, return (pick_idx, reason).
+
+    - For positive questions: pick ranked[0] if its score > 0; else abstain.
+    - For negation questions: pick ranked[0] (the outlier-low) if the
+      choice set has any meaningful variance. Abstain when all choices
+      score identically (no outlier signal to distinguish).
+    - Tie at top → tie (pick_idx=None, reason="tie").
+    """
+    if not ranked:
+        return None, "no_scores"
+    negated = _is_negation_question(question)
+    top = ranked[0]
+    if negated:
+        scores = [r.score for r in ranked]
+        if max(scores) == min(scores):
+            return None, "abstain_all_equal"
+        # Tie at the low end means multiple choices share the outlier
+        # position. Treat as tie, not arbitrary pick.
+        low_count = sum(1 for s in scores if s == top.score)
+        if low_count > 1:
+            return None, "tie"
+        return top.index, "negation_outlier"
+    # Positive question
+    if top.score <= 0:
+        return None, "abstain_zero"
+    tied = [r for r in ranked if r.score == top.score]
+    if len(tied) > 1:
+        return None, "tie"
+    return top.index, "top_score"

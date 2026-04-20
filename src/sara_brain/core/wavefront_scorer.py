@@ -54,8 +54,10 @@ def _reached_with_power(recognizer: Recognizer,
             continue
         # Seed node itself carries the seed's power
         power[n.id] += seed.power
-        # Propagation reach — each reached node gets +seed.power
-        reached = recognizer._propagate(n)
+        # Propagation reach — bidirectional so subject-seeded wavefronts
+        # can reach the properties Sara was taught about them (facts are
+        # stored with a direction; a forward-only walk starves subjects).
+        reached = recognizer._propagate(n, bidirectional=True)
         for target_id in reached:
             if target_id == n.id:
                 continue

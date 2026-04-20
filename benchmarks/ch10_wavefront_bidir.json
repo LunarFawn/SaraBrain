@@ -1,0 +1,1235 @@
+{
+  "summary": {
+    "correct": 1,
+    "wrong": 5,
+    "abstained": 25,
+    "ties": 2,
+    "total": 33,
+    "precision": 0.16666666666666666,
+    "coverage": 0.18181818181818182,
+    "seconds": 0.38814783096313477
+  },
+  "results": [
+    {
+      "id": 5,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 2,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "cross section of muscle tissue"
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "cross section of an anther (site of pollen production in a flower)"
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "longitudinal section of a shoot tip"
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "cross section of a leaf"
+        }
+      ],
+      "seconds": 0.04062485694885254
+    },
+    {
+      "id": 22,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 0,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "They have a relative evolutionary fitness of zero."
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Their offspring have less genetic variation than the parents."
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Mutations cannot occur in their genomes."
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "If crossing-over happens in mules, then it must be limited to prophase of mitosis."
+        }
+      ],
+      "seconds": 0.016173124313354492
+    },
+    {
+      "id": 25,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 2,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "It is an inactivated Y chromosome and results in a man being sterile."
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "It is an inactivated Y chromosome, and the person who has it appears female."
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "It is an inactivated X chromosome and results in females with half their cells having one X inactivated and the other half of their cells having the other X inactivated."
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "It is an inactivated X chromosome and results in females who are sterile."
+        }
+      ],
+      "seconds": 0.014660120010375977
+    },
+    {
+      "id": 31,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 1,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "meiosis"
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "parthenogenesis"
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "embryogenesis"
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "vegetative propagation"
+        }
+      ],
+      "seconds": 0.006762981414794922
+    },
+    {
+      "id": 37,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 3,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Sporulation"
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Binary fission"
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Vegetative propagation"
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Mutation"
+        }
+      ],
+      "seconds": 0.0073699951171875
+    },
+    {
+      "id": 48,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 1,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "ovary"
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "fallopian tube"
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "uterus"
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "placenta"
+        }
+      ],
+      "seconds": 0.006613969802856445
+    },
+    {
+      "id": 54,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 3,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "G_1"
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "G_2"
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "M"
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "S"
+        }
+      ],
+      "seconds": 0.008732080459594727
+    },
+    {
+      "id": 61,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 3,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Two genes (1 and 2) are located right next to each other on chromosome A."
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Gene 1 is located on chromosome A, and gene 2 is on chromosome B."
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Genes 1 and 2 are located near each other on the X chromosome."
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Gene 1 is located on chromosome A; gene 2 is located far away but on the same chromosome."
+        }
+      ],
+      "seconds": 0.012746095657348633
+    },
+    {
+      "id": 73,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 0,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "mistakes in translation of structural genes."
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "mistakes in DNA replication."
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "translocations and mistakes in meiosis."
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "recombination at fertilization."
+        }
+      ],
+      "seconds": 0.01070404052734375
+    },
+    {
+      "id": 84,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 3,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "sporulation"
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "fission"
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "budding"
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "meiosis"
+        }
+      ],
+      "seconds": 0.006697177886962891
+    },
+    {
+      "id": 95,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 2,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "192"
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "96"
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "48"
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "24"
+        }
+      ],
+      "seconds": 0.007220029830932617
+    },
+    {
+      "id": 102,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 3,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Daughter cells have the same number of chromosomes as the parent cell."
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Daughter cells are identical to the parent cell."
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "The parent cell produces diploid cells."
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "The daughter cells fuse to form a zygote."
+        }
+      ],
+      "seconds": 0.009706974029541016
+    },
+    {
+      "id": 107,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 2,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "the chance for variation in zygotes"
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "the rate of mutations"
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "the distance between genes on a chromosome"
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "which traits are dominant or recessive"
+        }
+      ],
+      "seconds": 0.009226083755493164
+    },
+    {
+      "id": 117,
+      "outcome": "tie",
+      "pick": null,
+      "correct": 0,
+      "scores": [
+        {
+          "index": 0,
+          "score": 2.0,
+          "convergence": 1,
+          "compound_hits": 0,
+          "text": "Apoptosis, a special type of cell division, requires multiple cell signaling."
+        },
+        {
+          "index": 1,
+          "score": 2.0,
+          "convergence": 1,
+          "compound_hits": 0,
+          "text": "The fact that apoptosis is widespread across several kingdoms is evidence that it evolved early in the evolution of eukaryotes."
+        },
+        {
+          "index": 2,
+          "score": 2.0,
+          "convergence": 1,
+          "compound_hits": 0,
+          "text": "Apoptosis plays a crucial role in the development of fingers in embryonic development."
+        },
+        {
+          "index": 3,
+          "score": 2.0,
+          "convergence": 1,
+          "compound_hits": 0,
+          "text": "Apoptosis prevents an aging and dying cell from damaging neighboring cells."
+        }
+      ],
+      "seconds": 0.014142990112304688
+    },
+    {
+      "id": 124,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 2,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "have an extra X chromosome"
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "have an extra Y chromosome"
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "lack an X chromosome"
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "have red blood cells that clump"
+        }
+      ],
+      "seconds": 0.012542963027954102
+    },
+    {
+      "id": 132,
+      "outcome": "wrong",
+      "pick": 3,
+      "correct": 1,
+      "scores": [
+        {
+          "index": 3,
+          "score": 2.0,
+          "convergence": 1,
+          "compound_hits": 0,
+          "text": "spindle fibers form during prophase, whereas in mitosis the spindle fibers form during metaphase"
+        },
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "there is one round of cell division, whereas in mitosis there are two rounds of cell division"
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "separation of sister chromatids occurs during the second division, whereas in mitosis separation of sister chromatids occurs during the first division"
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "chromosomes are replicated during interphase, whereas in mitosis chromosomes are replicated during prophase"
+        }
+      ],
+      "seconds": 0.01349186897277832
+    },
+    {
+      "id": 133,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 2,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Meiosis produces two haploid gametes."
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Homologous chromosomes join during synapsis."
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Sister chromatids separate during meiosis I."
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Crossing-over increases genetic variation in gametes."
+        }
+      ],
+      "seconds": 0.00778508186340332
+    },
+    {
+      "id": 170,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 3,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "The daughter cells are genetically identical to the parent cells."
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Homologues pair during prophase II."
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "DNA replication occurs before meiosis I and meiosis II."
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "The number of chromosomes is reduced."
+        }
+      ],
+      "seconds": 0.008235931396484375
+    },
+    {
+      "id": 179,
+      "outcome": "wrong",
+      "pick": 1,
+      "correct": 0,
+      "scores": [
+        {
+          "index": 1,
+          "score": 12.0,
+          "convergence": 6,
+          "compound_hits": 0,
+          "text": "the coordination of ribosomes and mRNA during protein synthesis"
+        },
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "the alignment and separation of chromosomes during mitosis"
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "the movement of substances across the plasma membrane"
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "the accumulation of protons inside the thylakoids of chloroplasts during chemiosmosis"
+        }
+      ],
+      "seconds": 0.016709089279174805
+    },
+    {
+      "id": 182,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 2,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "A decrease in the light level in surface waters as day length starts to shorten after the summer solstice"
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Increased predation by marine larvae and other zooplankton during the summer months"
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "A summer influx of nutrients derived from chemical fertilizers that are high in nitrogen and phosphorus"
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Decreased competition from other marine phytoplankton during the summer months"
+        }
+      ],
+      "seconds": 0.022195816040039062
+    },
+    {
+      "id": 184,
+      "outcome": "wrong",
+      "pick": 1,
+      "correct": 3,
+      "scores": [
+        {
+          "index": 1,
+          "score": 2.0,
+          "convergence": 1,
+          "compound_hits": 0,
+          "text": "The proportion of the population that is heterozygous at this locus should remain constant."
+        },
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "The proportions of both types of homozygote should decrease."
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "The population's average heterozygosity should increase."
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Both A and C"
+        }
+      ],
+      "seconds": 0.013829231262207031
+    },
+    {
+      "id": 191,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 1,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "In the early female embryo, one copy of the X chromosome becomes inactivated in every body cell."
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "The same chromosome in every cell of a normal female is inactivated."
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "A male with the XXY genotype will have one Barr body."
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Barr bodies consist of highly methylated DNA."
+        }
+      ],
+      "seconds": 0.013695001602172852
+    },
+    {
+      "id": 196,
+      "outcome": "correct",
+      "pick": 1,
+      "correct": 1,
+      "scores": [
+        {
+          "index": 1,
+          "score": 2.0,
+          "convergence": 1,
+          "compound_hits": 0,
+          "text": "they should share fewer homologous structures than two more closely related organisms."
+        },
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "they live in very different habitats."
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "their chromosomes should be very similar."
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "they shared a common ancestor relatively recently."
+        }
+      ],
+      "seconds": 0.009921073913574219
+    },
+    {
+      "id": 207,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 1,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "sexual selection"
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "stabilizing selection"
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "random selection"
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "directional selection"
+        }
+      ],
+      "seconds": 0.005980968475341797
+    },
+    {
+      "id": 211,
+      "outcome": "wrong",
+      "pick": 3,
+      "correct": 2,
+      "scores": [
+        {
+          "index": 3,
+          "score": 16.0,
+          "convergence": 4,
+          "compound_hits": 0,
+          "text": "Mitochondria, chloroplasts, and bacteria have a single, circular chromosome without histones or proteins."
+        },
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Mitochondria and chloroplasts divide independently of the eukaryotic host cell by a process similar to binary fission."
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Mitochondria and chloroplasts have ribosomes that more closely resemble those of bacteria than of eukaryotic cells."
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Mitochondria and chloroplasts function independently from the eukaryotic host cell."
+        }
+      ],
+      "seconds": 0.015625953674316406
+    },
+    {
+      "id": 216,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 2,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Cystic fibrosis"
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Hemophilia"
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Turner syndrome"
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Tay-Sachs disease"
+        }
+      ],
+      "seconds": 0.007575035095214844
+    },
+    {
+      "id": 226,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 2,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "The sperm will fertilize the ovum."
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "The zygote will begin to divide normally."
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "One and only one sperm will fertilize the egg."
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "The zygote will not divide into two embryos, producing twins."
+        }
+      ],
+      "seconds": 0.009537935256958008
+    },
+    {
+      "id": 227,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 3,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Cell division"
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Apoptosis"
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Replication of DNA"
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "RNA processing"
+        }
+      ],
+      "seconds": 0.006585121154785156
+    },
+    {
+      "id": 229,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 1,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Mendel's work with pea plants and his conclusions have been described in many sources."
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "The patterns of trait inheritance observed in pea plants were repeatedly demonstrated in other eukaryotes."
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Chromosomes were found to contain the genetic information for traits."
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "The discovery of the structure of D N A supported Mendel's observations and laws."
+        }
+      ],
+      "seconds": 0.014550924301147461
+    },
+    {
+      "id": 251,
+      "outcome": "tie",
+      "pick": null,
+      "correct": 1,
+      "scores": [
+        {
+          "index": 0,
+          "score": 20.0,
+          "convergence": 10,
+          "compound_hits": 0,
+          "text": "formation of a pilus between the mammalian cell and the virus"
+        },
+        {
+          "index": 1,
+          "score": 20.0,
+          "convergence": 10,
+          "compound_hits": 0,
+          "text": "incorporation of the viral genome into the mammalian cell's nuclear DNA"
+        },
+        {
+          "index": 3,
+          "score": 20.0,
+          "convergence": 10,
+          "compound_hits": 0,
+          "text": "release of spores into the mammalian cell"
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "conversion of the host's genome into the viral DNA"
+        }
+      ],
+      "seconds": 0.01235198974609375
+    },
+    {
+      "id": 278,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 0,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Prophase I"
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Metaphase I"
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Anaphase I"
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "Prophase II"
+        }
+      ],
+      "seconds": 0.006575107574462891
+    },
+    {
+      "id": 291,
+      "outcome": "wrong",
+      "pick": 1,
+      "correct": 3,
+      "scores": [
+        {
+          "index": 1,
+          "score": 12.0,
+          "convergence": 6,
+          "compound_hits": 0,
+          "text": "RNA viruses replicate much faster than DNA viruses."
+        },
+        {
+          "index": 0,
+          "score": 2.0,
+          "convergence": 1,
+          "compound_hits": 0,
+          "text": "RNA replication takes place in the cytoplasm, whereas DNA replication takes place in the nucleus."
+        },
+        {
+          "index": 3,
+          "score": 2.0,
+          "convergence": 1,
+          "compound_hits": 0,
+          "text": "RNA replication lacks the proofreading functions characteristic of DNA replication."
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "RNA viruses use uracil instead of thymine."
+        }
+      ],
+      "seconds": 0.009418964385986328
+    },
+    {
+      "id": 305,
+      "outcome": "abstain",
+      "pick": null,
+      "correct": 2,
+      "scores": [
+        {
+          "index": 0,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "It is created by the direct action of natural selection."
+        },
+        {
+          "index": 1,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "It arises in response to changes in the environment."
+        },
+        {
+          "index": 2,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "It must be present in a population before natural selection can act upon the population."
+        },
+        {
+          "index": 3,
+          "score": 0.0,
+          "convergence": 0,
+          "compound_hits": 0,
+          "text": "It tends to be reduced by the processes involved when diploid organisms produce gametes."
+        }
+      ],
+      "seconds": 0.00983119010925293
+    }
+  ]
+}

@@ -91,6 +91,23 @@ class Brain:
         self.recognizer = Recognizer(self.neuron_repo, self.segment_repo)
         self.similarity = SimilarityAnalyzer(self.neuron_repo, self.segment_repo, self.conn)
 
+        # Reverse-direction mirror DB (subject → relation → object).
+        # Writes in parallel with primary. Lives in `<db_path>.reverse`.
+        # In-memory brains keep the reverse mirror in-memory too.
+        self._reverse_db = None
+        self._reverse_learner = None
+        if db_path != ":memory:" and self.backend is None:
+            from .reverse_learner import ReverseLearner
+            reverse_path = str(_p) + ".reverse"
+            self._reverse_db = Database(reverse_path)
+            rconn = self._reverse_db.conn
+            self._reverse_learner = ReverseLearner(
+                self.parser,
+                NeuronRepo(rconn),
+                SegmentRepo(rconn),
+                PathRepo(rconn),
+            )
+
         # Load dynamic associations and categories from DB
         self._load_dynamic_associations()
         self._load_categories()
@@ -184,6 +201,41 @@ class Brain:
                 return True
         return False
 
+    def teach_expanded(self, statement: str) -> int:
+        """Teach via grammar expansion — decomposes `statement` into
+        every SVO sub-fact spaCy can extract (primary claim + adjective
+        modifiers + prep phrase modifiers + adverb modifiers + relative
+        clauses) and writes a chain for each.
+
+        Auto-registers every verb the expansion produces so parser
+        acceptance isn't the bottleneck. Returns the count of accepted
+        sub-facts.
+        """
+        from ..parsing.grammar_expansion import expand_statement, head_verbs_in
+        from ..parsing.statement_parser import StatementParser
+
+        # Lazy-load spaCy via the StatementParser class-level cache
+        nlp = StatementParser._get_nlp()
+        statements = expand_statement(statement, nlp)
+        if not statements:
+            return 0
+
+        # Register every verb in the expansion (idempotent)
+        for v in head_verbs_in(statements):
+            self.teach_verb(v)
+
+        taught = 0
+        for sub in statements:
+            # Rebuild a natural-language statement from the sub-fact
+            # atoms so Sara's parser can consume it with the existing
+            # single-claim pipeline. Articles are normalized to "a/an".
+            article = "an" if sub.subject and sub.subject[0] in "aeiou" else "a"
+            text = f"{article} {sub.subject} {sub.relation} {sub.obj}"
+            if self.learner.learn(text, apply_filter=False) is not None:
+                taught += 1
+        self.conn.commit()
+        return taught
+
     def teach_verb(self, word: str) -> None:
         """Register `word` as a verb Sara's parser will accept.
 
@@ -227,6 +279,14 @@ class Brain:
         result = self.learner.learn(statement, apply_filter=False)
         if result is not None:
             self.conn.commit()
+            # Mirror to reverse-direction DB if configured
+            if self._reverse_learner is not None:
+                try:
+                    self._reverse_learner.learn(statement)
+                    self._reverse_db.conn.commit()
+                except Exception:
+                    # Never let reverse-mirror failure break the primary teach
+                    pass
         return result
 
     def teach_confident(self, statement: str, *,

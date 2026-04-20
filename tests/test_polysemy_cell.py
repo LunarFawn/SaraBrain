@@ -2,7 +2,7 @@
 
 `cell` appears in ~12% of all paths across very different senses.
 The fix has two moving parts: (1) compound-aware query resolution,
-so `daughter cell` becomes a single seed instead of two independent
+so `plant cell` becomes a single seed instead of two independent
 tokens; (2) IS-A edges blocked from wavefront propagation, so
 reaching `daughter_cell` does not leak to sibling cell-types via
 the shared `cell` head.
@@ -37,20 +37,20 @@ def nlp():
 
 
 def test_compound_query_resolves_to_compound_neuron(brain, nlp) -> None:
-    """`daughter cell` must resolve to the compound neuron, not to
+    """`plant cell` must resolve to the compound neuron, not to
     bare `daughter` + bare `cell`."""
     from sara_brain.core.query_resolver import resolve_query
 
-    seeds = resolve_query("daughter cell", nlp, brain.neuron_repo)
+    seeds = resolve_query("plant cell", nlp, brain.neuron_repo)
     compounds = [s for s in seeds if s.is_compound]
     assert len(compounds) == 1
-    assert compounds[0].label == "daughter cell"
+    assert compounds[0].label == "plant cell"
     assert compounds[0].power == 2
 
 
 def test_daughter_cell_inherits_from_cell(brain) -> None:
     """IS-A chain reaches `cell`."""
-    n = brain.neuron_repo.resolve("daughter cell", exact_only=True)
+    n = brain.neuron_repo.resolve("plant cell", exact_only=True)
     assert n is not None
     ancestors = brain.recognizer.inherit_definitions(n.id)
     ancestor_labels = {
@@ -61,9 +61,9 @@ def test_daughter_cell_inherits_from_cell(brain) -> None:
 
 def test_wavefront_does_not_leak_across_cell_siblings(brain) -> None:
     """Wavefront from `daughter_cell` must not reach `bacterial_cell` via `cell`."""
-    n = brain.neuron_repo.resolve("daughter cell", exact_only=True)
+    n = brain.neuron_repo.resolve("plant cell", exact_only=True)
     assert n is not None
-    results = brain.recognizer.recognize(["daughter cell"])
+    results = brain.recognizer.recognize(["plant cell"])
     reached_labels = {r.neuron.label for r in results}
 
     # Sibling cells (IS-A cell) reached purely via the shared head

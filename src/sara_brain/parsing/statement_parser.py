@@ -65,13 +65,9 @@ class ParsedStatement:
     relation: str
     obj: str
     original: str
-    negated: bool = False  # True if "X is not Y" form — caller should refute, not teach
-    # operation: optional arithmetic intent detected in the statement.
-    # Populated by MathResolver during parse() when the text contains
-    # phrases like "by half", "doubles", "reduces by 2", etc. The
-    # learner attaches this to the relation segment at teach time.
-    # Typed as Any to avoid circular imports; checked with hasattr.
+    negated: bool = False
     operation: object | None = None
+    compounds: list[tuple[str, str]] | None = None
 
 
 class StatementParser:
@@ -294,6 +290,8 @@ class StatementParser:
         except Exception:
             op = None
 
+        compounds = self._extract_compounds([subject, obj])
+
         return ParsedStatement(
             subject=subject,
             relation=relation,
@@ -301,7 +299,46 @@ class StatementParser:
             original=original,
             negated=negated,
             operation=op,
+            compounds=compounds,
         )
+
+    _nlp = None
+
+    @classmethod
+    def _get_nlp(cls):
+        if cls._nlp is None:
+            import spacy
+            cls._nlp = spacy.load("en_core_web_sm", disable=["ner"])
+        return cls._nlp
+
+    def _extract_compounds(self, labels: list[str]) -> list[tuple[str, str]]:
+        compounds: list[tuple[str, str]] = []
+        nlp = None
+        for label in labels:
+            label = (label or "").strip().lower()
+            if not label or " " not in label:
+                continue
+            if nlp is None:
+                nlp = self._get_nlp()
+            doc = nlp(label)
+            toks = [t for t in doc if not t.is_space and not t.is_punct]
+            if len(toks) < 2:
+                continue
+            head = toks[-1]
+            if head.pos_ not in {"NOUN", "PROPN"}:
+                continue
+            if not all(t.pos_ in {"NOUN", "PROPN", "ADJ"} for t in toks):
+                continue
+            if not all(
+                t.dep_ in {"compound", "amod", "nmod", "poss", "ROOT"}
+                for t in toks[:-1]
+            ):
+                continue
+            head_lemma = head.lemma_.lower().strip()
+            if not head_lemma or head_lemma == label:
+                continue
+            compounds.append((label, head_lemma))
+        return compounds
 
     @staticmethod
     def _singularize(word: str) -> str:

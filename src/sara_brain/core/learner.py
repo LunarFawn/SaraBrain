@@ -34,7 +34,6 @@ class Learner:
         self.neuron_repo = neuron_repo
         self.segment_repo = segment_repo
         self.path_repo = path_repo
-        # Optional — present when multi-source provenance is enabled
         self.segment_source_repo = segment_source_repo
 
     def learn(self, text: str, initial_strength: float | None = None,
@@ -234,6 +233,28 @@ class Learner:
             nc, sc = self._link_sub_concepts(neuron)
             neurons_created += nc
             segments_created += sc
+
+        # 8. Compound IS-A: for each (compound_label, head_lemma) the
+        #    parser detected, ensure the head neuron exists and add
+        #    compound —is_a→ head.
+        for compound_label, head_lemma in (parsed.compounds or []):
+            compound_neuron = self.neuron_repo.resolve(
+                compound_label, exact_only=True
+            )
+            if compound_neuron is None:
+                continue
+            head_neuron, created = self.neuron_repo.get_or_create(
+                head_lemma, NeuronType.CONCEPT
+            )
+            if created:
+                neurons_created += 1
+            if head_neuron.id == compound_neuron.id:
+                continue
+            _, created = self.segment_repo.get_or_create(
+                compound_neuron.id, head_neuron.id, "is_a"
+            )
+            if created:
+                segments_created += 1
 
         path_label = f"{prop_neuron.label} → {relation_neuron.label} → {concept_neuron.label}"
 

@@ -48,12 +48,6 @@ def _reached_with_power(recognizer: Recognizer,
     distributed across every node the wavefront reaches: a seed whose
     wavefront reaches R nodes contributes `seed.power / (R + 1)` to
     each reached node (and the seed itself counts as the +1).
-
-    This keeps witness-counting honest: a focused wavefront (few
-    nodes reached) gives each convergence point strong evidence; a
-    diffuse wavefront (hub seed fanning to hundreds of nodes) gives
-    each node weak evidence. No invented statistic — just dividing
-    the mass among witnesses.
     """
     power: dict[int, float] = defaultdict(float)
     for seed in seeds:
@@ -61,8 +55,6 @@ def _reached_with_power(recognizer: Recognizer,
         if n is None:
             continue
         reached = recognizer._propagate(n, bidirectional=True)
-        # Seed node is one witness; other reached nodes are the rest.
-        # Mass divided across (seed + reached-non-self).
         targets = [tid for tid in reached if tid != n.id]
         total_witnesses = 1 + len(targets)
         per_witness = seed.power / total_witnesses
@@ -105,12 +97,14 @@ def score_choices(question: str,
         # Confluence: nodes reached by BOTH sides.
         shared = set(q_power) & set(c_power)
         score = 0.0
-        compound_hits = 0
         for nid in shared:
             score += q_power[nid] + c_power[nid]
-        # Bonus: if question and choice share a compound-seed neuron
-        # directly, count it explicitly. Already captured in `shared`
-        # above, but tracked for reporting.
+
+        # Compound-match bonus. When a question compound seed AND a
+        # choice compound seed resolve to the SAME compound neuron,
+        # both sides independently identified the same specific concept.
+        # That's stronger path evidence than hub-atom convergence and
+        # should weight more than a diluted atom match.
         q_compound_ids = {
             neuron_repo.resolve(s.label, exact_only=True).id
             for s in q_seeds if s.is_compound
@@ -121,7 +115,13 @@ def score_choices(question: str,
             for s in c_seeds if s.is_compound
             and neuron_repo.resolve(s.label, exact_only=True) is not None
         }
-        compound_hits = len(q_compound_ids & c_compound_ids)
+        compound_matches = q_compound_ids & c_compound_ids
+        compound_hits = len(compound_matches)
+        # Each compound match adds the compound's power product, not a
+        # flat bonus — keeps scoring grounded in the graph's own edge
+        # mass rather than an invented constant.
+        for nid in compound_matches:
+            score += q_power.get(nid, 0.0) + c_power.get(nid, 0.0)
 
         results.append(ChoiceScore(
             index=i,
@@ -147,24 +147,24 @@ def pick_choice(ranked: list[ChoiceScore], question: str
 
     - For positive questions: pick ranked[0] if its score > 0; else abstain.
     - For negation questions: pick ranked[0] (the outlier-low) if the
-      choice set has any meaningful variance. Abstain when all choices
-      score identically (no outlier signal to distinguish).
-    - Tie at top → tie (pick_idx=None, reason="tie").
+      choice set has any variance. Abstain when all choices score
+      identically.
+    - Tie at the winning position → tie (no pick).
     """
     if not ranked:
         return None, "no_scores"
     negated = _is_negation_question(question)
     top = ranked[0]
+
     if negated:
         scores = [r.score for r in ranked]
         if max(scores) == min(scores):
             return None, "abstain_all_equal"
-        # Tie at the low end means multiple choices share the outlier
-        # position. Treat as tie, not arbitrary pick.
         low_count = sum(1 for s in scores if s == top.score)
         if low_count > 1:
             return None, "tie"
         return top.index, "negation_outlier"
+
     # Positive question
     if top.score <= 0:
         return None, "abstain_zero"

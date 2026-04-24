@@ -21,24 +21,27 @@ Tier 3 exists because of the tool added in response to this finding. Prior to `b
 
 ### Primary — use first
 
-#### `brain_explore(label, depth=2)`
+#### `brain_explore(label, depth=3)`
 
 Breadth-first walk outward from `label` through `depth` semantic hops, returning a structured summary of every neuron and edge in the neighborhood. This is the broadest single-call tool and should be the first move on any substantive retrieval question.
 
 **When to use:** any "what is X?", "what does Sara know about X?", "explain X in detail" question.
 
+**Design philosophy — noise is the signal.** Per `feedback_noise_is_the_signal.md`, Sara is the cerebellum for an LLM consumer, and the LLM needs rich associative context to reason well. brain_explore deliberately returns a **wide** neighborhood rather than a narrow precision retrieval, so the LLM has more material to compose answers from. What looks like "noise" (tangentially related neurons, word-decomposition part_of edges, multi-hop neighbors) is the associative substrate the reader uses to ground inference. Narrowing too aggressively strips the signal.
+
 **How depth is counted:** one semantic hop corresponds to one taught triple's distance. Internally the BFS walks two segment-hops per unit of depth because each taught triple produces a two-segment chain through an internal attribute-bridge neuron. Users should think in semantic hops and not worry about the bridge structure.
 
 **Recommended depth values:**
-- `depth=1` — only concepts directly connected by a taught triple to the seed. Useful for narrow lookups.
-- `depth=2` (default) — one more hop out; recovers most of what a substrate "says about" a topic.
-- `depth=3` — two more hops out; expands into tangentially related content. Use sparingly because it can return hundreds of edges on hub-like seeds.
+- `depth=1` — only concepts directly connected by a taught triple to the seed. Narrow; use when brain_explore is returning too much.
+- `depth=2` — tighter neighborhood (previous default; ~75% substrate coverage for a 100-triple substrate).
+- `depth=3` (default) — rich neighborhood with associative context. Best default for "what is X?" questions. Typical output: few hundred neurons, few hundred edges, plenty of material for the reader to compose from.
+- `depth=4` — maximum. Use on small brains or when you genuinely need the extended graph. May saturate max_edges on hub-like seeds in larger brains.
 
 **Case handling:** labels are normalized to lowercase before resolution (matches the `teach_triple` convention). Prefix `CAPITAL:` only if the label was taught with that prefix.
 
 **Output format:** a summary of neurons grouped by hop distance, then a list of edges organized by discovery depth. Internal `*_attribute` chain nodes are visible in the edge listing but should be ignored when reading semantic content; the `source --[relation]--> target` triple is the unit of meaning.
 
-**Safety:** `max_edges=500` (default, non-tunable from MCP) prevents explosion on hub-like seeds. If the walk hits the cap, the response includes `TRUNCATED` and stops adding edges. Re-query with a more specific seed if you hit this.
+**Safety:** `max_edges=1000` (default for the MCP tool) prevents runaway explosion on hub-like seeds at high depth. If the walk hits the cap, the response includes `TRUNCATED` and stops adding edges. Reduce depth or re-query with a more specific seed if you hit this regularly.
 
 #### `brain_query(label)`
 

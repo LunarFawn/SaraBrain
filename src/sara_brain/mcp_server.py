@@ -33,10 +33,13 @@ mcp = FastMCP(
         "Sara Brain — path-of-thought knowledge system. Persistent memory "
         "that never forgets. The LLM is the senses, Sara is the brain.\n\n"
         "Retrieval strategy — prefer broader tools first:\n"
-        "  1. brain_explore(label, depth=2) — RECOMMENDED for 'what is X?' "
+        "  1. brain_explore(label, depth=3) — RECOMMENDED for 'what is X?' "
         "     questions. Walks outward in both directions, surfaces the "
-        "     author's full framing across adjacent neurons in one call. "
-        "     Use this FIRST for any substantive question about a taught topic.\n"
+        "     author's full framing plus associative context across adjacent "
+        "     neurons in one call. Sara is designed so the associative 'noise' "
+        "     IS the signal the LLM consumer reasons with — more context is "
+        "     better. Use this FIRST for any substantive question about a "
+        "     taught topic.\n"
         "  2. brain_query(label) — 1-hop, both directions. Fallback when "
         "     brain_explore is too broad.\n"
         "  3. brain_why(label) / brain_trace(label) — 1-hop, single direction. "
@@ -178,7 +181,7 @@ def brain_teach(statement: str) -> str:
 
 
 @mcp.tool()
-def brain_explore(label: str, depth: int = 2) -> str:
+def brain_explore(label: str, depth: int = 3) -> str:
     """Walk Sara's graph outward from ``label`` to ``depth`` hops in
     both directions. Surfaces the author's specific framing across a
     connected region of the substrate in a single call.
@@ -188,8 +191,13 @@ def brain_explore(label: str, depth: int = 2) -> str:
     incoming only) or brain_trace (1-hop, outgoing only) and doesn't
     suffer from the direction-asymmetry issue those tools have.
 
+    **Default is depth=3** to return a rich associative neighborhood.
+    Sara's design philosophy is that the noise IS the signal for an
+    LLM consumer — more context gives the reader more to reason with.
+    Reduce to depth=2 or 1 only if the response is obviously too broad.
+
     When to use which tool:
-    - brain_explore(X, depth=2)  — rich neighborhood for a concept
+    - brain_explore(X, depth=3)  — rich neighborhood for a concept (default)
     - brain_why(X)               — only paths terminating at X
     - brain_trace(X)             — only paths originating from X
     - brain_recognize(a, b, c)   — wavefront convergence from seeds
@@ -197,7 +205,7 @@ def brain_explore(label: str, depth: int = 2) -> str:
 
     Args:
         label: concept to center the walk on (case-insensitive).
-        depth: hop distance; 1, 2, or 3. Default 2.
+        depth: hop distance; 1, 2, 3, or 4. Default 3.
 
     Returns:
         Structured summary: neurons found grouped by distance from
@@ -209,9 +217,11 @@ def brain_explore(label: str, depth: int = 2) -> str:
     brain = _get_brain()
     if depth < 1:
         depth = 1
-    if depth > 3:
-        depth = 3
-    result = brain.neighborhood(label, depth=depth)
+    if depth > 4:
+        depth = 4
+    # Default max_edges raised to 1000 so a rich depth-3 walk on a
+    # substrate hub doesn't truncate too aggressively.
+    result = brain.neighborhood(label, depth=depth, max_edges=1000)
 
     if not result["seed_found"]:
         candidates = brain.did_you_mean(label)

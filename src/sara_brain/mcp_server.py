@@ -174,17 +174,29 @@ def brain_teach_triple(
 
     This is the canonical teach path for LLM callers. No parser — the
     LLM has already done the parsing by deciding the triple. Compound
-    multi-word terms like "molecular snare" or "Marker Theory" land in
+    multi-word terms like "molecular snare" or "marker theory" land in
     the graph verbatim, not reduced to head nouns.
+
+    **CASE HANDLING:** labels are normalized to lowercase by default so
+    that "RNA" and "rna" resolve to the same neuron (case fragmentation
+    was a common issue before this was added). If you genuinely need
+    case preserved (e.g., to distinguish a proper-noun acronym from a
+    common-word collision), prefix the label with "CAPITAL:" —
+    everything after the colon is kept verbatim. Examples:
+        subject="RNA"          → stored as "rna"
+        subject="CAPITAL:RNA"  → stored as "RNA"
+        subject="marker theory" → stored as "marker theory"
+
+    Default to lowercase; only use CAPITAL: when case genuinely matters.
 
     Prefer this over brain_teach for technical prose, novel terminology,
     or any source where the LLM wants to preserve distinctive multi-word
     labels.
 
     Args:
-        subject: the subject neuron label (preserved verbatim)
+        subject: the subject neuron label (lowercased unless CAPITAL:)
         relation: the verb/relation connecting subject to object
-        obj: the object neuron label (preserved verbatim)
+        obj: the object neuron label (lowercased unless CAPITAL:)
         source: optional source tag (e.g., "aptamer_paper") for
                 provenance and two-witness confirmation
 

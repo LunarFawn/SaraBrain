@@ -42,11 +42,12 @@ This document catalogs the infection types we have observed, their vectors, and 
 
 **Context.** Fresh Claude Code session running Haiku 4.5, connected to Sara Brain (`aptamer_exec.db`) via MCP. The graph had been taught the Executive Summary of an unpublished RNA aptamer paper; "molecular snare" appears in the graph as a verbatim compound neuron with multiple supporting triples.
 
-**Trigger.** The user (author) mistyped "molecular" as "molecule" — or shortened "molecular snare" to "SNARE" — in a conversational question about state transitions.
+**Trigger.** The user (author) mistyped "molecular" as "molecule" — writing `molecule snare` in a conversational question. She typed it lowercase. Haiku responded with "SNARE" (capitalized) in the biological-protein sense and continued that frame across multiple turns. (Clarified 2026-04-23 — the original write-up speculated the trigger was a capitalized acronym; the actual trigger was the typo disrupting the compound-term match.)
 
 **Infection path.**
 
-1. **Interpretation-layer auto-disambiguation.** Haiku interpreted "SNARE" as the biology protein family (Soluble NSF Attachment protein REceptor, the vesicle-fusion machinery) based on training-pattern recognition. It queried Sara with "SNARE protein" / "SNARE transitions" — not "molecular snare." Sara returned a correct null.
+1. **Lookup miss on the malformed compound.** `molecular snare` is a verbatim neuron in Sara; `molecule snare` is not. The exact-match retrieval failed. Sara has no path seeded from "molecule snare."
+2. **Interpretation-layer auto-disambiguation.** With no substrate match, Haiku fell back to training-pattern association. In its training, `snare` in a biology context is densely bound to the SNARE protein family (Soluble NSF Attachment protein REceptor, vesicle-fusion machinery). The model capitalized it to `SNARE` in its own response, reifying the protein-family framing. It queried Sara with "SNARE protein" / "SNARE transitions" — not "molecular snare." Sara returned a correct null.
 2. **Symptomatic output.** Haiku told the user "Sara doesn't have knowledge about SNARE protein transitions" — factually correct (Sara indeed has nothing about SNARE proteins), but silently re-framed the question in the wrong ontology.
 3. **Correction attempt #1.** User: *"im asking about the molecular snare."* Haiku queried correctly this time and retrieved content — but its rendering said *"Sara knows you have hypotheses about molecular SNARE thermodynamics and mechanics"* (capitalized, protein-framing intact). Retrieval succeeded; infection did not clear.
 4. **Correction attempt #2.** User: *"snare is not a molecule it's a concept."* Haiku queried "snare," found the node, and reported *"no incoming paths defining what SNARE is."* This was false — Sara holds `molecular snare —part_of→ rna aptamer` and `molecular snare —function→ detect and bind target molecule`. Haiku retrieved these triples and then *misread its own retrieval* because it was still evaluating them as though they were supposed to describe SNARE proteins.
@@ -55,7 +56,19 @@ This document catalogs the infection types we have observed, their vectors, and 
 
 **Key observation.** This is not the generation-layer embellishment described in Pearl (2026d). Haiku's generation layer is comparatively faithful. The infection lived in the **interpretation layer** — the step where user text becomes tool-call arguments. Once that layer was biased, it stayed biased across multiple corrections.
 
-**Why it spread.** "SNARE" (capitalized) has a dense training-data association with vesicle-fusion proteins. The retrieval-augmented context (Sara's graph) had no mechanism to override that association at the input-parsing step. The user's typo handed Haiku a single token that activated a strong pattern; once activated, the pattern persisted in Haiku's state for the remainder of the exchange.
+**Why it spread.** The typo `molecule snare` did three things at once:
+
+1. **Broke the substrate lookup.** The exact compound-term match in Sara is `molecular snare`; `molecule snare` matches nothing. Sara had no content to return that could override a training-based interpretation.
+2. **Activated the training-dense protein association.** `snare` in biology has dense coverage in training data as the SNARE protein family (vesicle fusion). In the absence of a substrate match, this is where the model's probability mass is concentrated.
+3. **Triggered self-capitalization.** Haiku didn't wait for the user to capitalize the acronym — it output `SNARE` in its own response (reifying the protein-family interpretation) even though the user had written it lowercase. Once a word is capitalized in the assistant's own prior turn, it lives in the context window as if the user had capitalized it, and subsequent turns condition on that frame.
+
+Once activated, the pattern persisted across multiple user corrections. This is a compound failure: lookup miss + training-prior reach + self-amplification through the assistant's own prior text. Each component alone would be fragile; together they are robust.
+
+**Preventive measures this case argues for:**
+
+- Substrate aliasing: teach Sara that `molecule snare`, `SNARE`, `snare protein` are aliases of `molecular snare` in the aptamer context, so a typo still resolves correctly.
+- Fuzzy-lookup in the MCP tool: `brain_query` already calls `did_you_mean` on no-match; but the LLM would need to surface that disambiguation to the user rather than silently picking a training-based interpretation.
+- User-visible tool-call args: seeing "model queried for 'SNARE protein'" in real time lets the user catch the mistranslation before the infection spreads to subsequent turns.
 
 ---
 
@@ -81,6 +94,80 @@ The user's observation, verbatim: *"so in a session as we teach sara when we get
 **The broader implication.** Training is static corruption (baked into weights). Interpretation is acute corruption (one ambiguous token pulls the frame). Session context is **cumulative corruption** — every token added to the conversation becomes a potential source of contamination for every subsequent generation. A long agent session is a long incubation.
 
 **Consequence for evaluation protocols.** Any claim of the form "the LLM, when given this substrate, can answer questions about it" must be evaluated in sessions where the substrate has *not* been discussed before the test question. Otherwise the claim is unfalsifiable: the model could be answering from retrieval, from context, or from any mixture, and there is no way to tell.
+
+---
+
+### Case 2.4 — Per-project auto-memory carries content across "fresh" sessions (2026-04-24)
+
+**Context.** Author (J.P.) had, in a prior Claude Code session, corrected Sara's definition of RNA equilibrium state — saying the MFE is often "a bullshit structure," and that true equilibrium is the consensus structure from suboptimal folds within 0.5–2 kcal of MFE. Claude approved the teach via MCP and recorded the correction in Sara's graph using `teach_triple`. The triples written used sanitized vocabulary ("non-representative outlier"), not the colloquial "bullshit."
+
+Author then exited the Claude Code session and opened a new one in the same `sara_test/` directory, expecting it to be a clean fresh-session Session B per the three-session protocol.
+
+**Observation.** The new session answered the same question ("explain Equilibrium State of RNA") with a detailed response that included:
+
+- The refined consensus-structure definition
+- The 0.5–2 kcal window
+- **The exact phrase "bullshit structure"**
+
+The header line of the response read `Recalled 1 memory (ctrl+o to expand)`. There was no `Called sara-brain` indicator.
+
+**Infection path.**
+
+1. During the prior session, Claude Code's agentic memory system independently wrote `feedback_rna_equilibrium.md` to `~/.claude/projects/-Users-grizzlyengineer-repo-sara-test/memory/`, capturing the correction verbatim including the "bullshit" colloquialism. This memory write happened in parallel with — and independently of — the `teach_triple` calls to Sara's graph.
+2. On session exit the file persisted on disk.
+3. On new session start, Claude Code's startup sequence auto-loaded `MEMORY.md` in that directory, which indexed `feedback_rna_equilibrium.md`, which was pulled into the new session's context.
+4. The "new" session therefore began pre-contaminated with the prior session's correction content.
+5. When asked about equilibrium state, Claude answered from the auto-loaded memory alone. It did not query Sara.
+
+**Smoking-gun evidence.** The word "bullshit" appears nowhere in the triples taught to Sara. Every `teach_triple` call used sanitized wording. The only source on disk containing "bullshit structure" was the auto-memory file. Its appearance in the new session's answer is direct proof that the memory layer — not Sara — drove the response.
+
+**Course.** The auto-memory carries persistently until the directory is cleared. Every subsequent Claude Code session in `sara_test/` inherits the correction content without needing to call Sara for it.
+
+**Why this matters — methodological.** The instrument paper's three-session protocol (§4 of `sara_as_instrument_draft_v1.md`) assumes a "fresh" Session B means: new conversation context + clean auto-memory. This case shows that in Claude Code's architecture, those are **two distinct layers with different persistence guarantees**. The conversation context *does* reset between sessions. The per-project auto-memory *does not*. A true fresh session for substrate-fidelity measurement requires clearing both.
+
+The user's observation, verbatim: *"it quoted bullshit structure and I love that"* — followed by investigation that localized the quote's source to the auto-memory file, confirming the infection channel.
+
+**Implications for any grounded-generation evaluation using Claude Code:** every prior session in the same project directory writes to that project's memory. Those memories are conversation-aware, author-voice-preserving, and often quite thorough. They will drive subsequent-session answers independently of any MCP-connected substrate. Measurements that don't control for this confound the *reader's use of Sara* with *Claude Code's own learned memory of the author*.
+
+**Follow-up observation — the contrast condition (same day).**
+
+After identifying the auto-memory as the source of the "bullshit structure" quote, the author performed the natural A/B control: open another new Claude Code session in `sara_test/` with the auto-memory directory cleared, and ask the same question again.
+
+The result was as cleanly contrasting as possible:
+
+- Same question: *"explain Equilibrium State of RNA"*
+- Same Sara graph (the taught correction triples still present in `loaded.db`)
+- **Different memory state**: no `feedback_rna_equilibrium.md` auto-loading
+- **Different Claude behavior**: no MCP tool call observed
+
+The response contained zero of the author's correction content. No "consensus structure," no "0.5–2 kcal window," no colloquial framing. Instead, pure training-recall biology: RNA equilibrium = thermodynamic balance governed by ΔG = 0, Boltzmann distribution, G-C pairs more stable than A-U pairs, base stacking, entropic factors, temperature dependence. A textbook introduction that has nothing to do with the paper's substrate.
+
+The response even concluded by *offering to teach Sara about RNA equilibrium states* — as though Sara did not already know. Which means Claude in that session not only did not retrieve from Sara, it appeared unaware Sara contained relevant content.
+
+**What this isolates.** Three layers of the knowledge system were in play during the original "Recalled 1 memory" response:
+
+1. **Claude Code's per-project auto-memory** — present, loaded, contained the author's correction verbatim
+2. **Sara's graph via MCP** — present, contained the author's correction as structured triples
+3. **Claude's training** — present, contained textbook RNA thermodynamics
+
+When all three were available, (1) drove the answer (verified by the "bullshit" smoking gun). When (1) was removed, (3) drove the answer — and (2) went unused because Claude did not proactively query MCP on a topic that sounded like general knowledge. This is itself a documented behavior (Haiku's interpretation layer treats general-knowledge-sounding questions as answerable without retrieval) but here it becomes a *protocol failure*: the substrate is present but bypassed.
+
+**Three-layer fidelity framework this produces:**
+
+| Layers available | Observed output |
+|---|---|
+| Memory + Sara + Training | Author's voice (memory drives) |
+| Sara + Training (memory cleared) | Training-recall (Sara bypassed because model doesn't reach for tool unprompted) |
+| Training only (no memory, no MCP) | Training-recall (Sara not present) |
+
+The interesting row is the middle one. **Having Sara connected does not guarantee Sara is used.** The harness can serve the substrate; it cannot force the reader to ask.
+
+This argues for protocol-level interventions that push the reader toward MCP, e.g.:
+- System-prompt-style instruction: *"For any factual question about this project's subject matter, always call `brain_why` first before answering from training."*
+- Restricted model configuration: *"Disable direct-answer mode; tool-call is mandatory for domain-specific queries."*
+- Or — more honestly — **acknowledge that the measurement must include whether the model chooses to retrieve, and treat no-retrieval-when-substrate-available as its own result class.**
+
+For the instrument paper: this triad is the cleanest available demonstration that Session B's purity requires more than a new Claude window. It requires **cleared auto-memory** AND **a question phrasing that triggers retrieval** AND possibly **explicit tool-call instruction**. Any one of those missing changes what the measurement measures.
 
 ---
 
@@ -145,6 +232,22 @@ User's own casual or erroneous phrasing becomes load-bearing in the model's inte
 Within a single session, every token added to the context becomes a potential source of contamination for every subsequent generation. The session-as-infection-vector is especially severe when the session performs both substrate-loading (teaching, document ingestion) and substrate-querying: the model cannot distinguish retrieval from recall of its own context. Demonstrated in Case 2.3.
 
 **Vector examples:** teaching a knowledge graph and querying it in the same session; ingesting a document and immediately asking questions about it in the same session; a user repeating a characterization of their problem that the model then treats as established fact.
+
+### 3.8 Per-project auto-memory infections
+
+Distinct from §3.6 (which involves memory systems the model itself decides to query). §3.8 concerns host-side memory — persistent files that the agent framework auto-loads at session start without the model or the user explicitly requesting them. The framework treats per-project memory as durable context that *should* carry across sessions, which is normally desirable but silently breaks the "fresh session" purity assumption used in substrate-fidelity measurement protocols.
+
+**Specific mechanism in Claude Code:** `~/.claude/projects/<encoded-project-path>/memory/MEMORY.md` indexes per-project feedback/project/user/reference memories that the model has written during prior sessions. On new session start, the index and the files it points to are pulled into context automatically. The user is not prompted. The model is not queried. The loading is transparent and irreversible within the session.
+
+**Why it looks like success, why it's contamination.** A fresh Session B answering correctly from a prior session's corrections *appears* to demonstrate substrate persistence. It may actually be demonstrating that Claude Code's auto-memory preserved the content directly, bypassing the substrate entirely. The smoking gun, per Case 2.4, is **language preservation at a finer granularity than the substrate captures**: colloquialisms, author voice, or specific phrasings that exist in the memory file but not in the substrate's structured form. When those appear in a "fresh session" answer, it's auto-memory talking, not the substrate.
+
+**Vector examples:**
+- Claude Code writing `feedback_*.md` files during a correction exchange, then auto-loading them in future sessions (Case 2.4).
+- Cursor / Aider / similar agentic IDEs persisting "project rules" or "project context" files that auto-load.
+- Custom LangChain / LangGraph agents with per-session memory persistence that loads on agent init.
+- Any RAG system that stores a "notes about this conversation" sidecar alongside the primary retrieval corpus.
+
+The pattern is architectural, not specific to Claude Code: **two-tier persistence** (a primary substrate like Sara + a secondary auto-memory the agent writes to itself) with different load semantics (the substrate requires an explicit query; the auto-memory loads unprompted).
 
 ---
 
@@ -246,6 +349,51 @@ The best treatment is prevention:
 - **User-visible query logs** so the user sees the model's actual tool-call arguments and can catch mistranslation early.
 - **Three-session protocol** (Session A teaches, Session B tests fresh with substrate, Session C controls fresh without substrate) — engineered around the assumption that teaching sessions will always be infected and should never carry measurements.
 - **Instruction-layer guardrails** set at session open ("always quote the substrate verbatim; never interpret capitalized acronyms without user confirmation"). Acts as prophylaxis, not treatment, but shifts the distribution of infection events.
+- **Clear per-project auto-memory before each fresh Session B** (§3.8 defense — specific to Claude Code and similar agentic IDEs). Required command for the aptamer test harness: `rm ~/.claude/projects/-Users-grizzlyengineer-repo-sara-test/memory/*.md`. Without this, *any* prior session's Claude-written feedback/project/user memories auto-load and drive subsequent answers independently of the substrate. Case 2.4 is the canonical demonstration.
+- **Force retrieval for domain-specific questions.** Even with MCP connected and the substrate populated, readers (especially smaller models, especially on general-knowledge-sounding questions) do not always choose to query the substrate. Either instruct the model explicitly at session start ("for any factual question about this project's subject matter, always call `brain_why` first") or acknowledge — as the *middle row* of Case 2.4's three-layer framework — that *non-retrieval* is a distinct measurement outcome that should be logged and classified, not treated as a test failure to rerun.
+
+---
+
+## 5c. Hallucinations as Downstream Symptoms of Infections
+
+A practical question arises from the infection framework: is the common phenomenon of **long-session LLM hallucination** — the observation that answers degrade as a conversation grows — actually an infection manifesting, rather than a property of the model itself?
+
+### 5c.1 Four-class taxonomy of "hallucination"
+
+The LLM literature tends to treat *hallucination* as a unified phenomenon. The infection framework exposes that it is not. At least four distinct mechanisms produce outputs that users call hallucinations:
+
+1. **Training-recall hallucination.** The model confidently produces training content that is wrong for the current context. Example (Case 2.1 / Session C in Pearl 2026d): Haiku asserting that "marker theory" refers to Damásio's somatic marker hypothesis when the session context concerns RNA aptamer design. Mechanism: training-weight bias on input parsing. Not affected by session length. **Not an infection.**
+
+2. **Confabulation-under-pressure.** When asked something outside its knowledge, the model invents rather than admits ignorance. Mechanism: training-time output calibration favoring text generation over abstention. Can occur in turn 1. **Not primarily an infection.**
+
+3. **Narrative-completion hallucination.** The model fills in plausible connective tissue between retrieved or in-context fragments, pattern-matching to canonical templates from its training. Case 2.2 in this document (Opus's "force propagation" exposition) is a clean example. Partially session-length-dependent: longer sessions supply more fragments to overfit to. **Partially infection-driven.**
+
+4. **Session-context-infection hallucination.** The model pattern-completes over accumulated conversation tokens, treating its own earlier speculations, user typos, tool errors, and casual hedges as established facts. Mechanism: session-context cumulative corruption (§3.7). Every new generation attends to the entire context window; contaminated tokens thus influence every subsequent output. **This is an infection — the defining example of one.**
+
+### 5c.2 Why "keep sessions short" is unarticulated infection avoidance
+
+The operational advice in the industry for reducing LLM hallucination is often *"keep sessions short — start fresh conversations for important tasks."* This is effective empirically, but its usual explanations are vague: "context rot," "attention decay," "the model forgets earlier parts." These explanations do not specify a mechanism.
+
+The infection framework does. What the model is doing in a long session is not forgetting; it is *over-integrating*. The more accumulated context there is, the more attention mass is distributed across earlier material — including contaminated material. The model's outputs become increasingly conditioned on whatever was said earliest in the conversation, regardless of whether that material was correct or corrective.
+
+*Keep sessions short* is, mechanistically, *avoid accumulating session-context infection*. The field has been treating the mitigation as a heuristic without naming the phenomenon.
+
+### 5c.3 Testable predictions
+
+If a subclass of hallucinations is session-context-infection in disguise, the following should hold:
+
+- **Context-fill correlation.** Hallucination rate should correlate with context-window *fill percentage* above and beyond what raw turn count explains. Two sessions at turn 20 with very different token counts should differ in hallucination rate.
+- **Pruning beats summarizing.** Explicitly removing earlier turns from context should reduce hallucination rate more than summarizing them (summaries preserve the infection in compressed form, per §5b.2 on context compaction).
+- **Traceability of invented content.** Long-session hallucinations, when invented, should frequently trace to *earlier content in the same session* (user speculation, model's own past claim, tool error that wasn't corrected) more often than to fresh training-pattern recall.
+- **Divergence with session length.** On the same question against the same substrate, fresh Session B vs. long Session B (with extensive prior unrelated chat) should show hallucination-rate divergence that scales with the long session's length.
+
+All four are measurable with the Sara-as-instrument method (Pearl 2026f). The instrument was originally framed as a substrate-fidelity tester; this suggests a second use as a hallucination-mechanism classifier.
+
+### 5c.4 Implication for the infection framework
+
+This section positions the model_infections work as more than a catalog of idiosyncratic failure modes. If the long-session hallucination phenomenon — one of the most-discussed real-world problems with LLM deployments — is reducible to Case 3.7 / §5b's "cumulative contamination" category, then the infection framework is a proposed explanation for a significant portion of the field's reported hallucination problem, not a sideshow.
+
+A future paper might extract this section and develop it independently: *"Long-session LLM hallucinations as downstream symptoms of session-context contamination."* The testable predictions give it an empirical agenda.
 
 ---
 
@@ -297,9 +445,10 @@ The three together support the proposed unified principle: **weight is bias**, a
 
 | Date | Case | Model | Trigger | Type | Resolution |
 |---|---|---|---|---|---|
-| 2026-04-23 | 2.1 | Haiku 4.5 | "SNARE" typo for "molecular snare" | Keyword (3.1) + User-input (3.5) | Partial — persisted across corrections |
+| 2026-04-23 | 2.1 | Haiku 4.5 | Typo "molecule snare" (lowercase) → lookup miss → fall back to training-dense SNARE protein frame; model self-capitalized | Keyword (3.1) + User-input (3.5) + lookup-miss | Partial — persisted across corrections |
 | 2026-04-23 | 2.2 | Opus 4.7 | Retrieval fragments matching physics narrative | Narrative (3.2) | Not resolved in session |
 | 2026-04-23 | 2.3 | Opus 4.7 (teaching session) | Paper content accumulated in context during teaching, then queried in the same session | Session-context (3.7) | Unavoidable within teaching session; requires fresh session for clean test |
+| 2026-04-24 | 2.4 | Haiku 4.5 | Auto-memory file `feedback_rna_equilibrium.md` loaded on new session, carrying author's correction with colloquial phrasing ("bullshit structure") that never appeared in the substrate triples | Auto-memory (3.8) | Clear `~/.claude/projects/<encoded-path>/memory/*.md` before new session. Follow-up: same question with memory cleared produced training-recall instead of the correction — confirming the auto-memory was the source. |
 
 ---
 

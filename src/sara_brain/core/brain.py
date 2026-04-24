@@ -265,6 +265,26 @@ class Brain:
         self.segment_repo.get_or_create(word_node.id, verb_node.id, "is_a")
         self.conn.commit()
 
+    @staticmethod
+    def _normalize_label(label: str) -> str:
+        """Normalize a neuron label for case-insensitive storage.
+
+        By default, labels are lowercased so "RNA" and "rna" resolve to
+        the same neuron. If the caller genuinely wants case preserved
+        (e.g., to distinguish SNARE-the-protein from snare-the-concept),
+        prefix the label with "CAPITAL:" and the rest is kept verbatim.
+
+        Examples:
+            _normalize_label("RNA")           -> "rna"
+            _normalize_label("Marker Theory") -> "marker theory"
+            _normalize_label("CAPITAL:RNA")   -> "RNA"   (prefix stripped)
+            _normalize_label("CAPITAL:SNARE") -> "SNARE" (preserved)
+        """
+        stripped = label.strip()
+        if stripped.startswith("CAPITAL:"):
+            return stripped[len("CAPITAL:"):]
+        return stripped.lower()
+
     def teach_triple(
         self,
         subject: str,
@@ -278,10 +298,15 @@ class Brain:
     ) -> LearnResult | None:
         """Direct-write a (subject, relation, object) triple. No parsing.
 
-        Neuron labels are preserved verbatim — multi-word compound
-        terms like "molecular snare" land in the graph as-is. The LLM
-        teacher brings the judgment and has already decided the shape
-        of the claim; Sara just stores.
+        Labels are **case-normalized to lowercase** so "RNA" and "rna"
+        resolve to the same neuron. Prefix a label with ``CAPITAL:`` to
+        opt out of normalization for that label when case genuinely
+        matters (e.g., proper-noun acronyms that collide with common
+        nouns).
+
+        Multi-word compound terms like "molecular snare" land in the
+        graph as-is otherwise. The LLM teacher brings the judgment and
+        has already decided the shape of the claim; Sara just stores.
 
         This is the canonical teach path for LLM-as-teacher workflows.
         """
@@ -289,11 +314,15 @@ class Brain:
         if not gate.allowed:
             raise PermissionError(gate.reason)
 
+        subject = self._normalize_label(subject)
+        relation = self._normalize_label(relation)
+        obj = self._normalize_label(obj)
+
         from ..parsing.statement_parser import ParsedStatement
         parsed = ParsedStatement(
-            subject=subject.strip(),
-            relation=relation.strip(),
-            obj=obj.strip(),
+            subject=subject,
+            relation=relation,
+            obj=obj,
             original=source_text if source_text is not None else f"{subject} {relation} {obj}",
             negated=negated,
         )

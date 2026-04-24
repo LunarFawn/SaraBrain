@@ -1,0 +1,2062 @@
+# Design rules for short-length RNA aptamer engineering observed in a published Massive Open Laboratory dataset that may give us the ability to fine tune RNA aptamers with the turn of a knob, so as to render disease inert in the body CC BY-NC-SA 4.0 
+
+## Understanding the knob, the dial, and the resulting turn of the dial’s knob
+
+*This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.*
+
+  
+
+[1 The Knob](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.ssju7on7piq1)
+
+[2 Executive Summary](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.ae5h7qth09yc)
+
+[3 Introduction](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.d4a6omtyiteq)
+
+[4 Test Methodologies and Tools](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.5x1u9gtsm2ta)
+
+[5 Understanding the Theory of Mechanics of RNA Folding Model](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.dhfr6xknf8gn)
+
+[5.1 Axial Forces](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.46a8wi1pkla0)
+
+[5.2 Shearing Forces](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.1izixnuytc59)
+
+[5.3 Tension Forces](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.n7usxdqkeffm)
+
+[5.4 Bending Moments](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.u8dumbb68wgg)
+
+[5.5 Newton's First Law of Motion](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.kijrkuxy8e5z)
+
+[5.5.1 Newton's First Law of Motion and RNA Mechanics](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.kbzwan55jkkm)
+
+[5.5.2 Understanding Inertia in RNA](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.ais9pacubsaa)
+
+[5.5.3 Equilibrium State of RNA](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.ro358yautlbu)
+
+[5.5.4 External Forces and RNA Stability](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.uuyaho1oy940)
+
+[5.5.5 Inertia and RNA Folding](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.x0dtx9bgi26c)
+
+[5.5.6 Practical Implications](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.bv0ljy8bp9ht)
+
+[5.5.7 Example: RNA Aptamers and Inertia](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.bpkv359lhbxn)
+
+[5.5.8 Conclusion](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.qwd07mmg1tbu)
+
+[5.6 Newton's Second Law of Motion](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.qkdyk47rgefs)
+
+[5.6.1 Newton's Second Law of Motion and RNA Mechanics](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.yy6ph1aknkns)
+
+[5.6.2 Understanding Force, Mass, and Acceleration in RNA](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.l3b49u46d9cz)
+
+[5.6.3 Pairing Probabilities as Forces](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.aie0r326plvg)
+
+[5.6.4 Velocity and Acceleration in RNA Movement](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.avfssok1owvr)
+
+[5.6.5 Applying Newton's Second Law to RNA](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.hhhhcyrc7c7g)
+
+[5.6.6 Example: RNA Folding Dynamics](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.p3rxpu5w3js8)
+
+[5.6.7 Practical Implications](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.n99fi3pyjkkd)
+
+[5.6.8 Conclusion](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.ekjejg7abib9)
+
+[5.7 Newton's Third Law of Motion](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.71ep55kzmg9k)
+
+[5.7.1 Newton's Third Law of Motion and RNA Mechanics](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.4grf4jaoflei)
+
+[5.7.2 Understanding Action and Reaction in RNA](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.mq2pn1fwsgiz)
+
+[5.7.3 Hydrogen Bond Formation and Breaking](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.8mx8x9vb72je)
+
+[5.7.4 RNA Folding and Unfolding](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.iwi4etybwskp)
+
+[5.7.5 External Forces and RNA Stability](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.zapmgzt0rfu7)
+
+[5.7.6 Practical Implications](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.qa800g6y2xyh)
+
+[5.7.7 Example: RNA Aptamers and Ligand Binding](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.pdnaeh3qt2po)
+
+[5.7.8 Conclusion](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.urc2cz54qufb)
+
+[5.8 Application of the Theory of Mechanics of RNA Folding Model](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.qy2khgrmizl6)
+
+[6 Description of the Serena RNA Analysis Tool](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.149bfn54rkr)
+
+[6.1 Description of Serena's Resulting Plots](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.ll6n5b85jn0j)
+
+[6.2 Explanation of Metrics from Eterna Wetlab Measurements](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.bfp3heyzxixg)
+
+[7 Introduction to Key Observations in RNA Aptamer Research](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.hv1iphvuf3m7)
+
+[7.1 Observation A - RNA Aptamers as Complex Systems of Interlocking Parts](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.kbib445pvr5c)
+
+[7.2 Observation B - The Role of Structural Components in RNA Aptamer Functionality](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.jd0afyiv3buo)
+
+[7.2.1 Introduction](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.lf07z6uw19p1)
+
+[7.2.2 The 5’3’ Static Stem](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.sud2nybuubs1)
+
+[7.2.3 The Molecular Snare](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.cl0g1rc48xae)
+
+[7.2.4 The Signal Fold Region](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.7lr3eun76k6m)
+
+[7.2.5 Conclusion](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.dhcslnxk8a7l)
+
+[8 Detailed Description of the 5’3’ Static Stem Observation](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.90juupv75063)
+
+[8.1 Description of the 5’3’ Static Stem Mechanics of Materials Hypothesis](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.2089h2qfvc28)
+
+[8.2 Description of the 5’3’ Static Stem Thermodynamics Hypothesis](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.a1ne0fjdq5in)
+
+[8.3](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.bmr72mgkerg5)
+
+[8.4 Comparative Analysis of SSNG1, SSNG2, and SSNG3 Static Stem Plots](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.p0nrypo81s39)
+
+[8.5 Eterna Total Score](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.9fep7xv6g7vh)
+
+[8.5.1 Eterna Folding Score](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.gn7toxu53oo7)
+
+[8.5.2 Fold Change](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.3d0m1fbtkevb)
+
+[8.5.3 KDOFF](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.ww62lkou74i1)
+
+[8.5.4 KDON](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.y226hbxxj7sj)
+
+[8.5.5 Conclusion](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.3nd8su5b1xfl)
+
+[9 Detailed Description of the Molecular Snare Observations](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.wo87yx5974b3)
+
+[9.1 Molecular Snare Mechanics Hypothesis: A Temporal Description](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.kleuaf2d5aqh)
+
+[9.1.1 \*\*Step 1: Initial Unbound State\*\*](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.h63eejichwwf)
+
+[9.1.2 \*\*Step 2: Encounter with the Target Molecule\*\*](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.p3eeuxf3guls)
+
+[9.1.3 \*\*Step 3: Initial Structural Shift\*\*](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.rhwd006irhkh)
+
+[9.1.4 \*\*Step 4: Formation of the Loop\*\*](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.1cl7qa9sf7eh)
+
+[9.1.5 \*\*Step 5: Stabilization of the Bound State\*\*](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.37q31sxvlqn)
+
+[9.1.6 \*\*Step 6: Full Engagement with the Target Molecule\*\*](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.g1vj1d72fdfv)
+
+[9.1.7 \*\*Step 7: Mechanical Equilibrium in the Bound State\*\*](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.iapxs0r4gizs)
+
+[9.2 Implications for RNA Aptamer Design](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.i1tlj249vqy5)
+
+[9.3 Energy Conservation and Structural Resemblance](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.lyjd2sdffk36)
+
+[9.4 Conclusion](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.85tlw0qm5lnl)
+
+[9.1 Molecular Snare Thermodynamics Hypothesis: A Unified Theory of RNA Mechanics and Thermodynamics](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.xfxb06pz9w0f)
+
+[9.1.1 \*\*Thermodynamics Hypothesis Overview\*\*](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.v2zkfr7nrxmt)
+
+[9.1.2 \*\*Step-by-Step Thermodynamic Changes\*\*](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.760nvqds9id)
+
+[9.1.3 \*\*Correlation with Mechanics Hypothesis\*\*](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.q8xsesel4s04)
+
+[9.1.4 \*\*Energy Conservation and Structural Resemblance\*\*](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.8zxgi1likqmj)
+
+[9.1.5 \*\*Combating Heat Loss\*\*](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.mfod88atw3gs)
+
+[9.1.6 \*\*Initiation of Chemically Measured Changes\*\*](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.dv5urywxxa9k)
+
+[9.1.7 \*\*Implications for RNA Aptamer Design\*\*](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.aypa7j96sg2v)
+
+[9.1.8 \*\*Conclusion\*\*](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.o29esi44x6xn)
+
+[9.2 Comparative Analysis of SSNG1, SSNG2, and SSNG3 Molecular Snare Plots](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.y35v73jvtqz5)
+
+[9.2.1 Introduction to the "Molecular\_snare\_nuc\_to\_total" Metric](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.t0s29gxzt6zc)
+
+[9.2.1.1 Eterna Total Score](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.zb6hgl1s24j1)
+
+[9.2.1.2 Eterna Folding Score](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.vosj40hoz9go)
+
+[9.2.1.3 Fold Change](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.1lmqtswwvq2s)
+
+[9.2.1.4 KDOFF](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.y7101d9bzm3c)
+
+[9.2.1.5 KDON](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.ui1l2w48ff8h)
+
+[Similarities in Eterna Total Scores Across SSNG1, SSNG2, and SSNG3 Sublabs for the Molecular Snare Stem](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.yqbjid69zl2m)
+
+[SSNG1 Molecular Snare: Eterna Total Score](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.pubx2uitvkh5)
+
+[10 Fold Signal Region Observations: A Comprehensive Analysis](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.6ea7936p3bnz)
+
+[10.1 Introduction](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.3rvwqea4bocv)
+
+[10.1.1 Composition of the Fold Signal Region](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.gr50js6tzdaa)
+
+[10.1.2 Mechanical Movement Constraints](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.ne2b1fsrmr24)
+
+[10.1.3 Static Loops Acting as Fulcrums](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.1bjh2okh8gwz)
+
+[10.1.4 High Forces and Reinforcement](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.numoxfrtbmod)
+
+[10.1.5 Conservation of Energy in the Fold Signal Region](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.p8pyl0ku2l5i)
+
+[10.1.6 Summary of the Fold Signal Region](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.dqpk8yqf68mu)
+
+[11 Fold Signal Region Mechanics:Walkthrough of the transformation of a high performing switch](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.txb72tp055vt)
+
+[11.1 Fold Signal Region Mechanics: No FMN Present](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.b38114piq8vw)
+
+[11.2 Fold Signal Region Mechanics: FMN Presented: Bind Step 1](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.dhx2nr64jivj)
+
+[11.3 Fold Signal Region Mechanics: Bind Step 2](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.l3rxduxs0tyw)
+
+[11.4 Fold Signal Region Mechanics: Bind Step 3](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.36rxsgablkz7)
+
+[11.5 Fold Signal Region Mechanics: FMN Bound](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.oomui8ng46qt)
+
+[12 Application of Knowledge Fold Region Design Pattern: Snare-FlexClamp-FlexSignal (w/wo Tail)](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.kfcg61z837c4)
+
+[12.1](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.su4bygcjq77)
+
+[12.2](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.iorfw2bj53xg)
+
+[12.3 No FMN: SSNG1 and SSNG2](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.itb7e056uprj)
+
+[12.4](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.qgnopctcbo83)
+
+[12.5 FMN Presented and Begins to Bind: SSNG1 and SSNG2](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.pcdm6uadxrj)
+
+[12.6](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.l8p21coh3e1a)
+
+[12.7 FMN Binding Progresses: SSNG1 and SSNG2](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.bgtkdgbjvqv1)
+
+[12.8](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.ra3mo7o1xvt4)
+
+[12.9 FMN Binding Nears Completion: SSNG1 and SSNG2](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.lnxzj3hh0ah8)
+
+[12.10](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.f8avuzt6e90k)
+
+[12.11 FMN Fully Bound: SSNG1 and SSNG2](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.ntsjbcl6mqcx)
+
+[12.12](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.gpqlsrkd3k1f)
+
+[12.13 Snare-FlexClamp-FlexSignal Fully Formed: SSNG1 and SSNG2](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.5fs68mteiwur)
+
+[13 The Knob, In Conclusion.](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.8cp556p73c2t)
+
+[14 The Knob Turn](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.wlz4lxc3v62)
+
+[15 Observation C goes here](https://docs.google.com/document/d/1pL4u8xijd3-fHWB8RS3dbMedU12j_fWGL1GYls8gE6Q/edit#heading=h.z8j51gs01gdy)
+
+  
+  
+  
+
+  
+
+# 1 The Knob
+
+# 2 Executive Summary
+
+  
+
+This paper explores the integration of computational models and experimental data to optimize RNA aptamer designs, emphasizing the role of mechanical forces in RNA stability and functionality. The study highlights the innovative use of crowdsourcing through Eterna Game Labs to solve RNA folding problems, and introduces key theories such as Marker Theory, Switch Acceptance Theory, and the Theory of Mechanics of RNA Folding Model. These theories provide a comprehensive framework for predicting RNA performance and optimizing RNA aptamer designs. The Serena RNA Analysis Tool is presented as a sophisticated instrument for evaluating RNA structures, offering metrics like Ensemble Variation, Local Minima Variation, Weighted Structures, and Comparison Structures. The paper also delves into the molecular snare mechanism, the importance of axial forces, and the dynamics of the fold signal region.
+
+  
+
+The 5’3’ Static Stem Mechanics of Materials Hypothesis provides a detailed explanation of the mechanical forces at play within the 5’3’ Static Stem of RNA aptamers. This hypothesis outlines a step-by-step process that describes how the cumulative negative axial forces generated by each nucleotide pair contribute to the overall stability and functionality of the RNA structure. By understanding these steps, researchers can gain insights into the mechanical behavior of RNA aptamers and optimize their designs for enhanced performance. The hypothesis emphasizes the importance of optimizing the length of the 5’3’ Static Stem to enhance the stability and functionality of RNA aptamers. This mechanical stability is crucial for the RNA aptamer to maintain its functionality during state transitions.
+
+  
+
+The 5’3’ Static Stem Thermodynamics Hypothesis provides a comprehensive explanation of how the principles of thermodynamics are inherently linked to the mechanical behavior of RNA structures. By examining the relationship between moment forces, energy, and entropy, researchers can gain a deeper understanding of the stability and functionality of RNA aptamers. The hypothesis posits that the moment forces from the RNA bending to straighten out add energy to the bonds, which fights the bonds that were formed. This relationship highlights the importance of balancing these forces to maintain the stability of the RNA structure. The hypothesis underscores the critical role of entropy and enthalpy in RNA behavior.
+
+  
+
+The comparative analysis of SSNG1, SSNG2, and SSNG3 static stem plots using the Eterna Total Score reveals the optimal static stem nucleotide ratios for stability and performance. The analysis shows that higher ratios of static stem nucleotides correlate with better performance, providing valuable insights for RNA aptamer design. The study highlights the importance of understanding the relationship between static stem nucleotide ratios and RNA stability. This analysis is crucial for optimizing RNA aptamer designs to achieve the desired performance and functionality. The findings underscore the significance of static stem nucleotide ratios in RNA aptamer design.
+
+  
+
+The molecular snare mechanics hypothesis offers a detailed description of the dynamic process by which RNA aptamers detect and bind target molecules. The interaction between the static stem and the binding sites is crucial for achieving high fold changes and maintaining stability. This hypothesis emphasizes the role of tension, axial forces, and structural shifts in the binding process. The molecular snare mechanics hypothesis provides a comprehensive framework for understanding the structural and mechanical changes that occur during the binding process. The findings highlight the importance of achieving mechanical stability in RNA aptamer design.
+
+  
+
+The molecular snare thermodynamics hypothesis provides a unified theory of RNA mechanics and thermodynamics, explaining the energy changes that occur during the binding process. By understanding the principles of thermodynamics, researchers can gain deeper insights into the stability and functionality of RNA aptamers. The hypothesis underscores the importance of energy conservation and structural resemblance in optimizing RNA aptamer performance. The molecular snare thermodynamics hypothesis provides a comprehensive framework for understanding the dynamic process by which RNA aptamers detect and bind target molecules. The findings highlight the importance of achieving an optimal energy balance in RNA aptamer design.
+
+  
+
+The fold signal region is a dynamic and crucial component of RNA aptamers, playing a key role in the detection and binding of target molecules. The interplay between static and dynamic elements, the reinforcement provided by static stems and loops, and the importance of energy conservation all contribute to the function of the fold signal region. The study highlights the significance of understanding the mechanical movement constraints and the role of static loops as fulcrums in overcoming these constraints. The findings underscore the importance of achieving a balance between stability and flexibility in the fold signal region. The study provides valuable insights for optimizing the performance of RNA aptamers in various applications.
+
+  
+
+Taken together, these insights enable a holistic understanding of how RNA aptamers fold and function. This comprehensive approach allows researchers to target the design of aptamers at an accelerated pace, leveraging the principles of mechanics and thermodynamics to achieve optimal performance. By integrating computational models, experimental data, and innovative tools like the Serena RNA Analysis Tool and Eterna Game Labs, the study paves the way for significant advancements in RNA engineering. The findings underscore the importance of energy conservation, structural resemblance, and mechanical stability in RNA aptamer design. This integrated approach offers valuable insights for future research and development in the field, ultimately leading to more effective and reliable RNA-based tools.
+
+  
+
+# 3 Introduction
+
+  
+
+The current method for RNA aptamer design, particularly through the SELEX (Systematic Evolution of Ligands by Exponential Enrichment) process, is fraught with inefficiencies and limitations. This approach, while capable of identifying successful aptamer candidates, is inherently labor-intensive and time-consuming. It relies heavily on repetitive mutations and experimental chance, akin to using a hammer when a scalpel would be more appropriate. This analogy underscores the lack of precision in the SELEX process and highlights the absence of a deep understanding of nature's design rules for aptamers. As a result, researchers often find themselves waiting for a suitable mutation to arise by chance, leading to suboptimal designs and missed opportunities for targeted performance enhancements. This trial-and-error method is not only inefficient but also fails to direct the performance of an aptamer to meet specific medical needs effectively.
+
+  
+
+To address these inefficiencies, a more systematic and informed approach is proposed, leveraging computational models, experimental data, and a deep understanding of RNA mechanics and thermodynamics. By integrating these elements, researchers can move beyond the trial-and-error nature of the SELEX process and develop more precise and efficient RNA aptamers. This approach emphasizes the importance of understanding the structural and functional dynamics of RNA molecules, allowing for the prediction and control of their behavior. Computational models can simulate the interactions between RNA aptamers and their target molecules, providing valuable insights into the optimal design parameters. Additionally, experimental techniques can validate these models, ensuring that the designed aptamers perform as intended in real-world applications. This method is akin to turning a knob to fine-tune the performance of the aptamer, offering a more controlled and predictable approach compared to the randomness of SELEX.
+
+  
+
+Furthermore, this solution advocates for the use of advanced metrics and structural analysis to fine-tune RNA aptamer designs. By examining key parameters and identifying the optimal ratios and configurations, researchers can develop RNA aptamers with enhanced binding affinity, stability, and switching capabilities. This targeted approach allows for the creation of RNA aptamers that are tailored to specific applications, such as biosensors that detect environmental toxins or therapeutic agents that target disease-related molecules. The ease of this knob-turning approach simplifies the design process, making it more efficient and effective. This systematic method addresses the limitations of current methodologies and paves the way for significant advancements in RNA engineering, ultimately leading to more reliable and high-performing RNA-based tools.
+
+  
+  
+
+# 4 Test Methodologies and Tools
+
+  
+
+The report introduces a comprehensive suite of methodologies and analytical frameworks designed to optimize RNA aptamer design. These tools are essential for addressing the complexities involved in RNA folding, binding, and switching, particularly in the context of experimental and computational models. By leveraging these advanced tools, researchers can move beyond traditional trial-and-error methods and develop more precise and efficient RNA aptamers. This systematic approach integrates theoretical principles, computational simulations, and experimental data to provide a robust framework for RNA engineering.
+
+  
+
+Central to these methodologies is the Theory of Mechanics of RNA, which applies principles of classical mechanics to understand RNA folding and switching behaviors. This theory treats pairing probabilities in RNA as vectors, analogous to forces in mechanical systems. By substituting force with pairing probabilities, researchers can predict RNA behavior, including transitions between unbound and bound states. The theory emphasizes the importance of axial and shearing forces, tension, and bending moments in the analysis of RNA folding dynamics. Understanding these mechanical forces provides valuable insights into the stability and flexibility of RNA molecules, which are crucial for their functionality.
+
+  
+
+The Serena RNA Analysis Tool is another critical component of this suite, leveraging advanced metrics and structural analysis to fine-tune RNA aptamer designs. This tool incorporates concepts such as Marker Theory and Switch Acceptance Theory to evaluate the performance of RNA structures. Metrics like Ensemble Variation (EV), Local Minima Variation (LMV), and Weighted Structures (WS) are used to assess the stability and switching capabilities of RNA aptamers. By integrating computational models with experimental data, Serena enables researchers to validate their predictions and optimize RNA designs for specific applications. This targeted approach allows for the development of RNA aptamers with enhanced binding affinity, stability, and switching capabilities.
+
+  
+
+Eterna Game Labs provide another innovative tool by leveraging crowdsourcing to solve RNA folding problems through interactive puzzles and challenges. These labs engage a global community of players to generate valuable data for researchers. The Eterna platform uses game mechanics to simulate RNA interactions and predict optimal design parameters. Players contribute to the discovery of new RNA structures by experimenting with different configurations and observing the resulting changes in stability and functionality. This collaborative approach accelerates the discovery process and provides a diverse set of solutions that might not be achievable through traditional methods. Eterna Game Labs exemplify the power of crowdsourcing in scientific research, enabling the development of more efficient and reliable RNA-based tools.
+
+  
+
+Marker Theory is a foundational concept used to predict RNA performance by identifying specific features in RNA secondary structures that indicate potential performance ranges for folding or switching actions. This theory posits that certain structural markers within the RNA sequence can be used to predict its behavior and performance. By analyzing these markers, researchers can identify RNA designs that are likely to exhibit high stability and effective switching capabilities. Marker Theory provides a robust framework for evaluating RNA aptamer designs, ensuring that they can transition smoothly between unbound and bound states with minimal energy expenditure.
+
+  
+
+Switch Acceptance Theory builds on Marker Theory by assuming that the structural shape an RNA takes is the entire potentiality of the ensemble, not just the Minimum Free Energy (MFE) structure. This approach requires analyzing potential alternate structures predicted to form in the ensemble and their pairing probabilities. By searching for echoes of target alternate states in the unbound ensemble, researchers can predict the level of ease for an RNA sequence to fold into a predicted alternate state secondary structure. This predictive capability is essential for optimizing RNA aptamer designs, ensuring that they can effectively switch between states with minimal energy expenditure. Switch Acceptance Theory provides a comprehensive framework for evaluating and enhancing RNA performance, enabling the development of high-performance RNA-based tools for various applications
+
+  
+  
+  
+
+# 5 Understanding the Theory of Mechanics of RNA Folding Model
+
+The Theory of Mechanics of RNA Folding Model posits that RNA folding is governed by principles similar to those found in classical mechanics. This theory suggests that pairing probabilities in RNA can be treated as vectors, analogous to forces in mechanical systems. By substituting force with pairing probabilities, researchers can apply the laws of motion to predict RNA folding and switching behaviors. This approach allows for a more nuanced understanding of how RNA structures transition between different states, such as from unbound to bound configurations. The model emphasizes the importance of considering various types of forces, including axial forces, shearing forces, tension forces, and bending moments, in the analysis of RNA folding dynamics.
+
+  
+
+## 5.1 Axial Forces
+
+  
+
+  
+
+Axial forces are a critical component in the mechanics of RNA folding. These forces act along the axis of the RNA strand and can be either positive (stretching) or negative (compression). Hydrogen bonds between nucleotides generate internal negative axial forces, which pull the nucleotides together and maintain the stability of the RNA structure. Conversely, external positive axial forces can pull the nucleotides apart, potentially causing the RNA to unfold. The balance between these positive and negative axial forces is crucial for the stability and functionality of RNA aptamers. Understanding how these forces interact helps researchers design RNA structures that can withstand the mechanical stresses experienced during state transitions.
+
+  
+
+One of the key insights from this theory is the concept of cumulative negative axial forces provided by each nucleotide pair in the 5’3’ Static Stem. These forces join the 5’ and 3’ ends together, creating a flexible loop that can withstand high stresses. This mechanical stability is crucial for RNA aptamers, particularly in applications where they need to switch between states, such as in biosensors or therapeutic agents. The theory also highlights the role of tension forces transmitted via the RNA's phosphate backbone, which contribute to the overall stability and functionality of the molecule. By understanding these mechanical forces, researchers can develop more stable and efficient RNA structures, paving the way for advancements in RNA engineering.
+
+## 5.2 Shearing Forces
+
+  
+
+  
+  
+
+Shearing forces occur when there is a relative displacement between adjacent nucleotide pairs, causing shifts in the alignment of base pairs. These forces can lead to changes in the RNA's structure, such as the breaking of bonds at the ends of hairpins or the formation of new configurations. For instance, in a unidirectional AU hairpin sequence, shearing forces might cause the bonds at the ends to break, resulting in a new configuration. Understanding these mechanical interactions is vital for manipulating RNA molecules to achieve specific functions, such as creating stable riboswitches or designing RNA-based sensors.
+
+  
+
+Shearing forces act parallel to the axis of the RNA strand and can also significantly impact RNA stability. These forces can be positive (upwards) or negative (downwards) and cause shifts in the RNA structure. Positive shearing forces move nucleotides upward, while negative shearing forces move them downward. These shifts can affect the overall stability of the RNA, making it more prone to unfolding. By analyzing the impact of shearing forces, researchers can develop strategies to enhance the stability of RNA structures. This understanding is particularly useful for optimizing RNA aptamer designs, ensuring that they can maintain their structural integrity under various conditions.
+
+  
+
+## 5.3 Tension Forces
+
+  
+
+Tension forces are transmitted along the length of the RNA strand, similar to the forces in a rope or chain. These forces contribute to the overall mechanical stability of the RNA, ensuring that it can maintain its structure under various conditions. Tension forces play a crucial role in maintaining the stability of RNA structures. By understanding the impact of tension forces, researchers can develop strategies to enhance the stability of RNA structures. This knowledge is particularly useful in the context of experimental labs, where precise control over RNA folding and switching is essential.
+
+  
+
+Tension forces are essential for understanding the mechanical stability of RNA structures. These forces are transmitted along the length of the RNA strand, similar to the forces in a rope or chain. By studying tension forces, researchers can gain insights into how RNA structures maintain their stability under different conditions. This knowledge is crucial for designing RNA aptamers that can withstand various mechanical stresses and maintain their functionality. Understanding the role of tension forces in RNA mechanics allows for the development of more robust and reliable RNA-based tools.
+
+  
+
+## 5.4 Bending Moments
+
+  
+
+Bending moments arise when forces act on the RNA molecule in such a way that they cause it to bend or curve. These moments are particularly relevant in the formation of loops and hairpins, where the curvature of the RNA strand is influenced by the forces acting on it. The bending moments create a balance between the forces that pull the RNA strand straight and those that cause it to bend, resulting in a stable configuration. By studying these moments, researchers can gain insights into the behavior of RNA molecules and design more robust and functional RNA-based systems.
+
+  
+
+Bending moments result in the RNA strand bending either upward or downward. Positive bending moments cause the ends of the RNA to bend up, while negative bending moments cause them to bend down. These moments are crucial for understanding the flexibility and adaptability of RNA structures. Bending moments play a significant role in the overall stability of RNA structures. By analyzing the impact of bending moments, researchers can develop strategies to enhance the stability of RNA structures. This knowledge is particularly useful in the context of experimental labs, where precise control over RNA folding and switching is essential.
+
+  
+
+## 5.5 Newton's First Law of Motion
+
+### 5.5.1 Newton's First Law of Motion and RNA Mechanics
+
+  
+
+Newton's First Law of Motion, also known as the law of inertia, states that an object will remain at rest or in uniform motion in a straight line unless acted upon by an external force. This fundamental principle of classical mechanics can be directly applied to understand the behavior of RNA molecules, particularly in terms of their stability and response to external forces.
+
+### 5.5.2 Understanding Inertia in RNA
+
+  
+
+In the context of RNA, inertia refers to the tendency of the RNA molecule to maintain its current state, whether it is at rest (in a stable configuration) or in motion (undergoing structural changes). The RNA molecule will not change its state unless an external force acts upon it. This concept is crucial for understanding how RNA maintains its structure and how it transitions between different configurations.
+
+  
+
+### 5.5.3 Equilibrium State of RNA
+
+  
+
+The equilibrium state of an RNA molecule is its most stable configuration, often referred to as the Minimum Free Energy (MFE) state. In this state, the forces acting on the RNA are balanced, and the molecule remains at rest. According to Newton's First Law, the RNA will stay in this equilibrium state unless an external force disrupts it. This external force could be a change in temperature, the presence of a binding molecule, or any other factor that alters the energy landscape of the RNA.
+
+  
+
+### 5.5.4 External Forces and RNA Stability
+
+  
+
+External forces can disrupt the equilibrium state of RNA, causing it to transition to a different configuration. These forces can be physical, such as mechanical stress or thermal fluctuations, or chemical, such as the binding of a ligand or the presence of ions. When an external force acts on the RNA, it can cause the molecule to move from its stable state, leading to structural changes.
+
+  
+
+For example, consider an RNA molecule in its MFE state. If the temperature increases, the added thermal energy acts as an external force, causing the RNA to gain kinetic energy. This can lead to the breaking of hydrogen bonds and the unfolding of the RNA structure. Conversely, if the temperature decreases, the RNA may lose kinetic energy and transition to a more stable configuration.
+
+  
+
+### 5.5.5 Inertia and RNA Folding
+
+  
+
+Inertia plays a significant role in RNA folding dynamics. When an RNA molecule is in a stable configuration, it resists changes to its structure due to its inertia. This resistance to change is crucial for maintaining the stability of RNA-based structures, such as aptamers and riboswitches, which need to remain stable under various conditions.
+
+  
+
+However, when an external force is applied, the RNA's inertia must be overcome for the molecule to change its state. The magnitude of the external force required to induce a structural change depends on the RNA's inertia and the stability of its current configuration. More stable configurations with higher inertia require larger external forces to induce changes.
+
+  
+
+### 5.5.6 Practical Implications
+
+  
+
+Understanding the concept of inertia in RNA mechanics has several practical implications:
+
+  
+
+1\. \*\*Predicting RNA Stability\*\*: By analyzing the equilibrium state and the forces acting on RNA, researchers can predict the stability of RNA molecules under different conditions.
+
+2\. \*\*Designing Stable RNA Structures\*\*: Knowledge of inertia helps in designing RNA structures that can maintain their stability and functionality in the presence of external forces.
+
+3\. \*\*RNA-Based Sensors\*\*: Understanding how external forces affect RNA stability is crucial for developing RNA-based sensors that can respond to specific stimuli.
+
+  
+
+### 5.5.7 Example: RNA Aptamers and Inertia
+
+  
+
+RNA aptamers are short RNA sequences that can bind to specific target molecules with high affinity. The stability of RNA aptamers is essential for their functionality, as they need to maintain their structure to bind effectively to their targets. Inertia plays a crucial role in this stability.
+
+  
+
+When an RNA aptamer is in its stable configuration, it resists changes to its structure due to its inertia. However, when a target molecule binds to the aptamer, it acts as an external force, causing the aptamer to change its configuration to accommodate the binding. The aptamer's ability to return to its stable state after the target molecule is removed depends on its inertia and the magnitude of the external force.
+
+  
+
+### 5.5.8 Conclusion
+
+  
+
+Newton's First Law of Motion provides a valuable framework for understanding the stability and behavior of RNA molecules. By considering the concept of inertia, researchers can gain insights into how RNA maintains its structure and how it responds to external forces. This understanding is crucial for designing stable and functional RNA-based structures, paving the way for advancements in RNA engineering and applications in medicine and synthetic biology.
+
+  
+
+## 5.6 Newton's Second Law of Motion
+
+### 5.6.1 Newton's Second Law of Motion and RNA Mechanics
+
+  
+
+Newton's Second Law of Motion states that the force acting on an object is equal to the mass of that object multiplied by its acceleration (F = ma). This fundamental principle of classical mechanics can be directly applied to understand the behavior of RNA molecules, particularly in terms of how they fold, move, and interact with other molecules.
+
+  
+
+### 5.6.2 Understanding Force, Mass, and Acceleration in RNA
+
+  
+
+In the context of RNA, the "force" can be thought of as the pairing probabilities between nucleotides. These pairing probabilities represent the likelihood of specific nucleotides forming bonds, which can be treated as vectors in a mechanical system. The "mass" in this scenario is the mass of the RNA nucleotides, which influences how they respond to these forces. "Acceleration" is the change in velocity of the nucleotides as they move to form or break bonds.
+
+  
+
+### 5.6.3 Pairing Probabilities as Forces
+
+  
+
+Pairing probabilities in RNA are analogous to forces in mechanical systems. These probabilities determine the attraction between nucleotides, driving them to move from one position to another. For example, a high pairing probability between two nucleotides indicates a strong attractive force, causing the nucleotides to move closer together to form a bond. Conversely, a low pairing probability indicates a weaker force, resulting in less movement.
+
+  
+
+### 5.6.4 Velocity and Acceleration in RNA Movement
+
+  
+
+\*\*Velocity\*\* is the rate at which an RNA nucleotide changes its position. It is a vector quantity, meaning it has both magnitude and direction. In RNA mechanics, velocity can be understood as the speed at which a nucleotide moves towards or away from another nucleotide due to the attractive or repulsive forces (pairing probabilities).
+
+  
+
+\*\*Acceleration\*\* is the rate of change of velocity over time. In the context of RNA, acceleration occurs when the velocity of a nucleotide changes due to varying forces acting upon it. For instance, if a nucleotide initially moves slowly towards another nucleotide but then speeds up as it gets closer, it is experiencing acceleration.
+
+  
+
+### 5.6.5 Applying Newton's Second Law to RNA
+
+  
+
+To apply Newton's Second Law to RNA, consider the following steps:
+
+  
+
+1\. \*\*Identify the Forces\*\*: Determine the pairing probabilities between nucleotides, which act as the forces driving their movement.
+
+2\. \*\*Calculate the Mass\*\*: Consider the mass of the RNA nucleotides, which influences how they respond to the forces. Heavier nucleotides will have more inertia and will require more force to achieve the same acceleration as lighter nucleotides.
+
+3\. \*\*Determine Acceleration\*\*: Use the equation F = ma to calculate the acceleration of the nucleotides. This involves dividing the force (pairing probability) by the mass of the nucleotide.
+
+  
+
+### 5.6.6 Example: RNA Folding Dynamics
+
+  
+
+Imagine an RNA molecule with nucleotides A and U that have a high pairing probability, indicating a strong attractive force. According to Newton's Second Law, this force will cause the nucleotides to accelerate towards each other. If the mass of the nucleotides is known, the acceleration can be calculated using the equation F = ma. As the nucleotides move closer, their velocity increases, and they eventually form a stable bond.
+
+  
+
+Conversely, if an external force (such as a change in temperature) acts on the RNA molecule, it can disrupt the existing bonds. This external force can be considered a positive axial force, causing the nucleotides to accelerate away from each other, leading to the unfolding of the RNA structure.
+
+  
+
+### 5.6.7 Practical Implications
+
+  
+
+Understanding the relationship between force, mass, and acceleration in RNA mechanics has several practical implications:
+
+  
+
+1\. \*\*Predicting RNA Folding\*\*: By calculating the forces and resulting accelerations, researchers can predict how RNA molecules will fold and which structures they will form.
+
+2\. \*\*Designing RNA Aptamers\*\*: Knowledge of these principles allows for the design of RNA aptamers that can withstand specific mechanical stresses, ensuring their stability and functionality.
+
+3\. \*\*RNA-Based Sensors\*\*: Understanding RNA mechanics helps in the development of RNA-based sensors that can switch between states in response to external stimuli.
+
+  
+
+### 5.6.8 Conclusion
+
+  
+
+Newton's Second Law of Motion provides a valuable framework for understanding the mechanics of RNA. By treating pairing probabilities as forces and considering the mass and acceleration of nucleotides, researchers can gain insights into RNA folding dynamics and design more stable and efficient RNA structures. This approach bridges the gap between classical mechanics and molecular biology, paving the way for advancements in RNA engineering and applications in medicine and synthetic biology.
+
+  
+
+## 5.7 Newton's Third Law of Motion
+
+### 5.7.1 Newton's Third Law of Motion and RNA Mechanics
+
+  
+
+Newton's Third Law of Motion states that for every action, there is an equal and opposite reaction. This fundamental principle of classical mechanics can be directly applied to understand the behavior of RNA molecules, particularly in terms of their interactions and the forces they exert on each other. This law is crucial for understanding the dynamic behavior of RNA, including how it folds, maintains stability, and responds to external stimuli.
+
+  
+
+### 5.7.2 Understanding Action and Reaction in RNA
+
+  
+
+In the context of RNA, Newton's Third Law can be observed in the interactions between nucleotides and the forces they exert on each other. When one nucleotide exerts a force on another, such as during the formation or breaking of hydrogen bonds, an equal and opposite force is exerted in return. This principle helps explain the dynamic behavior of RNA molecules, as the forces between nucleotides constantly push and pull, leading to changes in the molecule's structure.
+
+  
+
+### 5.7.3 Hydrogen Bond Formation and Breaking
+
+  
+
+Hydrogen bonds are a key component of RNA structure, providing the necessary interactions for the formation of secondary structures such as hairpins and loops. When two nucleotides form a hydrogen bond, they exert forces on each other. According to Newton's Third Law, the force exerted by one nucleotide on the other is matched by an equal and opposite force exerted by the second nucleotide. This balance of forces is what keeps the hydrogen bond stable.
+
+  
+
+Conversely, when a hydrogen bond breaks, the forces that were holding the nucleotides together are released. The nucleotide that was pulling on the other will experience an equal and opposite force pushing it away. This release of forces can lead to changes in the RNA structure, such as unfolding or transitioning to a different configuration.
+
+  
+
+### 5.7.4 RNA Folding and Unfolding
+
+  
+
+RNA folding and unfolding are dynamic processes that involve the constant formation and breaking of hydrogen bonds. Newton's Third Law is evident in these processes, as the forces exerted during bond formation and breaking are always balanced by equal and opposite forces. This balance of forces is crucial for maintaining the stability of RNA structures and ensuring that they can transition smoothly between different configurations.
+
+  
+
+For example, consider an RNA hairpin structure. When the hairpin forms, the nucleotides at the base of the hairpin exert forces on each other to create hydrogen bonds. These forces are balanced by equal and opposite forces, resulting in a stable hairpin structure. If an external force, such as a change in temperature, causes the hairpin to unfold, the breaking of hydrogen bonds will release the forces, leading to a new configuration.
+
+  
+
+### 5.7.5 External Forces and RNA Stability
+
+  
+
+External forces can disrupt the balance of forces within an RNA molecule, leading to changes in its structure. According to Newton's Third Law, any external force acting on the RNA will be met with an equal and opposite reaction force. This reaction force can cause the RNA to change its configuration, either by breaking existing bonds or forming new ones.
+
+  
+
+For instance, if a ligand binds to an RNA aptamer, the binding force will be met with an equal and opposite reaction force from the RNA. This interaction can cause the RNA to change its structure to accommodate the ligand, leading to a new stable configuration. Understanding these interactions is crucial for designing RNA-based sensors and therapeutic agents that can respond to specific stimuli.
+
+  
+
+### 5.7.6 Practical Implications
+
+  
+
+Understanding Newton's Third Law in the context of RNA mechanics has several practical implications:
+
+  
+
+1\. \*\*Predicting RNA Behavior\*\*: By analyzing the forces exerted by nucleotides and their reactions, researchers can predict how RNA molecules will fold and respond to external stimuli.
+
+2\. \*\*Designing RNA Aptamers\*\*: Knowledge of action and reaction forces helps in designing RNA aptamers that can bind effectively to their targets and maintain stability.
+
+3\. \*\*RNA-Based Sensors\*\*: Understanding the dynamic interactions between nucleotides is crucial for developing RNA-based sensors that can switch between states in response to external forces.
+
+  
+
+### 5.7.7 Example: RNA Aptamers and Ligand Binding
+
+  
+
+RNA aptamers are short RNA sequences that can bind to specific target molecules with high affinity. The binding of a ligand to an RNA aptamer is a clear example of Newton's Third Law in action. When the ligand binds to the aptamer, it exerts a force on the RNA. According to Newton's Third Law, the RNA exerts an equal and opposite force on the ligand. This interaction causes the RNA to change its structure to accommodate the ligand, resulting in a new stable configuration.
+
+  
+
+For the aptamer to release the ligand, an external force must be applied to overcome the binding forces. This external force will be met with an equal and opposite reaction force from the RNA, leading to the release of the ligand and a return to the original RNA structure.
+
+  
+
+### 5.7.8 Conclusion
+
+  
+
+Newton's Third Law of Motion provides a valuable framework for understanding the dynamic interactions within RNA molecules. By considering the forces exerted by nucleotides and their reactions, researchers can gain insights into RNA folding, stability, and response to external stimuli. This understanding is crucial for designing stable and functional RNA-based structures, paving the way for advancements in RNA engineering and applications in medicine and synthetic biology.
+
+  
+
+## 5.8 Application of the Theory of Mechanics of RNA Folding Model
+
+The application of the Theory of Mechanics of RNA Folding Model extends to the design and optimization of RNA aptamers. By understanding the mechanical forces at play, researchers can develop more stable and efficient RNA structures. This approach is particularly useful in the context of experimental labs, where precise control over RNA folding and switching is essential.
+
+  
+
+The Theory of Mechanics of RNA Folding Model provides a comprehensive framework for analyzing and predicting RNA behavior, paving the way for advancements in RNA engineering and the development of high-performance RNA-based tools. This systematic approach addresses the limitations of traditional methods and paves the way for significant advancements in RNA technology, ultimately leading to more reliable and high-performing RNA-based solutions.
+
+  
+
+# 6 Description of the Serena RNA Analysis Tool
+
+The Serena RNA Analysis Tool is an advanced research instrument designed to optimize RNA aptamer designs by providing a comprehensive analysis of RNA structures. This tool integrates computational models with experimental data to evaluate the performance of RNA aptamers, focusing on their stability, binding affinity, and switching capabilities. The Serena tool leverages several new metrics to provide deeper insights into RNA behavior, including Ensemble Variation (EV), Local Minima Variation (LMV), Weighted Structures (WS), and Comparison Structures (CS). Each of these metrics offers a unique perspective on the stability and functionality of RNA aptamers, enabling researchers to make more informed decisions during the design process.
+
+  
+
+Ensemble Variation (EV): Ensemble Variation (EV) is a metric designed to measure the instantaneous variation within an RNA ensemble. Inspired by Nupack’s Ensemble Defect, EV addresses some of the limitations of the original metric by providing a more accurate representation of variation at 1 to 2 kcal from the Minimum Free Energy (MFE). This metric is particularly useful for assessing the stability of RNA folds, as it considers the number of nucleotides and the number of structures within the ensemble. A lower EV value indicates a more stable RNA fold, while a higher EV value suggests greater instability.
+
+Local Minima Variation (LMV): Local Minima Variation (LMV) measures the amount of variation within a subset of an RNA ensemble relative to a reference secondary structure. This metric is particularly useful for identifying local minima within the ensemble, which can provide insights into the stability and functionality of RNA aptamers. LMV values are expressed in units of Ensemble Variation (EV). LMV has multiple flavors, including LMV\_C (for weighted structures), LMV\_R (for the first structure in the subset), and LMV\_M (for the unbound MFE structure). A high LMV value indicates greater variation from the reference structure, suggesting a lack of similarity to the local minima, while a low LMV value indicates less variation.
+
+  
+
+Weighted Structures (WS): Weighted Structures (WS) represent the average and most common nucleotide pairing in a discrete range of the ensemble, given in dot-bracket notation. This metric looks at each nucleotide position for each alternative secondary structure in a range of the ensemble and finds the most common binding. WS replaces the MFE as a more accurate representation of the ensemble and the most likely forming of the RNA. If the weighted structure does not convert into pairs cleanly, it indicates that the RNA is intrinsically unstable.
+
+  
+
+Comparison Structures (CS): Comparison Structures (CS) is a novel metric that provides a single structural representation of two ensembles mashed together to compare and contrast them. This metric is used to represent whether a weighted structure is more like a second state weighted/MFE structure or a first state MFE structure. CS helps in understanding the similarities and differences between secondary structures in a human-readable way, as well as being able to be parsed by code. This metric is crucial for evaluating the switching capabilities of RNA aptamers.
+
+  
+
+Sub-metrics within Comparison Structures: The Comparison Structures metric contains several sub-metrics that provide further granularity in the analysis of RNA aptamers. These sub-metrics are derived from the comparison of RNA ensembles and include Bound to Unbound Ratio (BURatio), Both Raise (both\_Raise), Bound Raise (BRaise), Unbound Drop (UDrop), Both to Total Ratio (BothtoTotal), Bound to Total Ratio (BoundToTotal), Unbound to Total Ratio (UnboundToTotal), and Bound to Both Ratio (Bound\_both). These sub-metrics offer detailed insights into the behavior of RNA structures under different conditions, allowing for a more nuanced understanding of their performance.
+
+  
+
+Bound to Unbound Ratio (BURatio): The Bound to Unbound Ratio (BURatio) is a sub-metric that measures the ratio of bound nucleotides to unbound nucleotides in the current energy group comparison structure. This ratio provides insights into the binding affinity of the RNA aptamer, indicating how effectively it can transition between bound and unbound states.
+
+  
+
+Both Raise (both\_Raise): Both Raise (both\_Raise) is a sub-metric that measures the increase in the number of nucleotides that are both bound and unbound from the last group to the current group. This metric helps in understanding the dynamics of RNA folding and the stability of the aptamer in different states. The "both" metrics refer to nucleotide positions with the same structural configuration present in both the bound and unbound weighted structures used in the comparison.
+
+  
+
+Bound Raise (BRaise): Bound Raise (BRaise) is a sub-metric that measures the increase in the number of bound nucleotides from the last group to the current group. This metric provides insights into the binding efficiency of the RNA aptamer and its ability to maintain a stable bound state. "Bound" refers to structural positions found only in the bound weighted structure.
+
+  
+
+Unbound Drop (UDrop): Unbound Drop (UDrop) is a sub-metric that measures the decrease in the number of unbound nucleotides from the last group to the current group. This metric helps in understanding the transition dynamics of the RNA aptamer and its ability to switch from an unbound to a bound state effectively. "Unbound" refers to structural positions found only in the unbound weighted structure.
+
+  
+
+Both to Total Ratio (BothtoTotal): Both to Total Ratio (BothtoTotal) measures the ratio of nucleotides that are both bound and unbound to the total number of nucleotides in the sequence. This ratio provides a comprehensive understanding of the RNA aptamer's performance and stability under different conditions.
+
+Bound to Total Ratio (BoundToTotal): Bound to Total Ratio (BoundToTotal) measures the ratio of bound nucleotides to the total number of nucleotides in the sequence. This metric offers insights into the overall binding efficiency of the RNA aptamer.
+
+  
+
+Unbound to Total Ratio (UnboundToTotal): Unbound to Total Ratio (UnboundToTotal) measures the ratio of unbound nucleotides to the total number of nucleotides in the sequence. This metric helps in understanding the RNA aptamer's ability to maintain an unbound state when necessary.
+
+Bound to Both Ratio (Bound\_both): Bound to Both Ratio (Bound\_both) measures the ratio of bound nucleotides to nucleotides that are both bound and unbound. This metric provides insights into the balance between bound and unbound states, offering a detailed understanding of the RNA aptamer's switching capabilities.
+
+  
+
+In summary, the Serena RNA Analysis Tool is a powerful instrument for advancing RNA aptamer research. By leveraging advanced metrics such as Ensemble Variation, Local Minima Variation, Weighted Structures, and Comparison Structures, the tool provides a comprehensive analysis of RNA behavior. Its ability to integrate computational models with experimental data ensures that researchers can make informed decisions and optimize their designs for specific applications. The sub-metrics within the Comparison Structures metric offer additional granularity, providing detailed insights into the performance and stability of RNA aptamers under various conditions. The Serena tool represents a significant advancement in the field of RNA engineering, paving the way for the development of more efficient and reliable RNA-based tools.
+
+  
+
+## 6.1 Description of Serena's Resulting Plots
+
+  
+
+Serena's resulting plots provide a detailed visual representation of the metrics derived from the analysis of RNA aptamers, offering valuable insights into their stability, binding affinity, and switching capabilities. These plots are generated by processing the first 7 kcal from the Minimum Free Energy (MFE) and are created for each 1 kcal increment within this range. This detailed breakdown allows researchers to observe how RNA structures behave under different energy conditions, providing a comprehensive understanding of their performance. The plots are particularly useful for identifying trends and patterns in the data, enabling researchers to make informed decisions about RNA aptamer design and optimization. In general, only the first 1 kcal plots are used for plot interpretation unless otherwise noted, but the sum of all alternate structures for the first 7 kcal delta from MFE is needed for structure count analysis.
+
+  
+
+The resulting plots from Serena's analysis are essential for interpreting the metrics such as Ensemble Variation (EV), Local Minima Variation (LMV), Weighted Structures (WS), and Comparison Structures (CS). By visualizing these metrics, researchers can easily compare different RNA designs and assess their relative stability and functionality. The plots also help in identifying potential issues with RNA structures, such as instability or poor switching capabilities, allowing for targeted improvements. Overall, Serena's resulting plots are a crucial tool for advancing RNA aptamer research, providing a clear and detailed view of the complex interactions and behaviors of RNA molecules. This visual representation aids in the comprehensive analysis of RNA behavior, ensuring that researchers can optimize their designs for specific applications effectively.
+
+  
+  
+
+## 6.2 Explanation of Metrics from Eterna Wetlab Measurements
+
+  
+
+In the study of RNA aptamers, several key metrics are used to evaluate their performance and functionality. These metrics include the Eterna Switch Subscore, Eterna Baseline Subscore, Eterna Folding Subscore, Eterna Score, KDOFF, KDON, and Fold Change. Each of these metrics provides unique insights into different aspects of RNA aptamer behavior, enabling researchers to optimize their designs for specific applications.
+
+  
+
+The Eterna Switch Subscore quantifies the fold-increase in KD,obs (observed dissociation constant) between the OFF and ON states of an RNA aptamer. This metric indirectly measures the range of switching at the optimal MS2 concentration, providing insights into the aptamer's ability to transition between states. A higher Switch Subscore indicates a more effective switch, which is crucial for applications that require precise control over RNA behavior.
+
+  
+
+The Eterna Baseline Subscore quantifies how close the affinity of the ON state is to that of the native MS2 hairpin. This metric is essential for understanding the baseline performance of the RNA aptamer in its active state. A higher Baseline Subscore suggests that the aptamer closely mimics the native MS2 hairpin, which is important for maintaining functionality in various applications.
+
+  
+
+The Eterna Folding Subscore rewards RNA aptamers that properly fold the MS2 hairpin. This metric decreases if the maximum signal falls below a certain threshold, indicating poor folding performance. A higher Folding Subscore signifies that the RNA aptamer can reliably form the desired secondary structure, which is critical for its stability and functionality.
+
+  
+
+The Eterna Score is a composite metric that adds the Switching Subscore, Baseline Subscore, and Folding Subscore. This combined score captures the three main qualities of a good switch: effective switching, strong baseline performance, and proper folding. A higher Eterna Score indicates a well-designed RNA aptamer that excels in all three areas, making it suitable for various applications.
+
+  
+
+KDOFF measures the affinity of the RNA aptamer to the OFF state, with higher values indicating greater fold change. This metric is important for understanding how well the aptamer can maintain its inactive state. KDON, on the other hand, measures the affinity to the ON state, with lower values indicating greater fold change as it is used as a comparison with the base MS2 affinity. Together, KDOFF and KDON provide a comprehensive view of the RNA aptamer's switching dynamics.
+
+  
+
+Fold Change is calculated as the ratio of KD,obs in the OFF state to KD,obs in the ON state. This metric provides a direct measure of the RNA aptamer's switching efficiency. A higher Fold Change indicates a more effective switch, which is crucial for applications that require precise control over RNA behavior. By understanding these metrics, researchers can optimize RNA aptamer designs to achieve the desired performance and functionality.
+
+  
+
+# 7 Introduction to Key Observations in RNA Aptamer Research
+
+  
+
+In the study of RNA aptamers, three critical observations provide valuable insights into their structure and functionality: Observation A, Observation B, and Observation C. These observations collectively highlight the intricate design and dynamic behavior of RNA aptamers, emphasizing the importance of specific structural components and their interactions. By understanding these observations, researchers can better optimize RNA aptamer designs for various applications, including biosensing, therapeutics, and molecular diagnostics. Each of these observations will be discussed in more detail later in this paper.
+
+  
+
+Observation A focuses on the complex interlocking systems within RNA aptamers, particularly the roles of the 5’3’ Static Stem, Molecular Snare, and Signal Fold Region. These regions work together to ensure the aptamer transitions smoothly between unbound and bound states. The 5’3’ Static Stem provides structural stability, preventing failure under high fold change forces. The Molecular Snare captures target molecules, triggering the Signal Fold Region to facilitate the conformational changes necessary for binding. This observation underscores the importance of each component in driving the overall behavior and functionality of RNA aptamers.
+
+  
+
+Observation B delves into the role of the Molecular Snare in RNA aptamer functionality. The Molecular Snare is responsible for capturing and holding onto target molecules with high specificity and affinity. This interaction initiates a series of conformational changes in the aptamer, leading to the activation of the Signal Fold Region. The ability of the Molecular Snare to effectively capture target molecules is crucial for the aptamer's role as a molecular switch. This observation highlights the significance of the Molecular Snare in ensuring the aptamer can transition between states and perform its intended functions.
+
+  
+
+Observation C examines the impact of adjusting structural positional ratios on the affinity of RNA strands to either the unbound or bound state. This observation tracks with the LMV\_rel metric, using EV as the unit of measure. By manipulating these ratios, researchers can modulate the RNA's affinity for specific states, optimizing its performance. The observation also emphasizes the importance of understanding the relationship between structural ratios and metrics such as KDON and KDOFF. This knowledge is essential for developing RNA aptamers that can reliably switch between states, maintaining their structural integrity and functionality. Each of these observations provides a foundational understanding that will be elaborated upon in the subsequent sections of this paper. This last observation, Observation C) will be the topic of a follow up paper.
+
+  
+  
+
+## 7.1 Observation A - RNA Aptamers as Complex Systems of Interlocking Parts
+
+  
+
+  
+
+  
+
+  
+
+Observation A delves into the intricate nature of RNA aptamers, highlighting them as complex systems composed of interlocking parts that work together to facilitate binding and switching functions. Central to this understanding is the recognition of key structural components within RNA aptamers, such as the 5’3’ Static Stem, Molecular Snare, and Signal Fold Region. These regions are crucial for ensuring that the aptamer transitions smoothly between unbound and bound states. The 5’3’ Static Stem provides structural stability, preventing failure under high fold change forces. The Molecular Snare captures target molecules, triggering the Signal Fold Region to facilitate the necessary conformational changes for binding. This multifaceted design underscores the importance of each component in driving the overall behavior and functionality of RNA molecules.
+
+  
+
+The interplay between these structural components is essential for the aptamer's ability to function effectively. The 5’3’ Static Stem acts as a stabilizing backbone, ensuring that the RNA structure can withstand the mechanical stresses experienced during state transitions. The Molecular Snare, with its specific binding sites, captures and holds onto target molecules, initiating a series of conformational changes in the aptamer. These changes are facilitated by the Signal Fold Region, which expresses new structures such as stacks, hairpins, and loops. This dynamic interaction between the different regions of the aptamer allows it to transition from the unbound state to a distinct secondary structure in the bound state, enabling it to perform its intended functions.
+
+  
+
+Furthermore, the complexity of RNA aptamers is highlighted by the presence of multiple systems that function as isolated motifs or local minima. These regions can have both optimal and suboptimal predicted secondary structure configurations, which are directly related to the potential for high or low fold change, KDOFF, or KDON during the binding of the target molecule. Understanding these configurations is crucial for optimizing RNA aptamer designs, as they influence the aptamer's ability to sense and report on the presence of specific molecules. By recognizing RNA aptamers as intricate systems with interconnected components and isolated motifs, researchers can gain a deeper understanding of the mechanisms driving RNA behavior and functionality, ultimately leading to more effective and reliable RNA-based tools.
+
+  
+  
+
+## 7.2 Observation B - The Role of Structural Components in RNA Aptamer Functionality
+
+  
+
+### 7.2.1 Introduction
+
+  
+
+Observation B delves into the intricate mechanisms of RNA aptamers, focusing on the critical roles played by the 5’3’ Static Stem, Molecular Snare, and Signal Fold Region. These structural components are essential for the aptamer's ability to transition between unbound and bound states, facilitating its function as a molecular switch. By understanding the specific contributions of each component, researchers can optimize RNA aptamer designs for enhanced performance in various applications, including biosensing and therapeutics. Each part of the aptamer complex will be discussed in more detail in the following sections.
+
+  
+
+### 7.2.2 The 5’3’ Static Stem
+
+The 5’3’ Static Stem is a fundamental structural element in RNA aptamers, providing the necessary stability to withstand the mechanical stresses experienced during state transitions. This region consists of the first set of consecutive nucleotide pairs found in the predicted secondary structure, encompassing the 5’ and 3’ ends of the RNA. The Static Stem acts as a stabilizing backbone, preventing the aptamer from collapsing under high fold change forces. This structural integrity is essential for the aptamer to maintain its functionality, ensuring that it can transition between unbound and bound states without losing its structural coherence.
+
+  
+
+The importance of the 5’3’ Static Stem cannot be overstated. It serves as the foundation upon which the rest of the aptamer's structure is built. Without a robust Static Stem, the aptamer would be prone to structural failure, rendering it ineffective in its molecular recognition tasks. The Static Stem's ability to provide stability while allowing for the necessary flexibility in other regions of the aptamer is a testament to the sophisticated design of these molecules. This balance between stability and flexibility is crucial for the aptamer's ability to switch between states and perform its intended functions.
+
+  
+
+Moreover, the 5’3’ Static Stem plays a crucial role in the binding process. When the aptamer binds to a target molecule, the Static Stem provides the necessary support to facilitate the conformational changes required for binding. This support is essential for the aptamer to transition from the unbound state to the bound state effectively. The Static Stem's ability to provide this support highlights its importance in the overall functionality of RNA aptamers. By understanding the role of the 5’3’ Static Stem, researchers can develop more stable and efficient RNA aptamer designs.
+
+  
+
+### 7.2.3 The Molecular Snare
+
+The Molecular Snare is another critical component of RNA aptamers, responsible for capturing and holding onto target molecules. This region contains specific binding sites that interact with the target, initiating a conformational change in the aptamer. The Molecular Snare plays a pivotal role in the aptamer's ability to sense and respond to the presence of target molecules. By capturing the target, the Molecular Snare activates the Signal Fold Region, triggering a transition from the unbound state to a new secondary structure in the bound state. This mechanism is crucial for the aptamer's functionality, enabling it to act as a molecular switch.
+
+  
+
+The Molecular Snare's ability to capture target molecules with high specificity and affinity is a key feature that makes RNA aptamers so versatile. This region's design allows for the precise recognition of target molecules, ensuring that the aptamer can effectively bind to its intended target. The conformational change triggered by the Molecular Snare is a critical step in the aptamer's function, as it sets off a cascade of structural changes that ultimately result in the aptamer's transition to the bound state. This process is essential for the aptamer to perform its molecular recognition tasks effectively.
+
+  
+
+Furthermore, the Molecular Snare's role extends beyond just capturing target molecules. It also contributes to the overall stability of the RNA aptamer by providing additional support during the binding process. The Molecular Snare's ability to hold onto the target molecule ensures that the aptamer remains in the bound state, maintaining its structural integrity. This stability is crucial for the aptamer's functionality, as it allows the molecule to perform its intended tasks without being disrupted by external forces. By understanding the role of the Molecular Snare, researchers can develop RNA aptamers with enhanced binding affinity and stability.
+
+  
+
+### 7.2.4 The Signal Fold Region
+
+  
+
+The Signal Fold Region is the area of the RNA aptamer that undergoes significant conformational changes upon target binding. When the Molecular Snare captures a target molecule, it triggers the Signal Fold Region to express new structures such as stacks, hairpins, and loops. These structural changes result in the aptamer adopting a new bound secondary structure that differs from its unbound state. The ability of the Signal Fold Region to facilitate these transitions is essential for the aptamer's role as a molecular switch, allowing it to signal the presence of the target molecule effectively.
+
+  
+
+The Signal Fold Region's ability to undergo such dramatic conformational changes is a testament to the dynamic nature of RNA aptamers. This region's flexibility allows it to respond to the binding of target molecules by adopting new structures that are necessary for the aptamer's function. The Signal Fold Region's role in facilitating these transitions is crucial for the aptamer's ability to act as a molecular switch, enabling it to signal the presence of the target molecule effectively. This dynamic behavior is essential for the aptamer's functionality, as it allows the molecule to perform its intended tasks without being disrupted by external forces.
+
+  
+
+Moreover, the Signal Fold Region's role extends beyond just facilitating conformational changes. It also contributes to the overall stability of the RNA aptamer by providing additional support during the binding process. The Signal Fold Region's ability to adopt new structures ensures that the aptamer remains in the bound state, maintaining its structural integrity. This stability is crucial for the aptamer's functionality, as it allows the molecule to perform its intended tasks without being disrupted by external forces. By understanding the role of the Signal Fold Region, researchers can develop RNA aptamers with enhanced binding affinity and stability.
+
+  
+
+### 7.2.5 Conclusion
+
+  
+
+Observation B highlights the critical roles played by the 5’3’ Static Stem, Molecular Snare, and Signal Fold Region in the functionality of RNA aptamers. These structural components work together to ensure that the aptamer can transition smoothly between unbound and bound states, facilitating its function as a molecular switch. By understanding the specific contributions of each component, researchers can optimize RNA aptamer designs for enhanced performance in various applications, including biosensing and therapeutics. The insights gained from Observation B provide a comprehensive understanding of the mechanisms driving RNA behavior and functionality, ultimately leading to more effective and reliable RNA-based tools. Each part of the aptamer complex will be discussed in more detail in the following sections.
+
+  
+
+# 8 Detailed Description of the 5’3’ Static Stem Observation
+
+  
+
+The 5’3’ Static Stem Observation delves into the critical role of the 5’3’ Static Stem in RNA aptamers, emphasizing its importance in providing structural stability and strength during state transitions. This region, consisting of the first set of consecutive nucleotide pairs found in the predicted secondary structure, encompasses the 5’ and 3’ ends of the RNA. The observation highlights that the 5’3’ Static Stem acts as a stabilizing backbone, preventing the aptamer from collapsing under high fold change forces. This structural integrity is essential for the aptamer to maintain its functionality, ensuring that it can transition between unbound and bound states without losing its structural coherence.
+
+  
+
+A key concept introduced in this observation is the Mechanical Overload Point (MOP). The MOP represents the maximum internal stress limit that the RNA structure can withstand before losing complete structural stability and essentially being ripped apart during the transition between states. This concept is analogous to the melt point of RNA, where the structure denatures due to excessive heat. The observation posits that the 5’3’ Static Stem significantly increases the upper limit for the MOP, allowing the RNA aptamer to endure higher fold changes and greater amplitudes of internal forces.
+
+  
+
+The length of the nucleotide pairs in the 5’3’ Static Stem is directly related to the MOP. As the length of the Static Stem increases, so does the upper limit of the MOP, providing greater structural stability. Conversely, a shorter Static Stem results in a lower MOP, making the RNA more susceptible to mechanical failure during state transitions. This relationship underscores the importance of optimizing the length of the 5’3’ Static Stem to enhance the stability and functionality of RNA aptamers.
+
+  
+
+Incorporating the 5’3’ Static Stem into the Molecular Snare further increases the MOP, enabling the RNA aptamer to achieve fold changes greater than 100. This enhancement is attributed to the additional support and protection provided by the sensed molecule being bound to the aptamer. The observation suggests that the extra support from the bound molecule helps the RNA withstand the higher internal forces experienced during state transitions, thereby increasing the MOP and overall stability of the aptamer.
+
+  
+
+In summary, the 5’3’ Static Stem Observation highlights the critical role of the 5’3’ Static Stem in providing structural stability to RNA aptamers. The concept of the Mechanical Overload Point (MOP) is introduced to explain the maximum internal stress limit that the RNA structure can endure before losing stability. The length of the Static Stem is directly related to the MOP, with longer stems providing greater stability. Incorporating the 5’3’ Static Stem into the Molecular Snare further enhances the MOP, enabling the RNA aptamer to achieve higher fold changes and maintain its functionality under greater internal forces.
+
+  
+  
+
+### 8.1 Description of the 5’3’ Static Stem Mechanics of Materials Hypothesis
+
+  
+
+The 5’3’ Static Stem Mechanics of Materials Hypothesis provides a detailed explanation of the mechanical forces at play within the 5’3’ Static Stem of RNA aptamers. This hypothesis outlines a step-by-step process that describes how the cumulative negative axial forces generated by each nucleotide pair contribute to the overall stability and functionality of the RNA structure. By understanding these steps, researchers can gain insights into the mechanical behavior of RNA aptamers and optimize their designs for enhanced performance.
+
+  
+
+Step 1: Cumulative Negative Axial Force Each nucleotide pair in the 5’3’ Static Stem provides a cumulative negative axial force that joins the 5’ and 3’ ends together. This force acts to compress the RNA structure, creating a stable stack of nucleotide pairs. The cumulative effect of these negative axial forces is crucial for maintaining the integrity of the RNA structure, especially during state transitions.
+
+  
+
+Step 2: Formation of a Flexible Loop When the 5’ and 3’ ends are joined together with sufficient sums of axial forces, the RNA mechanically becomes a flexible loop joined by the phosphate backbone, similar to a cable seal. This flexible loop has tension parallel to the length of the loop, which is essential for the RNA's ability to withstand mechanical stresses. The tension in the loop helps to distribute the forces evenly across the RNA structure, preventing localized stress points that could lead to structural failure.
+
+  
+
+Step 3: Positive Axial Forces from Bending Moments The tension in the flexible loop causes the application of positive axial forces at the 5’3’ Static Stem bonds due to bending moments that form. These bending moments result from the RNA structure attempting to straighten out, which adds energy to the bonds and fights the bonds that were formed. The greater the moment forces, the higher the free energy, and the closer the system gets to entropy. This balance between negative and positive axial forces is crucial for maintaining the stability of the RNA structure.
+
+  
+
+Step 4: Increasing Negative Axial Forces with Pair Count As the pair count in the 5’3’ Static Stem increases, the negative axial forces also increase until they exceed the positive axial forces felt from the tension and bending moments trying to pull the ends apart. Once a 5’3’ Static Stem of sufficient length is achieved, the flexible loop of RNA can mechanically withstand high stresses experienced with fold changes reaching 150. This step highlights the importance of optimizing the length of the 5’3’ Static Stem to enhance the stability and functionality of RNA aptamers.
+
+  
+
+Step 5: Achieving Mechanical Stability Once a 5’3’ Static Stem of sufficient length is achieved, the flexible loop of RNA will be able to mechanically withstand high stresses experienced with fold changes reaching 150. This mechanical stability is crucial for the RNA aptamer to maintain its functionality during state transitions. By understanding the mechanics of materials hypothesis, researchers can develop more stable and efficient RNA aptamer designs that can withstand greater internal forces and achieve higher fold changes.
+
+  
+
+In summary, the 5’3’ Static Stem Mechanics of Materials Hypothesis outlines a step-by-step process that describes how the cumulative negative axial forces generated by each nucleotide pair contribute to the overall stability and functionality of the RNA structure. By understanding these steps, researchers can gain insights into the mechanical behavior of RNA aptamers and optimize their designs for enhanced performance. This hypothesis provides a comprehensive framework for analyzing and predicting RNA behavior, ultimately leading to more effective and reliable RNA-based tools.
+
+  
+
+### 8.2 Description of the 5’3’ Static Stem Thermodynamics Hypothesis
+
+  
+
+The 5’3’ Static Stem Thermodynamics Hypothesis provides a comprehensive explanation of how the principles of thermodynamics are inherently linked to the mechanical behavior of RNA structures. This hypothesis demonstrates that the theory of the mechanics of RNA necessitates the concepts we already understand to be true about thermodynamics in RNA. By examining the relationship between moment forces, energy, and entropy, researchers can gain a deeper understanding of the stability and functionality of RNA aptamers.
+
+  
+
+The hypothesis begins by explaining that the moment forces from the RNA bending to straighten out add energy to the bonds, which fights the bonds that were formed. This process is analogous to the application of external forces that attempt to disrupt the internal hydrogen bonds within the RNA structure. The greater the moment forces, the higher the free energy, and the closer the system gets to entropy. This relationship highlights the importance of balancing these forces to maintain the stability of the RNA structure.
+
+  
+
+Furthermore, the hypothesis posits that the less the moment forces bend, the lower the free energy. This concept aligns with the principle of minimizing free energy to achieve a more stable configuration. The middle ground, where the moment forces are neither too high nor too low, is hypothesized to be the Minimum Free Energy (MFE) structure or the start of a range for it. This idea underscores the importance of achieving an optimal balance between mechanical forces and thermodynamic stability.
+
+  
+
+The hypothesis also addresses the role of entropy in RNA behavior. The RNA's tendency to straighten out in the absence of sufficient heat and nucleotide binds is where entropy comes into play. As the free energy increases, the system moves closer to a state of higher entropy. When heat is applied and hydrogen bonds are formed, enthalpy increases, leading to a more stable structure. This interplay between entropy and enthalpy is crucial for understanding the thermodynamic behavior of RNA aptamers.
+
+  
+
+In summary, the 5’3’ Static Stem Thermodynamics Hypothesis demonstrates that the theory of the mechanics of RNA necessitates the concepts we already understand to be true about thermodynamics in RNA. By examining the relationship between moment forces, energy, and entropy, researchers can gain a deeper understanding of the stability and functionality of RNA aptamers. This hypothesis provides a comprehensive framework for analyzing and predicting RNA behavior, ultimately leading to more effective and reliable RNA-based tools.
+
+  
+
+### 8.4 Comparative Analysis of SSNG1, SSNG2, and SSNG3 Static Stem Plots
+
+### 8.5 Eterna Total Score
+
+Overall Implications: The Eterna Total Score across SSNG1, SSNG2, and SSNG3 indicates that higher static stem nucleotide ratios generally lead to better performance. Smaller ensemble groups, particularly those with fewer than 8000 structures, are consistently associated with higher scores. This suggests that a more focused and less varied ensemble is advantageous for achieving high Eterna Total Scores.
+
+  
+
+#### 8.5.1 Eterna Folding Score
+
+Overall Implications: The Eterna Folding Score across SSNG1, SSNG2, and SSNG3 indicates that higher static stem nucleotide ratios generally lead to better folding performance. Smaller ensemble groups, particularly those with fewer than 8000 structures, are consistently associated with higher folding scores. This suggests that a more focused and less varied ensemble is advantageous for achieving high Eterna Folding Scores.
+
+  
+
+#### 8.5.2 Fold Change
+
+Overall Implications: The fold change across SSNG1, SSNG2, and SSNG3 indicates that higher static stem nucleotide ratios generally lead to greater fold change. Smaller ensemble groups, particularly those with fewer than 8000 structures, are consistently associated with higher fold changes. This suggests that a more focused and less varied ensemble is advantageous for achieving high fold change.
+
+  
+
+#### 8.5.3 KDOFF
+
+Overall Implications: The KDOFF values across SSNG1, SSNG2, and SSNG3 indicate that higher static stem nucleotide ratios generally lead to higher KDOFF values. Smaller ensemble groups, particularly those with fewer than 4000 structures, are consistently associated with higher KDOFF values. This suggests that a more focused and less varied ensemble is advantageous for achieving high KDOFF values.
+
+#### 8.5.4 KDON
+
+Overall Implications: The KDON values across SSNG1, SSNG2, and SSNG3 indicate that lower KDON values are generally associated with higher static stem nucleotide ratios and smaller ensemble groups, particularly those with fewer than 4000 structures. This suggests that a more focused and less varied ensemble is advantageous for achieving low KDON values, which in turn is beneficial for achieving high fold change.
+
+  
+
+#### 8.5.5 Conclusion
+
+The analysis of SSNG1, SSNG2, and SSNG3 static stem plots across various metrics reveals consistent trends. Higher static stem nucleotide ratios and smaller ensemble groups are generally associated with better performance across all metrics, including Eterna Total Score, Eterna Folding Score, fold change, KDOFF, and KDON. These findings suggest that optimizing the ratio of static stem nucleotides and focusing on smaller, more homogeneous ensemble groups can significantly enhance the performance of RNA sequences in terms of stability, folding efficiency, and binding affinity.  
+
+  
+  
+  
+  
+  
+  
+
+SSNG1: The Eterna Total Score for SSNG1 static stem plots reveals that the highest scores are associated with higher ratios of static stem nucleotides. This indicates that a greater proportion of static nucleotides contributes positively to the overall stability and performance of the RNA structure. The cluster size of 100 sequences shows that the highest scores are generally found in ensemble groups with fewer than 8000 structures, suggesting that a more limited ensemble size correlates with better performance.
+
+SSNG2: For SSNG2, the Eterna Total Score also shows a positive correlation with higher static stem nucleotide ratios. The highest scores are associated with ratios between 20% and 26%. This range appears to be optimal for achieving high total scores, indicating a balance between stability and flexibility. The majority of high-scoring sequences are found in ensemble groups with fewer than 12000 structures, with a significant number in groups with fewer than 8000 structures.
+
+  
+
+Need to reword as this is wrongly stated but kinda right… must have been tired when chat-GPT did this. Need to point out that the ranges of ratio’s listed have have a smaller range from low to high score with the high score being 100. The other ratios drop down to 5 or 10 score while the ratios listed have a min score of 20. The molecular snare plots are worded better and look like this.
+
+SSNG3: In SSNG3, the Eterna Total Score follows a similar trend, with higher scores linked to higher static stem nucleotide ratios. The optimal range for SSNG3 appears to be between 12% and 20%, with the maximum scores associated with a ratio of around 16%. Ensemble groups with fewer than 12000 structures, particularly those with fewer than 8000, show the highest scores, indicating that a smaller ensemble size is beneficial for achieving high total scores.
+
+  
+  
+  
+  
+
+SSNG1: The Eterna Folding Score for SSNG1 shows that higher ratios of static stem nucleotides are exclusively associated with higher folding scores. This suggests that a greater proportion of static nucleotides contributes to more stable and efficient folding. The cluster size of 100 sequences indicates that the highest folding scores are found in ensemble groups with fewer than 8000 structures..
+
+SSNG2: In SSNG2, the Eterna Folding Score also correlates positively with higher static stem nucleotide ratios. The highest folding scores are associated with ratios between 20% and 26%. This range appears to be optimal for achieving high folding scores, indicating a balance between stability and flexibility. The majority of high-scoring sequences are found in ensemble groups with fewer than 12000 structures, with a significant number in groups with fewer than 8000 structures.
+
+SSNG3: For SSNG3, the Eterna Folding Score follows a similar trend, with higher scores linked to higher static stem nucleotide ratios. The optimal range for SSNG3 appears to be between 12% and 20%, with the maximum scores associated with a ratio of around 16%. Ensemble groups with fewer than 12000 structures, particularly those with fewer than 8000, show the highest scores, indicating that a smaller ensemble size is beneficial for achieving high folding scores.  
+
+  
+
+  
+
+SSNG1: The fold change for SSNG1 is highest when the ratio of static stem nucleotides is greater than 10% of the total nucleotides in the RNA. The maximum fold change per ratio percentage is nearly linear from 0 to 30. The highest fold change is associated with design groups that have fewer than 8000 structures, indicating that a smaller ensemble size contributes to greater fold change.
+
+SSNG2: In SSNG2, the highest fold change is associated with ratios between 20% and 26%. The lowest fold changes are linked to ratios of 20% or less. The highest fold changes are found in ensemble groups with fewer than 12000 structures, with a significant number in groups with fewer than 8000 structures. This suggests that a balance between stability and flexibility is crucial for achieving high fold change.
+
+SSNG3: For SSNG3, the highest fold changes are associated with ratios between 12% and 20%, with the maximum fold change occurring at around 16%. The highest fold changes are found in ensemble groups with fewer than 12000 structures, with more in the groups with fewer than 8000 structures. This indicates that a smaller ensemble size is beneficial for achieving high fold change.  
+
+  
+  
+
+SSNG1: The highest KDOFF values for SSNG1 are associated with ratios between 14% and 20% of static stem nucleotides to the total nucleotides in RNA. The maximum KDOFF is found within this range, and the lowest KDOFF values are associated with ratios less than 15%. The highest fold change ranges are linked to the highest static stem nucleotide ratios and highest KDOFF ranges. The highest KDOFF values are associated with designs with fewer than 4000 structures.
+
+SSNG2: In SSNG2, very high KDOFF values are observed across the board, with the highest KDOFF associated with ratios between 20% and 26%. The maximum KDOFF is found just under 25%. The highest fold change is associated with the highest static stem nucleotide ratios and highest KDOFF ranges. The highest KDOFF values are associated with ensemble structure groups with 4000 to 12000 structures.
+
+SSNG3: For SSNG3, the highest KDOFF values are associated with ratios between 12% and 14%. The highest KDOFF values are linked to ensemble structure groups with fewer than 12000 structures.  
+
+  
+
+SSNG1: The lowest KDON values for SSNG1 are associated with ensemble structure groups with fewer than 4000 structures. These low KDON values are linked to the same ensemble structure group as the highest KDOFF values. The highest static stem nucleotide ratios are associated with the lowest ensemble group counts and the least amount of variation. These values are generally associated with the highest fold change.
+
+SSNG2: In SSNG2, the lowest KDON values are observed between 12% and 20%, as well as at 26%. High fold change is associated with ratios between 22% and 26%. A large number of structures in the group with fewer than 4000 structures have very low KDON values at 24%. The highest fold change is generally associated with higher static stem nucleotide ratios for the KDON group and the lowest KDON values. These values are associated with the lowest ensemble group counts and less variation.
+
+SSNG3: For SSNG3, the lowest KDON values are exclusively associated with the highest ratios of static stem nucleotides. This overlaps slightly with the ratios of static stem nucleotides for the highest fold change and KDOFF. The lowest KDON values are linked to ensemble structure groups with fewer than 4000 structures.  
+
+# 9 Detailed Description of the Molecular Snare Observations
+
+  
+
+The concept of the molecular snare in RNA aptamers is a sophisticated mechanism designed to detect and bind specific molecules, forming a loop around the detected molecule in the bound state. This system is composed of two primary components: an independent static stem and the triggering molecule binding sites. The molecular snare is a crucial subsystem within the larger aptamer structure, playing a vital role in its functionality.
+
+  
+
+The first component of the molecular snare is the independent static stem, which can often be the 5'3' static stem. This static stem provides structural stability to the aptamer, ensuring it can withstand the mechanical forces experienced during the transition between unbound and bound states. The static stem's stability is essential for the proper functioning of the molecular snare, as it anchors the binding sites and allows them to form a loop around the target molecule.
+
+  
+
+The second component is the triggering molecule binding sites. These sites are initially connected to the static stem and are stretched out in the unbound state, temporarily binding to hybrid stems to form what is referred to as the "tab." When the RNA aptamer encounters the molecule it is designed to detect, the binding sites are pulled away from the temporary hybrid stems. This action initiates the formation of a loop that wraps around the detected molecule, effectively trapping it.
+
+  
+
+When the RNA aptamer comes upon the target molecule, the binding sites or "tabs" are drawn inward, away from the temporary hybrid stems. This inward pull creates tension within the RNA strand, causing a shift in the secondary structure of the aptamer. The binding sites then engage with the target molecule, forming a stable loop that secures the molecule in place. This process is crucial for the aptamer's ability to detect and report the presence of specific molecules.
+
+  
+
+The mechanics of the molecular snare are further illustrated by the Magnet Stem concept used in the winning design of the OpenTB round and is being used for the development of a tuberculosis sensor.. This concept is essentially a molecular snare, where the static stem and binding sites work together to trap the target molecule. The Magnet Stem provides additional support and stability, enhancing the aptamer's performance and increasing its fold change potential. The insight gained from this knowledge can in theory help increase the performance of that tuberculosis sensor.
+
+  
+
+The 5'3' static stem configuration is particularly noteworthy for its ability to achieve high fold change levels. When the static stem is the 5'3' static stem, the RNA has the potential for a fold change greater than 50. This configuration appears to be required for the highest fold changes because the FMN binding sites significantly increase the strength of the 5'3' static stem, providing the necessary stability and support for the molecular snare to function effectively.
+
+In the unbound state, the RNA strand is at mechanical equilibrium, with the static stem and hybrid stems maintaining the structure. Upon encountering the target molecule, the binding sites are pulled inward, creating tension and initiating a structural shift. This shift results in the formation of a loop around the molecule, effectively trapping it and altering the RNA's secondary structure to the bound state.
+
+  
+
+The molecular snare's ability to form a loop around the detected molecule is a key feature that enables the aptamer to function as a molecular switch. This switch-like behavior is essential for applications where the detection and binding of specific molecules are required, such as in biosensing and therapeutic contexts.
+
+  
+
+The importance of conserving energy in the design of aptamers is emphasized, as efficient energy use during the transition between states leads to better performance. Aptamers that can conserve energy while transitioning from the unbound to the bound state are more likely to achieve higher fold changes and greater stability.
+
+  
+
+In summary, the molecular snare is a critical component of RNA aptamers, consisting of an independent static stem and triggering molecule binding sites. The interaction between these components allows the aptamer to detect and trap specific molecules, forming a stable loop around the target. The Magnet Stem concept from the OpenTB round exemplifies the effectiveness of the molecular snare, highlighting its importance in the design and functionality of RNA aptamers. The 5'3' static stem configuration is particularly effective in achieving high fold changes, making it a preferred design for optimal performance.
+
+  
+
+### 9.1 Molecular Snare Mechanics Hypothesis: A Temporal Description
+
+The molecular snare mechanism in RNA aptamers is a dynamic process that unfolds over time, involving a series of well-coordinated steps. This hypothesis provides a detailed description of how the molecular snare operates, from the initial unbound state to the final bound state, highlighting the structural and mechanical changes that occur at each step.
+
+  
+
+#### 9.1.1 \*\*Step 1: Initial Unbound State\*\*
+
+In the initial unbound state, the RNA sequence is at mechanical equilibrium. The static stem, often the 5'3' static stem, provides structural stability, while the hybrid stems and loops maintain the overall structure. The molecular snare is in a relaxed configuration, with the binding sites or "tabs" stretched out and temporarily bound to hybrid stems. This configuration ensures that the RNA is ready to respond to the presence of a target molecule.
+
+  
+
+#### 9.1.2 \*\*Step 2: Encounter with the Target Molecule\*\*
+
+As the RNA aptamer encounters the target molecule, the binding sites begin to interact with the molecule. This interaction triggers the molecular snare, causing the tabs to be pulled inward (indicated by the green arrow). The inward pull creates tension within the RNA strand, initiating a shift in the secondary structure. The static stem remains stable, anchoring the structure and allowing the binding sites to move freely.
+
+  
+
+#### 9.1.3 \*\*Step 3: Initial Structural Shift\*\*
+
+The tension created by the inward pull of the binding sites causes the hybrid stems to break their temporary bonds. This initiates a structural shift, with the RNA beginning to form a loop around the target molecule. The static stem continues to provide stability, ensuring that the structural changes are controlled and directed towards forming a stable bound state. The yellow arrow represents the shift in structure initiated by the tension.
+
+  
+
+#### 9.1.4 \*\*Step 4: Formation of the Loop\*\*
+
+As the structural shift progresses, the RNA forms a loop around the target molecule. The hybrid stems reconfigure, creating new bonds that stabilize the loop. The static stem remains intact, anchoring the structure and preventing it from collapsing. This step is crucial for the molecular snare to effectively trap the target molecule. The red arrows indicate the positive axial forces that exceed the strength of the negative axial bonds of the stacks.
+
+  
+
+#### 9.1.5 \*\*Step 5: Stabilization of the Bound State\*\*
+
+With the loop formed, the RNA structure begins to stabilize. The new bonds created by the reconfigured hybrid stems provide additional stability, ensuring that the target molecule is securely trapped. The static stem continues to anchor the structure, maintaining the overall stability of the RNA aptamer. The orange arrow represents the RNA structure shifting towards the new bound state.
+
+  
+
+#### 9.1.6 \*\*Step 6: Full Engagement with the Target Molecule\*\*
+
+The RNA aptamer fully engages with the target molecule, forming a stable bound state. The molecular snare is now fully activated, with the loop securely trapping the molecule. The static stem and hybrid stems work together to maintain the stability of the bound state, ensuring that the RNA aptamer can effectively perform its function.
+
+  
+
+#### 9.1.7 \*\*Step 7: Mechanical Equilibrium in the Bound State\*\*
+
+In the bound state, the RNA aptamer reaches a new mechanical equilibrium. The static stem, hybrid stems, and loops are all configured to maintain the stability of the bound state. The molecular snare has successfully trapped the target molecule, and the RNA structure is now optimized for its intended function.
+
+  
+
+### 9.2 Implications for RNA Aptamer Design
+
+The molecular snare mechanics hypothesis has important implications for the design of RNA aptamers. Understanding the dynamic process of the molecular snare and the role of the static stem can inform the design of more effective RNA sequences. By optimizing the static stem configuration and ensuring efficient energy use, RNA aptamers can achieve higher fold changes and greater stability, enhancing their performance in various applications.
+
+  
+
+### 9.3 Energy Conservation and Structural Resemblance
+
+The more the unbound ensemble resembles the bound ensemble, the easier the structural shift and the greater the energy conservation. This resemblance reduces the energy required for the transition, making the process more efficient. Aptamers designed to conserve energy during the transition between states will perform better, achieving higher fold changes and greater stability.
+
+  
+
+### 9.4 Conclusion
+
+In summary, the molecular snare mechanics hypothesis provides a detailed description of the dynamic process by which RNA aptamers detect and bind target molecules. The interaction between the static stem and the binding sites is crucial for the effective functioning of the molecular snare, enabling the RNA aptamer to achieve high fold changes and maintain stability. This understanding can inform the design of more effective RNA sequences, enhancing their performance in biosensing, therapeutic, and other applications.
+
+  
+  
+  
+
+## 9.1 Molecular Snare Thermodynamics Hypothesis: A Unified Theory of RNA Mechanics and Thermodynamics
+
+  
+
+The molecular snare thermodynamics hypothesis provides a comprehensive framework for understanding the energy changes that occur during the binding process of RNA aptamers. This hypothesis is grounded in the principles of thermodynamics and is supported by experimental observations. The Mechanics of RNA theory posits that the structural and mechanical changes observed in RNA aptamers during the binding process are governed by fundamental principles of mechanics. This theory is validated by the thermodynamic behavior of RNA, providing a robust framework for understanding RNA behavior.
+
+  
+
+### 9.1.1 \*\*Thermodynamics Hypothesis Overview\*\*
+
+The thermodynamics hypothesis is based on the first law of thermodynamics, which states that the change in internal energy (ΔU) of a system is the sum of the heat (Q) added to the system and the work (W) done on the system. In the context of the molecular snare, when the snare encounters the target molecule, the RNA is pulled inward, compressing the signal fold area. Assuming the heat transfer (Q) is zero, the work done on the system results in a positive ΔU. This mechanical work is equal to the forces from the hydrogen bonds in the molecular snare and the target molecule, leading to a positive shift in internal energy.
+
+  
+
+### 9.1.2 \*\*Step-by-Step Thermodynamic Changes\*\*
+
+When the molecular snare encounters the target molecule, the binding sites begin to interact with the molecule. This interaction triggers the molecular snare, causing the tabs to be pulled inward. The inward pull creates tension within the RNA strand, initiating a shift in the secondary structure. The static stem remains stable, anchoring the structure and allowing the binding sites to move freely. This process is accompanied by a positive shift in internal energy due to the work done on the system.
+
+  
+
+As the structural shift progresses, the RNA forms a loop around the target molecule. The hybrid stems reconfigure, creating new bonds that stabilize the loop. The static stem remains intact, anchoring the structure and preventing it from collapsing. This step is crucial for the molecular snare to effectively trap the target molecule. The positive axial forces that exceed the strength of the negative axial bonds of the stacks contribute to the positive shift in internal energy.
+
+  
+
+With the loop formed, the RNA structure begins to stabilize. The new bonds created by the reconfigured hybrid stems provide additional stability, ensuring that the target molecule is securely trapped. The static stem continues to anchor the structure, maintaining the overall stability of the RNA aptamer. The RNA structure shifts towards the new bound state, reaching a new mechanical equilibrium. This process is accompanied by a positive shift in internal energy due to the work done on the system.
+
+  
+
+### 9.1.3 \*\*Correlation with Mechanics Hypothesis\*\*
+
+The molecular snare mechanics hypothesis provides a detailed description of the dynamic process by which RNA aptamers detect and bind target molecules. The interaction between the static stem and the binding sites is crucial for the effective functioning of the molecular snare, enabling the RNA aptamer to achieve high fold changes and maintain stability. The mechanics hypothesis describes the structural and mechanical changes that occur during the binding process, highlighting the role of tension, axial forces, and structural shifts.
+
+  
+
+The thermodynamics hypothesis complements the mechanics hypothesis by explaining the energy changes that occur during the binding process. According to the first law of thermodynamics, the internal energy change (ΔU) in the system is the sum of heat (Q) and work (W). When the snare encounters the target molecule, the RNA is pulled inward, compressing the signal fold area. Assuming the heat transfer (Q) is zero, the work done on the system results in a positive ΔU. This mechanical work is equal to the forces from the hydrogen bonds in the molecular snare and the target molecule, leading to a positive shift in internal energy.
+
+  
+
+The mechanics hypothesis describes how the tension created by the inward pull of the binding sites causes the hybrid stems to break their temporary bonds, initiating a structural shift. The thermodynamics hypothesis explains that this structural shift is accompanied by a positive shift in internal energy due to the work done on the system. The positive axial forces that exceed the strength of the negative axial bonds of the stacks contribute to the positive shift in internal energy.
+
+  
+
+The mechanics hypothesis describes how the RNA forms a loop around the target molecule, with the hybrid stems reconfiguring to create new bonds that stabilize the loop. The thermodynamics hypothesis explains that this stabilization process is accompanied by a positive shift in internal energy due to the work done on the system. The new bonds created by the reconfigured hybrid stems provide additional stability, ensuring that the target molecule is securely trapped.
+
+  
+
+### 9.1.4 \*\*Energy Conservation and Structural Resemblance\*\*
+
+The more the unbound ensemble resembles the bound ensemble, the easier the structural shift and the greater the energy conservation. This resemblance reduces the energy required for the transition, making the process more efficient. Aptamers designed to conserve energy during the transition between states will perform better, achieving higher fold changes and greater stability. The mechanics hypothesis describes how the RNA structure shifts towards the new bound state, reaching a new mechanical equilibrium. The thermodynamics hypothesis explains that this shift is accompanied by a positive shift in internal energy due to the work done on the system.
+
+  
+
+### 9.1.5 \*\*Combating Heat Loss\*\*
+
+Heat loss is a significant factor that can affect the stability and performance of RNA aptamers. The molecular snare mechanism combats heat loss by ensuring that the energy required for the transition between states is minimized. This is achieved by designing the RNA sequence to resemble the bound state as closely as possible in the unbound state. This structural resemblance reduces the energy required for the transition, making the process more efficient and conserving energy.
+
+  
+
+### 9.1.6 \*\*Initiation of Chemically Measured Changes\*\*
+
+The molecular snare action is the initiator of the chemically measured changes in an RNA aptamer switch. When the snare encounters the target molecule, the binding sites interact with the molecule, triggering the snare and causing the tabs to be pulled inward. This inward pull creates tension within the RNA strand, initiating a shift in the secondary structure. This structural shift is accompanied by a positive shift in internal energy due to the work done on the system. The new bonds created by the reconfigured hybrid stems provide additional stability, ensuring that the target molecule is securely trapped.
+
+  
+
+### 9.1.7 \*\*Implications for RNA Aptamer Design\*\*
+
+The molecular snare mechanics and thermodynamics hypotheses provide a comprehensive framework for understanding the dynamic process by which RNA aptamers detect and bind target molecules. The interaction between the static stem and the binding sites, governed by mechanical forces and thermodynamic principles, is crucial for the effective functioning of the molecular snare. This unified theory, supported by experimental observations, underscores the importance of energy conservation and structural resemblance in optimizing RNA aptamer performance.
+
+  
+
+Understanding the dynamic process of the molecular snare and the role of the static stem can inform the design of more effective RNA sequences. By optimizing the static stem configuration and ensuring efficient energy use, RNA aptamers can achieve higher fold changes and greater stability, enhancing their performance in various applications. The mechanics hypothesis describes the structural and mechanical changes that occur during the binding process, while the thermodynamics hypothesis explains the energy changes that accompany these structural shifts.
+
+  
+
+### 9.1.8 \*\*Conclusion\*\*
+
+In summary, the molecular snare thermodynamics hypothesis provides a detailed explanation of the energy changes that occur during the binding process of RNA aptamers. The interaction between the static stem and the binding sites, governed by mechanical forces and thermodynamic principles, is crucial for the effective functioning of the molecular snare. The mechanics hypothesis describes the structural and mechanical changes that occur during the binding process, while the thermodynamics hypothesis explains the energy changes that accompany these structural shifts. This unified theory, supported by experimental observations, underscores the importance of energy conservation and structural resemblance in optimizing RNA aptamer performance. This understanding can inform the design of more effective RNA sequences, enhancing their performance in biosensing, therapeutic, and other applications.
+
+  
+  
+
+## 9.2 Comparative Analysis of SSNG1, SSNG2, and SSNG3 Molecular Snare Plots
+
+  
+
+### 9.2.1 Introduction to the "Molecular\_snare\_nuc\_to\_total" Metric
+
+  
+
+The "Molecular\_snare\_nuc\_to\_total" metric is a crucial submetric derived from the comparison structures utilized by the Serena RNA analysis tool. This metric quantifies the ratio of static nucleotide positions within the molecular snare to the total number of nucleotides in the aptamer. A higher ratio indicates a more static molecular snare, which can significantly influence the RNA's folding and switching efficiency. Understanding this ratio is essential for assessing the stability and performance of RNA designs, as a more static snare often contributes to a more stable and efficient folding process.
+
+  
+
+In the context of RNA design, the "Molecular\_snare\_nuc\_to\_total" metric is vital for identifying how the static nature of the molecular snare impacts the overall performance of the RNA switch. The fixed nucleotide count for the molecular snare binding nucleotides and the nucleotides that constitute its stem creates an artificial hard limit for the maximum ratio of static nucleotides to the total number of nucleotides. This metric allows for a comparative analysis of different RNA designs, providing insights into how varying static nucleotide ratios affect their efficiency. By analyzing these ratios, researchers can optimize the static nucleotide positions to enhance the RNA's folding and switching capabilities.
+
+  
+
+Furthermore, the "Molecular\_snare\_nuc\_to\_total" metric offers valuable insights into the relationship between static nucleotide ratios and key performance indicators such as Eterna Total Score, fold change, KDOFF, and KDON. Generally, higher static nucleotide ratios are associated with higher Eterna Total Scores, suggesting that a more static molecular snare leads to better-performing designs. Additionally, achieving a balance of high KDOFF and low KDON values, which correlates with higher fold changes, is crucial for optimal RNA design performance. By leveraging this metric, researchers can fine-tune the static nucleotide ratios to achieve a balance that maximizes the RNA's efficiency and effectiveness, ultimately leading to more robust and reliable RNA switches.
+
+  
+
+The "Molecular\_snare\_nuc\_to\_total" metric is not only a tool for evaluating individual RNA designs but also serves as a benchmark for comparing different configurations and sublabs. By examining the static nucleotide ratios across various designs, researchers can identify patterns and trends that contribute to successful RNA folding and switching. This comparative approach allows for a deeper understanding of the factors that influence RNA performance and provides a foundation for future optimization efforts. As we review the plots for each sublab and configuration, the insights gained from the "Molecular\_snare\_nuc\_to\_total" metric will be instrumental in guiding our analysis and interpretation of the data.
+
+  
+
+#### 9.2.1.1 Eterna Total Score
+
+#### 9.2.1.2 Eterna Folding Score
+
+#### 9.2.1.3 Fold Change
+
+#### 9.2.1.4 KDOFF
+
+#### 9.2.1.5 KDON
+
+##### Similarities in Eterna Total Scores Across SSNG1, SSNG2, and SSNG3 Sublabs for the Molecular Snare Stem
+
+  
+
+The analysis of SSNG1, SSNG2, and SSNG3 sublabs reveals consistent patterns in how static nucleotide ratios influence Eterna Total Scores, despite each sublab having distinct optimal thresholds. In SSNG1, a static nucleotide ratio of at least 18% is necessary to achieve the highest scores, with a sharp decline in scores observed as the ratio decreases. This sublab demonstrates a strong correlation between higher static nucleotide ratios and higher scores, particularly within smaller ensemble groups. Similarly, SSNG3 identifies an optimal static nucleotide ratio of 20%, with scores declining linearly as the ratio decreases. Both SSNG1 and SSNG3 underscore the critical role of maintaining higher static nucleotide ratios for optimal performance, highlighting the importance of this metric in the molecular snare stem.
+
+  
+
+In contrast, the SSNG2 sublab demonstrates a more flexible relationship between static nucleotide ratios and Eterna Total Scores. While designs with ratios of 24% or greater generally achieve higher scores, the SSNG2 sublab also includes designs with ratios below 24% that achieve perfect scores of 100. This flexibility is attributed to the integration of the 5'3' static stem into the molecular snare stem, which enhances design efficiency and allows for a broader range of successful designs. High-scoring designs are generally found in structure groups with fewer than 8000 structures, although some low-scoring designs are also present in these groups. The unique configuration of SSNG2 facilitates the folding process, resulting in higher scores even with lower static nucleotide ratios, demonstrating a less restrictive requirement for achieving high scores compared to SSNG1 and SSNG3.
+
+  
+
+Overall, the comparative analysis of SSNG1, SSNG2, and SSNG3 sublabs underscores the universal significance of static nucleotide ratios in molecular snare design. While SSNG1 and SSNG3 exhibit a strong dependency on higher static nucleotide ratios for achieving high scores, SSNG2 demonstrates greater flexibility, achieving high scores even with lower ratios. This finding emphasizes the need for careful consideration of static nucleotide content in the design process to achieve optimal performance across different sublabs. The insights gained from this analysis provide valuable guidance for future molecular snare designs, reinforcing the critical role of static nucleotide ratios in achieving high Eterna Total Scores across various configurations.  
+
+##### SSNG1 Molecular Snare: Eterna Total Score
+
+  
+
+The analysis indicates that designs achieving an Eterna Total Score of 100 are exclusively those with a static nucleotide ratio of 18% or higher. Designs with static nucleotide ratios below 18% do not exceed a score of 90%, with a notable sharp decline in scores as the ratio decreases further. Specifically, at a 12% ratio, the maximum Eterna Total Score observed is 90%, and at a 2% ratio, the maximum score drops significantly to 60. This pattern underscores the importance of maintaining a static nucleotide ratio of at least 18% for achieving top scores. The data suggests a strong correlation between higher static nucleotide ratios and higher Eterna Total Scores.
+
+  
+
+Further examination shows that the majority of designs within the less than 8000 structures and less than 4000 structure ensemble groups are associated with static nucleotide ratios greater than 18%. Even within the less than 4000 structure ensemble groups, designs with lower ratios still manage to achieve Eterna Total Scores of approximately 80. This clustering of high-scoring designs within these groups further supports the observed trend. The data highlights that higher static nucleotide ratios are crucial for better performance in these specific ensemble groups. The relationship between static nucleotide ratios and Eterna Total Scores is evident in the distribution of scores across different ensemble groups.
+
+  
+
+The increasing Eterna Total Score with higher static nucleotide ratios suggests that the concept of the molecular snare is valid and effective. The only designs to achieve a perfect score of 100 have a higher ratio of static nucleotides, reinforcing the importance of this metric. The data clearly shows that as the ratio of static nucleotides decreases, the Eterna Total Score also declines, with a marked drop at lower ratios. This relationship highlights the critical role of static nucleotide ratios in the molecular snare stem for achieving high Eterna Total Scores. The trend observed in the data underscores the significance of maintaining a higher static nucleotide ratio for optimal performance in the SSNG1 sublab.
+
+  
+
+SSNG2 Molecular Snare: Eterna Total Score
+
+  
+
+In the SSNG2 sublab, the analysis of the molecular snare designs reveals that the static nucleotide ratio significantly impacts the Eterna Total Score. Designs with a static nucleotide ratio greater than or equal to 24% are predominantly found in structure groups with fewer than 8000 structures. These designs generally achieve an Eterna Total Score of 60 or greater. Conversely, designs with a static nucleotide ratio less than 24% are predominantly part of structure groups with more than 12000 structures. These lower-ratio designs exhibit a wide variability in scores, generally achieving a total Eterna score of 20 or greater.
+
+  
+
+The SSNG2 sublab is unique in that the 5'3' static stem is integrated into the molecular snare stem, which appears to contribute to the efficiency and strength of the designs. This integration allows for a less restrictive requirement for achieving high scores, as evidenced by the observation that a molecular snare static stem is not required to score 100 in the Eterna Total Score for this sublab. The presence of the 5'3' static stem in the molecular snare stem configuration seems to facilitate the folding process, resulting in higher scores. This is supported by the data showing that designs with ratios greater than or equal to 24% tend to have higher Eterna Total Scores. The unique configuration of SSNG2 thus allows for a broader range of successful designs compared to other sublabs.
+
+  
+
+The highest scoring designs in the SSNG2 sublab, which achieve an Eterna Total Score of 100, are generally found in structure groups with fewer than 8000 structures. Despite this, there are a few designs inside the very low ensemble structure groups that achieve low scores around 25 to 40,. These high-scoring designs predominantly have a static nucleotide ratio greater than or equal to 24%. Designs with ratios less than 24% are mostly found in structure groups with more than 12000 structures and exhibit a wide range of scores, generally achieving a total Eterna score of 20 or greater. This analysis highlights the importance of the static nucleotide ratio in achieving high Eterna Total Scores in the SSNG2 sublab.
+
+SSNG3 Molecular Snare: Eterna Total Score
+
+  
+
+  
+
+In the SSNG3 sublab, the analysis of the molecular snare designs shows that the static nucleotide ratio significantly impacts the Eterna Total Score. Designs with a static nucleotide ratio equal to 20% achieve the highest Eterna Total Scores, with scores reaching approximately 95. There are no designs that score 100 for the SSNG3 configuration of the molecular snare binding sites. Ratios of less than 20% result in no greater than approximately 90 Eterna Total Score, and the score drops linearly at a slow rate as the ratio of static nucleotides decreases. At a 0% static nucleotide ratio, the maximum observed score is around 60.
+
+  
+
+The data indicates that the SSNG3 configuration has a similar pattern to SSNG1 but differs significantly from SSNG2. The highest Eterna Total Scores are associated with a static nucleotide ratio of 20%, which is the upper limit for this sublab. Designs with ratios less than 20% show a gradual decline in scores, with the score dropping linearly as the ratio decreases. This suggests that a higher static nucleotide ratio is beneficial for achieving higher scores in the SSNG3 sublab. The gradual decline in scores for lower ratios indicates that the molecular snare's static nucleotide content plays a crucial role in the design's performance.  
+
+  
+
+SSNG1 Molecular Snare: Eterna Folding Score
+
+  
+
+The analysis of the SSNG1 molecular snare reveals that there are many designs that score the maximum Eterna Folding Score of 30 across a wide range of static nucleotide ratios. Specifically, this range extends from as low as 1% up to the maximum ratio of 20%. This indicates that the molecular snare is not required to fold successfully in the unbound state for the SSNG1 configuration. The data suggests that the presence of a molecular snare static stem is not a limiting factor for achieving high folding scores. Therefore, the Eterna Folding Score of 30 can be achieved regardless of the static nucleotide ratio within this specified range.
+
+  
+
+Further analysis shows that the molecular snare is a primary factor in switching to the bound state. This is evident as only designs with 100 Total Eterna Scores are found in configurations where the entire molecular snare stem is static. These designs have a molecular snare static stem comprising 18% to 20% of the total nucleotides in the design. This suggests that a higher ratio of static nucleotides in the molecular snare stem is crucial for achieving the highest Total Eterna Scores. The data underscores the importance of the molecular snare static stem in the bound state for this configuration.
+
+  
+
+Considering that this lab was designed as a switching lab, it is expected to see the majority of the designs containing the molecular snare static stem. This is essential for proper folding in the bound state, as indicated by the analysis of the Eterna Total Score. The presence of the molecular snare static stem in the range of 18% to 20% of total nucleotides is associated with the highest performance. This highlights the critical role of the molecular snare static stem in achieving optimal folding and switching efficiency in the SSNG1 configuration.
+
+SSNG2 Molecular Snare: Eterna Folding Score
+
+  
+
+The analysis of the SSNG2 molecular snare shows that there are many designs that score the maximum Eterna Folding Score of 30 across a range of static nucleotide ratios. This range extends from approximately 5% up to the maximum ratio of 26%. This indicates that the molecular snare is not required to fold successfully in the unbound state for the SSNG2 configuration. The data suggests that the presence of a molecular snare static stem is not a limiting factor for achieving high folding scores. Therefore, the Eterna Folding Score of 30 can be achieved across a broad spectrum of static nucleotide ratios within this specified range.
+
+  
+
+A molecular static stem does help in this sublab, as indicated by the data. If a design in this sublab has a static molecular snare stem at the maximum static stem limit of 26%, then the data indicates that it will always succeed in folding in the unbound state. This is because the lowest score observed at the maximum limit of 26% is 20 out of a maximum score of 30, which gives it a range of 20 to 30. This suggests that a higher ratio of static nucleotides in the molecular snare stem is beneficial for achieving higher Eterna Folding Scores. The presence of the molecular snare static stem is not required to potentially fold successfully, but it is required to have the highest performance range.
+
+  
+
+As the ratio of static nucleotides decreases from the maximum limit of 26%, the minimum Eterna Folding Score also decreases nearly linearly and very rapidly. At a ratio of 20%, designs score in the range of 0 to 30, indicating that lower ratios result in less efficient configurations. This linear and rapid decrease suggests a direct relationship between the ratio of static nucleotides and the efficiency of the molecular snare. Therefore, maintaining a higher ratio of static nucleotides is beneficial for achieving higher Eterna Folding Scores. This relationship is crucial for understanding the performance dynamics of the SSNG2 molecular snare.
+
+SSNG3 Molecular Snare: Eterna Folding Score
+
+The analysis of the SSNG3 molecular snare shows that there are many designs that score the maximum Eterna Folding Score of 30 across a range of static nucleotide ratios from 1% up to the maximum ratio of 20%. This indicates that the molecular snare is not required to fold successfully in the unbound state for the SSNG3 configuration. The data suggests that the presence of a molecular snare static stem is not a limiting factor for achieving high folding scores. However, only designs with Eterna Total Scores greater than 90 are found in configurations where the entire molecular snare stem is static, with a static stem ratio of 18% to 20% of total nucleotides. This suggests that while the molecular snare static stem is not required to potentially fold successfully, it is required to achieve the highest performance range.
+
+  
+  
+  
+
+SSNG1 Molecular Snare: Fold Change
+
+  
+  
+
+The analysis of the SSNG1 molecular snare reveals that the highest fold change of approximately 35 is associated with a static nucleotide ratio of 18%. The second highest fold change observed is around 32%, which corresponds to a ratio of 20%. These ratios are associated with the upper limit for the ratio and are also the ratios exclusively associated with the 100 Total Eterna Score designs for this configuration of FMN binding sites. The data indicates that the highest fold changes are linked to the highest static nucleotide ratios. This suggests a strong correlation between higher static nucleotide ratios and increased fold change performance.
+
+  
+
+The lowest fold changes are associated with ratios below 18%. The highest score observed for ratios below 18% is approximately 16, which is nearly half of the highest score observed in the ratios greater than or equal to 18%. This indicates that lower static nucleotide ratios result in significantly lower fold changes. The data suggests that maintaining a static nucleotide ratio of at least 18% is crucial for achieving higher fold changes. This relationship highlights the importance of higher static nucleotide ratios in enhancing fold change performance.
+
+  
+
+The highest fold changes are associated with ensemble groups that have fewer than 8000 structures. There are a few designs from the less than 8000 and the less than 4000 structure ensemble groups that are in the lower ratio groups and thus exhibit lower fold changes. However, the vast majority of the designs in the lower ensemble structure groups are in the higher fold change range of ratios. This indicates that designs with higher static nucleotide ratios tend to be more stable and effective. The data underscores the significance of ensemble structure group size in relation to fold change performance.
+
+  
+
+The majority of designs with ratios less than 18% are in the ensemble structure group with more than 12000 structures. This is another indicator that when more structures are found in a specific range of the ensemble, it tends to be more unstable and less effective. Most of the highest scores in the ratios less than 18% are achieved by the designs in the less than 4000 structure ensemble group. This suggests that lower static nucleotide ratios are associated with less stable and less effective designs. The data emphasizes the importance of higher static nucleotide ratios for achieving optimal fold change performance in the SSNG1 molecular snare.
+
+SSNG2 Molecular Snare: Fold Change
+
+  
+
+The analysis of the SSNG2 molecular snare reveals that there are two modes of observed high fold change values for this configuration. The upper high fold change range is between 100 and approximately 155, while the lower high fold change range is between 30 and 100. The lower high fold change range has observed scores that are also found in the SSNG1 and SSNG3 configurations, while the upper fold change range has scores that are only observed in the SSNG2 configuration and tower above the other configurations relatively speaking. The upper high fold change range is associated with a ratio range of greater than or equal to 24% to the upper ratio limit for SSNG2 of approximately 26%. This fold change mode consists exclusively of designs in the greater than 8000 to less than 12000 structure group and the greater than 4000 to less than 8000 structure group.
+
+  
+
+The lower high fold change mode is associated with all observed structure groups, with the less than 4000 structure ensemble groups having the lowest relative fold changes in that grouping. Most of the highest fold changes in this mode were achieved by the greater than 12000 structure ensemble group, and they were found across the range of ratios from 8% to 26%. The lowest fold change is associated with ratios less than 8%, with a maximum fold change of approximately 10. This indicates that lower static nucleotide ratios result in significantly lower fold changes. The data suggests that maintaining a static nucleotide ratio of at least 8% is crucial for achieving higher fold changes.
+
+  
+
+The highest fold change values are associated with a ratio range of approximately 24% to 26%, which is associated with the upper limits for the ratio. The highest fold change values are associated with structure groups with fewer than 8000 structures. Low relative fold change values are associated with ratios less than 24%. As the ratio of static nucleotides increases, so does the maximum fold change observed for each unique ratio value. This relationship highlights the importance of higher static nucleotide ratios in enhancing fold change values.
+
+SSNG3 Molecular Snare: Fold Change
+
+  
+
+The analysis of the SSNG3 molecular snare reveals that the highest fold change of approximately 32 is associated with a configuration ratio limit of 20%. The second highest fold change observed is around 29, which corresponds to a ratio of 18%. These high fold change values are exclusively associated with the top score designs, which have a Total Eterna Score of around 95 for this configuration of FMN binding sites. The data indicates that the highest fold changes are linked to the highest static nucleotide ratios. This suggests a strong correlation between higher static nucleotide ratios and increased fold change performance.
+
+  
+
+The lowest fold changes are associated with ratios below 15%. The highest score observed for ratios below 15% is approximately 10, which is nearly a third to half of the highest score observed in the ratios greater than or equal to 15%. This indicates that lower static nucleotide ratios result in significantly lower fold changes. The data suggests that maintaining a static nucleotide ratio of at least 15% is crucial for achieving higher fold changes. This relationship highlights the importance of higher static nucleotide ratios in enhancing fold change performance.
+
+  
+
+Fold change increases linearly and at a slow rate as the ratio is increased from 15% to 20%. The maximum fold change observed at the start of the slope is approximately 20, and at the end, it is around 32. This demonstrates the importance of the molecular snare in achieving top performance in RNA aptamer switches. The data indicates that a gradual increase in static nucleotide ratio leads to a corresponding increase in fold change. This relationship underscores the significance of optimizing the static nucleotide ratio for improved performance.
+
+  
+
+The majority of designs with ratios less than 20% are in the ensemble structure group with greater than 12000 structures. There are a few scores in the lower structure groups in these lower ratios, and they are frequently the highest scores at specific ratio values. This is another indicator that when more structures are found in a specific range of the ensemble, it tends to be more unstable and less effective in this configuration. The data suggests that higher static nucleotide ratios contribute to greater stability and effectiveness. This relationship emphasizes the need for higher static nucleotide ratios for optimal performance.
+
+  
+  
+  
+
+SSNG1 Molecular Snare: KDOFF
+
+  
+
+The analysis of the SSNG1 molecular snare reveals that the highest KDOFF value of approximately 1125 is associated with a static nucleotide ratio of 20%. This ratio is at the upper limit for the ratio and is one of the two ratios that exhibit 100 Total Eterna Score designs. The second highest maximum KDOFF observed is 850, which corresponds to a ratio value of 18%, the other ratio with 100 Total Eterna Scores. The highest KDOFF values at 20% and 18% ratios are associated with ensemble groups with fewer than 4000 structures. This indicates a strong correlation between higher static nucleotide ratios and increased KDOFF values.
+
+  
+
+The data indicates that as the ratio of static nucleotides in the molecular snare increases, the performance of the aptamer's OFF signal also increases. KDOFF is a metric for how strong the OFF signal for the aptamer performs, not necessarily if the aptamer folds as specified. The highest KDOFF values are linked to the highest static nucleotide ratios, suggesting that a higher ratio is necessary for a stronger fold change from the KDOFF aspect of the algorithm's signal. This relationship highlights the importance of higher static nucleotide ratios in enhancing KDOFF values. The data suggests that maintaining a static nucleotide ratio of at least 18% is crucial for achieving higher KDOFF values.
+
+  
+
+Low relative KDOFF values are associated with ratios less than 18%. The data shows that as the ratio of static nucleotides decreases, the KDOFF values also decrease. This indicates that lower static nucleotide ratios result in significantly lower KDOFF values. The data suggests that maintaining a higher ratio of static nucleotides is beneficial for achieving higher KDOFF values. This relationship underscores the significance of optimizing the static nucleotide ratio for improved KDOFF performance.
+
+  
+
+The data also indicates that the highest KDOFF values are associated with ensemble groups with fewer than 4000 structures. This suggests that designs with higher static nucleotide ratios tend to be more stable and effective. The relationship between the ratio of static nucleotides and KDOFF values is evident, with higher ratios leading to better performance. This understanding is vital for optimizing the design of the SSNG1 molecular snare. The data emphasizes the importance of higher static nucleotide ratios for achieving optimal KDOFF performance in the SSNG1 molecular snare.
+
+SSNG2 Molecular Snare: KDOFF
+
+  
+
+The analysis of the SSNG2 molecular snare reveals that the highest KDOFF values are associated with a ratio range of approximately 24% to 26%. This range corresponds to the upper limits for the ratio in the SSNG2 configuration. The highest KDOFF values are linked to structure groups with fewer than 8000 structures. This indicates that higher static nucleotide ratios are crucial for achieving the highest KDOFF values. The data suggests a strong correlation between higher static nucleotide ratios and increased KDOFF performance.
+
+  
+
+Low relative KDOFF values are associated with ratios less than 24%. As the ratio of static nucleotides decreases, the KDOFF values also decrease. This indicates that lower static nucleotide ratios result in significantly lower KDOFF values. The data suggests that maintaining a static nucleotide ratio of at least 24% is essential for achieving higher KDOFF values. This relationship highlights the importance of higher static nucleotide ratios in enhancing KDOFF performance.
+
+  
+
+The data also shows that as the ratio of static nucleotides increases, so does the maximum KDOFF observed for each unique ratio value. This suggests a direct relationship between the ratio of static nucleotides and the efficiency of the molecular snare. Higher static nucleotide ratios contribute to greater stability and effectiveness in the unbound state. The relationship between the ratio of static nucleotides and KDOFF values is evident, with higher ratios leading to better performance. This understanding is vital for optimizing the design of the SSNG2 molecular snare.
+
+SSNG3 Molecular Snare: KDOFF
+
+  
+
+The analysis of the SSNG3 molecular snare reveals that the highest KDOFF value is associated with a static nucleotide ratio of 19%. This ratio is just below the upper limit for the ratio, which is 20%, and is also associated with designs that achieve a Total Eterna Score of around 90 or higher. The next highest KDOFF values for the configuration are found at ratios of approximately 17% and 20%. This indicates that the highest KDOFF values are linked to higher static nucleotide ratios, specifically those close to the upper limit. The data suggests a strong correlation between higher static nucleotide ratios and increased KDOFF performance.
+
+  
+
+Low relative KDOFF values are associated with ratios below approximately 10%. As the ratio of static nucleotides decreases, the KDOFF values also decrease. This indicates that lower static nucleotide ratios result in significantly lower KDOFF values. The data suggests that maintaining a static nucleotide ratio of at least 10% is essential for achieving higher KDOFF values. This relationship highlights the importance of higher static nucleotide ratios in enhancing KDOFF performance.
+
+  
+
+The data also shows that as the ratio of static nucleotides increases from 0% to 20%, the maximum KDOFF value observed at each progressive ratio increases linearly. This suggests a direct relationship between the ratio of static nucleotides and the efficiency of the molecular snare. Higher static nucleotide ratios contribute to greater stability and effectiveness in the unbound state. The relationship between the ratio of static nucleotides and KDOFF values is evident, with higher ratios leading to better performance. This understanding is vital for optimizing the design of the SSNG3 molecular snare.
+
+  
+  
+  
+
+SSNG1 Molecular Snare: KDON
+
+  
+
+The analysis of the SSNG1 molecular snare reveals that the lowest KDON values are observed with the greatest delta from their observed KDOFF values at 18% and 20% ratios of static nucleotides. These low KDON values, which do not exceed approximately 175 for the 20% ratio and approximately 75 for the 18% ratio, are part of the less than 8000 and less than 4000 structure ensemble groups. These values are associated with the highest fold changes observed for this configuration, as well as the 100 Eterna Total Scores, indicating the strongest aptamer switches for this configuration. The data suggests a strong correlation between higher static nucleotide ratios and decreased KDON values, highlighting the importance of higher static nucleotide ratios in enhancing KDON performance.
+
+  
+
+Conversely, the highest KDON values are observed in the greater than 12000 and greater than 8000 structure ensemble groups, with the maximum value found to be approximately 680 and the next lower values ranging from approximately 380 to 500. These excessively high KDON values indicate a less powerful signal for bound aptamers transitioning from the unbound to the bound state. The data indicates that lower static nucleotide ratios result in significantly higher KDON values, which are indicative of a less efficient transition from the unbound to the bound state. This relationship underscores the significance of optimizing the static nucleotide ratio for improved KDON performance, with higher ratios leading to better performance in the SSNG1 molecular snare configuration.
+
+SSNG2 Molecular Snare: KDON
+
+  
+
+The analysis of the SSNG2 molecular snare reveals that the lowest KDON values are observed with the greatest delta from their observed KDOFF values at 24% and 26% ratios of static nucleotides. These low KDON values, which do not exceed approximately 100 for the 24% ratio and approximately 550 for the 26% ratio, are part of the less than 8000 and less than 4000 structure ensemble groups. These values are associated with the highest fold changes observed for this configuration, as well as one of the ranges for 100 Eterna Total Score, indicating the strongest aptamer switches for this configuration. The data suggests a strong correlation between higher static nucleotide ratios and decreased KDON values, highlighting the importance of higher static nucleotide ratios in enhancing KDON performance.
+
+  
+
+Conversely, the highest KDON values are observed in the greater than 12000 structure ensemble group, with the maximum value found to be approximately 800. These higher KDON values are indicative of a less powerful signal for bound aptamers transitioning from the unbound to the bound state. The data indicates that lower static nucleotide ratios result in significantly higher KDON values, which are indicative of a less efficient transition from the unbound to the bound state. This relationship underscores the significance of optimizing the static nucleotide ratio for improved KDON performance, with higher ratios leading to better performance in the SSNG2 molecular snare configuration.
+
+  
+
+The data indicates that this sublab has two modes of KDON values: nominal performing designs and super-performing designs. The nominal mode, seen across SSNG1, SSNG2, and SSNG3 configurations, has a high KDOFF of around 750 and a KDON of around 100. The super-performing mode, unique to SSNG2, has a KDOFF greater than 1500 and a relatively low KDON around less than 500. Both modes are considered successful based on their ratios and magnitudes, but the difference in KDOFF suggests a difference in the performance of the unbound state. This dual-mode observation is crucial for understanding the performance dynamics of the SSNG2 molecular snare.
+
+  
+
+Previous analysis of SSNG2 metrics indicates that this configuration allows for stronger, more powerful switches when optimized. The theory is that the 5'3' static stem being integrated into the molecular snare stem is what gives this performance boost. This integration results in a natural limit raise of both KDOFF and KDON values. The data suggests that the SSNG2 configuration is much more permissive and allows for stronger aptamer switches compared to SSNG1 and SSNG3. This is evident from the higher fold changes and the distinct KDON modes observed. The relationship between the ratio of static nucleotides and KDON values is evident, with higher ratios leading to better performance. This understanding is vital for optimizing the design of the SSNG2 molecular snare.
+
+SSNG3 Molecular Snare: KDON
+
+  
+
+The analysis of the SSNG3 molecular snare reveals that the lowest KDON values are observed with the greatest delta from their observed KDOFF values at a 20% ratio of static nucleotides. These low KDON values, which do not exceed approximately 300, are part of the less than 8000 structure ensemble groups. This indicates that higher static nucleotide ratios are crucial for achieving the lowest KDON values, which are indicative of a more efficient transition from the unbound to the bound state. The data suggests a strong correlation between higher static nucleotide ratios and decreased KDON values. This relationship highlights the importance of higher static nucleotide ratios in enhancing KDON performance.
+
+Conversely, the highest KDON values are observed in the greater than 12000 structure ensemble groups, with the maximum value found to be approximately 625 and the next lower value at around 440. These excessively high KDON values indicate a less powerful signal for bound aptamers transitioning from the unbound to the bound state. The data indicates that lower static nucleotide ratios result in significantly higher KDON values, which are indicative of a less efficient transition from the unbound to the bound state. This relationship underscores the significance of optimizing the static nucleotide ratio for improved KDON performance, with higher ratios leading to better performance in the SSNG3 molecular snare configuration.
+
+The SSNG3 configuration exhibits two modes of operation for KDON values  which are associated with the less than 4000 structure ensemble groups. One mode is characterized by high KDOFF and low relative KDON values,. The other mode is characterized by KDON values that are not relatively low, indicating a less efficient transition from the unbound to the bound state. This dual-mode observation is crucial for understanding the performance dynamics of the SSNG3 molecular snare. The data suggests that optimizing the static nucleotide ratio is essential for achieving the best performance in both modes of operation.
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+# 10 Fold Signal Region Observations: A Comprehensive Analysis
+
+  
+
+## 10.1 Introduction
+
+The fold signal region in RNA aptamers is a critical component that undergoes significant structural changes during the binding process. This region is dynamic in nature and plays a pivotal role in the aptamer's ability to detect and bind target molecules. The following report provides a detailed analysis of the fold signal region, covering its composition, the forces it experiences, the role of static loops as fulcrums, and the importance of energy conservation in its function.
+
+  
+
+### 10.1.1 Composition of the Fold Signal Region
+
+  
+
+The fold signal region is composed of various structural elements, including static stems, dynamic stems, hybrid stems, static loops, and dynamic loops. These elements work together to create a flexible yet stable region that can undergo significant conformational changes upon binding to a target molecule. The static stems provide structural stability, while the dynamic and hybrid stems allow for flexibility and adaptability.
+
+  
+
+Optimal sizes for the fold signal region are crucial for its function. A larger signal fold region is generally better, as it provides more space for the necessary structural changes to occur. However, if the region is too large, it may become mechanically unstable. Conversely, a smaller signal fold region may not provide enough space for the required conformational changes, leading to suboptimal performance.
+
+  
+
+The types of stacks and loops within the fold signal region are also important. Static stems are nucleotide stacks that do not change pairs between state changes, providing a stable backbone for the region. Dynamic stems, on the other hand, change pairs to form different stacks between states, allowing for the necessary flexibility. Hybrid stems retain the same dot-parenthesis structure between states but have different nucleotide pairs, providing a balance between stability and flexibility.
+
+  
+
+Static loops are loops that have the same nucleotides between states, acting as stable points within the fold signal region. Dynamic loops, however, form different loops in different states, contributing to the region's flexibility. The interplay between these static and dynamic elements is crucial for the function of the fold signal region.
+
+  
+
+Hybrid stacks, which are part of the signal, play a significant role in the fold signal region. These stacks create temporary stable structures in the unbound state that shift to new stable structures in the bound state. This ability to shift between stable states is essential for the function of the fold signal region, allowing it to adapt to the presence of a target molecule.
+
+  
+
+### 10.1.2 Mechanical Movement Constraints
+
+  
+
+The mechanical movement constraints at smaller sizes of the fold signal region can result in binding issues. When the region is too small, the limited space restricts the necessary conformational changes, leading to inefficient binding. This constraint is similar to a stack of quarters with a slight gap between each one, where the limited bending ability of the backbone restricts movement.
+
+  
+
+To overcome these constraints, the fold signal region must be of sufficient size to allow for efficient mechanical movement. This size ensures that the region can undergo the necessary conformational changes without being restricted by the limited bending ability of the backbone. The optimal size of the fold signal region balances the need for flexibility with the need for stability.
+
+  
+
+The mechanical movement constraints also highlight the importance of the static loops acting as fulcrums. These loops provide stable pivot points that allow for efficient mechanical movement, ensuring that the fold signal region can undergo the necessary conformational changes. Without these fulcrums, the region would be less stable and less able to undergo the required changes.
+
+  
+
+In summary, the mechanical movement constraints at smaller sizes of the fold signal region can result in binding issues. To overcome these constraints, the region must be of sufficient size to allow for efficient mechanical movement. The static loops acting as fulcrums play a crucial role in overcoming these constraints, providing stable pivot points that allow for efficient movement.
+
+  
+
+### 10.1.3 Static Loops Acting as Fulcrums
+
+  
+
+Static loops within the fold signal region act as fulcrums or hinges, providing pivot points for the structural changes that occur during the binding process. These loops are crucial for the mechanical function of the fold signal region, allowing it to undergo significant conformational changes while maintaining overall stability.
+
+  
+
+The role of static loops as fulcrums is to provide stable points around which the rest of the fold signal region can move. This stability is essential for the function of the fold signal region, as it allows for controlled and directed structural changes. Without these fulcrums, the region would be less stable and less able to undergo the necessary conformational changes.
+
+  
+
+The presence of static loops as fulcrums also contributes to the energy efficiency of the fold signal region. By providing stable pivot points, these loops reduce the amount of energy required for the structural changes to occur. This energy efficiency is crucial for the function of the fold signal region, as it allows for rapid and efficient binding to target molecules.
+
+  
+
+The limits to the fulcrum are defined by the bending ability of the RNA backbone. The backbone's limited bending ability is similar to a stack of quarters with a slight gap between each one, where the limited flexibility restricts movement. Therefore, the static loops must be of sufficient size to be efficient, allowing for the necessary conformational changes without being restricted by the limited bending ability of the backbone.
+
+  
+
+In summary, static loops act as crucial fulcrums within the fold signal region, providing stability, energy efficiency, and overall structural integrity. These loops are essential for the function of the fold signal region, allowing it to undergo significant conformational changes while maintaining overall stability.
+
+  
+
+### 10.1.4 High Forces and Reinforcement
+
+  
+
+The fold signal region experiences high internal forces during the state transition from unbound to bound. These forces are generated by the mechanical stresses of the binding process, including tension, compression, and bending moments. These forces can be significant, and without proper reinforcement, they can lead to structural failure.
+
+  
+
+To withstand these high forces, the fold signal region requires reinforcement. This reinforcement is provided by the static stems and loops within the region, which provide structural stability and support. The static stems act as rigid backbones, while the static loops act as stable pivot points, allowing the region to withstand the mechanical stresses of the binding process.
+
+  
+
+The need for reinforcement is particularly important during the state transition, when the fold signal region undergoes significant conformational changes. During this transition, the region experiences high levels of mechanical stress, and without proper reinforcement, it can become unstable. The static stems and loops provide the necessary support to ensure that the region remains stable during this transition.
+
+  
+
+The reinforcement provided by the static stems and loops also contributes to the overall stability of the RNA aptamer. By providing structural support to the fold signal region, these elements help to maintain the overall integrity of the aptamer, ensuring that it remains functional even under the mechanical stresses of the binding process.
+
+  
+
+In summary, the fold signal region experiences high internal forces during the state transition, and requires reinforcement to withstand these forces. This reinforcement is provided by the static stems and loops within the region, which provide structural stability and support. This reinforcement is crucial for the function of the fold signal region, ensuring that it remains stable and functional during the binding process.
+
+  
+
+### 10.1.5 Conservation of Energy in the Fold Signal Region
+
+  
+
+The conservation of energy is a critical aspect of the function of the fold signal region. Efficient energy use during the state transition is essential for the rapid and effective binding of target molecules. The structural elements of the fold signal region, including static stems, dynamic stems, hybrid stems, static loops, and dynamic loops, all contribute to the energy efficiency of the region.
+
+  
+
+By providing stable pivot points, static loops reduce the amount of energy required for the structural changes to occur. This energy efficiency is crucial for the function of the fold signal region, as it allows for rapid and efficient binding to target molecules. The dynamic and hybrid stems also contribute to energy conservation by allowing for flexibility and adaptability, reducing the energy required for the conformational changes.
+
+  
+
+The optimal size of the fold signal region also plays a role in energy conservation. A larger signal fold region provides more space for the necessary structural changes to occur, reducing the energy required for the transition. However, if the region is too large, it may become mechanically unstable, leading to inefficient energy use. Conversely, a smaller signal fold region may not provide enough space for the required conformational changes, leading to suboptimal performance and increased energy use.
+
+  
+
+The interplay between static and dynamic elements within the fold signal region is crucial for energy conservation. By providing a balance between stability and flexibility, these elements ensure that the region can undergo the necessary conformational changes with minimal energy expenditure. This balance is essential for the function of the fold signal region, allowing it to detect and bind target molecules efficiently and effectively.
+
+  
+
+In summary, the conservation of energy is a critical aspect of the function of the fold signal region. Efficient energy use during the state transition is essential for the rapid and effective binding of target molecules. The structural elements of the fold signal region, including static stems, dynamic stems, hybrid stems, static loops, and dynamic loops, all contribute to the energy efficiency of the region.
+
+  
+
+### 10.1.6 Summary of the Fold Signal Region
+
+  
+
+The fold signal region is a dynamic and crucial component of RNA aptamers, playing a key role in the detection and binding of target molecules. This region is composed of various structural elements, including static stems, dynamic stems, hybrid stems, static loops, and dynamic loops, which work together to create a flexible yet stable region capable of significant conformational changes.
+
+  
+
+Static loops within the fold signal region act as fulcrums, providing stable pivot points for the structural changes that occur during the binding process. These loops are essential for the mechanical function of the fold signal region, allowing it to undergo significant conformational changes while maintaining overall stability. The presence of static loops as fulcrums also contributes to the energy efficiency of the fold signal region, reducing the amount of energy required for the structural changes to occur.
+
+  
+
+The fold signal region experiences high internal forces during the state transition from unbound to bound, and requires reinforcement to withstand these forces. This reinforcement is provided by the static stems and loops within the region, which provide structural stability and support. This reinforcement is crucial for the function of the fold signal region, ensuring that it remains stable and functional during the binding process.
+
+  
+
+The conservation of energy is a critical aspect of the function of the fold signal region. Efficient energy use during the state transition is essential for the rapid and effective binding of target molecules. The structural elements of the fold signal region, including static stems, dynamic stems, hybrid stems, static loops, and dynamic loops, all contribute to the energy efficiency of the region.
+
+  
+
+In conclusion, the fold signal region is a dynamic and essential component of RNA aptamers, playing a key role in the detection and binding of target molecules. The interplay between static and dynamic elements, the reinforcement provided by static stems and loops, and the importance of energy conservation all contribute to the function of the fold signal region. Understanding these elements and their interactions is crucial for optimizing the performance of RNA aptamers in various biotechnological and therapeutic applications.
+
+  
+  
+  
+
+# 11 Fold Signal Region Mechanics:Walkthrough of the transformation of a high performing switch
+
+  
+
+## 11.1 Fold Signal Region Mechanics: No FMN Present
+
+  
+
+|  |  |
+| :-: | :-: |
+|  |  |
+
+  
+
+The RNA strand is at rest, maintaining a stable and unbound configuration. At this moment, the RNA is in a low-energy state, with no external forces acting upon it to induce any structural changes. The various intramolecular forces, including hydrogen bonds and base stacking interactions, hold the nucleotides in their respective positions, ensuring the RNA remains in its natural conformation.
+
+  
+
+The RNA strand is in mechanical equilibrium, meaning that the forces acting on it are balanced. This equilibrium is crucial for maintaining the structural integrity of the RNA aptamer. In this state, the RNA does not experience any net force that would cause it to change its conformation, preserving its readiness for potential binding events.
+
+  
+
+The 5'3' static stem and molecular snare static stems are formed, providing structural stability to the RNA. These static stems act as rigid backbones that support the overall conformation of the RNA aptamer. The 5'3' static stem, in particular, is essential for maintaining the integrity of the RNA structure, ensuring it remains in a ready state for potential binding events.
+
+  
+
+Hybrid stems that contain dynamic switching pairs are formed in the unbound state. These hybrid stems are composed of nucleotide pairs that can switch between different configurations, providing the necessary flexibility for the RNA to undergo conformational changes. The presence of hybrid stems in the unbound state is crucial for the RNA aptamer's functionality, as they allow the RNA to adapt to various environmental conditions.
+
+  
+
+In this unbound state, the RNA aptamer is poised and ready for the next step in its transition. The combination of static and hybrid stems ensures that the RNA maintains both stability and flexibility. This configuration allows the RNA to efficiently respond to the presence of FMN or other target molecules, setting the stage for subsequent structural changes.
+
+## 11.2 Fold Signal Region Mechanics: FMN Presented: Bind Step 1
+
+  
+
+|  |  |
+| :-: | :-: |
+|  |  |
+
+  
+
+The FMN molecule begins to bind to the aptamer, causing the molecular snare to trigger. At this moment, the FMN molecule interacts with the RNA aptamer, initiating the binding process. The molecular snare, which is part of the RNA structure, responds to the presence of FMN by activating.
+
+  
+
+When the snare triggers, a tab of nucleotides at one end of the snare is pulled toward the center of the binding sites. This action causes a specific segment of the RNA to move inward. The movement of these nucleotides is a direct response to the activation of the molecular snare.
+
+  
+
+The nucleotides being pulled in cause a compression of the system, which creates tension in the RNA strand. As the tab of nucleotides moves inward, it compresses the surrounding RNA structure. This compression generates tension within the RNA strand, altering its mechanical state.
+
+  
+
+The compression in the system and the resulting tension initiate a shift in the structure. The mechanical changes caused by the inward pull and compression lead to a reconfiguration of the RNA. This shift in structure is a direct consequence of the altered mechanical state of the RNA strand.
+
+  
+
+The shift in structure forces the hybrid stems to break their bonds and switch to a new set of nucleotides. As the RNA undergoes structural changes, the hybrid stems, which were previously stable, are disrupted. The bonds within these hybrid stems break, allowing them to reconfigure.
+
+  
+
+The bottom half of the unbound state structure begins to shift away from the center mass. This movement is a direct result of the structural changes initiated by the binding of FMN. As the bottom half of the RNA aptamer shifts, it creates space for the new conformation to form.
+
+  
+
+The new structure that the RNA begins to take is accepting of the new added compression and it seeks out a new mechanical equilibrium. As the RNA reconfigures, it adapts to the new forces acting upon it. The new structure is more stable under the conditions created by the binding of FMN.
+
+  
+
+The lower the resistance to the new mechanical equilibrium, the higher the potential fold change. As the RNA adapts to the new forces, the ease with which it finds a new equilibrium determines the extent of the structural change. Lower resistance means that the RNA can more easily transition to the new conformation.
+
+  
+
+## 11.3 Fold Signal Region Mechanics: Bind Step 2
+
+  
+
+|  |  |
+| :-: | :-: |
+|  |  |
+
+  
+
+Tension and compression in the Signal Fold Region have resulted in the start of a toggle from State A to State B. At this moment, the RNA aptamer is undergoing significant structural changes due to the mechanical forces acting upon it. The tension and compression are causing the RNA to begin transitioning from its unbound state (State A) to its bound state (State B).
+
+  
+
+As the snare is pulled in, the once relatively horizontally flat structure is squished, and the relatively vertical new structure with an MS2 hairpin at the end begins to form and pop out. This change in conformation is a direct result of the mechanical forces acting on the RNA. The formation of the MS2 hairpin is a crucial step in the transition, indicating that the RNA is adapting to the new structural requirements of the bound state.
+
+  
+
+The “Snare-FlexClamp-FlexSignal (w/wo Tail)” design pattern is beginning to be revealed. This design pattern is characterized by the formation of specific structural elements within the RNA. The Snare, FlexClamp, and FlexSignal components are all coming into play, contributing to the overall structural transformation of the RNA aptamer.
+
+  
+
+The hybrid stems whose lanes lost their bonds are now attracted to the opposing hybrid stems lanes, forcing the compression of the Signal Fold Region even further. This attraction between hybrid stems is a key aspect of the structural reconfiguration. The compression of the Signal Fold Region is intensified as the hybrid stems reconfigure and form new bonds.
+
+  
+
+The Signal Fold Area begins to stretch out and elongate vertically in parallel with the molecular snare orientation due to the horizontal compression. This elongation is a direct response to the mechanical forces acting on the RNA. The vertical stretching of the Signal Fold Area is a crucial step in the transition from the unbound to the bound state.
+
+  
+
+Tension in the phosphate backbone system increases while generating forces that attempt to rip the Signal Fold Area apart. The increased tension in the phosphate backbone is a significant factor in the structural transformation. These forces are a direct result of the mechanical changes occurring within the RNA aptamer.
+
+  
+
+The 5’3’ static stem protects against these harmful forces, thus increasing potential fold change. The presence of the 5’3’ static stem is crucial for maintaining the structural integrity of the RNA. By providing stability, the 5’3’ static stem ensures that the RNA can withstand the mechanical forces acting upon it, allowing for a higher potential fold change.
+
+  
+
+## 11.4 Fold Signal Region Mechanics: Bind Step 3
+
+  
+
+|  |  |
+| :-: | :-: |
+|  |  |
+
+  
+
+Toggle from State A to State B is nearly complete. At this point in the transition, the RNA aptamer is close to fully adopting its bound state conformation. The structural changes initiated by the binding of FMN have progressed significantly, and the RNA is almost in its new stable configuration.
+
+  
+
+Critical mass has been achieved, so to speak, for the new hybrid stem lane and FMN bonds to force State B to take hold and become strong. The formation of new hybrid stems and the stabilization of FMN bonds have reached a point where the bound state is now dominant. This critical mass ensures that the RNA aptamer remains in the bound state, providing the necessary stability for its function.
+
+  
+
+Notice that the short stack connecting the snare and the signal fold area is somewhat weak in configuration with a GU pair at the end. This short stack plays a crucial role in maintaining the shape of State B. However, its weak configuration, particularly the GU pair, makes it susceptible to changes, which is essential for the RNA to revert to the unbound state when FMN is no longer present.
+
+  
+
+As soon as the FMN molecule leaves, that GU in the end of the stack will not be able to hold, and that stack will fail, resulting in a return to State A. The weak GU pair acts as a trigger for the RNA to revert to its unbound state. The departure of FMN destabilizes the short stack, causing the RNA to lose its bound state conformation and return to its original structure.
+
+  
+
+I hypothesize that the RNA now seals up like a zipper on a jacket, starting at 11:42 pair and then 10:43 and so on. This sealing process is akin to a zipper mechanism, where the RNA folds sequentially from one end to the other. The orderly folding ensures that the RNA adopts a stable and efficient conformation, completing the transition from the unbound to the bound state.
+
+  
+
+## 11.5 Fold Signal Region Mechanics: FMN Bound
+
+  
+
+|  |  |
+| :-: | :-: |
+|  |  |
+
+  
+
+The RNA aptamer is now fully transitioned to State B. At this point, the RNA has completed its structural transformation from the unbound to the bound state. The conformational changes initiated by the binding of FMN have reached their final configuration, stabilizing the RNA in its new state.
+
+  
+
+The FMN ligand has fully bound to the FMN sensing aptamer. This binding event is the culmination of the transition process, where FMN is securely attached to the RNA. The interaction between FMN and the RNA aptamer is now stable, ensuring that the RNA maintains its bound state conformation.
+
+  
+
+The MS2 signal reporter is now fully exposed. As a result of the structural changes, the MS2 hairpin has formed and is accessible. This exposure is a critical aspect of the RNA's function, as it allows for the detection and reporting of the binding event.
+
+  
+
+Hybrid stem lanes are now fully bound to the new lanes forming new hybrid stems. The reconfiguration of the hybrid stems is complete, with new bonds formed between the nucleotide pairs. This final arrangement of the hybrid stems ensures the stability and functionality of the RNA aptamer in its bound state.
+
+  
+
+# 12 Application of Knowledge Fold Region Design Pattern: Snare-FlexClamp-FlexSignal (w/wo Tail)
+
+  
+  
+
+## 12.1 
+
+## 12.2 
+
+## 12.3 No FMN: SSNG1 and SSNG2
+
+|  |  |
+| :-: | :-: |
+| SSNG1 100 Eterna Score | SSNG2 100 Eterna Score |
+|  |  |
+|  |  |
+
+  
+
+There is one FlexClamp flexor on each side of the secondary structure. Each FlexClamp flexor is part of a loop, providing the necessary flexibility for the RNA aptamer to undergo conformational changes. The presence of these FlexClamp flexors is crucial for the Snare-FlexClamp-FlexSignal design pattern to function effectively, as they allow the RNA to adapt its structure in response to binding events.
+
+  
+
+There is a total of 2 FlexClamp flexors or pivot points. These pivot points are essential for the mechanical movement of the RNA aptamer, enabling it to transition smoothly from the unbound to the bound state. The consistent behavior of these FlexClamp flexors ensures that the RNA can reliably undergo the necessary structural changes during the binding process.
+
+  
+
+The FlexSignal flexor is found between the two FlexClamp flexors and is part of a loop. This FlexSignal flexor plays a critical role in the design pattern by facilitating the formation of the signal region. The predictable behavior of the FlexSignal flexor ensures that the RNA can consistently expose the MS2 signal reporter upon binding to FMN.
+
+  
+
+There is a total of 1 FlexSignal flexor or pivot point, but some of the signal is part of a loop in the unbound state. This configuration allows the RNA to maintain a stable structure while remaining flexible enough to transition to the bound state. The reliable formation of the FlexSignal flexor and its associated loop is essential for the Snare-FlexClamp-FlexSignal design pattern to function as intended, ensuring that the RNA aptamer can consistently detect and report binding events.
+
+  
+  
+
+## 12.4 
+
+## 12.5 FMN Presented and Begins to Bind: SSNG1 and SSNG2
+
+|  |  |
+| :-: | :-: |
+| SSNG1 100 Eterna Score | SSNG2 100 Eterna Score |
+|  |  |
+|  |  |
+
+  
+
+FlexClamp pivot \#1 begins to open as internal movement of the structure goes to the right. At this point in the transition, the RNA aptamer is responding to the presence of FMN by initiating structural changes. The opening of FlexClamp pivot \#1 is a critical requirement for the Snare-FlexClamp-FlexSignal design pattern, as it allows the RNA to start adapting its conformation in a predictable manner.
+
+  
+
+FlexClamp pivot \#2 begins to open as the internal movement of the structure goes to the left. This simultaneous action ensures that the RNA structure is symmetrically adjusting to the binding event. The consistent behavior of FlexClamp pivot \#2, working in tandem with pivot \#1, is essential for the reliable function of the design pattern, facilitating a balanced and coordinated structural transition.
+
+  
+
+FlexSignal pivot \#1 begins to close as the internal movement of the structure goes down. The closing of FlexSignal pivot \#1 is a crucial step in forming the signal region, which is necessary for the RNA to report the binding event. This predictable action ensures that the Snare-FlexClamp-FlexSignal design pattern can consistently expose the MS2 signal reporter, confirming the presence of FMN.
+
+  
+
+Hybrid stems begin to separate and then are attracted to their new hybrid stem pairs. This reconfiguration of hybrid stems is a key aspect of the RNA's structural adaptation to the bound state. The ability of the hybrid stems to reliably form new pairs is vital for the design pattern, ensuring that the RNA can achieve the necessary conformational changes to function effectively in response to FMN binding.
+
+  
+
+## 12.6 
+
+## 12.7 FMN Binding Progresses: SSNG1 and SSNG2
+
+|  |  |
+| :-: | :-: |
+| SSNG1 100 Eterna Score | SSNG2 100 Eterna Score |
+|  |  |
+|  |  |
+
+  
+
+Hybrid stems are attracted to their new base pair configurations. At this point in the transition, the RNA aptamer is undergoing significant structural changes as it progresses from the unbound to the bound state. The reconfiguration of hybrid stems is a critical requirement for the Snare-FlexClamp-FlexSignal design pattern, as it ensures that the RNA can adapt its structure in a predictable and reliable manner.
+
+  
+
+FlexClamp flexor 1 opens up more as it is pulled in towards the right. This continued opening of FlexClamp flexor 1 is essential for accommodating the new structural configuration of the RNA. The predictable behavior of FlexClamp flexor 1 ensures that the RNA can consistently undergo the necessary conformational changes, maintaining the integrity of the design pattern.
+
+  
+
+FlexClamp flexor 2 opens up more as it is pulled in towards the left. The simultaneous action of FlexClamp flexor 2, working in concert with flexor 1, is crucial for the balanced structural adaptation of the RNA. This coordinated movement is a key aspect of the Snare-FlexClamp-FlexSignal design pattern, ensuring that the RNA can reliably transition to the bound state.
+
+  
+
+FlexSignal flexor 1 opens or closes depending on the configuration. The dynamic behavior of FlexSignal flexor 1 is vital for the formation of the signal region, which is necessary for the RNA to report the binding event. This flexibility ensures that the Snare-FlexClamp-FlexSignal design pattern can consistently expose the MS2 signal reporter, confirming the presence of FMN and completing the structural transition.
+
+  
+
+## 12.8 
+
+## 12.9 FMN Binding Nears Completion: SSNG1 and SSNG2
+
+|  |  |
+| :-: | :-: |
+| SSNG1 100 Eterna Score | SSNG2 100 Eterna Score |
+|  |  |
+|  |  |
+
+  
+
+Hybrid stems are now almost fully bound to their new base pairs. At this point in the transition, the RNA aptamer is nearing the completion of its structural transformation from the unbound to the bound state. The reconfiguration of hybrid stems to their new base pairs is a critical requirement for the Snare-FlexClamp-FlexSignal design pattern, ensuring that the RNA can achieve a stable and predictable conformation.
+
+  
+
+FlexClamp 1 and FlexClamp 2 flexors are approaching each other and begin to form a multi-loop. This coordinated movement of the FlexClamp flexors is essential for the structural integrity of the RNA aptamer. The predictable behavior of these flexors ensures that the RNA can consistently form the necessary multi-loop structure, which is a key aspect of the Snare-FlexClamp-FlexSignal design pattern.
+
+  
+
+FlexSignal 1 closes as the MS2 signal is formed. The closing of FlexSignal 1 is a crucial step in the formation of the signal region, allowing the RNA to report the binding event. This consistent action ensures that the Snare-FlexClamp-FlexSignal design pattern can reliably expose the MS2 signal reporter, confirming the presence of FMN and completing the structural transition of the RNA aptamer.
+
+  
+
+## 12.10 
+
+## 12.11 FMN Fully Bound: SSNG1 and SSNG2
+
+|  |  |
+| :-: | :-: |
+| SSNG1 100 Eterna Score | SSNG2 100 Eterna Score |
+|  |  |
+|  |  |
+
+  
+
+Hybrid stems are now fully bound to their new pairs. At this point in the transition, the RNA aptamer has completed its structural transformation from the unbound to the bound state. The reconfiguration of hybrid stems to their new base pairs is a critical requirement for the Snare-FlexClamp-FlexSignal design pattern, ensuring that the RNA achieves a stable and predictable conformation.
+
+  
+
+FlexClamp 1 and FlexClamp 2 now form a multi-loop. This coordinated formation of the multi-loop structure by the FlexClamp flexors is essential for the structural integrity of the RNA aptamer. The predictable behavior of these flexors ensures that the RNA consistently forms the necessary multi-loop structure, which is a key aspect of the Snare-FlexClamp-FlexSignal design pattern.
+
+  
+
+FlexSignal 1 now forms the MS2 reporter signal. The formation of the MS2 signal by FlexSignal 1 is a crucial step in the RNA's ability to report the binding event. This consistent action ensures that the Snare-FlexClamp-FlexSignal design pattern reliably exposes the MS2 signal reporter, confirming the presence of FMN and completing the structural transition of the RNA aptamer.
+
+  
+
+## 12.12 
+
+## 12.13 Snare-FlexClamp-FlexSignal Fully Formed: SSNG1 and SSNG2
+
+|  |  |
+| :-: | :-: |
+| SSNG1 100 Eterna Score | SSNG2 100 Eterna Score |
+|  |  |
+|  |  |
+
+  
+
+FlexClamp is fully formed, consisting of a stack connecting the flexor loop to the snare. At this point in the transition, the RNA aptamer has achieved a stable and predictable conformation. The formation of the FlexClamp is a critical requirement for the Snare-FlexClamp-FlexSignal design pattern, ensuring that the RNA structure is supported and maintained in its bound state.
+
+  
+
+FlexSignal is fully formed, consisting of a stack connecting the signal to the FlexClamp. This formation is essential for the RNA aptamer to function effectively, as it allows the signal region to be properly exposed. The predictable behavior of the FlexSignal ensures that the RNA can consistently report the binding event, confirming the presence of FMN.
+
+  
+
+There can be overlap of the clamp and signal as seen in SSNG1. This overlap is a characteristic feature of the Snare-FlexClamp-FlexSignal design pattern, indicating that the RNA structure is tightly integrated. The consistent occurrence of this overlap ensures that the RNA aptamer maintains its structural integrity and functionality.
+
+  
+
+The overlap is due to the 5’3’ static stem forcing a reduced fold area, unable to form separate non-overlapping regions like SSNG2. This results in lower fold change, which is a predictable outcome based on the design pattern. Understanding this behavior allows for the optimization of the Snare-FlexClamp-FlexSignal design pattern, ensuring that the RNA aptamer can achieve the desired structural and functional outcomes.
+
+  
+
+Design Pattern Implementation Hypothesis
+
+  
+
+The theory for implementing the Snare-FlexClamp-FlexSignal design pattern involves understanding the structural dynamics of RNA aptamers and leveraging these to create a predictable and reliable folding mechanism. By analyzing a known good FMN-activated MS2 reporter, one can modify the design to remove the MS2 reporter while maintaining the ability to bind FMN. This can be achieved by converting the MS2 signal region into a simple hairpin structure, ensuring that the overall design pattern remains intact. The modified aptamer would still undergo the necessary conformational changes upon FMN binding, but without generating the MS2 signal. This approach allows for the creation of an aptamer that effectively binds FMN while eliminating the signaling component, thus retaining its functional integrity. This may perhaps increase the strength of the fold change even by order of some magnitude.
+
+  
+
+# 13 The Knob, In Conclusion.
+
+  
+
+The paper provides a comprehensive analysis of RNA aptamer design, emphasizing the limitations of the SELEX method and proposing a more systematic approach using computational models, experimental data, and a deep understanding of RNA mechanics and thermodynamics. By integrating these elements, researchers can develop more precise and efficient RNA aptamers. The Theory of Mechanics of RNA Folding Model, Serena RNA Analysis Tool, and Eterna Game Labs are introduced as advanced methodologies and tools to optimize RNA aptamer design. These tools address the complexities involved in RNA folding, binding, and switching, ultimately leading to a deeper understanding of the structural and functional dynamics of RNA molecules. This approach underscores the importance of understanding the forces and structural changes involved in RNA aptamer behavior.
+
+  
+
+By supplementing SELEX with computationally guided design, we can leverage the insights gained from this paper to enhance RNA aptamer development. The integration of computational models and experimental data allows for the fine-tuning of design parameters, leading to more efficient and targeted aptamer development. This approach reduces reliance on trial-and-error methods, accelerating the design process and improving the overall performance of RNA aptamers. The use of advanced methodologies and tools, such as the Theory of Mechanics of RNA, Serena RNA Analysis Tool, and Eterna Game Labs, provides a robust framework for optimizing RNA aptamer design. This integrated approach enables researchers to better predict and control RNA aptamer performance, particularly in terms of their affinity for the bound versus the unbound state.
+
+  
+
+Understanding the 5'3' Static Stem, the Molecular Snare, and the Signal Fold Region, and their interactions with each other, is crucial for intentionally designing RNA therapeutics. The 5'3' Static Stem provides the necessary stability to withstand mechanical stresses during state transitions, acting as a stabilizing backbone. The Molecular Snare is responsible for capturing and holding onto target molecules, initiating conformational changes in the aptamer. The Signal Fold Region undergoes significant structural changes upon target binding, facilitating the transition from the unbound to the bound state. By comprehensively analyzing these components and their interactions, researchers can design RNA aptamers that reliably switch between states while maintaining structural integrity and functionality.
+
+  
+
+To develop truly predictive RNA-based tools, it is essential to account for the mechanical movements of RNA and its limitations. This understanding allows for the fine-tuning of aptamers to detect and/or disable diseases in the human body. If we can engineer an aptamer that has an affinity for the bound state, we could potentially design it to safely never let go in the body, thus rendering the disease inert for some period of time. The ability to influence RNA aptamer affinity based on its configuration is crucial for developing high-performing RNA-based therapeutics. Ultimately, this knowledge enables the rapid and targeted development of RNA aptamers, enhancing their potential for various medical applications.
+
+  
+  
+
+# 14 The Knob Turn
+
+# 15 Observation C goes here
+
+  
+
+Full-Disclosure:
+
+Written with assistance of Chat-GPT by having it write reports on sections of a 200 slide presentation I wrote without any LLM or AI assistance. 
+
+  
+  
+
+Research performed by Jennifer Pearl and paper draft written by Chat-GPT4 based exclusively on the contents of 200+ slide presentation of research performed and created by Jennifer Pearl as well as book on RNA that Jennifer Pearl wrote on the Theory of the Mechanics of RNA discussed in paper.. 
+
+  

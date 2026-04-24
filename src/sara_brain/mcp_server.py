@@ -164,6 +164,51 @@ def brain_teach(statement: str) -> str:
 
 
 @mcp.tool()
+def brain_teach_triple(
+    subject: str,
+    relation: str,
+    obj: str,
+    source: str | None = None,
+) -> str:
+    """Teach Sara a fact as an explicit (subject, relation, object) triple.
+
+    This is the canonical teach path for LLM callers. No parser — the
+    LLM has already done the parsing by deciding the triple. Compound
+    multi-word terms like "molecular snare" or "Marker Theory" land in
+    the graph verbatim, not reduced to head nouns.
+
+    Prefer this over brain_teach for technical prose, novel terminology,
+    or any source where the LLM wants to preserve distinctive multi-word
+    labels.
+
+    Args:
+        subject: the subject neuron label (preserved verbatim)
+        relation: the verb/relation connecting subject to object
+        obj: the object neuron label (preserved verbatim)
+        source: optional source tag (e.g., "aptamer_paper") for
+                provenance and two-witness confirmation
+
+    Returns:
+        A string describing what was stored, or the error if anything
+        blocked the write.
+    """
+    brain = _get_brain()
+    try:
+        result = brain.teach_triple(
+            subject, relation, obj, source_label=source,
+        )
+    except PermissionError as e:
+        return f"Ethics gate blocked the teach: {e}"
+    if result is None:
+        return (
+            f"Could not store: ({subject!r}, {relation!r}, {obj!r}). "
+            "This is unusual for teach_triple — check that all fields "
+            "are non-empty."
+        )
+    return f"Learned: {result.path_label} (path #{result.path_id})"
+
+
+@mcp.tool()
 def brain_refute(statement: str) -> str:
     """Refute a fact in Sara Brain. Sara never deletes — she marks the
     claim as known-to-be-false. The path stays as evidence of what was

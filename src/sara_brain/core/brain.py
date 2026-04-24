@@ -265,6 +265,51 @@ class Brain:
         self.segment_repo.get_or_create(word_node.id, verb_node.id, "is_a")
         self.conn.commit()
 
+    def teach_triple(
+        self,
+        subject: str,
+        relation: str,
+        obj: str,
+        *,
+        source_text: str | None = None,
+        source_label: str | None = None,
+        negated: bool = False,
+        user_initiated: bool = True,
+    ) -> LearnResult | None:
+        """Direct-write a (subject, relation, object) triple. No parsing.
+
+        Neuron labels are preserved verbatim — multi-word compound
+        terms like "molecular snare" land in the graph as-is. The LLM
+        teacher brings the judgment and has already decided the shape
+        of the claim; Sara just stores.
+
+        This is the canonical teach path for LLM-as-teacher workflows.
+        """
+        gate = self._ethics.check_action("teach", user_initiated=user_initiated)
+        if not gate.allowed:
+            raise PermissionError(gate.reason)
+
+        from ..parsing.statement_parser import ParsedStatement
+        parsed = ParsedStatement(
+            subject=subject.strip(),
+            relation=relation.strip(),
+            obj=obj.strip(),
+            original=source_text if source_text is not None else f"{subject} {relation} {obj}",
+            negated=negated,
+        )
+        result = self.learner._build_chain(
+            parsed, refute=negated, source_label=source_label
+        )
+        if result is not None:
+            self.conn.commit()
+            if self._reverse_learner is not None:
+                try:
+                    self._reverse_learner._build_reverse_chain(parsed)
+                    self._reverse_db.conn.commit()
+                except Exception:
+                    pass
+        return result
+
     def teach(self, statement: str, *, user_initiated: bool = True) -> LearnResult | None:
         """Teach a fact. Returns None if unparseable.
 

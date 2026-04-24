@@ -179,8 +179,6 @@ class Learner:
                 pass
 
         # 5. Record the path. Source_text is NEVER prefixed or mutated.
-        # Refutation state is tracked in the graph via CLEANUP primitives,
-        # not via string hacks on source_text.
         path = Path(
             id=None,
             origin_id=prop_neuron.id,
@@ -225,7 +223,17 @@ class Learner:
                 PathStep(id=None, path_id=refute_path.id, step_order=1, segment_id=seg_r2.id)
             )
 
-        # 7. Compound IS-A: for each (compound_label, head_lemma) the
+        # 7. Sub-concept linking: decompose multi-word labels into
+        #    individual word neurons with part_of segments so wavefronts
+        #    from any single word can reach the compound concept. This
+        #    is load-bearing associative signal for LLM consumers of
+        #    Sara's output — see feedback_noise_is_the_signal.
+        for neuron in (concept_neuron, prop_neuron):
+            nc, sc = self._link_sub_concepts(neuron)
+            neurons_created += nc
+            segments_created += sc
+
+        # 8. Compound IS-A: for each (compound_label, head_lemma) the
         #    parser detected, ensure the head neuron exists and add
         #    compound —is_a→ head.
         for compound_label, head_lemma in (parsed.compounds or []):
@@ -268,6 +276,35 @@ class Learner:
             (strength, segment.id),
         )
         segment.strength = strength
+
+    def _link_sub_concepts(self, neuron) -> tuple[int, int]:
+        """If neuron label is multi-word, create word → compound segments.
+
+        Returns (neurons_created, segments_created).
+        """
+        words = neuron.label.split()
+        if len(words) < 2:
+            return 0, 0
+
+        neurons_created = 0
+        segments_created = 0
+        for word in words:
+            word = word.strip()
+            if not word:
+                continue
+            word_neuron, created = self.neuron_repo.get_or_create(
+                word, NeuronType.PROPERTY
+            )
+            if created:
+                neurons_created += 1
+            seg, created = self.segment_repo.get_or_create(
+                word_neuron.id, neuron.id, "part_of"
+            )
+            if created:
+                segments_created += 1
+            else:
+                self.segment_repo.strengthen(seg)
+        return neurons_created, segments_created
 
     def _record_source(self, segment, source_label: str | None) -> bool:
         """Record a source for a segment. Returns True if it's a new witness.

@@ -29,10 +29,24 @@ DB_PATH = os.environ.get("SARA_DB", default_db_path())
 
 mcp = FastMCP(
     "sara-brain",
-    instructions="Sara Brain — path-of-thought knowledge system. "
-    "Persistent memory that never forgets. The LLM is the senses, Sara is the brain. "
-    "Use brain_query to look up knowledge, brain_teach to add facts, "
-    "brain_recognize to identify concepts from properties.",
+    instructions=(
+        "Sara Brain — path-of-thought knowledge system. Persistent memory "
+        "that never forgets. The LLM is the senses, Sara is the brain.\n\n"
+        "Retrieval strategy — prefer broader tools first:\n"
+        "  1. brain_explore(label, depth=2) — RECOMMENDED for 'what is X?' "
+        "     questions. Walks outward in both directions, surfaces the "
+        "     author's full framing across adjacent neurons in one call. "
+        "     Use this FIRST for any substantive question about a taught topic.\n"
+        "  2. brain_query(label) — 1-hop, both directions. Fallback when "
+        "     brain_explore is too broad.\n"
+        "  3. brain_why(label) / brain_trace(label) — 1-hop, single direction. "
+        "     Use only when you need precise incoming/outgoing distinction.\n"
+        "  4. brain_recognize(a, b, c) — wavefront convergence from multiple "
+        "     seeds. Use when identifying a concept from properties.\n"
+        "  5. brain_did_you_mean(label) — fuzzy match when spelling is uncertain.\n\n"
+        "Teaching: brain_teach_triple(subject, relation, obj) is canonical; "
+        "labels are lowercased unless prefixed with 'CAPITAL:'."
+    ),
 )
 
 # Lazy brain initialization (connected on first tool call)
@@ -161,6 +175,111 @@ def brain_teach(statement: str) -> str:
     if result is None:
         return f"Could not parse: '{statement}'. Try 'X is/are Y' or 'X contains/requires/includes Y'."
     return f"Learned: {result.path_label} (path #{result.path_id})"
+
+
+@mcp.tool()
+def brain_explore(label: str, depth: int = 2) -> str:
+    """Walk Sara's graph outward from ``label`` to ``depth`` hops in
+    both directions. Surfaces the author's specific framing across a
+    connected region of the substrate in a single call.
+
+    **Prefer this for exploratory "what is X?" questions about any
+    taught topic.** It returns more context than brain_why (1-hop,
+    incoming only) or brain_trace (1-hop, outgoing only) and doesn't
+    suffer from the direction-asymmetry issue those tools have.
+
+    When to use which tool:
+    - brain_explore(X, depth=2)  — rich neighborhood for a concept
+    - brain_why(X)               — only paths terminating at X
+    - brain_trace(X)             — only paths originating from X
+    - brain_recognize(a, b, c)   — wavefront convergence from seeds
+    - brain_did_you_mean(X)      — fuzzy-match X when spelling uncertain
+
+    Args:
+        label: concept to center the walk on (case-insensitive).
+        depth: hop distance; 1, 2, or 3. Default 2.
+
+    Returns:
+        Structured summary: neurons found grouped by distance from
+        seed, plus each edge (source --[relation]--> target) with its
+        strength and the depth at which it was discovered. Internal
+        ``*_attribute`` chain nodes are shown but marked; the semantic
+        triples can be read off by ignoring them.
+    """
+    brain = _get_brain()
+    if depth < 1:
+        depth = 1
+    if depth > 3:
+        depth = 3
+    result = brain.neighborhood(label, depth=depth)
+
+    if not result["seed_found"]:
+        candidates = brain.did_you_mean(label)
+        lines = [f"Sara doesn't have '{label}' as a neuron."]
+        if candidates:
+            lines.append("Did you mean:")
+            for c in candidates[:6]:
+                lines.append(f"  - {c['label']} ({c['type']})")
+        return "\n".join(lines)
+
+    # Build the formatted output.
+    lines = [
+        f"Neighborhood of {result['seed']!r}  "
+        f"(depth={result['depth_queried']}, "
+        f"{result['total_neurons']} neurons, {result['total_edges']} edges"
+        f"{', TRUNCATED at max_edges=500' if result['truncated'] else ''})"
+    ]
+    lines.append("")
+
+    # Group edges by depth; within a depth, sort to make output readable.
+    edges_by_depth: dict[int, list[dict]] = {}
+    for e in result["edges"]:
+        edges_by_depth.setdefault(e["depth_seen"], []).append(e)
+
+    # Emit neurons by depth for a quick orientation.
+    lines.append("Neurons reachable (by hop distance from seed):")
+    for d in sorted(result["neurons_by_depth"].keys()):
+        concepts = [
+            lbl for lbl in result["neurons_by_depth"][d]
+            if not lbl.endswith("_attribute")
+        ]
+        attrs = [
+            lbl for lbl in result["neurons_by_depth"][d]
+            if lbl.endswith("_attribute")
+        ]
+        lines.append(f"  depth {d}: {len(concepts)} concepts"
+                     f"{f' + {len(attrs)} internal attribute nodes' if attrs else ''}")
+        for lbl in sorted(concepts):
+            lines.append(f"    - {lbl}")
+    lines.append("")
+
+    # Emit edges by depth; skip pure attribute-to-attribute edges and
+    # the redundant "describes" edges that connect attribute → concept.
+    # Readers get the semantic substance, not the plumbing.
+    lines.append("Edges (source --[relation]--> target):")
+    for d in sorted(edges_by_depth.keys()):
+        lines.append(f"")
+        lines.append(f"  Discovered at depth {d}:")
+        seen_keys = set()
+        for e in edges_by_depth[d]:
+            src, rel, tgt = e["source"], e["relation"], e["target"]
+            # Skip the structural describe-edges (attr → concept) —
+            # these are just chain plumbing and would double every
+            # semantic edge.
+            if src.endswith("_attribute") and rel == "describes":
+                continue
+            key = (src, rel, tgt)
+            if key in seen_keys:
+                continue
+            seen_keys.add(key)
+            strength_marker = ""
+            if e["strength"] < 0:
+                strength_marker = "  [REFUTED]"
+            elif e["strength"] >= 2.0:
+                strength_marker = "  [strong]"
+            lines.append(f"    {src!r} --[{rel}]--> {tgt!r}{strength_marker}")
+
+    return "\n".join(lines)
 
 
 @mcp.tool()

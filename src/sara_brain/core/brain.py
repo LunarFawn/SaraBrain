@@ -509,6 +509,176 @@ class Brain:
             self.conn.commit()
         return result
 
+    def neighborhood(
+        self,
+        label: str,
+        depth: int = 2,
+        max_edges: int = 500,
+    ) -> dict:
+        """Breadth-first walk from ``label``, returning all neurons and
+        edges within ``depth`` hops in either direction.
+
+        This closes the gap between the 1-hop views (`why`, `trace`,
+        `query`) and multi-label retrieval. A single call surfaces the
+        author's specific framing across a connected region of the
+        graph — the low-kick story attached to the hip-limitation
+        neuron attached to the Creed-2 neuron attached to the seed, etc.
+
+        Args:
+            label: starting neuron label. Case-normalized per
+                :meth:`_normalize_label`.
+            depth: maximum hop distance. 1–3 sensible; 2 is the default
+                and covers most real-world "what is X?" neighborhoods
+                without explosion.
+            max_edges: safety cap. If the BFS exceeds this, the walk
+                stops early and the result is marked ``truncated=True``.
+                Protects against hub-like seeds (e.g., "rna aptamer")
+                expanding into thousands of edges.
+
+        Returns a dict with:
+            seed: the case-normalized label that was queried.
+            seed_found: whether the seed neuron exists in the graph.
+            depth_queried: the depth argument that was used.
+            truncated: True if ``max_edges`` was hit before completion.
+            total_neurons, total_edges: counts.
+            neurons_by_depth: {depth: [labels...]} grouped by distance.
+            edges: [{source, relation, target, strength, depth_seen}]
+                in discovery order.
+
+        Attribute-suffixed neurons (``*_attribute``, internal chain
+        nodes) are kept in the raw output — callers that want a clean
+        semantic view should filter them out at presentation time.
+        """
+        label = self._normalize_label(label)
+        seed = self.neuron_repo.resolve(label)
+        if seed is None:
+            return {
+                "seed": label,
+                "seed_found": False,
+                "depth_queried": depth,
+                "truncated": False,
+                "total_neurons": 0,
+                "total_edges": 0,
+                "neurons_by_depth": {},
+                "edges": [],
+            }
+
+        # Each taught triple produces a 2-segment chain through an
+        # `_attribute` bridge neuron. To make ``depth`` mean "semantic
+        # hops" (how a user thinks: one taught triple away), we walk
+        # 2 segment-hops per unit of depth, tracking only concept
+        # neurons (non-attribute) in ``visited``.
+        visited: dict[str, int] = {seed.label: 0}
+        edges: list[dict] = []
+        frontier: list[str] = [seed.label]
+        truncated = False
+
+        for current_depth in range(depth):
+            next_frontier: list[str] = []
+            for nlabel in frontier:
+                adjacent = self._walk_concept_neighbors(nlabel, edges, current_depth + 1)
+                if len(edges) >= max_edges:
+                    truncated = True
+                for other in adjacent:
+                    if other not in visited:
+                        visited[other] = current_depth + 1
+                        next_frontier.append(other)
+                if truncated:
+                    break
+            if truncated:
+                break
+            frontier = next_frontier
+
+        neurons_by_depth: dict[int, list[str]] = {}
+        for lbl, d in visited.items():
+            neurons_by_depth.setdefault(d, []).append(lbl)
+
+        return {
+            "seed": label,
+            "seed_found": True,
+            "depth_queried": depth,
+            "truncated": truncated,
+            "total_neurons": len(visited),
+            "total_edges": len(edges),
+            "neurons_by_depth": neurons_by_depth,
+            "edges": edges,
+        }
+
+    def _walk_concept_neighbors(
+        self, seed_label: str, collect_edges: list[dict], depth_marker: int,
+    ) -> list[str]:
+        """One semantic hop out from ``seed_label``.
+
+        Walks the two-segment bridges that taught triples produce
+        (concept → attribute → concept) and returns the *concept*
+        neurons reached. Internal ``_attribute`` bridges are traversed
+        but not enumerated as concepts. All segments encountered are
+        appended to ``collect_edges`` with ``depth_marker``.
+
+        Used by :meth:`neighborhood` so that ``depth=1`` corresponds to
+        "one taught triple away" rather than "one segment away."
+        """
+        seed = self.neuron_repo.resolve(seed_label)
+        if seed is None:
+            return []
+        # First segment-hop: edges directly touching seed (may reach
+        # attribute or concept neurons).
+        rows = self.conn.execute(
+            """
+            SELECT s.relation, s.strength, n1.id, n1.label, n2.id, n2.label
+            FROM segments s
+            JOIN neurons n1 ON n1.id = s.source_id
+            JOIN neurons n2 ON n2.id = s.target_id
+            WHERE s.source_id = ? OR s.target_id = ?
+            """,
+            (seed.id, seed.id),
+        ).fetchall()
+        concept_neighbors: list[str] = []
+        for rel, strength, src_id, src_lbl, tgt_id, tgt_lbl in rows:
+            collect_edges.append({
+                "source": src_lbl,
+                "relation": rel,
+                "target": tgt_lbl,
+                "strength": strength,
+                "depth_seen": depth_marker,
+            })
+            other_id = tgt_id if src_id == seed.id else src_id
+            other_lbl = tgt_lbl if src_id == seed.id else src_lbl
+            if other_lbl.endswith("_attribute"):
+                # Follow one more segment-hop through the attribute
+                # bridge to find the semantic endpoint.
+                bridge_rows = self.conn.execute(
+                    """
+                    SELECT s.relation, s.strength,
+                           n1.id, n1.label, n2.id, n2.label
+                    FROM segments s
+                    JOIN neurons n1 ON n1.id = s.source_id
+                    JOIN neurons n2 ON n2.id = s.target_id
+                    WHERE s.source_id = ? OR s.target_id = ?
+                    """,
+                    (other_id, other_id),
+                ).fetchall()
+                for brel, bstr, bsrc_id, bsrc_lbl, btgt_id, btgt_lbl in bridge_rows:
+                    # Skip the edge we just came in on.
+                    if (bsrc_id == seed.id and btgt_id == other_id) \
+                       or (btgt_id == seed.id and bsrc_id == other_id):
+                        continue
+                    collect_edges.append({
+                        "source": bsrc_lbl,
+                        "relation": brel,
+                        "target": btgt_lbl,
+                        "strength": bstr,
+                        "depth_seen": depth_marker,
+                    })
+                    far_lbl = btgt_lbl if bsrc_id == other_id else bsrc_lbl
+                    if not far_lbl.endswith("_attribute"):
+                        concept_neighbors.append(far_lbl)
+            else:
+                # Direct concept-to-concept edge (e.g., part_of
+                # decomposition from _link_sub_concepts).
+                concept_neighbors.append(other_lbl)
+        return concept_neighbors
+
     def recognize(self, inputs: str,
                   min_strength: float | None = None) -> list[RecognitionResult]:
         """Recognize from comma-separated input labels.

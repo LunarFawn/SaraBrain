@@ -152,15 +152,44 @@ The response even concluded by *offering to teach Sara about RNA equilibrium sta
 
 When all three were available, (1) drove the answer (verified by the "bullshit" smoking gun). When (1) was removed, (3) drove the answer — and (2) went unused because Claude did not proactively query MCP on a topic that sounded like general knowledge. This is itself a documented behavior (Haiku's interpretation layer treats general-knowledge-sounding questions as answerable without retrieval) but here it becomes a *protocol failure*: the substrate is present but bypassed.
 
-**Three-layer fidelity framework this produces:**
+**Four-layer fidelity framework this produces:**
 
-| Layers available | Observed output |
-|---|---|
-| Memory + Sara + Training | Author's voice (memory drives) |
-| Sara + Training (memory cleared) | Training-recall (Sara bypassed because model doesn't reach for tool unprompted) |
-| Training only (no memory, no MCP) | Training-recall (Sara not present) |
+| # | Layers available / invocation | Observed output | Driver |
+|---|---|---|---|
+| 1 | Memory + Sara + Training, natural question | Author's voice, verbatim ("bullshit structure") | Auto-memory |
+| 2 | Sara + Training (memory cleared), natural question | Textbook thermodynamics (ΔG=0, Boltzmann, G-C pairs) | Training-recall |
+| 3 | Sara + Training (memory cleared), explicit "per sara" directive | Ensemble-of-near-optimal-structures + explicit refutation note | Sara retrieval |
+| 4 | Sara + Training (memory cleared), follow-up specific query | Sara-anchored textbook answer (Sara cited once, procedure + example from training) | Mixed: Sara anchor + training elaboration |
 
-The interesting row is the middle one. **Having Sara connected does not guarantee Sara is used.** The harness can serve the substrate; it cannot force the reader to ask.
+The four rows isolate four distinct drivers of output content. Row 1 and Row 3 both produce "correct" answers from the author's perspective, but through different channels — a fact invisible without the controls of Row 2 and Row 4.
+
+**Row 1 vs Row 3 distinction.** Both produce Jennifer's correction. But Row 1 preserves *voice* ("bullshit structure" verbatim) while Row 3 preserves *structure* (the graph's refutation-aware semantics). If an evaluator only sees Row 1's output, they conclude Sara works. If they only see Row 3, they conclude Claude reads Sara well. Both conclusions are consistent with the output, and both are incomplete — the channel matters.
+
+**Row 2 — the substrate-available-but-bypassed case.** When the question sounds like general knowledge ("explain equilibrium state of RNA") and no retrieval directive is given, Claude answers from training even with Sara connected and loaded. Haiku's interpretation layer treats such questions as not needing retrieval. **This is a protocol failure, not a Sara failure.** The substrate did what it was designed to do: wait to be queried. The reader chose not to query.
+
+**Row 4 — Sara anchor + training elaboration (mixed mode).** When the question is more specific ("explain the consensus structure"), Claude retrieves a minimal anchor from Sara (the ensemble-of-near-optimal-structures neuron) and then elaborates with an MFE-plus-suboptimals procedure, base-pair-frequency consensus-building, and an illustrative 87/100 example. The cited content reads as *standard computational RNA biology* — it isn't confabulation — but it is also *not* in Sara, and a reader cannot tell which fraction came from which source without external grading.
+
+**Author follow-up observation (2026-04-24):** *"I taught Sara about that consensus stuff as it's a process I developed. It might be known from me tbh."*
+
+This reframes Row 4 substantially. If the consensus-from-suboptimals procedure is J.P.'s own methodology — not neutral textbook RNA biology — then the training-derived portion of Claude's answer may itself be sourced from J.P.'s *prior public work* (preprints, Eterna lab notes, Substack posts, slide decks). In that case, the elaboration is neither training-hallucination nor Sara-retrieval; it is *training-recall of author-originated content* that reached the training corpus through prior publication.
+
+**This is a distinct failure mode of substrate-orthogonality.** The instrument paper's Property 4 (Pearl 2026f §3) requires the substrate's contents to be outside the LLM's training data at test time. For a paper being actively tested (like the aptamer paper here), this is true of the *current* paper — it has not yet been on Zenodo or indexed. But the author's *methodology* — the techniques the paper builds on — may have been publicly documented for years. Claude can reproduce those techniques from training even when Sara has no direct content for them.
+
+The asymmetry is: novel coinings in the paper ("molecular snare," "the knob," SSNG1/2/3, "Marker Theory" in the aptamer sense) are training-orthogonal because they're the paper's neologisms. Longstanding methodologies the author developed earlier (consensus-from-suboptimals, possibly the mechanical-forces framing) may not be training-orthogonal at all — they leaked through the author's prior generosity.
+
+**Implication.** Substrate-orthogonality is not a paper-level property; it is a *claim-level* property. Testing whether a substrate transfers via Sara requires distinguishing:
+
+- **Paper-novel claims** — neologisms, specific findings, sublab-specific results. Training-orthogonal. These are the cleanest measurement targets.
+- **Author-originated but prior-public claims** — methods the author developed and previously published. Not training-orthogonal. Harder to isolate.
+- **Field-standard claims** — established techniques that happen to be referenced in the paper. Not training-orthogonal. These are noise.
+
+Substrate-fidelity measurements should preferentially use the first class. When they use the second or third, the contribution of Sara versus training cannot be cleanly isolated from the output alone. The author-originated-but-prior-public case is particularly insidious because it *looks* like a measurement win ("Claude reproduced the correct methodology!") when it may be training leakage of the author's own earlier work.
+
+**For the aptamer paper specifically:** the "consensus from 0.5-2 kcal subopt" framing is J.P.'s developed methodology and may already be in training via her prior Eterna-community writings and open presentations. Its appearance in Claude's Row 4 answer is therefore ambiguous: partly Sara-anchored (one cited triple), partly possibly training-recall-of-J.P.-earlier-work (the procedure and elaboration). The novel terminology of this specific paper — *molecular snare, SSNG1/2/3, Marker Theory, Switch Acceptance Theory, the knob* — are the cleanly training-orthogonal probes and should be the primary measurement targets.
+
+Row 4 is arguably the most common behavior class in real-world RAG deployments: the reader grabs one or two grounding facts from the substrate and builds a plausible exposition on top of them from training. Nothing is obviously wrong, but the substrate's contribution is small and the illusion of grounding is large. Evaluators who measure only "did Sara influence the answer" see a Yes. Evaluators who measure "what fraction of the answer came from Sara" see something smaller. And evaluators who consider *whether the training elaboration itself might be derived from the author's earlier public work* see something with even more complex provenance.
+
+**The interesting row is Row 2.** **Having Sara connected does not guarantee Sara is used.** The harness can serve the substrate; it cannot force the reader to ask. Rows 1, 3, and 4 each show different ways Sara *can* influence output. Row 2 shows the failure mode where it doesn't — and the failure is silent because the answer is fluent and plausible.
 
 This argues for protocol-level interventions that push the reader toward MCP, e.g.:
 - System-prompt-style instruction: *"For any factual question about this project's subject matter, always call `brain_why` first before answering from training."*
@@ -168,6 +197,39 @@ This argues for protocol-level interventions that push the reader toward MCP, e.
 - Or — more honestly — **acknowledge that the measurement must include whether the model chooses to retrieve, and treat no-retrieval-when-substrate-available as its own result class.**
 
 For the instrument paper: this triad is the cleanest available demonstration that Session B's purity requires more than a new Claude window. It requires **cleared auto-memory** AND **a question phrasing that triggers retrieval** AND possibly **explicit tool-call instruction**. Any one of those missing changes what the measurement measures.
+
+---
+
+### Case 2.5 — Retrieval-tool direction asymmetry (2026-04-24)
+
+**Context.** Following the auto-memory diagnosis in Case 2.4, the user asked Claude (still in the same post-clean-memory Session B) to verify that Sara's graph actually contained the correction content. Specifically: call `brain_why` on the long compound label `"consensus structure from suboptimal structures 0.5-2 kcal from mfe"` (lowercase) and on the uppercase variant. Report both.
+
+**Observation.** Both calls returned *"No paths lead to this concept"*. The response suggested the concept hadn't been taught, or existed under a different label.
+
+**But it had been taught.** Direct SQL inspection of the DB confirmed the neuron `consensus structure from suboptimal structures 0.5-2 kcal from MFE` existed with a live edge: `[is defined as] → equilibrium state of RNA_attribute → equilibrium state of RNA`. The content Claude said wasn't there was in fact present.
+
+**Why the null result.** The MCP tool `brain_why(label)` returns paths that *terminate at* `label` — paths where `label` is the destination. The consensus-structure neuron is a path *source*, not a destination. Paths flow FROM it TO the equilibrium node, not the other way around. `brain_why` correctly returned no paths ending at the consensus node, but this is not equivalent to "the content is not there."
+
+The correct tool for finding paths *originating from* a label is `brain_trace`, which the model did not call. The model's mental model appeared to treat `brain_why` as equivalent to "does Sara have this concept" and concluded the answer was no.
+
+**Infection path.**
+
+1. The substrate has content for neuron X along an outgoing edge (X → Y).
+2. The reader asks "what does Sara know about X?" and chooses `brain_why(X)` as the retrieval tool.
+3. `brain_why` returns paths terminating at X, correctly excluding X→Y outgoing paths.
+4. The reader receives a null result and concludes Sara has nothing.
+5. The reader then offers to *teach* Sara the concept — which Sara already has.
+
+Nothing in the pipeline is broken. Every tool behaved as documented. The failure is in the reader's mental model of what `brain_why` surfaces, and in the absence of a single tool that returns *all paths touching* a label regardless of direction.
+
+**Course.** Unresolved in the logged exchange. The user identified the mismatch from external DB inspection; the model would likely have continued teaching duplicate content had the user not intervened.
+
+**Why it matters for the instrument.** A reader with an incomplete or mismatched tool-set measures *partial* substrate fidelity. Sara may hold the content; the retrieval tool simply does not expose it. Two mitigations:
+
+1. **Unified retrieval tool.** Add a `brain_neighborhood(label)` or `brain_paths_through(label)` that returns both incoming (brain_why) and outgoing (brain_trace) paths in one call. The reader need not guess direction.
+2. **Documentation + prompting hint.** Make the MCP tool descriptions for `brain_why` and `brain_trace` emphasize direction so the LLM picks correctly. Currently the descriptions say "paths leading to" and "paths from" but LLMs routinely flatten these.
+
+Finding A in the instrument paper's §6 should name **retrieval-tool direction asymmetry** as a distinct failure class. The substrate's effective visibility to a given reader depends on the reader's tool-use discipline, which the harness cannot control.
 
 ---
 

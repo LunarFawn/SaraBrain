@@ -1,0 +1,37 @@
+{
+  "run_at": "2026-04-24T05:55:02.118277+00:00",
+  "loaded_db": "/Users/grizzlyengineer/repo/sara_test/brains/aptamer_exec.db",
+  "mcp_tools": [
+    "brain_query",
+    "brain_recognize",
+    "brain_why",
+    "brain_trace",
+    "brain_did_you_mean",
+    "brain_stats",
+    "brain_similar"
+  ],
+  "models": [
+    "llama3.2:3b"
+  ],
+  "questions": [
+    "What is the molecular snare?"
+  ],
+  "results": [
+    {
+      "question": "What is the molecular snare?",
+      "model": "llama3.2:3b",
+      "condition": "with_sara_via_mcp",
+      "answer": "{\"name\": brain_why, \"parameters\": {\"label\": \"molecular snare\"}}",
+      "trace": [],
+      "rounds": 1,
+      "elapsed_s": 3.0
+    },
+    {
+      "question": "What is the molecular snare?",
+      "model": "llama3.2:3b",
+      "condition": "bare",
+      "answer": "I couldn't find any information on a \"molecular snare.\" It's possible that it's a term used in a specific context or field, but I'm not aware of its meaning.\n\nHowever, there are some concepts related to molecules and chemistry that might be what you're thinking of:\n\n* A molecular trap: This is a hypothetical concept where a molecule can become \"trapped\" by another molecule, forming a stable complex.\n* A molecular cage: This refers to a structure composed of multiple molecules that form a three-dimensional cage around a central molecule or ion.\n* A molecular net: This is a theoretical concept where molecules are arranged in a network-like structure, with each molecule interacting with its neighbors.\n\nIf you could provide more context or information about the \"molecular snare,\" I might be able to help you better.",
+      "elapsed_s": 4.7
+    }
+  ]
+}

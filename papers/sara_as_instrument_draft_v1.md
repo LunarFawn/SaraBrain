@@ -117,6 +117,10 @@ We formalize the requirement that we claim Sara uniquely satisfies for LLM-behav
 
 **Property 4 — Training-orthogonal.** The substrate's specific contents are not in the training data of the LLM under test. This is what makes the measurement a measurement of *retrieval* rather than of *recall-from-weights*.
 
+For instrument validation, this property is satisfied by engineering rather than by methodological discipline: **synthetic substrates generated at runtime** (random concept labels and triples that did not exist before the test was constructed) are training-orthogonal by construction. No model could have been trained on labels that didn't exist when its training corpus was assembled. See `papers/instrument_validation/generate_synthetic_substrate.py` for the canonical generator. This eliminates the fragile alternative of trying to verify orthogonality on real-world content whose corpus exposure cannot be directly introspected.
+
+Real-world substrates (e.g., a research paper) may have partial orthogonality — some claims may be in training, others not. For those substrates, **the relevant measurement is not orthogonality but specificity preservation**: does the LLM produce the author's specific framing of a concept rather than the generic training-derived version? This is a separate measurement axis (see §6.x) and does not depend on Property 4 holding.
+
 We claim Sara is the first substrate to satisfy all four simultaneously. We are not aware of a counterexample; we invite the field to propose one and will update this paper if a prior art candidate emerges.
 
 ---

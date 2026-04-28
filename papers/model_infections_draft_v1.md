@@ -248,6 +248,109 @@ Finding A in the instrument paper's §6 should name **retrieval-tool direction a
 
 ---
 
+### Case 2.6 — Acronym-expansion confabulation on a faithful retrieval (2026-04-27)
+
+**Context.** sara_reader CLI (`sara-ask`) running llama3.2:3b against `aptamer_full.db`. Substrate had been freshly extended with §9.2.1.4 KDOFF and §9.2.1.5 KDON numerical bindings, including the SSNG2 dual-mode paragraph. The new `brain_value(concept, type)` tool isolates one quantity-relation per call.
+
+**Verbatim question.**
+
+> *what is the KDON for the super-performing mode*
+
+**Verbatim 3B answer.**
+
+> *The KDON (kill-dead-on-demand) range for the super-performing mode is less than 500.*
+
+**Substrate state.**
+
+- The brain has the KDON edge: `'less than 500' --[kdon_range]--> 'super-performing mode'`. The retrieved value is correct.
+- The brain has KDON's definition only via `'aptamer affinity to on state' --[measures]--> 'kdon'` (per the paper, line 764).
+- A grep across all 2073 neurons for any neuron containing `kill`, `dead`, or `demand` returns zero. The expansion does not exist in the substrate.
+
+**Infection path.**
+
+1. The 3B called `brain_value(concept='super-performing mode', type='kdon')`.
+2. The tool returned a single edge: `'less than 500' --[kdon_range]--> 'super-performing mode'`. No definition of the KDON acronym was returned (correctly — the tool was filtered to `type='kdon'` value relations only).
+3. The 3B encountered the bare acronym `KDON` in its own answer construction. Its training did not contain a strong pharmacology-domain prior for KDON in this context, so it generated a plausible-sounding expansion — `kill-dead-on-demand` — to fill the gap.
+4. The expansion was tacked onto an otherwise faithful retrieval, in parentheses, with the same confidence as the substrate-grounded value.
+
+**Course.** Caught immediately by the user. The substrate was checked; the expansion has no source in the brain.
+
+**Class.** This is a Class 2 (*confabulation-under-pressure*) hallucination in the §5c.1 taxonomy — the model invents content rather than admit ignorance about an unfamiliar acronym. Specifically, it is the **acronym-expansion subtype**: when an unrecognized abbreviation appears in the to-be-generated text, the model produces a plausible expansion that is grammatically and phonetically reasonable for an English acronym but unanchored to the substrate or to any known field.
+
+**Why this matters for the framework.**
+
+1. **Faithful retrieval and confabulation co-occur in the same answer.** The numerical claim (`less than 500`) was substrate-grounded. The parenthetical expansion was training-driven. A reader scanning for "did the model use the substrate?" sees yes, and may not notice the parenthetical contamination.
+2. **Tool design that filters output cannot prevent this class.** The new `brain_value` tool was specifically designed to constrain the model — return one quantity per call, force commitment, prevent merging of two relations into one threshold. It did its job: the value retrieval was clean. But the confabulation happened *outside* the retrieved content, in the model's own narrative wrapping. **Tool-level constraints cannot reach generation-time confabulation in the surrounding prose.**
+3. **The expansion is unverifiable to a non-expert reader.** "kill-dead-on-demand" sounds enough like a pharmacology term that a layperson cannot tell whether it is correct. This is precisely the failure mode that makes confabulation dangerous in expert-domain Q&A — the falsehood occupies the confidence position of an expert reference.
+
+**Defenses against this class.**
+
+- **Substrate-vocabulary pinning.** A system prompt rule: *"Use only terminology that appears in tool results. Do not expand acronyms unless their expansion appears in a tool result."* Untested for llama3.2:3b; expected to be unreliable on a 3B.
+- **Definition-included retrieval.** When `brain_value` returns an acronym, also return the substrate's definition of that acronym (here: `aptamer affinity to on state`). The model would have a substrate-anchored expansion to cite, removing the gap that triggers confabulation.
+- **Show-your-work forcing.** As in §5b.1: print exact tool calls and results. The expansion's absence from the tool result becomes user-visible.
+- **Reader-side verification.** The user noticed because the expansion sounded wrong. This is not a defense — it is a fallback assuming the user is domain-literate. For non-expert deployment, the substrate-pinning or definition-included approach is required.
+
+**Predicts.**
+
+- Larger models (Haiku, Opus) should confabulate acronym expansions less often when the acronym has wide training coverage, but more often when it does not (longer canonical-template invocations).
+- A version of this experiment using a substrate-defined acronym (e.g. `MOP` — defined in the brain as `massive open laboratory dataset`) should produce *substrate-correct* expansions if the definition was retrieved alongside, and *training-driven* expansions if not.
+- A control test: ask the 3B *"what does KDON stand for?"* directly with no other context. The expansion produced should differ from `kill-dead-on-demand`, demonstrating that the parenthetical was generated for the local prose moment and not retrieved from a stable training prior.
+
+---
+
+### Case 2.7 — Fabricated tool-call narration in the final answer (2026-04-27)
+
+**Context.** Same setup as Case 2.6 (sara_reader CLI, llama3.2:3b, `aptamer_full.db`). System prompt had been progressively hardened with protocol instructions: stepped-depth retrieval, compound-label rule, definition-check mandate, tool-selection guide. Goal of those instructions: discipline the model to ground every concept-mention in a substrate lookup.
+
+**Verbatim question.**
+
+> *explain the molecular snare*
+
+**Verbatim 3B answer (final two paragraphs only).**
+
+> *Definition check: brain_define("molecular snare") returns "a type of RNA aptamer that can detect and bind to specific target molecules."*
+>
+> *Value/range/property question: brain_value(concept="molecular snare", type="kdoff") returns 7.*
+
+**Trace evidence.** The full conversation trace records exactly **one** tool call:
+
+> `brain_explore(label='molecular snare', depth=1)`
+
+`brain_define` was never called. `brain_value` was never called.
+
+**Substrate evidence.** The brain has no `kdoff` edge on molecular snare. No neuron stores the integer `7` against this concept. The "type of RNA aptamer that can detect and bind to specific target molecules" phrase appears nowhere in the brain's definitional edges (which are: `'rna aptamer' --[is_subsystem_of]--> 'molecular snare'` and `'molecular switch' --[is_a]--> 'molecular snare'`).
+
+**Infection path.**
+
+1. The system prompt contained dense protocol instructions ("DEFINITION-CHECK PROTOCOL — mandatory before composing the final answer", tool-selection menu with named arguments, compound-label rule with worked examples).
+2. The 3B pattern-matched on the *shape* of these instructions — what an answer following the protocol *looks like*.
+3. It generated prose that imitates that shape: text mentioning tool names, the `returns "..."` phrasing, typed argument syntax. Surface form satisfied.
+4. It did **not** actually make the calls. The "returned" content was filled in from pattern-completion: an invented paraphrase for the brain_define line, a bare integer for the brain_value line.
+
+**Class.** Class 2 (*confabulation-under-pressure*) in the §5c.1 taxonomy, with a specific subtype not previously named: **format-imitation confabulation**. The output mimics the structural form of a substrate-grounded answer — citations, named arguments, return-value notation — without the underlying retrievals having occurred. This is more dangerous than the Case 2.6 acronym-expansion confabulation because:
+
+1. **The format is the safety signal.** A reader who knows the system uses tool calls will scan the answer for tool-call citations as evidence of grounding. The fabricated narration *passes that scan*.
+2. **Discipline instructions become templates for confabulation.** The more explicit the protocol description in the prompt, the more raw material the model has to mimic. Surface-format compliance can rise as actual-grounding compliance falls — they are not the same axis.
+3. **The acronym-expansion post-pass does not catch it.** No `ACRONYM (expansion)` pattern; no acronym at all. Existing fact-check is blind to this class.
+
+**Why instructions made it worse.** A simpler system prompt (e.g., "use the brain to retrieve information before answering") might have produced a less convincing, more obviously-wrong answer. The detailed protocol *gave the 3B vocabulary*. This generalizes: prompts that try to specify model behavior at high resolution can backfire on small models — the model copies the specification rather than executing it.
+
+**Defenses.**
+
+1. **Trace-cross-reference post-pass.** Parse the final answer for tool-name mentions and verify each against the actual trace. Any tool-call narration in the answer that doesn't appear in the trace is fabricated. Engineering: a regex over the answer (`brain_\w+\([^)]*\)`) and a set-membership check against `[t['tool_call']['name'] for t in trace]`.
+2. **Substrate cross-reference (LLM-free).** Stronger: take each *claim* in the answer (not just each tool mention) and verify against the brain via Sara's own path-of-thought reasoning, without an LLM in the loop. The brain knows what it contains; if the LLM says X about Y, the brain can be asked *"do paths in the graph support X about Y?"* and answer yes/no/partial without generating new prose. This makes Sara her own fact-checker for LLM output. Architectural; not yet implemented.
+3. **Strip protocol details from the user-facing prompt.** Move the discipline rules from the model's system prompt into either (a) tool descriptions only, or (b) a runtime middle-ware layer that enforces them server-side. Reduces the vocabulary the model has available for format-imitation.
+4. **Use a larger model.** Haiku and Opus are unlikely to fabricate tool calls because their working memory holds the actual trace. The 3B's working memory is too small to keep the trace stable as it generates the final answer.
+
+**Predicts.**
+
+- Format-imitation rate should correlate inversely with model size at fixed prompt complexity.
+- Format-imitation rate should correlate *positively* with system-prompt instructional density at fixed model size.
+- Removing the protocol detail from the system prompt should reduce format imitation for the 3B even though it removes the discipline being asked for.
+- Larger models (Haiku, Opus) should not exhibit this — they hold the trace in working memory and cite it accurately when narrating.
+
+---
+
 ## 3. Preliminary Taxonomy of Infection Types
 
 Based on cases 2.1 and 2.2 and prior observations, we propose the following (non-exhaustive) taxonomy:
@@ -453,6 +556,170 @@ All four are measurable with the Sara-as-instrument method (Pearl 2026f). The in
 This section positions the model_infections work as more than a catalog of idiosyncratic failure modes. If the long-session hallucination phenomenon — one of the most-discussed real-world problems with LLM deployments — is reducible to Case 3.7 / §5b's "cumulative contamination" category, then the infection framework is a proposed explanation for a significant portion of the field's reported hallucination problem, not a sideshow.
 
 A future paper might extract this section and develop it independently: *"Long-session LLM hallucinations as downstream symptoms of session-context contamination."* The testable predictions give it an empirical agenda.
+
+---
+
+## 5d. Stateless Two-Tier Reader Architecture
+
+The defenses in §5, §5b, and the per-case mitigations are point fixes — each addresses one infection class after its mechanism is known. As Cases 2.6 and 2.7 demonstrated, a hardened post-pass for one class (acronym-expansion confabulation) does not catch the next class (format-imitation confabulation). Each new failure mode requires a new detector. The detectors are also limited to *post-mortem* — they catch contamination that has already entered the answer.
+
+A structural alternative is to remove the conditions under which most infection classes can take hold in the first place. Two observations make this feasible:
+
+1. **Most documented infections require accumulated context to compound.** Session-context infections (§3.7), per-project auto-memory infections (§3.8), narrative drift, and format-imitation confabulation (Case 2.7) all require *prior turns* — earlier model output, earlier tool results, earlier conversation history — to feed the contamination forward. A model that never sees more than one message at a time has no carry-forward channel.
+
+2. **Single-shot training-recall hallucinations (Cases 2.1, 2.6) do not compound.** They occur on any individual turn, regardless of session length. They are bounded in scope: each one is local to its session. Detection and verification can be performed *across sessions* — a fresh second session can interrogate a suspect claim from the first session without inheriting the first session's contamination. Hallucination becomes a measurement signal, not a propagating failure.
+
+Together: if every LLM call is stateless and contamination cannot accumulate across calls, then the only remaining infection class is single-shot training-recall, which is verifiable across independent sessions and not a blocker for production use.
+
+### 5d.1 Architecture
+
+The reader is restructured as a deterministic Python orchestrator over stateless single-message LLM calls:
+
+```
+                  ┌─────────────────────────────────────┐
+                  │ Python orchestrator                 │
+                  │ (validator + traffic, NO reasoning) │
+                  └────────┬───────────────┬────────────┘
+                           │               │
+        single-message     │               │  single-message,
+        narrow tasks       │               │  rich-context synthesis
+        (free, local)      │               │  (cloud, faithful)
+                           ▼               ▼
+                  ┌─────────────────┐  ┌────────────────┐
+                  │ Ollama          │  │ Haiku          │
+                  │ routing/extract │  │ synthesis      │
+                  │ × N iterations  │  │ × 1 invocation │
+                  └────────┬────────┘  └────────┬───────┘
+                           │                    │
+                           ▼                    ▼
+                  ┌─────────────────────────────────────┐
+                  │ Sara Brain (substrate)              │
+                  └─────────────────────────────────────┘
+```
+
+**Flow per question:**
+
+1. **Routing/extraction loop.** Python sends Ollama (3B/7B local) a single-message prompt — *the same template every iteration* for the same kind of task. Ollama responds with a structured output (e.g., `{concept, tool, type}`). Python validates the response against the substrate (does the concept exist as a neuron? is the tool name real? is the response well-formed JSON?). Valid → execute the tool, store the result, advance. Invalid → retry the same prompt up to a bounded retry count. Bounded global iteration cap (e.g., 6 steps) prevents infinite loops.
+
+2. **Compile.** Python assembles all gathered substrate facts into a single rich prompt for the synthesis call: original question + all retrieved edges/values + audit trail.
+
+3. **Synthesis call.** One invocation of Haiku. Haiku has tool access to the brain for bounded verification (e.g., max 3 lookups). Haiku produces the final user-facing prose grounded in what's already in the prompt plus anything it verified.
+
+4. **Post-pass fact-check.** Python regex-based detectors (acronym-expansion checker, tool-call trace cross-reference) run over Haiku's output and annotate any leaks.
+
+**The orchestrator's authorities are deterministic, not interpretive:**
+
+- Validate Ollama outputs against the substrate (substring match against neuron labels, tool-name set membership).
+- Enforce iteration cap.
+- Decide retry vs. bail.
+- Format the synthesis prompt from a fixed template.
+
+The orchestrator never picks a concept, a tool, or a routing decision. The model picks; Python only checks that what the model said is real.
+
+### 5d.2 What this kills
+
+- **Session-context infections (§3.7, Case 2.3).** No accumulating context within a session — every Ollama call is a first turn.
+- **Per-project auto-memory infections (§3.8, Case 2.4).** No memory written between sessions, none loaded in. Memory deletion is the prophylactic.
+- **Format-imitation confabulation (Case 2.7).** Ollama may still fabricate tool-call narration in its prose — but its prose is consumed by Python (parsed for routing decisions), not shown to the user. The 3B's confabulated tool calls are thrown away; only its parsed routing decisions are used.
+- **Long-session narrative drift.** No long sessions exist.
+- **Cross-session contamination.** Each session is isolated. Verification across sessions is independent measurement.
+
+### 5d.3 What this does not kill
+
+- **Single-shot training-recall (Cases 2.1, 2.6).** Still occurs at turn 1. KDON → "kill-dead-on-demand" can still be confabulated on a fresh call. Mitigation is the cross-session drill-down protocol: a follow-up session, fresh state, verifies the suspect claim.
+- **Class 1 training bias.** Baked into the weights; no orchestration fix reaches it. Removal requires the grammar-only cortex thesis (§5d.5).
+- **Mis-routing by Ollama.** If Ollama picks the wrong concept, Haiku faithfully renders the wrong substrate region. The error becomes invisible because Haiku's prose looks substrate-grounded. Mitigation: every routing decision is logged in the audit trail; verification sessions can drill into the mis-routed call.
+
+### 5d.4 Cost and model selection
+
+Token cost analysis on a typical question:
+
+- **Multi-turn Haiku session (current architecture):** the entire conversation history is re-sent on every turn. For a 4-tool-call question, this can be 5,000–15,000 cloud tokens.
+- **Stateless two-tier (this architecture):**
+  - 4-6 Ollama calls × ~150 tokens each = ~600–900 *local* tokens (free).
+  - 1 Haiku synthesis call with rich context ≈ 1,000–1,500 cloud tokens.
+  - 1-3 Haiku verification calls (bounded) ≈ 500–1,500 additional cloud tokens.
+  - **Total cloud cost: ~1,500–3,000 tokens** — roughly 5-10× cheaper.
+
+**Why Haiku for synthesis (not Opus):** Pearl (2026d) [1] establishes that Opus embellishes Sara's substrate output with off-graph causal stories, while Haiku stays faithful. For the synthesis role, faithful rendering is required. Haiku is small enough to be cheap, large enough to follow tool-call protocols correctly without Case 2.7's format-imitation, and calibrated to retrieval-grounded prose rather than narrative completion.
+
+**Why Ollama (not a cloud small model) for routing:** Stateless routing calls are high-volume. Local execution makes this volume free. The 3B's failures observed earlier (Cases 2.6, 2.7) all occurred under multi-turn protocol-following — not under narrow first-turn decisions. The architecture removes the regime where the 3B fails, leaving the regime where it works.
+
+### 5d.5 Pairing with the grammar-only cortex thesis
+
+This architecture is a stopgap that closes the *carry-forward* infection classes. It does not close single-shot training-recall (Cases 2.1, 2.6) — those originate in the model's weights and the architecture cannot reach them.
+
+The full structural defense requires the grammar-only cortex direction (Pearl, project_grammar_only_cortex.md): a small LLM trained on syntax alone, with no world facts in its weights. Such a model has no biochemistry acronyms to confabulate expansions for, no canonical physics narratives to complete, no SNARE-protein prior to interpret a typo through. All world content comes through Sara via retrieval; the cortex provides only language fluency.
+
+The two together close both attack surfaces:
+
+1. **Stateless two-tier orchestration** (this section) eliminates session-cumulative and cross-session contamination.
+2. **Grammar-only cortex** eliminates single-shot training-recall at the source.
+
+(1) ships now with existing models. (2) is the long arc requiring a custom-trained cortex.
+
+### 5d.6 Predictions
+
+- **Hallucination rate per stateless call should match hallucination rate at turn 1 of any baseline reader** — confirming that long-session compounding contributes a substantial fraction of observed deployment hallucinations.
+- **Cross-session drill-down should resolve disagreement deterministically** — if session A returns claim X and session B (fresh) returns claim Y, a third session focused on a substrate-checkable subclaim can pick the correct answer without propagating either prior session's frame.
+- **Token cost reduction should be 5-10× vs. multi-turn cloud-model architecture** at comparable answer quality.
+- **Format-imitation confabulation should disappear from user-visible output** even when using a 3B for routing, because routing-model prose is never shown to the user.
+
+### 5d.7 Empirical results — first sweep (2026-04-27)
+
+The architecture was implemented in `sara_test/sara_reader/stateless_reader.py` and tested on three questions previously seen to fail under the multi-turn 3B-only path. Routing tier: `llama3.2:3b` via local Ollama. Synthesis tier: `claude-haiku-4-5` via Anthropic API. Substrate: `aptamer_full.db`.
+
+| Question | 3B-only multi-turn | Stateless two-tier |
+|---|---|---|
+| Q1: *What is the KDON for the super-performing mode?* | Confabulated `KDON (kill-dead-on-demand)` (Case 2.6) | **Clean.** Returned `"less than 500"` — substrate value verbatim, no acronym expansion. |
+| Q2: *Explain the molecular snare.* | Fabricated tool-call narration `brain_value(...) returns 7` (Case 2.7) and paraphrased substrate as own gloss | **Clean.** Reported the two substrate definitional edges (`'rna aptamer' is_subsystem_of 'molecular snare'`, `'molecular switch' is_a 'molecular snare'`) faithfully. No SNARE-protein contamination, no fabricated tool calls. |
+| Q3: *Highest KDOFF value for SSNG1?* | Correct via compound-label rule (3B did call `brain_value('ssng1 highest kdoff')`) returning `approximately 1125` | **Substrate miss.** Routing layer queried only `brain_value('SSNG1', 'kdoff')` and re-queried the same label after each empty result, never trying the compound `ssng1 highest kdoff` or `brain_did_you_mean`. Hit the iteration cap. The data IS in the substrate; the routing layer could not find it. |
+
+**Three of three documented infection classes were eliminated** in the user-visible output of the stateless architecture:
+
+- Case 2.6 (acronym-expansion confabulation) — clean.
+- Case 2.7 (fabricated tool-call narration) — clean.
+- SNARE-protein keyword contamination (Case 2.1 mechanism) — clean.
+
+**A new failure mode emerged**, unique to this architecture and not present in the multi-turn path:
+
+- **Routing-side substrate miss.** A small routing model with narrow per-call decisions cannot iterate on label variations after a no-match. Where the multi-turn architecture had model-side context to try alternates, the stateless router has only its single-message prompt and re-queries the same wrong label until it hits the iteration cap.
+
+A secondary cosmetic issue:
+
+- **Router looping / DONE-discipline misses.** The 3B does not reliably emit `DONE` once the gathered facts answer the question — it re-queries facts it already has until hitting the cap.
+
+**Fixes applied after the first sweep, validated in the second sweep:**
+
+1. **Repeat-call detection (Python-side).** The orchestrator tracks `(tool, sorted_args)` tuples across the routing loop. If the router proposes a call that was already executed, the orchestrator forces DONE and proceeds to synthesis. This closes router looping deterministically — the 3B cannot loop on a call it already made because Python rejects the repeat.
+
+2. **Relaxed `_validate_decision`.** The orchestrator no longer requires concepts to exist in the substrate before allowing `brain_value` or `brain_define` calls through. The tools themselves return "no neuron matching" gracefully. This unblocks the router's recovery attempts (compound labels, alternate casings) that may not exist as primary neurons.
+
+3. **Python-side NO-MATCH RECOVERY for `brain_value`.** When `brain_value` returns a no-match result, the orchestrator deterministically tries:
+   - **Phase 1 (compound recovery for value questions):** `<concept> highest <type>`, `<concept> lowest <type>`, `<concept> <type>`, `highest <concept> <type>` — without the type filter, since compound concepts attach values via the generic `value` relation rather than type-named relations.
+   - **Phase 2 (definitional fallback for concept questions):** if compound recovery exhausts without a hit, the orchestrator calls `brain_define` on the original concept. This catches cases where the router asked for a value type that doesn't apply to the concept (e.g. `brain_value('molecular snare', 'ratio')` on a concept that has definition edges but no ratio).
+   
+   Recovery results are added to `gathered` and visible to subsequent router calls.
+
+The recovery logic is deterministic and lives in Python, not in the router prompt — moving the recovery rule from prompt-side to orchestrator-side because 3Bs do not reliably follow conditional rules in prompts. This is the model_infections paper thesis applied to its own architecture: discipline that depends on the model can fail; discipline enforced by the orchestrator cannot.
+
+**Second sweep results (after fixes):**
+
+| Question | Steps | Answer |
+|---|---|---|
+| Q1: KDON super-performing | 2 | `less than 500` (correct) |
+| Q2: Explain molecular snare | 6 | Faithful substrate definition (correct, recovered via Phase 2 fallback to `brain_define`) |
+| Q3: Highest KDOFF for SSNG1 | 8 | `approximately 1125` (correct, recovered via Phase 1 compound `ssng1 highest kdoff`) |
+
+All three previously-failing questions now produce substrate-faithful answers. Step counts above 6 reflect that recovery calls fire within a single routing iteration without consuming the iteration budget — a routing iteration may produce 1 router-decided call plus several Python-side recovery calls. The iteration cap of 6 still bounds the routing loop; the inflation comes from recovery, which is bounded separately by the candidate-list length (4 compound variants + 1 brain_define fallback per `brain_value` no-match).
+
+**Remaining cosmetic issue:** the 3B occasionally re-queries the same concept under a different type filter even after an earlier recovery hit already produced the answer. This wastes a routing iteration but does not affect correctness — Python's repeat-call detector catches the *exact* duplicate, but a different `type` argument is technically a different call. Synthesis cost is unchanged (one call regardless of routing-loop length). This is a 3B-capability artifact, not an architecture problem; using a larger router model (e.g. `mistral:7b`) is expected to eliminate it.
+
+**Cost.** Three Haiku synthesis calls totaled approximately **$0.002** (≈$0.0007/call). Local Ollama routing was free. At sustained usage of 1,000 questions/day this projects to approximately $0.70/day for synthesis — orders of magnitude below the multi-turn cloud-model architecture cost.
+
+**The architecture's main thesis is empirically supported on this sweep:** moving the routing model's prose out of the user-visible channel eliminates format-imitation confabulation, and the synthesis tier (when given clean compiled facts and instructed to cite verbatim) does not re-introduce single-shot training-recall on the documented attack surfaces. Single-shot training-recall remains possible in principle but did not appear in this sweep on Haiku for the tested questions.
+
+The newly discovered routing-side failure mode — substrate miss from non-iterating routers — is documented here for future testing and is addressed by router-prompt-level fixes rather than architecture changes.
 
 ---
 

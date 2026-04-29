@@ -509,6 +509,51 @@ class Brain:
             self.conn.commit()
         return result
 
+    def refute_triple(
+        self,
+        subject: str,
+        relation: str,
+        obj: str,
+        *,
+        user_initiated: bool = True,
+    ) -> LearnResult | None:
+        """Refute a (subject, relation, object) triple. No parser — labels
+        are matched exactly as stored (after case normalization), so compound
+        terms like "molecular snare" are found correctly.
+
+        Mirrors teach_triple: creates a ParsedStatement directly and calls
+        _build_chain with refute=True. Sara never deletes — the path stays
+        as evidence; its strength goes negative.
+
+        Returns None if the triple cannot be stored (ethics gate blocked).
+        """
+        gate = self._ethics.check_action("teach", user_initiated=user_initiated)
+        if not gate.allowed:
+            raise PermissionError(gate.reason)
+
+        subject = self._normalize_label(subject)
+        relation = self._normalize_label(relation)
+        obj = self._normalize_label(obj)
+
+        from ..parsing.statement_parser import ParsedStatement
+        parsed = ParsedStatement(
+            subject=subject,
+            relation=relation,
+            obj=obj,
+            original=f"{subject} {relation} {obj}",
+            negated=True,
+        )
+        result = self.learner._build_chain(parsed, refute=True)
+        if result is not None:
+            self.conn.commit()
+            if self._reverse_learner is not None:
+                try:
+                    self._reverse_learner._build_reverse_chain(parsed)
+                    self._reverse_db.conn.commit()
+                except Exception:
+                    pass
+        return result
+
     def neighborhood(
         self,
         label: str,

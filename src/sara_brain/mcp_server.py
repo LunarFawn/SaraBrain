@@ -374,6 +374,43 @@ def brain_refute(statement: str) -> str:
 
 
 @mcp.tool()
+def brain_refute_triple(
+    subject: str,
+    relation: str,
+    obj: str,
+) -> str:
+    """Refute a fact stored as an explicit (subject, relation, object) triple.
+
+    No parser — labels are matched exactly as stored (after case normalization),
+    so compound terms like "molecular snare" are found and marked correctly.
+    Use this instead of brain_refute when the fact was originally taught via
+    brain_teach_triple.
+
+    Sara never deletes — the path stays as evidence; its strength goes negative.
+    Repeated refutation drives strength further negative.
+
+    Args:
+        subject: the subject neuron label (same value used in brain_teach_triple)
+        relation: the relation verb (same value used in brain_teach_triple)
+        obj: the object neuron label (same value used in brain_teach_triple)
+
+    Returns:
+        Confirmation with path label and id, or error if blocked.
+    """
+    brain = _get_brain()
+    try:
+        result = brain.refute_triple(subject, relation, obj)
+    except PermissionError as e:
+        return f"Ethics gate blocked the refute: {e}"
+    if result is None:
+        return (
+            f"Could not refute: ({subject!r}, {relation!r}, {obj!r}). "
+            "Check that all fields are non-empty."
+        )
+    return f"Refuted: {result.path_label} (path #{result.path_id}, marked as known-to-be-false)"
+
+
+@mcp.tool()
 def brain_did_you_mean(term: str) -> str:
     """Check for close matches to a term in Sara Brain.
 

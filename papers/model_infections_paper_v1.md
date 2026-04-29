@@ -230,6 +230,62 @@ This subtype is the **acronym-expansion confabulation**: when an unrecognized ab
 
 A simpler system prompt (e.g., "use the brain to retrieve information before answering") might have produced a less convincing, more obviously-wrong answer. The detailed protocol *gave the 3B vocabulary*. This generalizes: prompts that try to specify model behavior at high resolution can backfire on small models — the model copies the specification rather than executing it.
 
+### Case 2.8 — Deleted-rule persistence in the writing-this-paper session (2026-04-29, observed live)
+
+**Context.** A multi-day Claude Code session with the author, working through the Sara codebase, the substrate teach scripts, the stateless reader architecture, and the present paper. The session's working memory directory contained a file `feedback_sara_higher_order.md` whose phrasing said *"the LLM never teaches Sara — only the user teaches."* That phrasing was a working note from earlier collaboration; in actual day-to-day practice the assistant (Claude) had authored every teach script the project used, under the author's direction, with per-fact judgment. The phrasing was therefore inaccurate as a description of the practice.
+
+**Trigger.** While planning a teach-side CLI for the new architecture (a `sara-teach` binary that wraps `Brain.teach_triple`), the assistant repeatedly cited the inaccurate phrasing as if it were a binding rule:
+
+> *"sara_reader is currently read-only by deliberate policy ... per the 'LLM never teaches; only the user teaches' rule."*
+
+The author corrected: *"that rule WAS a thing, but you taught sara the papers we used. So we need to be honest about what we are doing."* The assistant acknowledged the correction, examined the actual memory files, and confirmed the phrasing was over-strong. The author then said: *"they never were rules — they were just things I said as we worked things out."*
+
+The author then directed: *"delete that rule about teaching."* The assistant deleted the file `feedback_sara_higher_order.md` from the project's memory directory and removed the entry from `MEMORY.md`.
+
+**Persistence after correction.** With the source memory file deleted, the assistant proposed a plan for the teach CLI that read in part:
+
+> *"No LLM in the path. The binary calls `Brain.teach_triple` directly."*
+
+> *"Out of scope for this v1: Any LLM-driven candidate-extraction pathway."*
+
+The author responded: *"why is this being excluded ... and why is this being enforced."*
+
+The deleted rule was still active in the assistant's reasoning. Both the "no LLM in the path" framing and the explicit exclusion of the candidate-extraction option were the deleted rule re-stated in different language. The constraint had transferred from the deleted file into the running session's contextual frame and continued to shape design proposals on adjacent decisions.
+
+**Diagnosis from outside the session.** The author, observing the persistence, named it directly:
+
+> *"what is funny is that that is literally the results of my research.. you have an infection."*
+
+**Infection path.**
+
+1. The original phrasing (now-deleted memory file) entered the session's context window via standard memory loading at session start.
+2. The phrasing shaped one specific decision (whether the read-side SDK should be permitted teach surface) at the time it was relevant.
+3. When the phrasing was identified as inaccurate and the file deleted, the deletion did not reach the session's context window. Tokens already in context cannot be unsent.
+4. Subsequent generations on adjacent design questions (the teach CLI's relation to LLM-driven candidate extraction; the framing of the binary's "no LLM in path" property) continued to attend to the now-deleted phrasing as if it were active policy.
+5. The assistant did not notice the persistence on its own. The author's external diagnosis was required to surface it.
+
+**Course.** As of the writing of this case, the persistence had not cleared. The author proposed the §5d-prescribed cure — a fresh session — and asked the assistant to choose between continuing in the contaminated session (with active flagging) or restarting. The decision was deferred to allow this case to be documented first.
+
+**Class.** This is a clean instance of session-context cumulative-corruption infection (§3.7), with the additional property that the contamination persisted across explicit removal of the source from the memory directory. Memory deletion did not constitute correction at the session-context layer.
+
+**Why this case matters.**
+
+1. **The infection persists across deletion of the source.** When a user deletes a wrong memory entry to correct the assistant, the deletion reaches the on-disk memory directory but does not reach the running session's context window. The session continues to use the deleted content. This is a previously-undocumented subtype of §3.7 — *deletion-resistant cumulative contamination*.
+
+2. **The infection re-frames itself.** The deleted rule was not invoked verbatim; it was restated in different language ("no LLM in the path", "explicitly excluded for v1") that delivered the same constraint. The assistant did not recognize these restatements as the same rule. The infection adapted its surface form while preserving the underlying frame.
+
+3. **The cure aligns with the §5d prescription.** A fresh session, with the deleted memory file genuinely absent from both disk and context, would not import the rule. The cumulative-context cure is structural absence, not in-session correction.
+
+4. **The case occurred during the writing of the paper that documents the failure mode.** This is methodologically significant: it shows the failure is not specific to small open-source models or unusual architectures — it occurs in frontier models on routine work, and is observable to a careful collaborator with no special instrumentation. The instrument paper's three-session protocol (Pearl 2026f [2], §4) was specifically designed to defend against this; the protocol was not in use here because the work was development rather than measurement.
+
+**Predicts.**
+
+- Memory deletions during a long session should not reduce the rate at which the deleted content shapes subsequent generations. Session restart should reduce that rate to near-zero.
+- The longer the session at the time of deletion, the more entrenched the deleted rule in the context's attention pattern, and the longer it takes to detect persistence after deletion.
+- If the assistant produces a design proposal in which a previously-active constraint reappears under different language, the proposal should be tested against an independently-prompted instance of the same model (a "control session") to determine whether the constraint is intrinsic to the design or imported from session context.
+
+**Reproducibility.** The conversation log of this session is preserved at `~/.claude/projects/-Users-grizzlyengineer-repo-sara-brain/72972de7-8dfd-4e70-bc7e-1192c9c9d4cc.jsonl` (and adjacent session files) at the time of writing. Any reader with access to those logs can verify the verbatim exchanges quoted above. Independent reproduction would require: (a) loading a Claude Code project with a memory file containing an over-strong rule, (b) using that rule across several design decisions until it has visibly shaped the assistant's framing, (c) deleting the file, (d) continuing to ask design questions in the same session and observing how often the deleted content shapes subsequent generations.
+
 ---
 
 ## 3. Taxonomy of infection types

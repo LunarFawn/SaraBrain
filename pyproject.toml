@@ -7,7 +7,7 @@ name = "sara-brain"
 version = "0.1.0"
 description = "Path-of-thought cognitive architecture with structural alignment through innate primitives"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = ["anthropic>=0.30.0"]
 authors = [{name = "Jennifer Pearl", email = "jenpearl5@gmail.com"}]
 license = {text = "GPL-3.0-or-later"}
 readme = "README.md"
@@ -35,6 +35,10 @@ sara-mcp = "sara_brain.mcp_server:main"
 sara-cortex = "sara_brain.cortex.cli:main"
 sara-cleanup = "sara_brain.cortex.cleanup:main"
 sara-shell = "sara_brain.sensory.cli:main"
+sara-ask = "sara_reader.cli:main"
+sara-ask-stateless = "sara_reader.cli_stateless:main"
+sara-teach = "sara_reader.cli_teach:main"
+sara-refute = "sara_reader.cli_refute:main"
 
 [project.urls]
 Homepage = "https://github.com/LunarFawn/SaraBrain"
@@ -45,6 +49,7 @@ Substack = "https://pathofthought.substack.com"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+include = ["sara_brain*", "sara_reader*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -23,8 +23,17 @@
       "Bash(ollama list:*)",
       "Bash(echo:*)",
       "Bash(sqlite3 *)",
-      "Bash(.venv/bin/python *)"
+      "Bash(.venv/bin/python *)",
+      "mcp__sara-brain__brain_query",
+      "mcp__sara-brain__brain_trace",
+      "mcp__sara-brain__brain_why",
+      "mcp__claude_ai_Google_Drive__read_file_content",
+      "Bash(./load_brain.sh jkd_limitations)"
     ],
     "defaultMode": "acceptEdits"
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "sara-brain"
+  ]
 }

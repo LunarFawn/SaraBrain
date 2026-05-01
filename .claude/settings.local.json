@@ -28,7 +28,11 @@
       "mcp__sara-brain__brain_trace",
       "mcp__sara-brain__brain_why",
       "mcp__claude_ai_Google_Drive__read_file_content",
-      "Bash(./load_brain.sh jkd_limitations)"
+      "Bash(./load_brain.sh jkd_limitations)",
+      "Bash(awk '/^## 7\\\\. Limitations/,/^## 8\\\\./' papers/sara_as_instrument_paper_rev2.md)",
+      "Bash(grep -nA4 \"^### 5.7\\\\|^### 5.1\\\\b\\\\|^### 5.6\" papers/sara_as_instrument_paper_rev2.md)",
+      "Bash(grep -cE '^\\\\*\\\\*Date:\\\\*\\\\* April 2026$' papers/sara_as_instrument_paper_rev4.md)",
+      "Bash(sort -t'[' -k2 -n)"
     ],
     "defaultMode": "acceptEdits"
   },

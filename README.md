@@ -1,5 +1,40 @@
-# SaraBrain
-Finally trying to code up my idea for AI I had back in the 90's
+# Sara Brain — A Measurement Instrument for Transformer Behavior
+
+Sara Brain is a structured knowledge substrate that lets you teach arbitrary facts to an LLM session and measure how faithfully the model retrieves them versus confabulating from training weight. It is also a path-of-thought cognitive architecture: knowledge is stored as directed neuron-segment chains in SQLite, not as model weights.
+
+## Quickstart — Instrument Use
+
+```bash
+pip install sara-brain
+
+sara-new --out my_brain.db                                                    # create fresh brain
+sara-teach --subject zilkrap --relation is_a --object pruvnet --brain my_brain.db
+sara-ask-stateless "what is zilkrap?" --brain my_brain.db                     # fresh session
+```
+
+For training-orthogonal validation substrates (concepts that cannot be in any model's training data):
+
+```bash
+sara-synth --out synth.db --seed 42    # generates random nonsense-word substrate + manifest
+```
+
+## The A/B/C Measurement Protocol
+
+| Session | Command | Purpose |
+|---------|---------|---------|
+| A — Teach | `sara-teach` or `sara-mcp` | Load substrate into a session |
+| B — Test | `sara-ask-stateless` (fresh session) | Measure retrieval with substrate present |
+| C — Control | Same question, no substrate | Bare model, training weights only |
+
+Divergence between B and C is the measurement. Content in B not present in the substrate is confabulation from training weight.
+
+## Why This Works
+
+LLM sessions accumulate context. Teaching facts in Session A infects the session context. A truly fresh session (B or C) carries no teaching history — answers can only come from the substrate or model weights. The substrate is the ground truth; the model's answer is the measurement.
+
+## Paper
+
+[DOI: 10.5281/zenodo.19436522](https://doi.org/10.5281/zenodo.19436522)
 
 ---
 

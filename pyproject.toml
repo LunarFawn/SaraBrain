@@ -7,7 +7,7 @@ name = "sara-brain"
 version = "0.1.0"
 description = "Path-of-thought cognitive architecture with structural alignment through innate primitives"
 requires-python = ">=3.11"
-dependencies = ["anthropic>=0.30.0"]
+dependencies = []
 authors = [{name = "Jennifer Pearl", email = "jenpearl5@gmail.com"}]
 license = {text = "GPL-3.0-or-later"}
 readme = "README.md"
@@ -25,8 +25,9 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=7.0", "pytest-asyncio>=0.21"]
+reader = ["anthropic>=0.30.0"]
 mcp = ["mcp>=1.0"]
+dev = ["pytest>=7.0", "pytest-asyncio>=0.21"]
 
 [project.scripts]
 sara = "sara_brain.repl.shell:main"
@@ -39,6 +40,9 @@ sara-ask = "sara_reader.cli:main"
 sara-ask-stateless = "sara_reader.cli_stateless:main"
 sara-teach = "sara_reader.cli_teach:main"
 sara-refute = "sara_reader.cli_refute:main"
+sara-synth = "sara_brain.tools.synthetic_substrate:main"
+sara-new = "sara_brain.tools.new_brain:main"
+sara-experiment = "sara_brain.tools.run_experiment:main"
 
 [project.urls]
 Homepage = "https://github.com/LunarFawn/SaraBrain"

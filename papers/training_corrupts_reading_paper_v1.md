@@ -250,7 +250,7 @@ The empirical basis is two-sided: Pearl 2026b [1] on the teaching side (45 human
 
 ### 7.1 Single test question
 
-This paper reports on one test question against one graph. The finding is qualitatively clean — Haiku's 100% traceability vs. Opus's ~30% invention — but a full empirical case for the weight-is-bias reading principle requires: multiple test questions per graph, multiple graphs covering different domains, and model-family-diverse comparisons (not just Haiku vs. Opus within one vendor's model family). Follow-up work should run this protocol across a battery of questions and several model pairs. The follow-up Model Infections paper [4] reports additional findings (Cases 2.6, 2.7, 2.8) on a larger 2,073-neuron substrate using `llama3.2:3b` and Haiku 4.5, partially closing the cross-question and cross-family gaps.
+This paper reports on one test question against one graph. The finding is qualitatively clean — Haiku's 100% traceability vs. Opus's ~30% invention — but a full empirical case for the weight-is-bias reading principle requires: multiple test questions per graph, multiple graphs covering different domains, and model-family-diverse comparisons (not just Haiku vs. Opus within one vendor's model family). Follow-up work should run this protocol across a battery of questions and several model pairs. A forthcoming companion paper by the present author reports additional findings on a larger 2,073-neuron substrate using `llama3.2:3b` and Haiku 4.5, partially closing the cross-question and cross-family gaps.
 
 ### 7.2 Model-family confound
 
@@ -270,7 +270,7 @@ Some readers may argue that Opus's invented connective tissue is not a bug but a
 
 We present empirical evidence that on a graph-bound retrieval task, a smaller LLM (Claude Haiku 4.5) produces output with 100% traceability to the underlying knowledge graph, while a larger LLM (Claude Opus 4.7) produces output in which approximately 30% of the content is training-pattern completion not present in the graph. The invented content is not random; it is canonical physics-textbook narrative pattern-matched onto the graph's fragments. The finding extends the teaching-side thesis of Pearl 2026b [1] to the reading side of the same pipeline: *training corrupts reading*, as it corrupts teaching, and both failures are instances of the same principle — *weight is bias*.
 
-Architecturally, the result argues for minimum-weight-sufficient readers in grounded-generation pipelines, for the asymmetric-LLM design on fidelity grounds in addition to economic grounds, for the grammar-only cortex as the fidelity-maximal general LLM reader, and for fixed-filter "eyeball cortex" approaches as the limit case of non-corrupting reading. The full development of the weight-is-bias principle, its catalog of conversational propagation modes, and the architectural defenses that close several of those modes appear in the companion Model Infections paper (Pearl 2026e [4]). Follow-up empirical work should extend the present finding across questions, domains, and model families.
+Architecturally, the result argues for minimum-weight-sufficient readers in grounded-generation pipelines, for the asymmetric-LLM design on fidelity grounds in addition to economic grounds, for the grammar-only cortex as the fidelity-maximal general LLM reader, and for fixed-filter "eyeball cortex" approaches as the limit case of non-corrupting reading. The full development of the weight-is-bias principle, its catalog of conversational propagation modes, and the architectural defenses that close several of those modes appear in a forthcoming companion paper by the present author. Follow-up empirical work should extend the present finding across questions, domains, and model families.
 
 ---
 
@@ -281,10 +281,6 @@ Architecturally, the result argues for minimum-weight-sufficient readers in grou
 [2] Pearl, J. (2026a). *Path-of-Thought Cognitive Architecture: Cortex-Cerebellum Integration for Language Models.* Zenodo preprint.
 
 [3] Pearl, J. (2026c). *Design rules for short-length RNA aptamer engineering observed in a published Massive Open Laboratory dataset that may give us the ability to render disease inert in the body with a knob turn.* Unpublished draft.
-
-[4] Pearl, J. (2026e). *Model Infections: Catalog and Containment of Training-Bias Propagation in Large Language Model Conversations.* Zenodo preprint (companion to this paper).
-
-[5] Pearl, J. (2026f). *Sara as a Measurement Instrument for Large Language Model Behavior: A Reference Substrate for Studying Transformer Failure Modes.* Zenodo preprint (companion to this paper).
 
 ---
 

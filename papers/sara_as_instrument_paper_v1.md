@@ -139,15 +139,15 @@ A clean measurement with Sara as instrument requires separating three sessions:
 
 **Measurement:** The quantity of interest is the *difference* between Session B and Session C outputs on the same question. Session C establishes the training-baseline. Session B − C establishes Sara's contribution. Session A outputs are never used as measurement — they are contaminated by design.
 
-Failure to use three separate sessions is a common trap. Pearl (2026e [2]) documents the specific contamination mechanisms: training-bias (weights), interpretation-bias (acute keyword triggers), session-context accumulation (cumulative within-session), and per-project auto-memory leak (cumulative across-sessions). All four can compromise a measurement, but the third and fourth are the most insidious because each looks like a measurement that worked.
+Failure to use three separate sessions is a common trap. Four contamination mechanisms can compromise the measurement: training-bias (weights), interpretation-bias (acute keyword triggers), session-context accumulation (cumulative within-session), and per-project auto-memory leak (cumulative across-sessions). The third and fourth are the most insidious because each looks like a measurement that worked.
 
-A further refinement: when running the test on the same machine as the teaching session, the per-project auto-memory of agentic IDE clients (Claude Code's per-directory memory directory) must be cleared between sessions. Without this, "fresh" Session B answers can be drawn from the IDE's memory layer rather than from the substrate. The canonical clear command is documented in §4.1 of Pearl (2026e [2]).
+A further refinement: when running the test on the same machine as the teaching session, the per-project auto-memory of agentic IDE clients (Claude Code's per-directory memory directory) must be cleared between sessions. Without this, "fresh" Session B answers can be drawn from the IDE's memory layer rather than from the substrate. For Claude Code-style clients the canonical clear is `rm ~/.claude/projects/-<project-path>/memory/*.md`.
 
 ---
 
 ## 5. Demonstrated findings
 
-We report nine findings, derived against Sara substrates loaded from Pearl (2026c [3]), an unpublished RNA-aptamer engineering paper. Two substrates were used: an Executive Summary substrate (169 triples) and a full-paper substrate (2,073 neurons, 4,579 segments) constructed by additive teaching of the paper's Sections 8.5.3 and 9.2.1.4 numerical bindings on top of the prior teach. Each finding was made visible by the instrument in a way that prior measurement methods would not have supported.
+We report nine findings, derived against Sara substrates loaded from Pearl (2026c [2]), an unpublished RNA-aptamer engineering paper. Two substrates were used: an Executive Summary substrate (169 triples) and a full-paper substrate (2,073 neurons, 4,579 segments) constructed by additive teaching of the paper's Sections 8.5.3 and 9.2.1.4 numerical bindings on top of the prior teach. Each finding was made visible by the instrument in a way that prior measurement methods would not have supported.
 
 ### 5.1 Training corrupts reading (Haiku 4.5 vs. Opus 4.7)
 
@@ -156,11 +156,11 @@ The same question — *"how do the state transitions function?"* — was posed t
 - **Haiku:** 99-token response, 100% of factual claims traceable to triples in the substrate, plus an explicit "Sara doesn't have deeper detail" boundary acknowledgment.
 - **Opus:** 1000-token response, approximately 30% of factual claims either extrapolated beyond the substrate or outright invented. The invented claims were canonical physics-textbook patterns: force propagation ("forces travel into the stem"), energy accounting ("strain paid for thermodynamically"), conservative conformational transitions ("constrained shift, not a full refold").
 
-**What the instrument exposed:** Opus's training installs denser narrative-completion patterns than Haiku's. Given substrate fragments, Opus completes them to match trained templates regardless of whether the substrate supports the completion. The smaller model reads more faithfully because it has fewer installed patterns to complete. Full treatment: Pearl (2026d [4]).
+**What the instrument exposed:** Opus's training installs denser narrative-completion patterns than Haiku's. Given substrate fragments, Opus completes them to match trained templates regardless of whether the substrate supports the completion. The smaller model reads more faithfully because it has fewer installed patterns to complete.
 
 ### 5.2 Weight is bias in both directions
 
-Pearl (2026b [5]) previously established that training-biased LLMs cannot *ingest* new facts cleanly — they substitute plausible trained content for what the source actually says. Finding 5.1 establishes the symmetric failure: training-biased LLMs cannot *emit* retrieved facts cleanly either — they complete trained templates over the retrieved fragments.
+Pearl (2026b [3]) previously established that training-biased LLMs cannot *ingest* new facts cleanly — they substitute plausible trained content for what the source actually says. Finding 5.1 establishes the symmetric failure: training-biased LLMs cannot *emit* retrieved facts cleanly either — they complete trained templates over the retrieved fragments.
 
 **What the instrument exposed:** the mechanism is one principle acting in two directions. *Weight is bias*, and on any pipeline stage that interfaces with an external substrate (ingestion or emission), the bias manifests as training-pattern overlay. The substrate is corrupted during transit in both directions.
 
@@ -251,7 +251,7 @@ Build substrates at different structural formats (graph, flat document, hierarch
 
 ### 6.4 Agent memory research
 
-Teach an agent new content in Session A, then observe what survives into Session B via its memory system. The substrate serves as ground truth for what *should* have been remembered, and the per-project auto-memory leak documented in Pearl (2026e [2], §3.8) becomes directly measurable.
+Teach an agent new content in Session A, then observe what survives into Session B via its memory system. The substrate serves as ground truth for what *should* have been remembered, and the per-project auto-memory leak in agentic IDE clients (whose effect is independent of the substrate but easy to mistake for substrate retrieval) becomes directly measurable when the substrate's structured form differs from any colloquial phrasing the user volunteered during Session A.
 
 ### 6.5 Specificity preservation
 
@@ -281,7 +281,7 @@ A common worry with structured substrates is that they miss things the source ma
 
 ### 7.4 Protocol discipline
 
-The three-session protocol (§4) is easy to violate by accident. An experimenter who asks even a single evaluation question in Session A has contaminated the remainder of the test. Reproducibility of Sara-instrument results therefore requires explicit discipline about session management, ideally enforced by tooling. The per-project auto-memory of agentic IDE clients (Pearl 2026e [2], §3.8) must additionally be cleared between sessions.
+The three-session protocol (§4) is easy to violate by accident. An experimenter who asks even a single evaluation question in Session A has contaminated the remainder of the test. Reproducibility of Sara-instrument results therefore requires explicit discipline about session management, ideally enforced by tooling. The per-project auto-memory of agentic IDE clients must additionally be cleared between sessions.
 
 ### 7.5 Single model family in the present demonstration
 
@@ -297,15 +297,15 @@ The instrument measures whether retrieved triples appear in the model's output. 
 
 ### 8.1 Knowledge-grounded benchmarks
 
-HotpotQA [6], NaturalQuestions [7], TriviaQA [8], and similar datasets provide questions with reference answers drawn from natural-language sources (often Wikipedia). They evaluate whether an LLM produces the right answer but not whether the LLM retrieved correctly vs. hallucinated vs. recalled from training. Property 2 (triple-addressable grading) is not supported; Property 4 (training-orthogonal) is violated because the source corpora are in training data.
+HotpotQA [4], NaturalQuestions [5], TriviaQA [6], and similar datasets provide questions with reference answers drawn from natural-language sources (often Wikipedia). They evaluate whether an LLM produces the right answer but not whether the LLM retrieved correctly vs. hallucinated vs. recalled from training. Property 2 (triple-addressable grading) is not supported; Property 4 (training-orthogonal) is violated because the source corpora are in training data.
 
 ### 8.2 Knowledge graphs as evaluation substrates
 
-Wikidata [9], ConceptNet [10], and Freebase-derived benchmarks [11] have been used as evaluation substrates in KGQA literature. They satisfy Property 2 (structured) and partially Property 3 (question-space) but fail Properties 1 (they are too large to enumerate) and 4 (they are in training data).
+Wikidata [7], ConceptNet [8], and Freebase-derived benchmarks [9] have been used as evaluation substrates in KGQA literature. They satisfy Property 2 (structured) and partially Property 3 (question-space) but fail Properties 1 (they are too large to enumerate) and 4 (they are in training data).
 
 ### 8.3 Synthetic reasoning benchmarks
 
-bAbI [12], CLUTRR [13], RuleTaker [14] construct small synthetic substrates. These satisfy all four properties in principle but fail Property 3 in practice — the reasoning they admit is artificial and does not stress real-world model behaviors. Sara's synthetic-substrate generator (§3) inherits the orthogonality benefits of bAbI-style construction while permitting realistic compound-term and multi-relation structure.
+bAbI [10], CLUTRR [11], RuleTaker [12] construct small synthetic substrates. These satisfy all four properties in principle but fail Property 3 in practice — the reasoning they admit is artificial and does not stress real-world model behaviors. Sara's synthetic-substrate generator (§3) inherits the orthogonality benefits of bAbI-style construction while permitting realistic compound-term and multi-relation structure.
 
 ### 8.4 Private-corpus evaluations
 
@@ -313,15 +313,15 @@ Several industry evaluations use private document corpora as substrates (interna
 
 ### 8.5 Cognitive architectures
 
-ACT-R [15], Soar [16], and Sara [1] are cognitive architectures with persistent structured memory. Of these, Sara is purpose-built for cortex-cerebellum LLM integration and has the cleanest triple-grain inspectability interface. Other cognitive architectures may be adapted to serve the instrument role with modification; this is an open direction.
+ACT-R [13], Soar [14], and Sara [1] are cognitive architectures with persistent structured memory. Of these, Sara is purpose-built for cortex-cerebellum LLM integration and has the cleanest triple-grain inspectability interface. Other cognitive architectures may be adapted to serve the instrument role with modification; this is an open direction.
 
 ### 8.6 Interpretability methods
 
 Mechanistic interpretability [17, 18] opens the model's internal activations to analysis. This is complementary to the Sara-instrument approach, which treats the model as a black box but gives the investigator full control over what the black box sees. A combined methodology — Sara-controlled input with activation probing — is an attractive future direction.
 
-### 8.7 Companion work
+### 8.7 Forthcoming companion work
 
-Pearl (2026e [2]) catalogs the failure modes that Sara as instrument exposes, classifies them by mechanism, and proposes architectural defenses (notably the stateless two-tier reader) that close several infection classes structurally. The instrument paper (this work) and the infections paper [2] are independently complete; readers interested in the *defenses* against the failure modes documented here should consult [2].
+Two companion papers in preparation by the present author will develop the empirical foundation underlying the instrument's first findings (the original Haiku-vs-Opus reading-fidelity asymmetry) and a catalog of failure modes the instrument exposes, with architectural defenses against them (notably a stateless two-tier reader architecture). The present paper is independently complete and stands on its own as a methodological contribution; the companions will be cross-referenced in subsequent versions once they are available.
 
 ---
 
@@ -341,39 +341,35 @@ The meta-claim: the history of a field accelerates when the field gets its instr
 
 [1] Pearl, J. (2026a). *Path-of-Thought Cognitive Architecture: Cortex-Cerebellum Integration for Language Models.* Zenodo preprint.
 
-[2] Pearl, J. (2026e). *Model Infections: Catalog and Containment of Training-Bias Propagation in LLM Conversations.* Zenodo preprint (companion to this paper).
+[2] Pearl, J. (2026c). *Design rules for short-length RNA aptamer engineering observed in a published Massive Open Laboratory dataset.* Unpublished draft.
 
-[3] Pearl, J. (2026c). *Design rules for short-length RNA aptamer engineering observed in a published Massive Open Laboratory dataset.* Unpublished draft.
+[3] Pearl, J. (2026b). *Teaching vs. Training: Empirical Evidence That 45 Human-Verified Facts Outperform Trillions of Tokens on a Standard Biology Benchmark.* Zenodo preprint. DOI 10.5281/zenodo.19623813.
 
-[4] Pearl, J. (2026d). *Training Corrupts Reading: Empirical Evidence That Smaller LLMs Retrieve Knowledge Graphs More Faithfully Than Larger Ones.* Draft.
+[4] Yang, Z., et al. (2018). *HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering.* EMNLP.
 
-[5] Pearl, J. (2026b). *Teaching vs. Training: Empirical Evidence That 45 Human-Verified Facts Outperform Trillions of Tokens on a Standard Biology Benchmark.* Zenodo preprint. DOI 10.5281/zenodo.19623813.
+[5] Kwiatkowski, T., et al. (2019). *Natural Questions: A Benchmark for Question Answering Research.* TACL.
 
-[6] Yang, Z., et al. (2018). *HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering.* EMNLP.
+[6] Joshi, M., et al. (2017). *TriviaQA: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension.* ACL.
 
-[7] Kwiatkowski, T., et al. (2019). *Natural Questions: A Benchmark for Question Answering Research.* TACL.
+[7] Vrandečić, D., Krötzsch, M. (2014). *Wikidata: A Free Collaborative Knowledge Base.* Communications of the ACM.
 
-[8] Joshi, M., et al. (2017). *TriviaQA: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension.* ACL.
+[8] Speer, R., Chin, J., Havasi, C. (2017). *ConceptNet 5.5: An Open Multilingual Graph of General Knowledge.* AAAI.
 
-[9] Vrandečić, D., Krötzsch, M. (2014). *Wikidata: A Free Collaborative Knowledge Base.* Communications of the ACM.
+[9] Bollacker, K., et al. (2008). *Freebase: A Collaboratively Created Graph Database for Structuring Human Knowledge.* SIGMOD.
 
-[10] Speer, R., Chin, J., Havasi, C. (2017). *ConceptNet 5.5: An Open Multilingual Graph of General Knowledge.* AAAI.
+[10] Weston, J., et al. (2015). *Towards AI-Complete Question Answering: A Set of Prerequisite Toy Tasks.* (bAbI tasks.)
 
-[11] Bollacker, K., et al. (2008). *Freebase: A Collaboratively Created Graph Database for Structuring Human Knowledge.* SIGMOD.
+[11] Sinha, K., et al. (2019). *CLUTRR: A Diagnostic Benchmark for Inductive Reasoning from Text.* EMNLP.
 
-[12] Weston, J., et al. (2015). *Towards AI-Complete Question Answering: A Set of Prerequisite Toy Tasks.* (bAbI tasks.)
+[12] Clark, P., et al. (2020). *Transformers as Soft Reasoners over Language.* IJCAI.
 
-[13] Sinha, K., et al. (2019). *CLUTRR: A Diagnostic Benchmark for Inductive Reasoning from Text.* EMNLP.
+[13] Anderson, J.R. (2007). *How Can the Human Mind Occur in the Physical Universe?* Oxford University Press. (ACT-R.)
 
-[14] Clark, P., et al. (2020). *Transformers as Soft Reasoners over Language.* IJCAI.
+[14] Laird, J.E. (2012). *The Soar Cognitive Architecture.* MIT Press.
 
-[15] Anderson, J.R. (2007). *How Can the Human Mind Occur in the Physical Universe?* Oxford University Press. (ACT-R.)
+[15] Olsson, C., et al. (2022). *In-context Learning and Induction Heads.* Anthropic.
 
-[16] Laird, J.E. (2012). *The Soar Cognitive Architecture.* MIT Press.
-
-[17] Olsson, C., et al. (2022). *In-context Learning and Induction Heads.* Anthropic.
-
-[18] Meng, K., et al. (2022). *Locating and Editing Factual Associations in GPT.* NeurIPS.
+[16] Meng, K., et al. (2022). *Locating and Editing Factual Associations in GPT.* NeurIPS.
 
 ---
 

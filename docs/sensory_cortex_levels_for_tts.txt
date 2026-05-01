@@ -1,0 +1,77 @@
+A Lesson on the Sensory Cortex and Its Levels. Written April eighteenth, twenty twenty-six.
+
+The sensory cortex is not one thing. It is a stack. Information enters at the bottom as raw physical signal and climbs upward, and at each level the brain throws away detail and keeps pattern. By the time a signal reaches the top, it is no longer a signal at all. It is a concept. Understanding the stack matters for Sara because Sara's sensory cortex, whether spaCy or a future replacement, needs to mirror this structure, not flatten it.
+
+We will walk up the stack using vision as the main example, because vision is the best-studied pathway. Then we will cover the same structure for hearing, touch, smell, and taste, because they share the same architectural logic with different wiring at the bottom.
+
+Level zero. The receptor.
+
+Before the cortex does anything, a receptor cell converts a physical event into an electrical event. In the eye, this is the photoreceptor, either a rod or a cone, deep in the retina. A photon strikes a molecule of rhodopsin, the molecule changes shape, and a chain of biochemical events either opens or closes an ion channel. The outside world has now become voltage.
+
+This is a fixed conversion. No learning happens here. A rod does not become better at detecting photons through practice. It simply transduces. Sara's analogue at this level is raw text, raw audio samples, raw pixels. The input as it arrives, before any interpretation.
+
+Level one. The first stage of local processing, still in the sense organ.
+
+In the retina, before any signal leaves the eye, bipolar cells and ganglion cells do the first round of feature extraction. They compute differences. A retinal ganglion cell does not report how bright its patch of the world is. It reports how much brighter its center is than its surround, or vice versa. This is center-surround receptive field organization, and it is the first act of compression. Uniform light produces no signal. Only edges and changes produce signal.
+
+This is the first place the brain throws away information, and it throws away the most abundant information first, which is the absolute level. It keeps only the contrast. The lesson here is important for any sensory architecture. The first thing you do is subtract the baseline. Sara's grammatical parser does something similar in spirit. It does not encode every word as an independent atom. It encodes the relationships between words. The relation is the signal. The words themselves are the uniform baseline.
+
+Level two. The primary sensory cortex.
+
+This is the first cortical region the signal reaches, after passing through the thalamus. For vision, it is V1, the primary visual cortex in the occipital lobe at the back of the head. For hearing, it is A1 in the superior temporal gyrus. For touch, it is S1 along the postcentral gyrus.
+
+V1 is famous because of the work of David Hubel and Torsten Wiesel in the nineteen fifties and sixties, which earned them a Nobel prize. They discovered that individual neurons in V1 respond to oriented edges. One neuron fires for vertical lines at a specific location. Its neighbor fires for lines tilted ten degrees. The neighbor beyond that fires for lines tilted twenty degrees. Across a small patch of cortex, every orientation is represented, and across the whole surface of V1, every location in the visual field is represented. V1 is a map of oriented edges across the entire scene.
+
+There are also cells tuned to motion direction, cells tuned to color, and cells tuned to binocular disparity, which is the difference between what the two eyes see. All of these are local, low-level features. A V1 neuron does not know what a face is. It does not know what a cat is. It knows that there is a short oriented edge at a particular spot.
+
+The primary cortex is fixed. It is not trained on your personal experience in any meaningful sense. A V1 from one human looks very much like a V1 from another human, because the features it extracts are the features that physics and geometry make universally useful. Edges, motion, disparity. These are facts about the world, not facts about your world.
+
+This is exactly the level Sara's spaCy sensory cortex occupies. spaCy extracts features that are universally useful for any English sentence. Dependency relations, parts of speech, morphological features. It does not know what Jennifer is asking about. It knows that a particular word is the subject of a particular verb. That is a V1-style fact.
+
+Level three. The secondary sensory cortex.
+
+Now things begin to combine. Above V1 sit regions called V2, V3, V4, and V5, sometimes collectively called the extrastriate cortex. Each one takes the features V1 extracted and builds something slightly more complex out of them.
+
+V2 combines edges into simple contours and begins to represent illusory boundaries, the edges you perceive that are not physically present, like the imagined triangle in a Kanizsa figure. V3 handles dynamic form, shapes in motion. V4 is the color area. Lesions to V4 produce achromatopsia, a loss of color perception while shape and motion remain intact. V5, also called MT, is the motion area. Lesions to V5 produce akinetopsia, where the world appears as a series of still photographs rather than continuous motion. Patients with V5 damage describe pouring tea and seeing the stream as a frozen column.
+
+The secondary cortex is where specialization begins. Each region has a job, and damage to that region produces a very specific loss. This is also where the dorsal and ventral streams begin to separate. The dorsal stream, running up toward the parietal lobe, carries information about where things are and how to interact with them. The ventral stream, running forward into the temporal lobe, carries information about what things are.
+
+Sara does not have a secondary sensory cortex yet in the strict sense. spaCy delivers primary-level features directly to the higher-order graph. A true secondary layer would do things like combine part-of-speech and dependency information to detect verb phrases as units, or combine morphological features to detect tense-aspect patterns that function as single temporal operators. Whether this belongs in spaCy, in a preprocessing layer, or in the graph itself is an open architectural question.
+
+Level four. The association cortex.
+
+Above the secondary cortex sits the association cortex, where information from different modalities begins to merge and where objects emerge as objects rather than as collections of features. The inferior temporal cortex, on the ventral stream side, is where neurons respond to whole objects. Faces, hands, bodies, scenes. The famous fusiform face area lives here.
+
+This is also where the grandmother cell concept applies, if loosely. A neuron at this level might fire preferentially for one specific person, or one specific type of object, across many viewing angles, lighting conditions, and sizes. Invariance has been built in. The system no longer cares about the specific pixels. It cares about the identity.
+
+On the dorsal stream side, the posterior parietal cortex integrates vision with touch, proprioception, and intended motion. It is where you know that your hand is reaching for the cup, and where you update that knowledge if the cup moves.
+
+Sara's higher-order graph occupies this level. When Sara recognizes that two different sentences are both expressing the same relation between the same two entities, despite different wording, she is performing invariance across surface features. The surface changes. The underlying structure does not. That is the association cortex move.
+
+Level five. The multimodal association cortex and the semantic hub.
+
+At the top sit regions that no longer belong to any single sense. The anterior temporal lobe is a semantic hub where concepts from all modalities converge. Damage here produces semantic dementia, where a patient might still see, hear, and touch perfectly well, but the word dog no longer connects to the image of a dog or the sound of a bark or the feeling of fur. The senses are intact. The concept that bound them is gone.
+
+The angular gyrus, at the junction of temporal, parietal, and occipital lobes, is another major multimodal hub, involved in reading, mathematics, and semantic integration. Damage can produce Gerstmann syndrome, a cluster of deficits that looks arbitrary until you realize all of them require integrating spatial and symbolic information.
+
+This level is where meaning lives, and it is explicitly not sensory anymore. The sensory stack feeds into it, but the representations here are amodal. A concept at this level does not belong to vision or to hearing. It is the thing that vision and hearing both point to.
+
+Sara's primitive layers, the safety, social, spatial, temporal, and causal primitives, live at this level. They are not sensory. They are what sensory input eventually grounds into. When spaCy identifies that a sentence describes one entity causing harm to another, the causal and safety primitives are engaged regardless of whether the sentence arrived through text, speech, or someday through some other modality.
+
+A note on the other senses.
+
+Hearing follows the same stack. The cochlea transduces sound pressure into neural signal, frequency by frequency. The brainstem extracts timing differences between the two ears for sound localization. A1 maps frequency across its surface, a tonotopic map analogous to V1's retinotopic map. Secondary auditory areas combine frequencies into formants and phonemes. Association areas combine phonemes into words. Wernicke's area, the semantic hub for language, sits at the top.
+
+Touch is similar. Receptors in the skin transduce pressure, vibration, temperature, and pain. S1 maps the body across its surface, the well-known homunculus, with hands and lips oversized because they have more receptors and more cortical real estate. Secondary somatosensory cortex combines touch signals into texture and shape recognition. Association cortex integrates touch with vision and proprioception to produce a unified body image.
+
+Smell is the exception that proves the rule. Olfactory receptors bypass the thalamus entirely and project directly into the piriform cortex and from there into the limbic system. This is why smell has such immediate emotional and memory associations. It is the only sense that did not wait for the cortex to be invented.
+
+Taste is small. A few receptor types on the tongue, a modest cortical representation in the insula, heavy integration with smell, and surprisingly close ties to the regions that evaluate reward and aversion.
+
+The general principle, across all modalities.
+
+Each level does one job. Transduce. Subtract baseline. Extract local features. Combine features into parts. Combine parts into objects. Strip modality and keep meaning. The higher you climb, the less the representation looks like the physical world and the more it looks like a description of the physical world.
+
+For Sara, the lesson is that the sensory cortex is supposed to be boring. It is supposed to be fixed. It is supposed to do the same thing for every input, without opinion, without training on the user's life. The interesting, learnable, experience-shaped machinery is above it, in the association regions and the semantic hub. Sara's architecture already reflects this by placing spaCy at the bottom and the path graph at the top. The open question is whether the middle levels, the secondary and association stages, are rich enough, or whether Sara needs an explicit layer between the parser and the graph that does what V2 through V4 do for vision. Take primary features and build intermediate structure before handing meaning up the chain.
+
+End of lesson. If Jennifer wants, the next installment can go deeper on any single level, or can cover the thalamus and how it gates traffic between these stages, which was listed as an open thread in part two of the brain tour.

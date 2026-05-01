@@ -53,7 +53,7 @@ A framework that names these failure modes, classifies them, and proposes mechan
 
 ### 1.3 Method
 
-Each infection case in §2 was observed in a controlled experiment using Sara Brain (Pearl, 2026a [1]) as the reference substrate. Sara permits exhaustive enumeration of what the LLM should know about a given topic — every fact in the substrate is an explicit `(subject, relation, object)` triple. Output produced by the LLM that does not appear in the substrate is, definitionally, not from the substrate. The instrument paper (Pearl, 2026f [2]) describes the measurement protocol in detail.
+Each infection case in §2 was observed in a controlled experiment using Sara Brain (Pearl, 2026a [1]) as the reference substrate. Sara permits exhaustive enumeration of what the LLM should know about a given topic — every fact in the substrate is an explicit `(subject, relation, object)` triple. Output produced by the LLM that does not appear in the substrate is, definitionally, not from the substrate. The measurement methodology — three separate sessions for teaching, test, and control, with no information flow between them other than the substrate file — is described in §2 alongside the case write-ups and developed in full in a forthcoming companion paper.
 
 The experimental conditions for each case are summarized in §2 alongside the case write-ups. All cases are reproducible with the recipes in Appendix A.
 
@@ -81,7 +81,7 @@ Infections are conversational. One-shot recall is per-turn.
 
 ### Case 2.1 — Keyword-priming infection (SNARE / molecular snare, 2026-04-23)
 
-**Context.** Fresh Session B against `aptamer_exec.db` (169-triple substrate from the Executive Summary of Pearl 2026c [3], an unpublished RNA aptamer paper). Reader: Claude Haiku 4.5 via Claude Code with MCP. The substrate's coined term is "molecular snare" — a mechanism the paper introduces and defines.
+**Context.** Fresh Session B against `aptamer_exec.db` (169-triple substrate from the Executive Summary of an unpublished RNA aptamer engineering paper by the same author). Reader: Claude Haiku 4.5 via Claude Code with MCP. The substrate's coined term is "molecular snare" — a mechanism the paper introduces and defines.
 
 **Trigger.** User typed "SNARE" (capitalized) as a shortening for the paper's "molecular snare". The capitalization activated Haiku's training-installed prior for SNARE proteins (the vesicle-fusion family in molecular biology), an over-learned acronym.
 
@@ -130,7 +130,7 @@ The same retrieval query, run in a fresh Session B with no prior context, produc
 
 **Course.** Cannot be cleared within the session — context is cumulative and the model attends to all of it.
 
-**Why it matters.** This case is methodologically load-bearing: it implies that any LLM evaluation that performs both substrate-loading and substrate-querying within the same session is measuring a mixture of substrate retrieval and session-context recall, and cannot report a clean result. The three-session protocol (Pearl 2026f [2], §4) is a direct response to this infection class.
+**Why it matters.** This case is methodologically load-bearing: it implies that any LLM evaluation that performs both substrate-loading and substrate-querying within the same session is measuring a mixture of substrate retrieval and session-context recall, and cannot report a clean result. A clean three-session measurement protocol (separate teaching, test, and control sessions, with no information flow between them other than the substrate file itself) is the direct response to this infection class.
 
 ### Case 2.4 — Per-project auto-memory infection (2026-04-24)
 
@@ -276,7 +276,7 @@ The deleted rule was still active in the assistant's reasoning. Both the "no LLM
 
 3. **The cure aligns with the §5d prescription.** A fresh session, with the deleted memory file genuinely absent from both disk and context, would not import the rule. The cumulative-context cure is structural absence, not in-session correction.
 
-4. **The case occurred during the writing of the paper that documents the failure mode.** This is methodologically significant: it shows the failure is not specific to small open-source models or unusual architectures — it occurs in frontier models on routine work, and is observable to a careful collaborator with no special instrumentation. The instrument paper's three-session protocol (Pearl 2026f [2], §4) was specifically designed to defend against this; the protocol was not in use here because the work was development rather than measurement.
+4. **The case occurred during the writing of the paper that documents the failure mode.** This is methodologically significant: it shows the failure is not specific to small open-source models or unusual architectures — it occurs in frontier models on routine work, and is observable to a careful collaborator with no special instrumentation. A clean three-session measurement protocol (separate teaching, test, and control sessions, with no information flow between them other than the substrate file) is the architectural defense against this class; the protocol was not in use here because the work was development rather than measurement.
 
 **Predicts.**
 
@@ -478,7 +478,7 @@ The §5.2 architecture and the §5.3 thesis are complementary, not redundant:
 
 The LLM literature tends to treat *hallucination* as a unified phenomenon. The infection framework exposes that it is not. At least four distinct mechanisms produce outputs that users call hallucinations:
 
-1. **Training-recall hallucination.** The model confidently produces training content that is wrong for the current context. Example (Case 2.1 / Pearl 2026d [4]): Haiku asserting that "marker theory" refers to Damásio's somatic marker hypothesis when the session context concerns RNA aptamer design. Mechanism: training-weight bias on input parsing. Not affected by session length. **Not an infection.**
+1. **Training-recall hallucination.** The model confidently produces training content that is wrong for the current context. Example (Case 2.1 in this paper): Haiku asserting that "marker theory" refers to Damásio's somatic marker hypothesis when the session context concerns RNA aptamer design. Mechanism: training-weight bias on input parsing. Not affected by session length. **Not an infection.**
 
 2. **Confabulation-under-pressure.** When asked something outside its knowledge, the model invents rather than admits ignorance. Mechanism: training-time output calibration favoring text generation over abstention. Can occur in turn 1. Case 2.6 (acronym-expansion subtype) and Case 2.7 (format-imitation subtype) are examples. **Not primarily an infection** in the persistence-or-strengthening sense, though Case 2.7 is enabled by the system-prompt structure rather than by user input alone.
 
@@ -505,7 +505,7 @@ If a subclass of hallucinations is session-context-infection in disguise, the fo
 - **Format-imitation rate scales inversely with model size at fixed prompt complexity.** Larger models hold the actual trace in working memory and cite it accurately when narrating; smaller models pattern-match the form.
 - **Format-imitation rate scales positively with system-prompt instructional density at fixed model size.** More detailed protocol instructions provide more raw material to imitate.
 
-All are measurable with the Sara-as-instrument method (Pearl 2026f [2]). The instrument was originally framed as a substrate-fidelity tester; this paper proposes an additional use as a hallucination-mechanism classifier.
+All are measurable using a structured-substrate measurement methodology in which every fact the model should know is enumerable as inspectable triples (the methodology of Sara Brain referenced in §1.3 above). The methodology was originally framed as a substrate-fidelity tester; this paper proposes an additional use as a hallucination-mechanism classifier.
 
 ### 6.4 Implication for the framework
 
@@ -519,7 +519,7 @@ A future paper may extract this section and develop it independently: *"Long-ses
 
 ### 7.1 Single model family in observed cases
 
-The observed cases (§2) are concentrated in the Claude 4 series for the multi-turn cases (2.1–2.5) and `llama3.2:3b` for the stateless cases (2.6–2.7). Cross-family replication (Mistral, GPT, Gemini at multiple scales) is needed to establish the infection mechanisms as general rather than vendor-specific. The instrument paper [2] supports such replication directly; it has not yet been performed at full breadth.
+The observed cases (§2) are concentrated in the Claude 4 series for the multi-turn cases (2.1–2.5) and `llama3.2:3b` for the stateless cases (2.6–2.7). Cross-family replication (Mistral, GPT, Gemini at multiple scales) is needed to establish the infection mechanisms as general rather than vendor-specific. The MCP-based measurement methodology described in §1.3 supports such replication directly with any MCP-capable client; it has not yet been performed at full breadth.
 
 ### 7.2 Quantification
 
@@ -547,7 +547,7 @@ The acronym-expansion post-pass (§5.1) catches a specific failure shape. In oth
 
 ### 8.1 Hallucination literature
 
-Existing surveys on LLM hallucination (Ji et al., 2023 [5]; Huang et al., 2023 [6]) treat hallucination as a unified output-fidelity problem and propose mitigations such as retrieval-augmented generation, fact verification, and constrained decoding. The infection framework refines this view by separating one-shot recall (their primary subject) from propagation phenomena (the §3.7, §3.8, §3.9 classes here). The proposed defenses are complementary: RAG addresses what the model retrieves; the infection framework addresses what propagates around the retrieval.
+Existing surveys on LLM hallucination (Ji et al., 2023 [3]; Huang et al., 2023 [4]) treat hallucination as a unified output-fidelity problem and propose mitigations such as retrieval-augmented generation, fact verification, and constrained decoding. The infection framework refines this view by separating one-shot recall (their primary subject) from propagation phenomena (the §3.7, §3.8, §3.9 classes here). The proposed defenses are complementary: RAG addresses what the model retrieves; the infection framework addresses what propagates around the retrieval.
 
 ### 8.2 Knowledge-graph-augmented LLMs
 
@@ -555,15 +555,15 @@ Work on knowledge-graph augmentation (KAPING, KG-RAG, ToG [7, 8, 9]) exposes str
 
 ### 8.3 Constitutional AI and instruction following
 
-Methods that train models to follow detailed protocol instructions (Constitutional AI [10], Instruction Tuning [11]) operate on the assumption that more detailed instructions improve compliance. Case 2.7 (format-imitation under hardened protocol instructions) is a counterexample at small model scale: more detailed instructions can *increase* the surface-form compliance while reducing actual-grounding compliance. This suggests that instruction-following capability and substrate-grounding capability are not the same axis.
+Methods that train models to follow detailed protocol instructions (Constitutional AI [8], Instruction Tuning [9]) operate on the assumption that more detailed instructions improve compliance. Case 2.7 (format-imitation under hardened protocol instructions) is a counterexample at small model scale: more detailed instructions can *increase* the surface-form compliance while reducing actual-grounding compliance. This suggests that instruction-following capability and substrate-grounding capability are not the same axis.
 
 ### 8.4 Agentic memory systems
 
 Research on persistent memory for LLM agents (MemGPT, CALM [12, 13]) treats memory as a feature. The Case 2.4 / §3.8 documentation here treats it also as a contamination vector. Both views can be correct; the infection framework adds a measurement methodology for distinguishing useful retrieval from leak across a memory layer.
 
-### 8.5 Companion work
+### 8.5 Forthcoming companion work
 
-Pearl (2026f [2]) describes the measurement instrument used to expose every case in this paper. Pearl (2026d [4]) reports the original training-corrupts-reading finding behind Case 2.2. Pearl (2026b [3]) establishes the symmetric claim — that training corrupts ingestion, not just reading — that the *weight is bias in both directions* framing here builds on. The instrument paper [2] and this paper are independently complete; readers interested in *measurement* should consult [2], in *failure modes and defenses* this paper.
+Two companion papers in preparation by the present author will (a) describe the measurement methodology used to expose every case documented here and (b) report the original training-corrupts-reading finding underlying Case 2.2 in extended form. The present paper is independently complete and stands on its own as a phenomenological catalog and architectural defense framework; the companions will be cross-referenced in subsequent versions once they are available. The earlier Pearl (2026b [2]) Teaching vs. Training paper establishes the ingestion-side claim — that training corrupts ingestion, not just reading — that the *weight is bias in both directions* framing here builds on, and remains a published reference.
 
 ---
 
@@ -583,29 +583,25 @@ We invite the field to replicate, extend, and critique the catalog and the defen
 
 [1] Pearl, J. (2026a). *Path-of-Thought Cognitive Architecture: Cortex-Cerebellum Integration for Language Models.* Zenodo preprint.
 
-[2] Pearl, J. (2026f). *Sara as a Measurement Instrument for Large Language Model Behavior: A Reference Substrate for Studying Transformer Failure Modes.* Zenodo preprint (companion to this paper).
+[2] Pearl, J. (2026b). *Teaching vs. Training: Empirical Evidence That 45 Human-Verified Facts Outperform Trillions of Tokens on a Standard Biology Benchmark.* Zenodo preprint. DOI 10.5281/zenodo.19623813.
 
-[3] Pearl, J. (2026b). *Teaching vs. Training: Empirical Evidence That 45 Human-Verified Facts Outperform Trillions of Tokens on a Standard Biology Benchmark.* Zenodo preprint. DOI 10.5281/zenodo.19623813.
+[3] Ji, Z., et al. (2023). *Survey of Hallucination in Natural Language Generation.* ACM Computing Surveys.
 
-[4] Pearl, J. (2026d). *Training Corrupts Reading: Empirical Evidence That Smaller LLMs Retrieve Knowledge Graphs More Faithfully Than Larger Ones.* Draft.
+[4] Huang, L., et al. (2023). *A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions.* arXiv:2311.05232.
 
-[5] Ji, Z., et al. (2023). *Survey of Hallucination in Natural Language Generation.* ACM Computing Surveys.
+[5] Baek, J., et al. (2023). *Knowledge-Augmented Language Model Prompting (KAPING) for Zero-Shot Knowledge Graph Question Answering.* ACL Workshop on NLRSE.
 
-[6] Huang, L., et al. (2023). *A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions.* arXiv:2311.05232.
+[6] Sun, J., et al. (2024). *Think-on-Graph: Deep and Responsible Reasoning of Large Language Model on Knowledge Graph.* ICLR.
 
-[7] Baek, J., et al. (2023). *Knowledge-Augmented Language Model Prompting (KAPING) for Zero-Shot Knowledge Graph Question Answering.* ACL Workshop on NLRSE.
+[7] Edge, D., et al. (2024). *From Local to Global: A Graph RAG Approach to Query-Focused Summarization.* arXiv:2404.16130.
 
-[8] Sun, J., et al. (2024). *Think-on-Graph: Deep and Responsible Reasoning of Large Language Model on Knowledge Graph.* ICLR.
+[8] Bai, Y., et al. (2022). *Constitutional AI: Harmlessness from AI Feedback.* Anthropic.
 
-[9] Edge, D., et al. (2024). *From Local to Global: A Graph RAG Approach to Query-Focused Summarization.* arXiv:2404.16130.
+[9] Wei, J., et al. (2022). *Finetuned Language Models Are Zero-Shot Learners.* (Instruction tuning.) ICLR.
 
-[10] Bai, Y., et al. (2022). *Constitutional AI: Harmlessness from AI Feedback.* Anthropic.
+[10] Packer, C., et al. (2023). *MemGPT: Towards LLMs as Operating Systems.* arXiv:2310.08560.
 
-[11] Wei, J., et al. (2022). *Finetuned Language Models Are Zero-Shot Learners.* (Instruction tuning.) ICLR.
-
-[12] Packer, C., et al. (2023). *MemGPT: Towards LLMs as Operating Systems.* arXiv:2310.08560.
-
-[13] Wang, Y., et al. (2024). *CALM: Continuous Adaptive Learning Model with Persistent Memory.* (Representative example of the agentic memory class.)
+[11] Wang, Y., et al. (2024). *CALM: Continuous Adaptive Learning Model with Persistent Memory.* (Representative example of the agentic memory class.)
 
 ---
 

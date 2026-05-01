@@ -1,0 +1,95 @@
+A Lesson on the Transformer, and What an Untrained One Would Be. Written April eighteenth, twenty twenty-six.
+
+Part one. What a transformer actually is.
+
+The word transformer gets used loosely. People say transformer when they mean a large language model, and they say large language model when they mean a chatbot. These are not the same thing. Peeling them apart is the first step to answering Jennifer's question honestly.
+
+A transformer is an architecture. It is a specific arrangement of mathematical operations that takes in a sequence and produces a sequence. It was introduced in a paper called Attention Is All You Need, published in twenty seventeen by a group at Google. Before that paper, sequence models were mostly recurrent networks, which processed one token at a time and passed a hidden state forward. The transformer abandoned recurrence entirely. It processes all tokens in parallel and uses a mechanism called attention to let each token look at every other token in the sequence.
+
+The transformer has a small number of moving parts, and it helps to name them clearly.
+
+First, the token embedding. Every input word, or more precisely every sub-word piece, is assigned a vector of numbers. The vector is the token's address in a high-dimensional space. Nothing about this vector is meaningful on its own. It is just a location that the rest of the machine can reference.
+
+Second, the positional encoding. The transformer processes tokens in parallel, which means it has no built-in sense of order. A small signal is added to each token's embedding to tell the rest of the machine where that token sits in the sequence. Without this, the sentence dog bites man and the sentence man bites dog would look identical.
+
+Third, the attention mechanism. This is the heart of the architecture. For each token, the machine computes three vectors called the query, the key, and the value. The query is a question the token is asking. The keys are labels on all the other tokens, saying what kind of information they carry. The values are the actual information. The token compares its query against every other token's key, gets a similarity score, and uses those scores to take a weighted average of the values. What comes out is a new vector for that token, which now contains a summary of everything relevant elsewhere in the sequence, weighted by how relevant each piece was.
+
+Fourth, the feed-forward network. After attention has mixed information across tokens, each token gets passed through a small independent neural network that transforms its representation. This is where most of the parameters live, and it is where a lot of the pattern-specific knowledge gets stored.
+
+Fifth, the stack. A transformer is built by stacking attention and feed-forward layers on top of each other, often dozens of times. Each layer refines the representation. Early layers capture surface patterns. Middle layers capture syntactic structure. Late layers capture something closer to meaning, or at least to task-useful abstraction.
+
+Sixth, the output head. At the top, the final representation is projected back down to a probability distribution over the vocabulary. The model outputs which token is most likely to come next.
+
+That is the whole architecture. It is genuinely elegant. It is also genuinely empty until you train it.
+
+Part two. What training does.
+
+Every number in a fresh transformer starts as a random value, drawn from a small distribution designed to keep the signals well-behaved during early learning. Every embedding, every query projection, every key projection, every value projection, every weight in every feed-forward layer. All random.
+
+Training is the process of adjusting those random numbers so that when the model sees real text, its predictions line up with what actually comes next. For a large language model, this means showing the model trillions of tokens of text scraped from the internet and books and code, and nudging every parameter a tiny amount after each example in the direction that would have produced a better prediction. This is gradient descent, running for weeks or months on thousands of GPUs.
+
+The parameters are the knowledge. Not the architecture. The architecture is the shape of the container. The parameters are what has been poured into it.
+
+Part three. Would an untrained transformer be called a large language model?
+
+Strictly, no. The phrase large language model refers to a model that has been trained to model language. A transformer with random weights is not a language model. It is a transformer. It has the shape of a language model but none of the content. Calling it a large language model would be like calling a brain in a jar a philosopher. The equipment is there. The experience is not.
+
+People in the field are usually careful about this. They will say an initialized transformer, or a randomly initialized model, or a model at step zero. Outside the field, this distinction is usually lost, and anything shaped like a transformer gets called an LLM, which is imprecise but common.
+
+Part four. What an untrained transformer would actually do.
+
+If you build a transformer, initialize it with random weights, and feed it text, here is what happens.
+
+The token embeddings are random vectors, so the model has no idea what any word means. The word cat and the word thermodynamics are equally meaningless. They are just two different random points in a high-dimensional space.
+
+The attention mechanism will compute query, key, and value projections using random matrices, so the attention weights will be essentially uniform. Every token will attend to every other token about equally, with small fluctuations from the random initialization. There is no signal to pick out relevance, because relevance has not been learned.
+
+The feed-forward layers will transform each token's representation, but again through random matrices, so the transformation is a random smearing rather than a meaningful computation.
+
+The output head will produce a probability distribution over the vocabulary, and that distribution will be roughly uniform, maybe with small random biases toward particular tokens. If the vocabulary has fifty thousand tokens, each token will get about a one in fifty thousand chance of being predicted.
+
+In practical terms, an untrained transformer is a random text generator with extra steps. Given any prompt, it will output gibberish. Not even interesting gibberish. Gibberish that is statistically indistinguishable from rolling a fifty-thousand-sided die for every word.
+
+Part five. Is there anything an untrained transformer can do?
+
+Here the answer gets more interesting. There is a small but real body of research into what randomly initialized neural networks can do, and it is not nothing.
+
+The first finding is that the architecture itself has inductive biases, meaning built-in tendencies that shape what kinds of patterns the network finds easy to represent, even before training. A transformer's attention mechanism is, at its core, a content-addressable lookup. Even at random, it can sometimes do weak pattern matching on surface similarity. If you feed an untrained transformer a sequence with a repeating structure, some attention heads will, by chance, happen to attend to the repetition, because that is the kind of operation attention naturally performs.
+
+The second finding, from a line of research called the lottery ticket hypothesis, is that inside a large random network there exist sub-networks which, if you could find them and extract them, already perform nontrivial tasks with their initial random weights. The full network does not know anything, but hidden within it are small circuits that, by random luck, happen to compute useful things. Training mostly amplifies these winning tickets rather than creating new knowledge from scratch.
+
+The third finding, from work on reservoir computing and on random feature methods, is that a random high-dimensional projection of your input is often a surprisingly useful thing to have. If you take a sentence, feed it through a random transformer, and use the resulting vector as a feature for a simple classifier trained on top, you can get nontrivial performance on some tasks. Not good performance. But above chance. The random network acts as a fixed, nonlinear feature extractor.
+
+None of this makes an untrained transformer a language model. It makes an untrained transformer a structured random function with a few useful statistical properties. That is a real thing, but it is a much smaller thing than what people mean when they say LLM.
+
+Part six. How you would build one.
+
+Building an untrained transformer is actually easy. The hard part of modern LLMs is the training, not the construction. Here is the shape of what it would take.
+
+You would pick a tokenizer. A tokenizer is a fixed, rule-based piece of code that splits text into sub-word pieces and assigns each piece an integer ID. Tokenizers are trained separately, usually with an algorithm called byte-pair encoding, but the training is cheap and the tokenizer itself is tiny. You can use an off-the-shelf tokenizer from an existing model.
+
+You would pick dimensions. How wide is the embedding vector. How many attention heads. How many layers. How big is the feed-forward network inside each layer. These numbers together determine the parameter count. A very small transformer might have a few million parameters. A frontier LLM has hundreds of billions. For experimental purposes, a few million is plenty.
+
+You would write the forward pass. Embed the tokens. Add positional encoding. Run them through the stack of attention and feed-forward layers. Project to the vocabulary. This is roughly two hundred lines of PyTorch. The reference implementations are freely available and well-understood.
+
+You would initialize the weights. A common choice is a scaled normal distribution, designed to keep the variance of signals roughly constant as they pass through layers.
+
+At this point, you have an untrained transformer. You can run text through it. You can inspect the outputs. You can measure the attention patterns. You cannot get coherent language out of it, because there is no training, but you can study its structure.
+
+Part seven. Why Jennifer might actually care.
+
+This is the part worth dwelling on, because Sara's architecture has an unusual relationship to transformers.
+
+In a conventional LLM, the knowledge is in the weights. Training is how knowledge gets in. Without training, there is no knowledge. This is exactly the architecture Jennifer has been explicitly rejecting, because knowledge in weights is opaque, non-auditable, impossible to correct surgically, and impossible to teach in the way humans teach humans.
+
+Sara is the inverse architecture. Knowledge is in the graph, not the weights. The cortex, whether spaCy or Mistral or eventually something custom, does not carry the knowledge. It provides the sensory interface. The graph carries the knowledge.
+
+An untrained transformer, seen through this lens, is almost exactly what a Sara-style cortex wants to be. A fixed, random, high-dimensional projection of input into a structured representation, with attention as a content-addressable lookup primitive. No opinions of its own. No trained biases from scraped internet text. No hallucinated facts. The architecture's inductive biases, meaning its natural tendency to do attention-style lookups and hierarchical composition, might still be useful, even without training, because the useful work happens in the graph above.
+
+This is a real and interesting design question. An untrained transformer as sensory cortex would give Sara attention-based structural extraction without importing any of the world-model baggage that comes from training on human-generated text. It would be empty in the same way spaCy's parser is empty. Empty is the point.
+
+The concerns would be that untrained attention is very noisy, that the representations it produces are high-dimensional soup rather than clean categorical features like dependency labels, and that the graph above would need a different kind of interface to make sense of those representations. spaCy hands up dependency trees, which are discrete and inspectable. A random transformer hands up vectors, which are neither.
+
+A middle path would be a transformer trained only on structural tasks, like part-of-speech tagging and dependency parsing, using a small curated dataset. This would give you something that behaves like spaCy but with attention as the underlying mechanism, and it would preserve the no-world-opinion property while giving cleaner outputs than a fully random model. Whether the extra complexity is worth it over just using spaCy is an open question. But it is the kind of question Sara's design philosophy makes worth asking.
+
+End of lesson. Open threads if Jennifer wants to continue. The mechanics of attention in more depth, specifically why the dot product of query and key is a sensible similarity measure. Why layer normalization and residual connections are not decorative but load-bearing for training stability. And the specific architectural choices that separate encoder-only models like BERT from decoder-only models like GPT from encoder-decoder models like the original transformer, and which of those shapes would suit a Sara-style sensory cortex best.

@@ -25,7 +25,7 @@ We interpret this as evidence that training weight functions as overlay bias in 
 
 We conclude with architectural implications: the asymmetric-LLM design (large model trains, small model uses) is a fidelity argument as well as an economic one; a grammar-only cortex (a model trained exclusively on syntactic structure with no world facts) represents the limit case of non-corrupting reading; and in the limit, specialized fixed filters with no trainable weights — an "eyeball cortex" — represent zero overlay.
 
-The unified principle this paper proposes — *weight is bias* — is developed at length in the companion *Model Infections* paper (Pearl 2026e [4]), where the catalog of failure modes the principle predicts and the architectural defenses against them are documented in full.
+The unified principle this paper proposes — *weight is bias* — is developed at length in a forthcoming companion paper by the present author, where the catalog of failure modes the principle predicts and the architectural defenses against them will be documented in full.
 
 ---
 
@@ -47,7 +47,7 @@ This paper makes the following contributions:
 
 2. **A mechanistic account.** The larger model's invented content was not random. It consisted of canonical physics-textbook narrative patterns (force propagation, energy bookkeeping, conservative transitions) pattern-matched onto the graph's fragments. The invention is training-weight overlay, not randomness or noise.
 
-3. **A symmetry claim extending prior work.** Pearl 2026b [1] established that training corrupts teaching. This paper establishes that training corrupts reading. Together the two sides assert a unified principle: *weight is bias*, and on any task that requires fidelity to an external substrate, weight is a liability, not an asset. The full development of this principle — its catalog of failure modes and its architectural defenses — appears in the companion Model Infections paper (Pearl 2026e [4]).
+3. **A symmetry claim extending prior work.** Pearl 2026b [1] established that training corrupts teaching. This paper establishes that training corrupts reading. Together the two sides assert a unified principle: *weight is bias*, and on any task that requires fidelity to an external substrate, weight is a liability, not an asset. The full development of this principle — its catalog of failure modes and its architectural defenses — appears in a forthcoming companion paper by the present author.
 
 4. **Architectural implications.** The asymmetric-LLM architecture (large teaches, small reads) is justified on fidelity grounds independently of its economic advantage. The grammar-only cortex design (train only on syntax, never on world facts) is the fidelity-maximal general reader. Specialized fixed filters with no trainable weights — an "eyeball cortex" — represent zero overlay.
 
@@ -222,7 +222,7 @@ This argues for **token-budget reading**: a grounded-generation pipeline should 
 
 Most production RAG systems use the same LLM for reasoning and for reading. The LLM retrieves documents via a vector index, then generates an answer grounded in those documents. Our finding suggests that this architecture over-commits to a single model class. A more-trained model is better at reasoning over the retrieved content but worse at faithfully representing what the content actually said. For high-stakes applications — medical, legal, regulatory — a two-stage pipeline may be more appropriate: a smaller, less-trained reader renders the retrieved content into prose first, and a larger model (if needed) reasons over the faithful rendering.
 
-The naive single-model pipeline inherits the completion bias on every step. The two-stage pipeline isolates the fidelity-critical step to a substrate with lower completion bias. The companion Model Infections paper (Pearl 2026e [4]) develops a specific implementation of this two-stage idea — the *stateless two-tier reader* — in which a small local model handles routing decisions and a larger faithful model handles synthesis from compiled substrate facts, with each LLM call stateless to prevent cross-turn contamination.
+The naive single-model pipeline inherits the completion bias on every step. The two-stage pipeline isolates the fidelity-critical step to a substrate with lower completion bias. A specific implementation of this two-stage idea — a *stateless two-tier reader* in which a small local model handles routing decisions and a larger faithful model handles synthesis from compiled substrate facts, with each LLM call stateless to prevent cross-turn contamination — is developed in a forthcoming companion paper by the present author.
 
 ### 6.2 Asymmetric LLM architecture
 
@@ -236,15 +236,13 @@ The grammar-only cortex direction proposes training a small LLM (50–500M param
 
 The eyeball-cortex direction proposes replacing the LLM cortex entirely with specialized fixed filters — rods and cones, in the biological analogy. No weights, no training, no completion bias. This paper frames the eyeball cortex as the limit case of the training-corrupts-reading principle: if we extrapolate "less training weight = less completion bias" to zero, we arrive at zero-weight fixed filters. Whether such a cortex can render Sara's output in acceptable natural language is an open question for future work; this paper establishes the direction of the gradient.
 
-### 6.5 Where this thesis is developed in full
+### 6.5 The unifying principle
 
 The unifying claim spanning both sides of the pipeline can be stated as a single principle:
 
 > *Weight is bias. In grounded-generation pipelines, training weight functions as overlay on both ingestion (substitution) and emission (completion). Fidelity to an external substrate is therefore maximized by the minimum-weight LLM sufficient for the linguistic task, not by the most capable one.*
 
-The empirical basis is two-sided: Pearl 2026b [1] on the teaching side (45 human-taught facts beat 28,373 LLM-ingested facts on MMLU), and this paper on the reading side (smaller LLM retrieves graph-bound content more faithfully than larger).
-
-The principle's full development — its catalog of conversational propagation modes, its three-tier defense framework, and its empirically-validated stateless two-tier reader architecture — appears in the companion paper *Model Infections: Catalog and Containment of Training-Bias Propagation in Large Language Model Conversations* (Pearl 2026e [4]). Readers persuaded by the present paper's reading-side empirical finding and seeking the architectural defenses against the failure mode it documents should consult [4]. The measurement methodology that made both this paper's and the infections paper's findings observable is documented separately in the *Sara as Instrument* paper (Pearl 2026f [5]).
+The empirical basis is two-sided: Pearl 2026b [1] on the teaching side (45 human-taught facts beat 28,373 LLM-ingested facts on MMLU), and this paper on the reading side (smaller LLM retrieves graph-bound content more faithfully than larger). The principle's full development — its catalog of conversational propagation modes, its three-tier defense framework, and its empirically-validated stateless two-tier reader architecture — appears in a forthcoming companion paper by the present author. The measurement methodology that made the present paper's findings observable is documented separately in another forthcoming companion paper on Sara Brain as a measurement instrument for LLM behavior.
 
 ---
 

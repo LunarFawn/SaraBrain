@@ -1,0 +1,257 @@
+{
+  "regions": [
+    "cell_division",
+    "the_cell_cycle",
+    "control_of_the_cell_cycle",
+    "cancer_and_the_cell_cycle",
+    "prokaryotic_cell_division",
+    "cell_division",
+    "cell_division_269",
+    "the_cell_cycle",
+    "the_cell_cycle_271",
+    "the_cell_cycle_273",
+    "the_cell_cycle_275",
+    "the_cell_cycle_277",
+    "control_of_the_cell_cycle",
+    "control_of_the_cell_cycle_279",
+    "control_of_the_cell_cycle_281",
+    "cancer_and_the_cell_cycle",
+    "cancer_and_the_cell_cycle_283",
+    "cancer_and_the_cell_cycle_285",
+    "prokaryotic_cell_division",
+    "prokaryotic_cell_division_287",
+    "cell_division",
+    "the_cell_cycle",
+    "control_of_the_cell_cycle",
+    "cancer_and_the_cell_cycle",
+    "prokaryotic_cell_division"
+  ],
+  "source": "/Users/grizzlyengineer/repo/training_material/ch10_cell_reproduction.txt",
+  "stats": [
+    {
+      "region": "cell_division",
+      "paragraphs": 0,
+      "extracted": 0,
+      "taught": 0,
+      "rejected": 0,
+      "neurons": 0,
+      "paths": 0
+    },
+    {
+      "region": "the_cell_cycle",
+      "paragraphs": 0,
+      "extracted": 0,
+      "taught": 0,
+      "rejected": 0,
+      "neurons": 0,
+      "paths": 0
+    },
+    {
+      "region": "control_of_the_cell_cycle",
+      "paragraphs": 0,
+      "extracted": 0,
+      "taught": 0,
+      "rejected": 0,
+      "neurons": 0,
+      "paths": 0
+    },
+    {
+      "region": "cancer_and_the_cell_cycle",
+      "paragraphs": 0,
+      "extracted": 0,
+      "taught": 0,
+      "rejected": 0,
+      "neurons": 0,
+      "paths": 0
+    },
+    {
+      "region": "prokaryotic_cell_division",
+      "paragraphs": 1,
+      "extracted": 18,
+      "taught": 10,
+      "rejected": 8,
+      "neurons": 70,
+      "paths": 10
+    },
+    {
+      "region": "cell_division",
+      "paragraphs": 3,
+      "extracted": 91,
+      "taught": 49,
+      "rejected": 42,
+      "neurons": 271,
+      "paths": 49
+    },
+    {
+      "region": "cell_division_269",
+      "paragraphs": 1,
+      "extracted": 34,
+      "taught": 24,
+      "rejected": 10,
+      "neurons": 127,
+      "paths": 24
+    },
+    {
+      "region": "the_cell_cycle",
+      "paragraphs": 1,
+      "extracted": 37,
+      "taught": 21,
+      "rejected": 16,
+      "neurons": 107,
+      "paths": 21
+    },
+    {
+      "region": "the_cell_cycle_271",
+      "paragraphs": 2,
+      "extracted": 54,
+      "taught": 28,
+      "rejected": 26,
+      "neurons": 151,
+      "paths": 28
+    },
+    {
+      "region": "the_cell_cycle_273",
+      "paragraphs": 2,
+      "extracted": 139,
+      "taught": 65,
+      "rejected": 74,
+      "neurons": 308,
+      "paths": 65
+    },
+    {
+      "region": "the_cell_cycle_275",
+      "paragraphs": 2,
+      "extracted": 53,
+      "taught": 25,
+      "rejected": 28,
+      "neurons": 172,
+      "paths": 25
+    },
+    {
+      "region": "the_cell_cycle_277",
+      "paragraphs": 1,
+      "extracted": 0,
+      "taught": 0,
+      "rejected": 0,
+      "neurons": 0,
+      "paths": 0
+    },
+    {
+      "region": "control_of_the_cell_cycle",
+      "paragraphs": 2,
+      "extracted": 69,
+      "taught": 34,
+      "rejected": 35,
+      "neurons": 197,
+      "paths": 34
+    },
+    {
+      "region": "control_of_the_cell_cycle_279",
+      "paragraphs": 2,
+      "extracted": 74,
+      "taught": 31,
+      "rejected": 43,
+      "neurons": 173,
+      "paths": 31
+    },
+    {
+      "region": "control_of_the_cell_cycle_281",
+      "paragraphs": 2,
+      "extracted": 52,
+      "taught": 26,
+      "rejected": 26,
+      "neurons": 130,
+      "paths": 26
+    },
+    {
+      "region": "cancer_and_the_cell_cycle",
+      "paragraphs": 1,
+      "extracted": 36,
+      "taught": 14,
+      "rejected": 22,
+      "neurons": 86,
+      "paths": 14
+    },
+    {
+      "region": "cancer_and_the_cell_cycle_283",
+      "paragraphs": 2,
+      "extracted": 68,
+      "taught": 35,
+      "rejected": 33,
+      "neurons": 149,
+      "paths": 35
+    },
+    {
+      "region": "cancer_and_the_cell_cycle_285",
+      "paragraphs": 0,
+      "extracted": 0,
+      "taught": 0,
+      "rejected": 0,
+      "neurons": 0,
+      "paths": 0
+    },
+    {
+      "region": "prokaryotic_cell_division",
+      "paragraphs": 2,
+      "extracted": 58,
+      "taught": 26,
+      "rejected": 32,
+      "neurons": 212,
+      "paths": 36
+    },
+    {
+      "region": "prokaryotic_cell_division_287",
+      "paragraphs": 3,
+      "extracted": 62,
+      "taught": 34,
+      "rejected": 28,
+      "neurons": 176,
+      "paths": 34
+    },
+    {
+      "region": "cell_division",
+      "paragraphs": 1,
+      "extracted": 21,
+      "taught": 14,
+      "rejected": 7,
+      "neurons": 332,
+      "paths": 63
+    },
+    {
+      "region": "the_cell_cycle",
+      "paragraphs": 1,
+      "extracted": 7,
+      "taught": 5,
+      "rejected": 2,
+      "neurons": 121,
+      "paths": 26
+    },
+    {
+      "region": "control_of_the_cell_cycle",
+      "paragraphs": 1,
+      "extracted": 9,
+      "taught": 2,
+      "rejected": 7,
+      "neurons": 201,
+      "paths": 36
+    },
+    {
+      "region": "cancer_and_the_cell_cycle",
+      "paragraphs": 1,
+      "extracted": 12,
+      "taught": 8,
+      "rejected": 4,
+      "neurons": 120,
+      "paths": 22
+    },
+    {
+      "region": "prokaryotic_cell_division",
+      "paragraphs": 4,
+      "extracted": 185,
+      "taught": 99,
+      "rejected": 86,
+      "neurons": 656,
+      "paths": 135
+    }
+  ]
+}

@@ -5,7 +5,7 @@ Independent Researcher
 ORCID: 0009-0006-6083-384X
 jenpearl5@gmail.com
 
-**Date:** April 2026 (v1)
+**Date:** April 2026 (Draft, rev 2)
 
 **Keywords:** cognitive architecture, knowledge graph retrieval, grounded generation, path-of-thought, LLM reading fidelity, asymmetric inference, confabulation, training bias, retrieval-augmented generation, weight is bias
 
@@ -321,4 +321,4 @@ Available in `papers/aptamer_rev1/teach_exec_summary.py` as the `TRIPLES` list. 
 
 ---
 
-*End of paper, version 1.*
+*End of draft, rev 2.*

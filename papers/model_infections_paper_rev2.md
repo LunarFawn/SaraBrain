@@ -5,7 +5,7 @@ Independent Researcher
 ORCID: 0009-0006-6083-384X
 jenpearl5@gmail.com
 
-**Date:** April 2026 (v1)
+**Date:** April 2026 (Draft, rev 2)
 
 **Keywords:** large language models, hallucination, transformer behavior, training bias, retrieval-augmented generation, conversational context, LLM architecture, alignment, knowledge graphs, agentic systems
 
@@ -651,4 +651,4 @@ We invite the field to replicate, extend, and critique the catalog and the defen
 
 ---
 
-*End of paper, version 1.*
+*End of draft, rev 2.*

@@ -5,7 +5,7 @@ Independent Researcher
 ORCID: 0009-0006-6083-384X
 jenpearl5@gmail.com
 
-**Date:** April 2026 (v1)
+**Date:** April 2026 (Draft, rev 2)
 
 **Keywords:** cognitive architecture, scientific instrumentation, LLM evaluation, reference substrate, knowledge graph, transformer behavior, hallucination, grounded generation, alignment research, experimental method
 
@@ -395,4 +395,4 @@ The synthetic-substrate generator for instrument validation is in `papers/instru
 
 ---
 
-*End of paper, version 1.*
+*End of draft, rev 2.*

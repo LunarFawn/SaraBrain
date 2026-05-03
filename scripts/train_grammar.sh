@@ -32,7 +32,8 @@ CMD=".venv/bin/python -m sara_brain.cortex.transformer.train"
 CMD+=" --preset $PRESET --batch $BATCH --steps $STEPS"
 CMD+=" 2>&1 | tee -a '$LOG'"
 
-tmux new-session -d -s "$SESSION" -x 220 -y 50 -c "$REPO" "$CMD"
+tmux new-session -d -s "$SESSION" -c "$REPO" "$CMD"
+tmux set-option -t "$SESSION" -g remain-on-exit on
 tmux split-window -h -t "$SESSION" -p 30 "watch -n2 -t nvidia-smi"
 tmux select-pane -t "$SESSION":0.0
 
@@ -41,8 +42,9 @@ launched tmux session: $SESSION
   preset=$PRESET batch=$BATCH steps=$STEPS
   log=$LOG
 
-attach:   tmux attach -t $SESSION
-detach:   Ctrl-b d
-tail log: tail -f $LOG
-kill:     tmux kill-session -t $SESSION
+attach:    tmux attach -t $SESSION
+detach:    Ctrl-b d
+tail log:  tail -f $LOG
+close pane after run: Ctrl-b x  (panes stay open showing final output)
+kill all:  tmux kill-session -t $SESSION
 EOF

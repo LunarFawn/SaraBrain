@@ -56,9 +56,10 @@ def main() -> int:
         "--cortex-router",
         action="store_true",
         help=(
-            "Use the local Sara cortex transformer for routing instead "
-            "of Ollama. Requires --grammar-ckpt and --head-ckpt (or "
-            "their defaults under src/sara_brain/cortex/checkpoints/)."
+            "Use HamlinLLM (the local Sara cortex transformer) for "
+            "routing instead of Ollama. Requires --grammar-ckpt and "
+            "--head-ckpt (or their defaults under "
+            "src/sara_brain/cortex/checkpoints/)."
         ),
     )
     ap.add_argument(
@@ -84,10 +85,10 @@ def main() -> int:
         "--cortex-synthesizer",
         action="store_true",
         help=(
-            "Use the local template-based cortex synthesizer instead of "
-            "an LLM. Combined with --cortex-router this gives a fully "
-            "no-LLM, no-API-key path: question -> cortex -> substrate -> "
-            "templated prose."
+            "Use HamlinLLM's template synthesizer for prose generation "
+            "instead of an LLM. Combined with --cortex-router this gives "
+            "a fully no-LLM, no-API-key path: question -> HamlinLLM -> "
+            "substrate -> templated prose."
         ),
     )
     args = ap.parse_args()
@@ -96,6 +97,15 @@ def main() -> int:
     cortex_router_ckpts = (
         (args.grammar_ckpt, args.head_ckpt) if args.cortex_router else None
     )
+
+    if args.cortex_router or args.cortex_synthesizer:
+        from sara_brain.cortex.transformer.router import MODEL_FULL
+        parts = []
+        if args.cortex_router:
+            parts.append("router")
+        if args.cortex_synthesizer:
+            parts.append("synthesizer")
+        print(f"[{MODEL_FULL}] active for: {', '.join(parts)}")
 
     reader = StatelessReader(
         brain_path=args.brain,

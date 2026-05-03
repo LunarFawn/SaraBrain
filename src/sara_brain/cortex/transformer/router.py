@@ -24,6 +24,11 @@ from .router_head import RouterHead
 from .vocab import BOS_ID, EOS_ID, PAD_ID, TOK2ID, UNK_ID
 
 
+MODEL_NAME = "HamlinLLM"
+MODEL_VERSION = "0.1"
+MODEL_FULL = f"{MODEL_NAME}-v{MODEL_VERSION}"
+
+
 @dataclass
 class RouterDecision:
     tool: str
@@ -32,6 +37,7 @@ class RouterDecision:
     extractor_confidence: float     # rule-based confidence
     rationale: str
     raw_logits: list[float]
+    model: str = MODEL_FULL         # which cortex made this decision
 
 
 class CortexRouter:

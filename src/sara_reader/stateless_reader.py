@@ -417,6 +417,7 @@ class StatelessReader:
             trace.append({
                 "step": "cortex_route",
                 "event": "validation_failed",
+                "model": decision_obj.model,
                 "decision": decision,
                 "cls_conf": decision_obj.classifier_confidence,
             })
@@ -424,6 +425,7 @@ class StatelessReader:
         trace.append({
             "step": "cortex_route",
             "event": "decided",
+            "model": decision_obj.model,
             "decision": decision,
             "cls_conf": decision_obj.classifier_confidence,
             "rationale": decision_obj.rationale,

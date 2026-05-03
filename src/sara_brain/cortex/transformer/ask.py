@@ -38,6 +38,7 @@ def main() -> None:
 
     decision = router.route(args.question)
     if not args.quiet:
+        print(f"[{decision.model}]")
         print(f"Q:    {args.question}")
         print(f"tool: {decision.tool}  (cls_conf={decision.classifier_confidence:.2f})")
         print(f"args: {decision.args}")

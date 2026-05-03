@@ -168,6 +168,8 @@ The same question — *"how do the state transitions function?"* — was posed t
 
 ### 5.2 Weight is bias in both directions
 
+*This case combines Case 5.1's emission-side observation with Pearl (2026b [3])'s ingestion-side result; its contribution is the unifying symmetry claim, not a new individual observation.*
+
 Pearl (2026b [3]) previously established that training-biased LLMs cannot *ingest* new facts cleanly — they substitute plausible trained content for what the source actually says. Case 5.1 establishes the symmetric failure: training-biased LLMs cannot *emit* retrieved facts cleanly either — they complete trained templates over the retrieved fragments.
 
 **What the instrument exposed:** the mechanism is one principle acting in two directions. *Weight is bias*, and on any pipeline stage that interfaces with an external substrate (ingestion or emission), the bias manifests as training-pattern overlay. The substrate is corrupted during transit in both directions.

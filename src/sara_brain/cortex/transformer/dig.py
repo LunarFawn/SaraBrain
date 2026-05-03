@@ -1,4 +1,4 @@
-"""Deep-dive helpers for HamlinLLM chat.
+"""Deep-dive helpers for HamRobyLLM chat.
 
 Two complementary modes:
 

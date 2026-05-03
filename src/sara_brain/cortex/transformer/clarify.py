@@ -1,4 +1,4 @@
-"""Clarification helpers for HamlinLLM chat.
+"""Clarification helpers for HamRobyLLM chat.
 
 Detects two kinds of probable typos and asks the user before assuming:
 
@@ -41,7 +41,7 @@ class ConceptFix:
 
 @dataclass
 class Clarification:
-    """A pending question the user needs to answer before HamlinLLM can
+    """A pending question the user needs to answer before HamRobyLLM can
     proceed. Holds the original question and either a wh-fix or a
     concept-fix to apply once the user picks an option."""
     original_question: str

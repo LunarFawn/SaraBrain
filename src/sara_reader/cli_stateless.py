@@ -56,7 +56,7 @@ def main() -> int:
         "--cortex-router",
         action="store_true",
         help=(
-            "Use HamlinLLM (the local Sara cortex transformer) for "
+            "Use HamRobyLLM (the local Sara cortex transformer) for "
             "routing instead of Ollama. Requires --grammar-ckpt and "
             "--head-ckpt (or their defaults under "
             "src/sara_brain/cortex/checkpoints/)."
@@ -85,9 +85,9 @@ def main() -> int:
         "--cortex-synthesizer",
         action="store_true",
         help=(
-            "Use HamlinLLM's template synthesizer for prose generation "
+            "Use HamRobyLLM's template synthesizer for prose generation "
             "instead of an LLM. Combined with --cortex-router this gives "
-            "a fully no-LLM, no-API-key path: question -> HamlinLLM -> "
+            "a fully no-LLM, no-API-key path: question -> HamRobyLLM -> "
             "substrate -> templated prose."
         ),
     )

@@ -1,4 +1,4 @@
-"""Interactive HamlinLLM chat — REPL against a Sara brain.
+"""Interactive HamRobyLLM chat — REPL against a Sara brain.
 
   $ sara-cortex-chat --brain path/to/your/sara.db
 
@@ -385,7 +385,7 @@ def _save_history(path: Path) -> None:
 
 
 def main() -> int:
-    p = argparse.ArgumentParser(description="Interactive HamlinLLM chat")
+    p = argparse.ArgumentParser(description="Interactive HamRobyLLM chat")
     p.add_argument("--brain", type=Path, required=True,
                    help="Path to a Sara brain.db (must end in .db)")
     p.add_argument("--grammar-ckpt", type=Path,
@@ -407,7 +407,7 @@ def main() -> int:
         return 1
 
     if readline is not None:
-        hist = Path(os.path.expanduser("~/.hamlinllm_history"))
+        hist = Path(os.path.expanduser("~/.hamroby_history"))
         try:
             readline.read_history_file(str(hist))
         except (OSError, FileNotFoundError):

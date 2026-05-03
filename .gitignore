@@ -29,3 +29,7 @@ benchmarks/biology_chunks/
 *.p1_progress
 *.p2_progress
 *.claude_progress
+
+# Cortex training artifacts — regenerable
+src/sara_brain/cortex/checkpoints/
+training.log

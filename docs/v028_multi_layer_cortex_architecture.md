@@ -661,11 +661,31 @@ replaced by `(L2-en allowlist) × (small templating logic)` instead.
   v027 item (Wave 2 article heuristic) is **superseded by L2** — the
   function-word allowlist replaces it permanently.
 - L1/L2/L3 architecture documented above.
-- L2-en implementation plan documented above.
-- HamlinSum (path 2) deferred until L2-en is in place — the layered
-  architecture lets the synthesizer head be a smaller learning problem
-  and gives it function-word grammar for free.
+- **L2-en operational end-to-end:**
+  - `vocab_en.py` (commit `6d19e97`, plan v029) — 175-token vocab
+    (76 L1 + 99 EN function words), L1 IDs preserved.
+  - `ud.py` lexicalization (commit `6bc080c`, plan v030) — opt-in
+    flag preserves byte-for-byte L1 ingestion.
+  - `train_l2.py` (commit `52d176b`, plan v031) — 134K-param
+    adapter on frozen L1; trained checkpoint
+    `l2_en_003000.pt` reaches dev_ppl=4.127 from pre-train 38.462
+    in ~5.5 min on a 3070.
+  - `inference_l2.py` (commit `ad1abf8`) — sample + score wrapper.
+    L2 produces recognisable English sentence skeletons with
+    function words in plausible structural positions
+    (`det the`, `case from / to`, `cop are`, `mark to / that`).
+- HamlinSum (path 2) deferred until the synthesizer-pipeline
+  integration. The layered architecture lets the synthesizer head be
+  a smaller learning problem and gives it function-word grammar for
+  free.
 
-**Immediate next step:** start L2-en. Begin with `vocab_en.py`, then
-extend `ud.py`, then train the adapter. Order of operations is
-spelled out in the L2 implementation plan section.
+**Immediate next step:** synthesizer-pipeline integration. Two
+sub-steps:
+
+1. Update `synthesizer.py`'s template renderer to draw function words
+   from L2-en (replaces v027 Wave 2 article heuristic) — this is the
+   labeler change. Templates become richer; the labeler emits
+   L2-grammatical prose.
+2. HamlinSum / path 2 — train the actual synthesizer head on top of
+   `(L1, L2-en)`. Now the head doesn't have to learn function-word
+   grammar from prose; L2-en already owns it.

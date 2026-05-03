@@ -20,6 +20,8 @@ import re
 from collections import defaultdict
 from dataclasses import dataclass
 
+from .dig import _STOP_WORDS
+
 
 @dataclass
 class Edge:
@@ -112,6 +114,10 @@ _TEMPLATES: dict[str, str] = {
     "stands_for":        "{src} stands for {tgt}",
     "defined_as":        "{src} is defined as {tgt}",
     "means":             "{src} means {tgt}",
+    # copula / generic possession (added to avoid fallthrough to
+    # "{tgt} has {rel_pretty} of {src}" producing "has is of" garbage)
+    "is":                "{src} is {tgt}",
+    "have":              "{src} has {tgt}",
     # composition (no attribute inversion needed)
     "part_of":           "{src} is part of {tgt}",
     "is_subsystem_of":   "{src} is a subsystem of {tgt}",
@@ -121,9 +127,11 @@ _TEMPLATES: dict[str, str] = {
 # suffix. These read the substrate's direction the right way around for
 # attributive relations (is_a / has / scored_by / value-bearing nouns).
 _ATTR_TEMPLATES: dict[str, str] = {
+    "is":                "{tgt} is {src}",
     "is_a":              "{tgt} is a {src}",
     "is_an_instance_of": "{tgt} is an instance of {src}",
     "has":               "{tgt} has {src}",
+    "have":              "{tgt} has {src}",
     "scored_by":         "{tgt} is scored by {src}",
     "described_by":      "{tgt} is described by {src}",
     "also_known_as":     "{tgt} is also known as {src}",
@@ -184,6 +192,11 @@ def render_edges(edges: list[Edge], topic: str | None = None) -> str:
     list. If `topic` is given, lift edges where the topic is the subject
     to the front."""
     edges = [e for e in edges if e.rel not in _NOISE_RELATIONS]
+    # Drop edges whose subject is a bare stop word — substrate ingestion
+    # emits is_part_of edges from each constituent token of a multi-word
+    # label, including particles like "in", "of", "the", which produce
+    # "In is part of inertia in rna"-style noise sentences.
+    edges = [e for e in edges if e.src.strip().lower() not in _STOP_WORDS]
     if not edges:
         return ""
 
@@ -198,11 +211,9 @@ def render_edges(edges: list[Edge], topic: str | None = None) -> str:
 
     sentences: list[str] = []
     for src in ordered_keys:
-        rendered = [_render_edge(e) for e in by_src[src]]
-        # Capitalize the first letter of the first sentence in this cluster.
-        if rendered:
-            rendered[0] = rendered[0][0].upper() + rendered[0][1:]
-        sentences.extend(rendered)
+        for e in by_src[src]:
+            s = _render_edge(e)
+            sentences.append(s[0].upper() + s[1:] if s else s)
     return " ".join(sentences)
 
 

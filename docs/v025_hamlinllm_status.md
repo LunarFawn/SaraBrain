@@ -113,10 +113,12 @@ of X") auto-trigger the same expansion as `/dig`.
 
 ## Open issues / next steps
 
-1. **Template gaps**: relations `is` and `have` aren't in `_TEMPLATES` or
-   `_ATTR_TEMPLATES`, so they fall through to the generic
-   `"{tgt} has {rel_pretty} of {src}"` fallback, producing awkward
-   "has is of" / "has have of" text. Add these to the tables.
+1. ~~**Template gaps**~~ — fixed 2026-05-03. `is` and `have` added to
+   both `_TEMPLATES` and `_ATTR_TEMPLATES`. Stop-word subjects (e.g.
+   `"in"` from `is_part_of` over multi-word labels) are now dropped at
+   `render_edges` time using `dig._STOP_WORDS`. Cluster
+   capitalization in `render_edges` also fixed — every sentence
+   capitalizes its leading letter, not just the first per source cluster.
 2. **Neural synthesizer head** — labeler exists (`synth_data.py`,
    produces ~634 pairs from the aptamer brain), but no training loop
    yet. Same architecture pattern as `router_head.py`: frozen grammar

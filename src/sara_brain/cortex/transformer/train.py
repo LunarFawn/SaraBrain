@@ -11,7 +11,7 @@ import torch
 from torch.optim import AdamW
 
 from .model import GrammarConfig, GrammarModel
-from .synthetic import make_batch
+from .synthetic import MixedSource, make_batch
 from .vocab import PAD_ID, VOCAB_SIZE
 
 
@@ -55,11 +55,22 @@ def main() -> None:
     p.add_argument("--compile", action="store_true",
                    help="Enable torch.compile (requires a C compiler installed)")
     p.add_argument("--no-amp", action="store_true")
+    p.add_argument("--data", choices=["templates", "mixed"], default="mixed",
+                   help="templates = hand-built only (over-fits fast); "
+                        "mixed = UD English EWT + templates (real signal)")
+    p.add_argument("--ud-ratio", type=float, default=0.6,
+                   help="Fraction of mixed batches drawn from UD (rest from templates)")
     args = p.parse_args()
 
     args.ckpt_dir.mkdir(parents=True, exist_ok=True)
     rng = random.Random(args.seed)
     torch.manual_seed(args.seed)
+
+    source: MixedSource | None
+    if args.data == "mixed":
+        source = MixedSource(ud_ratio=args.ud_ratio, seed=args.seed)
+    else:
+        source = None
 
     cfg = PRESETS[args.preset](VOCAB_SIZE)
     cfg.max_seq = args.max_seq
@@ -86,6 +97,7 @@ def main() -> None:
           f"d={cfg.d_model} h={cfg.n_heads} L={cfg.n_layers} ff={cfg.d_ff} seq={cfg.max_seq}", flush=True)
     print(f"device={device}  amp={use_amp}  batch={args.batch}  steps={args.steps}  "
           f"lr={args.lr:g}->{args.min_lr:g} warmup={args.warmup}", flush=True)
+    print(f"data={args.data}  ud_ratio={args.ud_ratio if args.data == 'mixed' else '—'}", flush=True)
     print(f"ckpts -> {args.ckpt_dir}", flush=True)
     print("=" * 78, flush=True)
     header = "  step    loss      lr       tok/s     gpu"
@@ -102,7 +114,7 @@ def main() -> None:
         for g in opt.param_groups:
             g["lr"] = lr
 
-        inp, tgt, mask = make_batch(args.batch, cfg.max_seq, rng)
+        inp, tgt, mask = make_batch(args.batch, cfg.max_seq, rng, source=source)
         inp = inp.to(device, non_blocking=True)
         tgt = tgt.to(device, non_blocking=True)
         mask = mask.to(device, non_blocking=True)

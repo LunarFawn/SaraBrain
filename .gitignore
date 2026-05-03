@@ -33,3 +33,4 @@ benchmarks/biology_chunks/
 # Cortex training artifacts — regenerable
 src/sara_brain/cortex/checkpoints/
 training.log
+data/ud/

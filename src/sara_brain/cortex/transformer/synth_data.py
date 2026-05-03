@@ -34,7 +34,12 @@ class SynthExample:
         }
 
 
-_NOISE_RELATIONS_FOR_LABELER = {"part_of", "describes"}
+_NOISE_RELATIONS_FOR_LABELER = {"describes"}
+# `part_of` used to be blanket-dropped here because substrate-ingestion
+# decomposition edges (e.g. `inertia` --part_of--> `inertia in rna`)
+# produced tautological prose. `render_edges` now drops only the
+# decomposition cases; useful `part_of` ("RNA is part of cell") flows
+# through to both inference and training labels.
 
 
 def load_substrate_edges(db_path: Path) -> list[Edge]:

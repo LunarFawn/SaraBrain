@@ -187,34 +187,111 @@ def _render_edge(e: Edge) -> str:
 _NOISE_RELATIONS = {"describes"}
 
 
+# Verbs the sentence-combiner recognises as a subject/predicate split
+# point. Any leading words up to the first whitelisted verb count as
+# the rendered subject; everything from the verb on is the predicate.
+# Only verbs that appear (or could appear) at the start of a template
+# predicate need to be here — extending this is safe and conservative
+# (missing entries just disable combining for that template).
+_PREDICATE_VERBS = {
+    "is", "are", "was", "were", "has", "have", "had",
+    "means", "stands", "acts", "applies", "focuses",
+    "measures", "evaluates", "assesses", "leverages",
+    "incorporates", "integrates", "validates", "validate",
+    "indicates", "produces", "results", "influences",
+    "simulate", "provide", "provides", "drops", "requires",
+    "offers", "states",
+}
+
+
+def _is_decomposition_part_of(e: Edge) -> bool:
+    """True when an edge looks like substrate-ingestion decomposition —
+    a `part_of` edge whose source is a single content-word token of the
+    target's label (e.g. `inertia` --part_of--> `inertia in rna`).
+    These are tautological and add no information in prose."""
+    if e.rel != "part_of":
+        return False
+    src = e.src.strip().lower()
+    if not src or " " in src:
+        return False
+    tgt_tokens = {t for t in re.findall(r"[a-z0-9]+", e.tgt.lower())}
+    return src in tgt_tokens
+
+
+def _split_subj_pred(sentence: str) -> tuple[str, str] | None:
+    """Split `Cat is a mammal.` into (`Cat`, `is a mammal.`). Returns
+    None if no whitelisted verb appears after the first token."""
+    body = sentence.rstrip(".").rstrip()
+    if not body:
+        return None
+    words = body.split()
+    for i in range(1, len(words)):
+        if words[i].lower() in _PREDICATE_VERBS:
+            return " ".join(words[:i]), " ".join(words[i:]) + "."
+    return None
+
+
+def _join_predicates(preds: list[str]) -> str:
+    """Oxford-comma join: ['is a', 'has b', 'measures c'] → 'is a, has b,
+    and measures c'."""
+    cleaned = [p.rstrip(".").rstrip() for p in preds]
+    if len(cleaned) == 1:
+        return cleaned[0]
+    if len(cleaned) == 2:
+        return f"{cleaned[0]} and {cleaned[1]}"
+    return ", ".join(cleaned[:-1]) + ", and " + cleaned[-1]
+
+
 def render_edges(edges: list[Edge], topic: str | None = None) -> str:
-    """Group edges by subject and render each cluster as a short sentence
-    list. If `topic` is given, lift edges where the topic is the subject
-    to the front."""
+    """Render an edge list as prose. Filters substrate noise (graph
+    plumbing relations, stop-word subjects, decomposition `part_of`
+    edges), groups sentences by their rendered subject, and joins
+    same-subject predicates into one sentence each.
+
+    If `topic` is given, sentences whose subject contains the topic
+    are lifted to the front."""
     edges = [e for e in edges if e.rel not in _NOISE_RELATIONS]
-    # Drop edges whose subject is a bare stop word — substrate ingestion
-    # emits is_part_of edges from each constituent token of a multi-word
-    # label, including particles like "in", "of", "the", which produce
-    # "In is part of inertia in rna"-style noise sentences.
+    # Drop edges whose subject is a bare stop word ("in", "of", ...) —
+    # substrate ingestion emits is_part_of from every constituent token
+    # of a multi-word label.
     edges = [e for e in edges if e.src.strip().lower() not in _STOP_WORDS]
+    # Drop content-word decomposition edges (same noise pattern, just
+    # with a non-stop-word constituent).
+    edges = [e for e in edges if not _is_decomposition_part_of(e)]
     if not edges:
         return ""
 
-    by_src: dict[str, list[Edge]] = defaultdict(list)
+    rendered: list[str] = []
     for e in edges:
-        by_src[e.src].append(e)
+        s = _render_edge(e)
+        if s:
+            rendered.append(s[0].upper() + s[1:])
 
-    ordered_keys = list(by_src.keys())
+    # Cluster by rendered subject so we can combine same-subject sentences.
+    # Sentences whose subject can't be cleanly extracted stay standalone.
+    by_subject: dict[str, list[str]] = defaultdict(list)
+    subject_order: list[str] = []
+    standalone: list[str] = []
+    for s in rendered:
+        sp = _split_subj_pred(s)
+        if sp is None:
+            standalone.append(s)
+            continue
+        subj, pred = sp
+        if subj not in by_subject:
+            subject_order.append(subj)
+        by_subject[subj].append(pred)
+
     if topic:
         topic_l = topic.lower().strip()
-        ordered_keys.sort(key=lambda k: 0 if topic_l in k.lower() else 1)
+        subject_order.sort(key=lambda k: 0 if topic_l in k.lower() else 1)
 
-    sentences: list[str] = []
-    for src in ordered_keys:
-        for e in by_src[src]:
-            s = _render_edge(e)
-            sentences.append(s[0].upper() + s[1:] if s else s)
-    return " ".join(sentences)
+    out: list[str] = []
+    for subj in subject_order:
+        preds = by_subject[subj]
+        out.append(f"{subj} {_join_predicates(preds)}.")
+    out.extend(standalone)
+    return " ".join(out)
 
 
 def synthesize(question: str, gathered: list[dict]) -> str:

@@ -190,6 +190,7 @@ class StatelessReader:
         provider_kwargs: dict | None = None,
         cortex_router_ckpts: tuple[str, str] | None = None,
         skip_synthesis: bool = False,
+        cortex_synthesizer: bool = False,
     ) -> None:
         """If cortex_router_ckpts=(grammar_ckpt_path, head_ckpt_path) is set,
         routing is performed by the local cortex transformer (no Ollama call).
@@ -212,7 +213,8 @@ class StatelessReader:
                 router_provider, **(provider_kwargs.get("router") or {})
             )
         self.skip_synthesis = skip_synthesis
-        if skip_synthesis:
+        self.cortex_synthesizer = cortex_synthesizer
+        if skip_synthesis or cortex_synthesizer:
             self.synthesizer = None
         else:
             self.synthesizer = get_provider(
@@ -335,6 +337,10 @@ class StatelessReader:
         if self.skip_synthesis:
             answer = _format_gathered(gathered)
             trace.append({"step": "synthesis", "event": "skipped"})
+        elif self.cortex_synthesizer:
+            from sara_brain.cortex.transformer.synthesizer import synthesize
+            answer = synthesize(question, gathered)
+            trace.append({"step": "synthesis", "event": "cortex_template"})
         else:
             synthesis_prompt = _SYNTHESIS_PROMPT_TEMPLATE.format(
                 question=question, gathered=_format_gathered(gathered)

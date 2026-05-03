@@ -80,6 +80,16 @@ def main() -> int:
             "no-LLM-in-loop demonstration."
         ),
     )
+    ap.add_argument(
+        "--cortex-synthesizer",
+        action="store_true",
+        help=(
+            "Use the local template-based cortex synthesizer instead of "
+            "an LLM. Combined with --cortex-router this gives a fully "
+            "no-LLM, no-API-key path: question -> cortex -> substrate -> "
+            "templated prose."
+        ),
+    )
     args = ap.parse_args()
     synthesis_model = args.synthesis_model or args.router_model
 
@@ -96,6 +106,7 @@ def main() -> int:
         max_routing_steps=args.max_routing_steps,
         cortex_router_ckpts=cortex_router_ckpts,
         skip_synthesis=args.no_synthesis,
+        cortex_synthesizer=args.cortex_synthesizer,
     )
     result = reader.ask(args.question, return_trace=args.trace)
     if args.trace:

@@ -3,6 +3,7 @@
 **Date:** 2026-05-03
 **Branch:** `feature/grammar-cortex`
 **Builds on:** [v025_hamlinllm_status.md](v025_hamlinllm_status.md),
+[v026_hamroby_name.md](v026_hamroby_name.md),
 [v027_synthesizer_naturalness_plan.md](v027_synthesizer_naturalness_plan.md)
 
 ## Premise
@@ -76,6 +77,99 @@ opaque). The Sara stack must pass it at every layer:
 - Model weights: trained only on inputs you generated and can re-inspect.
 
 This last point is what flips the build-path recommendation below.
+
+## Sub-architecture of the language side: L1 / L2 / L3
+
+The Broca/Wernicke split says language production is separate from
+knowledge. It does not say what is *inside* the language production
+side. Watching what kids actually lose if they miss the critical
+period for language exposure suggests language production is itself
+layered:
+
+- **L1 — universal grammatical capacity.** The deep structural
+  competence that makes any human language learnable. Innate, baked
+  in by genetics + early development. Use-it-or-lose-it: kids who do
+  not get sufficient language input during the critical window
+  (Genie, late-acquired sign language in deaf children) never fully
+  recover full grammatical fluency in any language. The scaffold is
+  not built later.
+
+- **L2 — language-specific overlay.** Surface-form competence in a
+  particular spoken language: function-word vocabulary
+  (`a / an / the / of / is`), morphological inflection, idiomatic
+  ordering. Per language. Acquired on top of L1 during normal
+  childhood exposure. Replaceable — bilinguals run multiple L2s on
+  the same L1.
+
+- **L3 — content / substrate.** The world model. What you know about
+  things. Already separate from both L1 and L2 in the brain (Wernicke
+  + association cortex). Already separate in the project (`brain.db`).
+
+The Broca/Wernicke split argued for separating language production
+from knowledge. The L1/L2/L3 view argues for separating *within*
+language production: the structural capacity from the surface-form
+overlay from the content. Each layer has a different lifecycle, a
+different training source, and (critically) different
+**inspectability** properties.
+
+### Mapping into the project
+
+Today's grammar transformer (HamRobyLLM) is an early prototype of L1:
+76 structural tokens (UPOS + UD deps + slots), trained on 6 English
+UD treebanks, no actual words. Its vocabulary *cannot* express
+English-specific function words, which is why the template-rendered
+prose feels stilted and why v027's article heuristic was even
+considered.
+
+The architectural fix is to grow the cortex into the layered shape
+the brain uses:
+
+| Layer | Vocab | Trained on | Per | Frozen at runtime |
+|---|---|---|---|---|
+| L1 | UPOS + UD deps + slots (no words) | UD treebanks across many languages | All users | Yes (shipped once) |
+| L2 | UPOS for content + literal function words for one language | UD treebanks for that language with content words abstracted | Language | Yes (per language) |
+| L3 (substrate) | Content labels | User's own teaching | User | No (always-mutable) |
+| Synthesizer head (HamlinSum / A1) | L2's output token space | (edges, prose) pairs | Stitcher | Yes (per stitcher) |
+
+The synthesizer head sits on top of the frozen L1+L2 stack and
+stitches substrate content into L2's grammatical frames. The
+constrained-decoding mask described below operates at the head's
+output layer, ensuring content tokens are substrate-grounded.
+
+### Why this matters: multi-language as a first-class property
+
+Universal Dependencies was designed for cross-lingual portability.
+~100+ languages have UD treebanks today, all annotated with the same
+universal POS tags and the same dependency labels. The L1 layer can
+be trained once on a cross-lingual mix and used by every L2.
+
+Practical consequence: **anyone can train an L2 for their own
+language** and run their own substrate through it. Spanish L2 plus a
+substrate of Spanish-language facts → Spanish HamRoby. No retraining
+of L1. No per-user model surgery. Just the small adapter.
+
+This is the same principle as substrate-per-user, applied one layer
+up. The architecture is symmetric: shared scaffolding (L1), pluggable
+overlay (L2), owned content (L3). The HamRoby naming carries the same
+commitment — universal grammar engine, per-instance everything else.
+
+### Honest caveats
+
+- **Word order varies (SVO / SOV / VSO).** UD encodes structure via
+  the dependency tree, not the linear order, but L1 trained on a
+  cross-lingual mix may benefit from a language tag as a conditioning
+  input rather than learning all orders implicitly.
+- **Morphology varies wildly.** UD has a `FEATS` field for
+  morphological annotation but it is coarse; agglutinative languages
+  (Turkish, Finnish) need extra L2 work for inflection.
+- **Cross-lingual L1 is a weaker per-language signal** than a
+  monolingual model would be. Trade-off accepted in exchange for
+  universality.
+- **UD coverage is uneven.** Major languages have rich treebanks;
+  smaller ones have small or none. An L2 trained on a 5k-token
+  treebank will be weaker than one trained on millions.
+
+None of these are blockers. They are knowable trade-offs.
 
 ## The architectural shape
 
@@ -203,6 +297,44 @@ inference.
 Path 3 is still useful — as a **debugging tool** for the constraint
 mechanism. Wrap T5-small in the mask, confirm logit suppression works
 end-to-end, then throw the wrapper away and train HamlinSum properly.
+
+### How L1+L2 changes the HamlinSum job
+
+The L1/L2/L3 view above splits "the language model" into three
+concerns. HamlinSum, as originally framed, was a single 125M-300M
+student doing **all three** at once: function-word grammar,
+content-stitching, and (implicitly) cross-lingual portability via
+whatever language the teacher happened to use.
+
+With L1+L2 in place, HamlinSum's job shrinks substantially:
+
+- L1 contributes the structural priors. Frozen encoder.
+- L2 contributes function-word grammar (`a` vs `an`, prep choice,
+  agreement, conjunction patterns). Frozen overlay.
+- HamlinSum (the synthesizer head) is left with: content-ordering,
+  edge-clustering decisions, lexicalization of substrate labels into
+  L2's token space, and pronoun/connective stitching.
+
+This is a smaller learning problem. Two practical consequences:
+
+1. **Path 2 still applies, but the data target changes.** The
+   teacher prompt should ask for prose that respects the substrate
+   *and* uses idiomatic L2 grammar. The student no longer has to
+   absorb function-word grammar from prose — it inherits that from
+   L2. The training signal can focus on stitching quality.
+
+2. **Path 1 (template-distilled) becomes more viable.** With L2
+   handling function-word grammar at runtime, the v0 template-
+   distilled student is no longer "no better than templates" —
+   templates produce structural skeletons, L2 fills in articles
+   and agreement, and the student learns to vary surface form
+   within those frames. Path 1 may be enough for English-only
+   prototype work.
+
+The recommendation reorders: **build L1+L2 first (open data, no
+API cost, multi-language by construction), then evaluate whether
+the resulting v0 stitcher is good enough before committing to the
+Path 2 distillation budget.**
 
 ## Path 2 deep dive — building HamlinSum
 
@@ -370,6 +502,139 @@ Total under $1K and a few weeks of focused work.
   questions: HamlinSum prose should be judged more natural by a human
   reader, with zero hallucinated facts.
 
+## L2 implementation plan (the next concrete step)
+
+Build the L2 layer for English first. It is the smallest meaningful
+slice of the L1/L2/L3 architecture, validates the layered design end
+to end, and removes the v027 article-heuristic problem permanently.
+Spanish (or any second L2) becomes a copy-and-retrain of the same
+recipe.
+
+### Vocabulary changes
+
+Today's `vocab.py` defines a 76-token structural vocabulary —
+`UPOS_*`, `DEP_*`, slot markers, BOS/EOS/PAD/UNK. No actual words.
+
+L2 needs an **augmented vocabulary**: structural tokens stay (so L1
+checkpoints remain compatible) plus a curated set of English
+function-word literals.
+
+Function-word allowlist for L2-en (closed-class, finite):
+
+- **Determiners**: `a`, `an`, `the`, `this`, `that`, `these`,
+  `those`, `some`, `any`, `every`, `each`, `no`
+- **Prepositions**: `of`, `in`, `on`, `at`, `by`, `for`, `with`,
+  `to`, `from`, `as`, `into`, `over`, `under`, `between`, `through`,
+  `against`, `about`, `before`, `after`
+- **Conjunctions**: `and`, `or`, `but`, `nor`, `so`, `yet`, `because`,
+  `although`, `if`, `when`, `while`, `since`, `unless`, `until`
+- **Auxiliaries**: `is`, `are`, `was`, `were`, `be`, `been`, `being`,
+  `has`, `have`, `had`, `do`, `does`, `did`, `can`, `could`, `will`,
+  `would`, `shall`, `should`, `may`, `might`, `must`
+- **Pronouns**: `it`, `they`, `them`, `their`, `its`, `which`,
+  `that`, `who`, `whose`, `whom`
+- **Negation / particles**: `not`, `n't`, `also`, `only`, `just`,
+  `then`, `now`, `here`, `there`
+
+Estimate ~150 function-word tokens. Total L2-en vocab ~225 (76
+structural + 150 function-word + buffer for added markers).
+
+Files to add / change:
+- `vocab.py` — keep as is (L1 vocab, frozen surface).
+- `vocab_en.py` (new) — re-exports L1 tokens + adds the function-word
+  allowlist with stable IDs.
+- A small `vocab_for_l2(lang: str)` factory so adding `vocab_es.py`
+  later is a one-file change.
+
+### UD ingestion changes
+
+`ud.py` today produces sequences of structural tokens. For L2 it
+needs to produce **mixed sequences**: function words kept literal
+when they appear in the treebank, content words abstracted to UPOS.
+
+A token in the UD treebank becomes:
+- Its literal lowercased form, **if** the form is in the L2-en
+  function-word allowlist
+- Its UPOS tag otherwise
+
+This preserves L1 compatibility (the structural skeleton is
+identical) while teaching L2 where function words slot in.
+
+Files to add / change:
+- `ud.py` — add a `lexicalize_function_words: bool = False` flag and
+  a `function_word_set: set[str] | None = None` parameter. Default
+  off (existing L1 training path unchanged); on for L2 training.
+- Add `ud_l2.py` (new) or just a `prepare_l2_corpus()` entry point
+  that runs the existing UD ingestion with the L2 flag set.
+
+### L2 training
+
+Architecture: small adapter on top of frozen L1. Concretely, the
+simplest first cut is a **vocabulary-projection adapter** — keep the
+L1 transformer frozen, add a new embedding for the function-word
+tokens, retrain only the new embedding rows + the LM head.
+
+If that under-performs, escalate to:
+- LoRA adapters on a subset of L1's attention layers (still cheap)
+- Full fine-tune of L1 on the lexicalized corpus (loses some
+  cross-lingual benefit; treat as fallback)
+
+Files to add:
+- `train_l2.py` — mirrors `train_router.py`'s structure. Loads frozen
+  L1 checkpoint, attaches L2 adapter, trains on the lexicalized UD
+  corpus, evaluates dev perplexity on a held-out portion.
+
+Training budget estimate: ~150 new embedding rows + LM head fine-tune
+on the same 6 English UD treebanks (~1.3M tokens). Probably 5-15
+minutes on a 3070, similar order to the router head. Adapter
+checkpoint: `l2_en.pt`, ~1-5 MB depending on what we choose to
+fine-tune.
+
+### Touch points for the existing synthesizer pipeline
+
+Once L2-en is trained, the v027 article heuristic comes out and the
+synthesizer head loads `(L1, L2-en)` instead of just L1. The
+synthesizer head doesn't exist yet (path 2 / HamlinSum is next), so
+this integration step is deferred — but the labeler in `synth_data.py`
+should start emitting prose that uses L2-en's vocabulary so that when
+HamlinSum is trained, the training labels are already L2-grammatical.
+
+In other words: when L2-en is shipped, **update the templates in
+`synthesizer.py` to use the L2-en function-word allowlist**. This is
+a labeling change, not a runtime change. Templates become slightly
+richer; they pick from L2-en's allowed function words rather than
+hard-coding strings. Wave 2 of v027 (the article heuristic) is
+replaced by `(L2-en allowlist) × (small templating logic)` instead.
+
+### Definition of done for L2-en
+
+- `vocab_en.py` exists, exports IDs for ~150 function-word tokens
+  plus the 76 L1 structural tokens.
+- `ud.py` ingests UD treebanks with `lexicalize_function_words=True`,
+  producing mixed sequences.
+- `train_l2.py` trains an adapter to dev perplexity at least as good
+  as L1's structural perplexity (no degradation; ideally lower since
+  function words are predictable).
+- `l2_en.pt` checkpoint shipped alongside L1.
+- A small CLI demo: load `(L1, L2-en)`, give it a structural prompt
+  like `DET NOUN VERB DET NOUN`, sample, confirm it produces fluent
+  English skeletons (`The cat saw the dog`) rather than pure
+  structural tokens.
+
+### Order of operations
+
+1. Save this plan (this commit).
+2. `vocab_en.py` — define the function-word allowlist with stable
+   IDs. Standalone change, easy to review.
+3. Extend `ud.py` to support function-word lexicalization. Run it
+   once, manually inspect a sample of mixed sequences, sanity-check
+   that the abstraction looks right.
+4. `train_l2.py` — train the adapter. Compare dev ppl against L1.
+5. CLI demo to confirm fluent-English skeleton sampling.
+6. Update v027 templates to use L2-en allowlist (deferring or
+   removing the Wave 2 article heuristic).
+7. Then: pick up HamlinSum / path 2 with L2-en already in place.
+
 ## Open questions
 
 1. **Granularity of the content-token whitelist.** Per-token? Per
@@ -391,6 +656,16 @@ Total under $1K and a few weeks of focused work.
 
 ## Status
 
-Theory only. v027 is the immediate next step (fix the templates so the
-labeler stops baking choppiness into future training data). This doc
-is the longer-arc target the v027 work should be compatible with.
+- v027 Wave 1 shipped (commit `9b267bf`): decomposition filter,
+  sentence combining, labeler/inference noise filters synced. Remaining
+  v027 item (Wave 2 article heuristic) is **superseded by L2** — the
+  function-word allowlist replaces it permanently.
+- L1/L2/L3 architecture documented above.
+- L2-en implementation plan documented above.
+- HamlinSum (path 2) deferred until L2-en is in place — the layered
+  architecture lets the synthesizer head be a smaller learning problem
+  and gives it function-word grammar for free.
+
+**Immediate next step:** start L2-en. Begin with `vocab_en.py`, then
+extend `ud.py`, then train the adapter. Order of operations is
+spelled out in the L2 implementation plan section.

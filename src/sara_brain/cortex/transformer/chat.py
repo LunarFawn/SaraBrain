@@ -33,6 +33,7 @@ from .clarify import (
     Clarification, ConceptFix, apply_wh_fix, detect_wh_typo,
     find_concept_candidates, is_cancel, parse_choice,
 )
+from .dig import find_siblings, is_comprehensive_intent
 from .router import MODEL_FULL, CortexRouter
 from .synthesizer import synthesize
 
@@ -63,11 +64,18 @@ HELP = """commands:
   /help              show this help
   /teach STATEMENT   teach Sara a new fact (e.g. /teach ssng1 is a goal)
   /refute STATEMENT  refute / negate an existing fact
+  /dig               expand the last query — pull sibling substrate concepts
+                     and synthesize their neighborhoods with the original
+  /dig CONCEPT       drill into a specific named concept directly
+  /depth N           re-run the last brain_explore query at hop distance N
   /trace             toggle: show routing decision + confidence
   /verbose           toggle: print raw substrate result (no synthesis)
   /brain PATH        switch to a different brain.db
   /model             show loaded checkpoints
-  /quit /exit Ctrl-D leave"""
+  /quit /exit Ctrl-D leave
+
+In natural language, phrases like "tell me everything about X" or
+"give me the complete picture of X" auto-trigger the dig expansion."""
 
 
 class ChatSession:
@@ -91,6 +99,11 @@ class ChatSession:
         )
         self._load_brain(brain_path)
         self.pending: Clarification | None = None
+        # Track the most recent successful query so /dig and /depth can
+        # extend it without the user retyping the topic.
+        self.last_question: str | None = None
+        self.last_decision: dict | None = None  # {"tool": ..., **args}
+        self.last_topic: str | None = None      # the substrate label or concept
 
     def _load_brain(self, brain_path: Path) -> None:
         self.brain_path = brain_path
@@ -106,9 +119,11 @@ class ChatSession:
             self.pending = Clarification(original_question=question, wh_fix=wh_fix)
             print(f"{YELLOW}{self.pending.render_prompt()}{RESET}")
             return
-        self._route_and_run(question)
+        # Comprehensive intent in the question itself triggers dig automatically.
+        comprehensive = is_comprehensive_intent(question)
+        self._route_and_run(question, expand=comprehensive)
 
-    def _route_and_run(self, question: str) -> None:
+    def _route_and_run(self, question: str, expand: bool = False) -> None:
         decision = self.router.route(question)
         if self.show_trace:
             print(f"{DIM}[{decision.model}] tool={decision.tool}  "
@@ -133,13 +148,104 @@ class ChatSession:
                 return
             # No candidates — fall through to the honest "no neuron" message.
 
-        if self.show_raw:
-            print(result)
-            return
+        # Remember the last query so /dig and /depth can extend it.
+        self.last_question = question
+        self.last_decision = {"tool": decision.tool, **decision.args}
+        self.last_topic = self._topic_from_decision(self.last_decision)
+
         gathered = [{"call": {"tool": decision.tool, "args": decision.args},
                      "result": result}]
+
+        if expand and self.last_topic:
+            self._gather_siblings_into(self.last_topic, gathered)
+
+        if self.show_raw:
+            for fact in gathered:
+                print(fact["result"])
+            return
         prose = synthesize(question, gathered)
         print(prose)
+
+    @staticmethod
+    def _topic_from_decision(decision: dict) -> str | None:
+        for f in ("concept", "label", "term"):
+            if f in decision:
+                return decision[f]
+        return None
+
+    def _gather_siblings_into(
+        self, topic: str, gathered: list[dict], max_siblings: int = 8,
+    ) -> None:
+        """Find substrate concepts whose words overlap with `topic` and
+        append their brain_explore output to `gathered`. Skips concepts
+        already present so we don't duplicate work."""
+        already = {self._topic_from_decision(g["call"]["args"]) or "" for g in gathered}
+        siblings = find_siblings(self.brain_path, topic, exclude=already,
+                                 max_results=max_siblings)
+        if not siblings:
+            return
+        print(f"{DIM}also exploring: {', '.join(siblings)}{RESET}")
+        for sib in siblings:
+            args = {"label": sib, "depth": 1}
+            try:
+                res = execute_tool(self.brain, "brain_explore", args)
+            except Exception as e:
+                res = f"<<error exploring {sib!r}: {e}>>"
+            gathered.append({"call": {"tool": "brain_explore", "args": args},
+                             "result": res})
+
+    def do_dig(self, arg: str) -> None:
+        """If `arg` is empty, expand the last query. Otherwise drill into
+        the named concept (treats `arg` as a substrate label)."""
+        if arg.strip():
+            label = arg.strip()
+            args = {"label": label, "depth": 1}
+            try:
+                res = execute_tool(self.brain, "brain_explore", args)
+            except Exception as e:
+                print(f"{YELLOW}error: {e}{RESET}")
+                return
+            self.last_question = f"tell me everything about {label}"
+            self.last_decision = {"tool": "brain_explore", **args}
+            self.last_topic = label
+            gathered = [{"call": {"tool": "brain_explore", "args": args}, "result": res}]
+            self._gather_siblings_into(label, gathered)
+            print(synthesize(self.last_question, gathered))
+            return
+
+        if self.last_topic is None:
+            print(f"{YELLOW}nothing to dig — ask a question first{RESET}")
+            return
+        # Re-run the last query and extend it with siblings.
+        original = execute_tool(self.brain, self.last_decision["tool"],
+                                {k: v for k, v in self.last_decision.items() if k != "tool"})
+        gathered = [{"call": {"tool": self.last_decision["tool"],
+                              "args": {k: v for k, v in self.last_decision.items() if k != "tool"}},
+                     "result": original}]
+        self._gather_siblings_into(self.last_topic, gathered)
+        print(synthesize(self.last_question or self.last_topic, gathered))
+
+    def do_depth(self, arg: str) -> None:
+        try:
+            depth = int(arg.strip())
+        except ValueError:
+            print(f"{YELLOW}usage: /depth N (1..4){RESET}")
+            return
+        if not 1 <= depth <= 4:
+            print(f"{YELLOW}depth must be 1..4 (got {depth}){RESET}")
+            return
+        if self.last_topic is None:
+            print(f"{YELLOW}nothing to widen — ask a question first{RESET}")
+            return
+        args = {"label": self.last_topic, "depth": depth}
+        try:
+            res = execute_tool(self.brain, "brain_explore", args)
+        except Exception as e:
+            print(f"{YELLOW}error: {e}{RESET}")
+            return
+        self.last_decision = {"tool": "brain_explore", **args}
+        gathered = [{"call": {"tool": "brain_explore", "args": args}, "result": res}]
+        print(synthesize(self.last_question or self.last_topic, gathered))
 
     @staticmethod
     def _extract_miss(tool: str, args: dict, result: str) -> tuple[str | None, str | None]:
@@ -235,6 +341,10 @@ class ChatSession:
                 print(f"{YELLOW}usage: /refute <statement>{RESET}")
             else:
                 self._do_refute(arg)
+        elif cmd == "/dig":
+            self.do_dig(arg)
+        elif cmd == "/depth":
+            self.do_depth(arg)
         else:
             print(f"{YELLOW}unknown command: {cmd}  (try /help){RESET}")
         return True

@@ -23,9 +23,9 @@ We show that a persistent, inspectable, triple-structured knowledge substrate �
 
 These four properties, in combination, have not been simultaneously available in any prior substrate. Retrieval benchmarks (HotpotQA, NaturalQuestions) have natural-language ground truth that cannot be graded per-triple. Knowledge graphs (Wikidata, ConceptNet) are massive and their contents are largely in training data. Synthetic benchmarks (bAbI, CLUTRR) are small and lose realism. Hand-curated private corpora are one-off and not reusable across experiments. A Sara substrate can be built for any domain, inspected exhaustively, and graded against model output at arbitrary granularity.
 
-We demonstrate the instrument in operation by reporting seven cases of transformer behavior, derived from experimentation against two Sara substrates (a 169-triple substrate from an unpublished RNA-aptamer paper Executive Summary, and a 2,073-neuron substrate covering the full paper). Each case is an observation that has been discussed theoretically in the literature but has been difficult to measure cleanly. With Sara as reference, they become directly measurable. These are presented as qualitative case studies; statistical aggregation across question batteries with inter-rater reliability is acknowledged as planned follow-up work.
+We demonstrate the instrument in operation by reporting seven cases of transformer behavior — five primary observations and two synthesis cases that unify them — derived from experimentation against two Sara substrates (a 169-triple substrate from an unpublished RNA-aptamer paper Executive Summary, and a 2,073-neuron substrate covering the full paper). Each primary observation has been discussed theoretically in the literature but has been difficult to measure cleanly; with Sara as reference, they become directly measurable. The two synthesis cases combine primary observations with prior results to make a unified claim, rather than reporting a fresh experiment. These are presented as qualitative case studies; statistical aggregation across question batteries with inter-rater reliability is acknowledged as planned follow-up work.
 
-The contribution is methodological. We argue that future LLM research on grounded generation, hallucination, context contamination, retrieval-augmented architectures, and alignment should consider a Sara-style substrate as part of its experimental toolkit, in the same way that particle physics adopted the cloud chamber and molecular biology adopted the electron microscope — not because those instruments answered every question, but because they made previously-invisible phenomena visible.
+The contribution is methodological. We argue that future LLM research on grounded generation, hallucination, context contamination, retrieval-augmented architectures, and alignment should consider a Sara-style substrate as part of its experimental toolkit, in the same way that particle physics adopted the cloud chamber and molecular biology adopted the electron microscope — not because those instruments answered every question, but because they made previously-invisible phenomena visible. The instrument-existence claim — that no prior substrate satisfies the four-property criterion — is a present claim. The comparison to historically significant instruments is an aspiration whose validation depends on broader adoption (§7.8).
 
 ---
 
@@ -55,7 +55,7 @@ Prior substrates fail at least one property:
 
 - **Retrieval benchmarks (HotpotQA, NaturalQuestions, TriviaQA):** ground truth is natural-language answers, not structured triples. Property 2 fails.
 - **Public knowledge graphs (Wikidata, ConceptNet, Freebase):** enormous and contents are in training data. Properties 1 and 4 fail.
-- **Synthetic benchmarks (bAbI, CLUTRR, RuleTaker):** structured and small and orthogonal, but trivial. Property 3 fails.
+- **Synthetic benchmarks (bAbI, CLUTRR, RuleTaker):** structured, small, and orthogonal, and they are designed for narrow formal-reasoning tasks rather than the full-document synthesis a real instrument should support. Property 3 in the strong sense (multi-hop reasoning over a substrate authored from real-world content) is not what these benchmarks aim to provide.
 - **Private corpora (a particular company's internal documents):** often satisfy all four properties but are not reusable by other researchers, do not compose a shared method, and are difficult to cite openly. This is a sociological rather than technical failure.
 - **Retrieval-augmented generation evaluations:** the retrieved passages are usually Wikipedia or similar. Property 4 fails.
 
@@ -67,13 +67,13 @@ Sara satisfies all four by construction. A Sara substrate is built at runtime by
 
 2. **Proposal.** We propose Sara Brain as a measurement instrument and articulate the four-property criterion that other substrates would need to satisfy to serve the same role.
 
-3. **Demonstration.** We report seven cases of transformer behavior — *single observed reading-fidelity asymmetry (with sub-observations on capability/fidelity dissociation and token-cost/fidelity dis-correlation), weight is bias in both directions, interpretation-layer bias, session-context infection, multi-layer failure cascades, acronym-expansion confabulation, and format-imitation confabulation* — produced against Sara substrates of varying sizes (169 to 2,073 neurons). Each case has been theorized or anecdotally observed elsewhere but has been difficult to measure cleanly. With Sara, each becomes directly measurable as a single demonstrated case rather than a quantitative population-level claim.
+3. **Demonstration.** We report seven cases of transformer behavior — five primary observations (*single observed reading-fidelity asymmetry with sub-observations on capability/fidelity dissociation and token-cost/fidelity dis-correlation, interpretation-layer bias, session-context infection, acronym-expansion confabulation, and format-imitation confabulation*) and two synthesis cases that unify them (*weight is bias in both directions*, which combines the emission observation with a prior ingestion-side result, and *multi-layer failure cascades*, which decomposes the interpretation-layer bias case into its layers) — produced against Sara substrates of varying sizes (169 to 2,073 neurons). Each primary observation has been theorized or anecdotally observed elsewhere but has been difficult to measure cleanly. With Sara, each becomes directly measurable as a single demonstrated case rather than a quantitative population-level claim.
 
 4. **Method.** We describe the experimental protocol (teach / test-fresh / control-fresh) that the instrument supports, with attention to the contamination traps (notably session-context leakage and per-project auto-memory) that can compromise measurements taken with any such substrate.
 
 ### 1.4 Paper organization
 
-Section 2 describes Sara's architecture in the specific aspects that make it suitable as an instrument. Section 3 formalizes the four-property criterion. Section 4 describes the measurement protocol. Section 5 presents the seven demonstrated cases with their supporting evidence. Section 6 discusses generalization — how other researchers could build Sara-style substrates for their own questions. Section 7 addresses limitations. Section 8 reviews related work. Section 9 concludes.
+Section 2 describes Sara's architecture in the specific aspects that make it suitable as an instrument. Section 3 formalizes the four-property criterion. Section 4 describes the measurement protocol. Section 5 presents the seven cases — five primary observations plus two synthesis cases — with their supporting evidence. Section 6 discusses generalization — how other researchers could build Sara-style substrates for their own questions. Section 7 addresses limitations. Section 8 reviews related work. Section 9 concludes.
 
 ---
 
@@ -141,13 +141,13 @@ A clean measurement with Sara as instrument requires separating three sessions:
 
 Failure to use three separate sessions is a common trap. Four contamination mechanisms can compromise the measurement: training-bias (weights), interpretation-bias (acute keyword triggers), session-context accumulation (cumulative within-session), and per-project auto-memory leak (cumulative across-sessions). The third and fourth are the most insidious because each looks like a measurement that worked.
 
-A further refinement: when running the test on the same machine as the teaching session, the per-project auto-memory of agentic IDE clients (Claude Code's per-directory memory directory) must be cleared between sessions. Without this, "fresh" Session B answers can be drawn from the IDE's memory layer rather than from the substrate. For Claude Code-style clients the canonical clear is `rm ~/.claude/projects/-<project-path>/memory/*.md`.
+A further refinement: when running the test on the same machine as the teaching session, the per-project auto-memory of agentic IDE clients (Claude Code's per-directory memory directory) must be cleared between sessions. Without this, "fresh" Session B answers can be drawn from the IDE's memory layer rather than from the substrate. For Claude Code-style clients the canonical clear is `rm ~/.claude/projects/-<project-path>/memory/*.md` (this is the author's empirical observation against Claude Code as of April 2026; the exact path may change across versions, and any agentic IDE client with per-project persistence requires the analogous clear).
 
 ---
 
 ## 5. Demonstrated cases
 
-We report seven cases, derived against Sara substrates loaded from Pearl (2026c [2]), an unpublished RNA-aptamer engineering paper. Two substrates were used: an Executive Summary substrate (169 triples) and a full-paper substrate (2,073 neurons, 4,579 segments) constructed by additive teaching of the paper's Sections 8.5.3 and 9.2.1.4 numerical bindings on top of the prior teach. Each case was made visible by the instrument in a way that prior measurement methods would not have supported.
+We report seven cases — five primary observations and two synthesis cases — derived against Sara substrates loaded from Pearl (2026c [2]), an unpublished RNA-aptamer engineering paper. Two substrates were used: an Executive Summary substrate (169 triples) and a full-paper substrate (2,073 neurons, 4,579 segments) constructed by additive teaching of the paper's Sections 8.5.3 and 9.2.1.4 numerical bindings on top of the prior teach. The primary observations (5.1, 5.3, 5.4, 5.6, 5.7) each report a fresh experiment whose evidence is the conversation log against the substrate; the synthesis cases (5.2 and 5.5) unify primary observations with each other or with prior results and are signposted as such by their italic lead-ins. Each was made visible by the instrument in a way that prior measurement methods would not have supported.
 
 ### 5.1 Single observed reading-fidelity asymmetry (Haiku 4.5 vs. Opus 4.7)
 
@@ -160,17 +160,34 @@ The same question — *"how do the state transitions function?"* — was posed t
 
 **On the reported numbers.** The "100% traceable" and "approximately 30% extrapolated or invented" figures are an unaudited per-claim assessment by the present author against the substrate's triple list. They are not a measurement in the sense of an inter-rater-reliability protocol over a question battery. The N here is one (one Haiku response, one Opus response, one question, one substrate). The honest framing is that this is a *signal* worth measuring properly in a follow-up empirical paper, not an established quantitative result. The instrument supports such measurement directly — every claim in either response can be checked against the published triple list mechanically — but the present paper does not develop the inter-rater protocol or run the question battery. The reading-fidelity companion paper described in §8.7 is the planned venue for this quantitative work.
 
-**Sub-observation A — capability and fidelity dissociate on substrate-bound tasks.** On this comparison, the smaller model produced the more substrate-faithful output. The common reflex in LLM deployment is "use the best (largest) available model for important tasks." On substrate-bound tasks (tasks judged by fidelity to an external reference) this single observation suggests that capability and fidelity dissociate — the model with more training-pattern density renders the substrate less cleanly. Whether this generalizes to a design rule across model families, substrate types, and question shapes is an empirical question the present paper does not answer; the instrument supports such a sweep directly, and a follow-up empirical paper is the appropriate venue for any general claim. For applications where substrate fidelity matters (medical, regulatory, scientific, audit-relevant), this signal is worth investigating before reflexively selecting the largest available model.
+**Sub-observation A — capability and fidelity dissociate on substrate-bound tasks.** (Within-family comparison; see §7.5 on cross-family replication.) On this comparison, the smaller model produced the more substrate-faithful output. The common reflex in LLM deployment is "use the best (largest) available model for important tasks." On substrate-bound tasks (tasks judged by fidelity to an external reference) this single observation suggests that capability and fidelity dissociate — the model with more training-pattern density renders the substrate less cleanly. Whether this generalizes to a design rule across model families, substrate types, and question shapes is an empirical question the present paper does not answer; the instrument supports such a sweep directly, and a follow-up empirical paper is the appropriate venue for any general claim. For applications where substrate fidelity matters (medical, regulatory, scientific, audit-relevant), this signal is worth investigating before reflexively selecting the largest available model.
 
 **Sub-observation B — token cost and fidelity dis-correlate.** Opus produced approximately ten times as many tokens as Haiku on the same question. Graded against the substrate, the extra ~900 tokens were not additional information; they were the invented connective tissue. Inference cost scales with tokens, so on this comparison the user paying a 10× premium received less-faithful output, not more. The economic and epistemic axes pointed in the same direction for this task. Whether this dis-correlation is a stable property of substrate-bound reading or an artifact of this specific comparison is, again, the kind of question a question battery would answer.
 
 **Alternative interpretation worth ruling out.** Was Opus's longer response simply adding legitimate scientific inference that Haiku's substrate-bound reading missed? In principle, a model with strong domain priors can sometimes correctly extrapolate beyond a partial substrate. The specific patterns Opus produced do not satisfy this defense: they actively inverted the substrate's mechanism rather than extending it. The substrate holds that the 5'3' static stem functions as an anchor that *counters* the forces present during conformational shifts, preventing the aptamer from falling apart under those forces. Opus rendered the stem as a "mechanical conduit" through which forces "travel" and "propagate" from the binding site — the opposite function. A researcher reading Opus's account would learn that the stem conducts forces; the substrate teaches that the stem resists them. The training-overlay was not coverage-gap inference; it was mechanism inversion, and the inversion would actively mislead a researcher trying to understand how the molecular snare works. In other domains or with different substrates, the substrate-coverage gap could yield the opposite pattern, where the larger model adds legitimate inference. Distinguishing legitimate inference from training-template overlay on a per-substrate basis is part of what the instrument should support; the present paper does not develop this distinction as a general protocol, but the present case has the cleaner property that the training-template directly contradicts the substrate.
 
-### 5.2 Weight is bias in both directions
+**Inversion evidence, side-by-side.** A reader can adjudicate the inversion claim directly from the substrate triples and Opus's verbatim output.
+
+Substrate triples bearing on the static stem's mechanical role (verbatim, from `papers/aptamer_rev1/teach_exec_summary.py`):
+
+- `("mechanical forces", "act_within", "5'3' static stem")` — forces are *located within* the stem.
+- `("cumulative negative axial forces", "generated_by", "nucleotide pair")` — the forces are *generated by* the stem's own nucleotide pairs.
+- `("nucleotide pair", "generates", "negative axial force")` — the generation relation again, in the opposite direction.
+- `("5'3' static stem mechanics of materials hypothesis", "describes_process", "cumulative negative axial forces")` — the hypothesis describes a process whose subject is the stem's intrinsic forces.
+
+Opus's verbatim phrasing on the same question:
+
+- *"Those forces travel into the 5'3' static stem as cumulative negative axial forces"* — forces *travel into* the stem from elsewhere; the stem is the destination, not the source.
+- *"The static stem is the mechanical conduit"* — the stem is a *conduit* (passive medium of transmission), not a generator.
+- *"Mechanical strain from binding is paid for thermodynamically, not lost"* — energy-conservation accounting that has no corresponding edge in the substrate.
+
+The substrate locates the forces within the stem and assigns generation to the stem's own nucleotide pairs. Opus has the forces originating elsewhere (at the binding site) and transiting through the stem. This is not extension of the substrate's account, it is reversal of it — the directionality of the cause-effect relation is inverted, which is the specific feature that distinguishes mechanism inversion from coverage-gap inference.
+
+### 5.2 Weight is bias in both directions (synthesis with Pearl 2026b)
 
 *This case combines Case 5.1's emission-side observation with Pearl (2026b [3])'s ingestion-side result; its contribution is the unifying symmetry claim, not a new individual observation.*
 
-Pearl (2026b [3]) previously established that training-biased LLMs cannot *ingest* new facts cleanly — they substitute plausible trained content for what the source actually says. Case 5.1 establishes the symmetric failure: training-biased LLMs cannot *emit* retrieved facts cleanly either — they complete trained templates over the retrieved fragments.
+Pearl (2026b [3]) reported that LLM-automated ingestion of source corpora produces a systematically corrupted knowledge graph: 10,623 LLM-extracted neurons from Wikipedia dropped GPQA Diamond accuracy from 28.0% to 16.1%, and 28,373 neurons dropped MMLU Biology accuracy from 58.4% to 51.6% — more LLM-ingested knowledge made downstream performance monotonically worse. The error patterns documented there are template-driven (swapped carbon/hydrogen counts in chemical formulas, misclassified reaction types, bibliography metadata stored as factual claims) rather than uniform noise. Case 5.1 establishes the symmetric failure on the emission side: when training-biased LLMs render retrieved fragments back into prose, they complete trained templates over the fragments instead of preserving them, with the same template-driven character as the ingestion errors.
 
 **What the instrument exposed:** the mechanism is one principle acting in two directions. *Weight is bias*, and on any pipeline stage that interfaces with an external substrate (ingestion or emission), the bias manifests as training-pattern overlay. The substrate is corrupted during transit in both directions.
 
@@ -192,11 +209,28 @@ During the teaching session for the substrate (Session A in the §4 protocol), t
 
 **What the instrument exposed:** session context is a third corruption layer distinct from training weights and interpretation bias. Training is *static* corruption; interpretation is *acute* corruption on a specific input; session context is *cumulative* corruption that grows through the conversation. All three compound in any real-world LLM usage.
 
-**What the instrument specifically added beyond prose-level observation.** The qualitative observation that "answers drift between teaching and fresh sessions" is available to anyone running an LLM-and-RAG pipeline. What the instrument enables, and what the companion paper develops in greater depth, is per-triple grading: with the substrate's triple list in hand, every claim in a Session A answer can be assigned to one of three sources — substrate triples, session-context source prose, or neither. The present paper does not develop a worked per-triple example for this case; that is planned follow-up work in the companion paper.
+**What the instrument specifically added beyond prose-level observation.** The qualitative observation that "answers drift between teaching and fresh sessions" is available to anyone running an LLM-and-RAG pipeline. What the instrument enables, and what the companion paper develops in greater depth, is per-triple grading: with the substrate's triple list in hand, every claim in a Session A answer can be assigned to one of three sources — substrate triples, session-context source prose, or neither. We present a minimal worked example below; the companion paper develops the full per-claim catalog over a question battery.
+
+**Minimal worked example.** The example below is illustrative rather than a verbatim transcript — its purpose is to show what per-claim source attribution looks like in practice when applied to the kind of Session A vs. Session B drift documented in Case 2.3 of the companion paper. The full transcript-driven catalog is the companion paper's scope. Question posed in both sessions: *"What does the 5'3' static stem mechanics of materials hypothesis explain?"*
+
+Substrate triples relevant to this question (verbatim, from the Executive Summary substrate):
+
+- `("5'3' static stem mechanics of materials hypothesis", "is_a", "hypothesis")`
+- `("5'3' static stem mechanics of materials hypothesis", "explains", "mechanical forces")`
+- `("mechanical forces", "act_within", "5'3' static stem")`
+- `("5'3' static stem", "part_of", "rna aptamer")`
+
+Source-paper sentence held in Session A's context window (verbatim, from the teach script's source comment): *"The 5'3' Static Stem Mechanics of Materials Hypothesis provides a detailed explanation of the mechanical forces at play within the 5'3' Static Stem of RNA aptamers."*
+
+Session B answer (fresh context, substrate-only): *"The hypothesis explains the mechanical forces that act within the 5'3' static stem of an RNA aptamer."* — every claim in this answer maps directly to a substrate triple; no claim has no source.
+
+Session A answer (teaching-session context): *"The hypothesis provides a detailed explanation of the mechanical forces at play within the 5'3' Static Stem of RNA aptamers."* — at the prose level this looks substrate-grounded, but per-claim assignment shows: "explains the mechanical forces" / "within the 5'3' Static Stem" map to substrate triples; "provides a detailed explanation" and "at play" map to source-paper prose held in context, not to any substrate triple; the capitalized "Static Stem" matches the source paper's stylization, not the substrate's lower-case neuron labels. The session-context source prose has bled into the answer, even though every individual phrase reads as plausible.
+
+The contamination is invisible at the prose level — both answers describe the same mechanism — and visible only because the substrate's triple list is exhaustively enumerable. This is the contribution the instrument adds beyond prose-level observation. The full per-claim catalog over a question battery is the companion paper's scope.
 
 The behavior has a methodological consequence: it justifies the protocol in §4. Only fresh Session B sessions can isolate Sara's contribution from session-context recall. A research program that teaches and tests in the same session is measuring a mixture and cannot report a clean result.
 
-### 5.5 Multi-layer failure cascades
+### 5.5 Multi-layer failure cascades (synthesis with Case 5.3)
 
 *This case decomposes the SNARE failure from Case 5.3 into a layered mechanism; its contribution is the cascade structure and its design implications, not a new independent observation.*
 
@@ -317,6 +351,10 @@ The substrates used in Cases 5.1–5.7 are loaded from an unpublished RNA-aptame
 
 The §3 framing of "specificity preservation" is the relevant axis for partially-orthogonal substrates: does the model produce the *author's specific* "molecular snare" framing or the *generic textbook* SNARE-protein framing? On that axis, Opus's production of generic-template physics narrative when the substrate has paper-specific mechanics is interpretable evidence regardless of the orthogonality question. Future cases on synthetic substrates (where Property 4 holds by construction) would close this interpretive gap. Case 5.1 is also strengthened by the fact that Opus's training-overlay *inverted* the substrate's mechanism rather than extending it (the static-stem-as-anchor / static-stem-as-conduit reversal documented in §5.1's alternative-explanation paragraph), which makes the legitimate-inference defense untenable for that case regardless of the orthogonality concern.
 
+### 7.10 Evidentiary chain and self-citation transparency
+
+The cases vary in how independently checkable their evidence is. Cases 5.1, 5.2, and 5.4 lean on the present author's prior or unpublished work — Sara's architecture (Pearl 2026a [1]), the source paper from which the substrate is built (Pearl 2026c [2]), and the ingestion-side result that anchors the symmetry argument in 5.2 (Pearl 2026b [3]) — so a reviewer who wants to verify the full chain has to engage with self-authored references. Cases 5.6 and 5.7 are different: their evidence is the conversation's tool-call log cross-referenced against the committed substrate's contents, both of which are in the project repository and can be inspected without recourse to any prior publication. We flag this distribution as a calibration aid for readers, not as a hidden defect — the strong cases stand on independently-checkable artifacts, and the weaker links in the chain are visible rather than buried.
+
 ---
 
 ## 8. Related work
@@ -331,7 +369,7 @@ Wikidata [14], ConceptNet [15], and Freebase-derived benchmarks [16] have been u
 
 ### 8.3 Synthetic reasoning benchmarks
 
-bAbI [17], CLUTRR [18], RuleTaker [19] construct small synthetic substrates. These satisfy all four properties in principle but fail Property 3 in practice — the reasoning they admit is artificial and does not stress real-world model behaviors. Sara's synthetic-substrate generator (§3) inherits the orthogonality benefits of bAbI-style construction while permitting realistic compound-term and multi-relation structure.
+bAbI [17], CLUTRR [18], RuleTaker [19] construct small synthetic substrates. These satisfy all four properties in principle but are designed for narrow formal-reasoning tasks rather than the full-document synthesis a real instrument should support — Property 3 in the strong sense (multi-hop reasoning whose substrate-authoring conventions reflect real-world content) is not their target. Sara's synthetic-substrate generator (§3) inherits the orthogonality benefits of bAbI-style construction while permitting realistic compound-term and multi-relation structure.
 
 ### 8.4 Private-corpus evaluations
 
@@ -355,7 +393,7 @@ Two companion papers in preparation by the present author develop the empirical 
 
 We have argued that large-language-model research is missing a measurement instrument of the kind that catalyzed progress in astronomy, biology, and physics — an apparatus that makes previously-invisible phenomena visible at the scale and granularity needed for careful study. We have proposed Sara Brain, a path-of-thought cognitive architecture, as such an instrument, and we have articulated the four-property criterion (finite, structured, sufficient question-space, training-orthogonal) under which Sara qualifies and prior substrates do not.
 
-We have demonstrated the instrument in operation by reporting seven cases of transformer behavior, derived against substrates of 169 to 2,073 neurons. The cases are not individually novel as theoretical claims; several have been discussed in the literature for years. Their novelty is that they are now *directly measurable as discrete events* with an inexpensive, reusable protocol that any research group can replicate; quantitative population-level claims would require running the protocol over a question battery, which is acknowledged as planned follow-up work.
+We have demonstrated the instrument in operation by reporting seven cases of transformer behavior — five primary observations and two synthesis cases — derived against substrates of 169 to 2,073 neurons. The primary observations are not individually novel as theoretical claims; several have been discussed in the literature for years. Their novelty is that they are now *directly measurable as discrete events* with an inexpensive, reusable protocol that any research group can replicate; quantitative population-level claims would require running the protocol over a question battery, which is acknowledged as planned follow-up work.
 
 The contribution of this paper is therefore methodological. We do not claim that Sara is the only possible implementation of a measurement substrate — we claim that the *existence* of such an instrument, satisfying the four-property criterion, opens research questions that have previously been hard to pursue. We invite the field to replicate, extend, and critique the method, and to build substrates of their own under the same criterion.
 
@@ -383,7 +421,7 @@ The meta-claim: the history of a field accelerates when the field gets its instr
 
 [9] Liu, X., et al. (2023). *AgentBench: Evaluating LLMs as Agents.* ICLR 2024.
 
-[10] Jimenez, C.E., et al. (2024). *SWE-bench: Can Language Models Resolve Real-World GitHub Issues?* ICLR.
+[10] Jimenez, C.E., et al. (2024). *SWE-bench: Can Language Models Resolve Real-World GitHub Issues?* ICLR 2024.
 
 [11] Yang, Z., et al. (2018). *HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering.* EMNLP.
 
@@ -397,7 +435,7 @@ The meta-claim: the history of a field accelerates when the field gets its instr
 
 [16] Bollacker, K., et al. (2008). *Freebase: A Collaboratively Created Graph Database for Structuring Human Knowledge.* SIGMOD.
 
-[17] Weston, J., et al. (2015). *Towards AI-Complete Question Answering: A Set of Prerequisite Toy Tasks.* (bAbI tasks.)
+[17] Weston, J., et al. (2015). *Towards AI-Complete Question Answering: A Set of Prerequisite Toy Tasks.* arXiv:1502.05698. (bAbI tasks.)
 
 [18] Sinha, K., et al. (2019). *CLUTRR: A Diagnostic Benchmark for Inductive Reasoning from Text.* EMNLP.
 
@@ -419,7 +457,13 @@ The 169-triple Executive Summary substrate used in Cases 5.1–5.5 is available 
 
 The 2,073-neuron full-paper substrate used in Cases 5.6–5.7 is constructed by running `teach_full_paper.py` followed by `teach_kdoff_kdon_numbers.py` in `papers/aptamer_rev1/`. Each script preserves source-sentence comments alongside the triples.
 
-The synthetic-substrate generator for instrument validation is in `papers/instrument_validation/generate_synthetic_substrate.py`. It produces pronounceable nonsense-word substrates of configurable size and structure with a manifest documenting the random seed and parameters used, so that any specific synthetic substrate is fully reproducible.
+The synthetic-substrate generator referenced in §3 is `papers/instrument_validation/generate_synthetic_substrate.py` in the project repo. It produces pronounceable nonsense-word concept labels and random triples — by construction, no concept label is an English word or a token sequence that could appear in any LLM training corpus.
+
+Invocation: `python generate_synthetic_substrate.py --out <path.db> --concepts N --triples M --seed S`
+
+Each invocation writes a `.db` (a Sara substrate ready for MCP query) and a `.manifest.json` (canonical record of every concept, triple, and the random seed used). The manifest lets a grader check model output against ground truth without inspecting the SQLite database directly. Because the seed is recorded, a specific synthetic substrate is fully reproducible from the manifest plus the script.
+
+A reviewer who wants to verify Property 4 by construction can run the generator, inspect the manifest, then connect an LLM via MCP and ask the same kinds of questions used in Cases 5.1–5.7. Property 4 is then verified mechanically rather than by argument.
 
 ## Appendix B — Replication recipe
 

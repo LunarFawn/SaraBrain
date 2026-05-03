@@ -124,3 +124,16 @@ class GrammarModel(nn.Module):
 
     def num_params(self) -> int:
         return sum(p.numel() for p in self.parameters())
+
+    def encode_hidden(self, input_ids: torch.Tensor) -> torch.Tensor:
+        """Return final layernormed hidden states [B, T, d_model] for use as
+        an encoder feature extractor (e.g. router/synthesizer heads). Does
+        not run the LM head."""
+        b, t = input_ids.shape
+        assert t <= self.cfg.max_seq, f"seq {t} > max_seq {self.cfg.max_seq}"
+        pos = torch.arange(t, device=input_ids.device).unsqueeze(0).expand(b, t)
+        x = self.drop(self.tok_embed(input_ids) + self.pos_embed(pos))
+        mask = self.causal_mask[:t, :t]
+        for block in self.blocks:
+            x = block(x, mask)
+        return self.ln_f(x)

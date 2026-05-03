@@ -15,8 +15,16 @@ time. No LLM in the loop. Slash commands:
 from __future__ import annotations
 
 import argparse
+import atexit
+import os
 import sys
 from pathlib import Path
+
+# readline gives input() arrow-key history + line editing on Linux/macOS.
+try:
+    import readline
+except ImportError:
+    readline = None
 
 from sara_brain.core.brain import Brain
 from sara_reader.tools import execute_tool
@@ -256,6 +264,16 @@ class ChatSession:
         print(f"{GREEN}refuted (path #{path_id}): {statement}{RESET}")
 
 
+def _save_history(path: Path) -> None:
+    if readline is None:
+        return
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        readline.write_history_file(str(path))
+    except OSError:
+        pass
+
+
 def main() -> int:
     p = argparse.ArgumentParser(description="Interactive HamlinLLM chat")
     p.add_argument("--brain", type=Path, required=True,
@@ -277,6 +295,15 @@ def main() -> int:
     if not args.head_ckpt.exists():
         print(f"router head checkpoint not found: {args.head_ckpt}", file=sys.stderr)
         return 1
+
+    if readline is not None:
+        hist = Path(os.path.expanduser("~/.hamlinllm_history"))
+        try:
+            readline.read_history_file(str(hist))
+        except (OSError, FileNotFoundError):
+            pass
+        readline.set_history_length(2000)
+        atexit.register(_save_history, hist)
 
     print(f"{DIM}loading {MODEL_FULL}...{RESET}", flush=True)
     session = ChatSession(args.brain, args.grammar_ckpt, args.head_ckpt, args.device)

@@ -66,6 +66,20 @@ def eval_perplexity(
     return math.exp(avg)
 
 
+def _resolve_resume(spec: str, ckpt_dir: Path, preset: str) -> Path:
+    if spec != "latest":
+        p = Path(spec)
+        if not p.exists():
+            raise FileNotFoundError(f"--resume path not found: {p}")
+        return p
+    candidates = sorted(ckpt_dir.glob(f"grammar_{preset}_*.pt"))
+    if not candidates:
+        raise FileNotFoundError(
+            f"--resume latest: no ckpts matching grammar_{preset}_*.pt in {ckpt_dir}"
+        )
+    return candidates[-1]
+
+
 def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--preset", choices=list(PRESETS), default="tiny")
@@ -86,6 +100,9 @@ def main() -> None:
     p.add_argument("--compile", action="store_true",
                    help="Enable torch.compile (requires a C compiler installed)")
     p.add_argument("--no-amp", action="store_true")
+    p.add_argument("--resume", type=str, default=None,
+                   help="Resume from a checkpoint path, or 'latest' to pick "
+                        "the highest-step ckpt in --ckpt-dir matching --preset")
     args = p.parse_args()
 
     args.ckpt_dir.mkdir(parents=True, exist_ok=True)
@@ -108,6 +125,22 @@ def main() -> None:
 
     use_amp = (device.type == "cuda") and not args.no_amp
     amp_dtype = torch.bfloat16 if use_amp else torch.float32
+
+    start_step = 0
+    if args.resume:
+        ckpt_path = _resolve_resume(args.resume, args.ckpt_dir, args.preset)
+        print(f"[resume] loading {ckpt_path}", flush=True)
+        ck = torch.load(ckpt_path, map_location=device, weights_only=False)
+        model.load_state_dict(ck["state_dict"])
+        if "optimizer_state" in ck:
+            opt.load_state_dict(ck["optimizer_state"])
+        else:
+            print("[resume] ckpt has no optimizer_state — starting Adam fresh", flush=True)
+        if "rng_state" in ck:
+            rng.setstate(ck["rng_state"])
+        start_step = ck["step"]
+        print(f"[resume] starting at step {start_step + 1}  "
+              f"(ckpt loss={ck.get('loss')}, dev_ppl={ck.get('dev_ppl')})", flush=True)
 
     if args.compile and device.type == "cuda":
         try:
@@ -134,7 +167,11 @@ def main() -> None:
     last_loss = float("nan")
     last_dev_ppl = float("nan")
 
-    for step in range(1, args.steps + 1):
+    if start_step >= args.steps:
+        print(f"[done] resumed step {start_step} already >= --steps {args.steps}; nothing to do", flush=True)
+        return
+
+    for step in range(start_step + 1, args.steps + 1):
         lr = cosine_lr(step, args.warmup, args.steps, args.lr, args.min_lr)
         for g in opt.param_groups:
             g["lr"] = lr
@@ -180,6 +217,8 @@ def main() -> None:
                 "config": cfg.__dict__,
                 "preset": args.preset,
                 "state_dict": sd,
+                "optimizer_state": opt.state_dict(),
+                "rng_state": rng.getstate(),
             }, path)
             print(f"[ckpt] {path}", flush=True)
 

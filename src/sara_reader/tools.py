@@ -229,6 +229,17 @@ _DEFINITIONAL_RELATIONS = {
     "defined_as",
     "means",
     "synonym_of",
+    # statement-shaped: the source IS the content of the concept
+    "states",
+    "describes_as",
+    "expressed_as",
+    # alias-shaped: the source is another name for the concept
+    "also_known_as",
+    "abbreviation_of",
+    "abbreviation",
+    # categorical: source acts as a category for the concept
+    "act_as",
+    "acts_as",
 }
 
 
@@ -284,13 +295,14 @@ def _exec_brain_define(brain: Brain, args: dict) -> str:
     seen = set()
     lines = [f"Definition of {concept!r}:"]
     for src, rel, tgt in definitional:
-        src_clean = src.replace("_attribute", "")
-        tgt_clean = tgt.replace("_attribute", "")
-        key = (src_clean, rel, tgt_clean)
+        # Keep the _attribute suffix on the wire — downstream synthesizers
+        # use it to know when to invert subject/object in their templates.
+        # Dedupe on the cleaned form so we don't emit both X and X_attribute.
+        key = (src.replace("_attribute", ""), rel, tgt.replace("_attribute", ""))
         if key in seen:
             continue
         seen.add(key)
-        lines.append(f"  '{src_clean}' --[{rel}]--> '{tgt_clean}'")
+        lines.append(f"  {src!r} --[{rel}]--> {tgt!r}")
     return "\n".join(lines)
 
 
@@ -365,7 +377,7 @@ def _exec_brain_value(brain: Brain, args: dict) -> str:
         if key in seen:
             continue
         seen.add(key)
-        lines.append(f"  '{src_clean}' --[{rel}]--> '{tgt_clean}'")
+        lines.append(f"  {src_clean!r} --[{rel}]--> {tgt_clean!r}")
     return "\n".join(lines)
 
 

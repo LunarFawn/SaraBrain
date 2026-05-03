@@ -87,8 +87,11 @@ class SubstrateIndex:
 def _clean(span: str) -> str:
     s = " ".join(span.lower().split())
     s = s.strip(" ,.;:!?\"'")
-    # Repair "word - word" → "word-word" (spaCy splits on hyphen).
-    s = s.replace(" - ", "-")
+    # Repair spaCy's tokenization splits.
+    s = s.replace(" - ", "-")        # "super - performing" -> "super-performing"
+    s = s.replace(" 's", "'s")       # "newton 's law" -> "newton's law"
+    s = s.replace(" 'll", "'ll").replace(" 're", "'re").replace(" 've", "'ve")
+    s = s.replace(" n't", "n't")
     return s
 
 

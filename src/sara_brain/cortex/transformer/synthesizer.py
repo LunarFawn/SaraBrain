@@ -37,8 +37,14 @@ class Edge:
 # Pattern matches a line like:
 #   'instrument' --[is_a]--> 'serena rna analysis tool_attribute'
 #   'X' --[rel]--> 'Y' [REFUTED]
+# Either quote (single OR double) is accepted on either side; brain output
+# switches to double quotes when the label itself contains an apostrophe
+# (e.g. "newton's first law_attribute").
 _EDGE_RE = re.compile(
-    r"'(?P<src>[^']+)'\s*--\[(?P<rel>[^\]]+)\]-->\s*'(?P<tgt>[^']+)'(?P<flags>.*)"
+    r"""(?P<sq>['"])(?P<src>.+?)(?P=sq)"""
+    r"""\s*--\[(?P<rel>[^\]]+)\]-->\s*"""
+    r"""(?P<tq>['"])(?P<tgt>.+?)(?P=tq)"""
+    r"""(?P<flags>.*)"""
 )
 
 
@@ -120,6 +126,15 @@ _ATTR_TEMPLATES: dict[str, str] = {
     "has":               "{tgt} has {src}",
     "scored_by":         "{tgt} is scored by {src}",
     "described_by":      "{tgt} is described by {src}",
+    "also_known_as":     "{tgt} is also known as {src}",
+    "abbreviation_of":   "{src} is an abbreviation of {tgt}",
+    "abbreviation":      "{tgt}'s abbreviation is {src}",
+    "states":            "{tgt} states that {src}",
+    "expressed_as":      "{tgt} is expressed as {src}",
+    "act_as":            "{src} acts as {tgt}",
+    "acts_as":           "{src} acts as {tgt}",
+    "applies_to":        "{tgt} applies to {src}",
+    "provides_framework_for": "{tgt} provides a framework for {src}",
     "caused_by":         "{tgt} is caused by {src}",
     "results_in":        "{src} results in {tgt}",
     "indicates":         "{src} indicates {tgt}",

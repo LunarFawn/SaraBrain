@@ -1,8 +1,17 @@
 """Universal Dependencies ingestion for the Grammar Cortex.
 
 Downloads CoNLL-U treebanks on first use and parses sentences into
-delexicalized (UPOS, DEPREL) token streams. Word forms are discarded —
-the cortex must learn from structure alone, per v024.
+delexicalized (UPOS, DEPREL) token streams. Word forms are discarded
+by default (per v024) — the cortex L1 layer learns from structure
+alone.
+
+L2 layers (per-language overlays — see v028/v029/v030) opt into
+function-word lexicalization via `to_input_tokens(...,
+lexicalize_function_words=True, function_word_set=...)`. With the
+flag on, tokens whose lowercased form is in the supplied set emit
+the literal form instead of their UPOS tag; everything else stays
+delexicalized. The structural skeleton (DEPREL half of each pair)
+is unchanged either way.
 
 Multiple English treebanks are supported (EWT, GUM, LinES, ParTUT, Atis,
 ESL) — they share the same UPOS + UD relation vocabulary, so they can be
@@ -37,6 +46,11 @@ class UDToken:
     head: int
     is_q_marker: bool
     is_neg: bool
+    form: str = ""
+    """Lowercased surface form. Populated by `parse_conllu`. Used only
+    when `to_input_tokens(..., lexicalize_function_words=True)` is
+    requested by an L2 caller; ignored on the L1 (delexicalized) path.
+    Defaults to empty so existing constructors stay valid."""
 
 
 @dataclass
@@ -110,6 +124,7 @@ def parse_conllu(path: Path) -> Iterator[UDSentence]:
                 head=head,
                 is_q_marker=lemma_lower in _WH_LEMMAS or form_lower in _WH_LEMMAS,
                 is_neg=lemma_lower in _NEG_FORMS or form_lower in _NEG_FORMS,
+                form=form_lower,
             ))
     if tokens:
         yield UDSentence(tokens=tokens)
@@ -131,10 +146,32 @@ def iter_sentences(
         yield from parse_conllu(path)
 
 
-def to_input_tokens(sent: UDSentence, max_tokens: int = 32) -> list[str]:
-    """Flatten a sentence into a (DEPREL, UPOS) interleaved tag stream."""
+def to_input_tokens(
+    sent: UDSentence,
+    max_tokens: int = 32,
+    lexicalize_function_words: bool = False,
+    function_word_set: frozenset[str] | None = None,
+) -> list[str]:
+    """Flatten a sentence into a (DEPREL, UPOS-or-form) interleaved
+    tag stream.
+
+    Default (L1 path): emits `dep upos` per token — pure structure, no
+    surface forms. Identical to the v024-era behaviour.
+
+    Lexicalized (L2 path): when `lexicalize_function_words=True` and a
+    `function_word_set` is provided, each token emits `dep` followed
+    by:
+      - the literal lowercased `form` if it is in the set, or
+      - the `upos` tag otherwise.
+
+    The dep half is unchanged either way, so the structural skeleton
+    L1 was trained on stays intact when L2 reads the same corpus."""
+    lex = lexicalize_function_words and function_word_set is not None
     out: list[str] = []
     for t in sent.tokens[:max_tokens]:
         out.append(t.dep)
-        out.append(t.upos)
+        if lex and t.form in function_word_set:
+            out.append(t.form)
+        else:
+            out.append(t.upos)
     return out

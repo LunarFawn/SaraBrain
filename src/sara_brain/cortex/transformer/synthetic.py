@@ -4,6 +4,9 @@ Trains the cortex transformer with a standard next-token language modeling
 objective over delexicalized grammar tokens. After training the model can
 score, sample, and embed grammatical structure — the foundation that the
 later router and synthesizer heads consume.
+
+By default loads all available English UD treebanks (EWT, GUM, LinES,
+ParTUT, Atis, ESL). Pass a different treebanks list to focus or expand.
 """
 from __future__ import annotations
 
@@ -26,25 +29,37 @@ class UDStreamDataset:
     def __init__(
         self,
         split: str = "train",
-        cache_dir: Path = ud.DEFAULT_CACHE,
+        treebanks: list[str] | None = None,
+        cache_root: Path = ud.DEFAULT_CACHE_ROOT,
         max_tokens_per_sentence: int = 60,
     ):
-        path = ud.ensure_split(split, cache_dir)
+        if treebanks is None:
+            treebanks = ud.ENGLISH_ALL
         self.streams: list[list[int]] = []
+        per_tb_counts: dict[str, int] = {}
         skipped = 0
-        for sent in ud.parse_conllu(path):
-            if not sent.tokens:
+        for tb in treebanks:
+            try:
+                path = ud.ensure_split(tb, split, cache_root)
+            except Exception as e:
+                print(f"[ud-lm] skip {tb}/{split}: {e}", flush=True)
                 continue
-            tags = ud.to_input_tokens(sent, max_tokens=max_tokens_per_sentence)
-            ids = [BOS_ID] + _encode(tags) + [EOS_ID]
-            if len(ids) < 4:
-                skipped += 1
-                continue
-            self.streams.append(ids)
+            n_before = len(self.streams)
+            for sent in ud.parse_conllu(path):
+                if not sent.tokens:
+                    continue
+                tags = ud.to_input_tokens(sent, max_tokens=max_tokens_per_sentence)
+                ids = [BOS_ID] + _encode(tags) + [EOS_ID]
+                if len(ids) < 4:
+                    skipped += 1
+                    continue
+                self.streams.append(ids)
+            per_tb_counts[tb] = len(self.streams) - n_before
+        breakdown = ", ".join(f"{k}={v}" for k, v in per_tb_counts.items())
         print(
             f"[ud-lm] split={split} sentences={len(self.streams)} "
             f"avg_len={sum(len(s) for s in self.streams) / max(1, len(self.streams)):.1f} "
-            f"skipped={skipped}",
+            f"skipped={skipped}  ({breakdown})",
             flush=True,
         )
 

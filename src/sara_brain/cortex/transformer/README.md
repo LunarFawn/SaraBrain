@@ -110,7 +110,8 @@ UD treebanks (36 404 train sentences, 5 922 dev):
 | Configuration | Best dev perplexity | Notes |
 |---|---|---|
 | EWT only (12 544 sentences) | 3.01 (overfit past step 7 K) | First run, data-starved |
-| All English UD (36 404 sentences) | **2.81** at step 15 K | The shipped checkpoint |
+| All English UD (36 404 sentences), 125 M base | **2.81** at step 15 K | The shipped checkpoint |
+| All English UD (36 404 sentences), 300 M prod | 2.92 at step 14 K | Scaling probe — bigger model, worse result |
 | Random baseline (uniform over 76-token vocab) | 76 | |
 
 Router head, trained on 6 000 substrate-templated questions
@@ -202,9 +203,13 @@ weights, and prose generation is provably faithful to the substrate.
   genuinely interchangeable in casual usage — the head bottoms out at
   ~82% on `brain_define` because of this. Adding more disambiguating
   templates and possibly fine-tuning the encoder would push higher.
-- **Scaling note.** A 300 M variant on the same 1.3 M-token corpus
-  underperformed the 125 M base (best dev ppl 2.98 vs 2.81). The grammar
-  task has a low entropy ceiling that 125 M already approaches. Bigger
-  models need bigger data, and bigger data here means more languages
-  (which dilutes the English-router signal). The structural-task /
-  small-organ thesis is consistent with what we measured.
+- **Scaling note.** A 300 M variant trained for 15 000 steps on the
+  same 1.3 M-token corpus underperformed the 125 M base — best dev ppl
+  **2.915** vs **2.806** (~4% worse), with train ppl bottoming lower
+  (≈2.7 vs ≈1.6 — bigger model fitting train harder, not generalizing
+  better). The grammar task has a low entropy ceiling that 125 M
+  already approaches; the extra capacity in 300 M ends up encoding
+  noise. Bigger models need proportionally bigger data, and bigger
+  data here means more languages (which dilutes the English-router
+  signal). The structural-task / small-organ thesis is consistent
+  with what we measured.

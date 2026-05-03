@@ -75,13 +75,17 @@ Sara satisfies all four by construction. A Sara substrate is built at runtime by
 
 Section 2 describes Sara's architecture in the specific aspects that make it suitable as an instrument. Section 3 formalizes the four-property criterion. Section 4 describes the measurement protocol. Section 5 presents the seven cases — five primary observations plus two synthesis cases — with their supporting evidence. Section 6 discusses generalization — how other researchers could build Sara-style substrates for their own questions. Section 7 addresses limitations. Section 8 reviews related work. Section 9 concludes.
 
+### 1.5 The research program
+
+This paper is one in a series developing the path-of-thought cognitive architecture and its applications. The relevant prior works are: Pearl (2026a) [1] introduces the architecture; Pearl (2026b) [3] reports the empirical finding that 45 hand-taught facts outperform 28,373 LLM-ingested facts on MMLU Biology, establishing the ingestion-side weight-is-bias claim; Pearl (2026c) [2] is the unpublished RNA-aptamer engineering source paper from which this paper's substrates are built. Two companion papers in preparation are described in §8.7. Each paper is independently complete; the present paper does not require the others to make its central claims, but a reader interested in the broader program will find related material in the cited works.
+
 ---
 
 ## 2. Sara as instrument: what makes it suitable
 
 ### 2.1 Architectural properties
 
-Sara Brain is a path-of-thought cognitive architecture. Its storage primitives are:
+Sara Brain is a path-of-thought cognitive architecture: it stores reasoning as ordered sequences of segments (paths), each preserved verbatim with provenance, rather than as flattened embeddings. Its storage primitives are:
 
 - **Neurons** — nodes representing concepts or properties. Each neuron is identified by a verbatim label string, preserved exactly as written ("molecular snare", not reduced to "snare" or "mechanism").
 - **Segments** — directed edges between neurons, each carrying a relation label and a strength counter.
@@ -187,9 +191,18 @@ The substrate locates the forces within the stem and assigns generation to the s
 
 *This case combines Case 5.1's emission-side observation with Pearl (2026b [3])'s ingestion-side result; its contribution is the unifying symmetry claim, not a new individual observation.*
 
-Pearl (2026b [3]) reported that LLM-automated ingestion of source corpora produces a systematically corrupted knowledge graph: 10,623 LLM-extracted neurons from Wikipedia dropped GPQA Diamond accuracy from 28.0% to 16.1%, and 28,373 neurons dropped MMLU Biology accuracy from 58.4% to 51.6% — more LLM-ingested knowledge made downstream performance monotonically worse. The error patterns documented there are template-driven (swapped carbon/hydrogen counts in chemical formulas, misclassified reaction types, bibliography metadata stored as factual claims) rather than uniform noise. Case 5.1 establishes the symmetric failure on the emission side: when training-biased LLMs render retrieved fragments back into prose, they complete trained templates over the fragments instead of preserving them, with the same template-driven character as the ingestion errors.
+Pearl (2026b [3]) reported that LLM-automated ingestion of source corpora produces a systematically corrupted knowledge graph: more LLM-ingested knowledge made downstream performance monotonically worse on standard benchmarks (Table 1). The error patterns documented there are template-driven (swapped carbon/hydrogen counts in chemical formulas, misclassified reaction types, bibliography metadata stored as factual claims) rather than uniform noise.
 
-**What the instrument exposed:** the mechanism is one principle acting in two directions. *Weight is bias*, and on any pipeline stage that interfaces with an external substrate (ingestion or emission), the bias manifests as training-pattern overlay. The substrate is corrupted during transit in both directions.
+**Table 1.** Pearl (2026b) accuracy degradation under LLM-automated knowledge ingestion. Larger substrates produced larger drops; the trend was monotonic across the range tested.
+
+| Benchmark | Substrate size | Baseline accuracy | With substrate |
+|---|---|---|---|
+| GPQA Diamond | 10,623 neurons (LLM-extracted from Wikipedia) | 28.0% | 16.1% |
+| MMLU Biology | 28,373 neurons | 58.4% | 51.6% |
+
+Case 5.1 establishes the symmetric failure on the emission side: when training-biased LLMs render retrieved fragments back into prose, they complete trained templates over the fragments instead of preserving them, with the same template-driven character as the ingestion errors.
+
+**What the instrument exposed:** we conjecture that the mechanism is one principle acting in two directions. *Weight is bias*, and on any pipeline stage that interfaces with an external substrate (ingestion or emission), the bias manifests as training-pattern overlay. The substrate is corrupted during transit in both directions. We hold this conjecture strongly — it is anchored by Pearl 2026b on ingestion and Case 5.1 on emission — but flag it as conjecture because the supporting chain spans two works and is not yet positioned for an outside reader to replicate end-to-end.
 
 This case would be difficult to establish without a reference substrate. On ingestion, comparing the LLM's extracted facts to the source text is comparing prose to prose. On emission without a reference, any "invented" content from the model is indistinguishable from "legitimate synthesis." Sara breaks the symmetry: the substrate contains exactly what the experimenter put there, and anything the model emits that is not in the substrate is, unambiguously, not from the substrate.
 
@@ -351,13 +364,15 @@ The substrates used in Cases 5.1–5.7 are loaded from an unpublished RNA-aptame
 
 The §3 framing of "specificity preservation" is the relevant axis for partially-orthogonal substrates: does the model produce the *author's specific* "molecular snare" framing or the *generic textbook* SNARE-protein framing? On that axis, Opus's production of generic-template physics narrative when the substrate has paper-specific mechanics is interpretable evidence regardless of the orthogonality question. Future cases on synthetic substrates (where Property 4 holds by construction) would close this interpretive gap. Case 5.1 is also strengthened by the fact that Opus's training-overlay *inverted* the substrate's mechanism rather than extending it (the static-stem-as-anchor / static-stem-as-conduit reversal documented in §5.1's alternative-explanation paragraph), which makes the legitimate-inference defense untenable for that case regardless of the orthogonality concern.
 
-### 7.10 Evidentiary chain and self-citation transparency
+### 7.10 Where each case's evidence lives
 
-The cases vary in how independently checkable their evidence is. Cases 5.1, 5.2, and 5.4 lean on the present author's prior or unpublished work — Sara's architecture (Pearl 2026a [1]), the source paper from which the substrate is built (Pearl 2026c [2]), and the ingestion-side result that anchors the symmetry argument in 5.2 (Pearl 2026b [3]) — so a reviewer who wants to verify the full chain has to engage with self-authored references. Cases 5.6 and 5.7 are different: their evidence is the conversation's tool-call log cross-referenced against the committed substrate's contents, both of which are in the project repository and can be inspected without recourse to any prior publication. We flag this distribution as a calibration aid for readers, not as a hidden defect — the strong cases stand on independently-checkable artifacts, and the weaker links in the chain are visible rather than buried.
+As outlined in §1.5, the case evidence distributes across the research program: Cases 5.6 and 5.7 stand on committed-artifact evidence in this repository alone (the conversation's tool-call log cross-referenced against the substrate's triple list), while Cases 5.1, 5.2, and 5.4 build on Pearl (2026a) for the architecture, Pearl (2026c) for the substrate source, and Pearl (2026b) for the symmetry argument's ingestion-side anchor.
 
 ---
 
 ## 8. Related work
+
+**Scope of this survey.** We focus on direct predecessors to the four-property criterion (§3): knowledge-grounded benchmarks, knowledge graphs, synthetic reasoning benchmarks, private corpora, cognitive architectures, and interpretability methods. Three adjacent literatures that this paper's findings touch on but does not directly extend are deliberately out of scope: hallucination taxonomy (which catalogues failure modes the instrument exposes), RAG evaluation (which provides comparable substrate-and-output frameworks at coarser grain), and training-data contamination (which provides empirical support for Property 4). The methodological proposal here may be useful to those literatures; the present paper does not attempt to position itself within them.
 
 ### 8.1 Knowledge-grounded benchmarks
 
@@ -377,7 +392,7 @@ Several industry evaluations use private document corpora as substrates (interna
 
 ### 8.5 Cognitive architectures
 
-ACT-R [20], Soar [21], and Sara [1] are cognitive architectures with persistent structured memory. Of these, Sara is purpose-built for cortex-cerebellum LLM integration and has the cleanest triple-grain inspectability interface. Other cognitive architectures may be adapted to serve the instrument role with modification; this is an open direction.
+ACT-R [20], Soar [21], and Sara [1] are cognitive architectures with persistent structured memory. Of these, Sara is purpose-built for cortex-cerebellum LLM integration and is the only one that centers triple-grain inspectability as a primary design goal. Other cognitive architectures may be adapted to serve the instrument role with modification; this is an open direction.
 
 ### 8.6 Interpretability methods
 

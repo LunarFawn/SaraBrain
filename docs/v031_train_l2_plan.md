@@ -76,34 +76,63 @@ Two files:
 | `--lang` | `en` (only `en` supported until other `vocab_*.py` files exist) |
 | `--unfreeze-l1` | off |
 
-## Verification (smoke test, 50 steps on 3070)
+## Verification — actual 3000-step run
+
+Final results (RTX 3070, ~5.5 minutes wall):
 
 ```
-[l2] loading L1 checkpoint: src/sara_brain/cortex/checkpoints/grammar_base_015000.pt
-[l2] projected L1 -> L2: copied=219 padded=1 skipped=1
-[l2] trainable params: 134,400  frozen: 127,656,960  (tok_embed only)
-[ud-lm/L2] split=train sentences=36404 ...
-[ud-lm/L2] split=dev sentences=5922 ...
-[eval] step=0 (pre-train)  dev_ppl=30.903
-     1  3.8590   47.42  ...
-    50  2.8239   16.84  ...
-[eval] step=50  dev_ppl=16.449
-[ckpt] /tmp/l2_smoke/l2_en_000050.pt
+[eval] step=0 (pre-train)  dev_ppl=38.462
+[eval] step=500            dev_ppl=4.237
+[eval] step=1000           dev_ppl=4.129
+[eval] step=2500           dev_ppl=4.103
+[eval] step=3000           dev_ppl=4.127
+final_loss=1.3807  final_dev_ppl=4.127
 ```
 
-Pre-train dev ppl 30.9 → 16.4 in 50 steps. The 134K-param adapter is
-learning the function-word distribution. A full 3000-step run on a 3070
-takes a few minutes and should bring dev ppl close to L1's structural
-ppl (2.8 — though comparing across vocab sizes is loose, the trend
-direction is what matters).
+**Pre-train 38.46 → trained 4.13 dev ppl** with only the 134K-param
+embedding adapter. For comparison L1's structural-only dev ppl was
+2.806 — L2 carries 99 extra tokens to predict, so a higher absolute
+ppl is expected; what matters is the convergence ratio.
 
-Checkpoints round-trip:
+Sample output (`inference_l2.py --sample 5`, recognisable English
+skeletons with function words in plausible positions):
+
 ```
-ck['lang'] == 'en'
-ck['frozen_l1'] == True
-ck['config']['vocab_size'] == 175
-GrammarModel.load_state_dict(ck['state_dict']) — clean
+[2]  nsubj they  root VERB  obj NOUN  cc and  amod ADJ  conj NOUN  punct PUNCT
+     ≈ "they [VERB] [NOUN] and [ADJ] [NOUN] ."
+
+[3]  root PRON  cop are  det the  amod ADJ  nsubj NOUN  amod ADJ
+     case from  nmod PROPN  case to  nmod PROPN  flat PROPN
+     ≈ "[PRON] are the [ADJ] [NOUN] [ADJ] from [PROPN] to [PROPN] ..."
+
+[4]  nsubj PRON  aux AUX  aux AUX  root VERB  mark to  xcomp VERB
+     obj it  punct PUNCT  mark that  nsubj PRON  advcl VERB  obj it  punct PUNCT
+     ≈ "[PRON] [AUX] [AUX] [VERB] to [VERB] it . that [PRON] [VERB] it ."
 ```
+
+L2 has learned which English function words slot into which
+structural positions: `det the` after a noun phrase head, `case
+from / to` as preposition cases, `cop are` as the copula, `mark to /
+that` for subordinating clauses, `cc and` for coordination.
+
+Dev-set scoring (`--score-dev 50`):
+```
+mean ppl over 50 EWT dev sentences = 4.222
+```
+
+Checkpoint at `src/sara_brain/cortex/checkpoints/l2_en_003000.pt`
+(512 MB — most of which is the redundantly-saved frozen L1 weights;
+a future slice can deduplicate by storing only the trainable rows
+plus an L1 ckpt reference).
+
+## Inference
+
+`inference_l2.py` mirrors `inference.py` but loads against the L2-en
+vocabulary. Two modes:
+
+- `--sample N` — sample N tag streams from the trained model
+- `--score-dev N` — score N lexicalized EWT dev sentences (clamped to
+  the model's `max_seq`)
 
 ## Out of scope
 

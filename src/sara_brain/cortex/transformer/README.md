@@ -12,7 +12,7 @@ never in its training data.
 
 ## What this gives you
 
-Two trained models you can run on a single 8 GB GPU:
+The full Sara pipeline runs end-to-end with **no LLM and no API keys**:
 
 1. **Grammar LM (125 M params)** — predicts the next UD grammar tag in
    a sentence. Trained from scratch on six English Universal Dependencies
@@ -23,6 +23,13 @@ Two trained models you can run on a single 8 GB GPU:
    (`brain_value`, `brain_define`, `brain_explore`, `brain_did_you_mean`)
    from the question's structure. Replaces the `llama3.2:3b` routing call
    in `sara_reader/stateless_reader.py`.
+3. **Template synthesizer** — turns substrate edges (`'X' --[is_a]-->
+   'Y'`) into prose using a per-relation template table. Replaces the
+   Haiku synthesis call in `sara_reader/stateless_reader.py`. Runs at
+   substrate-query speed; no model in the loop.
+4. **Synthesizer labeler** — walks `brain.db` and emits (edge_list,
+   prose) JSONL pairs using the same template table. The training data
+   for the eventual neural synthesizer head.
 
 A rule-based argument extractor handles concept / type / label / term
 extraction from the question, using the spaCy parse and (optionally) the
@@ -61,13 +68,24 @@ tmux attach -t sara-train         # detach with Ctrl-b d
   --device cpu
 ```
 
-You can also use the cortex through Sara's existing CLI:
+Or run the full no-LLM pipeline through Sara's existing CLI — cortex
+router picks the tool, substrate executes it, template synthesizer
+writes the prose:
 
 ```bash
 .venv/bin/python -m sara_reader.cli_stateless \
-  "what is the kdoff of super-performing mode" \
+  "what do you know about serena rna analysis tool" \
   --brain path/to/your/sara.db \
-  --cortex-router --no-synthesis
+  --cortex-router --cortex-synthesizer
+```
+
+To generate synthesizer training pairs from your substrate (used to
+train the eventual neural synthesizer head):
+
+```bash
+.venv/bin/python -m sara_brain.cortex.transformer.synth_data \
+  --brain path/to/your/sara.db \
+  --output synth_pairs.jsonl
 ```
 
 ## Try the trained grammar LM directly
@@ -130,14 +148,20 @@ Router head, trained on 6 000 substrate-templated questions
             ↓
         Brain executor
             ↓
-        substrate result
+        substrate edges (e.g. 'X' --[is_a]--> 'Y')
+            ↓
+   Template synthesizer
+   (per-relation table, group by subject)
+            ↓
+        prose answer
 ```
 
 The split is deliberate: the neural part learns *question shape*, the
 rule part owns substrate-aware substring extraction (concept selection,
-compound labels, normalization). This keeps the grammar LM purely
+compound labels, normalization). The template synthesizer renders edges
+to prose with zero learned content. This keeps the grammar LM purely
 structural per the v024 thesis — substrate knowledge stays out of the
-weights.
+weights, and prose generation is provably faithful to the substrate.
 
 ## Files
 
@@ -155,23 +179,32 @@ weights.
 | [`router_args.py`](router_args.py) | Rule-based argument extractor |
 | [`router.py`](router.py) | `CortexRouter` end-to-end pipeline |
 | [`ask.py`](ask.py) | Standalone CLI: question → cortex → substrate result |
+| [`synthesizer.py`](synthesizer.py) | Template synthesizer: gathered substrate edges → prose |
+| [`synth_data.py`](synth_data.py) | Labeler: `brain.db` → JSONL of (edge_list, prose) training pairs |
 
 ## Limitations and next steps
 
 - **English only.** Same UD-tag vocabulary works across all UD languages,
   so adding multilingual data is mostly a config change in `ud.py` —
-  but the router head is currently trained on English question templates.
-- **No synthesizer organ yet.** Sara's prose-writing half still goes to
-  Claude Haiku via `sara_reader`. A v024 synthesizer organ (substrate
-  edges → templated prose, same architecture, separate training) would
-  remove that dependency. Use `--no-synthesis` to bypass it for now.
+  but the router head and synthesizer templates are currently English.
+- **Template synthesizer is verbose.** Renders one sentence per edge,
+  no lexical variation, occasional grammar awkwardness when relation
+  direction doesn't match natural English (e.g. `X is_a Y_attribute`
+  reads as "X is a Y" but the substrate sometimes inverts). The
+  trade-off: zero learned content, fully auditable, never invents.
+  The neural synthesizer (next) will fix the awkwardness while staying
+  grounded in substrate edges.
+- **Neural synthesizer not yet trained.** `synth_data.py` produces
+  the labeled pairs; an upcoming commit adds a small generative head
+  on top of the frozen grammar LM that learns to compress the templates
+  with sentence-shape variety. Architecture mirrors the router head.
 - **Define / explore confusion.** "What is X" and "Tell me about X" are
   genuinely interchangeable in casual usage — the head bottoms out at
   ~82% on `brain_define` because of this. Adding more disambiguating
   templates and possibly fine-tuning the encoder would push higher.
 - **Scaling note.** A 300 M variant on the same 1.3 M-token corpus
-  underperformed the 125 M base — the grammar task has a low entropy
-  ceiling that 125 M already approaches. Bigger models need bigger data,
-  and bigger data here means more languages (which dilutes the
-  English-router signal). The structural-task / small-organ thesis is
-  consistent with what we measured.
+  underperformed the 125 M base (best dev ppl 2.98 vs 2.81). The grammar
+  task has a low entropy ceiling that 125 M already approaches. Bigger
+  models need bigger data, and bigger data here means more languages
+  (which dilutes the English-router signal). The structural-task /
+  small-organ thesis is consistent with what we measured.

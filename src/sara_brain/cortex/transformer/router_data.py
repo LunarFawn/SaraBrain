@@ -109,6 +109,19 @@ EXPLORE_TEMPLATES = [
     "what relates to {c}",
     "what concepts connect to {c}",
     "give me an overview of {c}",
+    # "how X works" patterns — these are exploration of mechanism
+    "how does {c} work",
+    "how does the {c} work",
+    "how does a {c} work",
+    "how does {c} function",
+    "how does {c} operate",
+    "how does {c} behave",
+    "how do {c} work",
+    "how does {c} happen",
+    "explain how {c} works",
+    "explain how the {c} works",
+    "what does {c} do",
+    "how do {c} interact",
 ]
 
 DID_YOU_MEAN_TEMPLATES = [

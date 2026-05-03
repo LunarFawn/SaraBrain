@@ -27,6 +27,9 @@ _STOP_PREFIX = {
     "anything", "something", "thing", "have",
     "i", "we", "they", "of", "for", "to", "from", "in", "on",
     "know", "means",
+    # "how does X work / function / operate" — strip the trailing verb
+    "work", "works", "function", "functions", "operate", "operates",
+    "happen", "happens", "behave", "behaves",
 }
 # Tokens that mark argument boundaries; strip them as fillers ONLY after
 # the marker-based split logic has had a chance to use them.

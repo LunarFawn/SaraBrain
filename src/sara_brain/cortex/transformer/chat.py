@@ -21,6 +21,10 @@ from pathlib import Path
 from sara_brain.core.brain import Brain
 from sara_reader.tools import execute_tool
 
+from .clarify import (
+    Clarification, ConceptFix, apply_wh_fix, detect_wh_typo,
+    find_concept_candidates, is_cancel, parse_choice,
+)
 from .router import MODEL_FULL, CortexRouter
 from .synthesizer import synthesize
 
@@ -76,6 +80,7 @@ class ChatSession:
             device=device,
         )
         self._load_brain(brain_path)
+        self.pending: Clarification | None = None
 
     def _load_brain(self, brain_path: Path) -> None:
         self.brain_path = brain_path
@@ -85,12 +90,39 @@ class ChatSession:
         self.router.substrate = SubstrateIndex(brain_path)
 
     def ask(self, question: str) -> None:
+        # Stage 1: detect leading-token typos (waht -> what, etc.)
+        wh_fix = detect_wh_typo(question)
+        if wh_fix:
+            self.pending = Clarification(original_question=question, wh_fix=wh_fix)
+            print(f"{YELLOW}{self.pending.render_prompt()}{RESET}")
+            return
+        self._route_and_run(question)
+
+    def _route_and_run(self, question: str) -> None:
         decision = self.router.route(question)
         if self.show_trace:
             print(f"{DIM}[{decision.model}] tool={decision.tool}  "
                   f"cls_conf={decision.classifier_confidence:.2f}  "
                   f"args={decision.args}  why={decision.rationale}{RESET}")
         result = execute_tool(self.brain, decision.tool, decision.args)
+
+        # Stage 2: substrate "no neuron matching" -> ask did_you_mean.
+        miss_field, miss_value = self._extract_miss(decision.tool, decision.args, result)
+        if miss_field is not None:
+            cands = find_concept_candidates(self.brain, miss_value)
+            if cands:
+                pending_decision = {"tool": decision.tool, **decision.args}
+                self.pending = Clarification(
+                    original_question=question,
+                    concept_fix=ConceptFix(
+                        original=miss_value, candidates=cands, field=miss_field,
+                    ),
+                    pending_router_decision=pending_decision,
+                )
+                print(f"{YELLOW}{self.pending.render_prompt()}{RESET}")
+                return
+            # No candidates — fall through to the honest "no neuron" message.
+
         if self.show_raw:
             print(result)
             return
@@ -98,6 +130,62 @@ class ChatSession:
                      "result": result}]
         prose = synthesize(question, gathered)
         print(prose)
+
+    @staticmethod
+    def _extract_miss(tool: str, args: dict, result: str) -> tuple[str | None, str | None]:
+        """If the tool returned a 'no neuron matching' response, return
+        (which arg field needs replacing, what the missing value was)."""
+        if "no neuron matching" not in result.lower():
+            return None, None
+        for field in ("concept", "label", "term"):
+            if field in args:
+                return field, args[field]
+        return None, None
+
+    def handle_pending_response(self, line: str) -> None:
+        """User typed something while a clarification was pending. Either
+        a numeric choice, 'no' to cancel, or a brand new question."""
+        if not self.pending:
+            return
+        if is_cancel(line):
+            print(f"{DIM}cancelled{RESET}")
+            self.pending = None
+            return
+
+        n_opts = (len(self.pending.wh_fix.candidates)
+                  if self.pending.wh_fix else
+                  len(self.pending.concept_fix.candidates))
+        choice = parse_choice(line, n_opts)
+        if choice is None:
+            # Treat as a fresh question.
+            self.pending = None
+            self.ask(line)
+            return
+
+        if self.pending.wh_fix:
+            fixed = apply_wh_fix(self.pending.original_question,
+                                 self.pending.wh_fix,
+                                 self.pending.wh_fix.candidates[choice])
+            print(f"{DIM}-> {fixed}{RESET}")
+            self.pending = None
+            self.ask(fixed)
+            return
+
+        # Concept fix: re-run the same tool with the chosen substrate label.
+        cf = self.pending.concept_fix
+        chosen = cf.candidates[choice]["label"]
+        decision = dict(self.pending.pending_router_decision)
+        decision[cf.field] = chosen
+        original_q = self.pending.original_question
+        self.pending = None
+        print(f"{DIM}-> {cf.field}={chosen!r}{RESET}")
+        tool = decision.pop("tool")
+        result = execute_tool(self.brain, tool, decision)
+        if self.show_raw:
+            print(result)
+            return
+        gathered = [{"call": {"tool": tool, "args": decision}, "result": result}]
+        print(synthesize(original_q, gathered))
 
     def handle_command(self, line: str) -> bool:
         """Run a slash command. Returns False if the session should end."""
@@ -173,7 +261,10 @@ def main() -> int:
                 return 0
             continue
         try:
-            session.ask(line)
+            if session.pending is not None:
+                session.handle_pending_response(line)
+            else:
+                session.ask(line)
         except Exception as e:
             print(f"{YELLOW}error: {e}{RESET}", file=sys.stderr)
 

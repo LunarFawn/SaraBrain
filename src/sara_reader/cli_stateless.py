@@ -52,8 +52,40 @@ def main() -> int:
         action="store_true",
         help="Show the full routing/synthesis trace",
     )
+    ap.add_argument(
+        "--cortex-router",
+        action="store_true",
+        help=(
+            "Use the local Sara cortex transformer for routing instead "
+            "of Ollama. Requires --grammar-ckpt and --head-ckpt (or "
+            "their defaults under src/sara_brain/cortex/checkpoints/)."
+        ),
+    )
+    ap.add_argument(
+        "--grammar-ckpt",
+        default="src/sara_brain/cortex/checkpoints/grammar_base_015000.pt",
+        help="Cortex grammar-LM checkpoint (used with --cortex-router)",
+    )
+    ap.add_argument(
+        "--head-ckpt",
+        default="src/sara_brain/cortex/checkpoints/router_head.pt",
+        help="Cortex router-head checkpoint (used with --cortex-router)",
+    )
+    ap.add_argument(
+        "--no-synthesis",
+        action="store_true",
+        help=(
+            "Skip the synthesis LLM call. Returns the raw substrate facts "
+            "the router gathered. Useful with --cortex-router for a "
+            "no-LLM-in-loop demonstration."
+        ),
+    )
     args = ap.parse_args()
     synthesis_model = args.synthesis_model or args.router_model
+
+    cortex_router_ckpts = (
+        (args.grammar_ckpt, args.head_ckpt) if args.cortex_router else None
+    )
 
     reader = StatelessReader(
         brain_path=args.brain,
@@ -62,6 +94,8 @@ def main() -> int:
         synthesis_provider=args.synthesis_provider,
         synthesis_model=synthesis_model,
         max_routing_steps=args.max_routing_steps,
+        cortex_router_ckpts=cortex_router_ckpts,
+        skip_synthesis=args.no_synthesis,
     )
     result = reader.ask(args.question, return_trace=args.trace)
     if args.trace:

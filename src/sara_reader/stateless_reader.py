@@ -188,16 +188,37 @@ class StatelessReader:
         max_routing_steps: int = 6,
         max_retries_per_step: int = 3,
         provider_kwargs: dict | None = None,
+        cortex_router_ckpts: tuple[str, str] | None = None,
+        skip_synthesis: bool = False,
     ) -> None:
+        """If cortex_router_ckpts=(grammar_ckpt_path, head_ckpt_path) is set,
+        routing is performed by the local cortex transformer (no Ollama call).
+        Synthesis still goes to the configured provider — the synthesizer
+        organ is a separate v024 phase."""
         self.brain: Brain = load_brain(brain_path)
         provider_kwargs = provider_kwargs or {}
-        self.router = get_provider(
-            router_provider, **(provider_kwargs.get("router") or {})
-        )
-        self.synthesizer = get_provider(
-            synthesis_provider,
-            **(provider_kwargs.get("synthesis") or {}),
-        )
+        self.cortex_router = None
+        if cortex_router_ckpts is not None:
+            from sara_brain.cortex.transformer.router import CortexRouter
+            grammar_ckpt, head_ckpt = cortex_router_ckpts
+            self.cortex_router = CortexRouter(
+                grammar_ckpt=grammar_ckpt,
+                head_ckpt=head_ckpt,
+                substrate_db=brain_path,
+            )
+            self.router = None
+        else:
+            self.router = get_provider(
+                router_provider, **(provider_kwargs.get("router") or {})
+            )
+        self.skip_synthesis = skip_synthesis
+        if skip_synthesis:
+            self.synthesizer = None
+        else:
+            self.synthesizer = get_provider(
+                synthesis_provider,
+                **(provider_kwargs.get("synthesis") or {}),
+            )
         self.router_model = router_model
         self.synthesis_model = synthesis_model
         self.max_routing_steps = max_routing_steps
@@ -311,17 +332,21 @@ class StatelessReader:
                         })
 
         # ---- Synthesis ----
-        synthesis_prompt = _SYNTHESIS_PROMPT_TEMPLATE.format(
-            question=question, gathered=_format_gathered(gathered)
-        )
-        response = self.synthesizer.chat(
-            messages=[{"role": "user", "content": synthesis_prompt}],
-            tools=[],
-            model=self.synthesis_model,
-            system_prompt=None,
-        )
-        answer = response.text.strip()
-        trace.append({"step": "synthesis", "event": "synthesized"})
+        if self.skip_synthesis:
+            answer = _format_gathered(gathered)
+            trace.append({"step": "synthesis", "event": "skipped"})
+        else:
+            synthesis_prompt = _SYNTHESIS_PROMPT_TEMPLATE.format(
+                question=question, gathered=_format_gathered(gathered)
+            )
+            response = self.synthesizer.chat(
+                messages=[{"role": "user", "content": synthesis_prompt}],
+                tools=[],
+                model=self.synthesis_model,
+                system_prompt=None,
+            )
+            answer = response.text.strip()
+            trace.append({"step": "synthesis", "event": "synthesized"})
 
         if return_trace:
             return {
@@ -338,6 +363,8 @@ class StatelessReader:
         gathered: list[dict],
         trace: list[dict],
     ) -> dict | None:
+        if self.cortex_router is not None:
+            return self._cortex_route_step(question, gathered, trace)
         prompt = _ROUTER_PROMPT_TEMPLATE.format(
             question=question, gathered=_format_gathered(gathered)
         )
@@ -367,6 +394,35 @@ class StatelessReader:
                 continue
             return decision
         return None
+
+    def _cortex_route_step(
+        self,
+        question: str,
+        gathered: list[dict],
+        trace: list[dict],
+    ) -> dict | None:
+        """Cortex routing: deterministic single-shot. The orchestrator's
+        repeat-call detection naturally terminates the loop after one
+        substantive call (the cortex picks the same answer on identical
+        inputs). No retry needed."""
+        decision_obj = self.cortex_router.route(question)
+        decision = {"tool": decision_obj.tool, **decision_obj.args}
+        if not self._validate_decision(decision):
+            trace.append({
+                "step": "cortex_route",
+                "event": "validation_failed",
+                "decision": decision,
+                "cls_conf": decision_obj.classifier_confidence,
+            })
+            return None
+        trace.append({
+            "step": "cortex_route",
+            "event": "decided",
+            "decision": decision,
+            "cls_conf": decision_obj.classifier_confidence,
+            "rationale": decision_obj.rationale,
+        })
+        return decision
 
     def _validate_decision(self, decision: dict) -> bool:
         """Validate the router's decision is well-formed.

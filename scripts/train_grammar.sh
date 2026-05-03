@@ -34,7 +34,7 @@ CMD+=" 2>&1 | tee -a '$LOG'"
 
 tmux new-session -d -s "$SESSION" -c "$REPO" "$CMD"
 tmux set-option -t "$SESSION" -g remain-on-exit on
-tmux split-window -h -t "$SESSION" -p 30 "watch -n2 -t nvidia-smi"
+tmux split-window -h -t "$SESSION" -l 60 "watch -n2 -t nvidia-smi"
 tmux select-pane -t "$SESSION":0.0
 
 cat <<EOF

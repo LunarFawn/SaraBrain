@@ -53,6 +53,8 @@ def banner(model: str, brain_path: Path) -> str:
 
 HELP = """commands:
   /help              show this help
+  /teach STATEMENT   teach Sara a new fact (e.g. /teach ssng1 is a goal)
+  /refute STATEMENT  refute / negate an existing fact
   /trace             toggle: show routing decision + confidence
   /verbose           toggle: print raw substrate result (no synthesis)
   /brain PATH        switch to a different brain.db
@@ -215,9 +217,43 @@ class ChatSession:
         elif cmd == "/model":
             print(f"  grammar:  {self.grammar_ckpt}")
             print(f"  router:   {self.head_ckpt}")
+        elif cmd == "/teach":
+            if not arg:
+                print(f"{YELLOW}usage: /teach <statement>{RESET}")
+            else:
+                self._do_teach(arg)
+        elif cmd == "/refute":
+            if not arg:
+                print(f"{YELLOW}usage: /refute <statement>{RESET}")
+            else:
+                self._do_refute(arg)
         else:
             print(f"{YELLOW}unknown command: {cmd}  (try /help){RESET}")
         return True
+
+    def _do_teach(self, statement: str) -> None:
+        try:
+            result = self.brain.teach(statement)
+        except Exception as e:
+            print(f"{YELLOW}teach error: {e}{RESET}")
+            return
+        if result is None:
+            print(f"{YELLOW}couldn't parse: {statement!r}{RESET}")
+            return
+        path_id = getattr(result, "path_id", "?")
+        print(f"{GREEN}learned (path #{path_id}): {statement}{RESET}")
+
+    def _do_refute(self, statement: str) -> None:
+        try:
+            result = self.brain.refute(statement)
+        except Exception as e:
+            print(f"{YELLOW}refute error: {e}{RESET}")
+            return
+        if result is None:
+            print(f"{YELLOW}nothing matching to refute: {statement!r}{RESET}")
+            return
+        path_id = getattr(result, "path_id", "?")
+        print(f"{GREEN}refuted (path #{path_id}): {statement}{RESET}")
 
 
 def main() -> int:

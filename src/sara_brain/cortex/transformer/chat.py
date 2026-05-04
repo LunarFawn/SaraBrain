@@ -64,6 +64,10 @@ HELP = """commands:
   /help              show this help
   /teach STATEMENT   teach Sara a new fact (e.g. /teach ssng1 is a goal)
   /refute STATEMENT  refute / negate an existing fact
+  /teach-vocab REL PHRASE
+                     teach the vocab brain a new relation -> English mapping
+                     (e.g. /teach-vocab forms is formed by). Replaces any
+                     existing form for that relation. Requires --use-hamrobysum.
   /dig               expand the last query — pull sibling substrate concepts
                      and synthesize their neighborhoods with the original
   /dig CONCEPT       drill into a specific named concept directly
@@ -403,6 +407,11 @@ class ChatSession:
                 print(f"{YELLOW}usage: /refute <statement>{RESET}")
             else:
                 self._do_refute(arg)
+        elif cmd == "/teach-vocab":
+            if not arg or " " not in arg.strip():
+                print(f"{YELLOW}usage: /teach-vocab RELATION PHRASE...{RESET}")
+            else:
+                self._do_teach_vocab(arg)
         elif cmd == "/dig":
             self.do_dig(arg)
         elif cmd == "/depth":
@@ -422,6 +431,81 @@ class ChatSession:
             return
         path_id = getattr(result, "path_id", "?")
         print(f"{GREEN}learned (path #{path_id}): {statement}{RESET}")
+
+    def _do_teach_vocab(self, arg: str) -> None:
+        """Teach the vocab brain a new relation -> English mapping
+        (per v042). Replaces any existing english_form for that
+        relation. Persists to the vocab brain SQLite immediately and
+        updates the in-memory _vocab_lookup so the next query uses
+        the new mapping."""
+        if self._hamrobysum_model is None or self.vocab_brain_path is None:
+            print(f"{YELLOW}vocab brain not loaded — restart with --use-hamrobysum{RESET}")
+            return
+        if not self.vocab_brain_path.exists():
+            print(f"{YELLOW}vocab brain not found at {self.vocab_brain_path}{RESET}")
+            return
+
+        parts = arg.strip().split(maxsplit=1)
+        if len(parts) < 2:
+            print(f"{YELLOW}usage: /teach-vocab RELATION PHRASE...{RESET}")
+            return
+        relation, phrase = parts[0].strip(), parts[1].strip()
+        if not relation or not phrase:
+            print(f"{YELLOW}usage: /teach-vocab RELATION PHRASE...{RESET}")
+            return
+
+        # Write directly to the vocab brain SQLite (same pattern as
+        # scripts/build_vocab_brain_en.py — bypass the chain-learning
+        # machinery that's the wrong abstraction for vocab lookups).
+        import sqlite3
+        import time
+        conn = sqlite3.connect(str(self.vocab_brain_path))
+        try:
+            # Find or create the relation neuron.
+            row = conn.execute(
+                "SELECT id FROM neurons WHERE label = ?", (relation,)
+            ).fetchone()
+            if row is None:
+                cur = conn.execute(
+                    "INSERT INTO neurons (label, neuron_type, created_at) "
+                    "VALUES (?, ?, ?)",
+                    (relation, "vocab", time.time()),
+                )
+                rel_id = cur.lastrowid
+            else:
+                rel_id = row[0]
+            # Replace: delete any existing english_form segments for this relation.
+            conn.execute(
+                "DELETE FROM segments WHERE source_id = ? AND relation = ?",
+                (rel_id, "english_form"),
+            )
+            # Find or create the phrase neuron.
+            row = conn.execute(
+                "SELECT id FROM neurons WHERE label = ?", (phrase,)
+            ).fetchone()
+            if row is None:
+                cur = conn.execute(
+                    "INSERT INTO neurons (label, neuron_type, created_at) "
+                    "VALUES (?, ?, ?)",
+                    (phrase, "vocab", time.time()),
+                )
+                phrase_id = cur.lastrowid
+            else:
+                phrase_id = row[0]
+            # Add the new english_form segment.
+            conn.execute(
+                "INSERT INTO segments "
+                "(source_id, target_id, relation, created_at) "
+                "VALUES (?, ?, ?, ?)",
+                (rel_id, phrase_id, "english_form", time.time()),
+            )
+            conn.commit()
+        finally:
+            conn.close()
+
+        # Update in-memory lookup.
+        self._vocab_lookup[relation] = phrase
+        print(f"{GREEN}vocab updated: {relation} -> {phrase!r}{RESET}")
 
     def _do_refute(self, statement: str) -> None:
         try:

@@ -57,10 +57,14 @@ def _random_compound(rng: random.Random, n_words: int = 2) -> str:
     return " ".join(_random_word(rng) for _ in range(n_words))
 
 
-# Relation labels. These ARE real English words, intentionally — the
+# Relation labels. These ARE real English words by default — the
 # orthogonality property only needs to hold on the CONCEPT labels (the
-# subjects and objects). Relations being real words is fine and makes
-# the substrate readable for inspection.
+# subjects and objects). Relations being real words is fine for the
+# instrument-validation use case and makes the substrate readable.
+#
+# v037 adds a second mode: --nonsense-relations also nonsense-ifies
+# the relation names. Used to train HamRobySum-Core, the structural
+# composition layer that has zero real-language exposure.
 _RELATIONS_POOL = [
     "is_a",
     "has_property",
@@ -77,6 +81,20 @@ _RELATIONS_POOL = [
 ]
 
 
+def _generate_nonsense_relations(rng: random.Random, n: int = 12) -> list[str]:
+    """Generate `n` distinct pronounceable-nonsense relation labels.
+    Used by --nonsense-relations to produce a substrate with zero
+    real-language content (concepts AND relations both nonsense)."""
+    out: list[str] = []
+    seen: set[str] = set()
+    while len(out) < n:
+        w = _random_word(rng, min_len=4, max_len=7)
+        if w not in seen:
+            seen.add(w)
+            out.append(w)
+    return out
+
+
 def generate_synthetic_substrate(
     out_path: str,
     num_concepts: int = 30,
@@ -84,6 +102,7 @@ def generate_synthetic_substrate(
     seed: int | None = None,
     compound_fraction: float = 0.5,
     triples_per_concept_min: int = 1,
+    nonsense_relations: bool = False,
 ) -> dict:
     """Generate a random training-orthogonal Sara substrate.
 
@@ -96,6 +115,11 @@ def generate_synthetic_substrate(
             (preserves the test of compound-term retrieval).
         triples_per_concept_min: each concept appears in at least this many
             triples (prevents isolated-neuron substrates).
+        nonsense_relations: if True, replace `_RELATIONS_POOL` with a per-run
+            generated pool of pronounceable-nonsense relation labels. v037
+            uses this to produce HamRobySum-Core training substrates with
+            zero real-language exposure (concepts AND relations both
+            nonsense). Default False preserves v036 behavior.
 
     Returns:
         dict with seed, paths, counts, and the canonical concept and
@@ -108,6 +132,10 @@ def generate_synthetic_substrate(
     out = Path(out_path)
     if out.exists():
         raise FileExistsError(f"{out} exists; remove or rename before regenerating")
+
+    relations_pool = (
+        _generate_nonsense_relations(rng) if nonsense_relations else _RELATIONS_POOL
+    )
 
     # Generate the concept pool. Mix of single-word and compound labels.
     concepts: list[str] = []
@@ -133,7 +161,7 @@ def generate_synthetic_substrate(
     for c in concepts:
         while appearances[c] < triples_per_concept_min:
             partner = rng.choice([x for x in concepts if x != c])
-            r = rng.choice(_RELATIONS_POOL)
+            r = rng.choice(relations_pool)
             if rng.random() < 0.5:
                 _emit_triple(c, r, partner)
             else:
@@ -149,7 +177,7 @@ def generate_synthetic_substrate(
         o = rng.choice(concepts)
         if s == o:
             continue
-        r = rng.choice(_RELATIONS_POOL)
+        r = rng.choice(relations_pool)
         _emit_triple(s, r, o)
 
     # Teach into a fresh brain
@@ -173,7 +201,8 @@ def generate_synthetic_substrate(
         "segments_in_brain": s_count,
         "paths_in_brain": p_count,
         "compound_fraction": compound_fraction,
-        "relations_pool": _RELATIONS_POOL,
+        "nonsense_relations": nonsense_relations,
+        "relations_pool": relations_pool,
         "concepts": concepts,
         "triples": triples,
         "source_label": source_label,
@@ -201,6 +230,11 @@ def main() -> int:
                     help="RNG seed (default: time-based)")
     ap.add_argument("--compound-fraction", type=float, default=0.5,
                     help="Fraction of compound (multi-word) concepts (default: 0.5)")
+    ap.add_argument("--nonsense-relations", action="store_true",
+                    help="Also nonsense-ify the relation labels (per v037). "
+                         "Used to train HamRobySum-Core: substrates with zero "
+                         "real-language exposure (concepts AND relations both "
+                         "nonsense). Default off preserves v036 behavior.")
     args = ap.parse_args()
 
     info = generate_synthetic_substrate(
@@ -209,6 +243,7 @@ def main() -> int:
         num_triples=args.triples,
         seed=args.seed,
         compound_fraction=args.compound_fraction,
+        nonsense_relations=args.nonsense_relations,
     )
 
     print("Synthetic substrate generated.")

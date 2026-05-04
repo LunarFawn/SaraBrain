@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import random
+import re
 from pathlib import Path
 
 import torch
@@ -56,6 +57,36 @@ from .vocab_synth import (
 
 _DETOKENIZE_NO_LEAD_SPACE = {".", ",", ";", ":", "?", "!", "'s", "n't", ")"}
 _DETOKENIZE_NO_TRAIL_SPACE = {"(",}
+
+
+# v039 slice 2 — article post-processor.
+# Matches an article (`a` or `an`, any case) followed by whitespace
+# and the first letter of the next word. We only fix obvious vowel
+# agreement mismatches; we never insert or remove articles. The
+# model's emission decides "should there be an article here"; we
+# only fix `a apple` -> `an apple` and `an cat` -> `a cat`.
+_ARTICLE_FIX_RE = re.compile(r"\b(a|an|A|An)\s+(\w)")
+
+
+def _fix_articles(text: str) -> str:
+    """Swap `a` ↔ `an` based on vowel-onset of the following word.
+    Conservative: never inserts or removes articles, only fixes
+    vowel-agreement mismatches in already-emitted output."""
+    def _swap(m):
+        article = m.group(1)
+        next_letter = m.group(2)
+        is_vowel = next_letter.lower() in "aeiou"
+        is_an = article.lower() == "an"
+        if is_vowel and not is_an:
+            # `a apple` -> `an apple`. Preserve original case of `a`.
+            new_article = "An" if article[0].isupper() else "an"
+            return f"{new_article} {next_letter}"
+        if not is_vowel and is_an:
+            # `an cat` -> `a cat`. Preserve original case.
+            new_article = "A" if article[0].isupper() else "a"
+            return f"{new_article} {next_letter}"
+        return m.group(0)  # already correct
+    return _ARTICLE_FIX_RE.sub(_swap, text)
 
 
 def _detokenize(tokens: list[str]) -> str:
@@ -282,7 +313,9 @@ def synthesize_cluster(
     ]
     # Slot-expand: replace <Cn> tokens with their substrate strings.
     expanded = _expand_slots(prose_tokens, slot_mapping)
-    return _detokenize(expanded)
+    text = _detokenize(expanded)
+    # v039 slice 2: a/an vowel-onset agreement on slot-expanded prose.
+    return _fix_articles(text)
 
 
 def main() -> None:

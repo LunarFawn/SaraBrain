@@ -212,12 +212,102 @@ trade reproducibility for a bit more phrasing variety.
 
 ## Order of operations
 
-1. ✅ Save this commitment (this commit).
-2. **4a** — `vocab_synth.py`.
-3. **4b** — serializer in `synth_data.py`.
-4. **4c** — `train_synth.py`. Train + smoke-eval.
-5. **4d** — `inference_synth.py`.
-6. **4e** — chat REPL integration.
-7. **4f** — eval script.
-8. Update v028's Status section to mark Step 4 done and reframe Path
-   2 as optional polish.
+1. ✅ Save this commitment.
+2. ✅ **4a** — `vocab_synth.py` (commit `67832d3`).
+3. ✅ **4b** — serializer in `synth_data.py` (commit `67832d3`).
+4. ✅ **4c** — `train_synth.py` (commit `0f19fd0`). Trained
+   `hamroby_sum_synth_pairs_002000.pt` on /tmp/sara_demo.db
+   (aptamer brain, 669 pairs).
+5. ✅ **4d** — `inference_synth.py` (commit `0a341f5`).
+6. ⏸️ **4e** — chat REPL integration. **Deferred** — see v0
+   quality note below.
+7. ⏸️ **4f** — eval script. **Deferred** for the same reason.
+
+## v0 quality — honest status
+
+The full Path 1 loop runs end to end. The trained checkpoint exists
+and `inference_synth` produces output. But the output **isn't ready
+to ship into the chat REPL** as the synthesis stage yet.
+
+Final 2000-step training on the aptamer brain (RTX 3070, ~5.5 min):
+- pre-train dev_loss=8.5963 (random embeddings for new content rows)
+- step 2000: train_loss=1.83, dev_loss=4.13 (dev_ppl ≈ 62)
+- Significant overfitting (train ppl ~6 vs dev ppl ~62) on the
+  small ~600-pair corpus
+
+Sample output, 8 random clusters:
+
+| Input cluster | HamRobySum prose |
+|---|---|
+| `molecular snare static stems --has_formed--> no fmn state` | `Bind loop molecular snare.` |
+| 11 edges about `rna stability` | `Rna stability affect and is a rna aptamer stability affect for rna stability affect for rna stability affect and is a rna stability for rna aptamer stability stability for rna stability stability stability crucial and is a rna stability stability affect to forces. ...` (repetition loop) |
+| 3 edges about `5'` (constituent decomp) | `3' of 5'3' static stem.` |
+| `loop around detected molecule in bound state --forms--> molecular snare` | `Molecular snare molecule snare step molecular snare.` |
+| 10 `more --part_of-->` decomp edges | `Forces, is part of rna rna rna forces, is part of rna rna forces, is part of rna rna aptamer to rna ...` (repetition loop) |
+| 3 edges about `rna molecules` (Newton's laws) | `Rna aptamer design law. rna. rna aptamer design introduces the study.` |
+
+Pattern: short clean outputs are mostly fine; longer outputs spiral
+into repetition. Classic small-corpus / frozen-base degeneration.
+
+### Why this is the expected v0 baseline
+
+- **The corpus is tiny.** ~600 (edges → prose) pairs from a single
+  brain. No augmentation.
+- **The base is fully frozen.** L1+L2 transformer blocks were trained
+  on UD treebank conversational English; the edges→prose distribution
+  is very different and the frozen blocks can't adapt.
+- **Only 134K embedding params can adapt** — they have to express
+  every new substrate concept's representation AND learn how those
+  representations interact with the prose target. Asking a lot.
+- **No stop bias / length penalty** in decoding — once the model
+  starts looping it has no incentive to break out.
+
+### What would make v1 actually shippable
+
+Concrete experiments, in increasing cost:
+
+- **a) Unfreeze top 1-2 transformer blocks** during synth training.
+  Lets the base adapt to the synthesis task. ~30 min training, modest
+  ckpt-size growth. Cheapest single fix.
+- **b) Train against multiple brains** in one synth run. The current
+  `--pairs` arg takes one JSONL; extending to a list would let the
+  model see varied content distributions and reduce per-brain overfit.
+  ~hour of code + retrain.
+- **c) Augment the labeler with shuffles + sub-sampling.** Each
+  cluster contributes 3-5 (edges, prose) variants instead of 1.
+  Makes the 600-pair corpus look like 1800-3000 from the training
+  perspective.
+- **d) Add a length penalty / repetition penalty in inference**
+  decoding. Cheap, helps a lot with the loops.
+- **e) Mid-training: use teacher forcing on facts + free-run on prose.**
+  Currently we condition on the entire facts prefix and predict the
+  full prose. Could add curriculum that gradually transitions.
+
+(a) + (d) is probably the right next slice — small code surface,
+high probability of meaningful improvement.
+
+### Decision point
+
+Three reasonable paths from here:
+
+1. **Iterate on Path 1 quality** before integration: do (a) + (d) +
+   maybe (c). Maybe one more weekend's work.
+2. **Accept v0 as a working-but-not-shippable proof of pipeline.**
+   The architecture is validated end-to-end; ship what we have, mark
+   v033 status as "loop closed, quality TBD", revisit.
+3. **Reach for Path 2 (frontier distillation)** despite v033's
+   commitment — Max plan + API spend buys richer training signal.
+   Trades reproducibility purity for shipped quality.
+
+The v033 commitment argues for option 1. Option 2 is also fine —
+the *architecture* is what's load-bearing for the project's pitch;
+the per-brain HamRobySum quality is a tuning concern.
+
+## Status
+
+- Slices 4a–4d shipped: vocab_synth, serializer, trainer, inference
+  adapter all working end-to-end against /tmp/sara_demo.db.
+- Slice 4e (chat REPL `--use-hamrobysum` flag) deferred until
+  HamRobySum quality clears the v032 template baseline.
+- Slice 4f (eval script) deferred for the same reason — would
+  measure something not yet meaningful.

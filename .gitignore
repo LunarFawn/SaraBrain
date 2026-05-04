@@ -5,7 +5,8 @@ __pycache__/
 *.egg-info/
 dist/
 build/
-*.db
+# Sqlite WAL/journal scratch files only — the .db files themselves
+# ARE tracked (substrate brains + vocab brains are project artifacts).
 *.db-journal
 *.db-wal
 *.db-shm

@@ -220,6 +220,105 @@ def _expand_slots(prose_tokens: list[str], slot_mapping: dict[str, str]) -> list
     return out
 
 
+def _combine_same_subject_slotted(prose_tokens: list[str]) -> list[str]:
+    """v044 — post-decode combining for same-subject runs.
+
+    Operates on slot-format prose tokens BEFORE slot expansion. Groups
+    ADJACENT sentences (delimited by `.`) that share a leading subject
+    (everything before the first `<Pn>` token) and joins their
+    predicates with Oxford-comma clauses.
+
+    Example:
+        ['<C0>', '<P0>', '<C1>', '.',
+         '<C0>', '<P1>', '<C2>', '.',
+         '<C0>', '<P2>', '<C3>', '.']
+      ->
+        ['<C0>', '<P0>', '<C1>', ',',
+         '<P1>', '<C2>', ',', 'and',
+         '<P2>', '<C3>', '.']
+
+    Adjacent-only: never reorders sentences across non-adjacent
+    positions. Preserves the model's emission order, which encodes
+    attribute-flag and topic priority.
+
+    Defensive: sentences without a `<Pn>` (or with an empty subject)
+    pass through as standalone with no combining attempt."""
+    if not prose_tokens:
+        return prose_tokens
+
+    # Split into sentences at '.' tokens.
+    sentences: list[list[str]] = []
+    current: list[str] = []
+    for tok in prose_tokens:
+        if tok == ".":
+            if current:
+                sentences.append(current)
+                current = []
+        else:
+            current.append(tok)
+    if current:
+        sentences.append(current)
+    if not sentences:
+        return prose_tokens
+
+    # Identify (subject, predicate) for each sentence.
+    parsed: list[tuple[tuple[str, ...], list[str]]] = []
+    for sent in sentences:
+        # Find first <Pn> slot — everything before is subject.
+        split_at = None
+        for i, t in enumerate(sent):
+            if t in SYNTH_PRED_SLOT_SET:
+                split_at = i
+                break
+        if split_at is None or split_at == 0:
+            # No <Pn> or empty subject — treat as standalone.
+            parsed.append((tuple(sent), []))
+        else:
+            parsed.append((tuple(sent[:split_at]), sent[split_at:]))
+
+    # Group adjacent same-subject sentences.
+    # Each group: (subject_tokens, list_of_predicates_or_None).
+    # None marker = standalone (cannot combine).
+    groups: list[tuple[tuple[str, ...], list[list[str]] | None]] = []
+    for subj, pred in parsed:
+        if not pred:
+            groups.append((subj, None))
+            continue
+        if (groups
+                and groups[-1][1] is not None
+                and groups[-1][0] == subj):
+            groups[-1][1].append(pred)
+        else:
+            groups.append((subj, [pred]))
+
+    # Emit combined token stream.
+    out: list[str] = []
+    for subj, preds in groups:
+        out.extend(subj)
+        if preds is None:
+            # Standalone — no predicates, but we still terminate the
+            # sentence with a period so detokenization is consistent.
+            out.append(".")
+            continue
+        if len(preds) == 1:
+            out.extend(preds[0])
+        elif len(preds) == 2:
+            out.extend(preds[0])
+            out.append("and")
+            out.extend(preds[1])
+        else:
+            # 3+: Oxford-comma list.
+            for i, pred in enumerate(preds):
+                out.extend(pred)
+                if i == len(preds) - 2:
+                    out.append(",")
+                    out.append("and")
+                elif i < len(preds) - 1:
+                    out.append(",")
+        out.append(".")
+    return out
+
+
 def _expand_pred_slots(
     prose_tokens: list[str],
     pred_mapping: dict[str, str],
@@ -401,6 +500,9 @@ def synthesize_cluster(
     prose_tokens = [
         ID2TOK_SYNTH[i] for i in out_ids if i not in structural_ids
     ]
+    # v044: combine adjacent same-subject sentences into Oxford-comma
+    # clauses BEFORE slot expansion (subjects are still <Cn> tokens).
+    prose_tokens = _combine_same_subject_slotted(prose_tokens)
     # v040: expand predicate slots first (relation -> English phrase
     # via vocab brain lookup), then content slots (substrate strings).
     expanded = _expand_pred_slots(prose_tokens, pred_mapping, vocab_lookup)

@@ -190,11 +190,18 @@ def eval_loss(
 
 def main() -> None:
     p = argparse.ArgumentParser()
-    p.add_argument(
-        "--l2-ckpt", type=Path, required=True,
-        help="L2-en checkpoint (vocab_size=VOCAB_SIZE_EN). Carries the "
-             "frozen L1 transformer blocks plus the trained L2-en token "
-             "embedding rows.",
+    init_group = p.add_mutually_exclusive_group(required=True)
+    init_group.add_argument(
+        "--l2-ckpt", type=Path, default=None,
+        help="L2-en checkpoint (vocab_size=VOCAB_SIZE_EN). Cold-start "
+             "path — projects L2's tok_embed/pos_embed into the larger "
+             "synth vocab, then trains. Use for phase 1 of curriculum.",
+    )
+    init_group.add_argument(
+        "--resume-from", type=Path, default=None,
+        help="Prior synth checkpoint (vocab_size=VOCAB_SIZE_SYNTH). "
+             "Loaded directly with no projection — vocab already "
+             "matches. Use for curriculum phase 2/3 (per v036).",
     )
     p.add_argument(
         "--pairs", type=Path, required=True,
@@ -272,36 +279,81 @@ def main() -> None:
     if not train_rows or not dev_rows:
         raise SystemExit("not enough data — increase --dev-frac or generate more pairs")
 
-    # Load L2-en checkpoint and reconstruct its config.
-    print(f"[synth] loading L2 base: {args.l2_ckpt}", flush=True)
-    ck = torch.load(args.l2_ckpt, map_location="cpu", weights_only=False)
-    base_cfg = GrammarConfig(**ck["config"])
-    if base_cfg.vocab_size != VOCAB_SIZE_EN:
-        raise SystemExit(
-            f"L2 checkpoint vocab_size={base_cfg.vocab_size} but "
-            f"VOCAB_SIZE_EN={VOCAB_SIZE_EN}; pass an L2-en checkpoint"
-        )
-
-    # Build synth model.
-    synth_cfg = GrammarConfig(
-        vocab_size=synth_vocab_size,
-        d_model=base_cfg.d_model,
-        n_heads=base_cfg.n_heads,
-        n_layers=base_cfg.n_layers,
-        d_ff=base_cfg.d_ff,
-        max_seq=max(base_cfg.max_seq, args.max_seq),
-        dropout=base_cfg.dropout,
-        pad_id=base_cfg.pad_id,
-    )
+    # Initialise the synth model: cold-start from L2-en (project up) or
+    # warm-start from a prior synth ckpt (load directly, no projection).
     device = torch.device(args.device)
-    model = GrammarModel(synth_cfg).to(device)
-
-    proj = project_base_into_synth(ck["state_dict"], model, base_cfg.vocab_size)
-    print(
-        f"[synth] projected L2 -> synth: copied={len(proj['copied'])} "
-        f"padded={len(proj['padded'])} skipped={len(proj['skipped'])}",
-        flush=True,
-    )
+    if args.l2_ckpt is not None:
+        print(f"[synth] cold-start: loading L2 base {args.l2_ckpt}", flush=True)
+        ck = torch.load(args.l2_ckpt, map_location="cpu", weights_only=False)
+        base_cfg = GrammarConfig(**ck["config"])
+        if base_cfg.vocab_size != VOCAB_SIZE_EN:
+            raise SystemExit(
+                f"--l2-ckpt vocab_size={base_cfg.vocab_size} but "
+                f"VOCAB_SIZE_EN={VOCAB_SIZE_EN}; pass an L2-en checkpoint"
+            )
+        synth_cfg = GrammarConfig(
+            vocab_size=synth_vocab_size,
+            d_model=base_cfg.d_model,
+            n_heads=base_cfg.n_heads,
+            n_layers=base_cfg.n_layers,
+            d_ff=base_cfg.d_ff,
+            max_seq=max(base_cfg.max_seq, args.max_seq),
+            dropout=base_cfg.dropout,
+            pad_id=base_cfg.pad_id,
+        )
+        model = GrammarModel(synth_cfg).to(device)
+        proj = project_base_into_synth(ck["state_dict"], model, base_cfg.vocab_size)
+        print(
+            f"[synth] projected L2 -> synth: copied={len(proj['copied'])} "
+            f"padded={len(proj['padded'])} skipped={len(proj['skipped'])}",
+            flush=True,
+        )
+    else:
+        # Resume from a prior synth ckpt — vocab matches, just load.
+        print(f"[synth] resume: loading prior synth ckpt {args.resume_from}", flush=True)
+        ck = torch.load(args.resume_from, map_location="cpu", weights_only=False)
+        synth_cfg = GrammarConfig(**ck["config"])
+        if synth_cfg.vocab_size != synth_vocab_size:
+            raise SystemExit(
+                f"--resume-from vocab_size={synth_cfg.vocab_size} but "
+                f"VOCAB_SIZE_SYNTH={synth_vocab_size}; checkpoint must be "
+                f"a v035-generic synth ckpt"
+            )
+        # Allow max_seq grow on resume if the new corpus needs longer.
+        if args.max_seq > synth_cfg.max_seq:
+            print(
+                f"[synth] growing max_seq {synth_cfg.max_seq} -> {args.max_seq} "
+                f"(pos_embed will pad with random init for new rows)",
+                flush=True,
+            )
+            new_cfg = GrammarConfig(
+                vocab_size=synth_cfg.vocab_size,
+                d_model=synth_cfg.d_model,
+                n_heads=synth_cfg.n_heads,
+                n_layers=synth_cfg.n_layers,
+                d_ff=synth_cfg.d_ff,
+                max_seq=args.max_seq,
+                dropout=synth_cfg.dropout,
+                pad_id=synth_cfg.pad_id,
+            )
+            model = GrammarModel(new_cfg).to(device)
+            proj = project_base_into_synth(
+                ck["state_dict"], model, synth_cfg.vocab_size,
+            )
+            synth_cfg = new_cfg
+            print(
+                f"[synth] resumed with grown max_seq: copied={len(proj['copied'])} "
+                f"padded={len(proj['padded'])} skipped={len(proj['skipped'])}",
+                flush=True,
+            )
+        else:
+            model = GrammarModel(synth_cfg).to(device)
+            model.load_state_dict(ck["state_dict"])
+            print(
+                f"[synth] resumed cleanly  (prior step={ck.get('step')}  "
+                f"prior dev_loss={ck.get('dev_loss')})",
+                flush=True,
+            )
 
     top_n = -1 if args.unfreeze_base else args.unfreeze_top_n
     trainable, frozen = freeze_base_params(model, top_n=top_n)
@@ -430,7 +482,8 @@ def main() -> None:
                 "config": synth_cfg.__dict__,
                 "vocab_flavor": "v035-generic",  # marks the slot-based vocab
                 "pairs_path": str(args.pairs),
-                "l2_ckpt": str(args.l2_ckpt),
+                "l2_ckpt": str(args.l2_ckpt) if args.l2_ckpt else None,
+                "resume_from": str(args.resume_from) if args.resume_from else None,
                 "frozen_base": top_n == 0,
                 "unfreeze_top_n": top_n,
                 "state_dict": sd,

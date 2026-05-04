@@ -65,9 +65,13 @@ HELP = """commands:
   /teach STATEMENT   teach Sara a new fact (e.g. /teach ssng1 is a goal)
   /refute STATEMENT  refute / negate an existing fact
   /teach-vocab REL PHRASE
-                     teach the vocab brain a new relation -> English mapping
-                     (e.g. /teach-vocab forms is formed by). Replaces any
-                     existing form for that relation. Requires --use-hamrobysum.
+                     teach the vocab brain a new relation -> English form.
+                     v043: ADDS as alternate form (rotated at inference for
+                     stylistic variety). Requires --use-hamrobysum.
+  /refute-vocab REL [PHRASE]
+                     remove vocab mapping(s). Without PHRASE: removes ALL
+                     forms for the relation. With PHRASE: removes that one form.
+  /list-vocab [REL]  show vocab mappings (all, or just for one relation).
   /dig               expand the last query — pull sibling substrate concepts
                      and synthesize their neighborhoods with the original
   /dig CONCEPT       drill into a specific named concept directly
@@ -110,7 +114,7 @@ class ChatSession:
         self.hamrobysum_ckpt = hamrobysum_ckpt
         self.vocab_brain_path = vocab_brain
         self._hamrobysum_model = None
-        self._vocab_lookup: dict[str, str] = {}
+        self._vocab_lookup: dict[str, list[str]] = {}
         if hamrobysum_ckpt is not None:
             from .inference_synth import load_synth_checkpoint, load_vocab_brain
             import torch
@@ -412,6 +416,13 @@ class ChatSession:
                 print(f"{YELLOW}usage: /teach-vocab RELATION PHRASE...{RESET}")
             else:
                 self._do_teach_vocab(arg)
+        elif cmd == "/refute-vocab":
+            if not arg.strip():
+                print(f"{YELLOW}usage: /refute-vocab RELATION [PHRASE]{RESET}")
+            else:
+                self._do_refute_vocab(arg)
+        elif cmd == "/list-vocab":
+            self._do_list_vocab(arg)
         elif cmd == "/dig":
             self.do_dig(arg)
         elif cmd == "/depth":
@@ -432,17 +443,23 @@ class ChatSession:
         path_id = getattr(result, "path_id", "?")
         print(f"{GREEN}learned (path #{path_id}): {statement}{RESET}")
 
-    def _do_teach_vocab(self, arg: str) -> None:
-        """Teach the vocab brain a new relation -> English mapping
-        (per v042). Replaces any existing english_form for that
-        relation. Persists to the vocab brain SQLite immediately and
-        updates the in-memory _vocab_lookup so the next query uses
-        the new mapping."""
+    def _vocab_check(self) -> bool:
+        """Common precondition for vocab management commands. Returns
+        True if usable; prints + returns False otherwise."""
         if self._hamrobysum_model is None or self.vocab_brain_path is None:
             print(f"{YELLOW}vocab brain not loaded — restart with --use-hamrobysum{RESET}")
-            return
+            return False
         if not self.vocab_brain_path.exists():
             print(f"{YELLOW}vocab brain not found at {self.vocab_brain_path}{RESET}")
+            return False
+        return True
+
+    def _do_teach_vocab(self, arg: str) -> None:
+        """Teach the vocab brain a new relation -> English mapping.
+        v043: ADDS as an alternate form rather than replacing.
+        To replace, /refute-vocab RELATION first then /teach-vocab.
+        Duplicate (same relation + same phrase) is a no-op."""
+        if not self._vocab_check():
             return
 
         parts = arg.strip().split(maxsplit=1)
@@ -454,9 +471,6 @@ class ChatSession:
             print(f"{YELLOW}usage: /teach-vocab RELATION PHRASE...{RESET}")
             return
 
-        # Write directly to the vocab brain SQLite (same pattern as
-        # scripts/build_vocab_brain_en.py — bypass the chain-learning
-        # machinery that's the wrong abstraction for vocab lookups).
         import sqlite3
         import time
         conn = sqlite3.connect(str(self.vocab_brain_path))
@@ -474,11 +488,6 @@ class ChatSession:
                 rel_id = cur.lastrowid
             else:
                 rel_id = row[0]
-            # Replace: delete any existing english_form segments for this relation.
-            conn.execute(
-                "DELETE FROM segments WHERE source_id = ? AND relation = ?",
-                (rel_id, "english_form"),
-            )
             # Find or create the phrase neuron.
             row = conn.execute(
                 "SELECT id FROM neurons WHERE label = ?", (phrase,)
@@ -492,20 +501,133 @@ class ChatSession:
                 phrase_id = cur.lastrowid
             else:
                 phrase_id = row[0]
-            # Add the new english_form segment.
-            conn.execute(
-                "INSERT INTO segments "
+            # ADD (not replace): silently no-op if the same form already
+            # exists for this relation (UNIQUE(source, target, relation)
+            # constraint is the safety net).
+            cur = conn.execute(
+                "INSERT OR IGNORE INTO segments "
                 "(source_id, target_id, relation, created_at) "
                 "VALUES (?, ?, ?, ?)",
                 (rel_id, phrase_id, "english_form", time.time()),
             )
+            added = cur.rowcount > 0
             conn.commit()
         finally:
             conn.close()
 
-        # Update in-memory lookup.
-        self._vocab_lookup[relation] = phrase
-        print(f"{GREEN}vocab updated: {relation} -> {phrase!r}{RESET}")
+        # Update in-memory lookup (append-not-replace).
+        forms = self._vocab_lookup.setdefault(relation, [])
+        if phrase not in forms:
+            forms.append(phrase)
+        if added:
+            n_forms = len(forms)
+            note = f" ({n_forms} forms total)" if n_forms > 1 else ""
+            print(f"{GREEN}vocab added: {relation} -> {phrase!r}{note}{RESET}")
+        else:
+            print(f"{DIM}vocab unchanged: {relation} -> {phrase!r} already exists{RESET}")
+
+    def _do_refute_vocab(self, arg: str) -> None:
+        """Remove vocab mapping(s) for a relation. v043.
+
+        /refute-vocab RELATION         — remove ALL forms for the relation
+        /refute-vocab RELATION PHRASE  — remove only the specific form
+        """
+        if not self._vocab_check():
+            return
+
+        parts = arg.strip().split(maxsplit=1)
+        if not parts or not parts[0].strip():
+            print(f"{YELLOW}usage: /refute-vocab RELATION [PHRASE]{RESET}")
+            return
+        relation = parts[0].strip()
+        phrase = parts[1].strip() if len(parts) > 1 else None
+
+        import sqlite3
+        conn = sqlite3.connect(str(self.vocab_brain_path))
+        try:
+            row = conn.execute(
+                "SELECT id FROM neurons WHERE label = ?", (relation,)
+            ).fetchone()
+            if row is None:
+                print(f"{YELLOW}no vocab entry for relation {relation!r}{RESET}")
+                return
+            rel_id = row[0]
+            if phrase is None:
+                # Remove all forms.
+                cur = conn.execute(
+                    "DELETE FROM segments WHERE source_id = ? AND relation = ?",
+                    (rel_id, "english_form"),
+                )
+                n = cur.rowcount
+                conn.commit()
+                if n > 0:
+                    self._vocab_lookup.pop(relation, None)
+                    print(f"{GREEN}vocab refuted: removed all {n} form(s) for {relation!r}{RESET}")
+                else:
+                    print(f"{YELLOW}no forms to remove for {relation!r}{RESET}")
+            else:
+                # Remove only the specific phrase.
+                row = conn.execute(
+                    "SELECT id FROM neurons WHERE label = ?", (phrase,)
+                ).fetchone()
+                if row is None:
+                    print(f"{YELLOW}no neuron for phrase {phrase!r}{RESET}")
+                    return
+                phrase_id = row[0]
+                cur = conn.execute(
+                    "DELETE FROM segments WHERE source_id = ? AND target_id = ? "
+                    "AND relation = ?",
+                    (rel_id, phrase_id, "english_form"),
+                )
+                n = cur.rowcount
+                conn.commit()
+                if n > 0:
+                    forms = self._vocab_lookup.get(relation, [])
+                    if phrase in forms:
+                        forms.remove(phrase)
+                    if not forms:
+                        self._vocab_lookup.pop(relation, None)
+                    remaining = len(self._vocab_lookup.get(relation, []))
+                    note = f"; {remaining} form(s) remain" if remaining else ""
+                    print(f"{GREEN}vocab refuted: {relation} -> {phrase!r}{note}{RESET}")
+                else:
+                    print(f"{YELLOW}{relation} -> {phrase!r} not found in vocab brain{RESET}")
+        finally:
+            conn.close()
+
+    def _do_list_vocab(self, arg: str) -> None:
+        """Show vocab mappings. v043.
+
+        /list-vocab            — print all relation -> form(s)
+        /list-vocab RELATION   — print all forms for one relation
+        """
+        if not self._vocab_check():
+            return
+        target = arg.strip() or None
+        if not self._vocab_lookup:
+            print(f"{YELLOW}vocab brain has no mappings{RESET}")
+            return
+        if target:
+            forms = self._vocab_lookup.get(target)
+            if not forms:
+                print(f"{YELLOW}no vocab entry for {target!r}{RESET}")
+                return
+            print(f"{CYAN}{target}{RESET}")
+            for f in forms:
+                print(f"  -> {f!r}")
+            return
+        # No arg — print everything alphabetized.
+        n_relations = len(self._vocab_lookup)
+        n_forms = sum(len(v) for v in self._vocab_lookup.values())
+        print(f"{DIM}{n_relations} relation(s), {n_forms} form(s) total{RESET}")
+        for relation in sorted(self._vocab_lookup):
+            forms = self._vocab_lookup[relation]
+            if len(forms) == 1:
+                print(f"  {relation:25s} -> {forms[0]!r}")
+            else:
+                print(f"  {CYAN}{relation}{RESET}")
+                for f in forms:
+                    print(f"    -> {f!r}")
 
     def _do_refute(self, statement: str) -> None:
         try:

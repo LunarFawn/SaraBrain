@@ -141,13 +141,16 @@ def load_synth_checkpoint(
     return model
 
 
-def load_vocab_brain(path: Path) -> dict[str, str]:
+def load_vocab_brain(path: Path) -> dict[str, list[str]]:
     """Open a vocab brain (per v040 — a Sara brain.db whose neurons
     are relation names mapped to English phrases via the
     `english_form` segment relation). Returns
-    `{relation_name: english_phrase}` — first form per relation.
-    Multiple-form-per-relation is plumbing-supported but inference
-    picks the first; choosing among forms is future work."""
+    `{relation_name: [phrase, ...]}` — every form for each relation.
+
+    v043: a relation may carry multiple english_form segments (taught
+    via `/teach-vocab`); inference rotates among them at decode time
+    via `_expand_pred_slots`. Order is segment-insertion order via
+    SQLite's `s.id ASC`."""
     import sqlite3
     conn = sqlite3.connect(str(path))
     rows = conn.execute(
@@ -156,13 +159,12 @@ def load_vocab_brain(path: Path) -> dict[str, str]:
         "JOIN neurons n_src ON s.source_id = n_src.id "
         "JOIN neurons n_tgt ON s.target_id = n_tgt.id "
         "WHERE s.relation = 'english_form' "
-        "ORDER BY n_src.label"
+        "ORDER BY n_src.label, s.id"
     ).fetchall()
     conn.close()
-    lookup: dict[str, str] = {}
+    lookup: dict[str, list[str]] = {}
     for relation, phrase in rows:
-        if relation not in lookup:  # first form wins
-            lookup[relation] = phrase
+        lookup.setdefault(relation, []).append(phrase)
     return lookup
 
 
@@ -221,35 +223,47 @@ def _expand_slots(prose_tokens: list[str], slot_mapping: dict[str, str]) -> list
 def _expand_pred_slots(
     prose_tokens: list[str],
     pred_mapping: dict[str, str],
-    vocab_lookup: dict[str, str],
+    vocab_lookup: dict[str, list[str]],
 ) -> list[str]:
-    """Replace each `<Pn>` token with its English phrase from the
+    """Replace each `<Pn>` token with an English phrase from the
     vocab brain (or fall back to `relation.replace("_", " ")` if the
-    relation isn't in the vocab brain). v040.
+    relation isn't in the vocab brain). v040 base; v043 adds
+    multi-form rotation.
+
+    When a relation has multiple english_form segments
+    (`/teach-vocab` adds alternates), the N-th emission of `<Pn>`
+    in the prose picks `forms[N % len(forms)]` — deterministic
+    round-robin per slot. Same cluster + same checkpoint always
+    produces the same expansion.
 
     Defensive: if the model emits a `<Pn>` token whose index isn't
-    in `pred_mapping` (e.g. a single-relation cluster only allocated
-    `<P0>` but the model overgeneralized and emitted `<P1>`), fall
-    back to the FIRST allocated relation in the mapping. Avoids the
-    raw `<P1>` token leaking into output."""
+    in `pred_mapping` (e.g. single-relation cluster only allocated
+    `<P0>` but the model overgeneralized to `<P1>`), fall back to
+    the FIRST allocated relation."""
     if not pred_mapping:
         return prose_tokens
-    # Reverse: <Pn> -> relation name -> english phrase
+    # Reverse: <Pn> -> relation name -> english phrase(s)
     reverse = {slot: rel for rel, slot in pred_mapping.items()}
-    # Default fallback for any unallocated <Pn>: the first allocated relation.
     default_relation = next(iter(pred_mapping)) if pred_mapping else None
+    # Per-slot emission counter for round-robin form selection.
+    emission_count: dict[str, int] = {}
 
     out: list[str] = []
     for tok in prose_tokens:
         if tok in reverse:
             relation = reverse[tok]
         elif tok in SYNTH_PRED_SLOT_SET and default_relation is not None:
-            # Unallocated predicate slot — use the cluster's first relation.
             relation = default_relation
         else:
             out.append(tok)
             continue
-        phrase = vocab_lookup.get(relation, relation.replace("_", " "))
+        forms = vocab_lookup.get(relation)
+        if forms:
+            idx = emission_count.get(tok, 0)
+            phrase = forms[idx % len(forms)]
+            emission_count[tok] = idx + 1
+        else:
+            phrase = relation.replace("_", " ")
         out.append(phrase)
     return out
 

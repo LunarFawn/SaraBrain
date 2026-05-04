@@ -34,13 +34,14 @@ from collections import defaultdict
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
-from .synthesizer import Edge, render_edges
+from .synthesizer import Edge, render_edges, render_edges_slotted
 from .vocab_synth import (
     BOS_ID,
     EOS_ID,
     EDGE_SEP_ID,
     END_PROSE_ID,
     FACTS_ID,
+    N_PRED_SLOTS,
     N_SLOTS,
     OBJ_ID,
     PRED_ID,
@@ -50,6 +51,7 @@ from .vocab_synth import (
     SUBJ_ID,
     TOK2ID_SYNTH,
     UNK_ID,
+    pred_slot_token,
     slot_token,
 )
 
@@ -265,30 +267,55 @@ def slot_substitute(text: str, mapping: dict[str, str]) -> str:
     return out
 
 
+def build_pred_mapping(ex: SynthExample) -> dict[str, str]:
+    """Per-example mapping `{relation_name: <Pn>}`. Each distinct
+    relation in the cluster gets a slot in encounter order. Caps at
+    `N_PRED_SLOTS`. Used by v040 to slot the predicate position
+    parallel to the content slot mechanism in `build_slot_mapping`."""
+    mapping: dict[str, str] = {}
+    next_idx = 0
+    for e in ex.edges:
+        if e.rel in mapping:
+            continue
+        if next_idx >= N_PRED_SLOTS:
+            break
+        mapping[e.rel] = pred_slot_token(next_idx)
+        next_idx += 1
+    return mapping
+
+
 def serialize_example(ex: SynthExample) -> dict:
-    """Convert a SynthExample to a token-id training row using
-    slot-based substitution (v035). Substrate content rides through as
-    `<C0>`...`<C31>` tokens; the model never sees the strings.
+    """Convert a SynthExample to a token-id training row using v040
+    dual-slot substitution: substrate CONTENT rides as `<C0>`...`<C31>`
+    tokens, substrate RELATIONS ride as `<P0>`...`<P15>` tokens. The
+    model sees structure only; both content and verbs round-trip
+    through substrate at inference time.
 
     Returns:
       {
-        "input_ids":    list[int]   — full sequence to feed the model
+        "input_ids":    list[int]
         "loss_mask":   list[int]   — 1 on prose-continuation positions
-        "slot_mapping": dict        — per-example {<Cn>: substrate_str}
-        "n_facts":      int         — index where <prose> sits (debug)
-        "n_prose":      int         — number of prose tokens (debug)
+        "slot_mapping": dict        — {<Cn>: substrate_str}
+        "pred_mapping": dict        — {relation_name: <Pn>}
+        "n_facts":      int
+        "n_prose":      int
       }
     """
-    mapping = build_slot_mapping(ex)
-    inv = {v.lower(): k for k, v in mapping.items()}
+    content_mapping = build_slot_mapping(ex)
+    pred_mapping = build_pred_mapping(ex)
+    content_inv = {v.lower(): k for k, v in content_mapping.items()}
+
+    # Slotted prose: re-render the example's prose using the slot tokens
+    # for both content AND predicates. This is the v040 swap that
+    # replaces the v039 string-substitution-after-render path.
+    prose_with_slots = render_edges_slotted(
+        ex.edges, content_inv, pred_mapping, topic=ex.subject,
+    )
 
     def _slot_or_encode(s: str) -> list[int]:
-        """If `s` matches a slot's substrate string exactly, emit just
-        that one slot token id. Otherwise tokenize/encode normally
-        (which will UNK any out-of-vocab content)."""
         s_norm = s.strip()
-        if s_norm.lower() in inv:
-            return [TOK2ID_SYNTH[inv[s_norm.lower()]]]
+        if s_norm.lower() in content_inv:
+            return [TOK2ID_SYNTH[content_inv[s_norm.lower()]]]
         return _encode_text(s_norm)
 
     ids: list[int] = [BOS_ID, FACTS_ID]
@@ -296,10 +323,11 @@ def serialize_example(ex: SynthExample) -> dict:
         ids.append(SUBJ_ID)
         ids.extend(_slot_or_encode(e.src))
         ids.append(PRED_ID)
-        # Predicate is the relation name — render as English-ish
-        # tokens via underscore expansion. Predicates aren't
-        # substrate content; they tokenize against TOK2ID_SYNTH.
-        ids.extend(_encode_text(e.rel.replace("_", " ")))
+        # v040: facts prefix uses the predicate slot when available.
+        if e.rel in pred_mapping:
+            ids.append(TOK2ID_SYNTH[pred_mapping[e.rel]])
+        else:
+            ids.extend(_encode_text(e.rel.replace("_", " ")))
         ids.append(OBJ_ID)
         ids.extend(_slot_or_encode(e.tgt))
         if e.refuted:
@@ -310,19 +338,11 @@ def serialize_example(ex: SynthExample) -> dict:
     n_facts = len(ids)
     ids.append(PROSE_ID)
     prose_start = len(ids)
-    # Slot-substitute the prose, then encode. Slot tokens are in
-    # vocab_synth so they tokenize cleanly; everything else is
-    # function words, punctuation, or substrate verbs (also in vocab).
-    prose_with_slots = slot_substitute(ex.prose, mapping)
     ids.extend(_encode_text(prose_with_slots))
     ids.append(END_PROSE_ID)
     ids.append(EOS_ID)
     n_prose = len(ids) - prose_start
 
-    # Loss mask: positions [prose_start - 1 .. len(ids) - 2] predict
-    # tokens [prose_start .. len(ids) - 1]. We loss the model's
-    # prediction of every prose token plus </prose> and <eos>; the
-    # facts prefix is not graded.
     loss_mask = [0] * len(ids)
     for i in range(prose_start - 1, len(ids) - 1):
         loss_mask[i] = 1
@@ -330,7 +350,8 @@ def serialize_example(ex: SynthExample) -> dict:
     return {
         "input_ids":    ids,
         "loss_mask":   loss_mask,
-        "slot_mapping": mapping,
+        "slot_mapping": content_mapping,
+        "pred_mapping": pred_mapping,
         "n_facts":      n_facts,
         "n_prose":      n_prose,
     }

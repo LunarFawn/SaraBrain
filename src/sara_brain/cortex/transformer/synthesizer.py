@@ -363,6 +363,104 @@ def _join_predicates(preds: list[str]) -> str:
     return ", ".join(cleaned[:-1]) + ", and " + cleaned[-1]
 
 
+# v040 — slot-aware predicate-phrase extraction. Re-used by both
+# scripts/build_vocab_brain_en.py (to seed the vocab brain) and the
+# slotted training-data renderer below. Strips `{src}`/`{tgt}`
+# placeholders, returns whatever predicate phrase remains, collapses
+# whitespace.
+_TEMPLATE_PLACEHOLDER_RE = re.compile(r"\{(?:src|tgt)\}")
+
+
+def extract_predicate_phrase(template: str) -> str:
+    """`"{tgt} is a {src}"` -> `"is a"`. `"{src} measures {tgt}"` ->
+    `"measures"`. For templates with placeholders interspersed in the
+    predicate phrase (e.g. `"the optimal ratio of {tgt} is {src}"`),
+    returns the concatenation `"the optimal ratio of is"` — which is
+    NOT a substring of the original; callers must check before using
+    str.replace."""
+    phrase = _TEMPLATE_PLACEHOLDER_RE.sub("", template).strip()
+    return re.sub(r"\s+", " ", phrase)
+
+
+def _render_edge_slotted(
+    e: Edge,
+    content_map: dict[str, str],
+    pred_map: dict[str, str],
+) -> str:
+    """Slotted version of `_render_edge` for v040 training data.
+    Substitutes content (src/tgt) with `<Cn>` tokens from
+    `content_map` and the predicate phrase with the `<Pn>` token from
+    `pred_map`. If a slot mapping isn't available (cluster exceeded
+    cap, or predicate phrase isn't substring-replaceable), falls back
+    to the literal text — the model just sees the v039-style output
+    for that edge."""
+    src_repr = content_map.get(e.src.strip().lower(), e.src)
+    tgt_repr = content_map.get(e.tgt.strip().lower(), e.tgt)
+    pred_repr = pred_map.get(e.rel)
+
+    def _try_slot_predicate(template: str) -> str:
+        if pred_repr is None:
+            return template
+        phrase = extract_predicate_phrase(template)
+        if phrase and phrase in template:
+            return template.replace(phrase, pred_repr)
+        return template  # complex template (placeholder mid-phrase) — leave literal
+
+    if e.target_was_attribute and e.rel in _ATTR_TEMPLATES:
+        text = _try_slot_predicate(_ATTR_TEMPLATES[e.rel]).format(
+            src=src_repr, tgt=tgt_repr,
+        )
+    elif e.rel in _TEMPLATES:
+        text = _try_slot_predicate(_TEMPLATES[e.rel]).format(
+            src=src_repr, tgt=tgt_repr,
+        )
+    else:
+        rel_pretty = pred_repr if pred_repr is not None else e.rel.replace("_", " ")
+        if e.target_was_attribute:
+            text = _ATTR_FALLBACK.format(src=src_repr, tgt=tgt_repr, rel_pretty=rel_pretty)
+        else:
+            text = _FALLBACK.format(src=src_repr, tgt=tgt_repr, rel_pretty=rel_pretty)
+    if e.refuted:
+        text = f"it is not the case that {text}"
+    return text + "."
+
+
+def render_edges_slotted(
+    edges: list[Edge],
+    content_map: dict[str, str],
+    pred_map: dict[str, str],
+    topic: str | None = None,
+) -> str:
+    """Slotted prose for v040 training data. Filters noise like
+    `render_edges` does, but emits ONE SENTENCE PER EDGE (no
+    same-subject combining) — the slot tokens make the combiner's
+    verb-whitelist heuristic moot, and per-edge structure is the
+    minimum viable training signal. Combining can return as a future
+    polish slice if needed."""
+    edges = [e for e in edges if e.rel not in _NOISE_RELATIONS]
+    edges = [e for e in edges if e.src.strip().lower() not in _STOP_WORDS]
+    edges = [e for e in edges if not _is_decomposition_part_of(e)]
+    if not edges:
+        return ""
+
+    # Topic ordering: edges whose src or tgt contains the topic come first.
+    if topic:
+        topic_l = topic.lower().strip()
+        edges = sorted(
+            edges,
+            key=lambda e: 0 if (
+                topic_l in e.src.lower() or topic_l in e.tgt.lower()
+            ) else 1,
+        )
+
+    sentences: list[str] = []
+    for e in edges:
+        s = _render_edge_slotted(e, content_map, pred_map)
+        if s:
+            sentences.append(s[0].upper() + s[1:])
+    return " ".join(sentences)
+
+
 def render_edges(edges: list[Edge], topic: str | None = None) -> str:
     """Render an edge list as prose. Filters substrate noise (graph
     plumbing relations, stop-word subjects, decomposition `part_of`

@@ -30,8 +30,8 @@ import torch
 
 from .model import GrammarConfig, GrammarModel
 from .synth_data import (
-    Edge, _tokenize_text, build_slot_mapping, cluster_by_subject,
-    load_substrate_edges, SynthExample,
+    Edge, _tokenize_text, build_pred_mapping, build_slot_mapping,
+    cluster_by_subject, load_substrate_edges, SynthExample,
 )
 from .vocab_synth import (
     BOS_ID,
@@ -47,6 +47,7 @@ from .vocab_synth import (
     REFUTED_ID,
     ATTR_ID,
     SUBJ_ID,
+    SYNTH_PRED_SLOT_SET,
     SYNTH_SLOT_ID_SET,
     SYNTH_SLOTS,
     TOK2ID_SYNTH,
@@ -140,13 +141,43 @@ def load_synth_checkpoint(
     return model
 
 
+def load_vocab_brain(path: Path) -> dict[str, str]:
+    """Open a vocab brain (per v040 — a Sara brain.db whose neurons
+    are relation names mapped to English phrases via the
+    `english_form` segment relation). Returns
+    `{relation_name: english_phrase}` — first form per relation.
+    Multiple-form-per-relation is plumbing-supported but inference
+    picks the first; choosing among forms is future work."""
+    import sqlite3
+    conn = sqlite3.connect(str(path))
+    rows = conn.execute(
+        "SELECT n_src.label, n_tgt.label "
+        "FROM segments s "
+        "JOIN neurons n_src ON s.source_id = n_src.id "
+        "JOIN neurons n_tgt ON s.target_id = n_tgt.id "
+        "WHERE s.relation = 'english_form' "
+        "ORDER BY n_src.label"
+    ).fetchall()
+    conn.close()
+    lookup: dict[str, str] = {}
+    for relation, phrase in rows:
+        if relation not in lookup:  # first form wins
+            lookup[relation] = phrase
+    return lookup
+
+
 def _facts_prefix_with_slots(
-    edges: list[Edge], slot_mapping: dict[str, str],
+    edges: list[Edge],
+    slot_mapping: dict[str, str],
+    pred_mapping: dict[str, str] | None = None,
 ) -> list[int]:
-    """Build the facts prefix + leading <prose> marker, substituting
-    each substrate string with its slot token. The model decodes from
-    `<prose>` onward."""
+    """Build the facts prefix + leading <prose> marker. Substitutes
+    each substrate string with its content slot token AND each
+    relation name with its predicate slot token (v040). Predicates
+    not in `pred_mapping` fall back to literal-encoding via
+    `relation.replace("_", " ")`."""
     inv = {v.lower(): k for k, v in slot_mapping.items()}
+    pred_mapping = pred_mapping or {}
 
     def _slot_or_encode(s: str) -> list[int]:
         s_norm = s.strip()
@@ -159,8 +190,11 @@ def _facts_prefix_with_slots(
         ids.append(SUBJ_ID)
         ids.extend(_slot_or_encode(e.src))
         ids.append(PRED_ID)
-        for t in _tokenize_text(e.rel.replace("_", " ")):
-            ids.append(TOK2ID_SYNTH.get(t, UNK_ID))
+        if e.rel in pred_mapping:
+            ids.append(TOK2ID_SYNTH[pred_mapping[e.rel]])
+        else:
+            for t in _tokenize_text(e.rel.replace("_", " ")):
+                ids.append(TOK2ID_SYNTH.get(t, UNK_ID))
         ids.append(OBJ_ID)
         ids.extend(_slot_or_encode(e.tgt))
         if e.refuted:
@@ -179,6 +213,31 @@ def _expand_slots(prose_tokens: list[str], slot_mapping: dict[str, str]) -> list
     for tok in prose_tokens:
         if tok in slot_mapping:
             out.append(slot_mapping[tok])
+        else:
+            out.append(tok)
+    return out
+
+
+def _expand_pred_slots(
+    prose_tokens: list[str],
+    pred_mapping: dict[str, str],
+    vocab_lookup: dict[str, str],
+) -> list[str]:
+    """Replace each `<Pn>` token with its English phrase from the
+    vocab brain (or fall back to `relation.replace("_", " ")` if the
+    relation isn't in the vocab brain). v040."""
+    if not pred_mapping:
+        return prose_tokens
+    # Reverse: <Pn> -> relation name -> english phrase
+    reverse = {slot: rel for rel, slot in pred_mapping.items()}
+    out: list[str] = []
+    for tok in prose_tokens:
+        if tok in reverse:
+            relation = reverse[tok]
+            phrase = vocab_lookup.get(
+                relation, relation.replace("_", " "),
+            )
+            out.append(phrase)
         else:
             out.append(tok)
     return out
@@ -227,34 +286,40 @@ def synthesize_cluster(
     repetition_penalty: float = 1.0,
     repetition_window: int = 32,
     no_repeat_ngram_size: int = 0,
+    vocab_lookup: dict[str, str] | None = None,
 ) -> str:
-    """Render `edges` as prose using the v035 generic slot-based pipeline.
+    """Render `edges` as prose. v040: dual slot pipeline.
 
-    Builds a per-cluster `<C0>`...`<C31>` slot mapping for the
-    substrate strings in this cluster, formats the facts prefix with
-    slots, decodes prose, expands slots back to substrate strings.
+    Builds per-cluster mappings for content (`<C0>`...`<C31>`) AND
+    predicates (`<P0>`...`<P15>`). Formats facts prefix with both
+    slot types. Decodes prose. Expands `<Pn>` via `vocab_lookup`
+    (relation -> English phrase), then expands `<Cn>` via the
+    cluster's content mapping, then detokenizes, then runs the v039
+    article post-processor.
 
-    `repetition_penalty > 1.0` divides the logits of recently-emitted
-    tokens (last `repetition_window` positions of the prose tail).
-    `no_repeat_ngram_size > 0` bans candidates that would close an
-    n-gram already present in the prose tail."""
+    `vocab_lookup` defaults to `{}`, in which case predicates fall
+    back to `relation.replace("_", " ")` (same as the unknown-relation
+    path)."""
     if not edges:
         return ""
     rng = rng or random.Random(0)
     max_seq = model.cfg.max_seq
+    vocab_lookup = vocab_lookup or {}
 
-    # Build per-cluster slot mapping from a pseudo-example.
+    # Build per-cluster mappings from a pseudo-example.
     pseudo = SynthExample(edges=list(edges), prose="", subject="")
     slot_mapping = build_slot_mapping(pseudo)
+    pred_mapping = build_pred_mapping(pseudo)
 
     # Build facts prefix; truncate edges if it overflows.
-    prefix = _facts_prefix_with_slots(edges, slot_mapping)
+    prefix = _facts_prefix_with_slots(edges, slot_mapping, pred_mapping)
     truncated = 0
     while len(prefix) >= max_seq - 4 and len(edges) > 1:
         edges = edges[1:]   # drop oldest first
         pseudo = SynthExample(edges=list(edges), prose="", subject="")
         slot_mapping = build_slot_mapping(pseudo)
-        prefix = _facts_prefix_with_slots(edges, slot_mapping)
+        pred_mapping = build_pred_mapping(pseudo)
+        prefix = _facts_prefix_with_slots(edges, slot_mapping, pred_mapping)
         truncated += 1
     if truncated:
         print(f"[synth] truncated {truncated} edges to fit max_seq={max_seq}",
@@ -311,8 +376,10 @@ def synthesize_cluster(
     prose_tokens = [
         ID2TOK_SYNTH[i] for i in out_ids if i not in structural_ids
     ]
-    # Slot-expand: replace <Cn> tokens with their substrate strings.
-    expanded = _expand_slots(prose_tokens, slot_mapping)
+    # v040: expand predicate slots first (relation -> English phrase
+    # via vocab brain lookup), then content slots (substrate strings).
+    expanded = _expand_pred_slots(prose_tokens, pred_mapping, vocab_lookup)
+    expanded = _expand_slots(expanded, slot_mapping)
     text = _detokenize(expanded)
     # v039 slice 2: a/an vowel-onset agreement on slot-expanded prose.
     return _fix_articles(text)
@@ -349,11 +416,26 @@ def main() -> None:
     p.add_argument(
         "--device", default="cuda" if torch.cuda.is_available() else "cpu",
     )
+    p.add_argument(
+        "--vocab-brain", type=Path,
+        default=Path("src/sara_brain/cortex/vocab/vocab_en.db"),
+        help="Vocab brain (per v040): a Sara brain.db mapping relation "
+             "names to English phrases. Default ships at "
+             "src/sara_brain/cortex/vocab/vocab_en.db.",
+    )
     args = p.parse_args()
 
     device = torch.device(args.device)
     rng = random.Random(args.seed)
     model = load_synth_checkpoint(args.ckpt, device)
+    if args.vocab_brain.exists():
+        vocab_lookup = load_vocab_brain(args.vocab_brain)
+        print(f"[vocab] loaded {len(vocab_lookup)} relation -> english_form mappings "
+              f"from {args.vocab_brain}", flush=True)
+    else:
+        vocab_lookup = {}
+        print(f"[vocab] vocab brain not found at {args.vocab_brain}; predicates "
+              f"will fall back to relation.replace('_',' ')", flush=True)
 
     edges = load_substrate_edges(args.brain)
     clusters = cluster_by_subject(edges)
@@ -379,6 +461,7 @@ def main() -> None:
                 repetition_penalty=args.repetition_penalty,
                 repetition_window=args.repetition_window,
                 no_repeat_ngram_size=args.no_repeat_ngram_size,
+                vocab_lookup=vocab_lookup,
             )
             print(f"   PROSE: {prose}")
     else:
@@ -398,6 +481,7 @@ def main() -> None:
                 repetition_penalty=args.repetition_penalty,
                 repetition_window=args.repetition_window,
                 no_repeat_ngram_size=args.no_repeat_ngram_size,
+                vocab_lookup=vocab_lookup,
             )
             print(f"   PROSE: {prose}")
 

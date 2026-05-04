@@ -82,6 +82,16 @@ N_SLOTS: int = 32
 SYNTH_SLOTS: tuple[str, ...] = tuple(f"<C{i}>" for i in range(N_SLOTS))
 
 
+# Predicate slot tokens (v040). Substrate relation names get replaced
+# with these in both facts and prose; at inference time, the synth
+# pipeline looks up the English phrase for each relation in the vocab
+# brain (src/sara_brain/cortex/vocab/vocab_en.db) and substitutes back.
+# Per-cluster dedup: same relation -> same slot. 16 distinct relations
+# per cluster is comfortable headroom (worst case observed ~10).
+N_PRED_SLOTS: int = 16
+SYNTH_PRED_SLOTS: tuple[str, ...] = tuple(f"<P{i}>" for i in range(N_PRED_SLOTS))
+
+
 # Substrate-relevant content words the prose may need to emit
 # literally. Drawn from substrate template predicates + the most
 # common OOV words found across the demo brains' rendered prose.
@@ -137,6 +147,7 @@ SYNTH_SUBSTRATE_VERBS: tuple[str, ...] = (
 
 _SYNTH_ADDED: tuple[str, ...] = (
     SYNTH_DELIMITERS + SYNTH_PUNCTUATION + SYNTH_SLOTS + SYNTH_SUBSTRATE_VERBS
+    + SYNTH_PRED_SLOTS
 )
 
 # Sanity: no duplicates among additions, and no overlap with vocab_en.
@@ -182,6 +193,13 @@ TOPIC_ID:    int = TOK2ID_SYNTH["<topic>"]
 SYNTH_SLOT_IDS: tuple[int, ...] = tuple(TOK2ID_SYNTH[s] for s in SYNTH_SLOTS)
 SYNTH_SLOT_ID_SET: frozenset[int] = frozenset(SYNTH_SLOT_IDS)
 
+# Same for predicate slots (v040).
+SYNTH_PRED_SLOT_IDS: tuple[int, ...] = tuple(
+    TOK2ID_SYNTH[s] for s in SYNTH_PRED_SLOTS
+)
+SYNTH_PRED_SLOT_ID_SET: frozenset[int] = frozenset(SYNTH_PRED_SLOT_IDS)
+SYNTH_PRED_SLOT_SET: frozenset[str] = frozenset(SYNTH_PRED_SLOTS)
+
 
 def slot_token(i: int) -> str:
     """`slot_token(0)` -> `'<C0>'`. Raises if i >= N_SLOTS."""
@@ -190,13 +208,22 @@ def slot_token(i: int) -> str:
     return SYNTH_SLOTS[i]
 
 
+def pred_slot_token(i: int) -> str:
+    """`pred_slot_token(0)` -> `'<P0>'`. Raises if i >= N_PRED_SLOTS."""
+    if not 0 <= i < N_PRED_SLOTS:
+        raise ValueError(f"pred slot index {i} out of range [0, {N_PRED_SLOTS})")
+    return SYNTH_PRED_SLOTS[i]
+
+
 __all__ = [
     "VOCAB_SYNTH", "TOK2ID_SYNTH", "ID2TOK_SYNTH", "VOCAB_SIZE_SYNTH",
     "SYNTH_DELIMITERS", "SYNTH_DELIMITER_SET",
     "SYNTH_PUNCTUATION", "SYNTH_PUNCTUATION_SET",
     "SYNTH_SLOTS", "SYNTH_SLOT_SET", "SYNTH_SLOT_IDS", "SYNTH_SLOT_ID_SET",
+    "SYNTH_PRED_SLOTS", "SYNTH_PRED_SLOT_SET",
+    "SYNTH_PRED_SLOT_IDS", "SYNTH_PRED_SLOT_ID_SET",
     "SYNTH_SUBSTRATE_VERBS", "SYNTH_SUBSTRATE_VERB_SET",
-    "N_SLOTS", "slot_token",
+    "N_SLOTS", "N_PRED_SLOTS", "slot_token", "pred_slot_token",
     # Re-exported special IDs (unchanged from L1).
     "PAD_ID", "BOS_ID", "EOS_ID", "SEP_ID", "UNK_ID",
     # Re-exported L2-en handles.

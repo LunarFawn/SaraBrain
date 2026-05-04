@@ -86,6 +86,7 @@ class ChatSession:
         head_ckpt: Path,
         device: str,
         hamrobysum_ckpt: Path | None = None,
+        vocab_brain: Path | None = None,
     ):
         self.grammar_ckpt = grammar_ckpt
         self.head_ckpt = head_ckpt
@@ -100,18 +101,26 @@ class ChatSession:
         )
         self._load_brain(brain_path)
         self.pending: Clarification | None = None
-        # v039 slice 3: optional HamRoby-Sum neural synthesizer.
-        # When loaded, _synthesize() routes through it with v032
-        # template fallback for clusters that come back degenerate.
+        # v039 slice 3 + v040: optional HamRoby-Sum neural synthesizer
+        # with vocab brain for predicate-slot expansion.
         self.hamrobysum_ckpt = hamrobysum_ckpt
+        self.vocab_brain_path = vocab_brain
         self._hamrobysum_model = None
+        self._vocab_lookup: dict[str, str] = {}
         if hamrobysum_ckpt is not None:
-            from .inference_synth import load_synth_checkpoint
+            from .inference_synth import load_synth_checkpoint, load_vocab_brain
             import torch
             print(f"{DIM}[hamrobysum] loading {hamrobysum_ckpt}{RESET}")
             self._hamrobysum_model = load_synth_checkpoint(
                 hamrobysum_ckpt, torch.device(device),
             )
+            if vocab_brain is not None and vocab_brain.exists():
+                self._vocab_lookup = load_vocab_brain(vocab_brain)
+                print(f"{DIM}[hamrobysum] loaded {len(self._vocab_lookup)} "
+                      f"relation -> english_form mappings from {vocab_brain}{RESET}")
+            else:
+                print(f"{DIM}[hamrobysum] no vocab brain at {vocab_brain}; "
+                      f"predicates fall back to relation_name underscores->spaces{RESET}")
         # Track the most recent successful query so /dig and /depth can
         # extend it without the user retyping the topic.
         self.last_question: str | None = None
@@ -147,6 +156,7 @@ class ChatSession:
                 self._hamrobysum_model, cluster, device,
                 max_new_tokens=80, temperature=0.0,
                 repetition_penalty=1.1, no_repeat_ngram_size=4,
+                vocab_lookup=self._vocab_lookup,
             )
             stripped = prose.strip(" .,;:!?")
             if not stripped:
@@ -454,6 +464,12 @@ def main() -> int:
                    default=Path("src/sara_brain/cortex/checkpoints/hamroby_sum_en_002500.pt"),
                    help="HamRoby-Sum checkpoint (only used with "
                         "--use-hamrobysum). Default: hamroby_sum_en_002500.pt.")
+    p.add_argument("--vocab-brain", type=Path,
+                   default=Path("src/sara_brain/cortex/vocab/vocab_en.db"),
+                   help="Vocab brain (per v040): a Sara brain.db that maps "
+                        "relation names to English phrases. Used by "
+                        "--use-hamrobysum to expand <Pn> predicate slots. "
+                        "Default: vocab_en.db.")
     args = p.parse_args()
 
     if not args.brain.exists():
@@ -482,6 +498,7 @@ def main() -> int:
     session = ChatSession(
         args.brain, args.grammar_ckpt, args.head_ckpt, args.device,
         hamrobysum_ckpt=args.hamrobysum_ckpt if args.use_hamrobysum else None,
+        vocab_brain=args.vocab_brain if args.use_hamrobysum else None,
     )
     print(banner(MODEL_FULL, args.brain))
 

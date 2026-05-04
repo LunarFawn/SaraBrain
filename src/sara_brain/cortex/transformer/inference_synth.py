@@ -225,21 +225,32 @@ def _expand_pred_slots(
 ) -> list[str]:
     """Replace each `<Pn>` token with its English phrase from the
     vocab brain (or fall back to `relation.replace("_", " ")` if the
-    relation isn't in the vocab brain). v040."""
+    relation isn't in the vocab brain). v040.
+
+    Defensive: if the model emits a `<Pn>` token whose index isn't
+    in `pred_mapping` (e.g. a single-relation cluster only allocated
+    `<P0>` but the model overgeneralized and emitted `<P1>`), fall
+    back to the FIRST allocated relation in the mapping. Avoids the
+    raw `<P1>` token leaking into output."""
     if not pred_mapping:
         return prose_tokens
     # Reverse: <Pn> -> relation name -> english phrase
     reverse = {slot: rel for rel, slot in pred_mapping.items()}
+    # Default fallback for any unallocated <Pn>: the first allocated relation.
+    default_relation = next(iter(pred_mapping)) if pred_mapping else None
+
     out: list[str] = []
     for tok in prose_tokens:
         if tok in reverse:
             relation = reverse[tok]
-            phrase = vocab_lookup.get(
-                relation, relation.replace("_", " "),
-            )
-            out.append(phrase)
+        elif tok in SYNTH_PRED_SLOT_SET and default_relation is not None:
+            # Unallocated predicate slot — use the cluster's first relation.
+            relation = default_relation
         else:
             out.append(tok)
+            continue
+        phrase = vocab_lookup.get(relation, relation.replace("_", " "))
+        out.append(phrase)
     return out
 
 

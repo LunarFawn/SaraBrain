@@ -1,22 +1,21 @@
 """Train HamRobySum — the synthesizer head on top of L1 + L2-en.
 
-Loads an L2-en checkpoint (which already carries L1 weights inside),
-projects into a brain-extended synth model whose vocabulary is
-`VOCAB_SYNTH` (192 base tokens) + per-brain content words (from the
-sidecar .vocab.json produced by synth_data.py --serialize-out).
+v035 generic architecture: substrate content NEVER enters the model's
+vocabulary. The model trains over the fixed VOCAB_SYNTH (delimiters,
+function words, slot tokens, substrate verbs); per-cluster slot
+mappings are stored alongside each training row and used at inference
+time to expand `<C0>`...`<C31>` tokens back to substrate strings.
 
-By default freezes L1+L2 transformer blocks, position embedding, and
-final layernorm — trains only the token embedding (weight-tied to
-the LM head, so head trains automatically). The new content-word and
-delimiter rows are random-init at the start; the existing 175 L2-en
-rows are projected verbatim.
+Loads an L2-en checkpoint (which already carries L1 weights inside),
+projects into a synth model with vocab_size=VOCAB_SIZE_SYNTH, and
+trains tok_embed + (by default) the top 2 transformer blocks.
 
 Standard next-token cross-entropy with a per-position loss mask: only
 positions whose next token is part of the prose continuation
 contribute to loss. The facts prefix is conditioning context, not a
 prediction target.
 
-See docs/v033_reproducible_hamroby_loop.md for the architecture and
+See docs/v035_generic_slot_hamrobysum.md for the architecture and
 docs/v031_train_l2_plan.md for the L2 trainer this mirrors.
 
 Usage:
@@ -199,8 +198,9 @@ def main() -> None:
     )
     p.add_argument(
         "--pairs", type=Path, required=True,
-        help="JSONL produced by synth_data.py --serialize-out. Expects "
-             "a sidecar <pairs>.vocab.json with the brain-extended vocab.",
+        help="JSONL produced by synth_data.py --serialize-out. v035: "
+             "rows carry their own slot mappings; vocab is the fixed "
+             "VOCAB_SYNTH (no sidecar file).",
     )
     p.add_argument("--batch", type=int, default=16)
     p.add_argument("--max-seq", type=int, default=256)
@@ -211,7 +211,14 @@ def main() -> None:
     p.add_argument("--log-every", type=int, default=20)
     p.add_argument("--eval-every", type=int, default=200)
     p.add_argument("--eval-batches", type=int, default=10)
-    p.add_argument("--ckpt-every", type=int, default=2000)
+    p.add_argument(
+        "--ckpt-every", type=int, default=5000,
+        help="Steps between ckpt saves. Default 5000 = effectively "
+             "single-final-ckpt for typical 2000-3000 step runs (we "
+             "always save at args.steps too). Lower if you want "
+             "intermediate snapshots; v034 retrospective showed the "
+             "old default of 500 produced 100+ GB of unused intermediates.",
+    )
     p.add_argument("--dev-frac", type=float, default=0.1)
     p.add_argument(
         "--ckpt-dir", type=Path,
@@ -244,15 +251,11 @@ def main() -> None:
     eval_rng = random.Random(args.seed + 1)
     torch.manual_seed(args.seed)
 
-    # Load brain-extended vocab.
-    vocab_path = args.pairs.with_suffix(args.pairs.suffix + ".vocab.json")
-    with vocab_path.open() as f:
-        brain_vocab = json.load(f)
-    brain_vocab_size = brain_vocab["vocab_size"]
+    # v035: vocab is the fixed VOCAB_SYNTH. No sidecar to load.
+    synth_vocab_size = VOCAB_SIZE_SYNTH
     print(
-        f"[synth] brain vocab loaded: {brain_vocab_size} tokens "
-        f"({brain_vocab_size - VOCAB_SIZE_SYNTH} brain content words above the "
-        f"VOCAB_SIZE_SYNTH={VOCAB_SIZE_SYNTH} base)",
+        f"[synth] using fixed VOCAB_SIZE_SYNTH={synth_vocab_size} "
+        f"(generic, no per-brain extension)",
         flush=True,
     )
 
@@ -281,7 +284,7 @@ def main() -> None:
 
     # Build synth model.
     synth_cfg = GrammarConfig(
-        vocab_size=brain_vocab_size,
+        vocab_size=synth_vocab_size,
         d_model=base_cfg.d_model,
         n_heads=base_cfg.n_heads,
         n_layers=base_cfg.n_layers,
@@ -330,7 +333,7 @@ def main() -> None:
     print("=" * 78, flush=True)
     print(f"start  {datetime.now().isoformat(timespec='seconds')}", flush=True)
     print(
-        f"HamRobySum  vocab={brain_vocab_size}  d={synth_cfg.d_model} "
+        f"HamRobySum  vocab={synth_vocab_size}  d={synth_cfg.d_model} "
         f"h={synth_cfg.n_heads} L={synth_cfg.n_layers} ff={synth_cfg.d_ff} "
         f"seq={synth_cfg.max_seq}",
         flush=True,
@@ -425,7 +428,7 @@ def main() -> None:
                 "loss": last_loss,
                 "dev_loss": last_dev_loss,
                 "config": synth_cfg.__dict__,
-                "brain_vocab": brain_vocab,   # full vocab list, for inference
+                "vocab_flavor": "v035-generic",  # marks the slot-based vocab
                 "pairs_path": str(args.pairs),
                 "l2_ckpt": str(args.l2_ckpt),
                 "frozen_base": top_n == 0,

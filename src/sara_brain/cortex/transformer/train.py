@@ -93,7 +93,12 @@ def main() -> None:
     p.add_argument("--eval-every", type=int, default=500,
                    help="Steps between dev-set perplexity evaluations")
     p.add_argument("--eval-batches", type=int, default=20)
-    p.add_argument("--ckpt-every", type=int, default=500)
+    p.add_argument(
+        "--ckpt-every", type=int, default=5000,
+        help="Steps between ckpt saves. v035 default 5000 — single-final "
+             "for typical short runs; we always save at args.steps too. "
+             "Lower for resume-friendliness during long L1 runs.",
+    )
     p.add_argument("--ckpt-dir", type=Path, default=Path("src/sara_brain/cortex/checkpoints"))
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")

@@ -29,8 +29,8 @@ import torch
 
 from .model import GrammarConfig, GrammarModel
 from .synth_data import (
-    Edge, _tokenize_text, cluster_by_subject, load_substrate_edges,
-    serialize_example, SynthExample,
+    Edge, _tokenize_text, build_slot_mapping, cluster_by_subject,
+    load_substrate_edges, SynthExample,
 )
 from .vocab_synth import (
     BOS_ID,
@@ -38,6 +38,7 @@ from .vocab_synth import (
     END_PROSE_ID,
     EOS_ID,
     FACTS_ID,
+    ID2TOK_SYNTH,
     OBJ_ID,
     PAD_ID,
     PRED_ID,
@@ -45,7 +46,11 @@ from .vocab_synth import (
     REFUTED_ID,
     ATTR_ID,
     SUBJ_ID,
+    SYNTH_SLOT_ID_SET,
+    SYNTH_SLOTS,
+    TOK2ID_SYNTH,
     UNK_ID,
+    VOCAB_SIZE_SYNTH,
 )
 
 
@@ -79,41 +84,54 @@ def _detokenize(tokens: list[str]) -> str:
 
 def load_synth_checkpoint(
     path: Path, device: torch.device,
-) -> tuple[GrammarModel, list[str], dict[str, int]]:
-    """Returns (model, vocab_list, tok2id)."""
+) -> GrammarModel:
+    """Load a v035 generic synth checkpoint. Vocab is the fixed
+    VOCAB_SYNTH — no per-checkpoint vocab loading."""
     ck = torch.load(path, map_location=device, weights_only=False)
     cfg = GrammarConfig(**ck["config"])
+    if cfg.vocab_size != VOCAB_SIZE_SYNTH:
+        raise SystemExit(
+            f"checkpoint vocab_size={cfg.vocab_size} but "
+            f"VOCAB_SIZE_SYNTH={VOCAB_SIZE_SYNTH}; this is not a "
+            f"v035-generic synth checkpoint. Older per-brain ckpts "
+            f"are deprecated — retrain with v035 train_synth.py."
+        )
     model = GrammarModel(cfg).to(device)
     model.load_state_dict(ck["state_dict"])
     model.eval()
-    vocab = ck["brain_vocab"]["vocab"]
-    tok2id = {tok: i for i, tok in enumerate(vocab)}
     print(
         f"[load] {path.name}  step={ck.get('step')}  "
         f"loss={ck.get('loss', float('nan')):.4f}  "
         f"dev_loss={ck.get('dev_loss', float('nan')):.4f}  "
-        f"vocab={cfg.vocab_size}  frozen_base={ck.get('frozen_base')}",
+        f"vocab={cfg.vocab_size}  flavor={ck.get('vocab_flavor', 'unknown')}",
         flush=True,
     )
-    return model, vocab, tok2id
+    return model
 
 
-def _facts_prefix(
-    edges: list[Edge], tok2id: dict[str, int],
+def _facts_prefix_with_slots(
+    edges: list[Edge], slot_mapping: dict[str, str],
 ) -> list[int]:
-    """Just the facts portion + leading <prose> marker; the model will
-    decode from there."""
+    """Build the facts prefix + leading <prose> marker, substituting
+    each substrate string with its slot token. The model decodes from
+    `<prose>` onward."""
+    inv = {v.lower(): k for k, v in slot_mapping.items()}
+
+    def _slot_or_encode(s: str) -> list[int]:
+        s_norm = s.strip()
+        if s_norm.lower() in inv:
+            return [TOK2ID_SYNTH[inv[s_norm.lower()]]]
+        return [TOK2ID_SYNTH.get(t, UNK_ID) for t in _tokenize_text(s_norm)]
+
     ids: list[int] = [BOS_ID, FACTS_ID]
     for e in edges:
         ids.append(SUBJ_ID)
-        for t in _tokenize_text(e.src):
-            ids.append(tok2id.get(t, UNK_ID))
+        ids.extend(_slot_or_encode(e.src))
         ids.append(PRED_ID)
         for t in _tokenize_text(e.rel.replace("_", " ")):
-            ids.append(tok2id.get(t, UNK_ID))
+            ids.append(TOK2ID_SYNTH.get(t, UNK_ID))
         ids.append(OBJ_ID)
-        for t in _tokenize_text(e.tgt):
-            ids.append(tok2id.get(t, UNK_ID))
+        ids.extend(_slot_or_encode(e.tgt))
         if e.refuted:
             ids.append(REFUTED_ID)
         if e.target_was_attribute:
@@ -121,6 +139,18 @@ def _facts_prefix(
         ids.append(EDGE_SEP_ID)
     ids.append(PROSE_ID)
     return ids
+
+
+def _expand_slots(prose_tokens: list[str], slot_mapping: dict[str, str]) -> list[str]:
+    """Replace each `<Cn>` token with its substrate string. Other
+    tokens pass through unchanged."""
+    out: list[str] = []
+    for tok in prose_tokens:
+        if tok in slot_mapping:
+            out.append(slot_mapping[tok])
+        else:
+            out.append(tok)
+    return out
 
 
 def _apply_repetition_penalty(
@@ -157,8 +187,6 @@ def _would_close_repeating_ngram(
 @torch.no_grad()
 def synthesize_cluster(
     model: GrammarModel,
-    vocab: list[str],
-    tok2id: dict[str, int],
     edges: list[Edge],
     device: torch.device,
     max_new_tokens: int = 80,
@@ -169,25 +197,33 @@ def synthesize_cluster(
     repetition_window: int = 32,
     no_repeat_ngram_size: int = 0,
 ) -> str:
-    """Render `edges` as prose. `temperature=0` is greedy.
+    """Render `edges` as prose using the v035 generic slot-based pipeline.
+
+    Builds a per-cluster `<C0>`...`<C31>` slot mapping for the
+    substrate strings in this cluster, formats the facts prefix with
+    slots, decodes prose, expands slots back to substrate strings.
 
     `repetition_penalty > 1.0` divides the logits of recently-emitted
-    tokens (last `repetition_window` positions of the prose tail), making
-    them less likely. v0 behavior: `repetition_penalty=1.0`.
-
-    `no_repeat_ngram_size > 0` bans any candidate that would close an
+    tokens (last `repetition_window` positions of the prose tail).
+    `no_repeat_ngram_size > 0` bans candidates that would close an
     n-gram already present in the prose tail."""
     if not edges:
         return ""
     rng = rng or random.Random(0)
     max_seq = model.cfg.max_seq
 
+    # Build per-cluster slot mapping from a pseudo-example.
+    pseudo = SynthExample(edges=list(edges), prose="", subject="")
+    slot_mapping = build_slot_mapping(pseudo)
+
     # Build facts prefix; truncate edges if it overflows.
-    prefix = _facts_prefix(edges, tok2id)
+    prefix = _facts_prefix_with_slots(edges, slot_mapping)
     truncated = 0
     while len(prefix) >= max_seq - 4 and len(edges) > 1:
         edges = edges[1:]   # drop oldest first
-        prefix = _facts_prefix(edges, tok2id)
+        pseudo = SynthExample(edges=list(edges), prose="", subject="")
+        slot_mapping = build_slot_mapping(pseudo)
+        prefix = _facts_prefix_with_slots(edges, slot_mapping)
         truncated += 1
     if truncated:
         print(f"[synth] truncated {truncated} edges to fit max_seq={max_seq}",
@@ -236,13 +272,17 @@ def synthesize_cluster(
             break
         out_ids.append(nxt)
 
-    # Strip any structural delimiters that leaked into output.
+    # Strip structural delimiters that leaked into output.
     structural_ids = {
         FACTS_ID, PROSE_ID, END_PROSE_ID, SUBJ_ID, PRED_ID, OBJ_ID,
         EDGE_SEP_ID, REFUTED_ID, ATTR_ID, BOS_ID, EOS_ID, PAD_ID,
     }
-    prose_tokens = [vocab[i] for i in out_ids if i not in structural_ids]
-    return _detokenize(prose_tokens)
+    prose_tokens = [
+        ID2TOK_SYNTH[i] for i in out_ids if i not in structural_ids
+    ]
+    # Slot-expand: replace <Cn> tokens with their substrate strings.
+    expanded = _expand_slots(prose_tokens, slot_mapping)
+    return _detokenize(expanded)
 
 
 def main() -> None:
@@ -280,7 +320,7 @@ def main() -> None:
 
     device = torch.device(args.device)
     rng = random.Random(args.seed)
-    model, vocab, tok2id = load_synth_checkpoint(args.ckpt, device)
+    model = load_synth_checkpoint(args.ckpt, device)
 
     edges = load_substrate_edges(args.brain)
     clusters = cluster_by_subject(edges)
@@ -300,7 +340,7 @@ def main() -> None:
             if len(cluster) > 8:
                 print(f"   ... +{len(cluster) - 8} more")
             prose = synthesize_cluster(
-                model, vocab, tok2id, cluster, device,
+                model, cluster, device,
                 max_new_tokens=args.max_new_tokens,
                 temperature=args.temperature, top_k=args.top_k, rng=rng,
                 repetition_penalty=args.repetition_penalty,
@@ -319,7 +359,7 @@ def main() -> None:
             if len(cluster) > 6:
                 print(f"   ... +{len(cluster) - 6} more")
             prose = synthesize_cluster(
-                model, vocab, tok2id, cluster, device,
+                model, cluster, device,
                 max_new_tokens=args.max_new_tokens,
                 temperature=args.temperature, top_k=args.top_k, rng=rng,
                 repetition_penalty=args.repetition_penalty,

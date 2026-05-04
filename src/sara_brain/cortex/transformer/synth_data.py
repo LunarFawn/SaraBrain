@@ -3,22 +3,25 @@
 Walks Sara's brain.db edge by edge, clusters edges by subject concept,
 and emits (edge_list, prose) training pairs using the same template
 table the template synthesizer uses for inference. The neural
-synthesizer (HamRobySum, see v033) learns this mapping with
-sentence-shape variety from the grammar LM — replacing the templates
-with a small generative head.
+synthesizer (HamRobySum) learns this mapping with sentence-shape
+variety from the grammar LM — replacing the templates with a small
+generative head.
 
-Output format mirrors what the synthesizer sees at inference time so
-the model trains on its actual deployment distribution.
+**v035 architecture: substrate content NEVER enters the model's
+vocabulary.** Each example's substrate strings (subjects, objects)
+are replaced with `<C0>`...`<C31>` slot tokens before serialization,
+with the inverse mapping carried alongside. The model learns
+structural composition over a small fixed vocabulary; substrate
+content rides through the model purely as a position marker.
 
 Two emission paths:
 
 - `--output pairs.jsonl` — one (edges, prose, subject) JSON per line.
   Useful for inspection and for downstream tools that want to
-  rewrite the prose (e.g. an optional Path 2 frontier-distillation
-  pass). This was the original output format.
-- `--serialize-out tokens.jsonl` — one tokenized training example
-  per line: `{input_ids, loss_mask, n_facts, n_prose}`. Ready to
-  feed `train_synth.py` directly. The loss mask is 1 only on the
+  rewrite the prose. This was the original output format.
+- `--serialize-out tokens.jsonl` — one tokenized training row per
+  line: `{input_ids, loss_mask, slot_mapping, n_facts, n_prose}`.
+  Ready to feed `train_synth.py`. The loss mask is 1 only on the
   prose continuation so the model isn't penalized for failing to
   predict the facts prefix it was conditioned on.
 """
@@ -38,6 +41,7 @@ from .vocab_synth import (
     EDGE_SEP_ID,
     END_PROSE_ID,
     FACTS_ID,
+    N_SLOTS,
     OBJ_ID,
     PRED_ID,
     PROSE_ID,
@@ -46,7 +50,7 @@ from .vocab_synth import (
     SUBJ_ID,
     TOK2ID_SYNTH,
     UNK_ID,
-    build_brain_vocab,
+    slot_token,
 )
 
 
@@ -197,73 +201,107 @@ _PROSE_SPLIT_RE = re.compile(r"([.,;:?!\-])|\s+")
 
 def _tokenize_text(text: str) -> list[str]:
     """Split free text on whitespace and punctuation. Punctuation
-    becomes its own token; everything else is lowercased."""
+    becomes its own token; everything else is lowercased. Angle-bracket
+    tokens (`<facts>`, `<C0>`, `<prose>`, ...) keep their case so they
+    match the structural delimiters and slot tokens in vocab_synth."""
     out: list[str] = []
     for piece in _PROSE_SPLIT_RE.split(text):
         if not piece:
             continue
         if piece.isspace():
             continue
-        out.append(piece.lower())
+        # Preserve case for structural / slot tokens.
+        if piece.startswith("<") and piece.endswith(">"):
+            out.append(piece)
+        else:
+            out.append(piece.lower())
     return out
 
 
-def _encode_text(text: str, tok2id: dict[str, int]) -> list[int]:
+def _encode_text(text: str, tok2id: dict[str, int] | None = None) -> list[int]:
+    if tok2id is None:
+        tok2id = TOK2ID_SYNTH
     return [tok2id.get(t, UNK_ID) for t in _tokenize_text(text)]
 
 
-def extract_corpus_words(examples: list[SynthExample]) -> list[str]:
-    """Walk every example's edges + prose, return the deduplicated list
-    of content words in encounter order. Suitable for `build_brain_vocab`."""
-    seen: set[str] = set()
-    out: list[str] = []
-    for ex in examples:
-        for e in ex.edges:
-            for piece in _tokenize_text(e.src):
-                if piece not in seen:
-                    seen.add(piece); out.append(piece)
-            for piece in _tokenize_text(e.rel.replace("_", " ")):
-                if piece not in seen:
-                    seen.add(piece); out.append(piece)
-            for piece in _tokenize_text(e.tgt):
-                if piece not in seen:
-                    seen.add(piece); out.append(piece)
-        for piece in _tokenize_text(ex.prose):
-            if piece not in seen:
-                seen.add(piece); out.append(piece)
+def build_slot_mapping(ex: SynthExample) -> dict[str, str]:
+    """Per-example mapping `{slot_token: substrate_string}`. Each
+    distinct substrate label in the example's edges gets a slot id in
+    encounter order. Caps at `N_SLOTS` — clusters with more distinct
+    labels than slots will lose the trailing labels (caller should
+    chunk those upstream)."""
+    mapping: dict[str, str] = {}
+    inverse: dict[str, str] = {}   # substrate_string -> slot_token
+    next_idx = 0
+    for e in ex.edges:
+        for s in (e.src, e.tgt):
+            s_norm = s.strip()
+            if not s_norm or s_norm in inverse:
+                continue
+            if next_idx >= N_SLOTS:
+                break
+            tok = slot_token(next_idx)
+            mapping[tok] = s_norm
+            inverse[s_norm] = tok
+            next_idx += 1
+        if next_idx >= N_SLOTS:
+            break
+    return mapping
+
+
+def slot_substitute(text: str, mapping: dict[str, str]) -> str:
+    """Replace each substrate string (mapping value) with its slot
+    token (mapping key) in `text`. Case-insensitive. Sorts by length
+    descending so longer phrases match before sub-phrases (`rna in
+    cell` before `rna`)."""
+    if not text or not mapping:
+        return text
+    out = text
+    pairs = sorted(mapping.items(), key=lambda x: -len(x[1]))
+    for tok, content in pairs:
+        if not content:
+            continue
+        out = re.sub(re.escape(content), tok, out, flags=re.IGNORECASE)
     return out
 
 
-def serialize_example(
-    ex: SynthExample,
-    tok2id: dict[str, int] | None = None,
-) -> dict:
-    """Convert a SynthExample to a token-id training row.
-
-    `tok2id` is the (possibly brain-extended) vocabulary lookup. If
-    None, falls back to `TOK2ID_SYNTH` — useful for inspection but the
-    output will be UNK-heavy because substrate content words aren't in
-    the universal vocab. For real training pass a vocab built via
-    `build_brain_vocab(extract_corpus_words(examples))`.
+def serialize_example(ex: SynthExample) -> dict:
+    """Convert a SynthExample to a token-id training row using
+    slot-based substitution (v035). Substrate content rides through as
+    `<C0>`...`<C31>` tokens; the model never sees the strings.
 
     Returns:
       {
-        "input_ids": list[int]   — full sequence to feed the model
-        "loss_mask": list[int]   — 1 on prose-continuation positions
-        "n_facts":   int         — index where <prose> sits (debug)
-        "n_prose":   int         — number of prose tokens (debug)
+        "input_ids":    list[int]   — full sequence to feed the model
+        "loss_mask":   list[int]   — 1 on prose-continuation positions
+        "slot_mapping": dict        — per-example {<Cn>: substrate_str}
+        "n_facts":      int         — index where <prose> sits (debug)
+        "n_prose":      int         — number of prose tokens (debug)
       }
     """
-    if tok2id is None:
-        tok2id = TOK2ID_SYNTH
+    mapping = build_slot_mapping(ex)
+    inv = {v.lower(): k for k, v in mapping.items()}
+
+    def _slot_or_encode(s: str) -> list[int]:
+        """If `s` matches a slot's substrate string exactly, emit just
+        that one slot token id. Otherwise tokenize/encode normally
+        (which will UNK any out-of-vocab content)."""
+        s_norm = s.strip()
+        if s_norm.lower() in inv:
+            return [TOK2ID_SYNTH[inv[s_norm.lower()]]]
+        return _encode_text(s_norm)
+
     ids: list[int] = [BOS_ID, FACTS_ID]
     for e in ex.edges:
         ids.append(SUBJ_ID)
-        ids.extend(_encode_text(e.src, tok2id))
+        ids.extend(_slot_or_encode(e.src))
         ids.append(PRED_ID)
-        ids.extend(_encode_text(e.rel.replace("_", " "), tok2id))
+        # Predicate is the relation name — render as English-ish
+        # tokens via underscore expansion. Predicates aren't
+        # substrate content; they tokenize against TOK2ID_SYNTH.
+        ids.extend(_encode_text(e.rel.replace("_", " ")))
         ids.append(OBJ_ID)
-        ids.extend(_encode_text(e.tgt, tok2id))
+        ids.extend(_slot_or_encode(e.tgt))
         if e.refuted:
             ids.append(REFUTED_ID)
         if e.target_was_attribute:
@@ -272,7 +310,11 @@ def serialize_example(
     n_facts = len(ids)
     ids.append(PROSE_ID)
     prose_start = len(ids)
-    ids.extend(_encode_text(ex.prose, tok2id))
+    # Slot-substitute the prose, then encode. Slot tokens are in
+    # vocab_synth so they tokenize cleanly; everything else is
+    # function words, punctuation, or substrate verbs (also in vocab).
+    prose_with_slots = slot_substitute(ex.prose, mapping)
+    ids.extend(_encode_text(prose_with_slots))
     ids.append(END_PROSE_ID)
     ids.append(EOS_ID)
     n_prose = len(ids) - prose_start
@@ -286,10 +328,11 @@ def serialize_example(
         loss_mask[i] = 1
 
     return {
-        "input_ids": ids,
-        "loss_mask": loss_mask,
-        "n_facts":   n_facts,
-        "n_prose":   n_prose,
+        "input_ids":    ids,
+        "loss_mask":   loss_mask,
+        "slot_mapping": mapping,
+        "n_facts":      n_facts,
+        "n_prose":      n_prose,
     }
 
 
@@ -297,23 +340,21 @@ def write_serialized_jsonl(
     examples: list[SynthExample], path: Path,
     max_seq: int | None = None,
 ) -> dict:
-    """Build a brain-extended vocab from the corpus, serialize each
-    example against it, write training-ready JSONL plus a sidecar
-    `<path>.vocab.json`. Drops examples that exceed `max_seq`."""
+    """Serialize each example against the fixed VOCAB_SYNTH (v035) and
+    write training-ready JSONL. Each row carries its own per-example
+    slot mapping; no sidecar vocab file is needed because the synth
+    vocab is universal."""
     import json
-
-    extra_words = extract_corpus_words(examples)
-    vocab, tok2id = build_brain_vocab(extra_words)
-    vocab_size = len(vocab)
 
     written = 0
     skipped_too_long = 0
     total_loss_positions = 0
     seq_lens: list[int] = []
     unk_count = 0
+    slot_use_total = 0
     with path.open("w", encoding="utf-8") as f:
         for ex in examples:
-            row = serialize_example(ex, tok2id=tok2id)
+            row = serialize_example(ex)
             if max_seq is not None and len(row["input_ids"]) > max_seq:
                 skipped_too_long += 1
                 continue
@@ -322,10 +363,7 @@ def write_serialized_jsonl(
             total_loss_positions += sum(row["loss_mask"])
             seq_lens.append(len(row["input_ids"]))
             unk_count += sum(1 for t in row["input_ids"] if t == UNK_ID)
-
-    vocab_path = path.with_suffix(path.suffix + ".vocab.json")
-    with vocab_path.open("w", encoding="utf-8") as f:
-        json.dump({"vocab": vocab, "vocab_size": vocab_size}, f)
+            slot_use_total += len(row["slot_mapping"])
 
     summary = {
         "written": written,
@@ -334,8 +372,7 @@ def write_serialized_jsonl(
         "max_seq_len": (max(seq_lens) if seq_lens else 0),
         "min_seq_len": (min(seq_lens) if seq_lens else 0),
         "total_loss_positions": total_loss_positions,
-        "vocab_size": vocab_size,
-        "vocab_path": str(vocab_path),
+        "avg_slots_per_example": slot_use_total / max(1, written),
         "unk_count": unk_count,
     }
     return summary
@@ -349,17 +386,18 @@ def main() -> None:
     p.add_argument(
         "--brain", type=Path, action="append", required=True,
         help="brain.db path. Repeatable: pass multiple --brain flags to "
-             "build a multi-brain corpus (per v034). Each brain's content "
-             "words union into one extended vocab, written to the sidecar "
-             "<serialize-out>.vocab.json.",
+             "build a multi-brain corpus. With v035's slot-based vocab, "
+             "this is fully safe — the model's vocab is fixed regardless "
+             "of how many brains you mix in.",
     )
     p.add_argument("--output", type=Path, default=None,
                    help="JSONL output path for human-readable pairs "
                         "(one {edges, prose, subject} per line)")
     p.add_argument("--serialize-out", type=Path, default=None,
                    help="JSONL output for tokenized training rows "
-                        "({input_ids, loss_mask, n_facts, n_prose}). "
-                        "Ready for train_synth.py.")
+                        "({input_ids, loss_mask, slot_mapping, ...}). "
+                        "Ready for train_synth.py. v035: no sidecar "
+                        "vocab file — vocab is the fixed VOCAB_SYNTH.")
     p.add_argument("--max-seq", type=int, default=512,
                    help="Drop serialized examples longer than this "
                         "(only with --serialize-out)")
@@ -406,18 +444,19 @@ def main() -> None:
         print(f"wrote human-readable pairs -> {args.output}")
 
     if args.serialize_out:
+        from .vocab_synth import VOCAB_SIZE_SYNTH
         summary = write_serialized_jsonl(
             examples, args.serialize_out, max_seq=args.max_seq,
         )
         print(f"wrote serialized rows -> {args.serialize_out}")
-        print(f"           brain vocab -> {summary['vocab_path']}")
         print(
             f"  written={summary['written']}  "
             f"skipped_too_long={summary['skipped_too_long']}  "
             f"avg_seq_len={summary['avg_seq_len']:.1f}  "
             f"min={summary['min_seq_len']}  max={summary['max_seq_len']}\n"
-            f"  vocab_size={summary['vocab_size']}  "
-            f"loss_positions={summary['total_loss_positions']}  "
+            f"  vocab_size={VOCAB_SIZE_SYNTH} (fixed, generic — v035)  "
+            f"loss_positions={summary['total_loss_positions']}\n"
+            f"  avg_slots_per_example={summary['avg_slots_per_example']:.1f}  "
             f"unk_in_corpus={summary['unk_count']}"
         )
 

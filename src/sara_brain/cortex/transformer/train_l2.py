@@ -113,7 +113,11 @@ def main() -> None:
     p.add_argument("--log-every", type=int, default=20)
     p.add_argument("--eval-every", type=int, default=500)
     p.add_argument("--eval-batches", type=int, default=20)
-    p.add_argument("--ckpt-every", type=int, default=500)
+    p.add_argument(
+        "--ckpt-every", type=int, default=5000,
+        help="Steps between ckpt saves. v035 default 5000 — single-final "
+             "for typical L2 adapter runs (we always save at args.steps too).",
+    )
     p.add_argument(
         "--ckpt-dir", type=Path,
         default=Path("src/sara_brain/cortex/checkpoints"),

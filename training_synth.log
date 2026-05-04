@@ -1013,3 +1013,168 @@ ckpts -> src/sara_brain/cortex/checkpoints/hamroby_sum_en_*.pt
 [ckpt] src/sara_brain/cortex/checkpoints/hamroby_sum_en_002500.pt
 ==============================================================================
 done   2026-05-03T23:07:17  final_loss=0.1370  final_dev_loss=0.1649  (pre-train dev_loss was 3.5400)
+[synth] using fixed VOCAB_SIZE_SYNTH=441 (generic, no per-brain extension)
+[synth] loaded 3619 rows (3258 train / 361 dev)
+[synth] resume: loading prior synth ckpt src/sara_brain/cortex/checkpoints/hamroby_sum_core_002500.pt
+--resume-from vocab_size=425 but VOCAB_SIZE_SYNTH=441; checkpoint must be a v035-generic synth ckpt
+[synth] using fixed VOCAB_SIZE_SYNTH=441 (generic, no per-brain extension)
+[synth] loaded 3619 rows (3258 train / 361 dev)
+[synth] resume: loading prior synth ckpt src/sara_brain/cortex/checkpoints/hamroby_sum_core_002500.pt
+--resume-from vocab_size=425 but VOCAB_SIZE_SYNTH=441; checkpoint must be a v035-generic synth ckpt
+[synth] using fixed VOCAB_SIZE_SYNTH=441 (generic, no per-brain extension)
+[synth] loaded 3619 rows (3258 train / 361 dev)
+[synth] resume: loading prior synth ckpt src/sara_brain/cortex/checkpoints/hamroby_sum_core_002500.pt
+[synth] resumed with vocab 425 -> 441: copied=218 padded=2 skipped=1
+[synth] trainable params: 14,514,432  frozen: 113,604,096  (tok_embed + top 2 of 18 blocks)
+==============================================================================
+start  2026-05-04T00:44:32
+HamRobySum  vocab=441  d=768 h=12 L=18 ff=3072 seq=256
+device=cuda  amp=True  batch=16  steps=2500  lr=0.0003->1e-05 warmup=100
+data: /tmp/synth_pairs_en.jsonl  train=3258 rows  dev=361 rows
+ckpts -> src/sara_brain/cortex/checkpoints/hamroby_sum_en_*.pt
+==============================================================================
+  step    loss     ppl     lr       tok/s     gpu
+-------------------------------------------------
+[eval] step=0 (pre-train)  dev_loss=8.4363  dev_ppl=4611.497
+     1  7.8649  2604.22  6.00e-06       212     713MB (peak 1412MB)
+    20  4.1771   65.18  6.30e-05      3915     710MB (peak 1622MB)
+    40  1.5451    4.69  1.23e-04      3828     710MB (peak 1622MB)
+    60  0.7311    2.08  1.83e-04      3806     711MB (peak 1622MB)
+    80  0.2136    1.24  2.43e-04      3834     711MB (peak 1622MB)
+   100  0.1336    1.14  3.00e-04      3905     710MB (peak 1622MB)
+   120  0.0653    1.07  3.00e-04      3722     710MB (peak 1622MB)
+   140  0.0699    1.07  3.00e-04      3950     709MB (peak 1622MB)
+   160  0.1302    1.14  3.00e-04      3686     709MB (peak 1622MB)
+   180  0.0758    1.08  2.99e-04      3801     710MB (peak 1622MB)
+   200  0.0140    1.01  2.99e-04      3903     709MB (peak 1622MB)
+[eval] step=200  dev_loss=0.0552  dev_ppl=1.057
+   220  0.1304    1.14  2.98e-04      3214     710MB (peak 1622MB)
+   240  0.0707    1.07  2.98e-04      4034     711MB (peak 1622MB)
+   260  0.1118    1.12  2.97e-04      3743     710MB (peak 1622MB)
+   280  0.1219    1.13  2.96e-04      3610     711MB (peak 1622MB)
+   300  0.0361    1.04  2.95e-04      3841     710MB (peak 1622MB)
+   320  0.1470    1.16  2.94e-04      3889     711MB (peak 1622MB)
+   340  0.0377    1.04  2.93e-04      4075     709MB (peak 1622MB)
+   360  0.0820    1.09  2.92e-04      3890     710MB (peak 1622MB)
+   380  0.0358    1.04  2.90e-04      3783     711MB (peak 1622MB)
+   400  0.0356    1.04  2.89e-04      4056     709MB (peak 1622MB)
+[eval] step=400  dev_loss=0.0407  dev_ppl=1.041
+   420  0.1188    1.13  2.87e-04      3166     709MB (peak 1622MB)
+   440  0.0190    1.02  2.86e-04      4011     709MB (peak 1622MB)
+   460  0.0770    1.08  2.84e-04      4096     709MB (peak 1622MB)
+   480  0.0113    1.01  2.82e-04      3870     709MB (peak 1622MB)
+   500  0.0416    1.04  2.81e-04      3758     710MB (peak 1622MB)
+   520  0.0203    1.02  2.79e-04      3768     711MB (peak 1622MB)
+   540  0.0526    1.05  2.77e-04      3817     710MB (peak 1622MB)
+   560  0.0135    1.01  2.74e-04      3874     710MB (peak 1622MB)
+   580  0.0146    1.01  2.72e-04      3815     710MB (peak 1622MB)
+   600  0.0334    1.03  2.70e-04      3820     710MB (peak 1622MB)
+[eval] step=600  dev_loss=0.0298  dev_ppl=1.030
+   620  0.0192    1.02  2.68e-04      3212     709MB (peak 1622MB)
+   640  0.0299    1.03  2.65e-04      4039     711MB (peak 1622MB)
+   660  0.0280    1.03  2.63e-04      3851     709MB (peak 1622MB)
+   680  0.0753    1.08  2.60e-04      3915     709MB (peak 1622MB)
+   700  0.0377    1.04  2.58e-04      3773     710MB (peak 1622MB)
+   720  0.1123    1.12  2.55e-04      3996     709MB (peak 1622MB)
+   740  0.0271    1.03  2.52e-04      3794     710MB (peak 1622MB)
+   760  0.0792    1.08  2.49e-04      3793     709MB (peak 1622MB)
+   780  0.0235    1.02  2.46e-04      3949     711MB (peak 1622MB)
+   800  0.0052    1.01  2.43e-04      3602     709MB (peak 1622MB)
+[eval] step=800  dev_loss=0.0238  dev_ppl=1.024
+   820  0.0555    1.06  2.40e-04      3137     711MB (peak 1622MB)
+   840  0.0363    1.04  2.37e-04      3882     711MB (peak 1622MB)
+   860  0.0205    1.02  2.34e-04      3806     710MB (peak 1622MB)
+   880  0.0239    1.02  2.31e-04      3878     709MB (peak 1622MB)
+   900  0.0111    1.01  2.27e-04      3744     710MB (peak 1622MB)
+   920  0.0562    1.06  2.24e-04      3657     711MB (peak 1622MB)
+   940  0.0122    1.01  2.21e-04      3793     710MB (peak 1622MB)
+   960  0.0499    1.05  2.17e-04      3803     711MB (peak 1622MB)
+   980  0.0211    1.02  2.14e-04      3942     711MB (peak 1622MB)
+  1000  0.0147    1.01  2.10e-04      3860     710MB (peak 1622MB)
+[eval] step=1000  dev_loss=0.0111  dev_ppl=1.011
+  1020  0.0015    1.00  2.07e-04      3237     709MB (peak 1622MB)
+  1040  0.0091    1.01  2.03e-04      3909     709MB (peak 1622MB)
+  1060  0.0204    1.02  2.00e-04      3997     710MB (peak 1622MB)
+  1080  0.0720    1.07  1.96e-04      3983     709MB (peak 1622MB)
+  1100  0.0005    1.00  1.93e-04      3749     710MB (peak 1622MB)
+  1120  0.0180    1.02  1.89e-04      3896     710MB (peak 1622MB)
+  1140  0.0061    1.01  1.85e-04      3653     711MB (peak 1622MB)
+  1160  0.0271    1.03  1.81e-04      3957     710MB (peak 1622MB)
+  1180  0.0112    1.01  1.78e-04      3800     710MB (peak 1622MB)
+  1200  0.0034    1.00  1.74e-04      3797     709MB (peak 1622MB)
+[eval] step=1200  dev_loss=0.0155  dev_ppl=1.016
+  1220  0.0070    1.01  1.70e-04      3073     710MB (peak 1622MB)
+  1240  0.0362    1.04  1.66e-04      3726     710MB (peak 1622MB)
+  1260  0.0226    1.02  1.63e-04      3692     711MB (peak 1622MB)
+  1280  0.0168    1.02  1.59e-04      3728     710MB (peak 1622MB)
+  1300  0.0016    1.00  1.55e-04      3714     710MB (peak 1622MB)
+  1320  0.0167    1.02  1.51e-04      3860     710MB (peak 1622MB)
+  1340  0.0027    1.00  1.47e-04      3799     710MB (peak 1622MB)
+  1360  0.0035    1.00  1.44e-04      3856     710MB (peak 1622MB)
+  1380  0.0100    1.01  1.40e-04      3853     710MB (peak 1622MB)
+  1400  0.0042    1.00  1.36e-04      3774     711MB (peak 1622MB)
+[eval] step=1400  dev_loss=0.0177  dev_ppl=1.018
+  1420  0.0056    1.01  1.32e-04      3203     709MB (peak 1622MB)
+  1440  0.0174    1.02  1.29e-04      3828     710MB (peak 1622MB)
+  1460  0.0071    1.01  1.25e-04      3809     709MB (peak 1622MB)
+  1480  0.0061    1.01  1.21e-04      3793     710MB (peak 1622MB)
+  1500  0.0121    1.01  1.17e-04      3562     712MB (peak 1622MB)
+  1520  0.0003    1.00  1.14e-04      3578     710MB (peak 1622MB)
+  1540  0.0596    1.06  1.10e-04      3653     710MB (peak 1622MB)
+  1560  0.0143    1.01  1.07e-04      3801     710MB (peak 1622MB)
+  1580  0.0049    1.00  1.03e-04      3787     709MB (peak 1622MB)
+  1600  0.0169    1.02  9.95e-05      3762     711MB (peak 1622MB)
+[eval] step=1600  dev_loss=0.0085  dev_ppl=1.009
+  1620  0.0060    1.01  9.60e-05      3256     709MB (peak 1622MB)
+  1640  0.0330    1.03  9.26e-05      3774     709MB (peak 1622MB)
+  1660  0.0356    1.04  8.92e-05      3793     710MB (peak 1622MB)
+  1680  0.0005    1.00  8.58e-05      4119     709MB (peak 1622MB)
+  1700  0.0007    1.00  8.25e-05      3970     709MB (peak 1622MB)
+  1720  0.0032    1.00  7.92e-05      4124     710MB (peak 1622MB)
+  1740  0.0010    1.00  7.60e-05      3841     709MB (peak 1622MB)
+  1760  0.0018    1.00  7.29e-05      3888     710MB (peak 1622MB)
+  1780  0.0228    1.02  6.98e-05      3864     709MB (peak 1622MB)
+  1800  0.0104    1.01  6.67e-05      4030     711MB (peak 1622MB)
+[eval] step=1800  dev_loss=0.0125  dev_ppl=1.013
+  1820  0.0071    1.01  6.37e-05      3339     710MB (peak 1622MB)
+  1840  0.0151    1.02  6.08e-05      3627     711MB (peak 1622MB)
+  1860  0.0338    1.03  5.80e-05      3718     709MB (peak 1622MB)
+  1880  0.0012    1.00  5.52e-05      3909     710MB (peak 1622MB)
+  1900  0.0233    1.02  5.25e-05      3827     711MB (peak 1622MB)
+  1920  0.0270    1.03  4.98e-05      3880     711MB (peak 1622MB)
+  1940  0.0024    1.00  4.72e-05      3909     709MB (peak 1622MB)
+  1960  0.0003    1.00  4.47e-05      3871     710MB (peak 1622MB)
+  1980  0.0009    1.00  4.23e-05      3860     709MB (peak 1622MB)
+  2000  0.0019    1.00  4.00e-05      3458     711MB (peak 1622MB)
+[eval] step=2000  dev_loss=0.0220  dev_ppl=1.022
+  2020  0.0079    1.01  3.77e-05      3017     709MB (peak 1622MB)
+  2040  0.0321    1.03  3.55e-05      3761     709MB (peak 1622MB)
+  2060  0.0002    1.00  3.34e-05      3735     710MB (peak 1622MB)
+  2080  0.0201    1.02  3.14e-05      3747     709MB (peak 1622MB)
+  2100  0.0008    1.00  2.94e-05      3850     709MB (peak 1622MB)
+  2120  0.0051    1.01  2.76e-05      3644     709MB (peak 1622MB)
+  2140  0.0124    1.01  2.58e-05      3786     710MB (peak 1622MB)
+  2160  0.0033    1.00  2.41e-05      3751     710MB (peak 1622MB)
+  2180  0.0033    1.00  2.25e-05      3936     710MB (peak 1622MB)
+  2200  0.0034    1.00  2.10e-05      4044     709MB (peak 1622MB)
+[eval] step=2200  dev_loss=0.0093  dev_ppl=1.009
+  2220  0.0054    1.01  1.96e-05      3270     710MB (peak 1622MB)
+  2240  0.0092    1.01  1.83e-05      3881     711MB (peak 1622MB)
+  2260  0.0004    1.00  1.71e-05      4042     709MB (peak 1622MB)
+  2280  0.0120    1.01  1.60e-05      3866     710MB (peak 1622MB)
+  2300  0.0015    1.00  1.49e-05      3908     710MB (peak 1622MB)
+  2320  0.0006    1.00  1.40e-05      3865     709MB (peak 1622MB)
+  2340  0.0005    1.00  1.32e-05      4011     709MB (peak 1622MB)
+  2360  0.0003    1.00  1.24e-05      3734     709MB (peak 1622MB)
+  2380  0.0148    1.01  1.18e-05      3816     709MB (peak 1622MB)
+  2400  0.0007    1.00  1.12e-05      3633     709MB (peak 1622MB)
+[eval] step=2400  dev_loss=0.0192  dev_ppl=1.019
+  2420  0.0262    1.03  1.08e-05      3166     711MB (peak 1622MB)
+  2440  0.0005    1.00  1.04e-05      3914     709MB (peak 1622MB)
+  2460  0.0007    1.00  1.02e-05      4004     709MB (peak 1622MB)
+  2480  0.0045    1.00  1.00e-05      4031     709MB (peak 1622MB)
+  2500  0.0008    1.00  1.00e-05      3793     710MB (peak 1622MB)
+[eval] step=2500  dev_loss=0.0208  dev_ppl=1.021
+[ckpt] src/sara_brain/cortex/checkpoints/hamroby_sum_en_002500.pt
+==============================================================================
+done   2026-05-04T00:47:08  final_loss=0.0008  final_dev_loss=0.0208  (pre-train dev_loss was 8.4363)

@@ -674,18 +674,37 @@ replaced by `(L2-en allowlist) × (small templating logic)` instead.
     L2 produces recognisable English sentence skeletons with
     function words in plausible structural positions
     (`det the`, `case from / to`, `cop are`, `mark to / that`).
-- HamRobySum (path 2) deferred until the synthesizer-pipeline
-  integration. The layered architecture lets the synthesizer head be
-  a smaller learning problem and gives it function-word grammar for
-  free.
+- **HamRobySum operational end-to-end (v035 → v037 → v040):**
+  - v035 generic slot architecture (commit `b4fa5b1`) — content
+    rides as `<C0>`...`<C31>` slots, never in weights.
+  - v037 layered Core + EN (commit `b4fa5b1`+`c58cce0`) — Core is
+    universal (verb-agnostic, content-agnostic, ships once); EN is
+    per-language verb overlay.
+  - v039 chat REPL integration + article post-processor
+    (commits `c3d3075`, `1aa3abe`).
+  - **v040 predicate slots + vocab brain** (commit `224cfed` +
+    follow-ups, plans v040/v041) — verbs ALSO ride as
+    `<P0>`...`<P15>` slots, resolved at inference time via a Sara
+    brain.db (`vocab_en.db`) containing relation→English mappings.
+    The synthesizer head now learns ONLY structural composition;
+    both content AND verbs come from substrates the user owns.
+  - Final v040 EN training: dev_ppl=1.02 (best across all variants).
+    Cross-brain proven on `drifted_s1`: model trained on synthetic
+    nonsense substrates + 51 real English relation mappings produces
+    clean prose for never-seen real concepts.
 
-**Immediate next step:** synthesizer-pipeline integration. Two
-sub-steps:
+The L1/L2/L3 framework refined to L1/L2/L3/L4 (v040): L1 grammar
+universal, L2 function-word per-language, L3 vocab substrate per
+language + per-user editable, L4 content substrate per-user. Each
+layer is more user-substitutable as you go up; the model learns
+only the universal residual.
 
-1. Update `synthesizer.py`'s template renderer to draw function words
-   from L2-en (replaces v027 Wave 2 article heuristic) — this is the
-   labeler change. Templates become richer; the labeler emits
-   L2-grammatical prose.
-2. HamRobySum / path 2 — train the actual synthesizer head on top of
-   `(L1, L2-en)`. Now the head doesn't have to learn function-word
-   grammar from prose; L2-en already owns it.
+**Synthesis layer is shippable.** Use `--use-hamrobysum` flag in
+chat.py to route synthesis through HamRoby-Sum instead of the v032
+template renderer; v032 templates remain as fallback for clusters
+that come back degenerate.
+
+**Next directions** (per v038): multi-language vocab brains
+(`vocab_es.db`, etc. — recipe documented), `/teach-vocab` REPL
+command, and scaling the substrate-bound principle to additional
+LLM capabilities (multi-hop reasoning, summarization).

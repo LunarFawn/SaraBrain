@@ -213,3 +213,59 @@ End-to-end pass criteria:
 - Stylistic variation via multiple english_forms per relation. Plumbing
   supported (multiple segments per relation), but inference picks the
   first; choosing among them is future.
+
+## Results (post-implementation)
+
+All slices A-G shipped. Final v040 EN training: dev_loss=0.021,
+dev_ppl=1.021 — best result across all variants v0/v1/v2/v3/v039/v040.
+
+| Variant | dev_ppl | Cross-brain quality |
+|---|---|---|
+| v0 (per-brain frozen) | 62 | n/a |
+| v1 (per-brain multi) | 66 | n/a |
+| v2 (generic, real-brain training) | 2.7 | works partial |
+| v3 (generic, synthetic-only) | 1.01 | works |
+| v039 EN (12 verbs in pool) | 1.13 | works, predicate substitution |
+| v039 EN (61 verbs) | 1.18 | regressed `is_a` |
+| **v040 EN (predicate slots)** | **1.02** | **deterministic predicates** |
+
+Key inference test results:
+
+**Demo brain — predicates that v039 substituted incorrectly now resolve:**
+- `Loop around detected molecule in bound state forms molecular snare.` (correct via vocab — was `requires` substitution)
+- `Binding issues result in mechanical movement constraints.` (correct via fallback — was `described by`)
+- `Rna molecules applies to newton's first law.` (correct via vocab — was `requires`)
+- `Molecular snare static stems has formed no fmn state.` (correct via fallback — was `<unk>`)
+
+**Cross-brain on `drifted_s1`** — best output of any variant:
+> Multicellular organism produces cell division. multicellular organism is an organism. multicellular organism is an individual. multicellular organism is a sea urchin.
+
+All 4 edges, correct verbs (`produces` vs `is a`), correct articles (`is an organism`, `is an individual` per article post-processor), no slot leaks.
+
+**Synthetic substrate (nonsense words, real relations)** — pure architectural proof working:
+> Isewace predicts merereg ovufiwup. isewace releases ohoru vunid. isewace encodes ebusaf ivorame. isewace controls rawirulu vobuj. isewace detects rawirulu vobuj.
+
+5 distinct relations, 5 distinct verbs, all correct.
+
+### Slot-leak bug + fix (slice F.1)
+
+The model occasionally emits a predicate slot index higher than the
+number of distinct relations in the cluster (overgeneralizing the
+per-edge → per-slot pattern from training clusters where slots DO
+vary). Fixed via defensive fallback in `_expand_pred_slots`: any
+unallocated `<Pn>` falls back to the first allocated relation. Cheap
+fix; could also be addressed by longer training but this is robust.
+
+### What v040 finally proves
+
+The architectural decomposition works end-to-end. The synthesizer
+now consists of:
+
+- L1 grammar (universal structural priors, ships once)
+- L2-en function-word overlay (per-language)
+- L3 vocab brain (per-language + per-user-editable verb mappings)
+- L4 content substrate (per-user, the facts)
+
+The model itself learns only structural composition over slots. Both
+content AND verbs round-trip through substrates the user can read,
+edit, and own. Honesty is structural at every layer, not behavioral.

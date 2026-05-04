@@ -309,49 +309,59 @@ def main() -> None:
             flush=True,
         )
     else:
-        # Resume from a prior synth ckpt — vocab matches, just load.
+        # Resume from a prior synth ckpt. Vocab and max_seq may have
+        # GROWN since the prior ckpt was trained (e.g. v040 added 16
+        # predicate slot tokens, so a v035 Core ckpt with vocab=425
+        # needs to project up to vocab=441). Both growth cases are
+        # handled by project_base_into_synth, which pads embedding +
+        # pos_embed for new rows (random init) and copies everything
+        # else verbatim.
         print(f"[synth] resume: loading prior synth ckpt {args.resume_from}", flush=True)
         ck = torch.load(args.resume_from, map_location="cpu", weights_only=False)
-        synth_cfg = GrammarConfig(**ck["config"])
-        if synth_cfg.vocab_size != synth_vocab_size:
+        prior_cfg = GrammarConfig(**ck["config"])
+        if prior_cfg.vocab_size > synth_vocab_size:
             raise SystemExit(
-                f"--resume-from vocab_size={synth_cfg.vocab_size} but "
-                f"VOCAB_SIZE_SYNTH={synth_vocab_size}; checkpoint must be "
-                f"a v035-generic synth ckpt"
+                f"--resume-from vocab_size={prior_cfg.vocab_size} > "
+                f"VOCAB_SIZE_SYNTH={synth_vocab_size}; can't shrink vocab"
             )
-        # Allow max_seq grow on resume if the new corpus needs longer.
-        if args.max_seq > synth_cfg.max_seq:
-            print(
-                f"[synth] growing max_seq {synth_cfg.max_seq} -> {args.max_seq} "
-                f"(pos_embed will pad with random init for new rows)",
-                flush=True,
-            )
-            new_cfg = GrammarConfig(
-                vocab_size=synth_cfg.vocab_size,
-                d_model=synth_cfg.d_model,
-                n_heads=synth_cfg.n_heads,
-                n_layers=synth_cfg.n_layers,
-                d_ff=synth_cfg.d_ff,
-                max_seq=args.max_seq,
-                dropout=synth_cfg.dropout,
-                pad_id=synth_cfg.pad_id,
-            )
-            model = GrammarModel(new_cfg).to(device)
-            proj = project_base_into_synth(
-                ck["state_dict"], model, synth_cfg.vocab_size,
-            )
-            synth_cfg = new_cfg
-            print(
-                f"[synth] resumed with grown max_seq: copied={len(proj['copied'])} "
-                f"padded={len(proj['padded'])} skipped={len(proj['skipped'])}",
-                flush=True,
-            )
-        else:
-            model = GrammarModel(synth_cfg).to(device)
+        synth_cfg = GrammarConfig(
+            vocab_size=synth_vocab_size,
+            d_model=prior_cfg.d_model,
+            n_heads=prior_cfg.n_heads,
+            n_layers=prior_cfg.n_layers,
+            d_ff=prior_cfg.d_ff,
+            max_seq=max(prior_cfg.max_seq, args.max_seq),
+            dropout=prior_cfg.dropout,
+            pad_id=prior_cfg.pad_id,
+        )
+        model = GrammarModel(synth_cfg).to(device)
+        if (prior_cfg.vocab_size == synth_vocab_size
+                and prior_cfg.max_seq == synth_cfg.max_seq):
+            # Exact-match resume — just load.
             model.load_state_dict(ck["state_dict"])
             print(
                 f"[synth] resumed cleanly  (prior step={ck.get('step')}  "
                 f"prior dev_loss={ck.get('dev_loss')})",
+                flush=True,
+            )
+        else:
+            # Vocab and/or max_seq grew — project + pad.
+            proj = project_base_into_synth(
+                ck["state_dict"], model, prior_cfg.vocab_size,
+            )
+            grew = []
+            if prior_cfg.vocab_size != synth_vocab_size:
+                grew.append(
+                    f"vocab {prior_cfg.vocab_size} -> {synth_vocab_size}"
+                )
+            if prior_cfg.max_seq != synth_cfg.max_seq:
+                grew.append(
+                    f"max_seq {prior_cfg.max_seq} -> {synth_cfg.max_seq}"
+                )
+            print(
+                f"[synth] resumed with {'; '.join(grew)}: "
+                f"copied={len(proj['copied'])} padded={len(proj['padded'])} "
+                f"skipped={len(proj['skipped'])}",
                 flush=True,
             )
 

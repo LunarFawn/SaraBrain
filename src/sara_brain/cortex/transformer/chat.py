@@ -35,7 +35,7 @@ from .clarify import (
 )
 from .dig import find_siblings, is_comprehensive_intent
 from .router import MODEL_FULL, CortexRouter
-from .synthesizer import synthesize
+from .synthesizer import parse_edges_from_gathered, synthesize
 
 
 # ANSI colors — disabled if stdout isn't a TTY
@@ -85,6 +85,7 @@ class ChatSession:
         grammar_ckpt: Path,
         head_ckpt: Path,
         device: str,
+        hamrobysum_ckpt: Path | None = None,
     ):
         self.grammar_ckpt = grammar_ckpt
         self.head_ckpt = head_ckpt
@@ -99,6 +100,18 @@ class ChatSession:
         )
         self._load_brain(brain_path)
         self.pending: Clarification | None = None
+        # v039 slice 3: optional HamRoby-Sum neural synthesizer.
+        # When loaded, _synthesize() routes through it with v032
+        # template fallback for clusters that come back degenerate.
+        self.hamrobysum_ckpt = hamrobysum_ckpt
+        self._hamrobysum_model = None
+        if hamrobysum_ckpt is not None:
+            from .inference_synth import load_synth_checkpoint
+            import torch
+            print(f"{DIM}[hamrobysum] loading {hamrobysum_ckpt}{RESET}")
+            self._hamrobysum_model = load_synth_checkpoint(
+                hamrobysum_ckpt, torch.device(device),
+            )
         # Track the most recent successful query so /dig and /depth can
         # extend it without the user retyping the topic.
         self.last_question: str | None = None
@@ -111,6 +124,44 @@ class ChatSession:
         # Re-bind the router's substrate index too.
         from .router_args import SubstrateIndex
         self.router.substrate = SubstrateIndex(brain_path)
+
+    def _synthesize(self, question: str | None, gathered: list[dict]) -> str:
+        """Render gathered substrate facts as prose. Routes through
+        HamRoby-Sum if loaded, falling back to the v032 template
+        renderer per-cluster on degenerate output (per v039 slice 3)."""
+        if self._hamrobysum_model is None:
+            return synthesize(question or "", gathered)
+
+        from .inference_synth import synthesize_cluster
+        from .synth_data import cluster_by_subject
+        import torch
+
+        edges = parse_edges_from_gathered(gathered)
+        if not edges:
+            return synthesize(question or "", gathered)
+        clusters = cluster_by_subject(edges)
+        device = torch.device(self.device)
+        out_parts: list[str] = []
+        for subject, cluster in clusters.items():
+            prose = synthesize_cluster(
+                self._hamrobysum_model, cluster, device,
+                max_new_tokens=80, temperature=0.0,
+                repetition_penalty=1.1, no_repeat_ngram_size=4,
+            )
+            stripped = prose.strip(" .,;:!?")
+            if not stripped:
+                # Degenerate cluster — fall back to template for THIS cluster.
+                fallback_gathered = [{"call": {"tool": "brain_explore",
+                                               "args": {"label": subject}},
+                                       "result": "\n".join(
+                                           f"'{e.src}' --[{e.rel}]--> '{e.tgt}'"
+                                           + ('_attribute' if e.target_was_attribute else '')
+                                           + (' [REFUTED]' if e.refuted else '')
+                                           for e in cluster
+                                       )}]
+                prose = synthesize(question or subject, fallback_gathered)
+            out_parts.append(prose)
+        return " ".join(p for p in out_parts if p)
 
     def ask(self, question: str) -> None:
         # Stage 1: detect leading-token typos (waht -> what, etc.)
@@ -163,7 +214,7 @@ class ChatSession:
             for fact in gathered:
                 print(fact["result"])
             return
-        prose = synthesize(question, gathered)
+        prose = self._synthesize(question, gathered)
         print(prose)
 
     @staticmethod
@@ -210,7 +261,7 @@ class ChatSession:
             self.last_topic = label
             gathered = [{"call": {"tool": "brain_explore", "args": args}, "result": res}]
             self._gather_siblings_into(label, gathered)
-            print(synthesize(self.last_question, gathered))
+            print(self._synthesize(self.last_question, gathered))
             return
 
         if self.last_topic is None:
@@ -223,7 +274,7 @@ class ChatSession:
                               "args": {k: v for k, v in self.last_decision.items() if k != "tool"}},
                      "result": original}]
         self._gather_siblings_into(self.last_topic, gathered)
-        print(synthesize(self.last_question or self.last_topic, gathered))
+        print(self._synthesize(self.last_question or self.last_topic, gathered))
 
     def do_depth(self, arg: str) -> None:
         try:
@@ -245,7 +296,7 @@ class ChatSession:
             return
         self.last_decision = {"tool": "brain_explore", **args}
         gathered = [{"call": {"tool": "brain_explore", "args": args}, "result": res}]
-        print(synthesize(self.last_question or self.last_topic, gathered))
+        print(self._synthesize(self.last_question or self.last_topic, gathered))
 
     @staticmethod
     def _extract_miss(tool: str, args: dict, result: str) -> tuple[str | None, str | None]:
@@ -301,7 +352,7 @@ class ChatSession:
             print(result)
             return
         gathered = [{"call": {"tool": tool, "args": decision}, "result": result}]
-        print(synthesize(original_q, gathered))
+        print(self._synthesize(original_q, gathered))
 
     def handle_command(self, line: str) -> bool:
         """Run a slash command. Returns False if the session should end."""
@@ -329,8 +380,9 @@ class ChatSession:
                     self._load_brain(p)
                     print(f"switched to: {p}")
         elif cmd == "/model":
-            print(f"  grammar:  {self.grammar_ckpt}")
-            print(f"  router:   {self.head_ckpt}")
+            print(f"  grammar:    {self.grammar_ckpt}")
+            print(f"  router:     {self.head_ckpt}")
+            print(f"  hamrobysum: {self.hamrobysum_ckpt or '(off — using v032 templates)'}")
         elif cmd == "/teach":
             if not arg:
                 print(f"{YELLOW}usage: /teach <statement>{RESET}")
@@ -394,6 +446,14 @@ def main() -> int:
                    default=Path("src/sara_brain/cortex/checkpoints/router_head.pt"))
     p.add_argument("--device", default="cpu",
                    help="cpu or cuda; cpu is plenty for serving")
+    p.add_argument("--use-hamrobysum", action="store_true",
+                   help="Route prose synthesis through HamRoby-Sum (per "
+                        "v039) with v032 template fallback for degenerate "
+                        "clusters. Default: pure v032 templates.")
+    p.add_argument("--hamrobysum-ckpt", type=Path,
+                   default=Path("src/sara_brain/cortex/checkpoints/hamroby_sum_en_002500.pt"),
+                   help="HamRoby-Sum checkpoint (only used with "
+                        "--use-hamrobysum). Default: hamroby_sum_en_002500.pt.")
     args = p.parse_args()
 
     if not args.brain.exists():
@@ -404,6 +464,9 @@ def main() -> int:
         return 1
     if not args.head_ckpt.exists():
         print(f"router head checkpoint not found: {args.head_ckpt}", file=sys.stderr)
+        return 1
+    if args.use_hamrobysum and not args.hamrobysum_ckpt.exists():
+        print(f"hamrobysum checkpoint not found: {args.hamrobysum_ckpt}", file=sys.stderr)
         return 1
 
     if readline is not None:
@@ -416,7 +479,10 @@ def main() -> int:
         atexit.register(_save_history, hist)
 
     print(f"{DIM}loading {MODEL_FULL}...{RESET}", flush=True)
-    session = ChatSession(args.brain, args.grammar_ckpt, args.head_ckpt, args.device)
+    session = ChatSession(
+        args.brain, args.grammar_ckpt, args.head_ckpt, args.device,
+        hamrobysum_ckpt=args.hamrobysum_ckpt if args.use_hamrobysum else None,
+    )
     print(banner(MODEL_FULL, args.brain))
 
     while True:

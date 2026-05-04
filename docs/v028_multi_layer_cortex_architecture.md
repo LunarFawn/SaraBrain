@@ -129,7 +129,7 @@ the brain uses:
 | L1 | UPOS + UD deps + slots (no words) | UD treebanks across many languages | All users | Yes (shipped once) |
 | L2 | UPOS for content + literal function words for one language | UD treebanks for that language with content words abstracted | Language | Yes (per language) |
 | L3 (substrate) | Content labels | User's own teaching | User | No (always-mutable) |
-| Synthesizer head (HamlinSum / A1) | L2's output token space | (edges, prose) pairs | Stitcher | Yes (per stitcher) |
+| Synthesizer head (HamRobySum / A1) | L2's output token space | (edges, prose) pairs | Stitcher | Yes (per stitcher) |
 
 The synthesizer head sits on top of the frozen L1+L2 stack and
 stitches substrate content into L2's grammatical frames. The
@@ -263,7 +263,7 @@ usable. Slow.
 **Path 2 — Distill from a frontier model.**
 Take 50K substrate-fact-set inputs, send each through Claude/GPT with
 the prompt "write this as natural English prose, no additions,"
-collect outputs, train HamlinSum from scratch on those pairs. The
+collect outputs, train HamRobySum from scratch on those pairs. The
 small model inherits the teacher's prose style, but **not its world
 knowledge** — because the training inputs already contain everything
 the teacher saw. Cost: a few hundred dollars in API calls, a weekend
@@ -296,22 +296,22 @@ inference.
 
 Path 3 is still useful — as a **debugging tool** for the constraint
 mechanism. Wrap T5-small in the mask, confirm logit suppression works
-end-to-end, then throw the wrapper away and train HamlinSum properly.
+end-to-end, then throw the wrapper away and train HamRobySum properly.
 
-### How L1+L2 changes the HamlinSum job
+### How L1+L2 changes the HamRobySum job
 
 The L1/L2/L3 view above splits "the language model" into three
-concerns. HamlinSum, as originally framed, was a single 125M-300M
+concerns. HamRobySum, as originally framed, was a single 125M-300M
 student doing **all three** at once: function-word grammar,
 content-stitching, and (implicitly) cross-lingual portability via
 whatever language the teacher happened to use.
 
-With L1+L2 in place, HamlinSum's job shrinks substantially:
+With L1+L2 in place, HamRobySum's job shrinks substantially:
 
 - L1 contributes the structural priors. Frozen encoder.
 - L2 contributes function-word grammar (`a` vs `an`, prep choice,
   agreement, conjunction patterns). Frozen overlay.
-- HamlinSum (the synthesizer head) is left with: content-ordering,
+- HamRobySum (the synthesizer head) is left with: content-ordering,
   edge-clustering decisions, lexicalization of substrate labels into
   L2's token space, and pronoun/connective stitching.
 
@@ -336,7 +336,7 @@ API cost, multi-language by construction), then evaluate whether
 the resulting v0 stitcher is good enough before committing to the
 Path 2 distillation budget.**
 
-## Path 2 deep dive — building HamlinSum
+## Path 2 deep dive — building HamRobySum
 
 ### What it is
 
@@ -366,11 +366,11 @@ scoped prompt.
 
 ### Three-stage data ladder
 
-Train HamlinSum incrementally — each stage upgrades the prose, same
+Train HamRobySum incrementally — each stage upgrades the prose, same
 inputs:
 
 **v0 — template-distilled (free).**
-Use synth_data.py output as-is. Train HamlinSum on (edges, template
+Use synth_data.py output as-is. Train HamRobySum on (edges, template
 prose). Result is a model that can paraphrase the template style with
 some surface variety. Useful as a sanity check that the
 end-to-end pipeline (data → tokenizer → train → infer → constrain)
@@ -386,14 +386,14 @@ input and a prompt like:
 > facts. If facts are sparse, the paragraph should be short. If facts
 > contradict each other, note the contradiction.
 
-Train HamlinSum from scratch on (edges, Claude-prose). This is the
+Train HamRobySum from scratch on (edges, Claude-prose). This is the
 real model. Cost estimate: 50K examples × ~2K tokens × ~$0.003/1K
 tokens ≈ $300 in API + ~$100 in GPU time.
 
 **v2 — distilled with reasoning structure (later).**
 Once the basic distillation works, regenerate with a teacher prompt
 that emits intermediate structure ("group facts by sub-topic, then
-write a paragraph per group"). This trains HamlinSum to produce
+write a paragraph per group"). This trains HamRobySum to produce
 multi-paragraph output for dense substrate dumps. Optional polish.
 
 ### Inputs
@@ -437,7 +437,7 @@ Training inputs need to span:
 ### Tokenizer
 
 HamlinLLM's `TOK2ID` is a custom syntactic vocabulary (UD tags,
-function words, structural markers). HamlinSum needs a real text
+function words, structural markers). HamRobySum needs a real text
 tokenizer for the prose side.
 
 Options, ordered by sanity:
@@ -490,7 +490,7 @@ Total under $1K and a few weeks of focused work.
    handling of multi-token substrate labels (e.g. `inertia` is one
    BPE token, but `5'3' static stem` is many).
 
-### Definition of done for HamlinSum-v1
+### Definition of done for HamRobySum-v1
 
 - Trained model + tokenizer checkpoints alongside HamlinLLM checkpoints.
 - Drop-in replacement for the `synthesize()` call in
@@ -499,7 +499,7 @@ Total under $1K and a few weeks of focused work.
   out-of-substrate content tokens (test: ask about a substrate concept,
   confirm no extraneous noun-phrases appear in output).
 - Side-by-side eval against the v027 templates on 50 hand-picked
-  questions: HamlinSum prose should be judged more natural by a human
+  questions: HamRobySum prose should be judged more natural by a human
   reader, with zero hallucinated facts.
 
 ## L2 implementation plan (the next concrete step)
@@ -594,10 +594,10 @@ fine-tune.
 
 Once L2-en is trained, the v027 article heuristic comes out and the
 synthesizer head loads `(L1, L2-en)` instead of just L1. The
-synthesizer head doesn't exist yet (path 2 / HamlinSum is next), so
+synthesizer head doesn't exist yet (path 2 / HamRobySum is next), so
 this integration step is deferred — but the labeler in `synth_data.py`
 should start emitting prose that uses L2-en's vocabulary so that when
-HamlinSum is trained, the training labels are already L2-grammatical.
+HamRobySum is trained, the training labels are already L2-grammatical.
 
 In other words: when L2-en is shipped, **update the templates in
 `synthesizer.py` to use the L2-en function-word allowlist**. This is
@@ -633,7 +633,7 @@ replaced by `(L2-en allowlist) × (small templating logic)` instead.
 5. CLI demo to confirm fluent-English skeleton sampling.
 6. Update v027 templates to use L2-en allowlist (deferring or
    removing the Wave 2 article heuristic).
-7. Then: pick up HamlinSum / path 2 with L2-en already in place.
+7. Then: pick up HamRobySum / path 2 with L2-en already in place.
 
 ## Open questions
 
@@ -674,7 +674,7 @@ replaced by `(L2-en allowlist) × (small templating logic)` instead.
     L2 produces recognisable English sentence skeletons with
     function words in plausible structural positions
     (`det the`, `case from / to`, `cop are`, `mark to / that`).
-- HamlinSum (path 2) deferred until the synthesizer-pipeline
+- HamRobySum (path 2) deferred until the synthesizer-pipeline
   integration. The layered architecture lets the synthesizer head be
   a smaller learning problem and gives it function-word grammar for
   free.
@@ -686,6 +686,6 @@ sub-steps:
    from L2-en (replaces v027 Wave 2 article heuristic) — this is the
    labeler change. Templates become richer; the labeler emits
    L2-grammatical prose.
-2. HamlinSum / path 2 — train the actual synthesizer head on top of
+2. HamRobySum / path 2 — train the actual synthesizer head on top of
    `(L1, L2-en)`. Now the head doesn't have to learn function-word
    grammar from prose; L2-en already owns it.

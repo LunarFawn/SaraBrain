@@ -90,6 +90,6 @@ when real usage surfaces an annoying mis-fire.
   synthesis time). Deferred — would require loading the L2 ckpt into
   the synthesizer pipeline + spaCy parse of each candidate. Real
   next-step if heuristic mis-fires too often.
-- HamlinSum (path 2) training. Separate slice.
+- HamRobySum (path 2) training. Separate slice.
 - Per-language synthesis. Spanish synthesizer would need its own
   determiner set (from `vocab_es` when it exists).

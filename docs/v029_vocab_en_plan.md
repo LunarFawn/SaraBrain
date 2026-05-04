@@ -135,7 +135,7 @@ turns it into a working L2 layer.
 │ STEP 4 (later): integrate into synthesizer pipeline         │
 │   replace v027 article heuristic                            │
 │   labeler in synth_data.py emits L2-grammatical prose       │
-│   HamlinSum (path 2) trains on top of (L1, L2-en)           │
+│   HamRobySum (path 2) trains on top of (L1, L2-en)           │
 └─────────────────────────────────────────────────────────────┘
 ```
 

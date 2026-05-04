@@ -98,13 +98,33 @@ def project_base_into_synth(
     return {"copied": copied, "padded": padded, "skipped": skipped}
 
 
-def freeze_base_params(model: GrammarModel) -> tuple[list, list]:
-    """Freeze everything except the token embedding (which is tied to
-    the LM head). Same strategy as train_l2.py."""
+def freeze_base_params(
+    model: GrammarModel, top_n: int = 0,
+) -> tuple[list, list]:
+    """Keep `tok_embed` (and its tied LM head) trainable plus the last
+    `top_n` transformer blocks. Everything else freezes.
+
+    `top_n=0` reproduces the v0 behavior (only tok_embed trainable).
+    `top_n=-1` unfreezes everything (useful when the synthesis task is
+    far enough from L1+L2's training distribution that a frozen base
+    actively hurts; see v034)."""
+    n_blocks = len(model.blocks)
+    if top_n < 0:
+        unfreeze_block_idx: set[int] = set(range(n_blocks))
+    else:
+        unfreeze_block_idx = set(range(max(0, n_blocks - top_n), n_blocks))
+
     trainable: list = []
     frozen: list = []
     for name, p in model.named_parameters():
+        keep = False
         if name == "tok_embed.weight":
+            keep = True
+        elif name.startswith("blocks."):
+            block_i = int(name.split(".", 2)[1])
+            if block_i in unfreeze_block_idx:
+                keep = True
+        if keep:
             p.requires_grad = True
             trainable.append((name, p))
         else:
@@ -207,9 +227,15 @@ def main() -> None:
     )
     p.add_argument("--no-amp", action="store_true")
     p.add_argument(
+        "--unfreeze-top-n", type=int, default=2,
+        help="Train tok_embed + the top N transformer blocks. 0 = "
+             "embedding only (v0 behavior). -1 = unfreeze everything. "
+             "Default 2 — see v034 for why this is the right baseline "
+             "for the edges->prose distribution.",
+    )
+    p.add_argument(
         "--unfreeze-base", action="store_true",
-        help="Train all parameters (loses L1+L2 universality). Default "
-             "freezes everything except the embedding.",
+        help="Deprecated alias for --unfreeze-top-n -1.",
     )
     args = p.parse_args()
 
@@ -274,16 +300,20 @@ def main() -> None:
         flush=True,
     )
 
-    if args.unfreeze_base:
-        trainable = list(model.named_parameters())
-        frozen: list = []
-    else:
-        trainable, frozen = freeze_base_params(model)
+    top_n = -1 if args.unfreeze_base else args.unfreeze_top_n
+    trainable, frozen = freeze_base_params(model, top_n=top_n)
     n_trainable = sum(p.numel() for _, p in trainable)
     n_frozen = sum(p.numel() for _, p in frozen)
+    n_blocks = len(model.blocks)
+    if top_n < 0:
+        flavor = f"all {n_blocks} blocks + tok_embed"
+    elif top_n == 0:
+        flavor = "tok_embed only"
+    else:
+        flavor = f"tok_embed + top {min(top_n, n_blocks)} of {n_blocks} blocks"
     print(
         f"[synth] trainable params: {n_trainable:,}  frozen: {n_frozen:,}  "
-        f"({'all' if args.unfreeze_base else 'tok_embed only'})",
+        f"({flavor})",
         flush=True,
     )
 
@@ -398,7 +428,8 @@ def main() -> None:
                 "brain_vocab": brain_vocab,   # full vocab list, for inference
                 "pairs_path": str(args.pairs),
                 "l2_ckpt": str(args.l2_ckpt),
-                "frozen_base": not args.unfreeze_base,
+                "frozen_base": top_n == 0,
+                "unfreeze_top_n": top_n,
                 "state_dict": sd,
                 "optimizer_state": opt.state_dict(),
                 "rng_state": rng.getstate(),

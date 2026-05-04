@@ -123,6 +123,37 @@ def _facts_prefix(
     return ids
 
 
+def _apply_repetition_penalty(
+    logits: torch.Tensor,
+    recent_ids: list[int],
+    penalty: float,
+) -> None:
+    """In-place: divide positive logits / multiply negative logits by
+    `penalty` for any token id in `recent_ids`. HuggingFace-style.
+    `penalty>1.0` discourages repeats; `penalty=1.0` is a no-op."""
+    if penalty == 1.0 or not recent_ids:
+        return
+    for tid in set(recent_ids):
+        v = logits[tid].item()
+        logits[tid] = v / penalty if v > 0 else v * penalty
+
+
+def _would_close_repeating_ngram(
+    out_ids: list[int], candidate: int, n: int,
+) -> bool:
+    """True when appending `candidate` to `out_ids` would form an
+    n-gram that already appeared earlier in `out_ids`. n=0 disables."""
+    if n <= 0 or len(out_ids) < n - 1:
+        return False
+    new_ngram = tuple(out_ids[-(n - 1):]) + (candidate,) if n > 1 else (candidate,)
+    # Look for new_ngram anywhere in out_ids (treating out_ids as one
+    # window of past emissions).
+    for i in range(0, len(out_ids) - n + 1):
+        if tuple(out_ids[i:i + n]) == new_ngram:
+            return True
+    return False
+
+
 @torch.no_grad()
 def synthesize_cluster(
     model: GrammarModel,
@@ -134,8 +165,18 @@ def synthesize_cluster(
     temperature: float = 0.0,
     top_k: int = 0,
     rng: random.Random | None = None,
+    repetition_penalty: float = 1.0,
+    repetition_window: int = 32,
+    no_repeat_ngram_size: int = 0,
 ) -> str:
-    """Render `edges` as prose. `temperature=0` is greedy."""
+    """Render `edges` as prose. `temperature=0` is greedy.
+
+    `repetition_penalty > 1.0` divides the logits of recently-emitted
+    tokens (last `repetition_window` positions of the prose tail), making
+    them less likely. v0 behavior: `repetition_penalty=1.0`.
+
+    `no_repeat_ngram_size > 0` bans any candidate that would close an
+    n-gram already present in the prose tail."""
     if not edges:
         return ""
     rng = rng or random.Random(0)
@@ -159,7 +200,13 @@ def synthesize_cluster(
             break
         x = torch.tensor([ids], dtype=torch.long, device=device)
         logits, _ = model(x)
-        next_logits = logits[0, -1]
+        next_logits = logits[0, -1].clone()
+
+        # Apply repetition penalty over the prose tail only — the facts
+        # prefix is conditioning, repeats there are expected.
+        recent = out_ids[-repetition_window:] if repetition_window else out_ids
+        _apply_repetition_penalty(next_logits, recent, repetition_penalty)
+
         if temperature > 0.0:
             next_logits = next_logits / temperature
             if top_k > 0:
@@ -169,6 +216,21 @@ def synthesize_cluster(
             nxt = rng.choices(range(len(probs)), weights=probs.tolist(), k=1)[0]
         else:
             nxt = int(next_logits.argmax().item())
+
+        # n-gram veto: try up to a few alternates if the top pick would
+        # close a repeating n-gram. After that, give up and emit anyway
+        # to avoid an infinite loop.
+        if no_repeat_ngram_size > 0 and _would_close_repeating_ngram(
+            out_ids, nxt, no_repeat_ngram_size,
+        ):
+            sorted_ids = next_logits.argsort(descending=True).tolist()
+            for alt in sorted_ids[:8]:
+                if not _would_close_repeating_ngram(
+                    out_ids, alt, no_repeat_ngram_size,
+                ):
+                    nxt = alt
+                    break
+
         ids.append(nxt)
         if nxt == END_PROSE_ID or nxt == EOS_ID:
             break
@@ -199,6 +261,17 @@ def main() -> None:
                    help="0 = greedy, >0 = sampling")
     p.add_argument("--top-k", type=int, default=0)
     p.add_argument("--max-new-tokens", type=int, default=80)
+    p.add_argument("--repetition-penalty", type=float, default=1.0,
+                   help="Divide logits of recently-emitted tokens by this. "
+                        "1.0 = no penalty (v0 behavior). 1.2 is a good "
+                        "starting value to break out of repetition loops.")
+    p.add_argument("--no-repeat-ngram-size", type=int, default=0,
+                   help="Ban candidates that would close an n-gram already "
+                        "present in the prose tail. 0 = disabled. 3 is "
+                        "common.")
+    p.add_argument("--repetition-window", type=int, default=32,
+                   help="How many recent prose tokens the repetition "
+                        "penalty considers.")
     p.add_argument("--seed", type=int, default=0)
     p.add_argument(
         "--device", default="cuda" if torch.cuda.is_available() else "cpu",
@@ -230,6 +303,9 @@ def main() -> None:
                 model, vocab, tok2id, cluster, device,
                 max_new_tokens=args.max_new_tokens,
                 temperature=args.temperature, top_k=args.top_k, rng=rng,
+                repetition_penalty=args.repetition_penalty,
+                repetition_window=args.repetition_window,
+                no_repeat_ngram_size=args.no_repeat_ngram_size,
             )
             print(f"   PROSE: {prose}")
     else:
@@ -246,6 +322,9 @@ def main() -> None:
                 model, vocab, tok2id, cluster, device,
                 max_new_tokens=args.max_new_tokens,
                 temperature=args.temperature, top_k=args.top_k, rng=rng,
+                repetition_penalty=args.repetition_penalty,
+                repetition_window=args.repetition_window,
+                no_repeat_ngram_size=args.no_repeat_ngram_size,
             )
             print(f"   PROSE: {prose}")
 

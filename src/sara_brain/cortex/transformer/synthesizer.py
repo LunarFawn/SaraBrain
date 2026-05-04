@@ -167,17 +167,138 @@ _FALLBACK = "{src} {rel_pretty} {tgt}"
 _ATTR_FALLBACK = "{tgt} has {rel_pretty} of {src}"
 
 
+# ── L2-en-anchored article insertion (v032) ──
+# Replaces v027 Wave 2 article heuristic. The determiner set is drawn
+# from vocab_en's function-word allowlist so that vocab_en stays the
+# single source of truth for what counts as a determiner. Applied
+# only to bare-copula templates (`is`); templates with built-in
+# articles (`is_a`, `is_an_instance_of`, ...) are unaffected.
+
+_DETERMINERS: frozenset[str] = frozenset({
+    # vocab_en determiner group
+    "a", "an", "the", "this", "that", "these", "those",
+    "some", "any", "every", "each", "no",
+    # vocab_en pronoun group entries that function as determiners in English
+    "his", "her", "its", "their",
+})
+
+
+def _validate_determiners_against_vocab_en() -> None:
+    """Loud failure if `_DETERMINERS` and vocab_en drift apart."""
+    from .vocab_en import EN_FUNCTION_WORD_SET
+    missing = _DETERMINERS - EN_FUNCTION_WORD_SET
+    if missing:
+        raise RuntimeError(
+            f"_DETERMINERS references words not in vocab_en: "
+            f"{sorted(missing)} — sync vocab_en.ENGLISH_FUNCTION_WORDS"
+        )
+
+
+_validate_determiners_against_vocab_en()
+
+
+_MASS_NOUNS: frozenset[str] = frozenset({
+    # Generic English mass nouns
+    "inertia", "information", "water", "energy", "force", "gravity",
+    "mass", "data", "knowledge", "evidence", "feedback", "music",
+    "weather", "advice", "money", "research", "love", "happiness",
+    "sadness", "anger", "wisdom", "patience", "hope", "luck",
+    "air", "light", "heat", "sound", "motion", "matter",
+    # Domain-specific (RNA / structural biology) — extend as mis-fires surface
+    "rna", "dna", "atp", "gtp", "selex",
+})
+
+
+_COMMON_ADJECTIVES: frozenset[str] = frozenset({
+    "happy", "sad", "small", "big", "old", "new", "good", "bad",
+    "warm", "cold", "hot", "fast", "slow", "high", "low", "easy",
+    "hard", "soft", "loud", "quiet", "kind", "rich", "poor",
+    "wet", "dry", "clean", "dirty", "free", "busy", "open", "real",
+    "sure", "ready", "alive", "dead", "right", "wrong", "true", "false",
+    "long", "short", "wide", "narrow", "deep", "shallow",
+    "young", "main", "next", "last", "first", "best",
+    "worst", "great", "fine", "full", "empty", "weak", "strong",
+    "central", "key", "primary", "secondary", "early", "late",
+})
+
+
+_ADJECTIVE_SUFFIXES: tuple[str, ...] = ("ous", "ful", "able", "ible")
+
+
+def _looks_plural(word: str) -> bool:
+    w = word.lower()
+    if not w.endswith("s"):
+        return False
+    return not w.endswith(("ss", "is", "us", "os"))
+
+
+def _looks_like_adjective(word: str) -> bool:
+    w = word.lower()
+    if w in _COMMON_ADJECTIVES:
+        return True
+    return len(w) > 4 and any(w.endswith(s) for s in _ADJECTIVE_SUFFIXES)
+
+
+def _maybe_article(target: str) -> str:
+    """Return `'a '`, `'an '`, or `''` depending on whether `target`
+    looks like a singular indefinite count noun that needs an article.
+
+    Conservative — returns `''` on uncertainty (already-determined,
+    mass noun, plural-shaped, adjective-shaped). Vowel onset gives
+    `'an '`, otherwise `'a '`."""
+    target = target.strip()
+    if not target:
+        return ""
+    words = target.split()
+    first = words[0].lower()
+    last = words[-1].lower()
+    if first in _DETERMINERS:
+        return ""
+    if first in _MASS_NOUNS:
+        return ""
+    if _looks_plural(last):
+        return ""
+    if _looks_like_adjective(first):
+        return ""
+    return "an " if first[0] in "aeiou" else "a "
+
+
+# (rel, target_was_attribute) → which slot ('src' or 'tgt') is the
+# noun-phrase slot that should receive an indefinite article. Only
+# bare-copula relations are listed; templates with built-in articles
+# (e.g. `is_a` whose template already says "is a {src}") are not.
+_ARTICLE_SLOT: dict[tuple[str, bool], str] = {
+    ("is", False): "tgt",   # _TEMPLATES["is"]: "{src} is {tgt}"
+    ("is", True):  "src",   # _ATTR_TEMPLATES["is"]: "{tgt} is {src}"
+}
+
+
 def _render_edge(e: Edge) -> str:
+    src, tgt = e.src, e.tgt
+
+    # v032: insert indefinite article on the appropriate slot for
+    # bare-copula templates only. Templates with built-in articles
+    # are left untouched.
+    article_slot = _ARTICLE_SLOT.get((e.rel, e.target_was_attribute))
+    if article_slot:
+        slot_value = src if article_slot == "src" else tgt
+        article = _maybe_article(slot_value)
+        if article:
+            if article_slot == "src":
+                src = f"{article}{src}"
+            else:
+                tgt = f"{article}{tgt}"
+
     if e.target_was_attribute and e.rel in _ATTR_TEMPLATES:
-        text = _ATTR_TEMPLATES[e.rel].format(src=e.src, tgt=e.tgt)
+        text = _ATTR_TEMPLATES[e.rel].format(src=src, tgt=tgt)
     elif e.rel in _TEMPLATES:
-        text = _TEMPLATES[e.rel].format(src=e.src, tgt=e.tgt)
+        text = _TEMPLATES[e.rel].format(src=src, tgt=tgt)
     else:
         rel_pretty = e.rel.replace("_", " ")
         if e.target_was_attribute:
-            text = _ATTR_FALLBACK.format(src=e.src, tgt=e.tgt, rel_pretty=rel_pretty)
+            text = _ATTR_FALLBACK.format(src=src, tgt=tgt, rel_pretty=rel_pretty)
         else:
-            text = _FALLBACK.format(src=e.src, tgt=e.tgt, rel_pretty=rel_pretty)
+            text = _FALLBACK.format(src=src, tgt=tgt, rel_pretty=rel_pretty)
     if e.refuted:
         text = f"it is not the case that {text}"
     return text + "."

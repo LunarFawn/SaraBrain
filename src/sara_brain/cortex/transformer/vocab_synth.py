@@ -92,6 +92,25 @@ N_PRED_SLOTS: int = 16
 SYNTH_PRED_SLOTS: tuple[str, ...] = tuple(f"<P{i}>" for i in range(N_PRED_SLOTS))
 
 
+# v048 — extended slot types for complex grammar.
+# `<T>` time, `<L>` location, `<M>` modifier (manner adverb / intensifier),
+# `<E>` event reference (for nesting via reified events from v047),
+# `<R>` discourse connective ("however", "therefore", ...).
+# Append-only after pred slots so v040-era checkpoints keep their
+# vocab IDs intact; only the new tokens get random-init'd at
+# resume-from time via project_base_into_synth.
+N_TIME_SLOTS: int = 8
+N_LOC_SLOTS: int = 8
+N_MOD_SLOTS: int = 8
+N_EVENT_SLOTS: int = 4
+N_DISCOURSE_SLOTS: int = 4
+SYNTH_TIME_SLOTS: tuple[str, ...] = tuple(f"<T{i}>" for i in range(N_TIME_SLOTS))
+SYNTH_LOC_SLOTS: tuple[str, ...] = tuple(f"<L{i}>" for i in range(N_LOC_SLOTS))
+SYNTH_MOD_SLOTS: tuple[str, ...] = tuple(f"<M{i}>" for i in range(N_MOD_SLOTS))
+SYNTH_EVENT_SLOTS: tuple[str, ...] = tuple(f"<E{i}>" for i in range(N_EVENT_SLOTS))
+SYNTH_DISCOURSE_SLOTS: tuple[str, ...] = tuple(f"<R{i}>" for i in range(N_DISCOURSE_SLOTS))
+
+
 # Substrate-relevant content words the prose may need to emit
 # literally. Drawn from substrate template predicates + the most
 # common OOV words found across the demo brains' rendered prose.
@@ -148,6 +167,8 @@ SYNTH_SUBSTRATE_VERBS: tuple[str, ...] = (
 _SYNTH_ADDED: tuple[str, ...] = (
     SYNTH_DELIMITERS + SYNTH_PUNCTUATION + SYNTH_SLOTS + SYNTH_SUBSTRATE_VERBS
     + SYNTH_PRED_SLOTS
+    + SYNTH_TIME_SLOTS + SYNTH_LOC_SLOTS + SYNTH_MOD_SLOTS
+    + SYNTH_EVENT_SLOTS + SYNTH_DISCOURSE_SLOTS
 )
 
 # Sanity: no duplicates among additions, and no overlap with vocab_en.
@@ -201,6 +222,21 @@ SYNTH_PRED_SLOT_ID_SET: frozenset[int] = frozenset(SYNTH_PRED_SLOT_IDS)
 SYNTH_PRED_SLOT_SET: frozenset[str] = frozenset(SYNTH_PRED_SLOTS)
 
 
+# v048 — IDs and sets for the extended slot types.
+SYNTH_TIME_SLOT_IDS: tuple[int, ...] = tuple(TOK2ID_SYNTH[s] for s in SYNTH_TIME_SLOTS)
+SYNTH_LOC_SLOT_IDS: tuple[int, ...] = tuple(TOK2ID_SYNTH[s] for s in SYNTH_LOC_SLOTS)
+SYNTH_MOD_SLOT_IDS: tuple[int, ...] = tuple(TOK2ID_SYNTH[s] for s in SYNTH_MOD_SLOTS)
+SYNTH_EVENT_SLOT_IDS: tuple[int, ...] = tuple(TOK2ID_SYNTH[s] for s in SYNTH_EVENT_SLOTS)
+SYNTH_DISCOURSE_SLOT_IDS: tuple[int, ...] = tuple(
+    TOK2ID_SYNTH[s] for s in SYNTH_DISCOURSE_SLOTS
+)
+SYNTH_TIME_SLOT_SET: frozenset[str] = frozenset(SYNTH_TIME_SLOTS)
+SYNTH_LOC_SLOT_SET: frozenset[str] = frozenset(SYNTH_LOC_SLOTS)
+SYNTH_MOD_SLOT_SET: frozenset[str] = frozenset(SYNTH_MOD_SLOTS)
+SYNTH_EVENT_SLOT_SET: frozenset[str] = frozenset(SYNTH_EVENT_SLOTS)
+SYNTH_DISCOURSE_SLOT_SET: frozenset[str] = frozenset(SYNTH_DISCOURSE_SLOTS)
+
+
 def slot_token(i: int) -> str:
     """`slot_token(0)` -> `'<C0>'`. Raises if i >= N_SLOTS."""
     if not 0 <= i < N_SLOTS:
@@ -215,6 +251,43 @@ def pred_slot_token(i: int) -> str:
     return SYNTH_PRED_SLOTS[i]
 
 
+def time_slot_token(i: int) -> str:
+    """`time_slot_token(0)` -> `'<T0>'`. Raises if i >= N_TIME_SLOTS."""
+    if not 0 <= i < N_TIME_SLOTS:
+        raise ValueError(f"time slot index {i} out of range [0, {N_TIME_SLOTS})")
+    return SYNTH_TIME_SLOTS[i]
+
+
+def loc_slot_token(i: int) -> str:
+    """`loc_slot_token(0)` -> `'<L0>'`. Raises if i >= N_LOC_SLOTS."""
+    if not 0 <= i < N_LOC_SLOTS:
+        raise ValueError(f"loc slot index {i} out of range [0, {N_LOC_SLOTS})")
+    return SYNTH_LOC_SLOTS[i]
+
+
+def mod_slot_token(i: int) -> str:
+    """`mod_slot_token(0)` -> `'<M0>'`. Raises if i >= N_MOD_SLOTS."""
+    if not 0 <= i < N_MOD_SLOTS:
+        raise ValueError(f"mod slot index {i} out of range [0, {N_MOD_SLOTS})")
+    return SYNTH_MOD_SLOTS[i]
+
+
+def event_slot_token(i: int) -> str:
+    """`event_slot_token(0)` -> `'<E0>'`. Raises if i >= N_EVENT_SLOTS."""
+    if not 0 <= i < N_EVENT_SLOTS:
+        raise ValueError(f"event slot index {i} out of range [0, {N_EVENT_SLOTS})")
+    return SYNTH_EVENT_SLOTS[i]
+
+
+def discourse_slot_token(i: int) -> str:
+    """`discourse_slot_token(0)` -> `'<R0>'`. Raises if i >= N_DISCOURSE_SLOTS."""
+    if not 0 <= i < N_DISCOURSE_SLOTS:
+        raise ValueError(
+            f"discourse slot index {i} out of range [0, {N_DISCOURSE_SLOTS})"
+        )
+    return SYNTH_DISCOURSE_SLOTS[i]
+
+
 __all__ = [
     "VOCAB_SYNTH", "TOK2ID_SYNTH", "ID2TOK_SYNTH", "VOCAB_SIZE_SYNTH",
     "SYNTH_DELIMITERS", "SYNTH_DELIMITER_SET",
@@ -224,6 +297,17 @@ __all__ = [
     "SYNTH_PRED_SLOT_IDS", "SYNTH_PRED_SLOT_ID_SET",
     "SYNTH_SUBSTRATE_VERBS", "SYNTH_SUBSTRATE_VERB_SET",
     "N_SLOTS", "N_PRED_SLOTS", "slot_token", "pred_slot_token",
+    # v048 extended slot types.
+    "N_TIME_SLOTS", "N_LOC_SLOTS", "N_MOD_SLOTS",
+    "N_EVENT_SLOTS", "N_DISCOURSE_SLOTS",
+    "SYNTH_TIME_SLOTS", "SYNTH_LOC_SLOTS", "SYNTH_MOD_SLOTS",
+    "SYNTH_EVENT_SLOTS", "SYNTH_DISCOURSE_SLOTS",
+    "SYNTH_TIME_SLOT_IDS", "SYNTH_LOC_SLOT_IDS", "SYNTH_MOD_SLOT_IDS",
+    "SYNTH_EVENT_SLOT_IDS", "SYNTH_DISCOURSE_SLOT_IDS",
+    "SYNTH_TIME_SLOT_SET", "SYNTH_LOC_SLOT_SET", "SYNTH_MOD_SLOT_SET",
+    "SYNTH_EVENT_SLOT_SET", "SYNTH_DISCOURSE_SLOT_SET",
+    "time_slot_token", "loc_slot_token", "mod_slot_token",
+    "event_slot_token", "discourse_slot_token",
     # Re-exported special IDs (unchanged from L1).
     "PAD_ID", "BOS_ID", "EOS_ID", "SEP_ID", "UNK_ID",
     # Re-exported L2-en handles.

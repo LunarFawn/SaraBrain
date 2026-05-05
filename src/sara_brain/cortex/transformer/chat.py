@@ -75,6 +75,18 @@ HELP = """commands:
   /multihop          toggle multi-hop reasoning on/off (v045). When on,
                      questions like "why X" or "how does Y" trigger
                      bounded BFS over substrate edges.
+  /teach-event SUBJECT ACTION [object=O] [location=L] [from=ISO] [to=ISO]
+                     [modifier=M]
+                     v047: create a reified event node bundling a
+                     multi-valued fact. Example:
+                     /teach-event alice walked_to object=cafe
+                       location=downtown from=2026-05-05T15:00
+                       to=2026-05-05T17:00
+  /where-is SUBJECT [at=ISO]
+                     find the active event for SUBJECT at a timestamp
+                     (default: current local time).
+  /list-events SUBJECT
+                     show all events involving SUBJECT, chronologically.
   /dig               expand the last query — pull sibling substrate concepts
                      and synthesize their neighborhoods with the original
   /dig CONCEPT       drill into a specific named concept directly
@@ -510,6 +522,23 @@ class ChatSession:
             self.do_dig(arg)
         elif cmd == "/depth":
             self.do_depth(arg)
+        elif cmd == "/teach-event":
+            if not arg.strip():
+                print(f"{YELLOW}usage: /teach-event SUBJECT ACTION [object=O] "
+                      f"[location=L] [from=ISO] [to=ISO] [modifier=M]{RESET}")
+            else:
+                self._do_teach_event(arg)
+        elif cmd == "/where-is":
+            if not arg.strip():
+                print(f"{YELLOW}usage: /where-is SUBJECT [at=ISO]"
+                      f"  (default: now){RESET}")
+            else:
+                self._do_where_is(arg)
+        elif cmd == "/list-events":
+            if not arg.strip():
+                print(f"{YELLOW}usage: /list-events SUBJECT{RESET}")
+            else:
+                self._do_list_events(arg)
         else:
             print(f"{YELLOW}unknown command: {cmd}  (try /help){RESET}")
         return True
@@ -723,6 +752,103 @@ class ChatSession:
             return
         path_id = getattr(result, "path_id", "?")
         print(f"{GREEN}refuted (path #{path_id}): {statement}{RESET}")
+
+    # ── v047: reified-event slash commands ──────────────────────────
+
+    def _parse_event_args(self, arg: str) -> tuple[list[str], dict[str, str]]:
+        """Split a /teach-event style arg into positional tokens
+        and key=value pairs. Quoted multi-word values supported via
+        shlex. Example:
+            alice walked_to object="hardback book" location=cafe \
+                from=2026-05-05T15:00 to=2026-05-05T17:00
+        -> positional: [alice, walked_to]
+           kv: {object: 'hardback book', location: 'cafe',
+                from: '...', to: '...'}"""
+        import shlex
+        try:
+            tokens = shlex.split(arg)
+        except ValueError:
+            tokens = arg.split()
+        positional: list[str] = []
+        kv: dict[str, str] = {}
+        for t in tokens:
+            if "=" in t and not t.startswith("="):
+                k, _, v = t.partition("=")
+                kv[k.strip().lower()] = v
+            else:
+                positional.append(t)
+        return positional, kv
+
+    def _do_teach_event(self, arg: str) -> None:
+        """Create a reified event node + binding edges. Examples:
+            /teach-event alice walked_to object=cafe location=downtown \
+                from=2026-05-05T15:00 to=2026-05-05T17:00
+            /teach-event bob sat modifier=quietly
+        """
+        positional, kv = self._parse_event_args(arg)
+        if len(positional) < 2:
+            print(f"{YELLOW}usage: /teach-event SUBJECT ACTION "
+                  f"[object=O] [location=L] [from=ISO] [to=ISO] "
+                  f"[modifier=M]{RESET}")
+            return
+        subject = positional[0]
+        action = positional[1]
+        # Extra positional tokens after subject+action are treated
+        # as the object (so `/teach-event alice walked_to cafe` works).
+        if len(positional) >= 3 and "object" not in kv:
+            kv["object"] = " ".join(positional[2:])
+        try:
+            result = execute_tool(self.brain, "brain_teach_event", {
+                "subject": subject,
+                "action": action,
+                "object": kv.get("object"),
+                "location": kv.get("location"),
+                "start_time": kv.get("from") or kv.get("start") or kv.get("start_time"),
+                "end_time": kv.get("to") or kv.get("end") or kv.get("end_time"),
+                "modifier": kv.get("modifier"),
+            })
+            print(f"{GREEN}{result}{RESET}")
+        except Exception as e:
+            print(f"{YELLOW}teach-event error: {e}{RESET}")
+
+    def _do_where_is(self, arg: str) -> None:
+        """Find active event(s) for a subject at a timestamp. Default
+        is the current local time when no `at=` provided.
+            /where-is alice
+            /where-is alice at=2026-05-05T16:00
+        """
+        positional, kv = self._parse_event_args(arg)
+        if not positional:
+            print(f"{YELLOW}usage: /where-is SUBJECT [at=ISO]{RESET}")
+            return
+        subject = positional[0]
+        timestamp = kv.get("at") or kv.get("time") or kv.get("timestamp")
+        if not timestamp:
+            from datetime import datetime
+            timestamp = datetime.now().isoformat(timespec="minutes")
+        try:
+            result = execute_tool(self.brain, "brain_query_event_at", {
+                "subject": subject, "timestamp": timestamp,
+            })
+            print(result)
+        except Exception as e:
+            print(f"{YELLOW}where-is error: {e}{RESET}")
+
+    def _do_list_events(self, arg: str) -> None:
+        """List every event involving SUBJECT in chronological order.
+            /list-events alice"""
+        positional, _ = self._parse_event_args(arg)
+        if not positional:
+            print(f"{YELLOW}usage: /list-events SUBJECT{RESET}")
+            return
+        subject = positional[0]
+        try:
+            result = execute_tool(self.brain, "brain_query_events", {
+                "subject": subject,
+            })
+            print(result)
+        except Exception as e:
+            print(f"{YELLOW}list-events error: {e}{RESET}")
 
 
 def _save_history(path: Path) -> None:

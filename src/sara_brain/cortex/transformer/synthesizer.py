@@ -513,6 +513,109 @@ def render_edges(edges: list[Edge], topic: str | None = None) -> str:
     return " ".join(out)
 
 
+# v047 slice A.3 — event-node aware extraction.
+
+_EVENT_PREFIX = "event:"
+_EVENT_BINDING_RELATIONS: frozenset[str] = frozenset({
+    "event_subject", "event_action", "event_object",
+    "event_location", "event_start", "event_end", "event_modifier",
+})
+
+
+def _is_event_label(label: str) -> bool:
+    return label.strip().lower().startswith(_EVENT_PREFIX)
+
+
+def find_event_references(edges: list[Edge]) -> set[str]:
+    """Return the set of event-node labels referenced by these edges.
+
+    Event references show up either as an event-subject side of an
+    `event_*` binding edge, or as an unrelated edge into/out of an
+    event node. Used by chat.py to auto-expand events before
+    rendering."""
+    refs: set[str] = set()
+    for e in edges:
+        if _is_event_label(e.src):
+            refs.add(e.src.strip())
+        if _is_event_label(e.tgt):
+            refs.add(e.tgt.strip())
+    return refs
+
+
+def extract_event_renderings(
+    edges: list[Edge],
+) -> tuple[list[str], list[Edge]]:
+    """Split edges into (event-prose strings, remaining edges).
+
+    Detects clusters of `event_*` binding edges sharing an `event:`-
+    prefixed subject. Each such cluster collapses into ONE readable
+    prose sentence ("Alice walked to the cafe at downtown from 3pm
+    to 5pm.") so the downstream synthesizer doesn't have to render
+    individual binding edges as their own sentences.
+
+    Edges that don't belong to event-node clusters pass through in
+    `remaining_edges`."""
+    by_event: dict[str, dict[str, str]] = {}
+    remaining: list[Edge] = []
+    for e in edges:
+        src = e.src.strip()
+        if src.lower().startswith(_EVENT_PREFIX) and e.rel in _EVENT_BINDING_RELATIONS:
+            by_event.setdefault(src, {})[e.rel] = e.tgt.strip()
+            continue
+        remaining.append(e)
+    # Drop "event_subject"-only stub edges (no full event bindings
+    # available) — they'd otherwise leak as 'event:X event subject Y.'
+    # in the rendered output. The bindings get re-added by the chat
+    # layer's auto-expand step before this function runs in practice;
+    # if they didn't, we suppress rather than emit the noise.
+    remaining = [
+        e for e in remaining
+        if not (_is_event_label(e.src) or _is_event_label(e.tgt))
+    ]
+
+    if not by_event:
+        return [], remaining
+
+    # Render each event cluster as one bundled sentence.
+    rendered: list[str] = []
+    for event_label in sorted(by_event):
+        b = by_event[event_label]
+        subj = b.get("event_subject")
+        act = b.get("event_action")
+        if not subj or not act:
+            # Incomplete event binding — fall back to letting the
+            # remaining edges represent it. Don't drop the data.
+            for rel, tgt in b.items():
+                remaining.append(Edge(src=event_label, rel=rel, tgt=tgt))
+            continue
+        obj = b.get("event_object")
+        loc = b.get("event_location")
+        start = b.get("event_start")
+        end = b.get("event_end")
+        mod = b.get("event_modifier")
+        parts: list[str] = [subj]
+        if mod:
+            parts.append(mod)
+        parts.append(act.replace("_", " "))
+        if obj:
+            parts.append(obj)
+        if loc:
+            parts.append(f"at {loc}")
+        if start and end:
+            parts.append(f"from {start} to {end}")
+        elif start:
+            parts.append(f"at {start}")
+        elif end:
+            parts.append(f"until {end}")
+        sentence = " ".join(parts).strip()
+        if sentence:
+            sentence = sentence[0].upper() + sentence[1:]
+            if not sentence.endswith("."):
+                sentence += "."
+            rendered.append(sentence)
+    return rendered, remaining
+
+
 def synthesize(question: str, gathered: list[dict]) -> str:
     """Top-level: given the question and gathered facts, produce a prose
     answer using only the substrate edges (no model knowledge)."""
@@ -528,11 +631,20 @@ def synthesize(question: str, gathered: list[dict]) -> str:
             "Sara's substrate has nothing to say about this question."
         )
 
+    # v047 A.3: extract event-node clusters and render them as bundled
+    # sentences before the regular per-edge rendering picks them apart.
+    event_prose, edges = extract_event_renderings(edges)
+
     topic = _topic_hint_from_question(question)
     body = render_edges(edges, topic=topic)
-    if not body:
+    parts = []
+    if event_prose:
+        parts.extend(event_prose)
+    if body:
+        parts.append(body)
+    if not parts:
         return "Sara's substrate has nothing to say about this question."
-    return body
+    return " ".join(parts)
 
 
 def _topic_hint_from_question(question: str) -> str | None:
@@ -547,5 +659,6 @@ def _topic_hint_from_question(question: str) -> str | None:
 
 __all__ = [
     "Edge", "parse_edges_from_text", "parse_edges_from_gathered",
-    "render_edges", "synthesize",
+    "render_edges", "synthesize", "extract_event_renderings",
+    "find_event_references",
 ]

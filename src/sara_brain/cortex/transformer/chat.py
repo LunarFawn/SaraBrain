@@ -35,7 +35,9 @@ from .clarify import (
 )
 from .dig import find_siblings, is_comprehensive_intent
 from .router import MODEL_FULL, CortexRouter
-from .synthesizer import parse_edges_from_gathered, synthesize
+from .synthesizer import (
+    Edge, find_event_references, parse_edges_from_gathered, synthesize,
+)
 
 
 # ANSI colors — disabled if stdout isn't a TTY
@@ -162,6 +164,38 @@ class ChatSession:
         from .router_args import SubstrateIndex
         self.router.substrate = SubstrateIndex(brain_path)
 
+    def _expand_event_references(self, edges: list[Edge]) -> list[Edge]:
+        """v047 A.3: when gathered edges reference event nodes (an
+        `event:X` label as src or tgt of any edge), fetch the full
+        binding edges for those event nodes so the synthesizer can
+        collapse them into bundled prose.
+
+        brain_explore on a regular concept only walks 1 hop, which
+        catches `event:X --[event_subject]--> alice` but not the
+        event node's own bindings. This expansion fills that gap."""
+        refs = find_event_references(edges)
+        if not refs:
+            return edges
+        extra: list[Edge] = []
+        seen = {(e.src, e.rel, e.tgt) for e in edges}
+        for event_label in refs:
+            rows = self.brain.conn.execute(
+                """SELECT s.relation, n2.label
+                   FROM segments s
+                   JOIN neurons n1 ON s.source_id = n1.id
+                   JOIN neurons n2 ON s.target_id = n2.id
+                   WHERE n1.label = ?
+                     AND s.relation LIKE 'event_%'""",
+                (event_label,),
+            ).fetchall()
+            for rel, tgt in rows:
+                key = (event_label, rel, tgt)
+                if key in seen:
+                    continue
+                seen.add(key)
+                extra.append(Edge(src=event_label, rel=rel, tgt=tgt))
+        return edges + extra
+
     def _synthesize_one_gathered(
         self, question: str | None, gathered: list[dict],
     ) -> str:
@@ -169,18 +203,52 @@ class ChatSession:
         SAME hop) into prose. Caller decides how to glue multiple
         hops together (see `_synthesize`)."""
         if self._hamrobysum_model is None:
+            # Template-path also gets event awareness — pre-expand
+            # event refs in gathered text so synthesize() sees the
+            # full bindings via parse_edges_from_gathered, then it
+            # calls extract_event_renderings internally.
+            edges_pre = parse_edges_from_gathered(gathered)
+            edges_pre = self._expand_event_references(edges_pre)
+            if find_event_references(edges_pre) and edges_pre != parse_edges_from_gathered(gathered):
+                # Re-emit the expanded edges as a synthetic gathered
+                # entry so synthesize()'s parser picks them up.
+                expanded_text = "\n".join(
+                    f"'{e.src}' --[{e.rel}]--> '{e.tgt}'" for e in edges_pre
+                )
+                gathered = [{"call": {"tool": "brain_explore",
+                                       "args": {"label": ""}},
+                              "result": expanded_text}]
             return synthesize(question or "", gathered)
 
         from .inference_synth import synthesize_cluster
         from .synth_data import cluster_by_subject
+        from .synthesizer import extract_event_renderings
         import torch
 
         edges = parse_edges_from_gathered(gathered)
         if not edges:
             return synthesize(question or "", gathered)
+
+        # v047 A.3: pull in full event bindings for any referenced
+        # event nodes (brain_explore at depth=1 misses them).
+        edges = self._expand_event_references(edges)
+
+        # Collapse event-node clusters into bundled prose before
+        # clustering+rendering. Keeps event_* binding edges out of
+        # the model's input — they don't render as English via the
+        # predicate-slot mechanism.
+        event_prose, edges = extract_event_renderings(edges)
+
+        if not edges:
+            # Pure-event gather (e.g. /where-is-style query). The
+            # event prose IS the answer.
+            return " ".join(event_prose)
+
         clusters = cluster_by_subject(edges)
         device = torch.device(self.device)
         out_parts: list[str] = []
+        if event_prose:
+            out_parts.extend(event_prose)
         for subject, cluster in clusters.items():
             prose = synthesize_cluster(
                 self._hamrobysum_model, cluster, device,

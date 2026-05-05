@@ -204,6 +204,12 @@ def _build_tool_registry() -> dict[str, dict[str, Any]]:
 
 def _exec_brain_explore(brain: Brain, args: dict) -> str:
     label = args["label"]
+    # v047: when the seed is an event node, return the bound facts as
+    # a readable line instead of dumping the raw event_* binding edges.
+    # Falls through to the regular neighborhood walk if not an event.
+    from sara_reader.event_tools import is_event_node, render_event_neuron
+    if is_event_node(brain, label):
+        return render_event_neuron(brain, label)
     depth = args.get("depth", 1)
     try:
         depth = int(depth)
@@ -455,6 +461,13 @@ def _format_neighborhood(result: dict) -> str:
 
 # Public registry — built lazily so executors are bound after definition.
 TOOLS = _build_tool_registry()
+
+# v047 — register reified-event tools. Defined in event_tools.py to
+# keep the (read-only) retrieval set here and the (write) event ops
+# in their own module. They share the registry so execute_tool()
+# dispatches uniformly.
+from sara_reader.event_tools import EVENT_TOOL_SCHEMAS as _EVENT_TOOLS
+TOOLS.update(_EVENT_TOOLS)
 
 
 def execute_tool(brain: Brain, tool_name: str, arguments: dict) -> str:

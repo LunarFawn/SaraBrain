@@ -220,6 +220,35 @@ def _expand_slots(prose_tokens: list[str], slot_mapping: dict[str, str]) -> list
     return out
 
 
+# v048 — discourse-slot expansion. The training corpus uses `<R0>`...
+# `<R3>` as discourse-connective slots; at inference time we map them
+# to a fixed pool of English connectives, deterministic-by-index so
+# repeated renders of the same training pattern stay stable.
+_DISCOURSE_POOL: tuple[str, ...] = (
+    "however", "therefore", "meanwhile", "furthermore",
+)
+
+
+def _expand_discourse_slots(prose_tokens: list[str]) -> list[str]:
+    """Map `<R0>`...`<R3>` -> connective word. Tokens outside that
+    range pass through. Defensive when the slot index is unexpected."""
+    out: list[str] = []
+    for tok in prose_tokens:
+        if tok.startswith("<R") and tok.endswith(">"):
+            try:
+                idx = int(tok[2:-1])
+            except ValueError:
+                out.append(tok)
+                continue
+            if 0 <= idx < len(_DISCOURSE_POOL):
+                out.append(_DISCOURSE_POOL[idx])
+            else:
+                out.append(_DISCOURSE_POOL[idx % len(_DISCOURSE_POOL)])
+            continue
+        out.append(tok)
+    return out
+
+
 def _combine_same_subject_slotted(prose_tokens: list[str]) -> list[str]:
     """v044 — post-decode combining for same-subject runs.
 
@@ -530,6 +559,8 @@ def synthesize_cluster(
     # via vocab brain lookup), then content slots (substrate strings).
     expanded = _expand_pred_slots(prose_tokens, pred_mapping, vocab_lookup)
     expanded = _expand_slots(expanded, slot_mapping)
+    # v048: discourse-slot expansion (<R0>..<R3> -> however/therefore/...).
+    expanded = _expand_discourse_slots(expanded)
     text = _detokenize(expanded)
     # v039 slice 2: a/an vowel-onset agreement on slot-expanded prose.
     return _fix_articles(text)

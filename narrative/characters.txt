@@ -1,0 +1,11 @@
+# Carbon Helix: First Jump — characters.
+# One name per line. Case-insensitive at extraction time.
+# Edit freely as more chapters get ingested. Lines starting
+# with `#` are comments.
+Smith
+Sylvia
+Byrd
+Helix
+Carbon
+Morgan
+Nelson

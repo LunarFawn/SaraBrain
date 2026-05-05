@@ -1,0 +1,22 @@
+# Extra action verbs to extend the default pool. Edit as you read
+# through chapters and notice verbs the script should recognize.
+plugged
+unplugged
+pondered
+stammered
+mumbled
+glanced
+pleaded
+contemplated
+extended
+swiped
+uploaded
+reviewed
+interpreted
+inflicted
+jumped
+fled
+chased
+docked
+undocked
+launched

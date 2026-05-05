@@ -1,0 +1,13 @@
+# Carbon Helix: First Jump — locations.
+# One per line. Multi-word locations are matched as substrings.
+# Edit as more chapters surface new places.
+Bay 15
+Bay 81
+conference room
+Operations Office
+shipyard
+dry dock
+docking hatch
+Alpha Sector
+Federation
+Empire

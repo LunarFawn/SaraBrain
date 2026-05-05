@@ -72,6 +72,9 @@ HELP = """commands:
                      remove vocab mapping(s). Without PHRASE: removes ALL
                      forms for the relation. With PHRASE: removes that one form.
   /list-vocab [REL]  show vocab mappings (all, or just for one relation).
+  /multihop          toggle multi-hop reasoning on/off (v045). When on,
+                     questions like "why X" or "how does Y" trigger
+                     bounded BFS over substrate edges.
   /dig               expand the last query — pull sibling substrate concepts
                      and synthesize their neighborhoods with the original
   /dig CONCEPT       drill into a specific named concept directly
@@ -95,6 +98,7 @@ class ChatSession:
         device: str,
         hamrobysum_ckpt: Path | None = None,
         vocab_brain: Path | None = None,
+        multihop: bool = False,
     ):
         self.grammar_ckpt = grammar_ckpt
         self.head_ckpt = head_ckpt
@@ -115,6 +119,10 @@ class ChatSession:
         self.vocab_brain_path = vocab_brain
         self._hamrobysum_model = None
         self._vocab_lookup: dict[str, list[str]] = {}
+        # v045: multi-hop reasoning toggle. When on, questions whose
+        # shape suggests chaining (per multihop.should_multihop) get
+        # routed through plan_chain instead of single-hop fetch.
+        self.multihop_enabled = multihop
         if hamrobysum_ckpt is not None:
             from .inference_synth import load_synth_checkpoint, load_vocab_brain
             import torch
@@ -142,10 +150,12 @@ class ChatSession:
         from .router_args import SubstrateIndex
         self.router.substrate = SubstrateIndex(brain_path)
 
-    def _synthesize(self, question: str | None, gathered: list[dict]) -> str:
-        """Render gathered substrate facts as prose. Routes through
-        HamRoby-Sum if loaded, falling back to the v032 template
-        renderer per-cluster on degenerate output (per v039 slice 3)."""
+    def _synthesize_one_gathered(
+        self, question: str | None, gathered: list[dict],
+    ) -> str:
+        """Render a single gathered list (one or more entries from the
+        SAME hop) into prose. Caller decides how to glue multiple
+        hops together (see `_synthesize`)."""
         if self._hamrobysum_model is None:
             return synthesize(question or "", gathered)
 
@@ -180,6 +190,33 @@ class ChatSession:
                 prose = synthesize(question or subject, fallback_gathered)
             out_parts.append(prose)
         return " ".join(p for p in out_parts if p)
+
+    def _synthesize(self, question: str | None, gathered: list[dict]) -> str:
+        """Render gathered substrate facts as prose. Routes through
+        HamRoby-Sum if loaded, falling back to the v032 template
+        renderer per-cluster on degenerate output (v039 slice 3).
+
+        v045: when `gathered` has multiple entries (multi-hop), render
+        each entry separately and join with " Additionally, " — the
+        connector is structural, not invented reasoning. Single-entry
+        gathered (the typical case) renders unchanged."""
+        if not gathered:
+            return ""
+        if len(gathered) == 1:
+            return self._synthesize_one_gathered(question, gathered)
+        # Multi-hop: render each gathered entry separately, connect.
+        parts: list[str] = []
+        for g in gathered:
+            prose = self._synthesize_one_gathered(question, [g])
+            stripped = prose.strip()
+            if stripped:
+                parts.append(stripped)
+        if not parts:
+            return ""
+        return parts[0] + "".join(
+            (" Additionally, " + p[0].lower() + p[1:]) if p else ""
+            for p in parts[1:]
+        )
 
     def ask(self, question: str) -> None:
         # Stage 1: detect leading-token typos (waht -> what, etc.)
@@ -222,8 +259,23 @@ class ChatSession:
         self.last_decision = {"tool": decision.tool, **decision.args}
         self.last_topic = self._topic_from_decision(self.last_decision)
 
-        gathered = [{"call": {"tool": decision.tool, "args": decision.args},
-                     "result": result}]
+        # v045: multi-hop reasoning. If --multihop is enabled and the
+        # question shape suggests chaining, run the bounded BFS
+        # orchestrator instead of the single-hop fetch.
+        if self.multihop_enabled:
+            from .multihop import should_multihop, plan_chain
+            if should_multihop(question):
+                if self.show_trace:
+                    print(f"{DIM}[multihop] question shape triggers chain orchestration{RESET}")
+                gathered = plan_chain(self.brain, self.last_decision)
+                if self.show_trace:
+                    print(f"{DIM}[multihop] gathered {len(gathered)} hops{RESET}")
+            else:
+                gathered = [{"call": {"tool": decision.tool, "args": decision.args},
+                             "result": result}]
+        else:
+            gathered = [{"call": {"tool": decision.tool, "args": decision.args},
+                         "result": result}]
 
         if expand and self.last_topic:
             self._gather_siblings_into(self.last_topic, gathered)
@@ -401,6 +453,7 @@ class ChatSession:
             print(f"  grammar:    {self.grammar_ckpt}")
             print(f"  router:     {self.head_ckpt}")
             print(f"  hamrobysum: {self.hamrobysum_ckpt or '(off — using v032 templates)'}")
+            print(f"  multihop:   {'on' if self.multihop_enabled else 'off'}")
         elif cmd == "/teach":
             if not arg:
                 print(f"{YELLOW}usage: /teach <statement>{RESET}")
@@ -423,6 +476,10 @@ class ChatSession:
                 self._do_refute_vocab(arg)
         elif cmd == "/list-vocab":
             self._do_list_vocab(arg)
+        elif cmd == "/multihop":
+            self.multihop_enabled = not self.multihop_enabled
+            state = "on" if self.multihop_enabled else "off"
+            print(f"{GREEN}multihop: {state}{RESET}")
         elif cmd == "/dig":
             self.do_dig(arg)
         elif cmd == "/depth":
@@ -676,6 +733,13 @@ def main() -> int:
                         "relation names to English phrases. Used by "
                         "--use-hamrobysum to expand <Pn> predicate slots. "
                         "Default: vocab_en.db.")
+    p.add_argument("--multihop", action="store_true",
+                   help="Enable multi-hop reasoning over substrate (per "
+                        "v045). Questions whose shape suggests chaining "
+                        "(why / how does / because / caused by / ...) get "
+                        "routed through bounded BFS over substrate edges. "
+                        "Single-hop questions ('what is X') stay single-hop. "
+                        "Default: off.")
     args = p.parse_args()
 
     if not args.brain.exists():
@@ -705,6 +769,7 @@ def main() -> int:
         args.brain, args.grammar_ckpt, args.head_ckpt, args.device,
         hamrobysum_ckpt=args.hamrobysum_ckpt if args.use_hamrobysum else None,
         vocab_brain=args.vocab_brain if args.use_hamrobysum else None,
+        multihop=args.multihop,
     )
     print(banner(MODEL_FULL, args.brain))
 

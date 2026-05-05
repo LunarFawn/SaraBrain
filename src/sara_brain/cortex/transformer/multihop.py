@@ -124,8 +124,8 @@ def _anchor_from_args(args: dict) -> str | None:
 def plan_chain(
     brain: Brain,
     initial_decision_dict: dict[str, Any],
-    max_depth: int = 2,
-    max_extra_edges: int = 50,
+    max_depth: int = 1,
+    max_extra_edges: int = 15,
 ) -> list[dict]:
     """Bounded BFS over substrate edges starting from the initial
     router decision.
@@ -139,11 +139,16 @@ def plan_chain(
     `{call: {tool, args}, result: <edges_text>}` — so the downstream
     `_synthesize()` consumes it identically.
 
-    Caps:
-      - `max_depth`: how many BFS levels past the seed (default 2)
+    Caps (tightened in v045 follow-up after first chat-REPL test):
+      - `max_depth`: how many BFS levels past the seed (default 1).
+        Originally 2; lowered because depth=2 produced wall-of-text
+        output for typical questions. depth=1 still covers the
+        common "X → Y → Z" two-fact chains because the seed already
+        contains some adjacent edges.
       - `max_extra_edges`: edges accumulated from EXPANSION hops only
-        (the seed hop is always returned whole; this cap protects
-        against runaway exploration past the seed). Default 50.
+        (the seed hop is always returned whole). Default 15.
+        Originally 50; lowered for the same reason — chat output was
+        unreadable at 50.
     Cycle detection via a visited set of lowercase-stripped concept
     labels.
     """

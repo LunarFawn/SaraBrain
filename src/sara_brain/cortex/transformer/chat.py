@@ -237,6 +237,31 @@ class ChatSession:
                   f"args={decision.args}  why={decision.rationale}{RESET}")
         result = execute_tool(self.brain, decision.tool, decision.args)
 
+        # v045 follow-up (b): brain_value sometimes refuses with a
+        # "No definitional edges found" guard for concepts the
+        # substrate knows about but has no is_a/defined_as edge for.
+        # Honest behaviour but unhelpful — the user wanted SOMETHING
+        # about the concept. Auto-fallback to brain_explore so the
+        # user sees the available edges instead of a bare refusal.
+        if (decision.tool == "brain_value"
+                and isinstance(result, str)
+                and result.startswith("No definitional edges found")):
+            anchor = (decision.args.get("concept")
+                      or decision.args.get("label")
+                      or decision.args.get("term"))
+            if anchor:
+                if self.show_trace:
+                    print(f"{DIM}[fallback] brain_value -> brain_explore for {anchor!r}{RESET}")
+                import dataclasses
+                fallback_args = {"label": anchor, "depth": 1}
+                result = execute_tool(self.brain, "brain_explore", fallback_args)
+                decision = dataclasses.replace(
+                    decision,
+                    tool="brain_explore",
+                    args=fallback_args,
+                    rationale=f"{decision.rationale} (fell back from brain_value)",
+                )
+
         # Stage 2: substrate "no neuron matching" -> ask did_you_mean.
         miss_field, miss_value = self._extract_miss(decision.tool, decision.args, result)
         if miss_field is not None:

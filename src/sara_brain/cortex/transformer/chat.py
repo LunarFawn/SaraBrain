@@ -237,13 +237,13 @@ class ChatSession:
                   f"args={decision.args}  why={decision.rationale}{RESET}")
         result = execute_tool(self.brain, decision.tool, decision.args)
 
-        # v045 follow-up (b): brain_value sometimes refuses with a
-        # "No definitional edges found" guard for concepts the
-        # substrate knows about but has no is_a/defined_as edge for.
-        # Honest behaviour but unhelpful — the user wanted SOMETHING
+        # v045 follow-up (b): brain_define / brain_value sometimes
+        # refuse with a "No definitional edges found" guard for concepts
+        # the substrate knows about but has no is_a/defined_as edge
+        # for. Honest behaviour but unhelpful — the user wanted SOMETHING
         # about the concept. Auto-fallback to brain_explore so the
         # user sees the available edges instead of a bare refusal.
-        if (decision.tool == "brain_value"
+        if (decision.tool in ("brain_define", "brain_value")
                 and isinstance(result, str)
                 and result.startswith("No definitional edges found")):
             anchor = (decision.args.get("concept")
@@ -251,15 +251,16 @@ class ChatSession:
                       or decision.args.get("term"))
             if anchor:
                 if self.show_trace:
-                    print(f"{DIM}[fallback] brain_value -> brain_explore for {anchor!r}{RESET}")
+                    print(f"{DIM}[fallback] {decision.tool} -> brain_explore for {anchor!r}{RESET}")
                 import dataclasses
                 fallback_args = {"label": anchor, "depth": 1}
+                prev_tool = decision.tool
                 result = execute_tool(self.brain, "brain_explore", fallback_args)
                 decision = dataclasses.replace(
                     decision,
                     tool="brain_explore",
                     args=fallback_args,
-                    rationale=f"{decision.rationale} (fell back from brain_value)",
+                    rationale=f"{decision.rationale} (fell back from {prev_tool})",
                 )
 
         # Stage 2: substrate "no neuron matching" -> ask did_you_mean.
@@ -798,9 +799,18 @@ def main() -> int:
     )
     print(banner(MODEL_FULL, args.brain))
 
+    # readline counts on-screen prompt width and miscounts when raw
+    # ANSI escape codes appear in input()'s prompt arg — pressing up
+    # then deleting characters then ↵ leaves stale text on screen and
+    # the buffer desyncs. Wrap escapes in \x01..\x02 so readline knows
+    # which bytes don't print.
+    if readline is not None and BOLD:
+        prompt = f"\x01{BOLD}{GREEN}\x02> \x01{RESET}\x02"
+    else:
+        prompt = f"{BOLD}{GREEN}> {RESET}"
     while True:
         try:
-            line = input(f"{BOLD}{GREEN}> {RESET}")
+            line = input(prompt)
         except (EOFError, KeyboardInterrupt):
             print()
             return 0

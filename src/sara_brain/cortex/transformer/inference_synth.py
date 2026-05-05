@@ -411,6 +411,7 @@ def synthesize_cluster(
     repetition_window: int = 32,
     no_repeat_ngram_size: int = 0,
     vocab_lookup: dict[str, str] | None = None,
+    max_cluster_size: int = 8,
 ) -> str:
     """Render `edges` as prose. v040: dual slot pipeline.
 
@@ -423,9 +424,31 @@ def synthesize_cluster(
 
     `vocab_lookup` defaults to `{}`, in which case predicates fall
     back to `relation.replace("_", " ")` (same as the unknown-relation
-    path)."""
+    path).
+
+    v046: when `len(edges) > max_cluster_size`, split into chunks of
+    `max_cluster_size` and render each chunk independently, then join
+    with `" "`. The model degenerates on big clusters (training
+    distribution was 1-8 edges; 20+ edge clusters loop and emit
+    bare slot expansions). Chunking keeps each render in-distribution.
+    Set `max_cluster_size=0` to disable."""
     if not edges:
         return ""
+    if max_cluster_size > 0 and len(edges) > max_cluster_size:
+        parts: list[str] = []
+        for i in range(0, len(edges), max_cluster_size):
+            chunk = edges[i:i + max_cluster_size]
+            parts.append(synthesize_cluster(
+                model, chunk, device,
+                max_new_tokens=max_new_tokens,
+                temperature=temperature, top_k=top_k, rng=rng,
+                repetition_penalty=repetition_penalty,
+                repetition_window=repetition_window,
+                no_repeat_ngram_size=no_repeat_ngram_size,
+                vocab_lookup=vocab_lookup,
+                max_cluster_size=0,
+            ))
+        return " ".join(p for p in parts if p)
     rng = rng or random.Random(0)
     max_seq = model.cfg.max_seq
     vocab_lookup = vocab_lookup or {}
@@ -539,6 +562,10 @@ def main() -> None:
     p.add_argument("--repetition-window", type=int, default=32,
                    help="How many recent prose tokens the repetition "
                         "penalty considers.")
+    p.add_argument("--max-cluster-size", type=int, default=8,
+                   help="v046: split clusters above this size into "
+                        "chunks and render each separately. 0 disables "
+                        "chunking (pre-v046 behavior).")
     p.add_argument("--seed", type=int, default=0)
     p.add_argument(
         "--device", default="cuda" if torch.cuda.is_available() else "cpu",
@@ -589,6 +616,7 @@ def main() -> None:
                 repetition_window=args.repetition_window,
                 no_repeat_ngram_size=args.no_repeat_ngram_size,
                 vocab_lookup=vocab_lookup,
+                max_cluster_size=args.max_cluster_size,
             )
             print(f"   PROSE: {prose}")
     else:
@@ -609,6 +637,7 @@ def main() -> None:
                 repetition_window=args.repetition_window,
                 no_repeat_ngram_size=args.no_repeat_ngram_size,
                 vocab_lookup=vocab_lookup,
+                max_cluster_size=args.max_cluster_size,
             )
             print(f"   PROSE: {prose}")
 

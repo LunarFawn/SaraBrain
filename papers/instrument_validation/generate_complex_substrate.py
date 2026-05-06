@@ -200,6 +200,55 @@ def t_temporal_modified(scene: Scene, slot: SlotFn) -> str | None:
     return f"{s['time']} , {s['subj']} {s['mod']} {s['pred']} {s['obj']} ."
 
 
+# v048.1 — fill in the missing qualifier-presence combinations so
+# every cluster size has at least one template that uses ALL the
+# present qualifiers in one sentence. Without these, 4-edge clusters
+# at inference fall back to the closest known pattern (compound) and
+# leak qualifier relation names verbatim.
+
+def t_modified_located(scene: Scene, slot: SlotFn) -> str | None:
+    """subj mod pred obj at loc — no time."""
+    if not (scene.modifier and scene.location):
+        return None
+    if scene.time:
+        return None  # let t_temporal_located_modified handle the all-3 case
+    s = _slot_for(scene, slot)
+    return f"{s['subj']} {s['mod']} {s['pred']} {s['obj']} at {s['loc']} ."
+
+
+def t_temporal_located_modified(scene: Scene, slot: SlotFn) -> str | None:
+    """All three qualifiers in one sentence:
+    time , subj mod pred obj at loc ."""
+    if not (scene.time and scene.location and scene.modifier):
+        return None
+    s = _slot_for(scene, slot)
+    return (
+        f"{s['time']} , {s['subj']} {s['mod']} {s['pred']} {s['obj']} "
+        f"at {s['loc']} ."
+    )
+
+
+def t_located_modified_alt(scene: Scene, slot: SlotFn) -> str | None:
+    """Alternate ordering: subj pred obj at loc, mod ."""
+    if not (scene.modifier and scene.location):
+        return None
+    if scene.time:
+        return None
+    s = _slot_for(scene, slot)
+    return f"{s['subj']} {s['pred']} {s['obj']} at {s['loc']} , {s['mod']} ."
+
+
+def t_temporal_located_modified_alt(scene: Scene, slot: SlotFn) -> str | None:
+    """Alternate ordering: subj pred obj at loc , mod , time ."""
+    if not (scene.time and scene.location and scene.modifier):
+        return None
+    s = _slot_for(scene, slot)
+    return (
+        f"{s['subj']} {s['pred']} {s['obj']} at {s['loc']} , "
+        f"{s['mod']} , {s['time']} ."
+    )
+
+
 def t_compound(s1: Scene, s2: Scene, slot: SlotFn) -> str | None:
     """Compound — same subject, two actions joined with `and`."""
     if s1.subject != s2.subject:
@@ -253,10 +302,60 @@ def t_temporal_sequence(s1: Scene, s2: Scene, slot: SlotFn) -> str | None:
 _SCENE_TEMPLATES = [
     t_simple, t_temporal_prefix, t_located_suffix, t_modified,
     t_temporal_located, t_temporal_modified,
+    # v048.1 — full-qualifier templates that use ALL present
+    # qualifiers in one sentence. Critical for 4-edge cluster
+    # rendering — without these, the model can't bind a 3-qualifier
+    # scene as one coherent sentence.
+    t_modified_located, t_located_modified_alt,
+    t_temporal_located_modified, t_temporal_located_modified_alt,
 ]
 _PAIR_TEMPLATES = [
     t_compound, t_complex_because, t_conditional_if, t_temporal_sequence,
 ]
+
+
+# v048.1 — multi-event subject arcs. A "subject arc" is N scenes
+# (default 2-4) sharing a single subject across distinct time
+# anchors, rendered as a chained narrative. Teaches the model that
+# one subject + many edges = many sentences, NOT one big compound
+# sentence. Without this, the model treats every multi-edge cluster
+# as a candidate compound and emits noisy "and ... and ..." output.
+
+def t_temporal_chain(scenes: list[Scene], slot: SlotFn) -> str | None:
+    """Render an arc of scenes as one sentence per scene, time-
+    prefixed. Each scene contributes ONE sentence; chronological
+    order comes from the generator that built the arc."""
+    if not scenes:
+        return None
+    parts: list[str] = []
+    for sc in scenes:
+        s = _slot_for(sc, slot)
+        if "time" in s:
+            parts.append(f"{s['time']} , {s['subj']} {s['pred']} {s['obj']} .")
+        else:
+            parts.append(f"{s['subj']} {s['pred']} {s['obj']} .")
+    return " ".join(parts)
+
+
+def t_temporal_chain_modified(scenes: list[Scene], slot: SlotFn) -> str | None:
+    """Same as t_temporal_chain but uses the modifier when present."""
+    if not scenes:
+        return None
+    parts: list[str] = []
+    used_any_mod = False
+    for sc in scenes:
+        s = _slot_for(sc, slot)
+        time_part = f"{s['time']} , " if "time" in s else ""
+        if "mod" in s:
+            used_any_mod = True
+            parts.append(
+                f"{time_part}{s['subj']} {s['mod']} {s['pred']} {s['obj']} ."
+            )
+        else:
+            parts.append(f"{time_part}{s['subj']} {s['pred']} {s['obj']} .")
+    if not used_any_mod:
+        return None
+    return " ".join(parts)
 
 
 # ── Generator ────────────────────────────────────────────────────────
@@ -283,11 +382,13 @@ def _generate_scenes(
     location_p: float = 0.55,
     time_p: float = 0.55,
     modifier_p: float = 0.45,
-) -> list[Scene]:
-    """Produce a list of scenes with bound slot fields. Subjects /
-    objects / locations / times are sampled from per-corpus pools so
-    cross-scene reuse happens naturally (which gives the model
-    multi-edge clusters when we group by subject)."""
+) -> tuple[list[Scene], dict[str, list[str]]]:
+    """Produce a list of scenes with bound slot fields plus the pools
+    they were sampled from (so the arc generator can reuse the same
+    pools for chronological subject-arcs).
+
+    Returns (scenes, pools) where pools = {'subjects', 'objects',
+    'locations', 'times'}."""
     subjects = _make_pool(rng, n_subjects, n_words=1)
     objects = _make_pool(rng, n_objects, n_words=rng.choice([1, 2]))
     locations = _make_pool(rng, n_locations, n_words=rng.choice([1, 2]))
@@ -309,7 +410,11 @@ def _generate_scenes(
             modifier=rng.choice(_MANNER_MODIFIERS) if rng.random() < modifier_p else None,
             event_id=f"event:scene_{i}",
         ))
-    return scenes
+    pools = {
+        "subjects": subjects, "objects": objects,
+        "locations": locations, "times": times,
+    }
+    return scenes, pools
 
 
 def _render_scene_to_pairs(
@@ -344,6 +449,60 @@ def _render_pair_to_pairs(
     conn = f"<R{rng.randrange(0, 4)}>"
     prose = t_discourse(s1, s2, conn, _identity_slot)
     out.append((edges, prose, s1.subject))
+    return out
+
+
+def _generate_subject_arc(
+    rng: random.Random,
+    subjects: list[str],
+    objects: list[str],
+    locations: list[str],
+    times: list[str],
+    n_events: int = 3,
+) -> list[Scene]:
+    """v048.1 Slice 2 — generate N scenes that share a subject and
+    chain through distinct time anchors. Times are sorted so the
+    chained-sentence template reads chronologically."""
+    if len(times) < n_events:
+        n_events = len(times)
+    if n_events < 2:
+        return []
+    subj = rng.choice(subjects)
+    arc_times = rng.sample(times, n_events)
+    arc_times.sort()
+    out: list[Scene] = []
+    for i, t in enumerate(arc_times):
+        obj = rng.choice(objects)
+        if obj == subj:
+            continue
+        out.append(Scene(
+            subject=subj,
+            action=rng.choice(_ACTION_VERBS),
+            object=obj,
+            time=t,
+            location=rng.choice(locations) if rng.random() < 0.5 else None,
+            modifier=rng.choice(_MANNER_MODIFIERS) if rng.random() < 0.4 else None,
+            event_id=f"event:arc_{rng.randrange(0, 10**9)}_{i}",
+        ))
+    return out
+
+
+def _render_arc_to_pairs(
+    arc: list[Scene], rng: random.Random,
+) -> list[tuple[list[Edge], str, str]]:
+    """Render a subject arc with the chained-sentence templates.
+    Each scene contributes its own edges to the cluster; the prose
+    is one chain per template variant."""
+    out: list[tuple[list[Edge], str, str]] = []
+    if not arc:
+        return out
+    edges: list[Edge] = []
+    for sc in arc:
+        edges.extend(sc.to_edges())
+    for tpl in (t_temporal_chain, t_temporal_chain_modified):
+        prose = tpl(arc, _identity_slot)
+        if prose:
+            out.append((edges, prose, arc[0].subject))
     return out
 
 
@@ -505,7 +664,7 @@ def write_complex_corpus(
     seed = seed if seed is not None else int(time.time() * 1000) % (2**31)
     rng = random.Random(seed)
 
-    scenes = _generate_scenes(rng, n_scenes)
+    scenes, pools = _generate_scenes(rng, n_scenes)
 
     # Build (edges, prose, subject) pairs.
     all_pairs: list[tuple[list[Edge], str, str]] = []
@@ -533,6 +692,21 @@ def write_complex_corpus(
         prose = t_compound(s1, s2, _identity_slot)
         if prose:
             all_pairs.append((s1.to_edges() + s2.to_edges(), prose, s1.subject))
+
+    # v048.1 Slice 2: subject arcs — N scenes sharing a subject across
+    # distinct time anchors, rendered as chained narrative. ~n_scenes/4
+    # arcs of 2-4 events each gives the model robust exposure to the
+    # "many edges, one subject -> many sentences" pattern.
+    n_arcs = max(1, n_scenes // 4)
+    for _ in range(n_arcs):
+        n_events = rng.choice([2, 3, 3, 4])
+        arc = _generate_subject_arc(
+            rng,
+            subjects=pools["subjects"], objects=pools["objects"],
+            locations=pools["locations"], times=pools["times"],
+            n_events=n_events,
+        )
+        all_pairs.extend(_render_arc_to_pairs(arc, rng))
 
     # Write substrate edges (deduped) into a brain.db.
     out_db.parent.mkdir(parents=True, exist_ok=True)

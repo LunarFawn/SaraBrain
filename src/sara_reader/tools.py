@@ -469,6 +469,12 @@ TOOLS = _build_tool_registry()
 from sara_reader.event_tools import EVENT_TOOL_SCHEMAS as _EVENT_TOOLS
 TOOLS.update(_EVENT_TOOLS)
 
+# v049 — register code-knowledge tools. Same pattern as event tools:
+# functions are reified nodes (neuron_type='function') with binding
+# edges. Read tools retrieve grounded info for LLM coding contexts.
+from sara_reader.code_tools import CODE_TOOL_SCHEMAS as _CODE_TOOLS
+TOOLS.update(_CODE_TOOLS)
+
 
 def execute_tool(brain: Brain, tool_name: str, arguments: dict) -> str:
     """Run a tool call against the brain and return the formatted output."""

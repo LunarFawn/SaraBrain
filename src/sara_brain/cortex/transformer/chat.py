@@ -89,6 +89,14 @@ HELP = """commands:
                      (default: current local time).
   /list-events SUBJECT
                      show all events involving SUBJECT, chronologically.
+  /find-function NAME [module=M]
+                     v049: full function info (signature, returns,
+                     parameters, calls, raises, docstring) for a code
+                     brain. Designed as LLM coding context.
+  /callers NAME      list functions that call NAME.
+  /callees NAME      list functions NAME calls.
+  /returns-type TYPE list functions whose return type matches TYPE.
+  /takes-type TYPE   list functions taking a parameter of type TYPE.
   /dig               expand the last query — pull sibling substrate concepts
                      and synthesize their neighborhoods with the original
   /dig CONCEPT       drill into a specific named concept directly
@@ -607,6 +615,31 @@ class ChatSession:
                 print(f"{YELLOW}usage: /list-events SUBJECT{RESET}")
             else:
                 self._do_list_events(arg)
+        elif cmd == "/find-function":
+            if not arg.strip():
+                print(f"{YELLOW}usage: /find-function NAME [module=M]{RESET}")
+            else:
+                self._do_find_function(arg)
+        elif cmd == "/callers":
+            if not arg.strip():
+                print(f"{YELLOW}usage: /callers FUNCTION_NAME{RESET}")
+            else:
+                self._do_callers(arg)
+        elif cmd == "/callees":
+            if not arg.strip():
+                print(f"{YELLOW}usage: /callees FUNCTION_NAME{RESET}")
+            else:
+                self._do_callees(arg)
+        elif cmd == "/returns-type":
+            if not arg.strip():
+                print(f"{YELLOW}usage: /returns-type TYPE{RESET}")
+            else:
+                self._do_returns_type(arg)
+        elif cmd == "/takes-type":
+            if not arg.strip():
+                print(f"{YELLOW}usage: /takes-type TYPE{RESET}")
+            else:
+                self._do_takes_type(arg)
         else:
             print(f"{YELLOW}unknown command: {cmd}  (try /help){RESET}")
         return True
@@ -917,6 +950,82 @@ class ChatSession:
             print(result)
         except Exception as e:
             print(f"{YELLOW}list-events error: {e}{RESET}")
+
+    # ── v049: code knowledge slash commands ─────────────────────────
+
+    def _do_find_function(self, arg: str) -> None:
+        """Return the full info for a function: signature, returns,
+        params, calls, raises, docstring. For LLM coding context."""
+        positional, kv = self._parse_event_args(arg)
+        if not positional:
+            print(f"{YELLOW}usage: /find-function NAME [module=M]{RESET}")
+            return
+        try:
+            result = execute_tool(self.brain, "brain_query_function", {
+                "name": positional[0],
+                "module": kv.get("module"),
+            })
+            print(result)
+        except Exception as e:
+            print(f"{YELLOW}find-function error: {e}{RESET}")
+
+    def _do_callers(self, arg: str) -> None:
+        """Find functions that call NAME."""
+        positional, kv = self._parse_event_args(arg)
+        if not positional:
+            print(f"{YELLOW}usage: /callers FUNCTION_NAME{RESET}")
+            return
+        try:
+            result = execute_tool(self.brain, "brain_query_callers", {
+                "name": positional[0],
+                "module": kv.get("module"),
+            })
+            print(result)
+        except Exception as e:
+            print(f"{YELLOW}callers error: {e}{RESET}")
+
+    def _do_callees(self, arg: str) -> None:
+        """Find functions NAME calls."""
+        positional, kv = self._parse_event_args(arg)
+        if not positional:
+            print(f"{YELLOW}usage: /callees FUNCTION_NAME{RESET}")
+            return
+        try:
+            result = execute_tool(self.brain, "brain_query_callees", {
+                "name": positional[0],
+                "module": kv.get("module"),
+            })
+            print(result)
+        except Exception as e:
+            print(f"{YELLOW}callees error: {e}{RESET}")
+
+    def _do_returns_type(self, arg: str) -> None:
+        """List functions whose return type matches."""
+        positional, _ = self._parse_event_args(arg)
+        if not positional:
+            print(f"{YELLOW}usage: /returns-type TYPE{RESET}")
+            return
+        try:
+            result = execute_tool(self.brain, "brain_query_by_returns", {
+                "type": positional[0],
+            })
+            print(result)
+        except Exception as e:
+            print(f"{YELLOW}returns-type error: {e}{RESET}")
+
+    def _do_takes_type(self, arg: str) -> None:
+        """List functions taking a parameter of type X."""
+        positional, _ = self._parse_event_args(arg)
+        if not positional:
+            print(f"{YELLOW}usage: /takes-type TYPE{RESET}")
+            return
+        try:
+            result = execute_tool(self.brain, "brain_query_by_param", {
+                "type": positional[0],
+            })
+            print(result)
+        except Exception as e:
+            print(f"{YELLOW}takes-type error: {e}{RESET}")
 
 
 def _save_history(path: Path) -> None:

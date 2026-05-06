@@ -244,15 +244,21 @@ def query_event_at(brain: Brain, subject: str, timestamp: str) -> str:
         bindings = _fetch_event_bindings(conn, event_label)
         start = bindings.get("event_start")
         end = bindings.get("event_end")
-        # If both bounds are present, check inclusion. If only start,
-        # match if start <= ts. If only end, match if ts <= end.
-        # If neither bound, skip — the event has no temporal extent.
-        if start and end and start <= ts <= end:
-            matched.append((event_label, bindings))
-        elif start and not end and start <= ts:
-            matched.append((event_label, bindings))
-        elif end and not start and ts <= end:
-            matched.append((event_label, bindings))
+        # Both bounds present: classic interval-inclusion match.
+        # Only one bound (or only start with no end): treat as POINT-
+        # in-time — exact-string match. Open-ended "from start onward"
+        # was the original behaviour but it over-matched on named-
+        # time-label events ("t4_at_helix" matched t1/t2/t3 too).
+        # Callers who want range semantics should provide both bounds.
+        if start and end:
+            if start <= ts <= end:
+                matched.append((event_label, bindings))
+        elif start and not end:
+            if start == ts:
+                matched.append((event_label, bindings))
+        elif end and not start:
+            if end == ts:
+                matched.append((event_label, bindings))
     if not matched:
         return (
             f"No active events for {subject!r} at {ts!r}. "

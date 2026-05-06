@@ -295,4 +295,76 @@ brain on chapter 1 is a weekend, not weeks.
 
 ## Status
 
-PLANNED. Implementation begins after this plan commits.
+SHIPPED 2026-05-06.
+
+**Implementation commits:**
+- `cc3ff4d` — Slice A.1: event_tools.py + brain_explore extension
+- `f6c3a74` — Slice A.2: chat REPL slash commands
+- `58647cb` — Slice A.3: synthesizer event-aware rendering
+- `67195f4` — Slice A.3 fix: drop incomplete event refs
+- `329024b` — Slice B.1: ingest_narrative_chapter.py
+- (and a query_event_at point-in-time fix — see verification below)
+
+**Verification — slice C end-to-end on Carbon Helix prologue:**
+
+Curated 37 rows from the prologue (32 events + 5 dialogue triples)
+covering Smith, Sylvia, Byrd, and Helix across 7 named time
+anchors (t1_meeting → t7_helix_departure). Applied via
+`ingest_narrative_chapter.py apply` to a fresh brain.db.
+
+All five v047 verification criteria met:
+
+1. **Single-event teach + render.** Every reified event in the
+   prologue renders as one bundled sentence via brain_explore on
+   the event node:
+   > "smith walked bay 15 at shipyard at t3_walk_to_bay15"
+
+2. **Time-anchored queries.** `brain_query_event_at(smith,
+   t4_at_helix)` returns exactly the 4 events tagged that time
+   anchor — Smith stopping, entering, closing the hatch, and
+   locking it. Other time anchors don't bleed in.
+
+3. **Honest miss.** `brain_query_event_at(smith, z9999_unknown)`
+   returns "No active events ... DO NOT invent a location."
+
+4. **Multi-character chronology.** `brain_query_events(sylvia)`
+   correctly returns Sylvia's 5 events (announcing, ordering,
+   refusing, watching, calling security) in time order.
+
+5. **Synthesizer end-to-end.** With template synthesis +
+   _expand_event_references, "what is helix doing?" produces:
+   > "Helix closed hatch at docking hatch at t7_helix_departure.
+   >  Helix reported protecting human life at operations office
+   >  at t5_helix_dialogue. Helix undocked bay 15 at bay 15 at
+   >  t7_helix_departure. Smith commanded helix at operations
+   >  office at t7_helix_departure. Hello engineer smith this is
+   >  quantum processor model zero said helix. Yes am i not
+   >  supposed to said helix."
+
+   Every claim traces to a substrate edge. Dialogue triples render
+   as `<quote> said <character>.` Event-node bindings collapse
+   into single sentences.
+
+**Architectural validation:** the same machinery (substrate +
+slot-based synth + event reification) handles a narrative domain
+without any retraining, schema change, or special-case code. The
+v040 EN model and the v048.1 model both render this brain
+correctly — confirming the slot mechanism is genuinely domain-
+general.
+
+**Bug found + fixed during verification:** `query_event_at`
+over-matched when only `event_start` was set (no end). Original
+behaviour was open-ended "from start onward"; events tagged
+t1_meeting matched the t4_at_helix query because t1 < t4. Changed
+to point-in-time exact-match when only one bound is set —
+callers wanting interval semantics should provide both bounds.
+
+**Out-of-scope improvements that surfaced during testing** (not
+v047 issues):
+- Multi-event single-subject collapse: Smith has 19 events, each
+  rendered as its own sentence. Could collapse to "Smith did X,
+  then Y, then Z" via v048.1 arc shape — needs inference-side
+  wiring of arc detection (a v049-ish slice).
+- Awkward "at X at Y" wording when location and time both use
+  "at" preposition. Template polish.
+- Time labels are technical (t1_meeting). User curation choice.

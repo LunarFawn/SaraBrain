@@ -285,4 +285,75 @@ End-to-end pass criteria:
 
 ## Status
 
-PLANNED. Implementation begins after this plan commits.
+SHIPPED 2026-05-06 (slices A, B, C).
+
+**Implementation commits:**
+- `adb0a54` — Slice A: code_tools.py + read tools (5 query tools,
+  2 write tools, registered in TOOLS via tools.py)
+- `bdd2ab0` — Slice C: chat REPL slash commands
+  (/find-function, /callers, /callees, /returns-type, /takes-type)
+- `6648f12` — Slice B: ingest_coding_guide.py (Python AST +
+  markdown extractors, two-pass extract/apply workflow)
+
+**Verification — real-world ingestion of `src/sara_reader/event_tools.py`:**
+
+Single-command extraction:
+```
+.venv/bin/python scripts/ingest_coding_guide.py extract \
+  --backend python-ast --input src/sara_reader/event_tools.py \
+  --out /tmp/draft.tsv
+```
+
+→ 22 draft rows: 5 public functions + 17 parameters. AST got the
+signatures, return types, docstrings, and callee names correct;
+auto-skipped `_`-prefixed private helpers.
+
+After `apply` → `/tmp/code_kb.db`:
+
+`/find-function teach_event` returned:
+
+> function: teach_event
+> signature: teach_event(brain: Brain, subject: str, action: str,
+>            obj: str | None, location: str | None, start_time: str
+>            | None, end_time: str | None, modifier: str | None)
+>            -> str
+> returns: str
+> defined in: src/sara_reader/event_tools.py
+> calls: _normalize, _next_event_label, _ensure_neuron, ...
+> parameters:
+>   - brain (brain)
+>   - subject (str)
+>   - ...
+> docstring:
+>   Create an event node + binding edges in one operation. Returns
+>   the event-node label so the caller can reference it ...
+
+Ready-to-paste LLM coding context. Substrate-bound — every claim
+about teach_event's signature traces to a substrate edge. The LLM
+can't hallucinate the function's parameter list because the list
+came from the brain, not the model's weights.
+
+`/returns-type str` returned all 4 string-returning public
+functions in event_tools.py. `/takes-type Brain` returned all 5
+functions taking the Brain instance. No false positives.
+
+**Architectural validation:** the same reified-fact convention v047
+established for events generalises to functions with zero special-
+case code. event_tools.py and code_tools.py are nearly structural
+twins — write tools, read tools, format function, registry. The
+multi-valued-fact pattern works for any domain.
+
+**Slice 3 (output format optimised for LLM consumption)** was
+folded into the standard query_function rendering — the output is
+already structured (one field per line, parameters indented, docstring
+verbatim) without needing a separate /format=code flag. Add later
+only if a different consumer wants narrative-style code prose.
+
+**What still needs polish:**
+- Type names lowercase via `_normalize` ("brain" not "Brain"). Could
+  preserve case for type labels specifically; left as v049.1 fodder.
+- Callee extraction grabs SQLite/list method calls (`commit`, `strip`,
+  `fetchall`) alongside real function calls. Curation step in TSV
+  review filters these out. Could add a per-extractor allow/deny list.
+- Markdown backend uses regex; doesn't handle nested types
+  (`dict[str, list[X]]`) cleanly. Python AST is the recommended path.

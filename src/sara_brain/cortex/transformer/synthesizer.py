@@ -583,10 +583,11 @@ def extract_event_renderings(
         subj = b.get("event_subject")
         act = b.get("event_action")
         if not subj or not act:
-            # Incomplete event binding — fall back to letting the
-            # remaining edges represent it. Don't drop the data.
-            for rel, tgt in b.items():
-                remaining.append(Edge(src=event_label, rel=rel, tgt=tgt))
+            # Incomplete event binding (caller didn't auto-expand).
+            # Suppress rather than re-leak the binding edges as raw
+            # 'event:X event subject Y.' noise — chat.py's
+            # _expand_event_references handles the expansion when the
+            # brain is available.
             continue
         obj = b.get("event_object")
         loc = b.get("event_location")

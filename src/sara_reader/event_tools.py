@@ -186,12 +186,22 @@ def _format_event(event_label: str, bindings: dict[str, str]) -> str:
     parts.append(act.replace("_", " "))
     if obj:
         parts.append(obj)
+    # Skip 'at <loc>' when object and location share a head/tail
+    # token to avoid 'closed hatch at docking hatch' style noise.
+    used_at_for_loc = False
     if loc:
-        parts.append(f"at {loc}")
+        obj_l = (obj or "").lower()
+        loc_l = loc.lower()
+        obj_tail = obj_l.split()[-1] if obj_l else ""
+        loc_head = loc_l.split()[0] if loc_l else ""
+        if not (obj_tail and (obj_tail == loc_head or obj_tail in loc_l or loc_l in obj_l)):
+            parts.append(f"at {loc}")
+            used_at_for_loc = True
+    time_prep = "on" if used_at_for_loc else "at"
     if start and end:
         parts.append(f"from {start} to {end}")
     elif start:
-        parts.append(f"at {start}")
+        parts.append(f"{time_prep} {start}")
     return f"  - {' '.join(parts)}  [{event_label}]"
 
 

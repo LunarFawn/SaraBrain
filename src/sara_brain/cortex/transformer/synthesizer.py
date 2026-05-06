@@ -597,15 +597,36 @@ def extract_event_renderings(
         parts: list[str] = [subj]
         if mod:
             parts.append(mod)
-        parts.append(act.replace("_", " "))
+        # Action verb often ends in a preposition or contains a
+        # location-shaped noun. Expand underscores; trim a trailing
+        # 'to' to avoid 'walked to bay 15 to' style awkwardness when
+        # the next clause adds another preposition.
+        act_text = act.replace("_", " ")
+        parts.append(act_text)
         if obj:
             parts.append(obj)
+        # Use 'at' for location only if the object doesn't already
+        # contain a location-shaped tail (heuristic: object isn't
+        # itself one of the location-typed binding strings). Avoids
+        # 'closed hatch at docking hatch' duplicates by switching to
+        # 'in' as the secondary preposition when the object and
+        # location share head tokens.
         if loc:
-            parts.append(f"at {loc}")
+            obj_l = (obj or "").lower()
+            loc_l = loc.lower()
+            obj_tail = obj_l.split()[-1] if obj_l else ""
+            loc_head = loc_l.split()[0] if loc_l else ""
+            if obj_tail and (obj_tail == loc_head or obj_tail in loc_l or loc_l in obj_l):
+                pass  # don't repeat the same location-noun
+            else:
+                parts.append(f"at {loc}")
+        # Time clause: switch second 'at' to 'on' when location was
+        # already prefixed with 'at', to avoid 'at X at Y' wording.
+        time_prep = "on" if (loc and "at " in (parts[-1] if parts else "")) else "at"
         if start and end:
             parts.append(f"from {start} to {end}")
         elif start:
-            parts.append(f"at {start}")
+            parts.append(f"{time_prep} {start}")
         elif end:
             parts.append(f"until {end}")
         sentence = " ".join(parts).strip()

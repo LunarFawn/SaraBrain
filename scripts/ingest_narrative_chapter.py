@@ -35,8 +35,43 @@ import csv
 import re
 from pathlib import Path
 
+import sqlite3
+import time as _time
+
 from sara_brain.core.brain import Brain
 from sara_reader.event_tools import teach_event
+
+
+# v047 B.2 follow-up: dialogue triples bypass Brain.teach_triple's
+# chain-learning. teach_triple decomposes multi-word objects into
+# is_part_of edges from each constituent token — useful for short-
+# phrase facts but pure noise for dialogue ("Smith is part of hello
+# engineer smith this is..."). Direct SQLite writes avoid that
+# decomposition and keep the dialogue as a flat triple.
+
+def _direct_teach(brain: Brain, subj: str, rel: str, obj: str) -> None:
+    """Add a (subj, rel, obj) edge via direct SQLite, no chain
+    learning. Both endpoints become neurons of type 'concept'.
+    Mirrors the bypass pattern in scripts/build_vocab_brain_en.py."""
+    conn = brain.conn
+    def ensure(label: str) -> int:
+        row = conn.execute("SELECT id FROM neurons WHERE label=?", (label,)).fetchone()
+        if row:
+            return row[0]
+        cur = conn.execute(
+            "INSERT INTO neurons (label, neuron_type, created_at) VALUES (?,?,?)",
+            (label, "concept", _time.time()),
+        )
+        return cur.lastrowid
+    s_id = ensure(subj)
+    o_id = ensure(obj)
+    conn.execute(
+        "INSERT OR IGNORE INTO segments "
+        "(source_id, target_id, relation, strength, created_at) "
+        "VALUES (?,?,?,?,?)",
+        (s_id, o_id, rel, 1.0, _time.time()),
+    )
+    conn.commit()
 
 
 # ── Section splitter ─────────────────────────────────────────────────
@@ -373,12 +408,15 @@ def cmd_apply(args: argparse.Namespace) -> int:
                 n_skipped += 1
                 continue
             if kind == "dialogue":
-                # Dialogue lands as a regular triple: (char, said, quote).
+                # Dialogue lands as a flat triple via direct SQLite —
+                # bypasses chain learning so the quoted text doesn't
+                # get decomposed into 'X is part of <quote>' noise.
                 try:
-                    brain.teach_triple(subj, act, obj or "?")
+                    _direct_teach(brain, subj, act, obj or "?")
                     n_triples += 1
                 except Exception as e:
-                    print(f"  teach_triple failed for {subj!r} {act!r} {obj!r}: {e}")
+                    print(f"  direct dialogue insert failed for "
+                          f"{subj!r} {act!r} {obj!r}: {e}")
                     n_skipped += 1
                 continue
             # Event row: bundle into a reified event node.

@@ -407,15 +407,18 @@ def cmd_apply(args: argparse.Namespace) -> int:
             if not subj or not act:
                 n_skipped += 1
                 continue
-            if kind == "dialogue":
-                # Dialogue lands as a flat triple via direct SQLite —
-                # bypasses chain learning so the quoted text doesn't
-                # get decomposed into 'X is part of <quote>' noise.
+            if kind in ("dialogue", "triple"):
+                # Both land as flat triples via direct SQLite. Use
+                # 'triple' for definitional facts (subject is_a X,
+                # location part_of Y, alias also_known_as Z, etc.) —
+                # crucial for getting decent answers to 'who/what is
+                # X' questions. The event substrate by itself only
+                # tells you what people DID, not what they ARE.
                 try:
                     _direct_teach(brain, subj, act, obj or "?")
                     n_triples += 1
                 except Exception as e:
-                    print(f"  direct dialogue insert failed for "
+                    print(f"  direct triple insert failed for "
                           f"{subj!r} {act!r} {obj!r}: {e}")
                     n_skipped += 1
                 continue

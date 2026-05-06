@@ -201,4 +201,50 @@ End-to-end pass criteria:
 
 ## Status
 
-PLANNED. Implementation begins after this plan commits.
+SHIPPED 2026-05-06.
+
+**Implementation commits:**
+- `726ecf6` — generate_complex_substrate.py: full-qualifier + arc templates
+- `b7abf00` — train_hamrobysum_complex_v1.sh wrapper
+
+**Trained checkpoint:**
+`src/sara_brain/cortex/checkpoints/hamroby_sum_en_complex_v1_004000.pt`
+(629 MB, vocab=473, step=4000, final_loss=0.219, final_dev_loss=0.214).
+
+**Corpus stats:** 41,436 tokenized rows from 65 substrates (up
+from v048's 37,127 — ~12% more rows, all from the new shapes).
+
+**Verification — all pass criteria met:**
+
+1. The original v048 failure case now renders correctly. The
+   cluster `(alice, walked_to, cafe) + (alice, at_location,
+   downtown) + (alice, at_time, tuesday) + (alice, in_manner,
+   quickly)` produces:
+   > "Alice walked to cafe at downtown, quickly, tuesday."
+   All four substrate values bound in one sentence. No relation-
+   name leakage. (v048 had emitted: "Alice walked to cafe and in
+   manner quickly." — losing the time and location entirely.)
+
+2. Multi-event subject arcs render as chained sentences:
+   > "Tuesday, alice walked to cafe. wednesday, alice sat chair.
+   >  thursday, alice examined book."
+   One subject + 6 edges → 3 sentences chained chronologically.
+   v048 couldn't produce this pattern at all.
+
+3. Simple cluster (1 edge) — no regression:
+   > "Alice walked to cafe."
+
+4. Two-scene compound — no regression, `<R0>` still expands:
+   > "Alice walked to cafe. however, bob sat chair."
+
+**Architectural lesson confirmed:** the slot mechanism is content-
+agnostic by design — the model learns structural shapes over
+abstract slot tokens, with substrate strings mounted at inference
+time. Quality issues map to discrete missing-shape gaps in
+training, not to fuzzy "model doesn't know" problems. v048.1's
+fix was 50 lines of new template code; the rest of the system
+adapted without modification.
+
+**Slice 3 (role-tagged slot pools) status:** still deferred. (1)+(2)
+covered the failure modes seen in real testing. Revisit only if a
+specific scene shape still fails after v048.1.

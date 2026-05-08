@@ -127,6 +127,101 @@ reading directly in the terminal, `prose` provides developer comfort.
 
 ---
 
+## Local Ollama cortex (no API)
+
+For full local operation — Sara as the hippocampus, a local Ollama
+model as the cortex, no Anthropic / OpenAI API in the loop — use
+the stateless reader with `--strict-sara`:
+
+```bash
+# one-time: install Ollama and pull whichever model fits your device
+ollama pull <model>           # see device-class guide below
+
+# query Sara via local cortex (each invocation is structurally
+# stateless; no memory.md, no per-project memory, no conversation
+# history accumulates across calls)
+.venv/bin/python -m sara_reader.cli_stateless \
+  --brain /tmp/sara_demo.db \
+  --router-model <model> \
+  --synthesis-model <model> \
+  --strict-sara \
+  "what is the molecular snare?"
+```
+
+`--strict-sara` switches synthesis to force-Sara mode: substrate is
+wrapped in `<substrate>` tags, strict rules ("use ONLY substrate
+facts; no training-derived inference; if substrate doesn't have it,
+say so") are delivered via the system_prompt channel.
+
+### Device-class sizing guide
+
+The wrapper has no hardcoded model assumption — Ollama serves all
+of these via the same `/api/chat` endpoint, and the wrapper code
+path is identical regardless of which model you pick. Pick what
+fits your hardware:
+
+| device class | typical hardware | router model | synthesis model |
+|---|---|---|---|
+| mobile / very-low-RAM | phones, small tablets, ≤4GB RAM | `llama3.2:1b` (Q4) | `llama3.2:1b` (Q4) |
+| low-end desktop / laptop | 8GB RAM, integrated GPU | `llama3.2:3b` | `llama3.2:3b` |
+| mid-range desktop | RTX 3070 / 8GB VRAM, 32GB RAM | `llama3.2:3b` | `llama3.1:8b` |
+| high-end desktop | RTX 4090 / 24GB VRAM | `llama3.1:8b` | `qwen2.5:32b` or `llama3.3:70b` (offload) |
+| workstation / multi-GPU | A100 / H100 / dual-GPU | `llama3.1:8b` | `llama3.3:70b` (full GPU) |
+
+Smaller router model + larger synthesis model is often the right
+trade — routing is mostly tool selection (a 1-3B model handles it
+fine), synthesis benefits from a stronger model. But identical
+router and synthesis (small=small or large=large) also works.
+
+Compliance with the strict prompt varies with model capability —
+a 1B model will sometimes leak training content even with strict
+prompting; a 70B model rarely will. The prompt is the same
+regardless. Pick the largest model your hardware fits.
+
+### What the strict mode prevents
+
+- **Training-derived hallucination.** The cortex is told: "Your
+  training is unverifiable; the substrate is verified. Use ONLY
+  what's inside `<substrate>` tags." A small local model may still
+  drift; a frontier model rarely does.
+- **Within-session conversation memory.** Each `cli_stateless`
+  invocation is a fresh process — no chat history persists across
+  calls. This structurally defeats the rev8 §5.4 within-session
+  infection mechanism that was reproduced earlier in this branch
+  with Claude Code.
+- **Hidden memory.md / per-project memory.** No agent framework is
+  in the loop; no per-directory memory file is read; no IDE
+  integration is loading prior context. The wrapper is a bare
+  Python invocation against Ollama's HTTP API.
+
+### Verifying the cortex actually queried Sara
+
+Set `SARA_AUDIT_LOG` to log every tool call:
+
+```bash
+SARA_AUDIT_LOG=/tmp/sara_audit.log \
+.venv/bin/python -m sara_reader.cli_stateless \
+  --brain /tmp/sara_demo.db \
+  --router-model llama3.2:3b \
+  --synthesis-model llama3.1:8b \
+  --strict-sara \
+  "what is the molecular snare?"
+
+cat /tmp/sara_audit.log
+# Each row: ISO_TIMESTAMP  tool_name  args_json  result_bytes
+# Same format as the v050 MCP server audit log.
+```
+
+### Ollama version compatibility
+
+The wrapper uses bare HTTP via `urllib` (stdlib) against the stable
+`/api/chat` endpoint — no `ollama` Python package dependency, no
+PyPI version pinning. Works on any Ollama version from 0.1.x
+onward (late 2023 +). To pin for reproducibility, pin the model
+tag (e.g. `llama3.1:8b@sha256:...`).
+
+---
+
 ## Three example workflows
 
 ### Workflow 1 — Narrative brain (Carbon Helix)

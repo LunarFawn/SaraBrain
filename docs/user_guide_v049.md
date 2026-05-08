@@ -13,48 +13,78 @@ and v049.
 
 ## TL;DR
 
-Sara Brain stores facts as substrate edges. A small synthesizer LLM
-(HamRobySum) renders edges as English prose. Every word the LLM
-emits traces to a real substrate edge — *the LLM cannot fabricate
-facts*, only render the ones it's been shown.
+Sara Brain is the **hippocampus** in a two-layer architecture (Pearl
+2026a §7.3): it stores facts as substrate edges. A frozen frontier
+LLM — **the cortex** — does language. You teach Sara cheaply; you
+don't retrain the cortex. Sara emits structured triples; the cortex
+turns them into prose.
+
+The two-layer architecture from the foundational paper:
+
+```
+   ┌──────────────────────────────────────────────────┐
+   │  Cortex — frontier LLM (frozen, stateless)       │
+   │  Claude / Llama / GPT / etc.                     │
+   │  Receives Sara's triples; does selection,        │
+   │  synthesis, and prose generation.                │
+   └──────────────────────────────────────────────────┘
+                          ↑
+        MCP, or `chat.py --format raw` output
+        (structured triple neighborhood)
+                          │
+   ┌──────────────────────────────────────────────────┐
+   │  Hippocampus — Sara Brain (persistent)           │
+   │  SQLite path graph. Neurons + segments + paths.  │
+   │  Reader tools (brain_explore, brain_value, ...)  │
+   │  emit structured edges. No language production.  │
+   └──────────────────────────────────────────────────┘
+```
+
+**Per Pearl 2026 rev8 §2.4:** *"the output is intentionally
+associative rather than narrowed. A reader LLM receives not a single
+'best' answer but a structured neighborhood of related triples. The
+reader must do its own selection."*
 
 You teach Sara through:
-- **Slash commands** in the chat REPL (`/teach`, `/teach-event`,
-  `/teach-vocab`).
+- **Slash commands** in the chat REPL (`/teach`, `/teach-event`).
 - **TSV ingestion scripts** for batches of facts
   (`ingest_narrative_chapter.py`, `ingest_coding_guide.py`).
 - **Direct Python** via `Brain.teach_triple` /
   `event_tools.teach_event` / `code_tools.teach_function`.
 
 You query Sara through:
-- **Slash commands** (`/where-is`, `/list-events`, `/find-function`,
-  `/callers`, etc.).
-- **Natural language** in the REPL (the router picks the right tool).
+- **MCP** (the canonical production interface — `mcp_server.py`).
+- **`chat.py --format raw`** — emits structured triples for piping
+  into a downstream cortex LLM.
+- **`chat.py --format prose`** — runs a deterministic template
+  synthesizer for direct human terminal reading. Substrate-bound
+  but not as polished as a frontier cortex would produce.
 - **Direct Python** via `sara_reader.tools.execute_tool`.
 
-The synthesizer renders the gathered facts as prose. If a fact isn't
-in the substrate, the answer is *honest absence* — not invention.
+If a fact isn't in the substrate, the answer is *honest absence* —
+not invention. This guarantee holds at every layer: SQL can't return
+rows that don't exist; templates and slot-based renderers can only
+emit substrate strings; a frontier cortex receiving raw triples can
+only ground its prose in those triples.
 
 ---
 
-## Architecture in five layers
+## Architecture: two layers
 
-```
-┌──────────────────────────────────────────────────────────┐
-│  Chat REPL: natural-language interface + slash commands  │  ← user
-├──────────────────────────────────────────────────────────┤
-│  Synthesizer (HamRobySum LLM): edges → prose             │  ← only LLM
-│                                                            │     touching
-│                                                            │     content
-├──────────────────────────────────────────────────────────┤
-│  Router (tiny LLM): question → tool choice               │
-├──────────────────────────────────────────────────────────┤
-│  Reader tools: SQL queries → edge text                   │
-├──────────────────────────────────────────────────────────┤
-│  Substrate (SQLite): neurons + segments                  │  ← source
-│                                                            │     of truth
-└──────────────────────────────────────────────────────────┘
-```
+The papers (Pearl 2026a foundational, Pearl 2026 rev8 instrument)
+specify exactly two layers. Sara is the hippocampus (persistent
+memory, structured triples). A frozen frontier LLM is the cortex
+(language, selection, synthesis). They communicate via MCP or via
+the chat REPL's `--format raw` output.
+
+A **third "language production" layer** inside Sara was attempted in
+v035–v048.1 (HamRobySum-EN, a small slot-based renderer). The
+empirical finding was that small renderers cannot substitute for a
+frontier cortex, evidenced by a growing pile of inference-side
+patches. HamRobySum is preserved as a research artifact under
+`--use-hamrobysum` but is **not part of the production path**. See
+`docs/v050_two_layer_realignment.md` for the full architectural
+reasoning.
 
 The substrate is just a SQLite DB of `(source, relation, target)`
 triples plus reified-node conventions for multi-valued facts (events,
@@ -64,11 +94,18 @@ functions, etc.). Everything else is operating on those triples.
 
 ## Quick start: open a chat REPL against a brain
 
+For piping output into a frontier cortex LLM (Claude / Llama / etc.):
+
 ```bash
 .venv/bin/python -m sara_brain.cortex.transformer.chat \
-  --brain /tmp/your_brain.db --device cuda \
-  --use-hamrobysum \
-  --hamrobysum-ckpt src/sara_brain/cortex/checkpoints/hamroby_sum_en_complex_v1_004000.pt
+  --brain /tmp/your_brain.db --format raw
+```
+
+For direct human terminal reading (deterministic template prose):
+
+```bash
+.venv/bin/python -m sara_brain.cortex.transformer.chat \
+  --brain /tmp/your_brain.db --format prose
 ```
 
 Flags worth knowing:
@@ -76,14 +113,17 @@ Flags worth knowing:
 | flag | what it does |
 |---|---|
 | `--brain PATH` | which substrate DB to open |
-| `--device cuda` / `--device cpu` | inference device |
-| `--use-hamrobysum` | use the LLM synthesizer (cleaner prose) |
-| `--hamrobysum-ckpt PATH` | which synth ckpt to load |
-| `--vocab-brain PATH` | optional vocab-brain for predicate phrases |
+| `--format {raw,prose}` | **REQUIRED.** Output format. `raw` emits the structured triple neighborhood (paper-aligned, cortex-friendly). `prose` runs the template synthesizer for direct reading. |
+| `--device cuda` / `--device cpu` | inference device for the grammar LM (input parser) |
 | `--multihop` | enable bounded-BFS chain reasoning for "why/how" |
+| `--use-hamrobysum` | research mode: route prose synthesis through the v048.1 ckpt instead of v032 templates. Only matters when `--format prose` is set. Preserved as research artifact (see [v050_two_layer_realignment.md](v050_two_layer_realignment.md)). |
+| `--hamrobysum-ckpt PATH` | which synth ckpt to load (only used with `--use-hamrobysum`) |
+| `--vocab-brain PATH` | optional vocab-brain for predicate phrases (only used with `--use-hamrobysum`) |
 
-Without `--use-hamrobysum`, you get the v032 template renderer (a
-hand-written fallback). With it, you get the trained slot-based LLM.
+The `--format` flag is required because the right answer depends on
+the consumer. If a frontier LLM is downstream, `raw` preserves the
+substrate's structure and lets the cortex do its job. If a human is
+reading directly in the terminal, `prose` provides developer comfort.
 
 ---
 
@@ -432,14 +472,24 @@ related concepts.
   --tsv /tmp/your_brain.tsv \
   --brain /tmp/your_brain.db
 
-# 4. Open the chat REPL
+# 4. Open the chat REPL — pick a format
+#    For piping into a frontier cortex LLM:
 .venv/bin/python -m sara_brain.cortex.transformer.chat \
-  --brain /tmp/your_brain.db --device cuda --use-hamrobysum \
-  --hamrobysum-ckpt src/sara_brain/cortex/checkpoints/hamroby_sum_en_complex_v1_004000.pt
+  --brain /tmp/your_brain.db --format raw
+
+#    For direct human terminal reading (template prose):
+.venv/bin/python -m sara_brain.cortex.transformer.chat \
+  --brain /tmp/your_brain.db --format prose
 
 # 5. Iterate — query, find gaps, add triples, re-ingest. The brain
 #    file is just a SQLite DB; you can write to it from any tool.
 ```
+
+The recommended workflow for grounded LLM-assisted work: pipe
+`--format raw` output (or use the MCP server) into a frontier LLM
+of your choice. The cortex on the other end does selection,
+synthesis, and prose. You teach Sara cheaply when you learn new
+things; you don't retrain the cortex.
 
 ---
 
@@ -449,10 +499,11 @@ related concepts.
 |---|---|
 | "Sara has no neuron matching 'X'" | the substrate doesn't know X by that exact name. Try `/dig X` or teach an `also_known_as` edge. |
 | Output has "X is part of Y" noise from dialogue | known v047 pre-`ae7d5dc` issue: dialogue went through chain learning which decomposed multi-word objects. Fixed by `kind=triple` / `kind=dialogue` direct-SQLite path. Re-ingest. |
-| "at X at Y" duplicate prepositions in event prose | fixed by the v047 polish commit (`403773c`) — synthesizer detects overlap and switches to `on` for the time clause. |
-| Multi-edge cluster renders awkwardly | use the v048.1 ckpt (`hamroby_sum_en_complex_v1_004000.pt`) which trained on full-qualifier + arc shapes. |
+| `--format prose` output reads awkwardly | use `--format raw` and let the consumer cortex LLM (Claude/Llama/etc.) handle the prose. The template synthesizer is deterministic but limited; a frontier cortex paraphrases far better. Per Pearl 2026a §7.3 this is the cortex's job. |
+| `--use-hamrobysum` output is mangled | known: HamRobySum is a research artifact (v035-v048.1). The empirical finding that small renderers can't substitute for a frontier cortex is exactly what we documented in `v050_two_layer_realignment.md`. Use `--format raw` for production. |
 | `/where-is SUBJECT at T` returns events from other times | bug fixed by v047 Slice C verification — point-in-time exact-match when only one bound is set. |
 | Router picks wrong tool for a question | use `/trace` to see routing decisions; manually invoke via `brain_explore` / `brain_define` if needed. |
+| `chat.py` exits with usage error about `--format` | `--format` is required. Pass `--format raw` (cortex consumption) or `--format prose` (direct reading). No silent default — see `v050_two_layer_realignment.md`. |
 
 ---
 

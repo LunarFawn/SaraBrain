@@ -118,6 +118,7 @@ class ChatSession:
         grammar_ckpt: Path,
         head_ckpt: Path,
         device: str,
+        output_format: str,
         hamrobysum_ckpt: Path | None = None,
         vocab_brain: Path | None = None,
         multihop: bool = False,
@@ -126,7 +127,19 @@ class ChatSession:
         self.head_ckpt = head_ckpt
         self.device = device
         self.show_trace = False
-        self.show_raw = False
+        # v050 realignment: --format raw | prose. Sara is the hippocampus;
+        # the consumer LLM is the cortex (Pearl 2026a §7.3). Raw mode emits
+        # the structured triple neighborhood (rev8 §2.4: "associative
+        # rather than narrowed") for cortex consumption. Prose mode runs
+        # the template synthesizer for direct human reading. show_raw
+        # mirrors the format flag at startup; /verbose toggles it
+        # mid-session.
+        if output_format not in ("raw", "prose"):
+            raise ValueError(
+                f"output_format must be 'raw' or 'prose', got {output_format!r}"
+            )
+        self.output_format = output_format
+        self.show_raw = (output_format == "raw")
         self.router = CortexRouter(
             grammar_ckpt=grammar_ckpt,
             head_ckpt=head_ckpt,
@@ -1100,10 +1113,29 @@ def main() -> int:
                    default=Path("src/sara_brain/cortex/checkpoints/router_head.pt"))
     p.add_argument("--device", default="cpu",
                    help="cpu or cuda; cpu is plenty for serving")
+    p.add_argument(
+        "--format", dest="output_format", required=True,
+        choices=("raw", "prose"),
+        help="Output format. REQUIRED — no silent default. "
+             "'raw' emits the structured triple neighborhood "
+             "(rev8 §2.4: 'associative rather than narrowed') for "
+             "consumption by a downstream cortex LLM (Claude / Llama / "
+             "etc.); the consumer LLM does selection and prose. 'prose' "
+             "runs the template synthesizer for direct human terminal "
+             "reading. Pearl 2026a's two-layer architecture says "
+             "language production belongs to the cortex, not Sara — "
+             "raw is the paper-aligned default for any LLM-consumer "
+             "workflow.",
+    )
     p.add_argument("--use-hamrobysum", action="store_true",
-                   help="Route prose synthesis through HamRoby-Sum (per "
-                        "v039) with v032 template fallback for degenerate "
-                        "clusters. Default: pure v032 templates.")
+                   help="Research mode: route prose synthesis through "
+                        "HamRoby-Sum (small slot-based renderer from "
+                        "v035-v048.1) instead of v032 templates. "
+                        "Preserved as a research artifact — the empirical "
+                        "finding that small renderers cannot replace a "
+                        "frontier cortex validates the two-layer "
+                        "architecture by counterexample. Only matters "
+                        "when --format prose is also set.")
     p.add_argument("--hamrobysum-ckpt", type=Path,
                    default=Path("src/sara_brain/cortex/checkpoints/hamroby_sum_en_002500.pt"),
                    help="HamRoby-Sum checkpoint (only used with "
@@ -1148,6 +1180,7 @@ def main() -> int:
     print(f"{DIM}loading {MODEL_FULL}...{RESET}", flush=True)
     session = ChatSession(
         args.brain, args.grammar_ckpt, args.head_ckpt, args.device,
+        output_format=args.output_format,
         hamrobysum_ckpt=args.hamrobysum_ckpt if args.use_hamrobysum else None,
         vocab_brain=args.vocab_brain if args.use_hamrobysum else None,
         multihop=args.multihop,

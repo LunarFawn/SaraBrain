@@ -204,6 +204,34 @@ class ChatSession:
                 extra.append(Edge(src=event_label, rel=rel, tgt=tgt))
         return edges + extra
 
+    @staticmethod
+    def _split_homogeneous_runs(
+        edges: list[Edge],
+    ) -> tuple[list[Edge], list[Edge]]:
+        """v049 follow-up: split edges into (homogeneous_runs,
+        heterogeneous_remainder). A homogeneous run is 3+ edges
+        sharing the same (subject, relation) — multiple is_a edges,
+        multiple has_property edges, multiple `said` edges. The LLM
+        synth model mangles these (picks compound/discourse shapes
+        instead of Oxford-comma list shape); the template renderer
+        handles them cleanly.
+
+        Returns the homogeneous edges as a flat list (caller routes
+        them through `synthesize()` template path) and the rest
+        through the LLM."""
+        from collections import defaultdict
+        groups: dict[tuple[str, str], list[Edge]] = defaultdict(list)
+        for e in edges:
+            groups[(e.src.strip().lower(), e.rel)].append(e)
+        homogeneous: list[Edge] = []
+        rest: list[Edge] = []
+        for key, group in groups.items():
+            if len(group) >= 3:
+                homogeneous.extend(group)
+            else:
+                rest.extend(group)
+        return homogeneous, rest
+
     def _synthesize_one_gathered(
         self, question: str | None, gathered: list[dict],
     ) -> str:
@@ -241,6 +269,25 @@ class ChatSession:
         # event nodes (brain_explore at depth=1 misses them).
         edges = self._expand_event_references(edges)
 
+        # v049 follow-up: pull homogeneous-relation runs out of the
+        # cluster and route them through the template path. The LLM
+        # synth model mangles 3+ same-relation edges (multiple is_a /
+        # has_property / said) — picks compound/discourse shapes
+        # instead of Oxford-comma list rendering. Templates handle
+        # this cleanly via `, and` joining.
+        homogeneous_edges, edges = self._split_homogeneous_runs(edges)
+        homogeneous_prose = ""
+        if homogeneous_edges:
+            homo_text = "\n".join(
+                f"'{e.src}' --[{e.rel}]--> '{e.tgt}'"
+                for e in homogeneous_edges
+            )
+            homogeneous_prose = synthesize(
+                question or "",
+                [{"call": {"tool": "brain_explore", "args": {"label": ""}},
+                  "result": homo_text}],
+            ).strip()
+
         # Collapse event-node clusters into bundled prose before
         # clustering+rendering. Keeps event_* binding edges out of
         # the model's input — they don't render as English via the
@@ -248,15 +295,20 @@ class ChatSession:
         event_prose, edges = extract_event_renderings(edges)
 
         if not edges:
-            # Pure-event gather (e.g. /where-is-style query). The
-            # event prose IS the answer.
-            return " ".join(event_prose)
+            # Pure-event (or pure-homogeneous) gather. Glue event
+            # prose, homogeneous prose, in that order.
+            parts = list(event_prose)
+            if homogeneous_prose:
+                parts.append(homogeneous_prose)
+            return " ".join(p for p in parts if p)
 
         clusters = cluster_by_subject(edges)
         device = torch.device(self.device)
         out_parts: list[str] = []
         if event_prose:
             out_parts.extend(event_prose)
+        if homogeneous_prose:
+            out_parts.append(homogeneous_prose)
         for subject, cluster in clusters.items():
             prose = synthesize_cluster(
                 self._hamrobysum_model, cluster, device,

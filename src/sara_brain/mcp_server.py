@@ -15,8 +15,12 @@ Usage:
 
 from __future__ import annotations
 
+import json
 import os
 import sys
+import time
+from functools import wraps
+from typing import Callable
 
 from mcp.server.fastmcp import FastMCP
 
@@ -26,6 +30,47 @@ from .core.brain import Brain
 # ── Initialize ──
 
 DB_PATH = os.environ.get("SARA_DB", default_db_path())
+
+# ── Audit log (paper §4 / rev8 §5.4 measurement support) ──
+# When SARA_MCP_AUDIT_LOG is set to a file path, every MCP tool call gets
+# appended as a single TSV row: ISO_TIMESTAMP\ttool\targs_json\tresult_bytes.
+# Lets the experimenter verify whether the cortex actually queried the
+# substrate vs. answered from session-context recall (rev8 §5.4 within-
+# session infection mechanism). Default: no logging, no overhead.
+
+_AUDIT_LOG_PATH = os.environ.get("SARA_MCP_AUDIT_LOG", "")
+
+
+def _audit(tool_name: str, args: dict, result: str) -> None:
+    if not _AUDIT_LOG_PATH:
+        return
+    try:
+        with open(_AUDIT_LOG_PATH, "a", encoding="utf-8") as f:
+            ts = time.strftime("%Y-%m-%dT%H:%M:%S", time.localtime())
+            args_json = json.dumps(args, ensure_ascii=False)
+            f.write(f"{ts}\t{tool_name}\t{args_json}\t{len(result)}\n")
+    except Exception as e:
+        print(f"[audit] write failed: {e}", file=sys.stderr)
+
+
+def _audited(fn: Callable) -> Callable:
+    """Wrap an MCP tool function so each invocation appends an audit row.
+    Bound to the function's signature; result text is forwarded unchanged."""
+    @wraps(fn)
+    def wrapper(*args, **kwargs):
+        result = fn(*args, **kwargs)
+        if _AUDIT_LOG_PATH:
+            try:
+                # Reconstruct the args dict by name for log readability.
+                import inspect
+                sig = inspect.signature(fn)
+                bound = sig.bind(*args, **kwargs)
+                bound.apply_defaults()
+                _audit(fn.__name__, dict(bound.arguments), result if isinstance(result, str) else "")
+            except Exception:
+                pass
+        return result
+    return wrapper
 
 mcp = FastMCP(
     "sara-brain",
@@ -67,6 +112,7 @@ def _get_brain() -> Brain:
 
 
 @mcp.tool()
+@_audited
 def brain_query(topic: str) -> str:
     """Query Sara Brain for everything she knows about a topic.
 
@@ -105,6 +151,7 @@ def brain_query(topic: str) -> str:
 
 
 @mcp.tool()
+@_audited
 def brain_recognize(inputs: str) -> str:
     """Give Sara properties and see what she recognizes.
 
@@ -127,6 +174,7 @@ def brain_recognize(inputs: str) -> str:
 
 
 @mcp.tool()
+@_audited
 def brain_why(label: str) -> str:
     """Show all paths that lead TO a neuron (reverse lookup).
 
@@ -144,6 +192,7 @@ def brain_why(label: str) -> str:
 
 
 @mcp.tool()
+@_audited
 def brain_trace(label: str) -> str:
     """Show all paths going OUT from a neuron.
 
@@ -162,6 +211,7 @@ def brain_trace(label: str) -> str:
 
 
 @mcp.tool()
+@_audited
 def brain_teach(statement: str) -> str:
     """Teach Sara a fact. She parses it into a neuron chain and remembers it forever.
 
@@ -181,6 +231,7 @@ def brain_teach(statement: str) -> str:
 
 
 @mcp.tool()
+@_audited
 def brain_explore(label: str, depth: int = 3) -> str:
     """Walk Sara's graph outward from ``label`` to ``depth`` hops in
     both directions. Surfaces the author's specific framing across a
@@ -293,6 +344,7 @@ def brain_explore(label: str, depth: int = 3) -> str:
 
 
 @mcp.tool()
+@_audited
 def brain_teach_triple(
     subject: str,
     relation: str,
@@ -350,6 +402,7 @@ def brain_teach_triple(
 
 
 @mcp.tool()
+@_audited
 def brain_refute(statement: str) -> str:
     """Refute a fact in Sara Brain. Sara never deletes — she marks the
     claim as known-to-be-false. The path stays as evidence of what was
@@ -374,6 +427,7 @@ def brain_refute(statement: str) -> str:
 
 
 @mcp.tool()
+@_audited
 def brain_refute_triple(
     subject: str,
     relation: str,
@@ -411,6 +465,7 @@ def brain_refute_triple(
 
 
 @mcp.tool()
+@_audited
 def brain_did_you_mean(term: str) -> str:
     """Check for close matches to a term in Sara Brain.
 
@@ -434,6 +489,7 @@ def brain_did_you_mean(term: str) -> str:
 
 
 @mcp.tool()
+@_audited
 def brain_ingest(source: str) -> str:
     """Ingest a document into Sara Brain from a file path or URL.
 
@@ -452,6 +508,7 @@ def brain_ingest(source: str) -> str:
 
 
 @mcp.tool()
+@_audited
 def brain_scan_pollution() -> str:
     """Read-only scan for pollution caused by past parser bugs.
 
@@ -463,6 +520,7 @@ def brain_scan_pollution() -> str:
 
 
 @mcp.tool()
+@_audited
 def brain_list_article_candidates() -> str:
     """READ-ONLY list of paths attached to article-typo candidate neurons.
 
@@ -476,6 +534,7 @@ def brain_list_article_candidates() -> str:
 
 
 @mcp.tool()
+@_audited
 def brain_list_pronoun_candidates() -> str:
     """READ-ONLY list of paths attached to pronoun-subject candidate neurons.
 
@@ -486,6 +545,7 @@ def brain_list_pronoun_candidates() -> str:
 
 
 @mcp.tool()
+@_audited
 def brain_list_suspected_typos() -> str:
     """List suspected content-word typos for USER REVIEW.
 
@@ -498,6 +558,7 @@ def brain_list_suspected_typos() -> str:
 
 
 @mcp.tool()
+@_audited
 def brain_stats() -> str:
     """Get Sara Brain statistics — neuron count, segment count, path count."""
     brain = _get_brain()
@@ -512,6 +573,7 @@ def brain_stats() -> str:
 
 
 @mcp.tool()
+@_audited
 def brain_similar(label: str) -> str:
     """Find neurons that share downstream paths with the given neuron.
 

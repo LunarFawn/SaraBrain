@@ -1,5 +1,42 @@
-"""HamRobySum inference — render edge clusters to prose with the
-trained synthesizer head.
+"""HamRobySum inference — RESEARCH ARTIFACT (not part of the production
+two-layer architecture).
+
+**Architectural status:** HamRobySum-EN was an experiment in rendering
+substrate edges as prose using a small (~30M-param) slot-based LLM.
+It is **not part of the two-layer architecture from Pearl 2026a**
+("LLM as cortex, Sara Brain as hippocampus" — §7.3) — it adds a third
+"language production" layer that the papers explicitly leave to the
+consumer cortex (Pearl 2026 rev8 §2.4: *"a reader LLM receives not a
+single 'best' answer but a structured neighborhood of related triples.
+The reader must do its own selection."*).
+
+**Why this code is preserved:** the empirical finding from v035–v048.1
+is that small renderers (30M params, slot-based, synthetic training)
+cannot reliably replace a frontier cortex for prose generation. Each
+new substrate shape produced new failure modes (homogeneous-cluster
+mangling, qualifier-pattern collapse, discourse-slot leakage, etc.)
+which required a growing pile of inference-side patches. That patching
+pile *is the empirical evidence* for the two-layer architecture —
+the third layer protests by misbehaving. Preserving the artifact and
+reframing it as a counterexample makes the result citable.
+
+**How to access:** `chat.py --format prose --use-hamrobysum`.
+Default chat REPL paths (`--format raw`, `--format prose` without
+`--use-hamrobysum`) do not load this module's model.
+
+**Production architecture (paper-aligned):**
+- Hippocampus (Sara): SQLite path graph, structured triples, MCP-served.
+- Cortex (frontier LLM, frozen): receives `--format raw` triples or
+  MCP output, does selection + synthesis + prose.
+
+See `docs/v050_two_layer_realignment.md` for the full architectural
+reasoning. See `docs/v035_generic_slot_hamrobysum.md` through
+`docs/v048_1_richer_training_data.md` for the research artifact's
+development history.
+
+────────────────────────────────────────────────────────────────────
+
+Original module description (preserved for research-mode users):
 
 Loads a synth checkpoint (which embeds the brain-extended vocab),
 formats an edge cluster into the same `<facts>...<prose>` prefix the

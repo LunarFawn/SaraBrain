@@ -13,7 +13,10 @@ contamination to compound.
 from __future__ import annotations
 
 import json
+import os
 import re
+import sys
+import time
 from typing import Any
 
 from sara_brain.core.brain import Brain
@@ -21,6 +24,29 @@ from sara_brain.core.brain import Brain
 from .brain_loader import load_brain
 from .providers import get_provider
 from .tools import TOOLS, execute_tool
+
+
+# v052 slice 4: optional audit log of every execute_tool call. When
+# SARA_AUDIT_LOG is set to a file path, each routing-loop tool
+# invocation appends a TSV row:
+#   ISO_TIMESTAMP \t tool_name \t args_json \t result_bytes
+# Same format as the v050 MCP audit log (sara_brain/mcp_server.py)
+# so a single grep can compare across the MCP and cli_stateless
+# paths. Default: no logging, no overhead.
+
+_AUDIT_LOG_PATH = os.environ.get("SARA_AUDIT_LOG", "")
+
+
+def _audit_tool_call(tool_name: str, args: dict, result: str) -> None:
+    if not _AUDIT_LOG_PATH:
+        return
+    try:
+        with open(_AUDIT_LOG_PATH, "a", encoding="utf-8") as f:
+            ts = time.strftime("%Y-%m-%dT%H:%M:%S", time.localtime())
+            args_json = json.dumps(args, ensure_ascii=False)
+            f.write(f"{ts}\t{tool_name}\t{args_json}\t{len(result)}\n")
+    except Exception as e:
+        print(f"[audit] write failed: {e}", file=sys.stderr)
 
 
 _ROUTER_PROMPT_TEMPLATE = """\
@@ -296,6 +322,7 @@ class StatelessReader:
                 result = execute_tool(self.brain, tool_name, args)
             except Exception as exc:
                 result = f"<<tool error: {exc}>>"
+            _audit_tool_call(tool_name, args, result if isinstance(result, str) else "")
             gathered.append({
                 "call": {"tool": tool_name, "args": args},
                 "result": result,
@@ -337,6 +364,10 @@ class StatelessReader:
                         )
                     except Exception as exc:
                         rec_result = f"<<tool error: {exc}>>"
+                    _audit_tool_call(
+                        tool_name, rec_args,
+                        rec_result if isinstance(rec_result, str) else "",
+                    )
                     gathered.append({
                         "call": {"tool": tool_name, "args": rec_args},
                         "result": rec_result,
@@ -363,6 +394,10 @@ class StatelessReader:
                             )
                         except Exception as exc:
                             rec_result = f"<<tool error: {exc}>>"
+                        _audit_tool_call(
+                            "brain_define", rec_args,
+                            rec_result if isinstance(rec_result, str) else "",
+                        )
                         gathered.append({
                             "call": {"tool": "brain_define", "args": rec_args},
                             "result": rec_result,

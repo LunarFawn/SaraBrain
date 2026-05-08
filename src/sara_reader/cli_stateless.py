@@ -91,6 +91,23 @@ def main() -> int:
             "substrate -> templated prose."
         ),
     )
+    ap.add_argument(
+        "--strict-sara",
+        action="store_true",
+        help=(
+            "Force-Sara synthesis mode (v052): substrate is wrapped in "
+            "<substrate> tags and strict rules are delivered via the "
+            "system_prompt channel — the cortex must use ONLY substrate "
+            "facts, no fallback to training knowledge, no inference "
+            "beyond what triples directly state. Layer B (single-turn "
+            "stateless inference, no conversation memory) is structural "
+            "and always on. Works with any Ollama model from "
+            "mobile-class (llama3.2:1b) to workstation-class "
+            "(llama3.3:70b); compliance with the strict prompt varies "
+            "with model capability. See docs/plans/"
+            "v052_local_ollama_cortex.md."
+        ),
+    )
     args = ap.parse_args()
     synthesis_model = args.synthesis_model or args.router_model
 
@@ -117,6 +134,7 @@ def main() -> int:
         cortex_router_ckpts=cortex_router_ckpts,
         skip_synthesis=args.no_synthesis,
         cortex_synthesizer=args.cortex_synthesizer,
+        strict_sara=args.strict_sara,
     )
     result = reader.ask(args.question, return_trace=args.trace)
     if args.trace:

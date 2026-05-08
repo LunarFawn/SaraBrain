@@ -79,6 +79,40 @@ Write a faithful answer. Short prose. No meta-commentary about tool
 calls. No NLP-style framing of the data."""
 
 
+# v052: strict-Sara mode delivers rules via the system_prompt channel
+# and wraps the substrate in <substrate> tags so the cortex receives
+# rules and data on different channels. Tighter than the default
+# synthesis prompt — explicitly forbids training-derived inference
+# and per-claim grounding violations.
+
+_STRICT_SARA_SYSTEM_PROMPT = """\
+You are a substrate-bound research assistant. You have access to facts
+ONLY through <substrate> tags in the user message. The contents of
+those tags are the COMPLETE set of facts you may use.
+
+Rules — these are absolute, no exceptions:
+1. Every factual claim in your answer MUST trace to a triple inside
+   <substrate>. If a triple does not state it, you do not state it.
+2. If <substrate> does not contain the answer, respond exactly:
+   "The substrate does not contain this information."
+3. Do NOT use any knowledge from your training, even if you "know"
+   the topic. Your training is unverifiable; the substrate is verified.
+4. Do NOT make inferences that go beyond what the triples directly
+   state. No "this likely means" or "in general."
+5. Do NOT add hedging connectives ("additionally", "furthermore",
+   "moreover") that smuggle in training-derived content.
+6. When in doubt, say less. A short substrate-true answer is correct;
+   a long answer with even one training-derived claim is wrong."""
+
+
+_STRICT_SARA_USER_TEMPLATE = """\
+<substrate>
+{gathered}
+</substrate>
+
+Question: {question}"""
+
+
 _VALID_TOOLS = {
     "brain_value",
     "brain_define",
@@ -191,6 +225,7 @@ class StatelessReader:
         cortex_router_ckpts: tuple[str, str] | None = None,
         skip_synthesis: bool = False,
         cortex_synthesizer: bool = False,
+        strict_sara: bool = False,
     ) -> None:
         """If cortex_router_ckpts=(grammar_ckpt_path, head_ckpt_path) is set,
         routing is performed by the local cortex transformer (no Ollama call).
@@ -225,6 +260,12 @@ class StatelessReader:
         self.synthesis_model = synthesis_model
         self.max_routing_steps = max_routing_steps
         self.max_retries_per_step = max_retries_per_step
+        # v052: when True, synthesis uses the strict-Sara system prompt
+        # + <substrate>-tagged user message (Layer A from the v052 plan).
+        # Layer B (single-turn isolation) is structurally true regardless
+        # — every .ask() call is independent; no conversation history
+        # accumulates across calls.
+        self.strict_sara = strict_sara
 
     def ask(self, question: str, return_trace: bool = False) -> str | dict:
         gathered: list[dict] = []
@@ -341,6 +382,23 @@ class StatelessReader:
             from sara_brain.cortex.transformer.synthesizer import synthesize
             answer = synthesize(question, gathered)
             trace.append({"step": "synthesis", "event": "cortex_template"})
+        elif self.strict_sara:
+            # v052 strict-Sara: rules via system_prompt, substrate via
+            # <substrate> tags in the user message. Per-claim grounding
+            # required; training-derived inference forbidden.
+            user_msg = _STRICT_SARA_USER_TEMPLATE.format(
+                question=question, gathered=_format_gathered(gathered),
+            )
+            response = self.synthesizer.chat(
+                messages=[{"role": "user", "content": user_msg}],
+                tools=[],
+                model=self.synthesis_model,
+                system_prompt=_STRICT_SARA_SYSTEM_PROMPT,
+            )
+            answer = response.text.strip()
+            trace.append({
+                "step": "synthesis", "event": "synthesized_strict_sara",
+            })
         else:
             synthesis_prompt = _SYNTHESIS_PROMPT_TEMPLATE.format(
                 question=question, gathered=_format_gathered(gathered)

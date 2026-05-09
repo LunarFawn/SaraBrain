@@ -97,6 +97,14 @@ def main() -> int:
             "docs/plans/v052_local_ollama_cortex.md."
         ),
     )
+    ap.add_argument(
+        "--explore-first", action="store_true",
+        help=(
+            "Always prepend a brain_explore depth=3 call before routing. "
+            "Captures the associative neighborhood per Pearl 2026a §2.4. "
+            "Recommended with --strict-sara for definitional questions."
+        ),
+    )
     args = ap.parse_args()
     synthesis_model = args.synthesis_model or args.router_model
 
@@ -125,6 +133,7 @@ def main() -> int:
         skip_synthesis=args.no_synthesis,
         cortex_synthesizer=args.cortex_synthesizer,
         strict_sara=args.strict_sara,
+        explore_first=args.explore_first,
     )
 
     audit_path = os.environ.get("SARA_AUDIT_LOG", "")

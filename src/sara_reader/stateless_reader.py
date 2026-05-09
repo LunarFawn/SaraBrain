@@ -49,6 +49,27 @@ def _audit_tool_call(tool_name: str, args: dict, result: str) -> None:
         print(f"[audit] write failed: {e}", file=sys.stderr)
 
 
+# v052 follow-up: heuristic topic extraction for --explore-first.
+# Strips wh-prefixes, articles, and trailing punctuation. The result
+# becomes the brain_explore label; brain_explore tolerates rough
+# input via its own fuzzy matching upstream.
+_WH_PREFIX_RE = re.compile(
+    r"^(what is|what are|what does|what do|how does|how do|how can|"
+    r"why does|why do|why is|tell me about|describe|explain|define|"
+    r"who is|who are|where is|where are)\s+",
+    re.IGNORECASE,
+)
+_LEADING_ARTICLE_RE = re.compile(r"^(the|a|an)\s+", re.IGNORECASE)
+
+
+def _extract_topic(question: str) -> str:
+    q = (question or "").strip().lower()
+    q = _WH_PREFIX_RE.sub("", q, count=1)
+    q = _LEADING_ARTICLE_RE.sub("", q, count=1)
+    q = q.rstrip("?.!,;: ")
+    return q
+
+
 _ROUTER_PROMPT_TEMPLATE = """\
 You are routing a substrate query. The substrate is a knowledge graph.
 Reply with ONE JSON object and nothing else. No prose, no markdown.
@@ -252,6 +273,7 @@ class StatelessReader:
         skip_synthesis: bool = False,
         cortex_synthesizer: bool = False,
         strict_sara: bool = False,
+        explore_first: bool = False,
     ) -> None:
         """If cortex_router_ckpts=(grammar_ckpt_path, head_ckpt_path) is set,
         routing is performed by the local cortex transformer (no Ollama call).
@@ -292,11 +314,52 @@ class StatelessReader:
         # — every .ask() call is independent; no conversation history
         # accumulates across calls.
         self.strict_sara = strict_sara
+        # v052 follow-up: when True, every .ask() prepends a
+        # brain_explore depth=3 call with a heuristic-extracted
+        # topic from the question. Catches the case where the
+        # router picks brain_define / brain_value (narrow tools
+        # that miss most of the substrate) and the answer comes
+        # back thin. Per Pearl 2026a §2.4 the associative
+        # neighborhood IS the signal — explore-first guarantees
+        # that signal is in the gathered list regardless of what
+        # else the router picks.
+        self.explore_first = explore_first
 
     def ask(self, question: str, return_trace: bool = False) -> str | dict:
         gathered: list[dict] = []
         trace: list[dict] = []
         seen_calls: set[tuple] = set()
+
+        # ---- Explore-first (v052 follow-up) ----
+        # Always start with brain_explore depth=3 on a heuristic-
+        # extracted topic. Captures the associative neighborhood per
+        # Pearl 2026a §2.4 so the synthesizer has rich substrate to
+        # answer from, even when downstream routing picks narrower
+        # tools (brain_define / brain_value).
+        if self.explore_first:
+            topic = _extract_topic(question)
+            if topic:
+                ef_args = {"label": topic, "depth": 3}
+                ef_key = ("brain_explore", tuple(sorted(ef_args.items())))
+                seen_calls.add(ef_key)
+                try:
+                    ef_result = execute_tool(self.brain, "brain_explore", ef_args)
+                except Exception as exc:
+                    ef_result = f"<<tool error: {exc}>>"
+                _audit_tool_call(
+                    "brain_explore", ef_args,
+                    ef_result if isinstance(ef_result, str) else "",
+                )
+                gathered.append({
+                    "call": {"tool": "brain_explore", "args": ef_args},
+                    "result": ef_result,
+                })
+                trace.append({
+                    "step": "explore_first",
+                    "event": "tool_executed",
+                    "call": {"tool": "brain_explore", "args": ef_args},
+                    "result": ef_result[:300],
+                })
 
         # ---- Routing loop ----
         for step in range(self.max_routing_steps):

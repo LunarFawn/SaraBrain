@@ -108,6 +108,19 @@ def main() -> int:
             "v052_local_ollama_cortex.md."
         ),
     )
+    ap.add_argument(
+        "--explore-first",
+        action="store_true",
+        help=(
+            "Always prepend a brain_explore depth=3 call before routing. "
+            "Captures the associative neighborhood per Pearl 2026a §2.4 "
+            "so the synthesizer has rich substrate context regardless "
+            "of what else the router picks. Catches the case where "
+            "narrow tools (brain_define / brain_value) miss most of "
+            "the substrate. Recommended with --strict-sara for "
+            "definitional questions."
+        ),
+    )
     args = ap.parse_args()
     synthesis_model = args.synthesis_model or args.router_model
 
@@ -135,6 +148,7 @@ def main() -> int:
         skip_synthesis=args.no_synthesis,
         cortex_synthesizer=args.cortex_synthesizer,
         strict_sara=args.strict_sara,
+        explore_first=args.explore_first,
     )
     result = reader.ask(args.question, return_trace=args.trace)
     if args.trace:

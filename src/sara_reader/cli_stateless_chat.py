@@ -30,6 +30,7 @@ import argparse
 import atexit
 import json
 import os
+import shlex
 import sys
 from pathlib import Path
 
@@ -41,6 +42,38 @@ except ImportError:
     readline = None
 
 from .stateless_reader import StatelessReader
+from .tools import execute_tool
+
+
+HELP_TEXT = """\
+slash commands:
+  /help                   show this help
+  /teach STATEMENT        teach a parsed natural-language fact
+                          ("ssng1 is a goal")
+  /teach SUBJ REL OBJ     teach a flat triple directly
+                          ("fulcrum is_a support point")
+  /refute STATEMENT       refute / negate a previously-taught fact
+  /teach-event SUBJECT ACTION [object=O] [location=L] [from=ISO]
+               [to=ISO] [modifier=M]
+                          create a reified event node (v047)
+  /where-is SUBJECT [at=ISO]
+                          point-in-time location query
+  /list-events SUBJECT    chronological event list for a subject
+  /find-function NAME [module=M]
+                          full function info (signature, returns,
+                          parameters, calls, raises, docstring)
+  /callers NAME           list callers of NAME
+  /callees NAME           list functions NAME calls
+  /returns-type TYPE      list functions returning TYPE
+  /takes-type TYPE        list functions taking parameter of TYPE
+  /trace                  toggle trace output
+  /audit                  print SARA_AUDIT_LOG path
+  /quit /exit Ctrl-D      leave
+
+natural-language input is routed through the configured router
+(Ollama or cortex-router) and synthesised by the configured
+model — substrate-bound per --strict-sara. /teach* and /refute*
+write directly to the brain.db, bypassing the LLM routing loop."""
 
 
 def _setup_history() -> None:
@@ -176,10 +209,7 @@ def main() -> int:
         f"strict_sara={args.strict_sara}"
         + (f" audit={audit_path}" if audit_path else "")
     )
-    print(
-        "type a question, /teach SUBJ REL OBJ to teach a triple, "
-        "/trace toggle, /quit exit"
-    )
+    print("type a question, /help for commands, /quit to exit")
 
     show_trace = False
     while True:
@@ -192,6 +222,9 @@ def main() -> int:
             continue
         if line.lower() in ("/quit", "/exit", "quit", "exit"):
             return 0
+        if line == "/help":
+            print(HELP_TEXT)
+            continue
         if line == "/trace":
             show_trace = not show_trace
             print(f"trace = {show_trace}")
@@ -199,9 +232,36 @@ def main() -> int:
         if line == "/audit":
             print(f"SARA_AUDIT_LOG = {audit_path or '(unset)'}")
             continue
-        if line.lower().startswith("/teach "):
-            _do_teach(reader, line[len("/teach "):])
+
+        # Slash command dispatch — substrate writes (teach/refute) bypass
+        # the LLM routing loop entirely. Reified-fact + code-knowledge
+        # commands route through execute_tool against the brain.
+        slash_handlers = {
+            "/teach": _do_teach,
+            "/refute": _do_refute,
+            "/teach-event": _do_teach_event,
+            "/where-is": _do_where_is,
+            "/list-events": _do_list_events,
+            "/find-function": _do_find_function,
+            "/callers": _do_callers,
+            "/callees": _do_callees,
+            "/returns-type": _do_returns_type,
+            "/takes-type": _do_takes_type,
+        }
+        matched = False
+        for cmd, handler in slash_handlers.items():
+            if line == cmd or line.lower().startswith(cmd + " "):
+                arg = line[len(cmd):].lstrip()
+                handler(reader, arg)
+                matched = True
+                break
+        if matched:
             continue
+
+        if line.startswith("/"):
+            print(f"[unknown command: {line.split()[0]} — try /help]")
+            continue
+
         try:
             result = reader.ask(line, return_trace=show_trace)
         except Exception as exc:
@@ -213,23 +273,48 @@ def main() -> int:
             print(result)
 
 
+def _parse_event_args(arg: str) -> tuple[list[str], dict[str, str]]:
+    """Split a slash-command arg into positional tokens + key=value pairs.
+    Same parser used by /teach-event, /where-is, /list-events."""
+    try:
+        tokens = shlex.split(arg)
+    except ValueError:
+        tokens = arg.split()
+    positional: list[str] = []
+    kv: dict[str, str] = {}
+    for t in tokens:
+        if "=" in t and not t.startswith("="):
+            k, _, v = t.partition("=")
+            kv[k.strip().lower()] = v
+        else:
+            positional.append(t)
+    return positional, kv
+
+
 def _do_teach(reader, arg: str) -> None:
     """Teach a single substrate triple via Brain.teach_triple.
 
     Syntax: /teach SUBJECT RELATION OBJECT...
     First two whitespace-separated tokens are subject and relation;
     everything after is the object (so multi-word objects work
-    without quoting).
-
-    Examples:
-        /teach fulcrum is_a support point
-        /teach helix manufactured_by alpha corporation
-        /teach kdon stands_for kd of the on state
+    without quoting). Falls back to Brain.teach() (parsed natural-
+    language form) if fewer than 3 tokens.
     """
     parts = arg.split(maxsplit=2)
     if len(parts) < 3:
-        print("[teach] usage: /teach SUBJECT RELATION OBJECT...")
-        print("[teach] example: /teach fulcrum is_a support point")
+        # Treat as natural-language statement.
+        try:
+            result = reader.brain.teach(arg)
+        except Exception as exc:
+            print(f"[teach] error: {exc}", file=sys.stderr)
+            return
+        if result is None:
+            print(f"[teach] could not parse: {arg!r}")
+            print("[teach] hint: use the 3-token form: "
+                  "/teach SUBJECT RELATION OBJECT...")
+            return
+        path_id = getattr(result, "path_id", "?")
+        print(f"[teach] taught: {result.path_label} (path #{path_id})")
         return
     subject, relation, obj = parts
     try:
@@ -245,6 +330,155 @@ def _do_teach(reader, arg: str) -> None:
         f"[teach] taught: {subject!r} --[{relation}]--> {obj!r} "
         f"(path #{path_id})"
     )
+
+
+def _do_refute(reader, arg: str) -> None:
+    if not arg.strip():
+        print("[refute] usage: /refute STATEMENT")
+        return
+    try:
+        result = reader.brain.refute(arg)
+    except Exception as exc:
+        print(f"[refute] error: {exc}", file=sys.stderr)
+        return
+    if result is None:
+        print(f"[refute] nothing matching: {arg!r}")
+        return
+    path_id = getattr(result, "path_id", "?")
+    print(f"[refute] refuted: {result.path_label} (path #{path_id})")
+
+
+def _do_teach_event(reader, arg: str) -> None:
+    """Create a reified event node + binding edges (v047)."""
+    positional, kv = _parse_event_args(arg)
+    if len(positional) < 2:
+        print(
+            "[teach-event] usage: /teach-event SUBJECT ACTION "
+            "[object=O] [location=L] [from=ISO] [to=ISO] [modifier=M]"
+        )
+        return
+    subject, action = positional[0], positional[1]
+    if len(positional) >= 3 and "object" not in kv:
+        kv["object"] = " ".join(positional[2:])
+    try:
+        result = execute_tool(reader.brain, "brain_teach_event", {
+            "subject": subject,
+            "action": action,
+            "object": kv.get("object"),
+            "location": kv.get("location"),
+            "start_time": kv.get("from") or kv.get("start") or kv.get("start_time"),
+            "end_time": kv.get("to") or kv.get("end") or kv.get("end_time"),
+            "modifier": kv.get("modifier"),
+        })
+        print(result)
+    except Exception as exc:
+        print(f"[teach-event] error: {exc}", file=sys.stderr)
+
+
+def _do_where_is(reader, arg: str) -> None:
+    positional, kv = _parse_event_args(arg)
+    if not positional:
+        print("[where-is] usage: /where-is SUBJECT [at=ISO]")
+        return
+    subject = positional[0]
+    timestamp = kv.get("at") or kv.get("time") or kv.get("timestamp")
+    if not timestamp:
+        from datetime import datetime
+        timestamp = datetime.now().isoformat(timespec="minutes")
+    try:
+        result = execute_tool(reader.brain, "brain_query_event_at", {
+            "subject": subject, "timestamp": timestamp,
+        })
+        print(result)
+    except Exception as exc:
+        print(f"[where-is] error: {exc}", file=sys.stderr)
+
+
+def _do_list_events(reader, arg: str) -> None:
+    positional, _ = _parse_event_args(arg)
+    if not positional:
+        print("[list-events] usage: /list-events SUBJECT")
+        return
+    try:
+        result = execute_tool(reader.brain, "brain_query_events", {
+            "subject": positional[0],
+        })
+        print(result)
+    except Exception as exc:
+        print(f"[list-events] error: {exc}", file=sys.stderr)
+
+
+def _do_find_function(reader, arg: str) -> None:
+    positional, kv = _parse_event_args(arg)
+    if not positional:
+        print("[find-function] usage: /find-function NAME [module=M]")
+        return
+    try:
+        result = execute_tool(reader.brain, "brain_query_function", {
+            "name": positional[0],
+            "module": kv.get("module"),
+        })
+        print(result)
+    except Exception as exc:
+        print(f"[find-function] error: {exc}", file=sys.stderr)
+
+
+def _do_callers(reader, arg: str) -> None:
+    positional, kv = _parse_event_args(arg)
+    if not positional:
+        print("[callers] usage: /callers FUNCTION_NAME")
+        return
+    try:
+        result = execute_tool(reader.brain, "brain_query_callers", {
+            "name": positional[0],
+            "module": kv.get("module"),
+        })
+        print(result)
+    except Exception as exc:
+        print(f"[callers] error: {exc}", file=sys.stderr)
+
+
+def _do_callees(reader, arg: str) -> None:
+    positional, kv = _parse_event_args(arg)
+    if not positional:
+        print("[callees] usage: /callees FUNCTION_NAME")
+        return
+    try:
+        result = execute_tool(reader.brain, "brain_query_callees", {
+            "name": positional[0],
+            "module": kv.get("module"),
+        })
+        print(result)
+    except Exception as exc:
+        print(f"[callees] error: {exc}", file=sys.stderr)
+
+
+def _do_returns_type(reader, arg: str) -> None:
+    positional, _ = _parse_event_args(arg)
+    if not positional:
+        print("[returns-type] usage: /returns-type TYPE")
+        return
+    try:
+        result = execute_tool(reader.brain, "brain_query_by_returns", {
+            "type": positional[0],
+        })
+        print(result)
+    except Exception as exc:
+        print(f"[returns-type] error: {exc}", file=sys.stderr)
+
+
+def _do_takes_type(reader, arg: str) -> None:
+    positional, _ = _parse_event_args(arg)
+    if not positional:
+        print("[takes-type] usage: /takes-type TYPE")
+        return
+    try:
+        result = execute_tool(reader.brain, "brain_query_by_param", {
+            "type": positional[0],
+        })
+        print(result)
+    except Exception as exc:
+        print(f"[takes-type] error: {exc}", file=sys.stderr)
 
 
 if __name__ == "__main__":

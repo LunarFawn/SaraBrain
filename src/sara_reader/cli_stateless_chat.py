@@ -176,7 +176,10 @@ def main() -> int:
         f"strict_sara={args.strict_sara}"
         + (f" audit={audit_path}" if audit_path else "")
     )
-    print("type a question, /trace for trace output, /quit to exit")
+    print(
+        "type a question, /teach SUBJ REL OBJ to teach a triple, "
+        "/trace toggle, /quit exit"
+    )
 
     show_trace = False
     while True:
@@ -196,6 +199,9 @@ def main() -> int:
         if line == "/audit":
             print(f"SARA_AUDIT_LOG = {audit_path or '(unset)'}")
             continue
+        if line.lower().startswith("/teach "):
+            _do_teach(reader, line[len("/teach "):])
+            continue
         try:
             result = reader.ask(line, return_trace=show_trace)
         except Exception as exc:
@@ -205,6 +211,40 @@ def main() -> int:
             print(json.dumps(result, indent=2, default=str))
         else:
             print(result)
+
+
+def _do_teach(reader, arg: str) -> None:
+    """Teach a single substrate triple via Brain.teach_triple.
+
+    Syntax: /teach SUBJECT RELATION OBJECT...
+    First two whitespace-separated tokens are subject and relation;
+    everything after is the object (so multi-word objects work
+    without quoting).
+
+    Examples:
+        /teach fulcrum is_a support point
+        /teach helix manufactured_by alpha corporation
+        /teach kdon stands_for kd of the on state
+    """
+    parts = arg.split(maxsplit=2)
+    if len(parts) < 3:
+        print("[teach] usage: /teach SUBJECT RELATION OBJECT...")
+        print("[teach] example: /teach fulcrum is_a support point")
+        return
+    subject, relation, obj = parts
+    try:
+        result = reader.brain.teach_triple(subject, relation, obj)
+    except Exception as exc:
+        print(f"[teach] error: {exc}", file=sys.stderr)
+        return
+    if result is None:
+        print(f"[teach] could not commit: {subject!r} {relation!r} {obj!r}")
+        return
+    path_id = getattr(result, "path_id", "?")
+    print(
+        f"[teach] taught: {subject!r} --[{relation}]--> {obj!r} "
+        f"(path #{path_id})"
+    )
 
 
 if __name__ == "__main__":

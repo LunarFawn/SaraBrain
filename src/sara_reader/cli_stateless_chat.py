@@ -27,11 +27,43 @@ toggle trace output, '/audit' to print the audit log path reminder.
 from __future__ import annotations
 
 import argparse
+import atexit
 import json
 import os
 import sys
+from pathlib import Path
+
+# readline gives input() arrow-key history + line editing on Linux/macOS.
+# Importing it is enough — Python's input() picks it up automatically.
+try:
+    import readline
+except ImportError:
+    readline = None
 
 from .stateless_reader import StatelessReader
+
+
+def _setup_history() -> None:
+    """Persist input history to ~/.sara_chat_history across sessions."""
+    if readline is None:
+        return
+    hist = Path(os.path.expanduser("~/.sara_chat_history"))
+    try:
+        readline.read_history_file(str(hist))
+    except (OSError, FileNotFoundError):
+        pass
+    readline.set_history_length(2000)
+    atexit.register(_save_history, hist)
+
+
+def _save_history(path: Path) -> None:
+    if readline is None:
+        return
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        readline.write_history_file(str(path))
+    except OSError:
+        pass
 
 
 def main() -> int:
@@ -120,6 +152,8 @@ def main() -> int:
         if args.cortex_synthesizer:
             parts.append("synthesizer")
         print(f"[{MODEL_FULL}] active for: {', '.join(parts)}")
+
+    _setup_history()
 
     print(f"[loading reader: brain={args.brain}]", flush=True)
     reader = StatelessReader(

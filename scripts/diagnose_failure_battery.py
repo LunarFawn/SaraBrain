@@ -41,7 +41,12 @@ from sara_brain.cortex.transformer.v2.extractor_rules import (
 )
 
 
-CHECKPOINT = REPO / "src/sara_brain/cortex/checkpoints/hamroby_extractor_v1.pt"
+import os
+
+CHECKPOINT = Path(os.environ.get(
+    "HAMROBY_CHECKPOINT",
+    str(REPO / "src/sara_brain/cortex/checkpoints/hamroby_extractor_v1.pt"),
+))
 
 
 BATTERY = [

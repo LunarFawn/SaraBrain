@@ -11,10 +11,18 @@ from dataclasses import dataclass
 
 from ..router_data import CLEARNLP_TO_UD
 from .vocab import (
-    DEP_TO_ID, POS_TO_ID,
+    DEP_TO_ID, NONE_FUNCWORD_ID, POS_TO_ID,
     UNK_DEP_ID, UNK_POS_ID,
     encode_funcword, encode_head_offset,
 )
+
+
+# POS tags whose tokens may genuinely be function words. Anything
+# outside this set (NOUN, PROPN, VERB, ADJ, ADV, NUM, INTJ, SYM, X)
+# gets funcword = NONE regardless of surface form.
+_CLOSED_CLASS_POS: frozenset[str] = frozenset({
+    "ADP", "AUX", "CCONJ", "DET", "PART", "PRON", "SCONJ",
+})
 
 
 def _normalize_dep(spacy_dep: str) -> str:
@@ -162,7 +170,16 @@ def parse_sentence(text: str, nlp, *, drop_punct: bool = True) -> ParsedSentence
         else:
             head_offset = 0
         offset_id = encode_head_offset(head_offset)
-        funcword_id = encode_funcword(tok.text.lower())
+        # Funcword stream: only encode for closed-class POS tags where
+        # the token is genuinely a function word. Open-class POS tags
+        # (NOUN, PROPN, VERB, ADJ, ADV, NUM, INTJ, SYM, X) get NONE
+        # regardless of surface form — otherwise a proper noun like
+        # "Do" in "Jeet Kune Do" leaks the funcword id for "do" the
+        # auxiliary, biasing the BIO classifier.
+        if tok.pos_ in _CLOSED_CLASS_POS:
+            funcword_id = encode_funcword(tok.text.lower())
+        else:
+            funcword_id = NONE_FUNCWORD_ID
 
         words.append(tok.text)
         feature_ids.append((pos_id, dep_id, offset_id, funcword_id))

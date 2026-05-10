@@ -1,0 +1,352 @@
+[hamroby-extract] device=cuda
+[hamroby-extract] generating features (train 208662 + eval 13933 pairs)...
+[hamroby-extract] train 5000/208662 (410/s, eta 497s, kept 5000)
+[hamroby-extract] train 10000/208662 (399/s, eta 498s, kept 10000)
+[hamroby-extract] train 15000/208662 (401/s, eta 483s, kept 15000)
+[hamroby-extract] train 20000/208662 (403/s, eta 468s, kept 20000)
+[hamroby-extract] train 25000/208662 (404/s, eta 455s, kept 25000)
+[hamroby-extract] train 30000/208662 (405/s, eta 442s, kept 30000)
+[hamroby-extract] train 35000/208662 (405/s, eta 429s, kept 35000)
+[hamroby-extract] train 40000/208662 (403/s, eta 418s, kept 40000)
+[hamroby-extract] train 45000/208662 (404/s, eta 405s, kept 45000)
+[hamroby-extract] train 50000/208662 (404/s, eta 393s, kept 50000)
+[hamroby-extract] train 55000/208662 (404/s, eta 380s, kept 55000)
+[hamroby-extract] train 60000/208662 (405/s, eta 368s, kept 60000)
+[hamroby-extract] train 65000/208662 (403/s, eta 356s, kept 65000)
+[hamroby-extract] train 70000/208662 (404/s, eta 343s, kept 70000)
+[hamroby-extract] train 75000/208662 (404/s, eta 331s, kept 75000)
+[hamroby-extract] train 80000/208662 (404/s, eta 318s, kept 80000)
+[hamroby-extract] train 85000/208662 (404/s, eta 306s, kept 85000)
+[hamroby-extract] train 90000/208662 (404/s, eta 293s, kept 90000)
+[hamroby-extract] train 95000/208662 (404/s, eta 281s, kept 95000)
+[hamroby-extract] train 100000/208662 (404/s, eta 269s, kept 100000)
+[hamroby-extract] train 105000/208662 (404/s, eta 256s, kept 105000)
+[hamroby-extract] train 110000/208662 (405/s, eta 244s, kept 110000)
+[hamroby-extract] train 115000/208662 (405/s, eta 232s, kept 115000)
+[hamroby-extract] train 120000/208662 (405/s, eta 219s, kept 120000)
+[hamroby-extract] train 125000/208662 (405/s, eta 207s, kept 125000)
+[hamroby-extract] train 130000/208662 (405/s, eta 194s, kept 130000)
+[hamroby-extract] train 135000/208662 (405/s, eta 182s, kept 135000)
+[hamroby-extract] train 140000/208662 (405/s, eta 170s, kept 140000)
+[hamroby-extract] train 145000/208662 (405/s, eta 157s, kept 145000)
+[hamroby-extract] train 150000/208662 (405/s, eta 145s, kept 150000)
+[hamroby-extract] train 155000/208662 (405/s, eta 133s, kept 155000)
+[hamroby-extract] train 160000/208662 (405/s, eta 120s, kept 160000)
+[hamroby-extract] train 165000/208662 (405/s, eta 108s, kept 165000)
+[hamroby-extract] train 170000/208662 (405/s, eta 95s, kept 170000)
+[hamroby-extract] train 175000/208662 (405/s, eta 83s, kept 175000)
+[hamroby-extract] train 180000/208662 (405/s, eta 71s, kept 180000)
+[hamroby-extract] train 185000/208662 (405/s, eta 58s, kept 185000)
+[hamroby-extract] train 190000/208662 (405/s, eta 46s, kept 190000)
+[hamroby-extract] train 195000/208662 (405/s, eta 34s, kept 195000)
+[hamroby-extract] train 200000/208662 (405/s, eta 21s, kept 200000)
+[hamroby-extract] train 205000/208662 (405/s, eta 9s, kept 205000)
+[hamroby-extract] train 208662/208662 (405/s, eta 0s, kept 208662)
+[hamroby-extract] eval 5000/13933 (406/s, eta 22s, kept 5000)
+[hamroby-extract] eval 10000/13933 (406/s, eta 10s, kept 10000)
+[hamroby-extract] eval 13933/13933 (404/s, eta 0s, kept 13933)
+[hamroby-extract] usable train_examples=208662 eval_examples=13933
+[hamroby-extract] size=base d_model=256 n_layers=4 params=3,337,895
+[hamroby-extract] step=    1/15000 loss=1.9407 elapsed=0.6s
+[hamroby-extract] step=   50/15000 loss=0.9209 elapsed=1.9s
+[hamroby-extract] step=  100/15000 loss=0.3744 elapsed=3.2s
+[hamroby-extract] step=  150/15000 loss=0.2725 elapsed=4.6s
+[hamroby-extract] step=  200/15000 loss=0.2049 elapsed=6.1s
+[hamroby-extract] step=  250/15000 loss=0.1776 elapsed=7.5s
+[hamroby-extract] step=  300/15000 loss=0.1635 elapsed=8.8s
+[hamroby-extract] step=  350/15000 loss=0.1726 elapsed=10.3s
+[hamroby-extract] step=  400/15000 loss=0.1529 elapsed=11.5s
+[hamroby-extract] step=  450/15000 loss=0.1534 elapsed=12.7s
+[hamroby-extract] step=  500/15000 loss=0.1408 elapsed=14.0s
+[hamroby-extract] step=  550/15000 loss=0.1450 elapsed=15.2s
+[hamroby-extract] step=  600/15000 loss=0.1458 elapsed=16.6s
+[hamroby-extract] step=  650/15000 loss=0.1294 elapsed=18.0s
+[hamroby-extract] step=  700/15000 loss=0.1356 elapsed=19.4s
+[hamroby-extract] step=  750/15000 loss=0.1288 elapsed=20.8s
+[hamroby-extract] step=  800/15000 loss=0.1246 elapsed=22.1s
+[hamroby-extract] step=  850/15000 loss=0.1309 elapsed=23.5s
+[hamroby-extract] step=  900/15000 loss=0.1297 elapsed=25.0s
+[hamroby-extract] step=  950/15000 loss=0.1181 elapsed=26.3s
+[hamroby-extract] step= 1000/15000 loss=0.1252 elapsed=27.7s
+[hamroby-extract] step= 1050/15000 loss=0.1144 elapsed=29.0s
+[hamroby-extract] step= 1100/15000 loss=0.1231 elapsed=30.4s
+[hamroby-extract] step= 1150/15000 loss=0.1215 elapsed=31.6s
+[hamroby-extract] step= 1200/15000 loss=0.1191 elapsed=32.9s
+[hamroby-extract] step= 1250/15000 loss=0.1333 elapsed=34.4s
+[hamroby-extract] step= 1300/15000 loss=0.1179 elapsed=35.6s
+[hamroby-extract] step= 1350/15000 loss=0.1233 elapsed=36.9s
+[hamroby-extract] step= 1400/15000 loss=0.1123 elapsed=38.3s
+[hamroby-extract] step= 1450/15000 loss=0.1208 elapsed=39.6s
+[hamroby-extract] step= 1500/15000 loss=0.1114 elapsed=40.9s
+[hamroby-extract] step= 1550/15000 loss=0.1110 elapsed=42.3s
+[hamroby-extract] step= 1600/15000 loss=0.1073 elapsed=43.7s
+[hamroby-extract] step= 1650/15000 loss=0.1151 elapsed=45.1s
+[hamroby-extract] step= 1700/15000 loss=0.1085 elapsed=46.5s
+[hamroby-extract] step= 1750/15000 loss=0.1173 elapsed=47.9s
+[hamroby-extract] step= 1800/15000 loss=0.1169 elapsed=49.3s
+[hamroby-extract] step= 1850/15000 loss=0.1154 elapsed=50.7s
+[hamroby-extract] step= 1900/15000 loss=0.1025 elapsed=52.0s
+[hamroby-extract] step= 1950/15000 loss=0.1178 elapsed=53.2s
+[hamroby-extract] step= 2000/15000 loss=0.1082 elapsed=54.5s
+[hamroby-extract] step= 2050/15000 loss=0.1178 elapsed=55.8s
+[hamroby-extract] step= 2100/15000 loss=0.1139 elapsed=57.0s
+[hamroby-extract] step= 2150/15000 loss=0.1180 elapsed=58.3s
+[hamroby-extract] step= 2200/15000 loss=0.1100 elapsed=59.5s
+[hamroby-extract] step= 2250/15000 loss=0.0972 elapsed=60.9s
+[hamroby-extract] step= 2300/15000 loss=0.1321 elapsed=62.1s
+[hamroby-extract] step= 2350/15000 loss=0.0954 elapsed=63.4s
+[hamroby-extract] step= 2400/15000 loss=0.1095 elapsed=64.7s
+[hamroby-extract] step= 2450/15000 loss=0.1138 elapsed=65.9s
+[hamroby-extract] step= 2500/15000 loss=0.1080 elapsed=67.1s
+[hamroby-extract] step= 2550/15000 loss=0.1204 elapsed=68.3s
+[hamroby-extract] step= 2600/15000 loss=0.0948 elapsed=69.5s
+[hamroby-extract] step= 2650/15000 loss=0.1139 elapsed=70.8s
+[hamroby-extract] step= 2700/15000 loss=0.1090 elapsed=72.1s
+[hamroby-extract] step= 2750/15000 loss=0.1214 elapsed=73.4s
+[hamroby-extract] step= 2800/15000 loss=0.1064 elapsed=74.7s
+[hamroby-extract] step= 2850/15000 loss=0.0980 elapsed=76.0s
+[hamroby-extract] step= 2900/15000 loss=0.1132 elapsed=77.2s
+[hamroby-extract] step= 2950/15000 loss=0.1006 elapsed=78.4s
+[hamroby-extract] step= 3000/15000 loss=0.1054 elapsed=79.6s
+[hamroby-extract] step= 3050/15000 loss=0.1085 elapsed=81.0s
+[hamroby-extract] step= 3100/15000 loss=0.1103 elapsed=82.4s
+[hamroby-extract] step= 3150/15000 loss=0.1035 elapsed=84.1s
+[hamroby-extract] step= 3200/15000 loss=0.0968 elapsed=85.6s
+[hamroby-extract] step= 3250/15000 loss=0.1120 elapsed=86.9s
+[hamroby-extract] step= 3300/15000 loss=0.1075 elapsed=88.5s
+[hamroby-extract] step= 3350/15000 loss=0.1103 elapsed=89.7s
+[hamroby-extract] step= 3400/15000 loss=0.1141 elapsed=91.0s
+[hamroby-extract] step= 3450/15000 loss=0.1063 elapsed=92.2s
+[hamroby-extract] step= 3500/15000 loss=0.1031 elapsed=93.4s
+[hamroby-extract] step= 3550/15000 loss=0.0992 elapsed=94.7s
+[hamroby-extract] step= 3600/15000 loss=0.1152 elapsed=95.9s
+[hamroby-extract] step= 3650/15000 loss=0.0979 elapsed=97.2s
+[hamroby-extract] step= 3700/15000 loss=0.1067 elapsed=98.4s
+[hamroby-extract] step= 3750/15000 loss=0.1054 elapsed=99.6s
+[hamroby-extract] step= 3800/15000 loss=0.1088 elapsed=100.9s
+[hamroby-extract] step= 3850/15000 loss=0.1024 elapsed=102.2s
+[hamroby-extract] step= 3900/15000 loss=0.1041 elapsed=103.6s
+[hamroby-extract] step= 3950/15000 loss=0.1093 elapsed=104.8s
+[hamroby-extract] step= 4000/15000 loss=0.1097 elapsed=106.2s
+[hamroby-extract] step= 4050/15000 loss=0.1020 elapsed=107.6s
+[hamroby-extract] step= 4100/15000 loss=0.1084 elapsed=109.0s
+[hamroby-extract] step= 4150/15000 loss=0.1088 elapsed=110.4s
+[hamroby-extract] step= 4200/15000 loss=0.0962 elapsed=111.8s
+[hamroby-extract] step= 4250/15000 loss=0.0976 elapsed=113.2s
+[hamroby-extract] step= 4300/15000 loss=0.1075 elapsed=114.7s
+[hamroby-extract] step= 4350/15000 loss=0.0988 elapsed=116.1s
+[hamroby-extract] step= 4400/15000 loss=0.1094 elapsed=117.5s
+[hamroby-extract] step= 4450/15000 loss=0.1086 elapsed=118.7s
+[hamroby-extract] step= 4500/15000 loss=0.1016 elapsed=120.0s
+[hamroby-extract] step= 4550/15000 loss=0.1045 elapsed=121.3s
+[hamroby-extract] step= 4600/15000 loss=0.1024 elapsed=122.5s
+[hamroby-extract] step= 4650/15000 loss=0.1115 elapsed=123.8s
+[hamroby-extract] step= 4700/15000 loss=0.1049 elapsed=125.1s
+[hamroby-extract] step= 4750/15000 loss=0.1136 elapsed=126.5s
+[hamroby-extract] step= 4800/15000 loss=0.0934 elapsed=127.9s
+[hamroby-extract] step= 4850/15000 loss=0.1025 elapsed=129.3s
+[hamroby-extract] step= 4900/15000 loss=0.1226 elapsed=130.9s
+[hamroby-extract] step= 4950/15000 loss=0.1068 elapsed=132.2s
+[hamroby-extract] step= 5000/15000 loss=0.0991 elapsed=133.4s
+[hamroby-extract] step= 5050/15000 loss=0.0994 elapsed=134.6s
+[hamroby-extract] step= 5100/15000 loss=0.1027 elapsed=135.9s
+[hamroby-extract] step= 5150/15000 loss=0.1064 elapsed=137.2s
+[hamroby-extract] step= 5200/15000 loss=0.1034 elapsed=138.5s
+[hamroby-extract] step= 5250/15000 loss=0.1046 elapsed=139.8s
+[hamroby-extract] step= 5300/15000 loss=0.0923 elapsed=141.1s
+[hamroby-extract] step= 5350/15000 loss=0.1067 elapsed=142.4s
+[hamroby-extract] step= 5400/15000 loss=0.1048 elapsed=143.8s
+[hamroby-extract] step= 5450/15000 loss=0.1097 elapsed=145.3s
+[hamroby-extract] step= 5500/15000 loss=0.0982 elapsed=146.7s
+[hamroby-extract] step= 5550/15000 loss=0.0907 elapsed=148.1s
+[hamroby-extract] step= 5600/15000 loss=0.1068 elapsed=149.5s
+[hamroby-extract] step= 5650/15000 loss=0.1030 elapsed=151.0s
+[hamroby-extract] step= 5700/15000 loss=0.1061 elapsed=152.5s
+[hamroby-extract] step= 5750/15000 loss=0.1051 elapsed=153.8s
+[hamroby-extract] step= 5800/15000 loss=0.0989 elapsed=155.2s
+[hamroby-extract] step= 5850/15000 loss=0.0971 elapsed=156.7s
+[hamroby-extract] step= 5900/15000 loss=0.1037 elapsed=158.0s
+[hamroby-extract] step= 5950/15000 loss=0.1104 elapsed=159.3s
+[hamroby-extract] step= 6000/15000 loss=0.0916 elapsed=160.6s
+[hamroby-extract] step= 6050/15000 loss=0.0994 elapsed=162.1s
+[hamroby-extract] step= 6100/15000 loss=0.1032 elapsed=163.5s
+[hamroby-extract] step= 6150/15000 loss=0.0980 elapsed=164.9s
+[hamroby-extract] step= 6200/15000 loss=0.0921 elapsed=166.3s
+[hamroby-extract] step= 6250/15000 loss=0.1070 elapsed=167.6s
+[hamroby-extract] step= 6300/15000 loss=0.0991 elapsed=169.0s
+[hamroby-extract] step= 6350/15000 loss=0.0990 elapsed=170.4s
+[hamroby-extract] step= 6400/15000 loss=0.1033 elapsed=171.8s
+[hamroby-extract] step= 6450/15000 loss=0.0961 elapsed=173.2s
+[hamroby-extract] step= 6500/15000 loss=0.0955 elapsed=174.6s
+[hamroby-extract] step= 6550/15000 loss=0.0996 elapsed=175.9s
+[hamroby-extract] step= 6600/15000 loss=0.1021 elapsed=177.4s
+[hamroby-extract] step= 6650/15000 loss=0.0962 elapsed=178.8s
+[hamroby-extract] step= 6700/15000 loss=0.1081 elapsed=180.3s
+[hamroby-extract] step= 6750/15000 loss=0.0937 elapsed=181.7s
+[hamroby-extract] step= 6800/15000 loss=0.1035 elapsed=183.1s
+[hamroby-extract] step= 6850/15000 loss=0.1151 elapsed=184.5s
+[hamroby-extract] step= 6900/15000 loss=0.0979 elapsed=185.9s
+[hamroby-extract] step= 6950/15000 loss=0.1021 elapsed=187.2s
+[hamroby-extract] step= 7000/15000 loss=0.0966 elapsed=188.6s
+[hamroby-extract] step= 7050/15000 loss=0.1096 elapsed=190.0s
+[hamroby-extract] step= 7100/15000 loss=0.0987 elapsed=191.4s
+[hamroby-extract] step= 7150/15000 loss=0.0955 elapsed=192.8s
+[hamroby-extract] step= 7200/15000 loss=0.1040 elapsed=194.2s
+[hamroby-extract] step= 7250/15000 loss=0.1043 elapsed=195.5s
+[hamroby-extract] step= 7300/15000 loss=0.1031 elapsed=196.9s
+[hamroby-extract] step= 7350/15000 loss=0.1149 elapsed=198.3s
+[hamroby-extract] step= 7400/15000 loss=0.0950 elapsed=199.5s
+[hamroby-extract] step= 7450/15000 loss=0.0943 elapsed=200.8s
+[hamroby-extract] step= 7500/15000 loss=0.0914 elapsed=202.1s
+[hamroby-extract] step= 7550/15000 loss=0.1016 elapsed=203.4s
+[hamroby-extract] step= 7600/15000 loss=0.1030 elapsed=204.9s
+[hamroby-extract] step= 7650/15000 loss=0.0990 elapsed=206.3s
+[hamroby-extract] step= 7700/15000 loss=0.1015 elapsed=207.6s
+[hamroby-extract] step= 7750/15000 loss=0.0924 elapsed=209.0s
+[hamroby-extract] step= 7800/15000 loss=0.0974 elapsed=210.4s
+[hamroby-extract] step= 7850/15000 loss=0.0970 elapsed=211.8s
+[hamroby-extract] step= 7900/15000 loss=0.1047 elapsed=213.2s
+[hamroby-extract] step= 7950/15000 loss=0.1064 elapsed=214.6s
+[hamroby-extract] step= 8000/15000 loss=0.1002 elapsed=216.0s
+[hamroby-extract] step= 8050/15000 loss=0.0919 elapsed=217.4s
+[hamroby-extract] step= 8100/15000 loss=0.1089 elapsed=218.8s
+[hamroby-extract] step= 8150/15000 loss=0.0920 elapsed=220.0s
+[hamroby-extract] step= 8200/15000 loss=0.1089 elapsed=221.2s
+[hamroby-extract] step= 8250/15000 loss=0.0911 elapsed=222.6s
+[hamroby-extract] step= 8300/15000 loss=0.1014 elapsed=224.0s
+[hamroby-extract] step= 8350/15000 loss=0.1019 elapsed=225.4s
+[hamroby-extract] step= 8400/15000 loss=0.0942 elapsed=226.8s
+[hamroby-extract] step= 8450/15000 loss=0.1084 elapsed=228.1s
+[hamroby-extract] step= 8500/15000 loss=0.1067 elapsed=229.5s
+[hamroby-extract] step= 8550/15000 loss=0.0925 elapsed=230.8s
+[hamroby-extract] step= 8600/15000 loss=0.0979 elapsed=232.2s
+[hamroby-extract] step= 8650/15000 loss=0.1065 elapsed=233.6s
+[hamroby-extract] step= 8700/15000 loss=0.0885 elapsed=235.0s
+[hamroby-extract] step= 8750/15000 loss=0.0964 elapsed=236.4s
+[hamroby-extract] step= 8800/15000 loss=0.0901 elapsed=237.7s
+[hamroby-extract] step= 8850/15000 loss=0.0997 elapsed=238.9s
+[hamroby-extract] step= 8900/15000 loss=0.0980 elapsed=240.2s
+[hamroby-extract] step= 8950/15000 loss=0.1019 elapsed=241.4s
+[hamroby-extract] step= 9000/15000 loss=0.1047 elapsed=242.8s
+[hamroby-extract] step= 9050/15000 loss=0.0792 elapsed=244.1s
+[hamroby-extract] step= 9100/15000 loss=0.0916 elapsed=245.3s
+[hamroby-extract] step= 9150/15000 loss=0.0948 elapsed=246.5s
+[hamroby-extract] step= 9200/15000 loss=0.1062 elapsed=247.7s
+[hamroby-extract] step= 9250/15000 loss=0.0945 elapsed=249.1s
+[hamroby-extract] step= 9300/15000 loss=0.0951 elapsed=250.3s
+[hamroby-extract] step= 9350/15000 loss=0.1062 elapsed=251.5s
+[hamroby-extract] step= 9400/15000 loss=0.0932 elapsed=252.8s
+[hamroby-extract] step= 9450/15000 loss=0.1034 elapsed=254.1s
+[hamroby-extract] step= 9500/15000 loss=0.1027 elapsed=255.4s
+[hamroby-extract] step= 9550/15000 loss=0.1080 elapsed=256.6s
+[hamroby-extract] step= 9600/15000 loss=0.0992 elapsed=257.9s
+[hamroby-extract] step= 9650/15000 loss=0.0970 elapsed=259.2s
+[hamroby-extract] step= 9700/15000 loss=0.0966 elapsed=260.4s
+[hamroby-extract] step= 9750/15000 loss=0.0950 elapsed=261.6s
+[hamroby-extract] step= 9800/15000 loss=0.1081 elapsed=263.0s
+[hamroby-extract] step= 9850/15000 loss=0.0972 elapsed=264.4s
+[hamroby-extract] step= 9900/15000 loss=0.0964 elapsed=265.9s
+[hamroby-extract] step= 9950/15000 loss=0.1008 elapsed=267.4s
+[hamroby-extract] step=10000/15000 loss=0.0899 elapsed=268.8s
+[hamroby-extract] step=10050/15000 loss=0.0978 elapsed=270.2s
+[hamroby-extract] step=10100/15000 loss=0.1081 elapsed=271.4s
+[hamroby-extract] step=10150/15000 loss=0.0942 elapsed=272.7s
+[hamroby-extract] step=10200/15000 loss=0.0906 elapsed=274.0s
+[hamroby-extract] step=10250/15000 loss=0.1096 elapsed=275.4s
+[hamroby-extract] step=10300/15000 loss=0.0933 elapsed=276.8s
+[hamroby-extract] step=10350/15000 loss=0.0950 elapsed=278.1s
+[hamroby-extract] step=10400/15000 loss=0.0999 elapsed=279.6s
+[hamroby-extract] step=10450/15000 loss=0.1027 elapsed=281.0s
+[hamroby-extract] step=10500/15000 loss=0.0988 elapsed=282.5s
+[hamroby-extract] step=10550/15000 loss=0.0859 elapsed=284.0s
+[hamroby-extract] step=10600/15000 loss=0.0988 elapsed=285.4s
+[hamroby-extract] step=10650/15000 loss=0.0897 elapsed=286.8s
+[hamroby-extract] step=10700/15000 loss=0.1057 elapsed=288.2s
+[hamroby-extract] step=10750/15000 loss=0.0968 elapsed=289.6s
+[hamroby-extract] step=10800/15000 loss=0.0994 elapsed=290.9s
+[hamroby-extract] step=10850/15000 loss=0.0929 elapsed=292.3s
+[hamroby-extract] step=10900/15000 loss=0.0944 elapsed=293.7s
+[hamroby-extract] step=10950/15000 loss=0.0879 elapsed=295.1s
+[hamroby-extract] step=11000/15000 loss=0.0950 elapsed=296.5s
+[hamroby-extract] step=11050/15000 loss=0.1005 elapsed=297.9s
+[hamroby-extract] step=11100/15000 loss=0.0964 elapsed=299.3s
+[hamroby-extract] step=11150/15000 loss=0.0910 elapsed=300.8s
+[hamroby-extract] step=11200/15000 loss=0.1025 elapsed=302.0s
+[hamroby-extract] step=11250/15000 loss=0.0962 elapsed=303.2s
+[hamroby-extract] step=11300/15000 loss=0.0912 elapsed=304.5s
+[hamroby-extract] step=11350/15000 loss=0.0996 elapsed=305.9s
+[hamroby-extract] step=11400/15000 loss=0.0926 elapsed=307.2s
+[hamroby-extract] step=11450/15000 loss=0.0950 elapsed=308.5s
+[hamroby-extract] step=11500/15000 loss=0.0957 elapsed=309.9s
+[hamroby-extract] step=11550/15000 loss=0.0969 elapsed=311.2s
+[hamroby-extract] step=11600/15000 loss=0.0950 elapsed=312.5s
+[hamroby-extract] step=11650/15000 loss=0.0892 elapsed=313.7s
+[hamroby-extract] step=11700/15000 loss=0.0963 elapsed=314.9s
+[hamroby-extract] step=11750/15000 loss=0.0905 elapsed=316.2s
+[hamroby-extract] step=11800/15000 loss=0.0991 elapsed=317.4s
+[hamroby-extract] step=11850/15000 loss=0.0962 elapsed=318.6s
+[hamroby-extract] step=11900/15000 loss=0.0960 elapsed=319.9s
+[hamroby-extract] step=11950/15000 loss=0.0994 elapsed=321.2s
+[hamroby-extract] step=12000/15000 loss=0.0869 elapsed=322.5s
+[hamroby-extract] step=12050/15000 loss=0.0969 elapsed=323.7s
+[hamroby-extract] step=12100/15000 loss=0.1060 elapsed=324.9s
+[hamroby-extract] step=12150/15000 loss=0.0956 elapsed=326.1s
+[hamroby-extract] step=12200/15000 loss=0.0992 elapsed=327.4s
+[hamroby-extract] step=12250/15000 loss=0.0920 elapsed=328.6s
+[hamroby-extract] step=12300/15000 loss=0.0903 elapsed=329.9s
+[hamroby-extract] step=12350/15000 loss=0.1024 elapsed=331.2s
+[hamroby-extract] step=12400/15000 loss=0.0988 elapsed=332.4s
+[hamroby-extract] step=12450/15000 loss=0.0942 elapsed=333.6s
+[hamroby-extract] step=12500/15000 loss=0.0875 elapsed=334.8s
+[hamroby-extract] step=12550/15000 loss=0.1000 elapsed=336.1s
+[hamroby-extract] step=12600/15000 loss=0.0939 elapsed=337.3s
+[hamroby-extract] step=12650/15000 loss=0.0909 elapsed=338.6s
+[hamroby-extract] step=12700/15000 loss=0.0977 elapsed=339.8s
+[hamroby-extract] step=12750/15000 loss=0.0899 elapsed=341.1s
+[hamroby-extract] step=12800/15000 loss=0.0897 elapsed=342.3s
+[hamroby-extract] step=12850/15000 loss=0.0983 elapsed=343.5s
+[hamroby-extract] step=12900/15000 loss=0.0877 elapsed=345.0s
+[hamroby-extract] step=12950/15000 loss=0.0972 elapsed=346.3s
+[hamroby-extract] step=13000/15000 loss=0.0964 elapsed=347.4s
+[hamroby-extract] step=13050/15000 loss=0.1026 elapsed=348.7s
+[hamroby-extract] step=13100/15000 loss=0.1049 elapsed=350.0s
+[hamroby-extract] step=13150/15000 loss=0.1013 elapsed=351.3s
+[hamroby-extract] step=13200/15000 loss=0.0921 elapsed=352.5s
+[hamroby-extract] step=13250/15000 loss=0.0916 elapsed=353.8s
+[hamroby-extract] step=13300/15000 loss=0.1075 elapsed=355.0s
+[hamroby-extract] step=13350/15000 loss=0.0879 elapsed=356.3s
+[hamroby-extract] step=13400/15000 loss=0.0924 elapsed=357.5s
+[hamroby-extract] step=13450/15000 loss=0.0932 elapsed=358.7s
+[hamroby-extract] step=13500/15000 loss=0.0875 elapsed=360.1s
+[hamroby-extract] step=13550/15000 loss=0.0967 elapsed=361.3s
+[hamroby-extract] step=13600/15000 loss=0.0819 elapsed=362.6s
+[hamroby-extract] step=13650/15000 loss=0.0872 elapsed=363.9s
+[hamroby-extract] step=13700/15000 loss=0.0931 elapsed=365.2s
+[hamroby-extract] step=13750/15000 loss=0.0932 elapsed=366.5s
+[hamroby-extract] step=13800/15000 loss=0.0955 elapsed=367.7s
+[hamroby-extract] step=13850/15000 loss=0.0902 elapsed=369.0s
+[hamroby-extract] step=13900/15000 loss=0.0911 elapsed=370.3s
+[hamroby-extract] step=13950/15000 loss=0.1026 elapsed=371.8s
+[hamroby-extract] step=14000/15000 loss=0.1048 elapsed=373.1s
+[hamroby-extract] step=14050/15000 loss=0.0963 elapsed=374.3s
+[hamroby-extract] step=14100/15000 loss=0.0849 elapsed=375.7s
+[hamroby-extract] step=14150/15000 loss=0.0882 elapsed=376.9s
+[hamroby-extract] step=14200/15000 loss=0.0900 elapsed=378.2s
+[hamroby-extract] step=14250/15000 loss=0.0938 elapsed=379.5s
+[hamroby-extract] step=14300/15000 loss=0.1004 elapsed=380.9s
+[hamroby-extract] step=14350/15000 loss=0.0919 elapsed=382.2s
+[hamroby-extract] step=14400/15000 loss=0.0884 elapsed=383.7s
+[hamroby-extract] step=14450/15000 loss=0.0911 elapsed=385.1s
+[hamroby-extract] step=14500/15000 loss=0.1014 elapsed=386.4s
+[hamroby-extract] step=14550/15000 loss=0.0855 elapsed=387.9s
+[hamroby-extract] step=14600/15000 loss=0.0976 elapsed=389.6s
+[hamroby-extract] step=14650/15000 loss=0.0923 elapsed=391.0s
+[hamroby-extract] step=14700/15000 loss=0.0834 elapsed=392.4s
+[hamroby-extract] step=14750/15000 loss=0.0933 elapsed=393.8s
+[hamroby-extract] step=14800/15000 loss=0.0920 elapsed=395.1s
+[hamroby-extract] step=14850/15000 loss=0.0916 elapsed=396.5s
+[hamroby-extract] step=14900/15000 loss=0.1013 elapsed=397.7s
+[hamroby-extract] step=14950/15000 loss=0.0986 elapsed=399.0s
+[hamroby-extract] step=15000/15000 loss=0.0927 elapsed=400.2s
+[hamroby-extract] eval token_acc=0.951 triple_em=0.838
+[hamroby-extract] saved src/sara_brain/cortex/checkpoints/hamroby_extractor_v1.pt

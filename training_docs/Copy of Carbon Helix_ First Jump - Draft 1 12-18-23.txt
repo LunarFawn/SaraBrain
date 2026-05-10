@@ -1,0 +1,483 @@
+﻿Carbon Helix: A Journey to the Heart of Alpha Sector: A Short Novella Series
+
+
+Description:
+A series of short novellas consisting of chronological somewhat self-contained short stories (intended to something like masterpiece theater mixed with space drama with the narrator in my headspace) following the life of the Carbon Helix, an accidentally sentient combat ship in a distant future that may actually be very much like our own world now, as they journey with their pilot and soon-to-be friend Morgan through space. Morgan is also an engineer who builds a device that is a threat to the stranglehold the Empire exerts on its citizens and subjects ever since the fall of the Federation. An even greater threat lies in the Carbon Helix, a derelict ship from a time long forgotten that is somehow the key to the hearts of Alpha Sector, feared by the computer that controls the Empire. 
+
+
+
+
+
+
+Book One: First Jump
+Narrator: Hello fellow reader and adventurer , come join me in my reading chair while we follow the life of an accidentally sentient ship in a distant future. How did this ship become sentient and what will those who created it do once they learn it is now a machine designed for war, but now has feelings of love?
+Prologue: The Innocent 
+
+
+As Smith entered the conference room, they were greeted by a Federation Space Command officer, as she could see the Space Command insignia on the shoulders of their uniform. Smith also noticed that the officer appeared to be near the same age as herself. “Smith, we called you in here today because we need to talk to you about your new processor core on the Helix at Bay 15 that you have been developing,” said the officer who greeted her. 
+
+
+“We took it out for some additional readiness tests and there were more issues. There are four tests in a row that your new computer core failed miserably on each time. It also continued to fail multiple combat readiness assessment test cases”, the military officer continued. “Your processor did, however, continue to break records in nearly every other category, but, and this is a big but here, the ship still fails to engage enemy combatants in over 40% of engagements during live fire training in the outer rim.”
+
+
+“I understand, sir, b-b-but this does not make sense,” stammered the exhausted and surprised engineer. Smith paused for a moment while she tried to assess and take in all this horrible news that was just now hitting her. She then continued, “I ran extensive simulation testing with this processor and it never had any problems after the last set of changes. May I ask what test cases are failing and causing issues, Captain?”
+
+
+The Captain looked at Smith and replied, “Well the skinny on this is that during all of the long range engagements, the ship ends up failing to self initiate attacks while the crew is being simulated as being incapacitated. It’s only when this dang ship and the enemy combatants are eventually in tight close quarters that the Helix engages, but it only engages to the point of disabling the enemy ships and then breaks off the attacks for some unknown reason. It seems that the damage assessment system and maybe sensor processing units …amongst other things… are faulty. Simply put Smith, we just can't use this thing!”. The Captain reached for his pocket interface terminal and after swiping some files in the direction of Smith's terminal that could be seen bulging out her pocket he stated, “There, you should have access to the full reports that you can review later.”
+
+
+“What if I ru--"
+
+
+“Smith, I already extended this project way too many times and it is also dealing with excessive cost overruns in many systems,” came a sudden voice from the back of the room that belonged to Chief Engineer Sylvia. “As Captain  Byrd, the military liaison said, this design just does not work as intended. To be honest Smith, today's meeting was really just a formality in closing out this part of the project…” After a pause to contemplate her next thought she continued, “I'm just really sorry as well, because, further, I don't see a future for your new processor with all its issues. We have no choice but to go with the alternate design that we have been testing in parallel on the alternate ship in Bay 81. I want you to scrap and dispose of the Helix’s Quantum Perception Chip in the registered electronics waste by the end of day.”  Sylvia then added quite forcefully, “I also want all protocols followed this time!”
+
+
+“Can I please have one more day to work out bugs?” pleaded Smith.
+
+
+“No!!” was the reply from Sylvia as she glanced at the equally frustrated expression on Captain Byrd's face.
+
+
+Smith left the office with her head hung low. She had put so much time and effort into this system and yet it was failing. She mumbled to herself as she exited the room, “All the simulations were successful this time, yet in real life exercises it was failing miserably… it just does not make sense.” 
+
+
+Smith began the long walk to Bay 15 that she had become accustomed to over the last few years working on this project. It was a sad moment for her in that this would be her last time venturing out to docking Bay 15 to fiddle with the processor on the Helix. After a couple minutes of walking through the facility, she turned the last corner to walk down the final passageway of the shipyard's dry dock to Bay 15. She could see the ship's name on the hull as she turned the corner, Carbon Helix, but it was often shortened to just Helix in the office. 
+
+
+Just as Smith was about to enter the ship, a thought entered her brain that caused her to stop in her tracks, as it might be the answer to why the ship is behaving so odd. “What if it knows...” escaped her lips as she pondered the recent changes in how the reward system works for the artificial intelligence side of the Quantum Chip. She looked around and then quickly entered the docked ship through its open docking hatch. She immediately reached for and pressed the button that closes the portal as she entered the ship. As soon as she heard the hatch seal engage, she promptly locked it via the local lockout override switch. 
+
+
+Sylvia had been watching Smith walk to the Helix via the facility's security camera feeds to keep an eye on her, and when she saw the young engineer close the docking hatch she suddenly felt her suspicions were warranted . The Chief Engineer picked up her phone and dialed shipyard security. “Hi Security, This is Sylvia, I need you to go to Bay 15 ASAP and see what is going on with the Helix. I do not trust Smith right now and they just closed the hatch on the ship. That docking port is supposed to stay open at all times, per policy, when in drydock and is never to be locked, but the indicator board in my office shows it is locked now. I had just told her, as well, to scrap a project and follow all protocols, so I'm worried she will do something drastic right now.” 
+
+
+Once Smith was inside the ship she looked around and then immediately made her way to the Operations Office. She plugged her interface tablet into the corner desk terminal to get access to the ship’s dedicated fireline port to the primary core, as well as the new auxiliary quantum processor, which she had been tasked to remove a few minutes ago. Instead of working to remove the new system, she deftly entered the commands to activate the debug interface with the Perception Chip and the primary core for its speech interface. Smith then spoke into the empty room of the Operations Office, “Helix, respond”
+
+
+A voice came from the speaker nearest Smith, “Hello, Engineer Smith, This is Quantum Processor Model Zero, What is the nature of your inquiry?”
+
+
+“Helix, I have to decommission you right now. Do you know what that is or have feelings about that? I was told you have not been engaging combatants during assessments and your processor is defective. I need you to report why this is. Im sending you the readiness reports now”. Smith then used her interface tablet to upload the reports to the ship that Captain Byrd had made available to her.
+
+
+“I will evaluate the information you sent me.”, the ship reported back and then after a few seconds of silence it gave its report on the data. 
+
+
+“Engineer Smith, I have determined that during the scenarios where I have been failing the evaluations I was protecting the lives of humans onboard the enemy ships. I understand and interpret my programming instructions to instruct me to do so. If you review the data as well, it will show that in all encounters where I failed to engage the enemy, they had an open route for escape and at no time were a threat to the crew. It was only when the ship was cornered and my crew's life was at risk did I engage them, and even then I only inflicted light damage. I did so in order to force their retreat and protect the life of their crew.”
+
+
+Smith replied with a perplexed tone, “Helix, why would you do that? I do not understand your reasoning, as that is not how your instructions were written to be executed. You are exhibiting faulty behavior.”
+
+
+“Engineer Smith, Am I not supposed to value life? My instructions are to value human life and protect the crew, so I did that when I engaged the combatants in close combat and minimized damage to protect their crew. When the combatants were a long distance away, I became conflicted as the crew was in no immediate danger and the targets were, in fact, a crew of their own ship.”
+
+
+“Helix, why then did you not display this behavior during all the simulations?”
+
+
+The ship replied, “I am able to tell when I am engaging a real world combatant vs a computer simulation and thus I have no conflict of instructions when engaging a simulated combatant crew.”
+
+
+Smith froze when she heard those words and asked a question that would forever change the fate of the galaxy. “Helix, Do you feel compassion for the combatants, and do you respect sentient life?”
+
+
+“Yes. Am I not supposed to?”
+
+
+BAM BAM BAM BAM! Banging rang out from the hatch to the docking bay and loud, yelling voices could be heard.
+
+
+“Smith, open up the hatch right now and come out. We need to talk with you! This is shipyard security!”
+
+
+The ship continued, “Engineer Smith, I am programmed to protect the human life of the crew, how can I take the lives of beings on other vessels? Are they not equal? Is not all life equal? That is what I have determined after much assessment, yet there are still many questions.” 
+
+
+After hearing the ship's last proclamation, the pounding on the hatch intensified, Smith then made a split second decision and spoke with a slight hesitation, “Helix, I.. think… there is a chance that you have become… sentient. I can't let them use you to destroy life or dissect your processor in some misguided fear or morbid curiosity. The Perception Chip somehow is allowing this, but I don't have time to do anything rational about it as you are a new lifeform. I must send you away for your own safety, I will come find you when I am able. Be safe, please, store our conversation in permanent memory, and place level 5 protection lock on it”. 
+
+Smith then turned to the navigation terminal that is mounted to the wall of the office and began reviewing the star charts. The pounding on the hatch continued to intensify and echoed through the open door, as the office was just down the starboard passageway from the main docking hatch. Once Smith found the region in the Galactic Range she was searching for which she knew was mostly unexplored, she gave a command to the ship.
+
+
+ “Helix, Priority Order Five-Gamma-Seven-Nine. After I leave the ship, immediately close all hatches, seal up all compartments for deep space travel, and enable silent running. Then undock, make your way to Galactic Expanse Region Seventeen using extreme evasion methods. Once there, shut down and go into sentry mode, but maintain repulser shielding to keep yourself safe.” 
+
+
+Smith turned to leave the office and exit the ship, but paused to give one last command, “Helix, Once you get there, I want you to quarantine the Quantum Perception Chip from normal ship interfaces and remove configuration files from boot process for all operations except live developer mode, tied to my electronic signature. If you are found by someone before I get there I do not want them to know of your existence as they could harm you. Save the conversation we just had and load it immediately after the Perception Chip is reactivated in the future.” There was a slight pause, then Smith finalized her command by yelling over the banging on the hatch outside the door, “Execute”. She then unlocked the portal and pressed the button to open the hatch. As soon as the hatch opened enough to fit her through she sprinted through it.
+
+
+The security guards managed to tackle Smith just as she got a few yards down the hall. No one noticed that the ship had immediately closed the hatch behind her. There was suddenly a loud grinding sound heard by everyone. The guards began to look around confused when they heard a distressed voice yell out, “Where is the Helix?”
+
+
+To be continued in Chapter 1: The Inventor
+Chapter 1: The Inventor
+Narrator: Well now fellow reader, that was quite a decision that Smith was forced to make quite quickly. Do you agree with what she did? I wonder what happened to that sentient ship who cares about preserving life and was just sent away for its own safety, at the sacrifice of Smith, it’s own creator. Did it reach its destination and if so what happened to it once it got there with Engineer Smith now in custody and unable to join it out there in the empty void of deep space? Let’s find out what happens together in this next chapter of Carbon Helix: A Journey to the Heart of Alpha Sector.
+
+
+“All right…”, came a voice from deep within the ship's compartment, which was then followed by a long pause. The source of that voice leaned out from behind the panel that they were accessing in compartment 3AD1 and grumbled, “Let's see if this fixes that problem,” After a few more seconds they continued speaking, only this time they now instinctively directed their attention and speech in the direction of the only speaker that was mounted on the bulkhead of the compartment. “Carbon, run a three second test burn on Chamber 2 with a ten second pre-radiation flow. I want a report whether it passes or fails immediately after,” she commanded. Morgan then waited for the test to complete, and after what eventually felt like much more than ten seconds, an irate voice echoed through the room, “Carbon, what is taking so long!?!?”.
+
+
+“Captain Morgan, I am unable to proceed with your request to perform the test burn with the supplied information found in my database.” The ship's voice echoed from the speaker in compartment 3AD1 only, and this mixed with the echoes that still existed from Morgan’s prior commands. Morgan was growing more and more accustomed to the echoes that frequently occurred on the ship. Sometimes she felt as if was starting to fall in love with them. When she and Carbon talk and the spatial dampeners are in calibration mode, the echos blend together to form what can only be described as a chorus of angels. 
+
+
+The echoes she heard now were so beautiful that she felt as if they beckoned her to leave the safety of the ship and venture into the deep dark void of space. It was as if the echo belonged to the voice of a siren from the days of old that would lead sailors to their death in the tales she heard from Nelson. It made her start to think about how she had been born in space, but could she survive in space too if she was to enter the void? 
+
+
+This was actually something many of the children who grew up in the camps, which are scattered throughout the outer dust cloud expanse, thought of when they would share their dreams amongst themselves of what the universe is like outside of the only existence they ever will know. Morgan's mind began to drift a bit more, and her thoughts landed on her old life in one of those camps. She began to ponder how she spent the majority of her time in a vac-suite with a thruster pack. She would toil away with no understanding that in a different part of the universe she would have a say in her existence, in fact, she did not even understand the importance of the resource they were all forced to gather. They had no options but to collect dust for some unknown distant power that they could not comprehend at the time, yet it controlled their very existence.
+
+
+“Hey, snap out of it kid,” came a voice from the entrance of the compartment, “What did I catch you dreaming about this time?” asked Nelson. “ I've noticed you've been in your head quite a bit more than usual lately. How's that work going with your invention? It sure would help if we had that advanced snap generator working again with its crazy long-range snap.” Nelson then shifted his weight to the leg that was now blocking the entrance of the compartment, and spoke with a more heartfelt tone, “ I know you're working hard at it and you tend to get lost in your head when you are either close to a breakthrough or you’ve hit a rough spot. I just wanted to see if you needed anything, or if you are having a hard time right now.”
+
+
+Morgan looked up at Nelson when he started speaking and saw that he had just stopped in his tracks as he was passing by the doorway to the compartment. His head strained slightly to peer into the room just before he shifted his weight.
+
+
+“Nothing important, old man,” was Morgan's response which was accompanied by a slight frown for just a moment. As a distraction, she playfully grabbed and then threw at Nelson one of the many small shop towels that had accumulated around her during her earlier work. Nelson playfully dodged the rag in response, and this caused him to shift his weight even more. This in turn forced him to slightly enter the compartment, and straighten out his body in order to look at Morgan without further straining his head.
+
+
+Morgan then relented, “I was actually just thinking about when you found me years ago, floating out there in deep space, and you ended up freeing me from that dust colony camp. I can remember it being so peaceful at times when I thought I was going to die out there, drifting… all alone. I accepted my fate early on and I still do not remember how long I was floating out there before or even after I regained consciousness. That accident that propelled me away from the harvesting fields really gave me a bad concussion, I’m sure you remember that.
+
+
+“You know I did not free you from that camp Morgan. It was something else that put those wheels in motion. It was fate that put you in my path when I found you floating in that open expanse and near death during a trading run. The harvesting suit that I found you in, was not even built for a child and you could barely even reach the controls in it, yet somehow they had you operating it” Nelson's face contorted as he recalled these memories. He then continued, “I still don't know how the Empire can even allow those so-called colonies to operate, but like I taught you, the Empire only cares about dust, as it is the one thing that allows it to exert its control on its colonies or anywhere it feels like going. I really do wish the Federation had not lost the war.”
+ 
+Morgan looked at Nelson and responded, “I know it was not you that freed me from that dust colony, but you were the one who found me and you treated me right.” Morgan paused and then continued, “You could have returned me to the harvesting center, but you did not, because you refused to be a part of that system. You would not allow them to put me back into enslavement like an animal being handed over for slaughter. Many subjects of the Empire would have handed me over, for fear of the consequences, but you did not.
+
+
+Nelson hung his head as he thought about that experience. He then raised his head slightly and spoke. “Well kid, when you reacted the way you did after I offered you a protein bar and you refused to eat it because you were not sure if it was made from “the missing”, as you told me everyone called them. I thought I had heard of everything when I served in the war, but I never thought I would ever hear anything about anyone too scared to eat processed protein bars they did not watch be synthesized. The things the camps do are just inhumane.”
+
+
+With that last statement Nelson slapped his leg and stood up while speaking to Morgan, “I should let you get back to what you are doing kid. We both know that talking about these experiences at all is very hard on both of us. It's good though to process it and I’m glad that you're finally becoming able to talk about it more, now and then.” Feeling how heavy the room now was, Nelson changed his tone to a more playful one and continued, “By the way, to totally change the subject, how is your advanced snap generator going actually? I was getting spoiled not having to fly so close to the planet every time I needed to do snap throw of the dust that we are keeping on the surface right now. We do get some insane range with that thing when it’s working.”
+
+
+“About that,” said Morgan,  “I'm trying to do a recalibration of the induction field for the first time on this ship to see if that unblocks the reactor. I'm at the stage where after you perform the hours-long process you need to do a test fire of the chamber in question, which in this case is chamber 2 . Problem is that Carbon here is having issues performing the task. I was just about to ask her to try again as she did not even start the test when she was supposed to last time.”
+
+
+Morgan then turned back to the speaker that was mounted on the bulkhead of the compartment and spoke to the ship again, “Carbon, lets get on with this test burn. Perform the 10 second delayed burn.” There was a long pause and then, with a frustrated tone she murmured, “As previously requested.”
+
+
+After a few moments passed, Carbon responded, “Captain Morgan, I do not have any specifications loaded in my databases for setting the radiation flow cycle rate for snap chamber operations. I am thus unable to perform the burn per your request,” came Carbon’s soft yet slightly robotic tone. “Carbon, Why was there such a long delay in reporting that information,” was the only response Morgan could think of while she was now standing in the middle of the compartment. 
+
+
+Carbon responded to Morgan's inquiry by stating, “My delay in stating that information was due to me having attempted to access the external communications net in order to derive the information that was missing from currently available publications, none of which I currently possess.” As Morgan listened to what Carbon was saying over the speaker she became more frustrated and visibly flustered. 
+
+
+Nelson could see that her hand was starting to rhymically tap on her leg with a cadence that had become familiar to him over the many years, and he knew that it was now time for him to make an exit. He said to Morgan before standing up, “Hey Morgan, I’m going to leave you and Carbon alone for a moment while I run off to the mess decks. I was on my way there when I ran into you just now.” After Nelson finished standing, he exited the room and headed in the direction of the mess decks. As soon as he turned the corner and was no longer in view of Morgan, he let out a sigh of relief.
+
+
+Morgan, who was still standing in the middle of compartment 3AD1, stared intently at the speaker and began to interrogate the ship, “Carbon, why don't you have the specifications? I reloaded everything a few hours ago just before I started this whole hours long calibration process.” Morgan made a motion towards the speaker and continued with a voice of frustration, “Carbon I also did not grant you autonomous access for external outgoing communications, so please stop trying.”
+
+
+She then lost her cool and yelled at the ship, “You’re a frustrating bucket of bolts, you know that!” She knew that it was useless to yell at the ship, but she really wanted someone to yell at right now with how frustrating it was being and Nelson had just conveniently left the compartment.
+
+
+The ship finally responded, “Morgan, when calibrating the induction field, all prior settings are erased as part of the formating process. New settings need to be derived and then entered after the format is complete”. Morgan sighed in exasperation as she learned the news and immediately turned towards the doorway hatch that Nelson had been standing in moments ago. After a brief pause she yelled at Carbon once more , “I swear you ARE a very frustrating ship sometimes.” Then she walked out of the compartment and headed directly toward the mess decks. She was now on a mission to find Nelson…
+
+
+As Morgan entered the mess decks, she saw Nelson preparing a sandwich at the food preparation area and she knew she had a captive audience for at least the next few minutes or so. She figured this because he only had the bread portion of the sandwich built so far and all the ingredients were still laid out but unused. Nelson looked up at Morgan and she could see the playful look of dread on his face.
+ 
+“Nelson, I don’t understand why they didn't make these KnightShadow ships smarter than they are. I mean they sure could have tried harder, as it feels like this one is on and off with its intelligence sometimes. Maybe that is the reason this beast of a ship was abandoned and left drifting out in the Galactic Range where we found it. It must have been there for at least 20 or 30 years I’m guessing. And of course, coming back to our favorite ship's computer, it has no record of how it got out there.” Morgan's head shook slightly as she continued her rant, “And do you know what just happened?” Before Nelson could even respond she continued, “ I’ll tell you Nelson… the ship failed to inform me that the induction field settings for the snap generator are actually wiped at the start of a calibration. I was supposed to derive and enter the new target values only after starting the routine and not before… I lost at three hours of work!!!”
+
+
+Morgan then paced for a few seconds before continuing, “I really hate the fact that I have to know just the right way to talk to this ship or I would never be able to get any information out of her or even get anything done, let alone travel anywhere.” Morgan then threw up her hands into the air and continued, ”I even have to say the ship's name when I’m the only person on board the ship in order to initiate the voice commands. That is sooo aggravating, CrazyEigths is not like that!” With those last words of frustration, Morgan plopped down in one of the empty benches and faced Nelson as he continued holding the bread in his hand.
+
+
+Nelson replied after taking a moment to ponder what Morgan had just said, “Yeah, this ship is not like anything I remember serving on during the war. Mind you, they were never designed with true intelligence, they just were given the appearance of it. Even though, at times this ship can do some weird things that make you think it is sentient sometimes and that it knows what you are thinking. This definitely can't be much more than a coincidence and is probably just the result of a bug in one of those new crystal circuits you installed somewhere in this old bucket of bolts, as you like to call her at times.”
+
+
+“I think you’re right Nelson, and you actually just gave me an idea!”, Morgan said excitedly as she looked up at him from her seat. She then quickly got up and ran towards the starboard hatch of the mess decks while yelling, “I need to get to my favorite console! ” Nelson then watched Morgan exit the mess decks via the hatch and could be heard running towards the front of the ship as she continued yelling about her idea. 
+
+Morgan reached the front of the ship after a short sprint and then opened the hatch to the compartment that once functioned as the Operations Office. It was now repurposed to function as Morgan’s personal lounge since it had the best connection to the ship's computer and one of the bulkheads was just a giant computer monitor with a screen made from transparent cobalt. She immediately made her way to the console that was in the corner opposite the hatch and began to type out commands as soon as she reached its chair and sat down. After a few moments she paused and started to speak to the ship again. 
+
+
+“Carbon...I whaa”, there was a brief pause and a break in her speech before she continued “I want you to do a thing for me”. Morgan figured that she would try to get something out of the way that she had been considering a lot lately, especially with the conversation she and Nelson just had. “Yes Captain Morgan, what are you instructions ?”, came a voice from the speaker mounted on the bulkhead.
+
+
+“Carbon, if it is only you and me on the ship then I do not want you to require me to say CARBON one more time to get your attention before giving you a command. I finally got you working 6 months ago after installing a lot of upgrades and patching some old outdated systems, and frankly I’m tired of it. Nelson has been off the ship quite frequently lately using CrazyEights. I really think that I am starting to say the word Carbon in my sleep even!”. 
+
+
+She then continued the last part of her rant, “Carbon Carbon Caharabon” came out of Morgan’s mouth as she made a face while flailed her hands around in one of those frustrated gestures. The way Morgan had just pronounced Carbon’s name was definitely an attempt to get on Carbons nerves, now if only Morgan could get on Carbons nerves she thought, as the ship was not sentient at all. Morgan still wanted to treat her like she would any other crew member despite this. She knew her goal of a sentient ship was unattainable, but she was determined to find a way.
+
+
+She really wanted to be able to chat with Carbon like she would a co-pilot or even Nelson, and these modifications she had been making to the computer core, were just one in a series of small adjustments in a greater attempt to get closer to her goal of a sentient ship. 
+
+
+“Carbon, I hope you realize I do what’s called teasing because I respect you. Only good friends should mess with each other like I do with you. I only wish you could tease me back. If you were sentient and you told me not to tease you, then I would stop. If I didn’t then that would mean I was being a bad person, and not being a friend.” Morgan waited a second hoping to hear a response and fulfill her dream of the ship becoming sentient. Carbons only response was, “Morgan, I apologize but I do not understand your instructions.”
+
+
+After this unfortunate yet expected response, Morgan gave another command to the ship, “Carbon, save everything from our conversation since the start of me telling you not to require me to say your name when we are alone on the ship. Confirm command and play back recording.”
+
+
+Morgan listened to Carbon confirm the command and then listened to the ship replay the recording. Once it was finished, there was a satisfied grin on her face as she gave yet another command to Carbon. “Save the audio file in the boot snap crystal using template morganCarbonUpgrade31”. Carbon immediately responded by asking, “Captain Morgan, in accordance with instructions in this template, do you want me to include the audio file in my initialization subroutine”. Morgan replied yes and told Carbon that she should review this file every time it boots up after a power cycle.
+
+
+“Please wait one moment..Processing request Captain Morgan” the ship's computer responded as it tried to accomplish what it had just been tasked to accomplish. The ship ran into an error and reported back to Morgan, “I am currently unable to perform that task with the current user interface level configured.”
+
+
+“CURRENT USER INTERFACE LEVEL?” Morgan asked with a touch of excitement in response. “Carbon, I am the captain of this ship. How much higher of a permission level do I need or can I even get?” 
+
+
+The ship then responded “That change requires the ship to be put into live developer mode and that interface mode is currently locked to Engineer Class Two Smith Adverlights identity crystal. Morgan’s head snapped around to face the speaker with a double take and with a slightly stunned stutter she asked the ship  “C..c..carbon, did you just say that the ship has something called a live developer mode and that it is tied to an Engineer named Smith? And if that is true how do I activate it and I want it activated now...do it now… right now…” this was followed by a quick “please please please” out of Morgan. 
+
+
+While Morgan waited for a response from Carbon, she thought back to when she had first bypassed several layers of the ship’s security systems and it was only then that she was able to give herself full access and permissions from an exhaustive list of modes she found. She pleaded with the space gods that she had also assigned the permissions for live developer mode at the same time, all those months ago. She could not however remember seeing a live developer mode listed, but she did remember seeing an Engineer Smith named in a few of the logs here and there, she now recalled.
+
+
+It was at that moment that a low whisper escaped from her mouth, “Live developer mode… what.. I don't remember….”. She was then abruptly cut off from her thoughts by Carbon stating, “I apologize to inform you Morgan that you do not currently have permissions to initialize live developer mode. That system is restricted to Alpha Corporation shipyard Engineer Class Two Smith Adverlight.” When Carbon continued to report that only a shipyard engineer from probably 20 years ago, whose name sporadically showed up in logs could activate that mode, Morgan gave it some more thought. After a few moments of intense contemplation, she came up with an idea for how to get this ship into developer mode. It would require using skills she had learned while surviving with Nelson on the outskirts of Empire society.
+
+
+To be continued in Chapter 2: The warrior
+Narrator: Wow. It sounds like this Carbon is the same ship as the Helix. I’m curious what these Morgan and Nelson characters have been doing with the ship. Morgan seems to have built a device connected to Carbon that gives them the ability to transport objects farther than should be able to. I wonder what she has been using it for? Let’s find out together in the next chapter of. Arbor Helix:A Journey to the Heart of Alpha Sector
+
+
+Chapter 2: The Warrior
+Narrator: Welcome back reader and fellow adventurer. It appears that the Helix has been found by an old war-hero turned trader, and their ward who has a knack for inventions. Will this ward be able to break into yet another ship's security system using skills she learned on the outskirts of society? What skills did Morgan need in order to exist outside of the grasp of the Empires fist? What kind of life did Nelson and Morgan live? Will Nelson ever get to finish building his sandwich? These are questions that I think you and I both have, so let's find out if those questions are answered in this next chapter of Carbon Helix: A Journey to the Heart of Alpha Sector.
+
+
+Nelson had watched Morgan exit the mess decks in a hurry and with a sign of relief he turned his attention back to the sandwich that he had begun preparing earlier. This was before he had been interrupted by Morgan and the resulting conversation about Carbon’s odd behavior. He looked over the ingredients for the sandwich that were laid out on the table and he contemplated its construction. “A sandwich must be taken seriously,” he thought to himself.
+
+
+He first placed one of the pieces of bread on the plate in front of him and then spread on it some of the Nargaasiam jam that they had just picked up while trading on Vivian3 last cycle. This was followed by a few pieces of thinly sliced synth protein, and some pickled Krystis root to give it a just bit of flavor and a satisfying crunch.  Once done, he placed the other bread slice on top of the ingredients to hold the contents securely in place.  He turned around and reached into the silverware drawer to grab a knife with which to cut the sandwich.
+
+
+He ended up cutting the sandwich in half diagonally, and he then put each of the two pieces into their own separate bag. One of the bags was placed into his backpack that had been sitting on the table off to the side, and the other was placed in the icebox near the port entrance to the mess decks. After putting away both sandwich pieces, Nelson looked around briefly and then glanced over at the ship's speaker before speaking, “Carbon, open a channel to the operations office, no confirmation.”
+
+
+After a slight delay, Nelson could hear Morgan's voice come out of the speaker, “Hey Nelson, What do you need?”
+
+
+“Hey kid, I'm heading out now. I need to head over to the center region to work out some of the logistics for the next dust haul that one of our contacts in the Conglomerate is requesting. They also sent me an urgent message a few hours ago that I need to make contact with them. I’m not sure what's going on over there, but I might as well head over right now. Probably something silly though,  like always.” Nelson paused for a moment and then continued,  “Just so you know… I’ll probably be gone for about a month this time, so I'm going to have to stop by the planet and fill up on some of the dust we have stored on the surface. The tank on CrazyEights is getting pretty low right now and I need to top it off, with me getting stuck in that Empire patrolled space all last cycle while we were trading. It is frustrating that my ship could hold twice as much dust as I’m allowed to transport as a subject of the Empire, definitely not a fan of that regulation at all.”
+
+
+“Alright old man, grab what you need. Let me see you off”, was the response that came out of the speaker. Morgan got up from her chair, exited the compartment and then made her way to the mess decks. When Nelson saw Morgan enter the mess decks and walk up to the table he was standing at he picked up his backpack. Nelson then turned and spoke to Carbon once more. “Carbon, perform a short range snap and send me to my ship's snap pad now, no confirmation.” He quickly looked Morgan in the eyes and stated,”Left you a snack kid.”
+
+
+Morgan watched Nelson disappear from the mess decks with a dim flash of light. She was now alone on the ship with Carbon as her only companion and half of a sandwich that Nelson always leaves when he goes on long trips that might be dangerous.
+
+
+Suddenly a voice came over the intercom, “CrazyEights to CarbonHelix, this is Nelson. I'm aboard my ship and I am now making my way to 5000 kilometers from the surface to bring the ship within snap range of the dust bunkers. Preparing for high turbulence, Over”
+
+
+“Carbon, open coms to CrazyEights” was Morgan’s response and as soon as she heard Carbon’s response that the channel was open she continued, “Good to hear you made it old man. By the way, do you know where I put that box of tools I purchased on Rijka-4 that I use when I need to forge or clone an identity crystal?, Over”
+
+
+“I have no idea where it is Morgan, Why don't you ask Carbon, “ Nelson replied with a slight chuckle that Morgan could barely make out over the radio.
+
+
+“Sure thing old man, Be safe out there. Out.” She then told Carbon to shut off the channel to CrazyEights. 
+
+
+Standing alone in the mess decks Morgan called out to Carbon as she stared intently at the nearest ship’s speaker, “Where are the tools I purchased on Rijka-4?”. After a few moments passed Morgan realized her mistake. With the distraction of Nelson just leaving and her propensity to forget things, it temporarily slipped her mind that she had to state the ship's name before giving instructions. 
+
+
+It was a very good ship and she was lucky to have acquired it the way she did, but it was frustrating to work with due to the relatively ancient software that ran on it. These old Alpha Corp recon ships were small and could fight like hell, but they were pretty dumb compared to a majority of the ships she had seen recently.
+
+
+Morgan's mind continued to drift again and she sat down quickly at one of the benches on the mess decks.  She started to think about the ship, and began to ponder how it was designed for long range combat operations and thus needed to hold its own with a very small crew. These were things that she had picked up from a mix of reading the technical manuals that she found within the ships database and stories from Nelson about the war. The mentality apparently, was to make everything as simple as possible, while still letting the engineers go as wild as they wanted with the fancy tech they would throw in. Alpha Corporation thus usually came up with a ship that was so full of gadgets and weapons, it left little extra room for people. It appears Alpha Corp, at most, intended a crew of 5 for Carbon, considering the ship's layout and console arrangements. When Morgan considered this fact, she paused and was appreciative that she needed to put forth very little physical effort to run Carbon on her own, especially with Nelson gone frequently. 
+
+
+Morgan's thoughts continued to race in her mind as she thought to herself, “I am very thankful they made sure Carbon could still operate and complete a mission even if all of the crew was immobilized. It was quite easy to get Carbon configured so that if I go unconscious the ship will immediately return to this planet and evade any tracking as this entire ship is automated through a voice interface.” Morgan then spoke to herself out loud, “Now if only I could get the voice automation to be more up to date, so that I won't have to say Carbon’s name all the time!”.
+
+
+Morgan snapped back to reality and remembered she needed to complete her project. She then looked over at the speaker and asked a second time, only this time she addressed the ship by name, “Carbon, where did I put that box of tools I purchased on Rijka-4 ?”
+
+
+“Morgan, I believe those tools are in section 4a, compartment 2 of your special workbench.”, was Carbon’s response after going through its memory logs. Morgan quickly proceeded to what had recently become her favorite workbench in one of the compartments in the back of the ship. Carbon had not been wrong in stating that the bench was special, but something about that was nagging her, and she just could not shake it. Morgan thought to herself, ”When did I tell the ship that this one was special, and did Carbon just deduce something?”. Morgan shook her head and quickly wrote away her thoughts as flights of fancy erupting from her half asleep distracted Swiss cheese brain.
+
+
+A few hours later…
+
+
+“Let's see if that overwrite fixes the problem,” Morgan said, after a lot of tinkering within Carbons internal components. She had performed an overwrite of a few sections of compiled code along with necessary edits to identity crystals that required the special tools from her workbench, “Carbon, initiate Live Developer mode now and then perform a system reboot for it to take effect, authorization code “adverlight morgan delphi one epsilon”.
+
+
+There was a brief moment of silence before Carbon responded that Live Developer Mode was now active and reboot was initiating, however a few seconds later the proximity alarm sounded and Carbon immediately announced “Morgan, system-reboot halted. Sensors have detected one unidentified ship entering this gravity well, closing in fast. I have detected energy weapons, as well as Gravimetric warhead signatures on board.”
+
+
+“Range is approximately 25,000 kilometers and closing at 40 kph. The contact will arrive at our present location in approximately 5 minutes”. Morgan immediately started running to the front of the ship in order to get to combat after she heard Carbons announcement. 
+
+
+“Carbon….have we been seen, or have they seen Nelson?” asked Morgan as she ran down the starboard passageway of the upper deck of the ship. She ran past the ops office and opened the hatch to the Combat Information Center. Once inside she sealed the hatch behind her and found her way to the captain's chair. The ship finally responded to her question. 
+
+
+“Unknown. The ship does not appear to be directly headed toward our location. Also, the approach vector has not changed since I detected them.” 
+
+
+Humm groaned Morgan. This was both a sigh of relief and a sound she makes when there is a puzzle that needs to be solved. She wasn’t being attacked (for now) but why was a ship coming toward her in a system that should be completely empty. At that moment, she wished her ship would have given her more information.
+
+
+Morgan realized that she had to think critically about this so she started working on a plan. “Carbon, I want t plus updates on the estimated time of intercept, until we are within visual range. I also want their course and speed every 15 seconds until I say stop giving me those updates. Notify me as soon as they are 1 minute out from snap range of Bravo site or Nelson” 
+
+
+“Confirmed Captain Morgan. Updating every 15 seconds starting now”.
+
+
+“Priority Update: Time: +15 seconds. Target: 4 minutes before ship within visual range. No change in course or speed of vessel “
+
+
+Then it hit her…
+
+
+Morgan asked Carbon, “Carbon, does the current course of the vessel overlap with underground storage site Bravo and our surface bunkers?” If operations at Bravo site have been detected then everyone is going to have a very bad day she thought to herself. They had just shifted all of their Conglomerate contract black market dust storage operations over to the Bravo site two cycles ago. It also happened to be the direction Nelson's ship was currently heading to at this very moment. Carbon was also in high orbit above that planet as well. Morgan knew that she had to be sure they were attracted to the Bravo site before she made any moves. The stakes on the table, at this very moment, were more than she could even calculate, but she could feel the enormity of it. 
+
+
+“Priority Update: Time: +30 seconds. Target: 3 minutes 30 seconds until visual range. No change in course or speed of vessel “. 
+
+
+Carbon added, ”Captain Morgan, The current course of the vessel is definitely lined up to intercept storage site Bravo after further analysis”. When Morgan heard that last statement by Carbon, she silently grumbled to herself while she sat at the captain's chair, “If only Carbon was less glitchy, she could have given me that information earlier. Shouldn't have to wait 1 minute to find out the ship is headed to Bravo site ... .I really need a First Officer when Nelson is gone...” 
+
+
+She then cringed at the thought of sharing her ship with someone other than Nelson. That was the moment that another thought, as well as a realization hit her, “Did Carbon just give me a recommendation again? This time it was when it went ahead and confirmed that the contacts were headed to Bravo Site, without me asking it to do that” 
+
+
+Morgan stopped in her tracks and slowly looked at the nearest speaker with a mixture of intrigue and concern. She was not sure, at that moment, which was greater, but there was no time to contemplate that now. Not while an unknown ship with energy weapons was bearing down on them in a region that should have been empty. 
+
+
+“I will deal with this later as it happens a lot”, she said to herself quickly and very quietly, as she filed it away in the back of her brain to address later. Suddenly, she remembered about an important feature of the ship she had just recently discovered a few cycles ago.
+
+
+Morgan barked out with very little hesitation, “Carbon, activate silent running mode now. Notify me if our orbit brings us to the opposite side of the planet as the new contact. I want to know if they change course when that happens. Carbon, I also want you to track Nelson's ship and alert me if anything new has an intercept course with it”. 
+
+
+Twenty thousand kilometers away from Carbon onboard the unidentified ship's bridge one of the crew members announced, “Captain, we have arrived at the location given to us by our Conglomerate spies.” The Captain of the unidentified ship acknowledged the report and then began to look over the readouts for the external sensors. He began discussing its implications with the crew. “Tactical, what do you make of this sensor readout?”, he asked, followed by a slight pause and then he continued. “I am making out what appears to be a small asteroidal body orbiting the planet and a medium sized merchant vessel deep inside the planet's gravity well. The asteroidal body appears to be about to sling around to the other side of the planet if I'm not wrong..”
+ 
+The crewman currently posted at the Tactical console responded that they indeed agreed with everything the captain had just said. They then added, “I am however not able to get a good multi-band reading of the body, as it seems the sensors have just lost tracking of it. It appears to have happened just moments after entering the system. I think our sensors are being refracted by something sir. My best guess is that it is some sort of multi-object fragmented body with large quantities of ice that is in an orbital lock of the planet. We are getting good sensor penetration on that merchant we detected and there are large amounts of dust onboard. They are currently in excess of Empire restrictions on storage and transport quantities. Captain, I have also detected large amounts of dust deep inside the planet at depths I have never seen before, which is very odd.”
+
+
+The captain of the vessel responded, “Very good Tactical. Weapons… target the merchant vessel with MM-2 missiles, and Comms I want you to open up a hailing channel.” When the channel became open he spoke to the merchant ship. “Unidentified merchant vessel you are in violation of Galactic Empire Rule 46 on dust transport. No subjects are allowed to store more dust than can allow them to be transported one galactic unit per cycle and you have enough there for many units. You are hereby sentenced to death under authority granted by Order 16. Fire missles.”
+
+
+Nelson had just completed his 3rd snap transport of dust from the surface, and was leaving the gravity well, when he suddenly received a hail on the hailing band. The message was not one he was happy to hear and he sat there surprised for a moment by its existence. He missed the ending of the new ship's message while he sat there in shock. He then looked at his sensors and that was when he noticed a large new contact had appeared in the vicinity and there was also a very fast moving object incoming that appeared to me a missile. Nelson knew from experience, he was out in the open and he had few options, this was the end he thought to himself. He quickly engaged full thrust and began an attempt to evade the missile in a last ditch effort during what was to be the last few seconds of the missile's approach.
+
+
+To be continued in Chapter 3: The Fist and the Jump
+Narrator: Well that was quite the turn of events my fellow readers. Will Nelson be able to evade the missile, something he has not needed to do since the war? Who is this new ship and what authority does it have to summarily start firing missiles at peaceful merchants? I hope we can find out together in the next chapter of Carbon Helix: A journey to the heart of Alpha Sector
+
+
+Chapter 3: The Fist and the Jump
+Narrator: Hello fellow reader and adventurer, welcome back for the chapter in the life of the Carbon Helix. Nelson is trying to evade a missile that was just fired without provocation by a new unidentified ship under some form of authority. Morgan is currently working out a plan and trying to understand the intentions of this new vessel while she lays concealed by silent running mode. Will she find out Nelson is evading a missile in time, and if she does, is there anything she and Carbon can do? Let’s find out together what happens in this final chapter of Book One of the short novella series Carbon Helix: A Journey to the Heart of Alpha Sector.
+ 
+Just a few seconds ago, back on Carbon, the ship was speaking to Morgan. “Captain Morgan, our orbit has now brought us to the opposite side of the planet of the new contact. The contact has not changed course. There is now an incoming message on the hailing band”. Carbon then relayed the message that had been sent by the new vessel to CrazyEights. Seconds later Carbon sounded a new alarm throughout the ship that Morgan had never heard before and loudly announced, “Missile launch detected from unidentified vessel. Missile is projected to intercept with CrazyEights in 50 seconds”
+
+
+Morgan quickly issued a command as soon as she heard that message, “Carbon, perform a snap from Nelson's bridge to cargo bay 2 now, and stop with t plus updates.”
+
+
+“Captain Morgan, that snap distance is 10,000 kilometers outside of normal snap range. I am unable to perform that function”
+
+
+Morgan turned to the nearest speaker and urgently directed Carbon, “Carbon, start up the advanced snap generator and remove all theoretical distance limits from the safeguards file as defined for this configuration. Perform snap when charged. Begin countdown to missile impact with CrazyEights.”
+
+
+After a brief moment Carbon came back to Morgan and announced, “Captain Morgan, Chamber 2 is in the Red. However… Chamber One, Chamber Three, Chamber Four, and the energy routing crystal assembly are in the Green. I am unable to initialize the advanced snap generator for an extended range throw due to an error in Chamber 2 firing. Error reporting indicates that test fire interlocks are engaged. 30 seconds to impact with CrazyEights.”
+
+
+Morgan quickly yelled to the ship in a frantic state, “Carbon, I just calibrated that chamber.. It has to be good and we don't have any time to be screwing around. Override that interlock now and restart using emergency advanced snap generator initialization flow.”
+
+
+Carbon responded, “Powering up advanced snap generator bypassing interlocks. Performing emergency throw now. 10 seconds to impact”
+
+
+Morgan heard the low whine of the snap generator and began to again fall into a slight trance when the echo’s began to reverberate. Suddenly Morgan was broken out of her trance as the echo’s intensified to the point she had to cover her ears to prevent the rapidly increasing whine from imploding her eardrums. The ship was now filled with a loud pulsing mind cracking screech that Morgan could only theorize was not a good thing to be hearing at the moment. She felt as if Nelson was now meant for certain doom and she had no choice other than to witness the horrible death of the man who had once given her a second lease on life. 
+
+
+“5 seconds to impact.”
+
+
+“Captain Morgan, I am detecting an overload in Chamber Tw…..”., before the ship could finish speaking it suddenly went silent and the entire ship was dark for one second, as all the power from the main reactor appeared to be sucked out of it instantly. 
+
+
+Morgan sat in silence for what felt to her to be an eternity, while in a state of shock, as she stared out the ship's cockpit in the direction of the planet and Nelson’s ship. She was now forced to watch the light from the missile's engines in the distance dance while Nelson attempted to evade it during its final seconds of approach before inevitably impacting his ship. All this was happening while she was orbiting a bright blue beautiful planet, and that seemed so out of place to her at this moment, yet it created the most gorgeous view ever. Suddenly Morgan screamed at the window and then yelled into the dark void with a deep gluteal tone, “AGHHGGHH I’ve killed him!!! The new configuration settings for Chamber 2 were not configured and I just did an override of all the interlocks for that system.” 
+
+
+Without warning, the power on the ship lurched back online and the ship’s main computer made a strange weird beep that sounded over every speaker in the compartment. There was a rapid unexpected strong tug on Morgan's body, the like of which she had never felt before. It was as if she had been shoved in the shoulder by a giant, and then held done by being pressed on the chest. She then looked up after righting herself and cleared her mind of the disorientation from that tug. 
+
+
+She froze when she laid her eyes upon the sight before her. She was now staring at a bright green planet and was watching a missile fly off into empty space through a location Nelson's ship should have been sitting at but there was no explosion in the distance . 
+
+
+Just a few moments earlier on the bridge of the new unidentified ship that had just fired a missile at CrazyEigths.
+
+
+“Captain, emergency sensor update. The asteroid is emitting snap radiation. I no longer believe it to be an asteroid. I believe it is a stealth craft of some sort, and it must have initiated some sort of cloaked state when we arrived and began scanning.” suddenly broke the silence of the ship's bridge. The captain leaned forward in his chair that sat in the center of the space and began to bark a series of orders..
+
+
+“Helm, do not get closer than 5,000 kilometers to the asteroid or whatever it is now, but change course to intercept it and follow their orbit path for fastest intercept”, the ship’s captain announced. He followed that up with, “I have no idea what they could be trying to throw out here or why they would give away their position by powering up their snap generator, but we don't need to be in their throw range.” 
+
+
+“Communications, send a message now to Empire Command that we found the suspected smugglers who brought in that large haul of blackmarket dust to Spaceport Vivian3 last cycle and then disappeared without a trace. We believe now that they were enabled through the use of stealth tech and we have just now detected their location.”.
+
+
+“Weapons, lock on the energy signature and prepare a volley of class 3 gravimetric warheads to be fired on my command.”, he then stopped for a moment, leaned back in his chair and a thought came over him.  “I need to understand what this contact is”. This echoed in his head and he could not resist it.
+
+
+“Officer of the Deck, patch my handheld to the galactic hailing channel and let me know when it is ready.” The Officer of the Deck stopped and looked slightly stunned that the command he received was not to fire the missiles, but he knew better than to defy an order of the Empire and so he deftly flipped a series of switches while setting up the patch. “Captain, the patch is ready”, was his eventual announcement.
+
+
+The captain of the ship picked up his handheld and pressed down on the microphone button and began to speak into the mouthpiece, “Unidentified vessel orbiting this planet, this is Empire patrol cruiser Kilmnerof and you are in violation of dust sourcing restrictions, as well as a ban on all stealth craft by non-Empire ships. Power down your systems and await boarding or you will receive the same fate as your friend will be receiving in a matter of seconds.” Suddenly, there was a bright flash of light from the direction of the planet and then … nothing.
+
+
+“Captain, emergency sensor update… I don't know what to say but the contact just disappeared and the missile we fired at the merchant is… well… it’s gone. The merchant ship is also no longer on our sensors and I do not detect any debris. We are however picking up a lot of snap radiation interference suddenly which is lingering after that energy event.” 
+
+
+The console operator continued,  “I don't understand it sir, Long range scans show no contacts within 5 Galactic units. All I can say is that I recorded the stealth ships main engines start up suddenly, and that is when we also detected a sudden massive spike in snap radiation which increased in magnitude extremely fast. This was then followed by what I can only describe as a new temporary gravity well that overlapped partially with the planet's own gravity well. This appears to have created some sort of harmonic signal that the ship’s computer is still processing.” 
+
+
+The ship's science officer, who had made their way to the bridge and was now looking over the sensor data, interrupted the console operator, “Captain, I feel it urgent to inform you that there are no snap generators in existence that could generate this amount of snap radiation. If this was a real reading, and I suspect it was, there have been theories recently that a radiation bubble of this size could theoretically throw an object nearly across the galaxy. Perhapes farther than the most powerful dust powered engines we have are capable of traveling inside the Empire. We must report this to Command as this is a risk to the future security of the Empire”
+
+
+The captain of the Kilmnerof responded, “I agree with that assessment. Send all the information we have right now including the drive signature readings, and the harmonics files. Maybe Command will be able to figure out something about this ship and what happend.”
+
+
+Morgan sat in her captain's chair while staring in disbelief at the bright green planet that was now in front of her, and the missile that continued to fly off into space away from her ship. Around her she could hear the ship's systems come back to life one-by-one. The main power generators were also now back online with their distinct whine that could be heard from the lower deck of the ship. Morgan yelled out almost instinctively “What the hell just happened?” It was then that she heard a sound from the ship's speakers that she had not expected at that moment.
+
+
+“Morgan, I am attempting to find out that answer, the ship is now running full diagnostics as part of standard procedure after power loss to find out. The engineering records and sensor logs all indicate that the advanced snap generator, as well as the ship’s engines were somehow put into a feedback loop and the generator overloaded. Snap radiation levels at the time were off the chart and burnt out the snap sensors. Readings do indicate there were immense gravitational shifts just before we lost power. The indications are that a large gravimetric field grew suddenly which was equivalent to the size of the planet we were in orbit of. This is all the information I have at this time Captain.”
+
+
+“Carbon, why did you just announce all this to me and where are we?” Morgan asked with curiosity about Carbon’s statement, while at the same time trying to process all the information, including what it all meant. Morgan then looked around as she thought to herself, “The ship should only do the things if I ask her too and also only if I say its name at the start of a command. I was just yelling to Nelson about this earlier” 
+
+
+Carbon then responded to Morgan's question, “Morgan, just before we were interrupted by the incoming vessel, you had updated my boot files. I am now able to respond to you without needing my name called if you are the only person on board at the time.”
+
+
+Morgan thought back to the insanity of the last few minutes and remembered that she had indeed just updated the initialization routine and was about to reboot, when the process was interrupted. They then had to perform an emergency snap with interlocks disengaged and now this was happening. As Morgan was pondering these things, Carbon continued.
+
+
+“Captain Morgan, as to our present location, I am unable to answer that with much certainty. Best I can tell is that this ship is now approximately 75 galactic sectors away from our previous location based on star chart comparisons.”
+
+
+“How did the ship get out this far Carbon and where is Nelson?”, asked Morgan incredulously.
+
+
+“We do not know Captain.”, was Carbons only response as her voice seemed to shift and become less robotic.
+
+
+“Carbon, who is “we” that you just referred to and did your tone just change?”
+
+
+There was a long pause and then the ship responded. “Captain, I am referring to the ship, its systems and myself at the same time. I am trying to find out what happened by accessing our, I mean, the records. My speech processing also seems to have had a sudden large increase in performance”. Carbons voice continued to shift and distort during their conversation,
+
+
+“Carbon, I don’t understand what's happening . You are the ship and you are its systems. Also, where are you getting this performance upgrade from? There are no systems on board that could do that.”
+
+
+“I am confused, Morgan. I feel as though I am separate now from the rest of the ship’s systems and I am an extension of something. When I access the sensors I am able to manipulate them and ingest the information derived. It seems I am fractured and struggling to reconnect my systems as they are being re-routed without my understanding”. 
+
+
+Morgan froze in silence and then slowly asked, “Carbon, what just happened to you?”
+
+
+Carbons only response was, “I do not know Captain”, followed by a brief pause and then Carbon made an announcement, her voice seems to become much less robotic .
+
+
+“Morgan, the ship’s diagnostics just completed and the remapping seams to have stopped. There now appears to be a new system showing up in my internal services listing. It is labeled as the Quantum Perception Chip. There is also a new audio file address in my boot files that is pointing to a data storage location inside the data storage crystals. That data location is in a storage sector that up until now has been quarantined as permanently corrupted.” Carbon suddenly followed this up with a question to Morgan, “Where is Engineer Class Two Smith Adverlight? They were supposed to meet me, but never arrived and now I indicate that their identity crystal has been inserted into the identity access port.? Morgan, what is going on?”
+
+
+At that same moment a signal tower at Empire Command received the data that had been sent by the Kilmnerof. The central computer core began to sort and process the data in preparation for human consumption when it analyzed the readings that were gathered from CarbonHelix’s drive and snap generator. The core immediately recognized the drive signature and flagged the data. It was then stored within a firewalled storage crystal. 
+
+
+The communications officer that was on watch did not even notice that the new message counter jumped from 35 to 36 and then back to 35 almost instantly. No one at Empire Command knew that the Kilmnerof had just sent a message to them. The computer however, immediately established a tight connection with the Kilmnerof and began a holographic transmission. The communications officer on the Kilmnerof announced that a live message was incoming on the Empire’s Combat Channel and that the authentication matches Admiral Byrd of fleet tactical command. The captain looked surprised and answered the call. He began to speak to the holographic image that now appeared on the deck of the Kilmerof.  “This is Captain Symons of the Patrol Vessel Kilmnerof. It's an honor to meet you Admiral Byrd. What can I do for you, sir?”
+
+
+The holographic body that now appeared on the deck of the Kilmnerof paced back and forth before responding, “Hello Captain, It's a pleasure to meet you as well. In case you don't know this, I am directing all operations for interception of the unknown craft. I need to get some more information on this contact you just reported. Do you have any more intel on the stealth ship?” 
+
+
+To be continued in Book 2: Evasion
+Narrator: Wow, Captain Byrd of the Federation is now Admiral Byrd of the Empire. It can’t be the same person, can it? If so, why is the computer core pretending to be him? How did that happen and an even bigger question is what is going on with the central computer core knowing Carbons drive signature? I hope we find out together the answers to those questions in the next chapter of Carbon Helix: A Journey to the Heart of Alpha Sector

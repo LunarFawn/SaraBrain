@@ -32,7 +32,11 @@
       "Bash(awk '/^## 7\\\\. Limitations/,/^## 8\\\\./' papers/sara_as_instrument_paper_rev2.md)",
       "Bash(grep -nA4 \"^### 5.7\\\\|^### 5.1\\\\b\\\\|^### 5.6\" papers/sara_as_instrument_paper_rev2.md)",
       "Bash(grep -cE '^\\\\*\\\\*Date:\\\\*\\\\* April 2026$' papers/sara_as_instrument_paper_rev4.md)",
-      "Bash(sort -t'[' -k2 -n)"
+      "Bash(sort -t'[' -k2 -n)",
+      "Bash(./scripts/build_complex_corpus.sh)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:zenodo.org)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ],
     "defaultMode": "acceptEdits"
   },

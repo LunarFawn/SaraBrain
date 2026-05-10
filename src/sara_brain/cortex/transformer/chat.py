@@ -29,6 +29,9 @@ except ImportError:
 from sara_brain.core.brain import Brain
 from sara_reader.tools import execute_tool
 
+from ..question_intent import (
+    QuestionIntent, apply_bias_to_edge_text, classify, shape_for,
+)
 from .clarify import (
     Clarification, ConceptFix, apply_wh_fix, detect_wh_typo,
     find_concept_candidates, is_cancel, parse_choice,
@@ -384,6 +387,21 @@ class ChatSession:
 
     def _route_and_run(self, question: str, expand: bool = False) -> None:
         decision = self.router.route(question)
+        # Question-intent override: deepen brain_explore retrieval when
+        # the question shape (how/why/mechanism) needs a multi-hop chain
+        # rather than a 1-hop definitional snapshot. See
+        # docs/v052_cortex_router_synth_harmony.md.
+        intent = classify(question)
+        shape = shape_for(intent)
+        if (decision.tool == "brain_explore"
+                and decision.args.get("depth", 1) < shape.depth):
+            import dataclasses
+            decision = dataclasses.replace(
+                decision,
+                args={**decision.args, "depth": shape.depth},
+                rationale=(f"{decision.rationale} "
+                           f"(intent={intent.name} → depth={shape.depth})"),
+            )
         if self.show_trace:
             print(f"{DIM}[{decision.model}] tool={decision.tool}  "
                   f"cls_conf={decision.classifier_confidence:.2f}  "
@@ -440,12 +458,14 @@ class ChatSession:
 
         # v045: multi-hop reasoning. If --multihop is enabled and the
         # question shape suggests chaining, run the bounded BFS
-        # orchestrator instead of the single-hop fetch.
+        # orchestrator instead of the single-hop fetch. The mechanism
+        # check now flows from the question-intent classifier (single
+        # source of truth — see ../question_intent.py).
         if self.multihop_enabled:
-            from .multihop import should_multihop, plan_chain
-            if should_multihop(question):
+            from .multihop import plan_chain
+            if intent == QuestionIntent.MECHANISM:
                 if self.show_trace:
-                    print(f"{DIM}[multihop] question shape triggers chain orchestration{RESET}")
+                    print(f"{DIM}[multihop] intent=MECHANISM triggers chain orchestration{RESET}")
                 gathered = plan_chain(self.brain, self.last_decision)
                 if self.show_trace:
                     print(f"{DIM}[multihop] gathered {len(gathered)} hops{RESET}")
@@ -458,6 +478,15 @@ class ChatSession:
 
         if expand and self.last_topic:
             self._gather_siblings_into(self.last_topic, gathered)
+
+        # Re-rank edge lines in each gathered result so bias-matched
+        # relations sort first. Ranking only — non-bias edges stay,
+        # they just sort below the answer.
+        if shape.relation_bias:
+            for fact in gathered:
+                fact["result"] = apply_bias_to_edge_text(
+                    fact["result"], shape.relation_bias,
+                )
 
         if self.show_raw:
             for fact in gathered:

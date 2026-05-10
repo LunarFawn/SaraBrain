@@ -48,8 +48,15 @@ def should_multihop(question: str) -> bool:
     """Heuristic: does the question shape suggest multi-hop?
 
     Triggers on `why`, `how does X`, `because`, `caused by`, etc.
-    Plain `what is X` / `tell me about Y` stays single-hop. v0
-    heuristic — refine when real usage surfaces wrong calls."""
+    Plain `what is X` / `tell me about Y` stays single-hop.
+
+    .. deprecated::
+        Superseded by :func:`sara_brain.cortex.question_intent.classify`.
+        chat.py now dispatches on
+        ``intent == QuestionIntent.MECHANISM``. Function retained for
+        external callers and ``__all__`` compatibility; new code should
+        use the classifier directly.
+    """
     if not question:
         return False
     return bool(_MULTIHOP_RE.search(question))

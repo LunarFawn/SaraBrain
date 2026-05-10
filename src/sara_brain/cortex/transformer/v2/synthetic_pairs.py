@@ -469,6 +469,44 @@ def _render_passive(subject: str, action: str, obj: str) -> str:
     return f"{obj} was {action} by {subject} ."
 
 
+# Oblique-modifier prepositions used to attach a non-argument PP to a
+# verb. The pobj of these is NOT part of the (s,r,o) triple — it's a
+# manner / instrument / location / temporal modifier the model must
+# learn to skip. Without this signal the head folds "with X" into the
+# relation (e.g. "predicts kdoff with p<0.05" → "predicts kdoff with").
+_OBLIQUE_PREPS: tuple[str, ...] = (
+    "with", "without", "via", "through", "during",
+    "after", "before", "under", "near", "alongside",
+)
+
+
+def _render_oblique(
+    subject: str, action: str, obj: str, prep: str, oblique_token: str,
+) -> str:
+    """X action Y prep Z. — Y is dobj (the object), prep+Z is oblique."""
+    return f"{subject} {action} {obj} {prep} {oblique_token} ."
+
+
+def _render_conjoined_subject(
+    s1: str, s2: str, action: str, obj: str,
+) -> str:
+    """X and Y action Z. — Subject is the conjunction `s1 and s2`."""
+    return f"{s1} and {s2} {action} {obj} ."
+
+
+def _render_intj_copular(subject_token: str, value: str) -> str:
+    """`<weird_token>` is `<value>`. — Sentence-initial weird-shape
+    token in subject position, where spaCy will likely tag it as
+    INTJ/X. Trains the model to recognize subscript/alphanum/acronym
+    tokens as subjects in copular constructions."""
+    return f"{subject_token} is {value} ."
+
+
+_OBLIQUE_TEMPLATE_PROB = 0.35   # share of scenes that emit a t_with_oblique pair
+_CONJ_SUBJECT_PROB = 0.20       # share of scenes that emit a t_conjoined_subject pair
+_INTJ_COPULAR_PROB = 0.25       # share of scenes that emit a t_intj_subject_copular pair
+
+
 def _emit_rich_pairs(
     subject: str,
     action: str,
@@ -476,8 +514,9 @@ def _emit_rich_pairs(
     extra_objects: list[str],
     qualifiers: list[str],
     rng: random.Random,
+    gen=None,
 ) -> list[Pair]:
-    """Render the three rich-template families for one base triple.
+    """Render the rich-template families for one base triple.
 
     Returns zero or more Pair records (one per derived triple). Some
     templates emit multiple Pairs (list-object) sharing the same prose.
@@ -543,6 +582,79 @@ def _emit_rich_pairs(
                 )
                 if p is not None:
                     out.append(p)
+
+    # Verb-with-oblique: "X action Y prep Z." where Z is a manner /
+    # instrument / temporal modifier the model must NOT include in the
+    # triple. Only applicable to single-word transitive verbs (the
+    # action must be a clean dobj-taking verb, not a particle verb that
+    # already takes a prep).
+    if gen is not None and " " not in action and _is_passivizable(action):
+        if rng.random() < _OBLIQUE_TEMPLATE_PROB:
+            prep = rng.choice(_OBLIQUE_PREPS)
+            # Oblique token is fresh nonsense or a weird-shape token —
+            # never overlap with subject or object.
+            for _ in range(5):
+                if rng.random() < 0.5:
+                    obl = _random_weird_token(rng, gen)
+                else:
+                    obl = gen._random_word(rng, min_len=3, max_len=6)
+                if obl != subject and obl != obj and obl not in (subject, obj):
+                    break
+            else:
+                obl = None
+            if obl:
+                prose = _render_oblique(subject, action, obj, prep, obl)
+                p = _build_pair_strings(
+                    prose, subject, action, obj,
+                    "t_with_oblique", qualifiers,
+                )
+                if p is not None:
+                    out.append(p)
+
+    # Conjoined subject: "X and Y action Z." Subject is the full
+    # `X and Y` span. Only emitted with single-word transitive actions.
+    if gen is not None and " " not in action and _is_passivizable(action):
+        if rng.random() < _CONJ_SUBJECT_PROB:
+            for _ in range(5):
+                s2_core = gen._random_compound(rng, n_words=rng.choice([1, 2]))
+                s2_core = _maybe_swap_for_weird_token(s2_core, rng, gen)
+                s2 = _maybe_attach_article(s2_core, rng)
+                if s2 != subject and s2 != obj and s2 not in subject:
+                    break
+            else:
+                s2 = None
+            if s2:
+                conjoined = f"{subject} and {s2}"
+                prose = _render_conjoined_subject(subject, s2, action, obj)
+                p = _build_pair_strings(
+                    prose, conjoined, action, obj,
+                    "t_conjoined_subject", qualifiers,
+                )
+                if p is not None:
+                    out.append(p)
+
+    # INTJ-subject copular: "<weird_token> is <value>." Trains the
+    # model that scientific-notation tokens (subscripts like K_d,
+    # alphanums like kdoff, acronyms like ATP) can be subjects in
+    # copular constructions even when spaCy mistags them as INTJ.
+    if gen is not None and rng.random() < _INTJ_COPULAR_PROB:
+        weird_subj = _random_weird_token(rng, gen)
+        # Value can be another weird token (concentration, significance)
+        # or a small-NP. Variety helps generalize.
+        if rng.random() < 0.6:
+            value = _random_weird_token(rng, gen)
+        else:
+            value_core = gen._random_compound(rng, n_words=1)
+            value = _maybe_attach_article(value_core, rng)
+        if weird_subj != value:
+            prose = _render_intj_copular(weird_subj, value)
+            p = _build_pair_strings(
+                prose, weird_subj, "is", value,
+                "t_intj_subject_copular", qualifiers,
+            )
+            if p is not None:
+                out.append(p)
+
     return out
 
 
@@ -676,6 +788,7 @@ def generate_pairs(
                 qualifiers.append("modifier")
             pairs.extend(_emit_rich_pairs(
                 subject, action, obj, extra_objects, qualifiers, rng,
+                gen=gen,
             ))
     return pairs
 

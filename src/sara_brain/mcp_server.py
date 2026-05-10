@@ -490,21 +490,90 @@ def brain_did_you_mean(term: str) -> str:
 
 @mcp.tool()
 @_audited
-def brain_ingest(source: str) -> str:
+def brain_ingest(source: str, extractor: str = "llm") -> str:
     """Ingest a document into Sara Brain from a file path or URL.
 
-    Sara reads the document through the LLM cortex, extracts facts,
-    learns them as neuron-chain paths, and reports what she understood.
+    Two extractor backends:
 
-    Works with local files (.txt, .md, .html) or URLs (http/https).
+    - ``extractor="llm"`` (default, legacy): Sara reads through the LLM
+      cortex configured on the brain (``llm_provider`` in settings),
+      extracts facts via API call, and learns them. Requires an LLM to
+      be configured.
+    - ``extractor="grammar"``: grammar-based extractor from
+      ``cortex/transformer/v2/extractor_rules.py`` (rule-based stub
+      until the v2 neural head ships). No API call. Auto-commits
+      every triple it can extract; mistakes are correctable later via
+      ``brain_refute``. Accepts TXT, Markdown, PDF, EPUB, HTML, URL.
 
-    Requires LLM to be configured (llm_provider in settings).
+    Returns a one-line summary of what was ingested.
     """
-    from .agent.bridge import AgentBridge
+    if extractor == "grammar":
+        return _grammar_ingest(source)
+    if extractor == "llm":
+        from .agent.bridge import AgentBridge
+        brain = _get_brain()
+        bridge = AgentBridge(brain)
+        return bridge.ingest(source)
+    return f"Unknown extractor: {extractor!r}. Use 'llm' or 'grammar'."
 
+
+def _grammar_ingest(source: str) -> str:
+    """Run the v2 grammar-based ingest pipeline against the active brain."""
+    import time
+    from collections import Counter
+
+    try:
+        import spacy
+    except ImportError:
+        return "error: spaCy is not installed (.venv/bin/pip install spacy)"
+    try:
+        nlp = spacy.load("en_core_web_sm")
+    except OSError:
+        return ("error: en_core_web_sm model missing "
+                "(.venv/bin/python -m spacy download en_core_web_sm)")
+
+    from .cortex.parser import EnhancedParser
+    from .cortex.transformer.v2.extractor_rules import extract_triples
+    from .cortex.transformer.v2.format_readers import detect_format, read
+
+    fmt = detect_format(source)
     brain = _get_brain()
-    bridge = AgentBridge(brain)
-    return bridge.ingest(source)
+    started = time.time()
+    rel_counts: Counter[str] = Counter()
+    segments = sentences = clauses = committed = 0
+    errors = 0
+
+    for seg in read(source, format=fmt):
+        segments += 1
+        for sent in nlp(seg.text).sents:
+            sentence = sent.text.strip()
+            if not sentence:
+                continue
+            sentences += 1
+            for clause in EnhancedParser._split_compound(sentence):
+                if not clause.strip():
+                    continue
+                clauses += 1
+                for tri in extract_triples(clause, nlp):
+                    rel_counts[tri.relation] += 1
+                    try:
+                        brain.teach_triple(
+                            tri.subject, tri.relation, tri.object,
+                            source_text=tri.source_clause,
+                            source_label=seg.provenance,
+                        )
+                        committed += 1
+                    except Exception:  # noqa: BLE001
+                        errors += 1
+
+    elapsed = time.time() - started
+    top = ", ".join(f"{r}={c}" for r, c in rel_counts.most_common(8))
+    return (
+        f"grammar-ingest: source={source} format={fmt} "
+        f"segments={segments} sentences={sentences} clauses={clauses} "
+        f"triples_committed={committed} errors={errors} "
+        f"elapsed={elapsed:.1f}s. top_relations={top or '(none)'}"
+    )
 
 
 @mcp.tool()

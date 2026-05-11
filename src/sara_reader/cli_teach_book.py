@@ -84,10 +84,16 @@ def main(argv: list[str] | None = None) -> int:
         help="Suppress per-triple stderr lines.",
     )
     p.add_argument(
-        "--extractor", default="rules", choices=("rules", "trained"),
+        "--extractor", default="rules",
+        choices=("rules", "trained", "hybrid"),
         help="Triple extractor: 'rules' = deterministic spaCy+rules stub "
              "(default, fast); 'trained' = hamroby_extractor_v1 trained head "
-             "(loads canonical .pt checkpoint, uses spaCy sm+trf cascade).",
+             "(loads canonical .pt checkpoint, uses spaCy sm+trf cascade); "
+             "'hybrid' = run BOTH and feed combined triples into the brain. "
+             "Hybrid captures clean SVO (from trained head) AND compound-NP "
+             "associations like 'jkd part_of \"the foundations of jkd\"' "
+             "(from rule stub) — useful when terms appear mostly as POBJ "
+             "or inside compound NPs.",
     )
     args = p.parse_args(argv)
 
@@ -101,28 +107,29 @@ def main(argv: list[str] | None = None) -> int:
         print("error: spaCy is not installed (.venv/bin/pip install spacy)",
               file=sys.stderr)
         return 2
-    # Select the extractor and load the appropriate nlp. The trained
-    # head benefits from the cascade nlp (sm + trf fallback for
-    # degenerate parses); the rule stub works fine with plain sm.
-    if args.extractor == "trained":
+    # Select the extractor(s) and load the appropriate nlp. The trained
+    # head and hybrid modes use the cascade nlp (sm + trf fallback);
+    # rule-only mode uses plain sm. `extractors` is a list of (name, fn)
+    # tuples; each runs on every clause and all returned triples are
+    # committed. Hybrid runs both — clean SVO from trained head plus
+    # compound-NP associations from rule stub.
+    extractors: list[tuple[str, callable]] = []
+    if args.extractor in ("trained", "hybrid"):
         from sara_brain.cortex.transformer.hamroby_extractor_v1.feature_extractor import (
             load_domain_nlp,
         )
         from sara_brain.cortex.transformer.hamroby_extractor_v1.inference import (
             extract_triples as extract_triples_trained,
         )
-        extract_triples = extract_triples_trained
-        print("[teach-book] extractor=trained (hamroby_extractor_v1, cascade nlp)",
-              file=sys.stderr)
         try:
             nlp = load_domain_nlp()
         except OSError as e:
             print(f"error: failed to load cascade nlp: {e}", file=sys.stderr)
             return 2
+        extractors.append(("trained", extract_triples_trained))
+        if args.extractor == "hybrid":
+            extractors.append(("rules", extract_triples_rules))
     else:
-        extract_triples = extract_triples_rules
-        print("[teach-book] extractor=rules (deterministic, plain sm)",
-              file=sys.stderr)
         try:
             nlp = spacy.load("en_core_web_sm")
         except OSError:
@@ -130,6 +137,13 @@ def main(argv: list[str] | None = None) -> int:
                   "(.venv/bin/python -m spacy download en_core_web_sm)",
                   file=sys.stderr)
             return 2
+        extractors.append(("rules", extract_triples_rules))
+
+    print(
+        f"[teach-book] extractor={args.extractor} "
+        f"(running: {', '.join(name for name, _ in extractors)})",
+        file=sys.stderr,
+    )
 
     if not args.dry_run:
         Path(args.brain).parent.mkdir(parents=True, exist_ok=True)
@@ -153,7 +167,13 @@ def main(argv: list[str] | None = None) -> int:
                     clauses_seen += 1
                     if args.max_clauses and clauses_seen > args.max_clauses:
                         raise StopIteration
-                    triples = extract_triples(clause, nlp)
+                    # Run each configured extractor. Hybrid mode runs
+                    # both; rules/trained mode runs one. All triples are
+                    # committed; deduplication is left to the brain
+                    # (teach_triple is idempotent on identical edges).
+                    triples = []
+                    for _name, _fn in extractors:
+                        triples.extend(_fn(clause, nlp))
                     for tri in triples:
                         relation_counts[tri.relation] += 1
                         if not args.quiet:

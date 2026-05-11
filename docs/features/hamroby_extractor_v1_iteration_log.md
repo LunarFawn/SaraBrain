@@ -188,9 +188,168 @@ didn't change. Same 13MB checkpoint shape from aug to aug9.
   is fast and wrong sometimes; trf is slow and accurate. The right
   default is the cascade — it should have shipped in aug.
 
+## Post-promotion: wiring into ingest and the hybrid discovery
+
+After aug9 was promoted to canonical, we tried the extractor end-to-end
+on a real source — the JKD book (`papers/paper2/paper2_full.txt`,
+~35k words, 3343 clauses). Three rounds of work followed:
+
+### Round 1: wire the trained head into `cli_teach_book`
+
+The CLI was hardcoded to call the rule stub. A new module
+[inference.py](../../src/sara_brain/cortex/transformer/hamroby_extractor_v1/inference.py)
+exposes `extract_triples(clause, nlp) -> list[Triple]` matching the
+rule stub's signature, so `cli_teach_book` can swap extractors without
+other changes:
+
+```
+python -m sara_reader.cli_teach_book BOOK --extractor trained --brain X.db
+python -m sara_reader.cli_teach_book BOOK --extractor rules   --brain Y.db
+python -m sara_reader.cli_teach_book BOOK --extractor hybrid  --brain Z.db
+```
+
+The trained-head extractor uses the canonical `hamroby_extractor_v1.pt`
+plus the sm+trf cascade nlp. Committed in `2b71ed7`.
+
+### Round 2: comparing rule stub vs trained head on real prose
+
+Ran the same book through both extractors. Then counted actual term
+mentions in the source with `grep -oiw` and compared to brain edge
+counts:
+
+| term | actual mentions | rule-stub edges | trained-head edges |
+|---|---:|---:|---:|
+| water | 34 | 32 | 26 |
+| ptsd | 5 | 4 | 1 |
+| autism | 18 | 45 | 19 |
+| bruce lee | 35 | 49 | 35 |
+| jeet kune do | 53 | 116 | 36 |
+| jkd | 15 | 36 | 0 |
+| flow | 12 | 53 | 9 |
+| philosophy | 7 | 20 | 5 |
+| meditation | 1 | 5 | 4 |
+
+(Edge counts are direct segments touching the term, not the transitive
+neighborhood — the latter expands by 10-100× and is misleading for
+comparison.)
+
+The two extractors produce qualitatively different brains:
+
+- **Trained head** edge counts track actual term-frequency density.
+  `water` (34 mentions → 26 edges), `ptsd` (5 → 1), `bruce lee`
+  (35 → 35), `jeet kune do` (53 → 36) all roughly match the source.
+- **Trained head misses POBJ / compound-NP / oblique mentions.** `jkd`
+  (15 mentions → 0 edges) is the smoking gun: every JKD mention in
+  the book is buried as "to JKD", "of JKD", "JKD concepts", "JKD
+  journey". The BIO tagger only extracts direct subject/object roles.
+- **Rule stub catches the buried mentions** via `part_of` NP
+  decomposition: emits `jkd part_of "the foundations of jkd"`,
+  `jkd part_of "the natural progression of a person who has dedicated
+  their life to jkd"`. Inflated counts (`jeet kune do` 53 mentions →
+  116 edges) but those extra edges are real contexts the term appears
+  in, not phantom data.
+
+The user reframed it: **"noise is where the information is."** For
+their writing style (long run-on sentences, JKD as POBJ, idiomatic
+"flow", autobiographical pronoun-heavy prose), the rule stub's `part_of`
+decomposition captures the discourse context the trained head leaves
+on the floor.
+
+### Round 3: hybrid extractor
+
+Added `--extractor hybrid` to `cli_teach_book`. Runs BOTH extractors
+per clause and commits all triples. `brain.teach_triple` is idempotent
+on identical edges, so duplicates collapse.
+
+Coverage with hybrid (direct edge counts):
+
+| term | rules-only | trained-only | **hybrid** |
+|---|---:|---:|---:|
+| jkd | 36 | 0 | **36** |
+| jeet kune do | 116 | 36 | **143** |
+| bruce lee | 49 | 35 | **65** |
+| autism | 45 | 19 | **55** |
+| water | 32 | 26 | **84** |
+| flow | 53 | 9 | **61** |
+| philosophy | 20 | 5 | **25** |
+
+Hybrid wins on every probed term. 4,275 triples total (vs 1,941 rules,
+2,340 trained), 130s vs 48s/83s. Committed in `b186511`.
+
+Sample of what hybrid captures for `flow` (the contextual richness the
+trained head alone missed):
+
+```
+flow part_of "the flow"
+flow part_of "the flow of the manuscript"
+flow part_of "a large amount of reflection of the past in this manuscript"
+flow part_of "the flow of this turbulent raging river"
+flow part_of "some flow of something that you are moving against"
+flow part_of "the flow of my thoughts"
+flow part_of "going with the flow"
+flow_attribute describes flow
+"the situation" with flow_attribute
+"the flow" help with that_attribute
+"the severity of my autism" reduce that_attribute
+"bruce lee's expression of his own unique mind" be that_attribute
+```
+
+These are real contexts. The rule stub's `part_of` flood IS useful
+information when the underlying prose uses terms as buried modifiers
+rather than direct verb arguments.
+
+### Round 4 finding: chat routing can't surface the brain's content
+
+Tried `cli_stateless_chat --brain X --cortex-router --explore-first
+--strict-sara`. The LLM router routinely called `brain_define(concept)`
+and got "No definitional edges found" — even on the hybrid brain with
+36-143 edges per term. The router then either reported "no info" or
+filled in from general LLM knowledge.
+
+**Cause:** `brain_define` looks for `X is Y` definitional triples. Our
+extractors produce verb-form triples (`jeet kune do achieve...`) and
+`part_of` triples — neither matches the definitional pattern. The
+routing layer needs to use `brain_explore` / `brain_neighborhood` as a
+fallback (or as the primary tool for these prose-derived brains), not
+just `brain_define`.
+
+The brain content is good. Surfacing it via chat is a separate fix.
+
+### Lessons added by this phase
+
+7. **Test extraction on a real source before declaring victory.** The
+   58-sentence synthetic battery said "58/58 clean." But running the
+   trained head on real prose immediately exposed the POBJ /
+   compound-NP gap. Synthetic tests verify the model does what its
+   training data trained it to do; real-prose tests verify the
+   training data covered the right patterns. We had the former; we
+   needed the latter.
+
+8. **Edge inflation isn't always noise.** The rule stub's `part_of`
+   pattern produces 5-10× the edges per term vs the trained head. We
+   initially framed this as "noise dressed as breadth." The user
+   pushed back: those extra edges encode the COMPOUND NPs each term
+   appears in, which IS information about how the term is used in
+   discourse. Calling it noise was wrong; it's a different *kind* of
+   information than verb-driven SVO.
+
+9. **Hybrid pipelines are cheap and powerful when extractors are
+   complementary.** Two extractors that produce different kinds of
+   triples (verb-driven SVO vs NP-decomposition) can both feed the
+   same brain. `brain.teach_triple` idempotency makes the merge
+   automatic. Coverage strictly improves; cost is only the slower of
+   the two extractors.
+
+10. **A "fixed" extractor doesn't mean a "useful" brain.** The trained
+    head passed every synthetic test; the routing-layer-on-strict-mode
+    behavior shows it doesn't matter if the brain has content the
+    query layer can't reach. Extractor accuracy and brain-query
+    surfacing are independent problems.
+
 ## Pointers
 
 - Canonical state and architectural overview: [hamroby_extractor_v1.md](hamroby_extractor_v1.md)
 - Retrain recipe: [scripts/train_hamroby_extractor_aug9.sh](../../scripts/train_hamroby_extractor_aug9.sh)
 - Evaluation: `BASELINE=<old.pt> CANDIDATE=<new.pt> .venv/bin/python scripts/compare_checkpoints.py`
 - Diagnostic: `HAMROBY_CHECKPOINT=<x.pt> .venv/bin/python scripts/diagnose_failure_battery.py`
+- Ingest with hybrid: `python -m sara_reader.cli_teach_book BOOK --extractor hybrid --brain X.db`

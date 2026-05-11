@@ -84,6 +84,16 @@ def main(argv: list[str] | None = None) -> int:
         help="Suppress per-triple stderr lines.",
     )
     p.add_argument(
+        "--no-dictionary", action="store_true",
+        help="Skip auto-loading Moby Thesaurus II synonym scaffolding. "
+             "By default, new brains get the dictionary bootstrap "
+             "(~13s one-time cost, ~30k synonym groups, ~800k edges) so "
+             "wavefront propagation can bridge question vocabulary "
+             "('tallest') to substrate labels ('extreme phenotype'). "
+             "Pass this flag for prose-only brains where the dictionary "
+             "isn't needed and the load time matters.",
+    )
+    p.add_argument(
         "--extractor", default="rules",
         choices=("rules", "trained", "hybrid"),
         help="Triple extractor: 'rules' = deterministic spaCy+rules stub "
@@ -148,6 +158,13 @@ def main(argv: list[str] | None = None) -> int:
     if not args.dry_run:
         Path(args.brain).parent.mkdir(parents=True, exist_ok=True)
     brain = Brain(args.brain)
+
+    # Auto-bootstrap the dictionary on new brains so the wavefront has
+    # synonym scaffolding by default. Idempotent — skipped if the brain
+    # already has synonym_of segments. Opt out with --no-dictionary.
+    if not args.no_dictionary and not args.dry_run:
+        from sara_brain.bootstrap import ensure_dictionary
+        ensure_dictionary(brain)
 
     segments_seen = 0
     sentences_seen = 0

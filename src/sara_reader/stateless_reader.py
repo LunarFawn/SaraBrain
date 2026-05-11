@@ -103,6 +103,17 @@ NO-MATCH RECOVERY: If a prior tool result said "no neuron matching" or
   3. brain_did_you_mean on the term to find substrate-correct labels.
 Only emit DONE without an answer if all three recovery attempts fail.
 
+NO-DEFINITION RECOVERY: If brain_define returned a message containing
+"no definitional edges" or "has no definition/identity relation", the
+concept EXISTS in the substrate but is described through verbs and
+associations rather than 'X is Y' definitional triples. Your next call
+MUST be brain_explore(label=<same concept>, depth=1) to retrieve the
+verb-form and part_of edges that describe the concept. Do NOT emit
+DONE on a no-definition result alone — the brain has content; you
+just need a wider tool to surface it. Books, narratives, and prose-
+ingested substrates almost never produce definitional triples; their
+content lives in brain_explore output.
+
 Reply with one of:
   {{"tool": "brain_value", "concept": "...", "type": "..."}}
   {{"tool": "brain_define", "concept": "..."}}
@@ -471,6 +482,46 @@ class StatelessReader:
                             "call": {"tool": "brain_define", "args": rec_args},
                             "result": rec_result[:300],
                         })
+
+            # ---- Python-side NO-DEFINITION RECOVERY ----
+            # Both routers (cortex + small Ollama) call brain_define for
+            # "what is X?" questions, but prose-ingested brains (books,
+            # narratives, conversational substrates) rarely produce
+            # 'X is Y' definitional triples — content lives in verb-form
+            # and part_of edges. When brain_define returns "no
+            # definitional edges" but the concept exists, automatically
+            # call brain_explore(label=concept, depth=1) so the
+            # synthesis layer has substantive substrate to ground in.
+            if (
+                tool_name == "brain_define"
+                and isinstance(result, str)
+                and result.startswith("No definitional edges")
+                and "concept" in args
+            ):
+                rec_args = {"label": args["concept"], "depth": 1}
+                rec_key = ("brain_explore", tuple(sorted(rec_args.items())))
+                if rec_key not in seen_calls:
+                    seen_calls.add(rec_key)
+                    try:
+                        rec_result = execute_tool(
+                            self.brain, "brain_explore", rec_args
+                        )
+                    except Exception as exc:
+                        rec_result = f"<<tool error: {exc}>>"
+                    _audit_tool_call(
+                        "brain_explore", rec_args,
+                        rec_result if isinstance(rec_result, str) else "",
+                    )
+                    gathered.append({
+                        "call": {"tool": "brain_explore", "args": rec_args},
+                        "result": rec_result,
+                    })
+                    trace.append({
+                        "step": step,
+                        "event": "auto_recovery_no_definition",
+                        "call": {"tool": "brain_explore", "args": rec_args},
+                        "result": rec_result[:300] if isinstance(rec_result, str) else "",
+                    })
 
         # ---- Synthesis ----
         if self.skip_synthesis:

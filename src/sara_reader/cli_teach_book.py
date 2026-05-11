@@ -35,7 +35,9 @@ from pathlib import Path
 
 from sara_brain.core.brain import Brain
 from sara_brain.cortex.parser import EnhancedParser
-from sara_brain.cortex.transformer.v2.extractor_rules import extract_triples
+from sara_brain.cortex.transformer.v2.extractor_rules import (
+    extract_triples as extract_triples_rules,
+)
 from sara_brain.cortex.transformer.v2.format_readers import detect_format, read
 
 
@@ -81,6 +83,12 @@ def main(argv: list[str] | None = None) -> int:
         "--quiet", action="store_true",
         help="Suppress per-triple stderr lines.",
     )
+    p.add_argument(
+        "--extractor", default="rules", choices=("rules", "trained"),
+        help="Triple extractor: 'rules' = deterministic spaCy+rules stub "
+             "(default, fast); 'trained' = hamroby_extractor_v1 trained head "
+             "(loads canonical .pt checkpoint, uses spaCy sm+trf cascade).",
+    )
     args = p.parse_args(argv)
 
     fmt = args.format or detect_format(args.source)
@@ -93,13 +101,35 @@ def main(argv: list[str] | None = None) -> int:
         print("error: spaCy is not installed (.venv/bin/pip install spacy)",
               file=sys.stderr)
         return 2
-    try:
-        nlp = spacy.load("en_core_web_sm")
-    except OSError:
-        print("error: en_core_web_sm model not found "
-              "(.venv/bin/python -m spacy download en_core_web_sm)",
+    # Select the extractor and load the appropriate nlp. The trained
+    # head benefits from the cascade nlp (sm + trf fallback for
+    # degenerate parses); the rule stub works fine with plain sm.
+    if args.extractor == "trained":
+        from sara_brain.cortex.transformer.hamroby_extractor_v1.feature_extractor import (
+            load_domain_nlp,
+        )
+        from sara_brain.cortex.transformer.hamroby_extractor_v1.inference import (
+            extract_triples as extract_triples_trained,
+        )
+        extract_triples = extract_triples_trained
+        print("[teach-book] extractor=trained (hamroby_extractor_v1, cascade nlp)",
               file=sys.stderr)
-        return 2
+        try:
+            nlp = load_domain_nlp()
+        except OSError as e:
+            print(f"error: failed to load cascade nlp: {e}", file=sys.stderr)
+            return 2
+    else:
+        extract_triples = extract_triples_rules
+        print("[teach-book] extractor=rules (deterministic, plain sm)",
+              file=sys.stderr)
+        try:
+            nlp = spacy.load("en_core_web_sm")
+        except OSError:
+            print("error: en_core_web_sm model not found "
+                  "(.venv/bin/python -m spacy download en_core_web_sm)",
+                  file=sys.stderr)
+            return 2
 
     if not args.dry_run:
         Path(args.brain).parent.mkdir(parents=True, exist_ok=True)

@@ -192,6 +192,123 @@ def _is_no_match(result: str) -> bool:
     return any(result.startswith(p) for p in _NO_MATCH_PREFIXES)
 
 
+# ---- v053 wavefront helpers (the brain's native query mechanism) ----
+
+# Stopwords for question seed extraction. Conservative: keep anything
+# that might be a content concept in the brain; only strip closed-class
+# function words and benchmark-style framing words.
+_WAVEFRONT_STOPWORDS: frozenset[str] = frozenset({
+    "the", "a", "an", "of", "to", "in", "on", "at", "by", "for", "with",
+    "as", "is", "are", "was", "were", "be", "been", "being", "am",
+    "do", "does", "did", "have", "has", "had", "will", "would", "could",
+    "should", "can", "may", "might", "this", "that", "these", "those",
+    "i", "you", "he", "she", "it", "we", "they", "me", "him", "her",
+    "us", "them", "my", "your", "his", "its", "our", "their",
+    "what", "which", "who", "whom", "whose", "where", "when", "why",
+    "how", "tell", "about", "describe", "explain", "define",
+    "following", "best", "most", "many", "some", "any", "each", "every",
+    "both", "and", "or", "but", "not", "no", "yes", "if", "then", "than",
+    "from", "into", "through", "over", "under", "between", "across",
+    "after", "before", "during", "while", "since", "until", "because",
+    "though", "although", "however", "therefore", "moreover", "thus",
+})
+
+
+def _extract_seed_concepts(question: str) -> list[str]:
+    """Pull content-word seeds from the question for wavefront propagation.
+
+    Lowercased; non-alphabetic tokens dropped (numbers and acronyms in
+    weird shapes need a different path). Keeps multi-word potential
+    seeds by including bigrams of adjacent content words — gives the
+    wavefront a chance to seed compound labels like 'directional
+    selection' when both 'directional' and 'selection' appear.
+    """
+    words = re.findall(r"[a-zA-Z][a-zA-Z'-]+", question)
+    lowered = [w.lower() for w in words]
+    content = [w for w in lowered if w not in _WAVEFRONT_STOPWORDS and len(w) >= 3]
+    # Bigrams from adjacent content positions (after stopword stripping):
+    # walk the original token sequence so the bigram preserves order.
+    bigrams: list[str] = []
+    prev_was_content = False
+    prev_word = ""
+    for w in lowered:
+        if w in _WAVEFRONT_STOPWORDS or len(w) < 3:
+            prev_was_content = False
+            continue
+        if prev_was_content and prev_word:
+            bigrams.append(f"{prev_word} {w}")
+        prev_word = w
+        prev_was_content = True
+    # Combine; dedupe while preserving order.
+    seen: set[str] = set()
+    out: list[str] = []
+    for s in bigrams + content:
+        if s not in seen:
+            seen.add(s)
+            out.append(s)
+    return out
+
+
+def _format_wavefront_substrate(brain, seeds: list[str],
+                                convergence_map: dict,
+                                intersections) -> str:
+    """Render the wavefront's output as a substrate fact string.
+
+    Lines:
+      Wavefront(seeds=[...]) → {N_intersect} intersections, {N_conv} reached.
+      Intersections (multi-wavefront convergence — the recognition result):
+        - <label> (strength=...)
+      Reached (all neurons touched):
+        - <label> (strength=...)
+    """
+    lines: list[str] = []
+    lines.append(
+        f"Wavefront from {len(seeds)} seed(s) {seeds!r}: "
+        f"{len(intersections)} intersection(s), "
+        f"{len(convergence_map)} neuron(s) reached.",
+    )
+
+    # Resolve intersection neurons to labels.
+    inter_items = (
+        intersections.items() if isinstance(intersections, dict)
+        else [(t[0], t[1]) for t in intersections]
+    )
+    inter_resolved: list[tuple[str, float]] = []
+    for nid, weight in inter_items:
+        n = brain.neuron_repo.get_by_id(nid)
+        if n is None:
+            continue
+        inter_resolved.append((n.label, float(weight)))
+    inter_resolved.sort(key=lambda x: -x[1])
+
+    if inter_resolved:
+        lines.append("")
+        lines.append(
+            "Intersections (multi-wavefront convergence — "
+            "the recognition result):",
+        )
+        for label, w in inter_resolved[:25]:
+            lines.append(f"  - {label!r} (strength={w:.2f})")
+
+    # Then the broader convergence map for context.
+    if convergence_map:
+        conv_resolved: list[tuple[str, float]] = []
+        for nid, weight in convergence_map.items():
+            n = brain.neuron_repo.get_by_id(nid)
+            if n is None:
+                continue
+            conv_resolved.append((n.label, float(weight)))
+        conv_resolved.sort(key=lambda x: -x[1])
+        lines.append("")
+        lines.append(
+            f"Reached (full convergence map, top 30 of {len(conv_resolved)}):",
+        )
+        for label, w in conv_resolved[:30]:
+            lines.append(f"  - {label!r} (strength={w:.2f})")
+
+    return "\n".join(lines)
+
+
 def _compound_recovery_concepts(concept: str, type_filter: str | None) -> list[str]:
     """Build candidate compound labels for a no-match recovery."""
     if not type_filter:
@@ -340,6 +457,40 @@ class StatelessReader:
         gathered: list[dict] = []
         trace: list[dict] = []
         seen_calls: set[tuple] = set()
+
+        # ---- Wavefront-first (v053 — restored as the brain's primary
+        # query mechanism per Pearl 2026a / rev8) ----
+        # Parallel wavefront propagation IS the brain's defining
+        # function. Every question runs wavefront FIRST, before any
+        # LLM-driven tool selection. Question content words become
+        # propagation seeds; intersections become recognition results.
+        # The synthesizer receives the convergence output as the
+        # primary substrate. Tools like brain_value / brain_define
+        # remain for supplementary drill-downs but never as
+        # alternatives to wavefront.
+        #
+        # Per memory rule `feedback_wavefront_is_the_brain.md`: this is
+        # not optional and not behind a flag. Demoting wavefront to one
+        # tool option in a flat menu was the v050/v052 architectural
+        # error this restoration corrects.
+        wavefront_result = self._run_wavefront(question)
+        if wavefront_result is not None:
+            gathered.append({
+                "call": {
+                    "tool": "brain_wavefront",
+                    "args": {"seeds": wavefront_result["seeds"]},
+                },
+                "result": wavefront_result["substrate"],
+            })
+            trace.append({
+                "step": "wavefront_first",
+                "event": "tool_executed",
+                "call": {
+                    "tool": "brain_wavefront",
+                    "args": {"seeds": wavefront_result["seeds"]},
+                },
+                "result": wavefront_result["substrate"][:300],
+            })
 
         # ---- Explore-first (v052 follow-up) ----
         # Always start with brain_explore depth=3 on a heuristic-
@@ -569,6 +720,41 @@ class StatelessReader:
                 "routing_steps": len(gathered),
             }
         return answer
+
+    def _run_wavefront(self, question: str) -> dict | None:
+        """Run the brain's native wavefront query for the question.
+
+        Extracts content-word seeds from the question, propagates each
+        in parallel through the substrate (property → relation →
+        concept paths), and returns the convergence map as a substrate
+        fact the synthesizer can ground in. Read-only — never mutates
+        the graph.
+
+        Returns None when no seeds could be extracted. Otherwise:
+            {
+              "seeds":     ["word1", "word2", ...],
+              "substrate": "<rendered convergence map + intersections>",
+            }
+        """
+        seeds = _extract_seed_concepts(question)
+        if not seeds:
+            return None
+        try:
+            with self.brain.short_term(event_type="ask_wavefront") as st:
+                self.brain.propagate_into(
+                    seeds, st, exact_only=True,
+                )
+                convergence_map = dict(st.convergence_map)
+                intersections = st.intersections(min_sources=2)
+        except Exception as exc:
+            return {
+                "seeds": seeds,
+                "substrate": f"<<wavefront error: {exc}>>",
+            }
+        substrate = _format_wavefront_substrate(
+            self.brain, seeds, convergence_map, intersections,
+        )
+        return {"seeds": seeds, "substrate": substrate}
 
     def _route_step(
         self,

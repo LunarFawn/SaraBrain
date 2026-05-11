@@ -50,11 +50,16 @@ CHECKPOINT = Path(os.environ.get(
 
 
 BATTERY = [
-    # 4 named failures.
+    # 4 originally named failures.
     ("K_d for the binding is 1.2nM.", "failure"),
     ("Marker theory predicts kdoff with p<0.05.", "failure"),
     ("The 5'3' static stem provides stability.", "failure"),
     ("Noticing a limitation shows the way.", "failure"),
+    # Remaining failures after aug3 — added 2026-05-10 for round-3 diagnosis.
+    ("DNA and RNA share base pairing.", "failure"),
+    ("Cluster analysis groups proteins by similarity.", "failure"),
+    ("She bought apples and oranges.", "failure"),
+    ("Researchers compared yeast and mammalian cells.", "failure"),
     # 9 controls (mix of clean SVOs, intransitives, copulars, conjunctions).
     ("Bruce Lee created Jeet Kune Do.", "control"),
     ("She built a house.", "control"),
@@ -128,7 +133,12 @@ def main() -> int:
 
     print("Loading spaCy (default tokenizer for rule stub)...", file=sys.stderr)
     import spacy
-    nlp_default = spacy.load("en_core_web_sm")
+    # Use the same model load_domain_nlp uses so the rule-stub view in
+    # the report matches what the production rule stub sees.
+    try:
+        nlp_default = spacy.load("en_core_web_trf")
+    except OSError:
+        nlp_default = spacy.load("en_core_web_sm")
 
     failures = []
     controls = []

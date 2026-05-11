@@ -38,9 +38,9 @@ import importlib.util
 import json
 import random
 import sys
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Callable
+from typing import Any, Callable
 
 # Import the existing scene generator + templates by file path so this
 # module is reusable from the package without restructuring papers/.
@@ -89,6 +89,22 @@ class Pair:
     object_span: tuple[int, int]
     template: str
     qualifiers: list[str]
+    # Optional pre-computed ParsedSentence (POS_id/dep_id/offset/funcword
+    # per word + char_offsets). When set, the training pipeline uses this
+    # directly and SKIPS calling spaCy on the prose. Used by UD-sourced
+    # real-prose pairs to deliver gold UD features rather than the noisy
+    # spaCy re-parse on delexicalized text.
+    #
+    # Type is `Any` to avoid a circular import with hamroby_extractor_v1
+    # (which imports Pair from this module). The actual runtime type is
+    # `hamroby_extractor_v1.feature_extractor.ParsedSentence | None`.
+    pre_parsed: Any = None
+    # Additional B-O regions in the SAME training example. Used for
+    # conj-of-dobj: for "She bought apples and oranges", set
+    # object_span = "apples" span, additional_object_spans = [oranges span].
+    # The model trains on multi-B-O labels directly instead of averaging
+    # competing per-conjunct Pairs (which made it pick one conjunct).
+    additional_object_spans: list[tuple[int, int]] | None = None
 
     def to_json(self) -> dict:
         return {
@@ -477,6 +493,7 @@ def _render_passive(subject: str, action: str, obj: str) -> str:
 _OBLIQUE_PREPS: tuple[str, ...] = (
     "with", "without", "via", "through", "during",
     "after", "before", "under", "near", "alongside",
+    "by",
 )
 
 
@@ -502,9 +519,118 @@ def _render_intj_copular(subject_token: str, value: str) -> str:
     return f"{subject_token} is {value} ."
 
 
+# Subject-modifying preps for the PP-extended INTJ copular template.
+# These attach a head-modifier PP to the weird subject token (e.g.
+# "K_d for the binding is 1.2nM"). The pobj IS part of the subject
+# span — the model must learn that the cop verb "is", not the prep,
+# is the subject/relation boundary.
+_INTJ_SUBJECT_MODIFIER_PREPS: tuple[str, ...] = (
+    "for", "of", "in", "at", "between",
+)
+
+
+def _render_conjoined_object(
+    subject: str, action: str, o1: str, o2: str,
+) -> str:
+    """X action A and B. — Conjoined direct object as bare nouns
+    (no articles). Targets the "She bought apples and oranges" pattern
+    where the trained head fails to tag bare single-word conjuncts."""
+    return f"{subject} {action} {o1} and {o2} ."
+
+
+def _render_compound_oblique(
+    subject: str, action: str, obj: str, prep: str, oblique_token: str,
+) -> str:
+    """<2-word compound subject> action obj prep token. — Same shape as
+    t_with_oblique but with subject FORCED to be a multi-word compound
+    NP. Targets the "Marker theory predicts kdoff with p<0.05" pattern
+    where the model swallows the verb into the subject span."""
+    return f"{subject} {action} {obj} {prep} {oblique_token} ."
+
+
+def _render_intj_pp_copular(
+    subject_token: str, prep: str, head_noun: str, value: str,
+) -> str:
+    """`<weird> prep the <head>` is `<value>`. — INTJ-tagged subject
+    token with a PP head-modifier. The full `<weird> prep the <head>`
+    span is the subject; `is` is the relation; `<value>` is the
+    object. Targets the K_d-style failure where the trained head
+    leaks the prep into the subject and elevates the pobj to a
+    spurious object."""
+    return f"{subject_token} {prep} the {head_noun} is {value} ."
+
+
 _OBLIQUE_TEMPLATE_PROB = 0.35   # share of scenes that emit a t_with_oblique pair
 _CONJ_SUBJECT_PROB = 0.20       # share of scenes that emit a t_conjoined_subject pair
+_CONJ_OBJECT_PROB = 0.20        # share of scenes that emit a t_conjoined_object pair (bare-noun conjuncts)
+_CONJ_OBJECT_PRONOUN_PROB = 0.30 # share of t_conjoined_object emissions that use a pronoun subject
+_COMPOUND_OBLIQUE_PROB = 0.25   # share of scenes that emit a t_compound_oblique pair (forces 2-word subject)
 _INTJ_COPULAR_PROB = 0.25       # share of scenes that emit a t_intj_subject_copular pair
+_INTJ_PP_MODIFIER_PROB = 0.30   # share of INTJ-copular emissions that get a PP modifier on the subject
+
+# Subject pronouns for templates that need PRON nsubj training signal
+# (conjoined-dobj patterns generalize poorly from compound-NP-only
+# subjects). Capitalized for sentence-initial position.
+_PRONOUN_SUBJECTS: tuple[str, ...] = (
+    "She", "He", "They", "We", "I", "It",
+)
+
+
+# Lazy-loaded spaCy nlp for build-time POS verification on conjoined-dobj
+# templates. spaCy's POS classifier is noisy on out-of-vocab nonsense
+# tokens — ~27% of synthetic conj-dobj pairs come back with mismatched
+# POS (e.g. dobj=NOUN, conj=PROPN). Real English always has both as
+# NOUN, so we filter the synthetic data to match.
+_SPACY_NLP_FOR_VERIFY = None
+
+
+def _get_verify_nlp():
+    """Load spaCy for build-time POS verification. Uses en_core_web_trf
+    to match what feature_extractor.load_domain_nlp() uses at training
+    and inference time — the filter should reflect the same POS
+    distribution the model will actually see."""
+    global _SPACY_NLP_FOR_VERIFY
+    if _SPACY_NLP_FOR_VERIFY is None:
+        import spacy
+        try:
+            _SPACY_NLP_FOR_VERIFY = spacy.load("en_core_web_trf")
+        except OSError:
+            # Fallback for environments without the trf model.
+            _SPACY_NLP_FOR_VERIFY = spacy.load("en_core_web_sm")
+    return _SPACY_NLP_FOR_VERIFY
+
+
+def _conj_dobj_both_noun(prose: str) -> bool:
+    """True iff the dobj and the conj-of-dobj in this prose have
+    CONSISTENT POS (e.g. both NOUN, or both PROPN). Used to drop
+    synthetic pairs whose feature stream is internally inconsistent
+    (one NOUN, one PROPN) — those create averaging artifacts at
+    training time.
+
+    Originally checked only `NOUN-NOUN` because en_core_web_sm
+    typically tagged real English conj-objects as NOUN-NOUN; with
+    en_core_web_trf, nonsense tokens get tagged PROPN-PROPN
+    consistently. Both are valid consistent patterns; the model
+    learns the dep-structure regardless of which POS label spaCy
+    assigns.
+    """
+    nlp = _get_verify_nlp()
+    doc = nlp(prose)
+    dobj_pos = None
+    conj_pos = None
+    for tok in doc:
+        if tok.dep_ == "dobj" and dobj_pos is None:
+            dobj_pos = tok.pos_
+        elif (tok.dep_ == "conj"
+              and tok.head.dep_ == "dobj"
+              and conj_pos is None):
+            conj_pos = tok.pos_
+    return (
+        dobj_pos is not None
+        and conj_pos is not None
+        and dobj_pos == conj_pos
+        and dobj_pos in ("NOUN", "PROPN")
+    )
 
 
 def _emit_rich_pairs(
@@ -546,42 +672,50 @@ def _emit_rich_pairs(
         if p is not None:
             out.append(p)
 
-    # List-object — one prose, one Pair per object in the list.
+    # List-object — one prose, ONE Pair with multi-object labels. Each
+    # conjunct is a separate B-O region (primary `object_span` + entries
+    # in `additional_object_spans`). The decoder emits one triple per
+    # B-O span, so the test format ("one triple per conjunct") is
+    # preserved while the training signal becomes "label all conjuncts"
+    # instead of N competing per-conjunct labels.
     if extra_objects:
         if len(extra_objects) >= 2:
             o1, o2, o3 = obj, extra_objects[0], extra_objects[1]
             prose = _render_list_three(subject, action, o1, o2, o3)
-            for target_obj in (o1, o2, o3):
-                start_after = 0
-                if target_obj == o2:
-                    # Skip past o1 occurrence
-                    occ1 = _find_span(prose, o1)
-                    start_after = occ1[1] if occ1 else 0
-                elif target_obj == o3:
-                    occ2 = _find_span(prose, o2)
-                    start_after = occ2[1] if occ2 else 0
-                p = _build_pair_strings(
-                    prose, subject, action, target_obj,
-                    "t_list_object_three", qualifiers,
-                    object_after=start_after,
-                )
-                if p is not None:
-                    out.append(p)
+            p = _build_pair_strings(
+                prose, subject, action, o1,
+                "t_list_object_three", qualifiers,
+            )
+            if p is not None:
+                # Find o2, o3 spans walking forward through the prose.
+                occ1 = _find_span(prose, o1)
+                extras: list[tuple[int, int]] = []
+                if occ1:
+                    o2_span = _find_span(prose, o2, start_at=occ1[1])
+                    if o2_span:
+                        extras.append(o2_span)
+                        o3_span = _find_span(prose, o3, start_at=o2_span[1])
+                        if o3_span:
+                            extras.append(o3_span)
+                if extras:
+                    p.additional_object_spans = extras
+                    p.obj = " | ".join([o1, o2, o3])
+                out.append(p)
         else:  # len == 1
             o1, o2 = obj, extra_objects[0]
             prose = _render_list_two(subject, action, o1, o2)
-            for target_obj in (o1, o2):
-                start_after = 0
-                if target_obj == o2:
-                    occ1 = _find_span(prose, o1)
-                    start_after = occ1[1] if occ1 else 0
-                p = _build_pair_strings(
-                    prose, subject, action, target_obj,
-                    "t_list_object_two", qualifiers,
-                    object_after=start_after,
-                )
-                if p is not None:
-                    out.append(p)
+            p = _build_pair_strings(
+                prose, subject, action, o1,
+                "t_list_object_two", qualifiers,
+            )
+            if p is not None:
+                occ1 = _find_span(prose, o1)
+                if occ1:
+                    o2_span = _find_span(prose, o2, start_at=occ1[1])
+                    if o2_span:
+                        p.additional_object_spans = [o2_span]
+                        p.obj = " | ".join([o1, o2])
+                out.append(p)
 
     # Verb-with-oblique: "X action Y prep Z." where Z is a manner /
     # instrument / temporal modifier the model must NOT include in the
@@ -611,6 +745,95 @@ def _emit_rich_pairs(
                 if p is not None:
                     out.append(p)
 
+    # Compound-subject + oblique: same shape as t_with_oblique but with
+    # subject FORCED to be a multi-word compound NP (no article). Targets
+    # the "Marker theory predicts kdoff with p<0.05" failure where the
+    # trained head swallows the ROOT VERB into a multi-word subject span.
+    if gen is not None and " " not in action and _is_passivizable(action):
+        if rng.random() < _COMPOUND_OBLIQUE_PROB:
+            # Build a fresh 2-word compound subject; do NOT attach an
+            # article — bare compound noun is the pattern under test
+            # (e.g. "Marker theory", "Cluster analysis"). Skip weird-token
+            # swap so both words are noun-shaped.
+            compound_subj = gen._random_compound(rng, n_words=2)
+            prep = rng.choice(_OBLIQUE_PREPS)
+            for _ in range(5):
+                if rng.random() < 0.5:
+                    obl = _random_weird_token(rng, gen)
+                else:
+                    obl = gen._random_word(rng, min_len=3, max_len=6)
+                if (obl != compound_subj and obl != obj
+                        and obl not in compound_subj and obl not in obj):
+                    break
+            else:
+                obl = None
+            if obl and compound_subj != obj and obj not in compound_subj:
+                prose = _render_compound_oblique(
+                    compound_subj, action, obj, prep, obl,
+                )
+                p = _build_pair_strings(
+                    prose, compound_subj, action, obj,
+                    "t_compound_oblique", qualifiers,
+                )
+                if p is not None:
+                    out.append(p)
+
+    # Conjoined object (bare-noun conjuncts): "X action A and B." where
+    # A and B are BARE single-word nouns (no article, no compound). One
+    # Pair per conjunct (same prose, two triples). Targets the "She
+    # bought apples and oranges" failure where the trained head emits O
+    # on bare conjoined dobjs. Different shape than t_list_object_two,
+    # whose objects mix articles and 1- or 2-word compounds.
+    #
+    # Subject is the scene's subject (compound NP) most of the time, but
+    # PRON-subject variants ("She bought A and B.") are emitted at
+    # _CONJ_OBJECT_PRONOUN_PROB so the model sees PRON nsubj + bare conj
+    # dobj features — without this, pronoun subjects systematically fail
+    # on conjoined dobjs (regression observed in aug4 vs original).
+    if gen is not None and " " not in action and _is_passivizable(action):
+        if rng.random() < _CONJ_OBJECT_PROB:
+            if rng.random() < _CONJ_OBJECT_PRONOUN_PROB:
+                co_subject = rng.choice(_PRONOUN_SUBJECTS)
+            else:
+                co_subject = subject
+            # Retry up to 8 times: regenerate (o1, o2) until both
+            # conjuncts get spaCy POS=NOUN. Without this filter, ~27%
+            # of synthetic pairs come back with conj=PROPN and create
+            # a feature mismatch with real English at inference.
+            o1 = o2 = prose = None
+            for _ in range(8):
+                cand_o1 = gen._random_compound(rng, n_words=1)
+                cand_o2 = gen._random_compound(rng, n_words=1)
+                if (cand_o1 == cand_o2 or cand_o1 == co_subject
+                        or cand_o2 == co_subject
+                        or cand_o1 in co_subject or cand_o2 in co_subject):
+                    continue
+                cand_prose = _render_conjoined_object(
+                    co_subject, action, cand_o1, cand_o2,
+                )
+                if _conj_dobj_both_noun(cand_prose):
+                    o1, o2, prose = cand_o1, cand_o2, cand_prose
+                    break
+            if o1 is not None:
+                # Emit ONE Pair labeling BOTH conjuncts as objects (one
+                # primary B-O span + one additional_object_spans entry).
+                # Replaces the previous per-conjunct two-Pair structure
+                # whose competing labels averaged into a "pick one"
+                # behavior — multi-object training directly supervises
+                # "tag both conjuncts."
+                p = _build_pair_strings(
+                    prose, co_subject, action, o1,
+                    "t_conjoined_object", qualifiers,
+                )
+                if p is not None:
+                    occ1 = _find_span(prose, o1)
+                    if occ1:
+                        o2_span = _find_span(prose, o2, start_at=occ1[1])
+                        if o2_span:
+                            p.additional_object_spans = [o2_span]
+                            p.obj = " | ".join([o1, o2])
+                    out.append(p)
+
     # Conjoined subject: "X and Y action Z." Subject is the full
     # `X and Y` span. Only emitted with single-word transitive actions.
     if gen is not None and " " not in action and _is_passivizable(action):
@@ -637,6 +860,13 @@ def _emit_rich_pairs(
     # model that scientific-notation tokens (subscripts like K_d,
     # alphanums like kdoff, acronyms like ATP) can be subjects in
     # copular constructions even when spaCy mistags them as INTJ.
+    #
+    # Two flavors:
+    #   (a) bare:        "<weird> is <value>."
+    #   (b) PP-modified: "<weird> prep the <head> is <value>."
+    #                    Subject is the FULL "<weird> prep the <head>"
+    #                    span — the cop verb is the boundary, not the
+    #                    prep. Targets the K_d-for-the-binding failure.
     if gen is not None and rng.random() < _INTJ_COPULAR_PROB:
         weird_subj = _random_weird_token(rng, gen)
         # Value can be another weird token (concentration, significance)
@@ -646,11 +876,33 @@ def _emit_rich_pairs(
         else:
             value_core = gen._random_compound(rng, n_words=1)
             value = _maybe_attach_article(value_core, rng)
-        if weird_subj != value:
+
+        # Decide bare vs PP-modified subject.
+        attach_pp = rng.random() < _INTJ_PP_MODIFIER_PROB
+        if attach_pp:
+            prep = rng.choice(_INTJ_SUBJECT_MODIFIER_PREPS)
+            head_noun = None
+            for _ in range(5):
+                cand = gen._random_compound(rng, n_words=1)
+                if cand and cand != weird_subj and cand != value and cand not in value:
+                    head_noun = cand
+                    break
+            if head_noun is None:
+                attach_pp = False  # fall back to bare
+
+        if attach_pp:
+            full_subject = f"{weird_subj} {prep} the {head_noun}"
+            prose = _render_intj_pp_copular(weird_subj, prep, head_noun, value)
+            template_name = "t_intj_subject_pp_copular"
+        else:
+            full_subject = weird_subj
             prose = _render_intj_copular(weird_subj, value)
+            template_name = "t_intj_subject_copular"
+
+        if full_subject != value and value not in full_subject:
             p = _build_pair_strings(
-                prose, weird_subj, "is", value,
-                "t_intj_subject_copular", qualifiers,
+                prose, full_subject, "is", value,
+                template_name, qualifiers,
             )
             if p is not None:
                 out.append(p)

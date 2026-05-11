@@ -41,8 +41,18 @@ class GoldTriple:
 # UD relation labels that count as a subject. spaCy/CLearNLP path is
 # normalized upstream; UD's own annotation uses these directly.
 _SUBJ_DEPRELS = frozenset({"nsubj", "csubj"})
-# Object-bearing UD deprels.
-_OBJ_DEPRELS = frozenset({"obj", "iobj", "obl", "xcomp", "ccomp"})
+# Primary object-bearing UD deprels. These are always treated as objects
+# of the predicate.
+_PRIMARY_OBJ_DEPRELS = frozenset({"obj", "iobj", "xcomp", "ccomp"})
+# Oblique modifiers. UD tags `obl` for PP-modifiers like "by similarity"
+# or "during loading" — semantically these are adjuncts, not arguments.
+# Only treat `obl` as a triple object when the predicate has NO primary
+# object (e.g. "fold INTO HAIRPINS" — `hairpins` is `obl`, no `obj`, so
+# it IS the object). When a primary `obj` exists, `obl` is an oblique
+# modifier and should be skipped — matches the rule stub's behavior.
+_OBLIQUE_DEPRELS = frozenset({"obl"})
+# Kept for backwards reference; not used directly in the algorithm.
+_OBJ_DEPRELS = _PRIMARY_OBJ_DEPRELS | _OBLIQUE_DEPRELS
 # Particles/preps attached to the verb that should be glued onto the
 # relation (e.g. "fold into" — `into` is `case` attached to the obl).
 _RELATION_PARTICLE_DEPRELS = frozenset({
@@ -129,13 +139,36 @@ def extract_triples_from_ud(sentence) -> list[GoldTriple]:
         obj_heads: list[int] = []
         if is_copular and not is_verb:
             obj_heads.append(pred_idx)
+        # Two-pass: prefer primary objects (obj/iobj/xcomp/ccomp) over
+        # obliques (obl). When a predicate has at least one primary
+        # object, treat `obl` children as oblique modifiers (adjuncts)
+        # and skip them — they're not additional triple objects. When
+        # the predicate has NO primary object, fall back to `obl` (e.g.
+        # "fold INTO HAIRPINS" — no `obj`, `hairpins` IS the object).
+        primary_obj_children: list[int] = []
+        oblique_children: list[int] = []
         for c in children.get(pred_idx, ()):
             base = _strip_subtype(tokens[c].dep)
-            if base in _OBJ_DEPRELS:
-                obj_heads.append(c)
-                for cc in children.get(c, ()):
-                    if _strip_subtype(tokens[cc].dep) == "conj":
-                        obj_heads.append(cc)
+            if base in _PRIMARY_OBJ_DEPRELS:
+                primary_obj_children.append(c)
+            elif base in _OBLIQUE_DEPRELS:
+                oblique_children.append(c)
+        # For copular predicates, the predicate noun IS the "object" —
+        # oblique modifiers should NOT add extra triples.
+        if is_copular and not is_verb:
+            use_obl = False
+        elif primary_obj_children:
+            use_obl = False
+        else:
+            use_obl = True
+        candidate_children = primary_obj_children + (
+            oblique_children if use_obl else []
+        )
+        for c in candidate_children:
+            obj_heads.append(c)
+            for cc in children.get(c, ()):
+                if _strip_subtype(tokens[cc].dep) == "conj":
+                    obj_heads.append(cc)
         if not obj_heads:
             continue
 

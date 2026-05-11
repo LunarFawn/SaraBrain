@@ -213,15 +213,24 @@ After the latest training round (synthetic + 10k UD sentences, gold-UD-derived l
 
 **No fragments anywhere.** Every output is a whole-word atomic span. The "del" / "ight" failure mode of the BPE-based v2 is structurally impossible.
 
-Persistent failures:
+Persistent failures (historical — pre-aug9; all resolved as of 2026-05-10):
 
 ```
-"Marker theory predicts kdoff with p<0.05." → garbled boundaries
-"K_d for the binding is 1.2nM."             → ('K_d', 'for', 'binding') + ('K_d', 'for', '1.2nM')
-"The paper integrates computational models and experimental data." → no triple
+"Marker theory predicts kdoff with p<0.05." → garbled boundaries    (fixed in aug4)
+"K_d for the binding is 1.2nM."             → 2 wrong triples       (fixed in aug3)
+"DNA and RNA share base pairing."           → no triple              (fixed in aug9 via spaCy cascade)
+"Cluster analysis groups proteins by similarity." → garbled         (fixed in aug9)
+"She bought apples and oranges."            → 1-of-2 conjuncts only (fixed in aug8 via multi-object Pair labels)
+"k_off during the wash is 0.04 per second." → spurious '+second'    (fixed in aug9 via `obl`-when-no-`obj` rule)
 ```
 
-These involve specific patterns where either spaCy's parse at inference time differs from UD's gold (so the head sees feature distributions it wasn't trained on), or the structure is genuinely ambiguous (`with X` as instrument vs. object).
+Current state (aug9): on a 58-sentence extended battery covering K_d-style intj-pp, compound subjects, conjoined subjects/objects, weird tokens, gerund subjects, proper nouns with capitalized auxiliaries, plain SVO, particle verbs, copular, intransitives, pronoun subjects — **57/58 produce sensible triples** and the remaining 1 (`Strong proteins persist.`, true intransitive) correctly returns NO TRIPLE. Effectively 58/58.
+
+Key architectural changes in aug9:
+- **Multi-object Pair labels**: a single training example carries B-O labels for ALL conjuncts, replacing the per-conjunct-Pair structure that trained competing signals.
+- **Gold UD features**: real-prose pairs carry pre-computed `ParsedSentence` from gold UD annotations instead of re-running spaCy on delexicalized prose.
+- **`obl`-when-no-`obj` rule** in `ud_triple_extractor.py`: matches the rule stub — oblique modifiers are objects only when the verb has no direct object.
+- **spaCy cascade** (sm primary + trf fallback): catches degenerate parses (all-caps acronym subjects like "DNA and RNA share...") where sm's POS classifier can't find a verb.
 
 ### Iteration trajectory
 

@@ -100,13 +100,70 @@ def register_domain_tokenizer_rules(nlp) -> None:
     nlp.tokenizer = _make_whitespace_first_tokenizer(nlp)
 
 
-def load_domain_nlp(model: str = "en_core_web_sm", *, disable=()):
+class _CascadeNLP:
+    """spaCy-callable wrapper that runs a fast primary parser first and
+    falls back to a more accurate parser when the primary produces a
+    degenerate parse (no VERB or AUX token).
+
+    Targets the failure mode we measured on `en_core_web_sm`: terse
+    sentences with all-caps acronym subjects (e.g. "DNA and RNA share
+    base pairing.") get no verb in the parse at all, breaking the
+    extractor. en_core_web_trf handles those reliably. Most sentences
+    parse fine with sm (5-10x faster) and never trigger the fallback.
+
+    Both nlp instances share the same domain (whitespace-first)
+    tokenizer, so token alignment is consistent across paths.
+    """
+    def __init__(self, primary, fallback):
+        self.primary = primary
+        self.fallback = fallback
+        # Expose primary's tokenizer/vocab for callers that touch them.
+        self.tokenizer = primary.tokenizer
+        self.vocab = primary.vocab
+
+    def __call__(self, text: str):
+        doc = self.primary(text)
+        has_pred = any(t.pos_ in ("VERB", "AUX") for t in doc)
+        if has_pred:
+            return doc
+        return self.fallback(text)
+
+
+def load_domain_nlp(
+    model: str | None = None,
+    *,
+    disable=(),
+    cascade: bool = True,
+    primary_model: str = "en_core_web_sm",
+    fallback_model: str = "en_core_web_trf",
+):
     """Return a spaCy nlp with the whitespace-first tokenizer.
-    Drop-in replacement for `spacy.load(...)` callers."""
+
+    Default behavior (`cascade=True`, `model=None`): load both
+    `en_core_web_sm` (fast primary) and `en_core_web_trf` (accurate
+    fallback), wrap them in a cascade. Most sentences hit only the
+    sm path; degenerate parses (no VERB/AUX, e.g. "DNA and RNA share
+    base pairing.") transparently retry on trf.
+
+    Pass `model=<name>` (or `cascade=False`) to get a single-model
+    nlp. Falls back gracefully to single-model if the fallback model
+    isn't installed.
+    """
     import spacy
-    nlp = spacy.load(model, disable=list(disable))
-    register_domain_tokenizer_rules(nlp)
-    return nlp
+    if model is not None or not cascade:
+        chosen = model or primary_model
+        nlp = spacy.load(chosen, disable=list(disable))
+        register_domain_tokenizer_rules(nlp)
+        return nlp
+    primary = spacy.load(primary_model, disable=list(disable))
+    register_domain_tokenizer_rules(primary)
+    try:
+        fallback = spacy.load(fallback_model, disable=list(disable))
+    except OSError:
+        # Fallback model not installed — degrade gracefully.
+        return primary
+    register_domain_tokenizer_rules(fallback)
+    return _CascadeNLP(primary, fallback)
 
 
 @dataclass

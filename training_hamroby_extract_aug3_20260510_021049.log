@@ -1,0 +1,9 @@
+[hamroby-extract] device=cuda
+[hamroby-extract] generating features (train 223340 + eval 14840 pairs)...
+[hamroby-extract] train 5000/223340 (385/s, eta 567s, kept 5000)
+[hamroby-extract] train 10000/223340 (385/s, eta 554s, kept 10000)
+[hamroby-extract] train 15000/223340 (382/s, eta 545s, kept 15000)
+[hamroby-extract] train 20000/223340 (388/s, eta 524s, kept 20000)
+[hamroby-extract] train 25000/223340 (393/s, eta 504s, kept 25000)
+[hamroby-extract] train 30000/223340 (398/s, eta 486s, kept 30000)
+[hamroby-extract] train 35000/223340 (403/s, eta 468s, kept 35000)

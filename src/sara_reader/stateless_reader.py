@@ -739,7 +739,17 @@ class StatelessReader:
         seeds = _extract_seed_concepts(question)
         if not seeds:
             return None
+        # Wavefront depth: large brains (dictionary + content >100k
+        # neurons + ~1M edges) produce too much noise at the
+        # Recognizer's default max_depth=3 because the dictionary's
+        # synonym fan-out reaches almost everything. Cap at 2 for the
+        # chat query path — keeps direct + 1-hop bridges intact while
+        # avoiding the second-order synonym flood. Override with
+        # SARA_WAVEFRONT_DEPTH env var if needed.
+        target_depth = int(os.environ.get("SARA_WAVEFRONT_DEPTH", "2"))
+        original_depth = self.brain.recognizer.max_depth
         try:
+            self.brain.recognizer.max_depth = target_depth
             with self.brain.short_term(event_type="ask_wavefront") as st:
                 self.brain.propagate_into(
                     seeds, st, exact_only=True,
@@ -751,6 +761,8 @@ class StatelessReader:
                 "seeds": seeds,
                 "substrate": f"<<wavefront error: {exc}>>",
             }
+        finally:
+            self.brain.recognizer.max_depth = original_depth
         substrate = _format_wavefront_substrate(
             self.brain, seeds, convergence_map, intersections,
         )

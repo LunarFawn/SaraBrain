@@ -249,6 +249,60 @@ def _extract_seed_concepts(question: str) -> list[str]:
     return out
 
 
+# ---- Substrate-aware seed filtering ----
+
+# Maximum seeds to propagate. Even valid seeds can explode on large
+# brains if there are too many. Prioritize compound labels (more
+# specific) over unigrams.
+_MAX_SEEDS = 8
+
+
+def _filter_seeds_by_substrate(brain, candidates: list[str]) -> list[str]:
+    """Keep only candidate seeds that exist as neurons with taught content.
+
+    Filters out thesaurus-only nodes (neurons with segments but no
+    paths) that would cause BFS explosion without contributing
+    knowledge. Prefers compound labels over their constituent unigrams
+    when both resolve — 'directional selection' subsumes 'directional'
+    and 'selection'.
+    """
+    scored: list[tuple[str, int]] = []
+    for label in candidates:
+        neuron = brain.neuron_repo.resolve(label, exact_only=True)
+        if neuron is None:
+            continue
+        # Count paths where this neuron participates (taught content).
+        cur = brain.conn.execute(
+            "SELECT COUNT(*) FROM paths WHERE origin_id = ? OR terminus_id = ?",
+            (neuron.id, neuron.id),
+        )
+        path_count = cur.fetchone()[0]
+        if path_count > 0:
+            scored.append((label, path_count))
+
+    if not scored:
+        return []
+
+    # Sort by path count descending (richer knowledge first).
+    scored.sort(key=lambda x: -x[1])
+
+    # Prefer compound labels: if "directional selection" matched,
+    # drop "directional" and "selection" as redundant.
+    kept: list[str] = []
+    subsumed: set[str] = set()
+    for label, _ in scored:
+        if label in subsumed:
+            continue
+        kept.append(label)
+        # If this is a compound label, subsume its parts.
+        parts = label.split()
+        if len(parts) > 1:
+            for part in parts:
+                subsumed.add(part)
+
+    return kept[:_MAX_SEEDS]
+
+
 def _format_wavefront_substrate(brain, seeds: list[str],
                                 convergence_map: dict,
                                 intersections) -> str:
@@ -724,11 +778,12 @@ class StatelessReader:
     def _run_wavefront(self, question: str) -> dict | None:
         """Run the brain's native wavefront query for the question.
 
-        Extracts content-word seeds from the question, propagates each
-        in parallel through the substrate (property → relation →
-        concept paths), and returns the convergence map as a substrate
-        fact the synthesizer can ground in. Read-only — never mutates
-        the graph.
+        Extracts content-word seeds from the question, filters them
+        against the substrate (only seeds that exist as neurons with
+        taught content survive), propagates each in parallel through
+        the graph, and returns the convergence map as a substrate fact
+        the synthesizer can ground in. Read-only — never mutates the
+        graph.
 
         Returns None when no seeds could be extracted. Otherwise:
             {
@@ -736,9 +791,18 @@ class StatelessReader:
               "substrate": "<rendered convergence map + intersections>",
             }
         """
-        seeds = _extract_seed_concepts(question)
-        if not seeds:
+        candidates = _extract_seed_concepts(question)
+        if not candidates:
             return None
+        # Substrate-aware filtering: keep only seeds that exist as
+        # neurons with real taught content (paths > 0). This prevents
+        # BFS explosion through thesaurus-only nodes on large brains.
+        seeds = _filter_seeds_by_substrate(self.brain, candidates)
+        if not seeds:
+            # Fallback: if nothing matched, try the raw candidates
+            # (small brains without thesaurus won't have the explosion
+            # problem, and we don't want to return nothing).
+            seeds = candidates
         # Wavefront depth: large brains (dictionary + content >100k
         # neurons + ~1M edges) produce too much noise at the
         # Recognizer's default max_depth=3 because the dictionary's

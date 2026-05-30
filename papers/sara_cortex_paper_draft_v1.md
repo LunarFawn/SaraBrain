@@ -223,7 +223,82 @@ The copy model (5.6M parameters) demonstrates that the "cortex" component can be
 
 ---
 
-## 7. Conclusion
+## 7. Current Limitations and What Remains to Be Proven
+
+This paper presents early-stage empirical evidence for a principle that challenges the dominant paradigm. The results are real and reproducible. They are also preliminary. This section states honestly what has been demonstrated and what has not.
+
+### 7.1 What Has Been Demonstrated
+
+1. A 0-parameter graph traversal outperforms a 1.3B parameter model on a biology benchmark (39% vs 33%, source-text bridges with no data leakage)
+2. A 5.6M parameter model trained on nonsense words achieves 95% at extracting facts from the graph's output
+3. A 1B model with zero RNA training produces correct answers about novel RNA concepts when the graph provides the knowledge
+4. Quality of teaching dominates quantity: 64 targeted facts > 548 bulk-extracted facts
+
+### 7.2 What Has NOT Been Demonstrated
+
+1. **Statistical significance.** The 39% vs 33% comparison is on 33 questions. This is within noise for a sample this small. The full 310-question MMLU run is needed to establish significance.
+
+2. **Beating strong baselines.** The comparison is against llama3.2:1b — the weakest available model. GPT-4 scores ~90% on MMLU Biology. We are beating the runt of the litter, not the champion. The claim is not "Sara beats frontier models" — it is "Sara demonstrates a principle that, if scaled, could challenge the paradigm."
+
+3. **Multi-hop reasoning.** The copy model does single-fact extraction (find the right fact in a list). It does not yet do multi-hop reasoning (combine facts A and B to infer C). Frontier models do this. Sara's wavefront supports it architecturally (convergence from multiple paths IS multi-hop) but the neural cortex has not been tested on it.
+
+4. **Domain generality.** Results are on one domain (biology) and one novel-concept substrate (RNA aptamers). Cross-domain replication (physics, history, law) would strengthen the claim.
+
+5. **Automated teaching at scale.** The 80% result required human-directed teaching. The automated path (3B generates bridge facts from source text) achieves 39% — better than the 1B model but far from the human-directed ceiling. Closing this gap is the primary engineering challenge.
+
+### 7.3 The Honest Framing
+
+The principle is sound: knowledge stored in an inspectable, correctable substrate and retrieved through deterministic graph traversal can outperform knowledge compressed into opaque neural weights — when the substrate is well-taught.
+
+The engineering is early: the automated teaching pipeline does not yet produce substrate quality comparable to human-directed teaching. The custom cortex model does extractive QA but not synthesis or inference. The benchmarks are small.
+
+The path forward is clear and tractable. It requires:
+- Scaling the benchmark to full MMLU (310+ questions, multiple subjects)
+- Improving automated bridge-fact generation (closing the 39% → 80% gap)
+- Extending the copy model to multi-hop reasoning
+- Cross-domain replication
+
+These are engineering problems with known solutions, not fundamental research barriers. The architecture works. The substrate quality is the bottleneck. Better teaching produces better results — monotonically, predictably, inspectably.
+
+### 7.4 What This Means for the Field
+
+If the principle holds at scale — and the evidence so far is consistent with it holding — the implications are:
+
+- **Democratization.** A knowledge substrate on SQLite + a 5.6M model on a laptop replaces a datacenter for domain-specific tasks. Anyone can teach Sara. Not everyone can train a frontier model.
+
+- **Correctability.** Wrong facts in Sara are findable (SQL query) and fixable (one operation). Wrong facts in weights are invisible and uncorrectable without retraining.
+
+- **Auditability.** Every answer traces to specific paths with source provenance. Regulatory environments (FDA, FAA, legal) require this. Frontier models cannot provide it.
+
+- **Cost.** Teaching Sara 91 facts: 52 seconds, $0. Training a 1B model: weeks, $millions. The marginal cost of adding knowledge to Sara is effectively zero.
+
+- **The training data question.** If knowledge belongs in the substrate, the LLM training corpus shrinks from "the entire internet" to "enough text to learn language." This has implications for copyright, compute cost, and environmental impact.
+
+These implications are aspirational at the current evidence level. They become concrete claims when the benchmark results scale.
+
+---
+
+## 8. Invitation to Collaborate
+
+This research program requires resources the author does not currently have:
+
+- **Compute:** Full MMLU benchmark runs across multiple domains, larger-scale bridge-fact generation, cross-model comparisons
+- **Evaluation:** Inter-rater reliability on per-triple grading, statistical significance testing on larger question batteries
+- **Engineering:** Scaling the automated teaching pipeline, extending the copy model to multi-hop reasoning, building the production-grade Sara-native cortex
+
+The architecture is open source (https://github.com/LunarFawn/SaraBrain). The results are reproducible on consumer hardware (RTX 3070, 8GB VRAM). The training data generators produce unlimited synthetic examples. Any research group can replicate and extend this work.
+
+The author invites collaboration from organizations interested in:
+- Inspectable, auditable AI for regulated industries
+- Reducing the compute cost of domain-specific AI
+- Alternatives to the scaling-laws paradigm
+- Persistent memory architectures for language models
+
+Contact: jenpearl5@gmail.com
+
+---
+
+## 9. Conclusion
 
 We have demonstrated that:
 

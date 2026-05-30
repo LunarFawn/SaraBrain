@@ -43,6 +43,7 @@ sara-refute = "sara_reader.cli_refute:main"
 sara-synth = "sara_brain.tools.synthetic_substrate:main"
 sara-new = "sara_brain.tools.new_brain:main"
 sara-experiment = "sara_brain.tools.run_experiment:main"
+sara-demo = "sara_reader.cli_demo:main"
 
 [project.urls]
 Homepage = "https://github.com/LunarFawn/SaraBrain"

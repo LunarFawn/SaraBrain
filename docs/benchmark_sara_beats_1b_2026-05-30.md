@@ -12,6 +12,7 @@
 | Random | — | — | 25% | — |
 | **llama3.2:1b** | **1.3 billion** | **training weights** | **33%** | **$millions + weeks** |
 | Sara + auto-extracted | 0 | 548 triples (rule extractor) | 37% | 14 seconds |
+| Sara + source-text bridges (FAIR) | 0 | 91 triples (3B read textbook) | 39% | 52 seconds |
 | **Sara + bridge facts** | **0** | **64 triples (3B generated)** | **56%** | **22 seconds** |
 | llama3.2:3b | 3 billion | training weights | 61% | $millions + weeks |
 | Sara + hand-curated (April) | 0* | 45 triples (human-directed) | 80% | ~30 minutes |

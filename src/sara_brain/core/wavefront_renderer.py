@@ -48,9 +48,22 @@ def render_wavefront_facts(brain: Brain, seeds: list[str],
             if n and not _is_noise(n.label) and n not in [s[0] for s in scored_neurons]:
                 scored_neurons.append((n, weight))
 
-    # For each converged neuron, pull source_text from its paths
+    # Start with paths from the seed neurons themselves (most relevant)
     facts = []
     seen = set()
+    for seed_label in seeds:
+        seed_n = brain.neuron_repo.resolve(seed_label, exact_only=True)
+        if seed_n:
+            cur = brain.conn.execute(
+                "SELECT source_text FROM paths WHERE origin_id = ? OR terminus_id = ?",
+                (seed_n.id, seed_n.id),
+            )
+            for (src_text,) in cur:
+                if src_text and src_text not in seen:
+                    seen.add(src_text)
+                    facts.append(src_text)
+
+    # Then add paths from converged neurons
     for neuron, score in scored_neurons[:max_facts]:
         # Get source sentences from paths involving this neuron
         cur = brain.conn.execute(

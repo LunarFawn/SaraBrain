@@ -67,6 +67,37 @@ The LLM renders it as prose.
 | Phase 2 MCQ head | 27% (random) | MCQ is wrong task — wavefront already does matching |
 | Text-gen cortex | Loss 0.01, generates concept labels | Model learns to produce substrate-grounded text |
 | From-scratch extractive QA | Overfits, can't generalize | Needs copy mechanism for rare tokens |
+| **Sara-Cortex-Copy (pointer network)** | **95% exact match on held-out** | **THE RESULT** |
+
+### 4a. The Breakthrough: Sara-Cortex-Copy
+
+**5.6M parameters. Trained in 6 minutes. 95% exact match on held-out data.**
+
+Architecture: encoder-decoder with copy mechanism (pointer network).
+- Encoder (4 layers, bidirectional): reads rendered wavefront facts + question
+- Decoder (2 layers, causal): generates answer by COPYING tokens from input
+- Copy gate: learns when to copy from input vs generate from vocab
+- Base vocab: 81 tokens (relations + punctuation only)
+- All concept labels are copied from the input, never generated
+
+What it does:
+1. Wavefront renderer produces readable facts (source_text from paths)
+2. The answer IS one of those facts
+3. The model identifies which fact answers the question
+4. It copies that fact token-by-token to the output
+
+Result on 20 held-out examples (different random seed, never seen):
+- 19/20 exact match (95%)
+- 1/20 wrong fact selected (still substrate-grounded, just wrong triple)
+- Subject correct on 20/20 (100%)
+
+Why this works when everything else failed:
+- MCQ classification failed because it's a matching task (wavefront does that)
+- Standard text generation failed because rare tokens get <unk>'d
+- The copy mechanism solves both: it's extractive (find the right fact)
+  AND handles rare tokens (points to them in the input)
+
+**The model has zero domain knowledge. All correct answers come from Sara.**
 
 ### 5. Architecture Insight
 

@@ -45,6 +45,7 @@ def nonsense_word(rng, syllables=0):
 # Source sentences — diverse Wikipedia-style text covering many domains
 # These are templates with natural grammar structure
 WIKI_SENTENCES = [
+    # === Science/textbook style ===
     "The {noun1} is a {adj1} {noun2} found in {noun3} that {verb1} {noun4} through {noun5}.",
     "{noun1} {verb1} {noun2} by {verb2} the {adj1} {noun3} within the {noun4}.",
     "The {noun1} contains multiple {noun2} arranged in a {adj1} pattern.",
@@ -75,11 +76,38 @@ WIKI_SENTENCES = [
     "The binding of {noun1} to {noun2} triggers a {adj1} change in {noun3}.",
     "Both {noun1} and {noun2} are required for {noun3} to {verb1} correctly.",
     "The {noun1} cycle begins with {noun2} and ends with the formation of {noun3}.",
+    # === Engineering/procedural style ===
+    "To build a {noun1} first prepare the {noun2} and then attach the {noun3}.",
+    "The {noun1} must be calibrated before {noun2} can begin operating.",
+    "If the {noun1} exceeds the {noun2} threshold the {noun3} will shut down automatically.",
+    "The {noun1} connects to the {noun2} through a series of {adj1} {noun3}.",
+    "Replacing the {noun1} requires removing the {noun2} and disconnecting the {noun3}.",
+    # === Historical/narrative style ===
+    "The discovery of {noun1} led to major advances in {noun2} during the early period.",
+    "Before {noun1} was understood people relied on {noun2} to explain {noun3}.",
+    "{noun1} was first observed by researchers studying {noun2} in the {noun3} region.",
+    "The development of {noun1} made it possible to measure {noun2} with great precision.",
+    "After the introduction of {noun1} the field of {noun2} changed dramatically.",
+    # === Comparative style ===
+    "Unlike {noun1} which {verb1} {noun2} the {noun3} instead {verb2} {noun4}.",
+    "{noun1} is similar to {noun2} in that both {verb1} {noun3} but they differ in {noun4}.",
+    "While {noun1} {verb1} quickly {noun2} {verb2} at a much slower rate.",
+    "The {noun1} is larger than the {noun2} but less {adj1} than the {noun3}.",
+    # === Causal chain style ===
+    "{noun1} causes {noun2} which in turn triggers {noun3} leading to {noun4}.",
+    "The failure of {noun1} results in {noun2} because {noun3} can no longer {verb1} {noun4}.",
+    "When {noun1} binds to {noun2} it activates {noun3} which then {verb1} {noun4}.",
+    "The accumulation of {noun1} eventually overwhelms the {noun2} causing {noun3} to collapse.",
+    # === Definition + example style ===
+    "{noun1} refers to the process by which {noun2} is converted into {noun3}.",
+    "A {noun1} is any {noun2} that {verb1} {noun3} for example {noun4} and {noun5}.",
+    "The term {noun1} describes the {adj1} relationship between {noun2} and {noun3}.",
+    "{noun1} is defined as the {noun2} of {noun3} relative to {noun4}.",
 ]
 
 # Relation extraction patterns (what triples to extract from each template)
 TRIPLE_PATTERNS = [
-    # (template_index, [(subj_slot, rel, obj_slot), ...])
+    # Science style (0-29)
     (0, [("{noun1}", "is_a", "{noun2}"), ("{noun1}", "occurs_in", "{noun3}"), ("{noun1}", "produces", "{noun4}")]),
     (1, [("{noun1}", "involves", "{noun2}"), ("{noun1}", "occurs_in", "{noun4}")]),
     (2, [("{noun1}", "contains", "{noun2}")]),
@@ -110,6 +138,33 @@ TRIPLE_PATTERNS = [
     (27, [("{noun1}", "interacts_with", "{noun2}"), ("{noun1}", "causes", "{noun3}")]),
     (28, [("{noun1}", "requires", "{noun3}"), ("{noun2}", "requires", "{noun3}")]),
     (29, [("{noun1}", "requires", "{noun2}"), ("{noun1}", "produces", "{noun3}")]),
+    # Engineering/procedural (30-34)
+    (30, [("{noun1}", "requires", "{noun2}"), ("{noun1}", "contains", "{noun3}")]),
+    (31, [("{noun1}", "requires", "{noun2}")]),
+    (32, [("{noun1}", "regulates", "{noun3}")]),
+    (33, [("{noun1}", "part_of", "{noun2}")]),
+    (34, [("{noun1}", "requires", "{noun2}")]),
+    # Historical/narrative (35-39)
+    (35, [("{noun1}", "enables", "{noun2}")]),
+    (36, [("{noun1}", "enables", "{noun3}")]),
+    (37, [("{noun1}", "occurs_in", "{noun3}")]),
+    (38, [("{noun1}", "enables", "{noun2}")]),
+    (39, [("{noun1}", "transforms_into", "{noun2}")]),
+    # Comparative (40-43)
+    (40, [("{noun1}", "produces", "{noun2}"), ("{noun3}", "produces", "{noun4}")]),
+    (41, [("{noun1}", "is_a", "{noun2}"), ("{noun1}", "produces", "{noun3}")]),
+    (42, [("{noun1}", "produces", "{noun2}")]),
+    (43, [("{noun1}", "is_a", "{noun3}")]),
+    # Causal chain (44-47)
+    (44, [("{noun1}", "causes", "{noun2}"), ("{noun2}", "causes", "{noun3}"), ("{noun3}", "causes", "{noun4}")]),
+    (45, [("{noun1}", "causes", "{noun2}"), ("{noun3}", "enables", "{noun4}")]),
+    (46, [("{noun1}", "interacts_with", "{noun2}"), ("{noun2}", "enables", "{noun3}"), ("{noun3}", "produces", "{noun4}")]),
+    (47, [("{noun1}", "causes", "{noun2}")]),
+    # Definition + example (48-51)
+    (48, [("{noun1}", "transforms_into", "{noun3}")]),
+    (49, [("{noun1}", "is_a", "{noun2}"), ("{noun1}", "produces", "{noun3}")]),
+    (50, [("{noun1}", "interacts_with", "{noun2}")]),
+    (51, [("{noun1}", "is_a", "{noun2}")]),
 ]
 
 

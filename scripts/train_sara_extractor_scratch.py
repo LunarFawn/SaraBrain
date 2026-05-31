@@ -49,6 +49,26 @@ BASE_VOCAB = [
     "composed_of", "part_of", "results_in", "leads_to",
     "during", "within", "between", "from", "into",
     "a", "an", "the", "of", "and", "in", "to", "by", "for", "with",
+    # Extended grammar/function words (needed for real English text)
+    "that", "which", "this", "it", "its", "each", "as", "on",
+    "at", "or", "not", "but", "if", "when", "where", "how",
+    "more", "than", "both", "all", "no", "can", "cannot",
+    "found", "using", "through", "toward", "without",
+    "multiple", "three", "two", "one", "first",
+    "process", "structure", "system", "type", "phase", "stage",
+    "region", "pattern", "rate", "change", "cycle", "formation",
+    "properly", "rapidly", "effectively", "correctly", "exclusively",
+    "composed", "arranged", "connected", "classified", "based",
+    "regulated", "disrupted", "required", "maintained",
+    "increases", "decreases", "determines", "depends",
+    "triggers", "releases", "undergoes", "transforms",
+    "begins", "ends", "leading", "causing",
+    "essential", "necessary", "distinct", "final",
+    "because", "then", "also", "only",
+    "interacts_with", "transforms_into", "regulates", "enables",
+    "binding", "form", "interact", "accumulates",
+    "research", "shows", "absence", "catalyst",
+    "consists", "every", "other",
 ]
 
 
@@ -109,7 +129,7 @@ class CopyDecoder(nn.Module):
         # Copy distribution
         copy_scores = torch.bmm(self.copy_key(x), enc_out.transpose(1, 2))
         if enc_pad_mask is not None:
-            copy_scores = copy_scores.masked_fill(enc_pad_mask.unsqueeze(1), -1e9)
+            copy_scores = copy_scores.masked_fill(enc_pad_mask.unsqueeze(1), -6e4)
         copy_probs = F.softmax(copy_scores, dim=-1)
 
         # Gate

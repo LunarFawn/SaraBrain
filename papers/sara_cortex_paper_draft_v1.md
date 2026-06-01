@@ -179,6 +179,30 @@ Tested on paper-coined terms from an unpublished RNA aptamer paper (cannot exist
 
 **Lesson:** A model trained for one task (grammar tag prediction) cannot be repurposed for a fundamentally different task (substrate fact extraction) by freezing it and adding a head. The representations don't transfer.
 
+### 4.6 More Parameters ≠ Better Extraction (Wrong Turn #6)
+
+**What happened:** After the 115M extractor model succeeded (val loss 0.56, clean extraction across domains), we scaled to 339M parameters expecting better results.
+
+**Results:**
+
+| Model | Parameters | Val loss | Real-world quality |
+|-------|-----------|----------|-------------------|
+| 6.8M | 6.8M | 0.33 | Good on in-domain, weak on novel domains |
+| **115M** | **115M** | **0.56** | **Clean extraction across all domains** |
+| 339M (100k steps) | 339M | 1.64 | Messier, more fragments |
+| 339M (300k steps, 500k data) | 339M | 1.49 | Better but still worse than 115M |
+| 339M (best checkpoint) | 339M | 0.74 | Reached at step 15k, then degraded |
+
+The 339M model's best performance occurred at step 15,000 — then it overfit for the remaining 285,000 steps. More training made it worse. The 115M trained for 100,000 steps and converged cleanly.
+
+**Why it failed:** The extraction task has fixed structural complexity. "Find subject-verb-object patterns in text and copy them" is a grammar task, not a knowledge task. The 115M has sufficient capacity to learn this skill. The 339M has excess capacity that it fills by memorizing training-data-specific patterns rather than learning the general skill.
+
+**The insight:** For knowledge storage, more parameters = more capacity = better recall. This is why GPT-4 knows more than GPT-2. But for structural/grammar tasks, model size should match task complexity. Beyond that threshold, additional parameters enable overfitting rather than generalization.
+
+**This confirms the thesis from the model side:** the industry assumption that bigger = better breaks down when the task is structural rather than encyclopedic. A substrate-faithful extractor should be the SMALLEST model that can learn the grammar of extraction — not the largest model available. The knowledge belongs in Sara, not in the extractor's weights.
+
+**Corollary:** This finding is symmetric with Pearl (2026b)'s data-side finding. On the data side: 45 quality facts > 28,000 bulk facts. On the model side: 115M right-sized model > 339M oversized model. In both cases, more is worse when the task is structural fidelity rather than encyclopedic coverage.
+
 ---
 
 ## 5. The Teaching Problem

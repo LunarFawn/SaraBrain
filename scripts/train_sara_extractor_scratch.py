@@ -40,13 +40,16 @@ from torch.optim import AdamW
 # All content words are COPIED from input.
 BASE_VOCAB = [
     "<pad>", "<bos>", "<eos>", "<unk>", "<sep>", "<triple>",
+    "</triple>", "<rel>", "<obj>",
     ".", ",", "\n",
     # Common relation verbs the model can generate
     "is", "is_a", "are", "has", "have", "contains", "includes",
     "produces", "requires", "involves", "causes", "prevents",
     "occurs", "occurs_in", "forms", "uses", "provides",
-    "attaches", "separates", "divides", "called", "known_as",
-    "composed_of", "part_of", "results_in", "leads_to",
+    "attaches", "attaches_to", "separates", "divides", "called", "known_as",
+    "composed_of", "part_of", "results_in", "leads_to", "depends_on",
+    "activates", "inhibits", "enables", "regulates",
+    "interacts_with", "transforms_into",
     "during", "within", "between", "from", "into",
     "a", "an", "the", "of", "and", "in", "to", "by", "for", "with",
     # Extended grammar/function words (needed for real English text)
@@ -65,7 +68,6 @@ BASE_VOCAB = [
     "begins", "ends", "leading", "causing",
     "essential", "necessary", "distinct", "final",
     "because", "then", "also", "only",
-    "interacts_with", "transforms_into", "regulates", "enables",
     "binding", "form", "interact", "accumulates",
     "research", "shows", "absence", "catalyst",
     "consists", "every", "other",
@@ -267,7 +269,7 @@ def main():
             enc_ids, oov, oov_map = encode_with_oov(ex["paragraph"], tok2id, args.max_enc)
 
             # Encode target (triples) using same OOV mapping
-            target_text = "\n".join(ex["triples"])
+            target_text = ex.get("output", "\n".join(ex.get("triples", [])))
             tgt_tokens = tokenize(target_text)[:args.max_dec - 1]
             tgt_ids = []
             for t in tgt_tokens:
@@ -335,7 +337,8 @@ def main():
             with torch.no_grad():
                 for ex in val[:20]:
                     enc_ids, oov, oov_map = encode_with_oov(ex["paragraph"], tok2id, args.max_enc)
-                    tgt_tokens = tokenize("\n".join(ex["triples"]))[:args.max_dec - 1]
+                    target_text = ex.get("output", "\n".join(ex.get("triples", [])))
+                    tgt_tokens = tokenize(target_text)[:args.max_dec - 1]
                     tgt_ids = [tok2id.get(t, oov_map.get(t, tok2id["<unk>"])) for t in tgt_tokens]
                     din = [tok2id["<bos>"]] + tgt_ids
                     dtgt = tgt_ids + [tok2id["<eos>"]]
@@ -360,13 +363,14 @@ def main():
             e = torch.tensor([enc_ids], dtype=torch.long, device=device)
             pm = torch.zeros(1, len(enc_ids), dtype=torch.bool, device=device)
             with torch.no_grad():
-                out = model.generate(e, pm, max_len=60)[0].tolist()
+                out = model.generate(e, pm, max_len=80)[0].tolist()
             id2tok = {v: k for k, v in tok2id.items()}
             for t, idx in oov_map.items():
                 id2tok[idx] = t
             gen = " ".join(id2tok.get(i, f"[{i}]") for i in out if i not in (0, 2))
-            print(f"  >>> expected: {' | '.join(ex['triples'][:3])}")
-            print(f"  >>> generated: {gen[:150]}")
+            expected = ex.get("output", " | ".join(ex.get("triples", [])))
+            print(f"  >>> expected: {expected[:120]}")
+            print(f"  >>> generated: {gen[:120]}")
 
             if val_loss < best_val_loss:
                 best_val_loss = val_loss

@@ -93,6 +93,37 @@ TEMPLATES = [
     # Lists (generates multiple triples)
     ("contains", "{s} contains {o} along with other components.", None),
     ("requires", "{s} requires both {o} and adequate energy to function.", None),
+    # === Nested clauses (the key missing patterns) ===
+    # "X describes how Y verb Z" → X | describes | Z
+    ("involves", "{s} describes how {o} changes over time.", None),
+    ("involves", "{s} explains how {o} is maintained during stress.", None),
+    ("involves", "{s} determines how {o} responds to external signals.", None),
+    ("involves", "{s} shows that {o} is essential for survival.", None),
+    ("involves", "{s} indicates that {o} plays a critical role.", None),
+    ("involves", "{s} demonstrates that {o} can function independently.", None),
+    ("involves", "{s} explains the conditions under which {o} occurs.", None),
+    ("involves", "{s} describes the mechanism by which {o} is activated.", None),
+    # "X uses Y to verb Z" → X | uses | Y (not Z)
+    ("requires", "{s} uses {o} to achieve stability.", None),
+    ("requires", "{s} relies on {o} to maintain function.", None),
+    ("requires", "{s} depends on {o} to complete the process.", None),
+    # Multi-verb: "X detects and binds Y" → X | interacts_with | Y
+    ("interacts_with", "{s} detects and binds {o} with high specificity.", None),
+    ("interacts_with", "{s} recognizes and captures {o} from the environment.", None),
+    ("interacts_with", "{s} identifies and processes {o} efficiently.", None),
+    # Prepositional subject: "The X of Y provides Z" → X | part_of | Y, X | provides | Z
+    ("provides", "The {s} of the system provides {o} during operation.", None),
+    ("provides", "The {s} within the structure provides {o} to adjacent regions.", None),
+    # "X is known as Y" / "X is called Y" → X | is_a | Y
+    ("is_a", "{s} is commonly known as {o} in the literature.", None),
+    ("is_a", "{s} is also referred to as {o} by researchers.", None),
+    ("is_a", "{s} is defined as {o} in standard terminology.", None),
+    # Purpose clauses: "X provides Y for Z" → X | provides | Y
+    ("provides", "{s} provides {o} for the surrounding structure.", None),
+    ("provides", "{s} supplies {o} to ensure proper function.", None),
+    # Temporal: "During X, Y produces Z" → Y | produces | Z, Y | occurs_in | X
+    ("produces", "During {s} the system produces {o} continuously.", None),
+    ("occurs_in", "Throughout {s} the process occurs in {o} repeatedly.", None),
 ]
 
 

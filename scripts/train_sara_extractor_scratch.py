@@ -39,8 +39,8 @@ from torch.optim import AdamW
 # Minimal base vocab — relations and structure only.
 # All content words are COPIED from input.
 BASE_VOCAB = [
-    "<pad>", "<bos>", "<eos>", "<unk>", "<sep>", "<triple>",
-    "</triple>", "<rel>", "<obj>",
+    "<pad>", "<bos>", "<eos>", "<unk>", "<sep>",
+    "t_start", "t_rel", "t_obj", "t_end",
     ".", ",", "\n",
     # Common relation verbs the model can generate
     "is", "is_a", "are", "has", "have", "contains", "includes",

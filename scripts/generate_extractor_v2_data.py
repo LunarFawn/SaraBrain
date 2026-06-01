@@ -134,7 +134,7 @@ def generate_example(rng: random.Random) -> dict:
     # Build structured output
     output_lines = []
     for t in triples:
-        output_lines.append(f"<triple> {t['s']} <rel> {t['r']} <obj> {t['o']} </triple>")
+        output_lines.append(f"t_start {t['s']} t_rel {t['r']} t_obj {t['o']} t_end")
     output = "\n".join(output_lines)
 
     return {"paragraph": paragraph, "triples_structured": output, "triples_list": triples}

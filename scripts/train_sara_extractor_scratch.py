@@ -71,6 +71,14 @@ BASE_VOCAB = [
     "binding", "form", "interact", "accumulates",
     "research", "shows", "absence", "catalyst",
     "consists", "every", "other",
+    # Prose rendering words (for synthesizer)
+    "known", "relationship", "available", "information",
+    "connects", "interacts", "controls", "creates", "modulates",
+    "concerns", "belongs", "generates", "binds", "facilitates",
+    "related", "becomes", "part", "converts", "splits",
+    "joins", "needs", "leads", "initiates", "blocks",
+    "delivers", "makes", "possible", "supplies", "turns",
+    "relies", "component", "place", "inside", "takes",
 ]
 
 

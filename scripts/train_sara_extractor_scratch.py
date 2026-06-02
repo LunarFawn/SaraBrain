@@ -193,6 +193,18 @@ def encode_with_oov(text, tok2id, max_len):
     return ids, oov, oov_map
 
 
+def _get_input(ex: dict) -> str:
+    """Get the input text from an example — supports multiple data formats."""
+    # Selector/synthesizer format: facts + question
+    if "facts" in ex and "question" in ex:
+        return ex["facts"] + " " + ex["question"]
+    # Extractor format: paragraph
+    if "paragraph" in ex:
+        return ex["paragraph"]
+    # Fallback
+    return ex.get("input", "")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data", required=True)
@@ -266,7 +278,7 @@ def main():
         enc_list, dec_in_list, dec_tgt_list = [], [], []
 
         for ex in batch:
-            enc_ids, oov, oov_map = encode_with_oov(ex["paragraph"], tok2id, args.max_enc)
+            enc_ids, oov, oov_map = encode_with_oov(_get_input(ex), tok2id, args.max_enc)
 
             # Encode target (triples) using same OOV mapping
             target_text = ex.get("output", "\n".join(ex.get("triples", [])))
@@ -336,7 +348,7 @@ def main():
             val_loss_sum, val_tokens = 0.0, 0
             with torch.no_grad():
                 for ex in val[:20]:
-                    enc_ids, oov, oov_map = encode_with_oov(ex["paragraph"], tok2id, args.max_enc)
+                    enc_ids, oov, oov_map = encode_with_oov(_get_input(ex), tok2id, args.max_enc)
                     target_text = ex.get("output", "\n".join(ex.get("triples", [])))
                     tgt_tokens = tokenize(target_text)[:args.max_dec - 1]
                     tgt_ids = [tok2id.get(t, oov_map.get(t, tok2id["<unk>"])) for t in tgt_tokens]
@@ -359,7 +371,7 @@ def main():
 
             # Generate sample
             ex = val[0]
-            enc_ids, oov, oov_map = encode_with_oov(ex["paragraph"], tok2id, args.max_enc)
+            enc_ids, oov, oov_map = encode_with_oov(_get_input(ex), tok2id, args.max_enc)
             e = torch.tensor([enc_ids], dtype=torch.long, device=device)
             pm = torch.zeros(1, len(enc_ids), dtype=torch.bool, device=device)
             with torch.no_grad():

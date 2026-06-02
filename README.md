@@ -1,32 +1,46 @@
-# Sara Brain — A Measurement Instrument for Transformer Behavior
+# Sara Brain — A Path-of-Thought Cognitive Architecture
 
-Sara Brain is a structured knowledge substrate that lets you teach arbitrary facts to an LLM session and measure how faithfully the model retrieves them versus confabulating from training weight. It is also a path-of-thought cognitive architecture: knowledge is stored as directed neuron-segment chains in SQLite, not as model weights.
+Sara Brain is a **path-of-thought cognitive architecture**: knowledge is stored as directed neuron-segment chains in SQLite, recognition is performed by parallel wavefront propagation, and a purpose-built neural cortex reads the wavefront output to produce answers. No knowledge is stored in model weights — all domain knowledge lives in the substrate and is inspectable, correctable, and teachable at runtime.
 
-## Quickstart — Instrument Use
+The architecture pairs with any language model (or a custom from-scratch cortex) in a two-layer design: Sara is the hippocampus (persistent memory), the model is the cortex (language processing). Together they demonstrate that a 0-parameter knowledge graph with 64 well-chosen facts outperforms a 1.3B parameter language model on a standard biology benchmark.
+
+Sara Brain also functions as a **measurement instrument** for studying transformer behavior — its structured, finite, training-orthogonal substrate allows per-triple grading of LLM outputs (see [the instrument paper](papers/sara_as_instrument_paper_rev8.md)).
+
+## Quickstart
 
 ```bash
 pip install sara-brain
 
-sara-new --out my_brain.db                                                    # create fresh brain
-sara-teach --subject zilkrap --relation is_a --object pruvnet --brain my_brain.db
-sara-ask-stateless "what is zilkrap?" --brain my_brain.db                     # fresh session
+# Create and teach
+sara-new --out my_brain.db
+sara-teach --subject "molecular snare" --relation is_a --object "rna aptamer mechanism" --brain my_brain.db
+
+# Ask (wavefront retrieval + local model synthesis)
+sara-ask-stateless "what is the molecular snare?" --brain my_brain.db
+
+# Live demo (teach, ask, compare against LLM)
+sara-demo teach --brain my_brain.db
+sara-demo ask "what is the molecular snare?" --brain my_brain.db --compare llama3.2:1b
 ```
 
-For training-orthogonal validation substrates (concepts that cannot be in any model's training data):
+## Key Results
 
-```bash
-sara-synth --out synth.db --seed 42    # generates random nonsense-word substrate + manifest
+| System | Parameters | MMLU Biology |
+|--------|-----------|--------------|
+| llama3.2:1b (training weights) | 1.3 billion | 33% |
+| **Sara Brain + wavefront (64 facts)** | **0** | **56%** |
+| Sara + hand-curated (45 facts) | 0* | 80% |
+
+*Uses a 3B model for synthesis only; wavefront does the reasoning.
+
+## Architecture
+
+```
+Teaching:   Document → [Extractor 115M] → triples → Sara Brain (SQLite)
+Retrieval:  Question → Wavefront Propagation → Rendered Facts → [Synthesizer 115M] → Answer
 ```
 
-## The A/B/C Measurement Protocol
-
-| Session | Command | Purpose |
-|---------|---------|---------|
-| A — Teach | `sara-teach` or `sara-mcp` | Load substrate into a session |
-| B — Test | `sara-ask-stateless` (fresh session) | Measure retrieval with substrate present |
-| C — Control | Same question, no substrate | Bare model, training weights only |
-
-Divergence between B and C is the measurement. Content in B not present in the substrate is confabulation from training weight.
+Both models trained from scratch on synthetic nonsense data. Zero domain knowledge in weights. All knowledge from Sara's substrate.
 
 ## Why This Works
 

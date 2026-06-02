@@ -67,20 +67,30 @@ class SaraPipeline:
             print(f"  Synthesizer: not found ({synthesizer_path})")
 
     def _load_model(self, path, max_enc, max_dec):
-        model = SaraExtractor(self.ext_vocab, d_model=768, enc_layers=8, dec_layers=6,
-                              n_heads=12, max_enc=max_enc, max_dec=max_dec).to(self.device)
         ckpt = torch.load(path, map_location=self.device, weights_only=False)
+        # Infer vocab size from the embedding weight in checkpoint
+        embed_key = "encoder.embed.weight"
+        if embed_key in ckpt["model"]:
+            vocab_size = ckpt["model"][embed_key].shape[0]
+        else:
+            vocab_size = self.ext_vocab
+        model = SaraExtractor(vocab_size, d_model=768, enc_layers=8, dec_layers=6,
+                              n_heads=12, max_enc=max_enc, max_dec=max_dec).to(self.device)
         model.load_state_dict(ckpt["model"])
         model.eval()
+        # Store model's own tokenizer
+        model._tok2id = ckpt.get("tok2id", self.tok2id)
+        model._id2tok = {v: k for k, v in model._tok2id.items()}
         return model
 
     def _run_model(self, model, input_text, max_enc, max_len):
-        enc_ids, oov, oov_map = encode_with_oov(input_text, self.tok2id, max_enc)
+        tok2id = model._tok2id
+        enc_ids, oov, oov_map = encode_with_oov(input_text, tok2id, max_enc)
         enc_t = torch.tensor([enc_ids], dtype=torch.long, device=self.device)
         pm = torch.zeros(1, len(enc_ids), dtype=torch.bool, device=self.device)
         with torch.no_grad():
             out_ids = model.generate(enc_t, pm, max_len=max_len)[0].tolist()
-        id2tok = dict(self.id2tok)
+        id2tok = dict(model._id2tok)
         for t, idx in oov_map.items():
             id2tok[idx] = t
         return " ".join(id2tok.get(i, "?") for i in out_ids if i not in (0, 2))

@@ -210,7 +210,7 @@ def main():
     p.add_argument("question")
     p.add_argument("--brain", default="pipeline.db")
 
-    p = sub.add_parser("run", help="Teach then ask in one shot")
+    p = sub.add_parser("teach-and-ask", help="Teach from document then ask a question (one-shot test)")
     p.add_argument("document")
     p.add_argument("question")
     p.add_argument("--brain", default="pipeline.db")
@@ -220,7 +220,7 @@ def main():
         cmd_teach(args)
     elif args.cmd == "ask":
         cmd_ask(args)
-    elif args.cmd == "run":
+    elif args.cmd == "teach-and-ask":
         cmd_run(args)
     else:
         ap.print_help()

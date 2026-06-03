@@ -10,7 +10,7 @@
 
 Sara Brain is a **persistent, teachable, inspectable knowledge system** that runs on minimal hardware with no internet dependency. Anyone can teach it. Anyone can ask it. Every answer is traceable to the facts it was taught. It never invents knowledge it wasn't given.
 
-Sara is not an AI assistant. Sara is a **memory** — a shared, persistent, correctable memory that a household, a workplace, a school, a clinic, or a community can use.
+Sara is not a general-purpose reasoning engine or code generator. Sara is a **knowledge assistant** — a chatbot with persistent memory, retrieval, and teaching. You teach it information, it tells you that information back when you ask. It doesn't reason about novel problems or write code — it remembers what it was taught and retrieves it faithfully.
 
 ## The Core Interaction
 

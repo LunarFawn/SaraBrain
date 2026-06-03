@@ -35,4 +35,3 @@ benchmarks/biology_chunks/
 src/sara_brain/cortex/checkpoints/
 training.log
 data/ud/
-training_data/*.jsonl

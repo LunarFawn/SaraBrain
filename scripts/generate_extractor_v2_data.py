@@ -51,6 +51,21 @@ TEMPLATES = [
     # Simple declarative
     ("is_a", "{s} is a type of {o}.", "{s} is a {o}."),
     ("is_a", "{s} is classified as {o}.", "{s} is a specialized form of {o}."),
+    # Additional definition templates (weighted heavily)
+    ("is_a", "{s} is a {o} that operates in complex environments.", None),
+    ("is_a", "{s} is a {o} found in many systems.", None),
+    ("is_a", "{s} is a kind of {o}.", "{s} is considered a {o}."),
+    ("is_a", "{s} is an example of {o}.", "{s} represents a category of {o}."),
+    ("is_a", "{s} is a specialized {o} designed for specific tasks.", None),
+    ("is_a", "{s} is a variant of {o} with unique properties.", None),
+    ("is_a", "{s} is a {o} responsible for critical functions.", None),
+    ("is_a", "{s} is known as a {o} in standard terminology.", None),
+    ("is_a", "{s} is a modified {o} adapted for extreme conditions.", None),
+    ("is_a", "{s} is a primary {o} in the system.", None),
+    ("is_a", "{s} is a novel {o} recently identified by researchers.", None),
+    ("is_a", "{s} is the main {o} involved in this process.", None),
+    ("is_a", "A {s} is a {o}.", "The {s} is a {o}."),
+    ("is_a", "{s} can be described as a {o}.", "{s} functions as a {o}."),
     ("contains", "{s} contains {o}.", "{s} is composed of multiple {o}."),
     ("contains", "Within {s} there are several {o} arranged in layers.", "The interior of {s} holds {o}."),
     ("produces", "{s} produces {o}.", "{s} generates {o} as its primary output."),
@@ -133,18 +148,35 @@ def generate_example(rng: random.Random) -> dict:
     n_concepts = rng.randint(4, 8)
     concepts = [concept(rng) for _ in range(n_concepts)]
 
-    # Generate 3-6 triples
+    # Generate 3-6 triples, ALWAYS starting with a definition (is_a)
     n_triples = rng.randint(3, 6)
     triples = []
     sentences = []
 
-    for _ in range(n_triples):
+    # First triple is ALWAYS a definition
+    s, o = concepts[0], concepts[1]
+    is_a_templates = [t for t in TEMPLATES if t[0] == "is_a"]
+    template_entry = rng.choice(is_a_templates)
+    rel = "is_a"
+    template_options = [t for t in template_entry[1:] if t is not None]
+    template = rng.choice(template_options)
+    sentences.append(template.format(s=s, o=o))
+    triples.append({"s": s, "r": rel, "o": o})
+
+    # Remaining triples can be any type (but 30% chance of another is_a)
+    for _ in range(n_triples - 1):
         s_idx, o_idx = rng.sample(range(n_concepts), 2)
         s, o = concepts[s_idx], concepts[o_idx]
 
-        # Pick a template
-        template_entry = rng.choice(TEMPLATES)
-        rel = template_entry[0]
+        if rng.random() < 0.3:
+            # Another definition
+            template_entry = rng.choice(is_a_templates)
+            rel = "is_a"
+        else:
+            # Pick a template (any type)
+            template_entry = rng.choice(TEMPLATES)
+            rel = template_entry[0]
+
         template_options = [t for t in template_entry[1:] if t is not None]
         template = rng.choice(template_options)
 

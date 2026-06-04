@@ -66,9 +66,14 @@ QUESTION_TEMPLATES = [
 PROSE_TEMPLATES = [
     "{s} {verb} {o}.",
     "The {s} {verb} {o}.",
-    "Based on the available information, {s} {verb} {o}.",
-    "{s} is known to {verb} {o}.",
-    "The relationship is that {s} {verb} {o}.",
+]
+
+# Templates specifically for is_a (no "is known to X is a Y" awkwardness)
+IS_A_TEMPLATES = [
+    "{s} is a {o}.",
+    "The {s} is a {o}.",
+    "A {s} is a type of {o}.",
+    "{s} is classified as a {o}.",
 ]
 
 VERB_MAP = {
@@ -146,10 +151,13 @@ def generate_example(rng):
     selector_output = f"t_start {s} t_rel {r} t_obj {o} t_end"
 
     # Synthesizer: prose answer
-    verbs = VERB_MAP.get(r, [r])
-    verb = rng.choice(verbs)
-    prose_template = rng.choice(PROSE_TEMPLATES)
-    prose_answer = prose_template.format(s=s, verb=verb, o=o)
+    if r == "is_a":
+        prose_answer = rng.choice(IS_A_TEMPLATES).format(s=s, o=o)
+    else:
+        verbs = VERB_MAP.get(r, [r])
+        verb = rng.choice(verbs)
+        prose_template = rng.choice(PROSE_TEMPLATES)
+        prose_answer = prose_template.format(s=s, verb=verb, o=o)
 
     selector_example = {
         "facts": facts_rendered,

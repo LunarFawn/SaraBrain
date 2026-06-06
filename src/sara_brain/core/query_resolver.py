@@ -143,3 +143,90 @@ def resolve_query(text: str, nlp, neuron_repo: NeuronRepo
             ))
 
     return seeds
+
+
+# ---- spaCy-free alternative ----
+
+_STOPWORDS = frozenset({
+    "the", "a", "an", "of", "to", "in", "on", "at", "by", "for", "with",
+    "as", "is", "are", "was", "were", "be", "been", "being", "am",
+    "do", "does", "did", "have", "has", "had", "will", "would", "could",
+    "should", "can", "may", "might", "this", "that", "these", "those",
+    "i", "you", "he", "she", "it", "we", "they", "me", "him", "her",
+    "us", "them", "my", "your", "his", "its", "our", "their",
+    "what", "which", "who", "whom", "whose", "where", "when", "why",
+    "how", "tell", "about", "describe", "explain", "define",
+    "following", "best", "most", "many", "some", "any", "each", "every",
+    "both", "and", "or", "but", "not", "no", "yes", "if", "then", "than",
+    "from", "into", "through", "over", "under", "between", "across",
+    "after", "before", "during", "while", "since", "until", "because",
+})
+
+
+def resolve_query_nospacy(text: str, neuron_repo: NeuronRepo) -> list[ResolvedSeed]:
+    """Resolve query text to seeds WITHOUT spaCy.
+
+    Uses regex tokenization + bigram compound detection + substrate-aware
+    filtering. Same output shape as resolve_query() — drop-in replacement.
+    """
+    import re
+    words = re.findall(r"[a-zA-Z][a-zA-Z'-]+", text)
+    lowered = [w.lower() for w in words]
+    content = [w for w in lowered if w not in _STOPWORDS and len(w) >= 3]
+
+    if not content:
+        return []
+
+    # Build bigrams (compound candidates)
+    bigrams: list[str] = []
+    for i in range(len(content) - 1):
+        bigrams.append(f"{content[i]} {content[i+1]}")
+
+    # Try trigrams too
+    trigrams: list[str] = []
+    for i in range(len(content) - 2):
+        trigrams.append(f"{content[i]} {content[i+1]} {content[i+2]}")
+
+    # Resolution order: trigrams > bigrams > unigrams
+    seeds: list[ResolvedSeed] = []
+    emitted: set[str] = set()
+    subsumed: set[str] = set()
+
+    # Try trigrams first
+    for tri in trigrams:
+        if neuron_repo.resolve(tri, exact_only=True) is not None:
+            if tri not in emitted:
+                seeds.append(ResolvedSeed(label=tri, power=3, is_compound=True))
+                emitted.add(tri)
+                for part in tri.split():
+                    subsumed.add(part)
+
+    # Then bigrams
+    for bi in bigrams:
+        if bi in emitted:
+            continue
+        parts = bi.split()
+        if all(p in subsumed for p in parts):
+            continue
+        if neuron_repo.resolve(bi, exact_only=True) is not None:
+            seeds.append(ResolvedSeed(label=bi, power=2, is_compound=True))
+            emitted.add(bi)
+            for part in parts:
+                subsumed.add(part)
+
+    # Then unigrams (skip subsumed)
+    for w in content:
+        if w in subsumed or w in emitted:
+            continue
+        if neuron_repo.resolve(w, exact_only=True) is not None:
+            seeds.append(ResolvedSeed(label=w, power=1, is_compound=False))
+            emitted.add(w)
+
+    # If nothing resolved, fall back to all content words as bare seeds
+    if not seeds:
+        for w in content[:5]:
+            if w not in emitted:
+                seeds.append(ResolvedSeed(label=w, power=1, is_compound=False))
+                emitted.add(w)
+
+    return seeds

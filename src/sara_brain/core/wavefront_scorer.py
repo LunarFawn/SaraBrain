@@ -14,16 +14,21 @@ For a question and N choices:
      AND a choice compound seed both resolved to the SAME compound
      neuron, that neuron contributes its joint power directly — the
      "collapse at the compound" case Jennifer articulated.
+  7. Math boost: if the question contains extractable numbers AND
+     operation_tag segments are reachable from seeds, compute the
+     result and boost the matching choice.
 
 Scoring is path-intersection (witness-counting), never a sum of raw
 segment weights. Consistent with the score_by_path_not_sum rule.
 """
 from __future__ import annotations
 
+import re
 from collections import defaultdict
 from dataclasses import dataclass
 
-from .query_resolver import resolve_query, ResolvedSeed
+from .math import MathCompute, NumberExtractor, tag_to_operation
+from .query_resolver import resolve_query, resolve_query_nospacy, ResolvedSeed
 from .recognizer import Recognizer
 from ..storage.neuron_repo import NeuronRepo
 
@@ -67,6 +72,67 @@ def _reached_with_power(recognizer: Recognizer,
 _NEGATION_CUES = ("NOT", "EXCEPT", "LEAST", " FALSE", "UNLESS")
 
 
+def _compute_math_answers(question: str, recognizer: Recognizer,
+                          q_seeds: list[ResolvedSeed]) -> list[float]:
+    """If the question has numbers and the brain has operation_tags on
+    reachable segments, compute possible numeric answers.
+
+    Returns a list of computed values (may be empty).
+    """
+    extractor = NumberExtractor()
+    numbers = extractor.extract(question)
+    if not numbers:
+        return []
+
+    # Find operation_tags on segments reachable from question seeds.
+    compute = MathCompute()
+    results: list[float] = []
+    seg_repo = recognizer.segment_repo
+
+    for seed in q_seeds:
+        n = recognizer.neuron_repo.resolve(seed.label, exact_only=True)
+        if n is None:
+            continue
+        # Check segments attached to this neuron for operation_tags.
+        for seg in seg_repo.get_outgoing(n.id) + seg_repo.get_incoming(n.id):
+            tag = getattr(seg, "operation_tag", None)
+            if not tag:
+                continue
+            op = tag_to_operation(tag)
+            if op is None:
+                continue
+            # Apply the operation to each extracted number.
+            for _label, value in numbers.items():
+                try:
+                    result = compute.apply(op, value)
+                    results.append(result)
+                except (ValueError, ZeroDivisionError):
+                    pass
+    return results
+
+
+def _math_boost(choices: list[str], computed: list[float]) -> dict[int, float]:
+    """Return {choice_index: boost} for choices whose text matches a
+    computed numeric answer."""
+    if not computed:
+        return {}
+    boosts: dict[int, float] = {}
+    for i, choice in enumerate(choices):
+        # Extract numbers from the choice text.
+        choice_nums = re.findall(r"-?\d+(?:\.\d+)?", choice)
+        for cn in choice_nums:
+            try:
+                cv = float(cn)
+            except ValueError:
+                continue
+            for result in computed:
+                # Tolerance for float comparison.
+                if abs(cv - result) < 0.01:
+                    # Large boost — math is definitive when it matches.
+                    boosts[i] = boosts.get(i, 0.0) + 100.0
+    return boosts
+
+
 def _is_negation_question(question: str) -> bool:
     """Detect whether the question is asking for the OUTLIER choice —
     the one that DOES NOT match the category the other choices match.
@@ -86,12 +152,22 @@ def score_choices(question: str,
                   neuron_repo: NeuronRepo,
                   ) -> list[ChoiceScore]:
     """Rank `choices` against `question` by wavefront confluence."""
-    q_seeds = resolve_query(question, nlp, neuron_repo)
+    if nlp is not None:
+        q_seeds = resolve_query(question, nlp, neuron_repo)
+    else:
+        q_seeds = resolve_query_nospacy(question, neuron_repo)
     q_power = _reached_with_power(recognizer, q_seeds)
+
+    # Math boost: compute numeric answers if operation_tags exist.
+    computed = _compute_math_answers(question, recognizer, q_seeds)
+    math_boosts = _math_boost(choices, computed)
 
     results: list[ChoiceScore] = []
     for i, choice in enumerate(choices):
-        c_seeds = resolve_query(choice, nlp, neuron_repo)
+        if nlp is not None:
+            c_seeds = resolve_query(choice, nlp, neuron_repo)
+        else:
+            c_seeds = resolve_query_nospacy(choice, neuron_repo)
         c_power = _reached_with_power(recognizer, c_seeds)
 
         # Confluence: nodes reached by BOTH sides.
@@ -126,7 +202,7 @@ def score_choices(question: str,
         results.append(ChoiceScore(
             index=i,
             text=choice,
-            score=score,
+            score=score + math_boosts.get(i, 0.0),
             convergence_count=len(shared),
             compound_hits=compound_hits,
             seeds=c_seeds,

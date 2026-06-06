@@ -237,6 +237,23 @@ The gap between automated (39%) and human-directed (80%) represents the value of
 
 ## 6. The Biological Argument
 
+### 6.1 Computational Complexity: Why Sara Scales Where Context Doesn't
+
+LLM self-attention operates at O(n²) over the full context window, where n is the document length in tokens. Every token attends to every other token on every layer. A 100,000-token document requires 10 billion attention computations per layer — and the relevant fact for a given question may be anywhere in those 100,000 tokens. The LLM has no index; it must scan everything.
+
+Sara's wavefront propagation operates at O(S × D), where S is the number of seed concepts from the question (typically 3-5 after substrate-aware filtering) and D is the number of nodes reachable at the configured depth (typically hundreds to low thousands). Critically, D is bounded by the *local neighborhood density* of the query seeds — it does not scale with total brain size. A brain with 1,000 facts and a brain with 1,000,000 facts produce the same wavefront computation time for the same query, because the wavefront only explores the local neighborhood and never touches irrelevant nodes.
+
+| Knowledge size | Sara Brain retrieval | LLM attention on flat document |
+|---|---|---|
+| 1,000 facts | ~5ms | Feasible (short context) |
+| 10,000 facts | ~5ms | Slower, begins losing recall |
+| 100,000 facts | ~5ms | Exceeds context window |
+| 1,000,000 facts | ~5ms | Completely impossible |
+
+This is the fundamental scaling argument: Sara's retrieval is constant relative to total knowledge stored. LLM attention is quadratic relative to total context. The gap widens monotonically as knowledge grows. A system intended to hold a community's, organization's, or domain's complete knowledge cannot use context-window storage — it requires a substrate with sublinear retrieval.
+
+### 6.2 Biological Analogy
+
 Sara Brain learns at runtime. A single `teach_triple()` call creates a permanent, inspectable, correctable memory in microseconds. This is biologically analogous to hippocampal memory formation — one exposure creates a lasting trace.
 
 LLM training is biologically analogous to nothing. No biological system requires re-growing its entire neural architecture to learn one new fact. The $100M training run is an engineering workaround for the absence of a memory system, not a principled approach to knowledge storage.

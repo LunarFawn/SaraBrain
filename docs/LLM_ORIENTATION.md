@@ -175,7 +175,7 @@ When you're trying to understand or modify the system:
 
 In priority order:
 
-1. **Implement substrate-aware seed extraction** (the immediate
+1. ~~**Implement substrate-aware seed extraction**~~ ✅ DONE (2026-05-26) (the immediate
    unblocker — see Section 4 above; code change is in
    `_run_wavefront` in `stateless_reader.py`). Without this, the
    wavefront-first chat is unusable on large brains.

@@ -170,3 +170,20 @@ Knowledge belongs in the hippocampus, not compressed into the cortex.
 ---
 
 *— Jennifer Pearl, 2026*
+
+## Next Engineering Priority: Multi-Pass Teaching
+
+The extractor bottleneck: one pass tries to extract everything at once.
+Better approach — multiple focused passes over the same document:
+
+- **Pass 1 (Definitions):** What is X? X is_a Y. Focus only on definitions.
+- **Pass 2 (Relationships):** What does X do? X produces/requires/contains Y.
+- **Pass 3 (Bridges):** What connects X to Z? Conceptual bridges for wavefront.
+
+Each pass uses the same extractor model but with different prompt/framing,
+or a dedicated lightweight model per pass type. The result is a richer
+substrate with better coverage than a single pass.
+
+This mirrors how humans read: first pass for "what is this about?",
+second pass for "how does it work?", third pass for "how does it connect
+to what I already know?"

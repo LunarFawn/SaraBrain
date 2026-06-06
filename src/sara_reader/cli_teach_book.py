@@ -53,6 +53,10 @@ def _audit(line: str) -> None:
 
 
 def _segment_sentences(nlp, text: str) -> list[str]:
+    if nlp is None:
+        # Simple sentence splitting without spaCy (for sara extractor)
+        import re
+        return [s.strip() for s in re.split(r'(?<=[.!?])\s+', text) if s.strip()]
     doc = nlp(text)
     return [sent.text.strip() for sent in doc.sents if sent.text.strip()]
 
@@ -80,6 +84,13 @@ def main(argv: list[str] | None = None) -> int:
         help="Extract and log triples but do not write to the brain.",
     )
     p.add_argument(
+        "--multipass", action="store_true",
+        help="Run 3 focused passes over the document: "
+             "(1) definitions (is_a), (2) relationships (action verbs), "
+             "(3) bridges (connecting concepts already in substrate). "
+             "Produces richer substrate coverage than a single pass.",
+    )
+    p.add_argument(
         "--quiet", action="store_true",
         help="Suppress per-triple stderr lines.",
     )
@@ -95,11 +106,13 @@ def main(argv: list[str] | None = None) -> int:
     )
     p.add_argument(
         "--extractor", default="rules",
-        choices=("rules", "trained", "hybrid"),
+        choices=("rules", "trained", "hybrid", "sara"),
         help="Triple extractor: 'rules' = deterministic spaCy+rules stub "
              "(default, fast); 'trained' = hamroby_extractor_v1 trained head "
              "(loads canonical .pt checkpoint, uses spaCy sm+trf cascade); "
-             "'hybrid' = run BOTH and feed combined triples into the brain. "
+             "'hybrid' = run BOTH and feed combined triples into the brain; "
+             "'sara' = from-scratch 115M copy-mechanism extractor (no spaCy, "
+             "definitions-first, trained on synthetic data). "
              "Hybrid captures clean SVO (from trained head) AND compound-NP "
              "associations like 'jkd part_of \"the foundations of jkd\"' "
              "(from rule stub) — useful when terms appear mostly as POBJ "
@@ -111,20 +124,67 @@ def main(argv: list[str] | None = None) -> int:
     print(f"[teach-book] source={args.source} format={fmt} brain={args.brain}",
           file=sys.stderr)
 
-    try:
-        import spacy
-    except ImportError:
-        print("error: spaCy is not installed (.venv/bin/pip install spacy)",
-              file=sys.stderr)
-        return 2
     # Select the extractor(s) and load the appropriate nlp. The trained
     # head and hybrid modes use the cascade nlp (sm + trf fallback);
-    # rule-only mode uses plain sm. `extractors` is a list of (name, fn)
-    # tuples; each runs on every clause and all returned triples are
-    # committed. Hybrid runs both — clean SVO from trained head plus
-    # compound-NP associations from rule stub.
+    # rule-only mode uses plain sm; sara mode uses the from-scratch 115M model.
     extractors: list[tuple[str, callable]] = []
-    if args.extractor in ("trained", "hybrid"):
+    nlp = None  # only needed for spacy-based extractors
+
+    if args.extractor == "sara":
+        # From-scratch 115M extractor — no spaCy needed
+        import torch
+        import re as _re
+        from pathlib import Path as _Path
+        sys.path.insert(0, str(_Path(__file__).resolve().parent.parent.parent / "scripts"))
+        from train_sara_extractor_scratch import SaraExtractor, build_vocab, encode_with_oov
+
+        _ckpt_path = str(_Path(__file__).resolve().parent.parent.parent / "models" / "sara-extractor-115m-v2" / "best.pt")
+        _device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        _tok2id = build_vocab()
+        _ext_vocab = len(_tok2id) + 300
+        _model = SaraExtractor(_ext_vocab, d_model=768, enc_layers=8, dec_layers=6,
+                               n_heads=12, max_enc=300, max_dec=150).to(_device)
+        _ckpt = torch.load(_ckpt_path, map_location=_device, weights_only=False)
+        _model.load_state_dict(_ckpt["model"])
+        _model.eval()
+        print(f"[teach-book] loaded sara extractor from {_ckpt_path}", file=sys.stderr)
+
+        def _sara_extract(clause, _nlp_unused):
+            """Extract triples using the 115M from-scratch model."""
+            enc_ids, oov, oov_map = encode_with_oov(clause, _tok2id, 300)
+            enc_t = torch.tensor([enc_ids], dtype=torch.long, device=_device)
+            pm = torch.zeros(1, len(enc_ids), dtype=torch.bool, device=_device)
+            with torch.no_grad():
+                out_ids = _model.generate(enc_t, pm, max_len=100)[0].tolist()
+            id2tok = {v: k for k, v in _tok2id.items()}
+            for t, idx in oov_map.items():
+                id2tok[idx] = t
+            gen = " ".join(id2tok.get(i, "?") for i in out_ids if i not in (0, 2))
+
+            # Parse structured output
+            from sara_brain.cortex.transformer.v2.extractor_rules import Triple
+            triples = []
+            for part in gen.split("t_end"):
+                if "t_start" in part and "t_rel" in part and "t_obj" in part:
+                    try:
+                        after = part.split("t_start")[1]
+                        subj = after.split("t_rel")[0].strip()
+                        rel = after.split("t_rel")[1].split("t_obj")[0].strip()
+                        obj = after.split("t_obj")[1].strip()
+                        if subj and rel and obj and len(subj) > 1 and len(obj) > 1 and subj != obj:
+                            triples.append(Triple(subject=subj, relation=rel, object=obj, source_clause=clause))
+                    except (IndexError, ValueError):
+                        pass
+            return triples
+
+        extractors.append(("sara", _sara_extract))
+
+    elif args.extractor in ("trained", "hybrid"):
+        try:
+            import spacy
+        except ImportError:
+            print("error: spaCy is not installed", file=sys.stderr)
+            return 2
         from sara_brain.cortex.transformer.hamroby_extractor_v1.feature_extractor import (
             load_domain_nlp,
         )
@@ -141,10 +201,14 @@ def main(argv: list[str] | None = None) -> int:
             extractors.append(("rules", extract_triples_rules))
     else:
         try:
+            import spacy
+        except ImportError:
+            print("error: spaCy is not installed", file=sys.stderr)
+            return 2
+        try:
             nlp = spacy.load("en_core_web_sm")
         except OSError:
-            print("error: en_core_web_sm model not found "
-                  "(.venv/bin/python -m spacy download en_core_web_sm)",
+            print("error: en_core_web_sm model not found",
                   file=sys.stderr)
             return 2
         extractors.append(("rules", extract_triples_rules))
@@ -173,57 +237,89 @@ def main(argv: list[str] | None = None) -> int:
     relation_counts: Counter[str] = Counter()
     started = time.time()
 
-    try:
-        for seg in read(args.source, format=fmt):
-            segments_seen += 1
-            for sentence in _segment_sentences(nlp, seg.text):
-                sentences_seen += 1
-                for clause in EnhancedParser._split_compound(sentence):
-                    if not clause.strip():
-                        continue
-                    clauses_seen += 1
-                    if args.max_clauses and clauses_seen > args.max_clauses:
-                        raise StopIteration
-                    # Run each configured extractor. Hybrid mode runs
-                    # both; rules/trained mode runs one. All triples are
-                    # committed; deduplication is left to the brain
-                    # (teach_triple is idempotent on identical edges).
-                    triples = []
-                    for _name, _fn in extractors:
-                        triples.extend(_fn(clause, nlp))
-                    for tri in triples:
-                        relation_counts[tri.relation] += 1
-                        if not args.quiet:
-                            print(
-                                f"[teach-book] {seg.provenance} :: "
-                                f"({tri.subject!r}, {tri.relation!r}, {tri.object!r})",
-                                file=sys.stderr,
-                            )
-                        _audit(
-                            f"{time.strftime('%Y-%m-%dT%H:%M:%S')}\tteach_triple\t"
-                            f"{seg.provenance}\t{tri.subject}\t{tri.relation}\t"
-                            f"{tri.object}\t{tri.source_clause}"
-                        )
-                        if not args.dry_run:
-                            try:
-                                brain.teach_triple(
-                                    tri.subject,
-                                    tri.relation,
-                                    tri.object,
-                                    source_text=tri.source_clause,
-                                    source_label=seg.provenance,
-                                )
-                                triples_committed += 1
-                            except Exception as e:  # noqa: BLE001 - surface and skip
+    def _run_pass(pass_filter=None, pass_label: str = "single"):
+        """Run one extraction pass over the source. If pass_filter is
+        provided, only triples passing the filter are committed."""
+        nonlocal segments_seen, sentences_seen, clauses_seen, triples_committed
+        pass_committed = 0
+        try:
+            for seg in read(args.source, format=fmt):
+                segments_seen += 1
+                for sentence in _segment_sentences(nlp, seg.text):
+                    sentences_seen += 1
+                    for clause in EnhancedParser._split_compound(sentence):
+                        if not clause.strip():
+                            continue
+                        clauses_seen += 1
+                        if args.max_clauses and clauses_seen > args.max_clauses:
+                            raise StopIteration
+                        triples = []
+                        for _name, _fn in extractors:
+                            triples.extend(_fn(clause, nlp))
+                        if pass_filter is not None:
+                            triples = pass_filter(triples)
+                        for tri in triples:
+                            relation_counts[tri.relation] += 1
+                            if not args.quiet:
                                 print(
-                                    f"[teach-book] WARN teach failed: {e} "
-                                    f"on ({tri.subject!r}, {tri.relation!r}, {tri.object!r})",
+                                    f"[teach-book] [{pass_label}] {seg.provenance} :: "
+                                    f"({tri.subject!r}, {tri.relation!r}, {tri.object!r})",
                                     file=sys.stderr,
                                 )
-    except StopIteration:
-        pass
-    finally:
-        brain.close()
+                            _audit(
+                                f"{time.strftime('%Y-%m-%dT%H:%M:%S')}\tteach_triple\t"
+                                f"{seg.provenance}\t{tri.subject}\t{tri.relation}\t"
+                                f"{tri.object}\t{tri.source_clause}"
+                            )
+                            if not args.dry_run:
+                                try:
+                                    brain.teach_triple(
+                                        tri.subject,
+                                        tri.relation,
+                                        tri.object,
+                                        source_text=tri.source_clause,
+                                        source_label=seg.provenance,
+                                    )
+                                    triples_committed += 1
+                                    pass_committed += 1
+                                except Exception as e:  # noqa: BLE001
+                                    print(
+                                        f"[teach-book] WARN teach failed: {e} "
+                                        f"on ({tri.subject!r}, {tri.relation!r}, {tri.object!r})",
+                                        file=sys.stderr,
+                                    )
+        except StopIteration:
+            pass
+        return pass_committed
+
+    if args.multipass:
+        from sara_brain.cortex.transformer.v2.multipass import (
+            filter_bridges,
+            filter_definitions,
+            filter_relationships,
+        )
+
+        print("[teach-book] multi-pass mode: 3 passes over document", file=sys.stderr)
+
+        print("[teach-book] === Pass 1/3: definitions ===", file=sys.stderr)
+        n = _run_pass(filter_definitions, "definitions")
+        print(f"[teach-book] pass 1 committed {n} definition triples", file=sys.stderr)
+
+        # Reset clause counter for pass 2 (max-clauses applies per pass)
+        clauses_seen = 0
+        print("[teach-book] === Pass 2/3: relationships ===", file=sys.stderr)
+        n = _run_pass(filter_relationships, "relationships")
+        print(f"[teach-book] pass 2 committed {n} relationship triples", file=sys.stderr)
+
+        # Reset clause counter for pass 3
+        clauses_seen = 0
+        print("[teach-book] === Pass 3/3: bridges ===", file=sys.stderr)
+        n = _run_pass(lambda ts: filter_bridges(ts, brain), "bridges")
+        print(f"[teach-book] pass 3 committed {n} bridge triples", file=sys.stderr)
+    else:
+        _run_pass()
+
+    brain.close()
 
     elapsed = time.time() - started
     top_rels = ", ".join(f"{r}={c}" for r, c in relation_counts.most_common(8))

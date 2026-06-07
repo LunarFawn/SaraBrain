@@ -53,19 +53,39 @@ def _reached_with_power(recognizer: Recognizer,
     distributed across every node the wavefront reaches: a seed whose
     wavefront reaches R nodes contributes `seed.power / (R + 1)` to
     each reached node (and the seed itself counts as the +1).
+
+    Hub Discrimination:
+    To prevent generic hub nodes (e.g., "cell" with 100+ connections)
+    from dominating the score, the power contributed to each node is
+    scaled inversely by that node's connectivity. A specific node
+    shared by both question and choice is a stronger witness than
+    a shared generic hub.
     """
     power: dict[int, float] = defaultdict(float)
+    import math
     for seed in seeds:
         n = recognizer.neuron_repo.resolve(seed.label, exact_only=True)
         if n is None:
             continue
         reached = recognizer._propagate(n, bidirectional=True)
         targets = [tid for tid in reached if tid != n.id]
-        total_witnesses = 1 + len(targets)
-        per_witness = seed.power / total_witnesses
-        power[n.id] += per_witness
-        for target_id in targets:
-            power[target_id] += per_witness
+        
+        nodes_to_power = [n.id] + targets
+        total_witnesses = len(nodes_to_power)
+        base_power_per_witness = seed.power / total_witnesses
+        
+        for nid in nodes_to_power:
+            # Connectivity = total segments (incoming + outgoing)
+            out_count = len(recognizer.segment_repo.get_outgoing(nid))
+            in_count = len(recognizer.segment_repo.get_incoming(nid))
+            connectivity = out_count + in_count
+            
+            # linear scaling: Weight = 1.0 / (connectivity + 1)
+            # This is more aggressive than log-scaling and should provide
+            # better discrimination for very large hubs.
+            weight = 1.0 / (connectivity + 1)
+            power[nid] += base_power_per_witness * weight
+            
     return dict(power)
 
 
@@ -156,6 +176,7 @@ def score_choices(question: str,
         q_seeds = resolve_query(question, nlp, neuron_repo)
     else:
         q_seeds = resolve_query_nospacy(question, neuron_repo)
+
     q_power = _reached_with_power(recognizer, q_seeds)
 
     # Math boost: compute numeric answers if operation_tags exist.
@@ -173,6 +194,7 @@ def score_choices(question: str,
         # Confluence: nodes reached by BOTH sides.
         shared = set(q_power) & set(c_power)
         score = 0.0
+
         for nid in shared:
             score += q_power[nid] + c_power[nid]
 

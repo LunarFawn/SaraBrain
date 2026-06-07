@@ -27,8 +27,6 @@ from sara_brain.core.wavefront_scorer import score_choices, pick_choice
 
 def run(db_path: Path, questions_path: Path,
         output_path: Path | None) -> None:
-    print(f"Loading spaCy…")
-    nlp = spacy.load("en_core_web_sm", disable=["ner"])
     print(f"Opening {db_path}…")
     brain = Brain(str(db_path))
     questions = json.loads(questions_path.read_text())
@@ -48,8 +46,9 @@ def run(db_path: Path, questions_path: Path,
         correct_idx = q["answer_idx"]
 
         t0 = time.time()
+        brain.recognizer.max_depth = 3
         ranked = score_choices(
-            text, choices, nlp, brain.recognizer, brain.neuron_repo,
+            text, choices, None, brain.recognizer, brain.neuron_repo,
         )
         dt = time.time() - t0
 

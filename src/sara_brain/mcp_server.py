@@ -113,6 +113,42 @@ def _get_brain() -> Brain:
 
 @mcp.tool()
 @_audited
+def brain_score_choices(question: str, choices: list[str]) -> str:
+    """Rank multiple-choice options using wavefront confluence.
+
+    Enforces wavefront propagation to find which choice has the strongest
+    path-of-thought connection to the question seeds. Returns the ranked
+    list of choices with their scores and confidence.
+
+    Args:
+        question: The question text.
+        choices: A list of possible answers.
+    """
+    from .core.wavefront_scorer import score_choices
+    brain = _get_brain()
+    
+    # Ensure depth 3 for better retrieval
+    brain.recognizer.max_depth = 3
+    
+    ranked = score_choices(
+        question, choices, None, brain.recognizer, brain.neuron_repo
+    )
+    
+    if not ranked:
+        return "Sara couldn't find any connections for these choices."
+        
+    lines = ["Ranked choices (wavefront confluence):"]
+    for i, r in enumerate(ranked):
+        lines.append(f"  {i+1}. {r.text}")
+        lines.append(f"     Score: {r.score:.4f}, Convergence: {r.convergence_count}")
+        if r.compound_hits:
+            lines.append(f"     Compound matches: {', '.join(r.compound_hits)}")
+            
+    return "\n".join(lines)
+
+
+@mcp.tool()
+@_audited
 def brain_query(topic: str) -> str:
     """Query Sara Brain for everything she knows about a topic.
 
@@ -490,25 +526,30 @@ def brain_did_you_mean(term: str) -> str:
 
 @mcp.tool()
 @_audited
-def brain_ingest(source: str, extractor: str = "llm") -> str:
+def brain_ingest(source: str, extractor: str = "grammar", multipass: bool = False) -> str:
     """Ingest a document into Sara Brain from a file path or URL.
 
     Two extractor backends:
 
-    - ``extractor="llm"`` (default, legacy): Sara reads through the LLM
-      cortex configured on the brain (``llm_provider`` in settings),
-      extracts facts via API call, and learns them. Requires an LLM to
-      be configured.
-    - ``extractor="grammar"``: grammar-based extractor from
+    - ``extractor="grammar"`` (default): grammar-based extractor from
       ``cortex/transformer/v2/extractor_rules.py`` (rule-based stub
       until the v2 neural head ships). No API call. Auto-commits
       every triple it can extract; mistakes are correctable later via
       ``brain_refute``. Accepts TXT, Markdown, PDF, EPUB, HTML, URL.
+    - ``extractor="llm"``: Sara reads through the LLM cortex configured
+      on the brain (``llm_provider`` in settings), extracts facts via
+      API call, and learns them. Requires an LLM to be configured.
+
+    When ``multipass=True`` (grammar extractor only), runs 3 focused
+    passes over the document for richer substrate coverage:
+      1. Definitions (X is Y) — populates what things ARE
+      2. Relationships (X produces/requires Y) — what things DO
+      3. Bridges — connects concepts that now exist from passes 1+2
 
     Returns a one-line summary of what was ingested.
     """
     if extractor == "grammar":
-        return _grammar_ingest(source)
+        return _grammar_ingest(source, multipass=multipass)
     if extractor == "llm":
         from .agent.bridge import AgentBridge
         brain = _get_brain()
@@ -517,7 +558,7 @@ def brain_ingest(source: str, extractor: str = "llm") -> str:
     return f"Unknown extractor: {extractor!r}. Use 'llm' or 'grammar'."
 
 
-def _grammar_ingest(source: str) -> str:
+def _grammar_ingest(source: str, multipass: bool = False) -> str:
     """Run the v2 grammar-based ingest pipeline against the active brain."""
     import time
     from collections import Counter
@@ -543,33 +584,51 @@ def _grammar_ingest(source: str) -> str:
     segments = sentences = clauses = committed = 0
     errors = 0
 
-    for seg in read(source, format=fmt):
-        segments += 1
-        for sent in nlp(seg.text).sents:
-            sentence = sent.text.strip()
-            if not sentence:
-                continue
-            sentences += 1
-            for clause in EnhancedParser._split_compound(sentence):
-                if not clause.strip():
+    def _run_one_pass(pass_filter=None):
+        nonlocal segments, sentences, clauses, committed, errors
+        for seg in read(source, format=fmt):
+            segments += 1
+            for sent in nlp(seg.text).sents:
+                sentence = sent.text.strip()
+                if not sentence:
                     continue
-                clauses += 1
-                for tri in extract_triples(clause, nlp):
-                    rel_counts[tri.relation] += 1
-                    try:
-                        brain.teach_triple(
-                            tri.subject, tri.relation, tri.object,
-                            source_text=tri.source_clause,
-                            source_label=seg.provenance,
-                        )
-                        committed += 1
-                    except Exception:  # noqa: BLE001
-                        errors += 1
+                sentences += 1
+                for clause in EnhancedParser._split_compound(sentence):
+                    if not clause.strip():
+                        continue
+                    clauses += 1
+                    triples = extract_triples(clause, nlp)
+                    if pass_filter is not None:
+                        triples = pass_filter(triples)
+                    for tri in triples:
+                        rel_counts[tri.relation] += 1
+                        try:
+                            brain.teach_triple(
+                                tri.subject, tri.relation, tri.object,
+                                source_text=tri.source_clause,
+                                source_label=seg.provenance,
+                            )
+                            committed += 1
+                        except Exception:  # noqa: BLE001
+                            errors += 1
+
+    if multipass:
+        from .cortex.transformer.v2.multipass import (
+            filter_bridges,
+            filter_definitions,
+            filter_relationships,
+        )
+        _run_one_pass(filter_definitions)
+        _run_one_pass(filter_relationships)
+        _run_one_pass(lambda ts: filter_bridges(ts, brain))
+    else:
+        _run_one_pass()
 
     elapsed = time.time() - started
     top = ", ".join(f"{r}={c}" for r, c in rel_counts.most_common(8))
+    mode_label = "multipass-grammar-ingest" if multipass else "grammar-ingest"
     return (
-        f"grammar-ingest: source={source} format={fmt} "
+        f"{mode_label}: source={source} format={fmt} "
         f"segments={segments} sentences={sentences} clauses={clauses} "
         f"triples_committed={committed} errors={errors} "
         f"elapsed={elapsed:.1f}s. top_relations={top or '(none)'}"

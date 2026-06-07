@@ -142,6 +142,17 @@ TEMPLATES = [
 ]
 
 
+# Real English 'noise' words to teach the model what to REJECT.
+# These will be injected into sentences but NOT included in the triples.
+ENGLISH_NOISE = [
+    "the", "this", "that", "these", "those", "is", "are", "was", "were",
+    "can", "may", "might", "should", "would", "could", "will", "shall",
+    "it", "it is", "there are", "often", "usually", "sometimes", "always",
+    "very", "just", "only", "also", "even", "still", "0", "1", "2", "3",
+    "4", "5", "6", "7", "8", "9", "one", "two", "three", "first", "second",
+]
+
+
 def generate_example(rng: random.Random) -> dict:
     """Generate one training example with compound concepts and structured output."""
     # Create a small domain of interconnected concepts
@@ -192,6 +203,26 @@ def generate_example(rng: random.Random) -> dict:
         if i > 0 and rng.random() < 0.4:
             sent = rng.choice(connectives) + sent[0].lower() + sent[1:]
         paragraph_parts.append(sent)
+
+    # Inject 'Noise' sentences that should NOT produce triples
+    # This teaches the model to ignore English filler and numbers.
+    n_noise = rng.randint(1, 3)
+    for _ in range(n_noise):
+        noise_s = rng.choice(ENGLISH_NOISE)
+        noise_o = rng.choice(ENGLISH_NOISE)
+        # Use a real-sounding template for noise that doesn't use domain concepts
+        noise_template = rng.choice([
+            "Note that {s} is often used as {o}.",
+            "In general, {s} can be {o}.",
+            "Usually {s} implies {o}.",
+            "It is {s} that {o} exists.",
+            "{s} and {o} are common words.",
+        ])
+        noise_sentence = noise_template.format(s=noise_s, o=noise_o)
+        # Insert noise sentence at random position
+        insert_idx = rng.randint(0, len(paragraph_parts))
+        paragraph_parts.insert(insert_idx, noise_sentence)
+
     paragraph = " ".join(paragraph_parts)
 
     # Build structured output

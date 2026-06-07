@@ -85,13 +85,18 @@ mcp = FastMCP(
         "     IS the signal the LLM consumer reasons with — more context is "
         "     better. Use this FIRST for any substantive question about a "
         "     taught topic.\n"
-        "  2. brain_query(label) — 1-hop, both directions. Fallback when "
+        "  2. brain_ping(labels, max_rounds=3) — RECOMMENDED for 'thinking' "
+        "     or 'brainstorming' across multiple concepts. Iteratively "
+        "     pings ideas around the graph to find deep connections and "
+        "     intersections. Use this when you want Sara to find non-obvious "
+        "     links between disparate topics.\n"
+        "  3. brain_query(label) — 1-hop, both directions. Fallback when "
         "     brain_explore is too broad.\n"
-        "  3. brain_why(label) / brain_trace(label) — 1-hop, single direction. "
+        "  4. brain_why(label) / brain_trace(label) — 1-hop, single direction. "
         "     Use only when you need precise incoming/outgoing distinction.\n"
-        "  4. brain_recognize(a, b, c) — wavefront convergence from multiple "
+        "  5. brain_recognize(a, b, c) — wavefront convergence from multiple "
         "     seeds. Use when identifying a concept from properties.\n"
-        "  5. brain_did_you_mean(label) — fuzzy match when spelling is uncertain.\n\n"
+        "  6. brain_did_you_mean(label) — fuzzy match when spelling is uncertain.\n\n"
         "Teaching: brain_teach_triple(subject, relation, obj) is canonical; "
         "labels are lowercased unless prefixed with 'CAPITAL:'."
     ),
@@ -692,6 +697,67 @@ def brain_stats() -> str:
     brain = _get_brain()
     s = brain.stats()
     strongest = s.get("strongest_segment", "none")
+    return (
+        f"Neurons: {s['neurons']}\n"
+        f"Segments: {s['segments']}\n"
+        f"Paths: {s['paths']}\n"
+        f"Strongest segment: {strongest}"
+    )
+
+
+@mcp.tool()
+@_audited
+def brain_similar(label: str) -> str:
+    """Find neurons that share downstream paths with the given neuron.
+
+    Answers: "What is similar to X in Sara's knowledge?"
+    """
+    brain = _get_brain()
+    links = brain.get_similar(label)
+    if not links:
+        return f"No similar neurons found for '{label}'."
+    lines = [f"Similar to '{label}':"]
+    for s in links:
+        lines.append(
+            f"  {s.neuron_a_label} <-> {s.neuron_b_label} "
+            f"(overlap: {s.overlap_ratio:.0%})"
+        )
+    return "\n".join(lines)
+
+
+# ── Resources ──
+
+
+@mcp.resource("sara://brain/stats")
+def get_brain_stats() -> str:
+    """Current brain statistics."""
+    return brain_stats()
+
+
+@mcp.resource("sara://brain/neurons")
+def get_neurons() -> str:
+    """List all neurons in Sara Brain."""
+    brain = _get_brain()
+    neurons = brain.neuron_repo.list_all()
+    lines = [f"Total neurons: {len(neurons)}\n"]
+    for n in neurons[:100]:
+        lines.append(f"  {n.label} ({n.neuron_type.value})")
+    if len(neurons) > 100:
+        lines.append(f"  ... and {len(neurons) - 100} more")
+    return "\n".join(lines)
+
+
+# ── Entry point ──
+
+
+def main():
+    """Run the Sara Brain MCP server."""
+    mcp.run(transport="stdio")
+
+
+if __name__ == "__main__":
+    main()
+  strongest = s.get("strongest_segment", "none")
     return (
         f"Neurons: {s['neurons']}\n"
         f"Segments: {s['segments']}\n"

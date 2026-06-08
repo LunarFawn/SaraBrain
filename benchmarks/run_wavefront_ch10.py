@@ -26,11 +26,18 @@ from sara_brain.core.wavefront_scorer import score_choices, pick_choice
 
 
 def run(db_path: Path, questions_path: Path,
-        output_path: Path | None) -> None:
-    print(f"Opening {db_path}…")
+        output_path: Path | None, echo: bool = False) -> None:
+    print(f"Opening {db_path}… (Echo Mode: {echo})")
     brain = Brain(str(db_path))
     questions = json.loads(questions_path.read_text())
     print(f"{len(questions)} questions")
+    
+    # Load spaCy for better query resolution (lemmatization)
+    try:
+        import spacy
+        nlp = spacy.load("en_core_web_sm")
+    except Exception:
+        nlp = None
 
     correct = 0
     wrong = 0
@@ -48,7 +55,8 @@ def run(db_path: Path, questions_path: Path,
         t0 = time.time()
         brain.recognizer.max_depth = 3
         ranked = score_choices(
-            text, choices, None, brain.recognizer, brain.neuron_repo,
+            text, choices, nlp, brain.recognizer, brain.neuron_repo,
+            echo=echo
         )
         dt = time.time() - t0
 
@@ -135,8 +143,9 @@ def main() -> None:
     p.add_argument("--db", required=True, type=Path)
     p.add_argument("--questions", required=True, type=Path)
     p.add_argument("--output", type=Path)
+    p.add_argument("--echo", action="store_true", help="Use echo propagation for scoring")
     args = p.parse_args()
-    run(args.db, args.questions, args.output)
+    run(args.db, args.questions, args.output, echo=args.echo)
 
 
 if __name__ == "__main__":

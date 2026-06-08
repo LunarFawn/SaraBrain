@@ -44,7 +44,8 @@ class ChoiceScore:
 
 
 def _reached_with_power(recognizer: Recognizer,
-                        seeds: list[ResolvedSeed]
+                        seeds: list[ResolvedSeed],
+                        echo: bool = False
                         ) -> dict[int, float]:
     """Return {neuron_id: accumulated_power} for nodes reached by
     any seed's wavefront, plus the seeds themselves.
@@ -60,9 +61,33 @@ def _reached_with_power(recognizer: Recognizer,
     scaled inversely by that node's connectivity. A specific node
     shared by both question and choice is a stronger witness than
     a shared generic hub.
+
+    Echo Mode:
+    When echo=True, uses iterative spreading activation (propagate_echo)
+    to find deep connections.
     """
+    if echo:
+        from .short_term import ShortTerm
+        import time
+        st = ShortTerm(event_id=f"score-{time.time()}", event_type="score")
+        seed_labels = [s.label for s in seeds]
+        # Use propagate_echo to ping ideas around
+        recognizer.propagate_echo(seed_labels, st, max_rounds=2)
+        
+        # We need to convert the ShortTerm weights into the power dict format.
+        # ShortTerm already does linear accumulation. We apply hub penalty here.
+        power: dict[int, float] = defaultdict(float)
+        for nid, weight in st.convergence_map.items():
+            out_count = len(recognizer.segment_repo.get_outgoing(nid))
+            in_count = len(recognizer.segment_repo.get_incoming(nid))
+            connectivity = out_count + in_count
+            
+            # Linear hub penalty
+            h_weight = 1.0 / (connectivity + 1)
+            power[nid] = weight * h_weight
+        return dict(power)
+
     power: dict[int, float] = defaultdict(float)
-    import math
     for seed in seeds:
         n = recognizer.neuron_repo.resolve(seed.label, exact_only=True)
         if n is None:
@@ -70,6 +95,7 @@ def _reached_with_power(recognizer: Recognizer,
         reached = recognizer._propagate(n, bidirectional=True)
         targets = [tid for tid in reached if tid != n.id]
         
+        # Calculate connectivity-weighted power for each node.
         nodes_to_power = [n.id] + targets
         total_witnesses = len(nodes_to_power)
         base_power_per_witness = seed.power / total_witnesses
@@ -81,8 +107,6 @@ def _reached_with_power(recognizer: Recognizer,
             connectivity = out_count + in_count
             
             # linear scaling: Weight = 1.0 / (connectivity + 1)
-            # This is more aggressive than log-scaling and should provide
-            # better discrimination for very large hubs.
             weight = 1.0 / (connectivity + 1)
             power[nid] += base_power_per_witness * weight
             
@@ -170,6 +194,8 @@ def score_choices(question: str,
                   nlp,
                   recognizer: Recognizer,
                   neuron_repo: NeuronRepo,
+                  echo: bool = False,
+                  dampened: bool = False,
                   ) -> list[ChoiceScore]:
     """Rank `choices` against `question` by wavefront confluence."""
     if nlp is not None:
@@ -177,32 +203,34 @@ def score_choices(question: str,
     else:
         q_seeds = resolve_query_nospacy(question, neuron_repo)
 
-    q_power = _reached_with_power(recognizer, q_seeds)
+    q_power = _reached_with_power(recognizer, q_seeds, echo=echo)
 
     # Math boost: compute numeric answers if operation_tags exist.
     computed = _compute_math_answers(question, recognizer, q_seeds)
     math_boosts = _math_boost(choices, computed)
 
     results: list[ChoiceScore] = []
+    import math
     for i, choice in enumerate(choices):
         if nlp is not None:
             c_seeds = resolve_query(choice, nlp, neuron_repo)
         else:
             c_seeds = resolve_query_nospacy(choice, neuron_repo)
-        c_power = _reached_with_power(recognizer, c_seeds)
+        c_power = _reached_with_power(recognizer, c_seeds, echo=echo)
 
         # Confluence: nodes reached by BOTH sides.
         shared = set(q_power) & set(c_power)
         score = 0.0
 
         for nid in shared:
-            score += q_power[nid] + c_power[nid]
+            if dampened:
+                # Non-linear log1p dampening (experimental for high-volume echo)
+                score += math.log1p(q_power[nid]) + math.log1p(c_power[nid])
+            else:
+                # Linear baseline (best performing for MC precision)
+                score += q_power[nid] + c_power[nid]
 
-        # Compound-match bonus. When a question compound seed AND a
-        # choice compound seed resolve to the SAME compound neuron,
-        # both sides independently identified the same specific concept.
-        # That's stronger path evidence than hub-atom convergence and
-        # should weight more than a diluted atom match.
+        # Compound-match bonus.
         q_compound_ids = {
             neuron_repo.resolve(s.label, exact_only=True).id
             for s in q_seeds if s.is_compound
@@ -215,11 +243,12 @@ def score_choices(question: str,
         }
         compound_matches = q_compound_ids & c_compound_ids
         compound_hits = len(compound_matches)
-        # Each compound match adds the compound's power product, not a
-        # flat bonus — keeps scoring grounded in the graph's own edge
-        # mass rather than an invented constant.
+        
         for nid in compound_matches:
-            score += q_power.get(nid, 0.0) + c_power.get(nid, 0.0)
+            if dampened:
+                score += math.log1p(q_power.get(nid, 0.0)) + math.log1p(c_power.get(nid, 0.0))
+            else:
+                score += q_power.get(nid, 0.0) + c_power.get(nid, 0.0)
 
         results.append(ChoiceScore(
             index=i,

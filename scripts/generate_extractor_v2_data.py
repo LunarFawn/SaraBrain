@@ -51,6 +51,28 @@ TEMPLATES = [
     # Simple declarative
     ("is_a", "{s} is a type of {o}.", "{s} is a {o}."),
     ("is_a", "{s} is classified as {o}.", "{s} is a specialized form of {o}."),
+    # Simple declarative for all relations
+    ("contains", "{s} contains {o}.", "{s} is composed of multiple {o}."),
+    ("produces", "{s} produces {o}.", "{s} generates {o} as its primary output."),
+    ("requires", "{s} requires {o} to function.", "Without {o} the {s} cannot operate."),
+    ("involves", "{s} involves {o}.", "{s} includes {o} as a component."),
+    ("causes", "{s} causes {o}.", "{s} triggers {o} when activated."),
+    ("prevents", "{s} prevents {o}.", "{s} blocks {o} from occurring."),
+    ("occurs_in", "{s} occurs in {o}.", "{s} takes place within {o}."),
+    ("part_of", "{s} is part of {o}.", "{s} is a component of the larger {o}."),
+    ("enables", "{s} enables {o}.", "{s} makes {o} possible."),
+    ("interacts_with", "{s} interacts with {o}.", "{s} binds to {o} with high affinity."),
+    ("regulates", "{s} regulates {o}.", "{s} controls the rate of {o}."),
+    ("provides", "{s} provides {o}.", "{s} supplies {o} to the surrounding structure."),
+    ("transforms_into", "{s} transforms into {o}.", "Over time {s} converts to {o}."),
+    ("activates", "{s} activates {o}.", "{s} switches on {o} when conditions are met."),
+    ("inhibits", "{s} inhibits {o}.", "{s} suppresses {o} effectively."),
+    ("composed_of", "{s} is composed of {o}.", "{s} consists of {o}."),
+    ("results_in", "{s} results in {o}.", "{s} leads to {o}."),
+    ("leads_to", "{s} leads to {o}.", "{s} causes {o} eventually."),
+    ("attaches_to", "{s} attaches to {o}.", "{s} binds to {o}."),
+    ("depends_on", "{s} depends on {o}.", "{s} relies on {o} for function."),
+
     # Additional definition templates (weighted heavily)
     ("is_a", "{s} is a {o} that operates in complex environments.", None),
     ("is_a", "{s} is a {o} found in many systems.", None),
@@ -145,11 +167,13 @@ TEMPLATES = [
 # Real English 'noise' words to teach the model what to REJECT.
 # These will be injected into sentences but NOT included in the triples.
 ENGLISH_NOISE = [
-    "the", "this", "that", "these", "those", "is", "are", "was", "were",
+    "the", "a", "an", "this", "that", "these", "those", "is", "are", "was", "were",
     "can", "may", "might", "should", "would", "could", "will", "shall",
     "it", "it is", "there are", "often", "usually", "sometimes", "always",
     "very", "just", "only", "also", "even", "still", "0", "1", "2", "3",
     "4", "5", "6", "7", "8", "9", "one", "two", "three", "first", "second",
+    "ok", "okay", "yes", "no", "not", "well", "basically", "actually",
+    "specifically", "generally", "typically", "mostly", "partially",
 ]
 
 

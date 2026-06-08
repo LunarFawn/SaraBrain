@@ -326,6 +326,13 @@ class Brain:
             original=source_text if source_text is not None else f"{subject} {relation} {obj}",
             negated=negated,
         )
+        # Detect arithmetic operation from source text (e.g., "by half").
+        if source_text:
+            try:
+                from .math import MathResolver
+                parsed.operation = MathResolver().resolve(source_text)
+            except Exception:
+                pass
         result = self.learner._build_chain(
             parsed, refute=negated, source_label=source_label
         )

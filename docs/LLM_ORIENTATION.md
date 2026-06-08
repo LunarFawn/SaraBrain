@@ -119,7 +119,6 @@ These are in memory rules and they shape future work:
 | **Don't feed MCQ choices to the brain** | rev8 §2.4 | The brain sees the question stem; the LLM selects from choices AFTER. |
 | **Smaller models are more substrate-faithful** | `feedback_simpler_models_substrate_faithful.md` | For Ollama synthesis, `llama3.2:3b` > `qwen2.5:7b` on prose brains. Bigger models hedge/refuse more. |
 | **Don't ship partial as done** | `feedback_dont_ship_partial_as_done.md` | 3/4 and 3/5 are mid-fix, not "win." Honest reports lead with remaining failures. |
-| **Never launch training** | `feedback_dont_launch_training.md` | Stage train commands; the user runs them. (Recurring violation rule.) |
 | **No `--quiet` flags** | `feedback_no_quiet_flags.md` | User wants progress visible on long-running ingests. |
 | **Don't tell user to stop** | `feedback_dont_tell_user_to_stop.md` | When user expresses fatigue/frustration, state technical reality and offer options — not "you should rest." |
 

@@ -151,6 +151,7 @@ def main(argv: list[str] | None = None) -> int:
 
         def _sara_extract(clause, _nlp_unused):
             """Extract triples using the 115M from-scratch model."""
+            from sara_brain.cortex.transformer.v2.normalize import normalize_label
             enc_ids, oov, oov_map = encode_with_oov(clause, _tok2id, 300)
             enc_t = torch.tensor([enc_ids], dtype=torch.long, device=_device)
             pm = torch.zeros(1, len(enc_ids), dtype=torch.bool, device=_device)
@@ -171,6 +172,8 @@ def main(argv: list[str] | None = None) -> int:
                         subj = after.split("t_rel")[0].strip()
                         rel = after.split("t_rel")[1].split("t_obj")[0].strip()
                         obj = after.split("t_obj")[1].strip()
+                        subj = normalize_label(subj)
+                        obj = normalize_label(obj)
                         if subj and rel and obj and len(subj) > 1 and len(obj) > 1 and subj != obj:
                             triples.append(Triple(subject=subj, relation=rel, object=obj, source_clause=clause))
                     except (IndexError, ValueError):

@@ -170,39 +170,70 @@ def resolve_query_nospacy(text: str, neuron_repo: NeuronRepo) -> list[ResolvedSe
     filtering. Same output shape as resolve_query() — drop-in replacement.
     """
     import re
-    words = re.findall(r"[a-zA-Z][a-zA-Z'-]+", text)
+    # Capture words 2+ chars, plus single uppercase letters (Roman numerals I, V, X)
+    words = re.findall(r"[a-zA-Z][a-zA-Z'-]+|[A-Z](?=\s|$|\b)", text)
     lowered = [w.lower() for w in words]
-    content = [w for w in lowered if w not in _STOPWORDS and len(w) >= 3]
 
-    if not content:
+    # Also split hyphenated words ("crossing-over" → "crossing over")
+    expanded: list[str] = []
+    for w in lowered:
+        if "-" in w:
+            expanded.extend(w.split("-"))
+            # Also try the space-joined form as one candidate
+        else:
+            expanded.append(w)
+
+    if not expanded:
         return []
 
-    # Build bigrams (compound candidates)
-    bigrams: list[str] = []
-    for i in range(len(content) - 1):
-        bigrams.append(f"{content[i]} {content[i+1]}")
-
-    # Try trigrams too
-    trigrams: list[str] = []
-    for i in range(len(content) - 2):
-        trigrams.append(f"{content[i]} {content[i+1]} {content[i+2]}")
-
-    # Resolution order: trigrams > bigrams > unigrams
     seeds: list[ResolvedSeed] = []
     emitted: set[str] = set()
     subsumed: set[str] = set()
 
-    # Try trigrams first
-    for tri in trigrams:
-        if neuron_repo.resolve(tri, exact_only=True) is not None:
-            if tri not in emitted:
-                seeds.append(ResolvedSeed(label=tri, power=3, is_compound=True))
-                emitted.add(tri)
-                for part in tri.split():
+    # First: probe substrate with raw bigrams from expanded tokens
+    # (before stopword filtering — catches "prophase i", "crossing over")
+    for i in range(len(expanded) - 1):
+        bi = f"{expanded[i]} {expanded[i+1]}"
+        if bi in emitted:
+            continue
+        if neuron_repo.resolve(bi, exact_only=True) is not None:
+            seeds.append(ResolvedSeed(label=bi, power=2, is_compound=True))
+            emitted.add(bi)
+            subsumed.add(expanded[i])
+            subsumed.add(expanded[i+1])
+
+    # Also try hyphenated words as space-joined ("crossing-over" → "crossing over")
+    for w in lowered:
+        if "-" in w:
+            spaced = w.replace("-", " ")
+            if spaced in emitted:
+                continue
+            if neuron_repo.resolve(spaced, exact_only=True) is not None:
+                seeds.append(ResolvedSeed(label=spaced, power=2, is_compound=True))
+                emitted.add(spaced)
+                for part in spaced.split():
                     subsumed.add(part)
 
-    # Then bigrams
-    for bi in bigrams:
+    # Now filter to content words for unigram resolution
+    content = [w for w in expanded if w not in _STOPWORDS and len(w) >= 3]
+
+    # Trigrams from content
+    for i in range(len(content) - 2):
+        tri = f"{content[i]} {content[i+1]} {content[i+2]}"
+        if tri in emitted:
+            continue
+        parts = tri.split()
+        if all(p in subsumed for p in parts):
+            continue
+        if neuron_repo.resolve(tri, exact_only=True) is not None:
+            seeds.append(ResolvedSeed(label=tri, power=3, is_compound=True))
+            emitted.add(tri)
+            for part in parts:
+                subsumed.add(part)
+
+    # Bigrams from content
+    for i in range(len(content) - 1):
+        bi = f"{content[i]} {content[i+1]}"
         if bi in emitted:
             continue
         parts = bi.split()
@@ -214,7 +245,7 @@ def resolve_query_nospacy(text: str, neuron_repo: NeuronRepo) -> list[ResolvedSe
             for part in parts:
                 subsumed.add(part)
 
-    # Then unigrams (skip subsumed)
+    # Unigrams (skip subsumed)
     for w in content:
         if w in subsumed or w in emitted:
             continue
@@ -222,7 +253,7 @@ def resolve_query_nospacy(text: str, neuron_repo: NeuronRepo) -> list[ResolvedSe
             seeds.append(ResolvedSeed(label=w, power=1, is_compound=False))
             emitted.add(w)
 
-    # If nothing resolved, fall back to all content words as bare seeds
+    # Fallback: if nothing resolved, use raw content words
     if not seeds:
         for w in content[:5]:
             if w not in emitted:

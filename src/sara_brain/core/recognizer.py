@@ -297,31 +297,23 @@ class Recognizer:
                 short_term.add_convergence(target_id, best_weight, seed.id)
 
     def propagate_echo(self, seed_labels: list[str], short_term,
-                       max_rounds: int = 3,
+                       max_rounds: int = 2,
                        min_strength: float | None = None,
-                       exact_only: bool = True) -> None:
-        """Spreading activation — thought pinging around the graph.
+                       exact_only: bool = True,
+                       top_k: int = 10) -> None:
+        """Focused spreading activation — fast thought pinging.
 
-        Iterative bidirectional propagation that echoes back and forth
-        until it settles. Each round takes neurons discovered in the
-        PREVIOUS round (that haven't been used as seeds yet) and
-        propagates them bidirectionally. Everything accumulates in the
-        same ShortTerm scratchpad.
-
-        This models how thoughts ping around a brain: "baseballs → I
-        like balls → balls are round → I want an orange." Each
-        convergence triggers a new wave. The echo settles when no new
-        neurons are discovered or max_rounds is reached.
-
-        READ-ONLY: no segment strengthening.
+        Iterative bidirectional propagation that only follows the TOP K
+        most relevant neurons from each round. This prevents graph
+        flooding while still finding deep connections.
 
         Args:
             seed_labels: initial concepts to start the echo from
-                (question words + choice words typically)
             short_term: ShortTerm scratchpad to accumulate into
-            max_rounds: how many echo bounces before stopping
-            min_strength: edge threshold for this echo
-            exact_only: exact label matching (default for queries)
+            max_rounds: how many echo bounces (keep low for speed)
+            min_strength: edge threshold
+            exact_only: exact label matching
+            top_k: only propagate from the top N most convergent neurons
         """
         effective_min = (
             self.min_strength if min_strength is None else min_strength
@@ -342,8 +334,6 @@ class Recognizer:
             return
 
         for _round in range(max_rounds):
-            new_neurons_this_round: list[Neuron] = []
-
             for seed in current_seeds:
                 reached = self._propagate(
                     seed,
@@ -359,17 +349,32 @@ class Recognizer:
                     short_term.add_convergence(
                         target_id, best_weight, seed.id
                     )
-                    # If this neuron is new, queue it as a seed for the
-                    # next round — the thought pings forward
-                    if target_id not in used_ids:
-                        used_ids.add(target_id)
-                        target_n = self.neuron_repo.get_by_id(target_id)
-                        if target_n is not None:
-                            new_neurons_this_round.append(target_n)
 
-            # If nothing new was discovered, the echo has settled
-            if not new_neurons_this_round:
+            # FIND TOP K NEURONS FOR NEXT ROUND
+            # Only neurons discovered THIS round that haven't been seeds yet.
+            # We apply Hub Inhibition here: highly connected nodes are less
+            # likely to become the next "thought" seed.
+            intersections = short_term.intersections(min_sources=1)
+            next_candidates = []
+            import math
+            for nid, weight, _count in intersections:
+                if nid not in used_ids:
+                    n = self.neuron_repo.get_by_id(nid)
+                    if n:
+                        # Connectivity penalty: weight / (conn + 1)
+                        out_count = len(self.segment_repo.get_outgoing(nid))
+                        in_count = len(self.segment_repo.get_incoming(nid))
+                        connectivity = out_count + in_count
+                        
+                        # Inhibit hubs from becoming seeds
+                        inhibited_weight = weight / (connectivity + 1)
+                        next_candidates.append((n, inhibited_weight))
+            
+            if not next_candidates:
                 break
-
-            # Next round's seeds are the newly discovered neurons
-            current_seeds = new_neurons_this_round
+                
+            # Sort by inhibited weight and pick top K
+            next_candidates.sort(key=lambda x: x[1], reverse=True)
+            current_seeds = [c[0] for c in next_candidates[:top_k]]
+            for n in current_seeds:
+                used_ids.add(n.id)

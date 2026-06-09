@@ -77,6 +77,19 @@ with torch.no_grad():
 
 Expected output: `t_start meiosis t_rel involves t_obj prophase t_end`
 
+### 4. Running the Model in Production (Ingestion)
+
+To use the 115M model to ingest documents into a brain:
+
+```bash
+python src/sara_reader/cli_teach_book.py \
+    --brain /tmp/my_book.db \
+    --extractor sara \
+    path/to/my/book.txt
+```
+
+*Note: The `cli_teach_book.py` pipeline currently pre-parses documents into isolated grammar clauses before feeding them to the extractor. While the v2-clean model handles isolated sentences well, extremely fragmented clauses can still degrade output quality compared to feeding full paragraphs.*
+
 ## Model Architecture
 
 ```

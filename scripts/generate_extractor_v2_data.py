@@ -183,43 +183,45 @@ def generate_example(rng: random.Random) -> dict:
     n_concepts = rng.randint(4, 8)
     concepts = [concept(rng) for _ in range(n_concepts)]
 
-    # Generate 3-6 triples, ALWAYS starting with a definition (is_a)
-    n_triples = rng.randint(3, 6)
+    # Vary sequence length: mix of paragraphs, single sentences, and noise-only.
+    mode = rng.choices(["paragraph", "sentence", "noise_only"], weights=[0.6, 0.3, 0.1])[0]
+    if mode == "noise_only":
+        n_triples = 0
+        n_noise = rng.randint(1, 2)
+    elif mode == "sentence":
+        n_triples = rng.randint(1, 2)
+        n_noise = rng.randint(0, 1)
+    else:
+        n_triples = rng.randint(3, 6)
+        n_noise = rng.randint(1, 3)
+
     triples = []
     sentences = []
 
-    # First triple is ALWAYS a definition
-    s, o = concepts[0], concepts[1]
-    is_a_templates = [t for t in TEMPLATES if t[0] == "is_a"]
-    template_entry = rng.choice(is_a_templates)
-    rel = "is_a"
-    template_options = [t for t in template_entry[1:] if t is not None]
-    template = rng.choice(template_options)
-    sentences.append(template.format(s=s, o=o))
-    triples.append({"s": s, "r": rel, "o": o})
-
-    # Remaining triples can be any type (but 30% chance of another is_a)
-    for _ in range(n_triples - 1):
+    for i in range(n_triples):
         s_idx, o_idx = rng.sample(range(n_concepts), 2)
         s, o = concepts[s_idx], concepts[o_idx]
 
-        if rng.random() < 0.3:
-            # Another definition
+        # In paragraphs, make the first triple a definition to set the context
+        is_a_templates = [t for t in TEMPLATES if t[0] == "is_a"]
+        if i == 0 and mode == "paragraph":
+            template_entry = rng.choice(is_a_templates)
+            rel = "is_a"
+        elif rng.random() < 0.3:
             template_entry = rng.choice(is_a_templates)
             rel = "is_a"
         else:
-            # Pick a template (any type)
             template_entry = rng.choice(TEMPLATES)
             rel = template_entry[0]
 
         template_options = [t for t in template_entry[1:] if t is not None]
         template = rng.choice(template_options)
 
-        sentence = template.format(s=s, o=o)
-        sentences.append(sentence)
+        sentences.append(template.format(s=s, o=o))
         triples.append({"s": s, "r": rel, "o": o})
 
     # Build paragraph with connectives
+
     connectives = ["", "", "", "Furthermore, ", "In addition, ", "As a result, ",
                    "This means that ", "Moreover, ", "Consequently, "]
     paragraph_parts = []
@@ -230,7 +232,6 @@ def generate_example(rng: random.Random) -> dict:
 
     # Inject 'Noise' sentences that should NOT produce triples
     # This teaches the model to ignore English filler and numbers.
-    n_noise = rng.randint(1, 3)
     for _ in range(n_noise):
         noise_s = rng.choice(ENGLISH_NOISE)
         noise_o = rng.choice(ENGLISH_NOISE)

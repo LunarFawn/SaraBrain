@@ -155,8 +155,8 @@ class CopyDecoder(nn.Module):
 
 
 class SaraExtractor(nn.Module):
-    def __init__(self, vocab_size, d_model=256, enc_layers=4, dec_layers=3,
-                 n_heads=8, max_enc=512, max_dec=128):
+    def __init__(self, vocab_size, d_model=768, enc_layers=8, dec_layers=6,
+                 n_heads=12, max_enc=512, max_dec=128):
         super().__init__()
         self.encoder = Encoder(vocab_size, d_model, n_heads, enc_layers, max_enc)
         self.decoder = CopyDecoder(vocab_size, d_model, n_heads, dec_layers, max_dec)
@@ -224,6 +224,11 @@ def main():
     ap.add_argument("--resume", action="store_true")
     ap.add_argument("--max-enc", type=int, default=400)
     ap.add_argument("--max-dec", type=int, default=100)
+    # Model size arguments (required to prevent accidental small-model runs)
+    ap.add_argument("--d-model", type=int, required=True, help="Dimension of model (e.g. 768)")
+    ap.add_argument("--enc-layers", type=int, required=True, help="Number of encoder layers (e.g. 8)")
+    ap.add_argument("--dec-layers", type=int, required=True, help="Number of decoder layers (e.g. 6)")
+    ap.add_argument("--n-heads", type=int, required=True, help="Number of attention heads (e.g. 12)")
     args = ap.parse_args()
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -246,8 +251,9 @@ def main():
     print(f"Train: {len(train_ex)}, Val: {len(val)}")
 
     # Model
-    model = SaraExtractor(ext_vocab, d_model=256, enc_layers=4, dec_layers=3,
-                          n_heads=8, max_enc=args.max_enc, max_dec=args.max_dec).to(device)
+    model = SaraExtractor(ext_vocab, d_model=args.d_model, 
+                          enc_layers=args.enc_layers, dec_layers=args.dec_layers,
+                          n_heads=args.n_heads, max_enc=args.max_enc, max_dec=args.max_dec).to(device)
     params = sum(p.numel() for p in model.parameters())
     print(f"Params: {params:,} ({params/1e6:.1f}M)")
 
@@ -267,10 +273,22 @@ def main():
             best_val_loss = ckpt.get("best_val_loss", float("inf"))
             print(f"Resumed from step {start_step} (loss={ckpt.get('loss', '?')})")
 
-    # Training loop
-    t0 = time.time()
+    # Initial sample
+    model.eval()
+    ex = val[0]
+    enc_ids, oov, oov_map = encode_with_oov(_get_input(ex), tok2id, args.max_enc)
+    e = torch.tensor([enc_ids], dtype=torch.long, device=device)
+    pm = torch.zeros(1, len(enc_ids), dtype=torch.bool, device=device)
+    with torch.no_grad():
+        out = model.generate(e, pm, max_len=80)[0].tolist()
+    id2tok = {v: k for k, v in tok2id.items()}
+    for t, idx in oov_map.items(): id2tok[idx] = t
+    gen = " ".join(id2tok.get(i, f"[{i}]") for i in out if i not in (0, 2))
+    print(f"  >>> initial sample: {gen[:120]}")
     model.train()
 
+    # Training loop
+    t0 = time.time()
     for step in range(start_step + 1, args.steps + 1):
         # LR schedule
         warmup = args.steps // 10
@@ -351,7 +369,7 @@ def main():
                 old.unlink()
 
         # Validation + generation sample
-        if step % 5000 == 0 or step == args.steps:
+        if step % 1000 == 0 or step == args.steps:
             model.eval()
             val_loss_sum, val_tokens = 0.0, 0
             with torch.no_grad():

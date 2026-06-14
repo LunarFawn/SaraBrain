@@ -12,13 +12,13 @@ def load_sara_model(ckpt_path, device):
     tok2id = build_vocab()
     ext_vocab = len(tok2id) + 300
     
-    # Use exact 115M architecture from the training run
+    # Use exact 347M architecture from the training run
     model = SaraExtractor(
         ext_vocab, 
-        d_model=768, 
-        enc_layers=8, 
-        dec_layers=6,
-        n_heads=12, 
+        d_model=1024, 
+        enc_layers=14, 
+        dec_layers=10,
+        n_heads=16, 
         max_enc=400, 
         max_dec=100
     ).to(device)
@@ -65,7 +65,7 @@ def sara_extract(model, tok2id, clause, device):
 
 if __name__ == "__main__":
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    new_model_path = "models/sara-extractor-v2-clean/best.pt"
+    new_model_path = "models/sara-extractor-340m-v2/best.pt"
     
     model, tok2id = load_sara_model(new_model_path, device)
     

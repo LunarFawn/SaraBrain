@@ -12,5 +12,6 @@
 - **Mandate**: NEVER use the smaller 6.9M test architecture for anything other than local syntax smoke tests. All "clean" or "production" retrains MUST use the 115M configuration.
 
 ## Workspace Conventions
+- **Database Persistence**: ALWAYS store ingested brain databases in persistent directories (e.g., `data/` or the project root). NEVER use `/tmp/` for brain storage, as these files are lost on reboot or session reset.
 - **Tool Use**: Always prioritize `run_shell_command` for background training.
 - **Verification**: Always verify `nvidia-smi` and log output (Params count) immediately after launching a training session.

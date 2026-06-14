@@ -51,8 +51,11 @@ def format_mc_prompt(question: str, choices: list[str]) -> str:
     return '\n'.join(lines)
 
 
-def call_ollama(prompt: str, model: str, system: str,
-                base_url: str) -> str:
+def call_llm(prompt: str, model: str, system: str,
+             base_url: str, local_loader=None) -> str:
+    if local_loader:
+        return local_loader.query(prompt, system)
+
     payload = {
         'model': model,
         'messages': [
@@ -74,66 +77,187 @@ def call_ollama(prompt: str, model: str, system: str,
         return f'ERROR: {e}'
 
 
+class LocalModelLoader:
+    def __init__(self, path):
+        import torch
+        import os
+        import sys
+        from transformers import AutoModelForCausalLM, AutoTokenizer
+        from peft import PeftModel
+        
+        # Add scripts to path to find SaraExtractor
+        sys.path.insert(0, os.path.abspath("scripts"))
+        from train_sara_extractor_scratch import SaraExtractor, build_vocab
+
+        self.path = path
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        print(f"  [loader] Loading model from {path} on {self.device}...")
+
+        # Detect architecture
+        if os.path.exists(os.path.join(path, "adapter_config.json")):
+            # PEFT adapter (e.g. 1B)
+            print(f"  [loader] Detected PEFT adapter architecture.")
+            self.arch = "peft"
+            self.tokenizer = AutoTokenizer.from_pretrained(path)
+            base_model_name = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
+            base = AutoModelForCausalLM.from_pretrained(
+                base_model_name, torch_dtype=torch.float16, device_map="auto"
+            )
+            self.model = PeftModel.from_pretrained(base, path)
+        else:
+            # From-scratch SaraExtractor (e.g. 115M)
+            print(f"  [loader] Detected from-scratch SaraExtractor architecture.")
+            self.arch = "sara"
+            self.tok2id = build_vocab()
+            self.id2tok = {v: k for k, v in self.tok2id.items()}
+            
+            # Load checkpoint to get config
+            ckpt_path = os.path.join(path, "best.pt")
+            ckpt = torch.load(ckpt_path, map_location=self.device, weights_only=False)
+            
+            # Safe shape check to determine layers/d_model
+            sd = ckpt.get("model", ckpt.get("state_dict", {}))
+            
+            # Default to 115M production arch
+            d_model = 768
+            enc_layers = 8
+            dec_layers = 6
+            n_heads = 12
+            
+            # Infer max_enc/max_dec from checkpoint weights
+            max_enc = sd["encoder.pos.weight"].shape[0] if "encoder.pos.weight" in sd else 300
+            max_dec = sd["decoder.pos.weight"].shape[0] if "decoder.pos.weight" in sd else 150
+            
+            # Detect if it's the 340M arch by checking weight shapes
+            test_key = "encoder.layers.layers.0.self_attn.out_proj.weight" # New naming in v2-clean
+            if test_key not in sd:
+                # Fallback to old naming or other layers
+                for k in sd.keys():
+                    if "self_attn.out_proj.weight" in k:
+                        test_key = k
+                        break
+            
+            if test_key in sd:
+                out_dim = sd[test_key].shape[0]
+                if out_dim == 1024:
+                    # 340M
+                    d_model = 1024
+                    n_heads = 16
+                
+                # Count actual layers from state_dict
+                enc_layers = len([k for k in sd.keys() if "encoder.layers" in k and "self_attn.out_proj.weight" in k])
+                dec_layers = len([k for k in sd.keys() if "decoder.layers" in k and "multihead_attn.out_proj.weight" in k])
+
+            ext_vocab = len(self.tok2id) + 300
+            self.max_enc = max_enc
+            self.max_dec = max_dec
+            self.model = SaraExtractor(ext_vocab, d_model=d_model, enc_layers=enc_layers,
+                                      dec_layers=dec_layers, n_heads=n_heads,
+                                      max_enc=max_enc, max_dec=max_dec).to(self.device)
+            self.model.load_state_dict(sd)
+            self.model._tok2id = ckpt.get("tok2id", self.tok2id)
+            self.model._id2tok = {v: k for k, v in self.model._tok2id.items()}
+
+        self.model.eval()
+
+    def query(self, prompt, system):
+        import torch
+        # Use the specific training prompt format
+        train_system = (
+            "You are a substrate-grounded reasoning system. You receive a "
+            "structured knowledge neighborhood from a wavefront query and a "
+            "multiple-choice question. Answer using ONLY facts present in the "
+            "substrate. If the substrate does not contain enough information "
+            "to answer, say so. Never use knowledge from outside the substrate."
+        )
+        
+        # system here is the wavefront substrate
+        substrate_text = system
+
+        if self.arch == "peft":
+            messages = [
+                {"role": "system", "content": train_system},
+                {"role": "user", "content": f"SUBSTRATE:\n{substrate_text}\n\nQUESTION:\n{prompt}"}
+            ]
+            text = self.tokenizer.apply_chat_template(
+                messages, tokenize=False, add_generation_prompt=True
+            )
+            inputs = self.tokenizer(text, return_tensors="pt").to(self.device)
+            with torch.no_grad():
+                out = self.model.generate(**inputs, max_new_tokens=10, do_sample=False)
+            return self.tokenizer.decode(
+                out[0][inputs['input_ids'].shape[1]:], skip_special_tokens=True
+            ).strip()
+        else:
+            # SaraExtractor (115M/340M)
+            from train_sara_extractor_scratch import encode_with_oov
+            input_text = f"SUBSTRATE:\n{substrate_text}\n\nQUESTION:\n{prompt}"
+            
+            enc_ids, oov, oov_map = encode_with_oov(input_text, self.model._tok2id, self.max_enc)
+            enc_t = torch.tensor([enc_ids], dtype=torch.long, device=self.device)
+            pm = torch.zeros(1, len(enc_ids), dtype=torch.bool, device=self.device)
+            
+            with torch.no_grad():
+                out_ids = self.model.generate(enc_t, pm, max_len=10)[0].tolist()
+            
+            id2tok = dict(self.model._id2tok)
+            for t, idx in oov_map.items():
+                id2tok[idx] = t
+            return "".join(id2tok.get(i, "") for i in out_ids if i not in (0, 1, 2)).strip()
+
+
 def extract_answer(response: str) -> str | None:
+    if response is None: return None
+    if response.startswith('ERROR:'):
+        return None
     response = response.strip().upper()
     if response in ('A', 'B', 'C', 'D'):
         return response
+    # Handle cases like "Answer: A" or "The correct choice is B."
     for char in response:
         if char in 'ABCD':
             return char
     return None
 
 
-def build_sara_system_prompt(brain, question: str) -> str:
-    """Build a polymath-style prompt using Sara's graph for relevance."""
+def build_sara_wavefront_substrate(brain, question: str) -> str:
+    """Build a structured wavefront neighborhood for the cortex."""
     import re
     from sara_brain.cortex.cleanup import STOPWORD_SUBJECTS
 
     words = re.findall(r"[a-z][a-z']+", question.lower())
-    content_words = {
+    seeds = [
         w for w in words
-        if len(w) > 2 and w not in STOPWORD_SUBJECTS
-        and w not in {'the', 'a', 'an', 'will', 'shall'}
-    }
+        if len(w) > 3 and w not in STOPWORD_SUBJECTS
+    ]
 
-    cursor = brain.conn.cursor()
-    rows = cursor.execute(
-        'SELECT source_text FROM paths WHERE source_text IS NOT NULL'
-    ).fetchall()
+    if not seeds:
+        return "No seeds extracted from question."
 
-    scored_facts = []
-    for (source_text,) in rows:
-        if not source_text:
-            continue
-        text_lower = source_text.lower()
-        hits = sum(1 for w in content_words if w in text_lower)
-        if hits >= 2:
-            scored_facts.append((hits, source_text))
+    with brain.short_term(event_type="mmlu_wavefront") as st:
+        brain.propagate_into(seeds, st, exact_only=True)
+        conv = st.convergence_map
+        inter = st.intersections(min_sources=2)
 
-    scored_facts.sort(key=lambda x: x[0], reverse=True)
-    top_facts = [text for _, text in scored_facts[:20]]
+    # Resolve to labels
+    resolved = []
+    for nid, weight in conv.items():
+        n = brain.neuron_repo.get_by_id(nid)
+        if n:
+            resolved.append((n.label, weight))
+    resolved.sort(key=lambda x: -x[1])
 
-    if not top_facts:
-        knowledge_section = 'No relevant knowledge available.'
-    else:
-        knowledge_section = '\n'.join(f'- {f}' for f in top_facts)
-
-    return f"""\
-You are a polymath answering a multiple-choice exam question.
-
-You have access to the following verified knowledge. Use it to reason
-about the answer. You may apply logic, deduction, and inference.
-
-If the knowledge is insufficient, use your best reasoning on what
-IS provided.
-
-## Verified Knowledge
-{knowledge_section}
-
-## Instructions
-- Read the question and all choices carefully
-- Use the knowledge above to reason about the correct answer
-- Answer with ONLY the letter (A, B, C, or D)"""
+    # Format exactly like training data (StatelessReader style)
+    lines = [
+        f"Wavefront from {len(seeds)} seed(s) {seeds}: "
+        f"{len(inter)} intersection(s), {len(conv)} neuron(s) reached.",
+        "",
+        f"Reached (full convergence map, top 30 of {len(resolved)}):"
+    ]
+    for label, w in resolved[:30]:
+        lines.append(f"  - '{label}' (strength={w:.2f})")
+    
+    return "\n".join(lines)
 
 
 def run_benchmark(questions: list[dict], model: str, brain=None,
@@ -148,22 +272,46 @@ def run_benchmark(questions: list[dict], model: str, brain=None,
         'answers': [],
     }
 
+    local_loader = None
+    wavefront_only = (model == "wavefront_only")
+    nlp = None
+
+    if not wavefront_only:
+        import os
+        if os.path.isdir(model):
+            local_loader = LocalModelLoader(model)
+    else:
+        results['mode'] = 'wavefront_pure'
+        try:
+            import spacy
+            nlp = spacy.load("en_core_web_sm")
+        except:
+            pass
+
     bench_start = time.time()
 
     for i, q in enumerate(questions):
         q_start = time.time()
-        prompt = format_mc_prompt(q['question'], q['choices'])
-
-        if brain:
-            system = build_sara_system_prompt(brain, q['question'])
+        
+        if wavefront_only and brain:
+            from sara_brain.core.wavefront_scorer import score_choices, pick_choice
+            ranked = score_choices(q['question'], q['choices'], nlp, 
+                                  brain.recognizer, brain.neuron_repo)
+            pick, _ = pick_choice(ranked, q['question'])
+            answer = ['A', 'B', 'C', 'D'][pick] if pick is not None else None
         else:
-            system = (
-                'You are an expert answering a multiple-choice question. '
-                'Answer with ONLY the letter (A, B, C, or D).'
-            )
+            prompt = format_mc_prompt(q['question'], q['choices'])
+            if brain:
+                # ALL models now use the structured wavefront substrate
+                system = build_sara_wavefront_substrate(brain, q['question'])
+            else:
+                system = (
+                    'You are an expert answering a multiple-choice question. '
+                    'Answer with ONLY the letter (A, B, C, or D).'
+                )
 
-        response = call_ollama(prompt, model, system, base_url)
-        answer = extract_answer(response)
+            response = call_llm(prompt, model, system, base_url, local_loader=local_loader)
+            answer = extract_answer(response)
 
         correct_letter = ['A', 'B', 'C', 'D'][q['answer_idx']]
         is_correct = answer == correct_letter

@@ -138,12 +138,12 @@ def main(argv: list[str] | None = None) -> int:
         sys.path.insert(0, str(_Path(__file__).resolve().parent.parent.parent / "scripts"))
         from train_sara_extractor_scratch import SaraExtractor, build_vocab, encode_with_oov
 
-        _ckpt_path = str(_Path(__file__).resolve().parent.parent.parent / "models" / "sara-extractor-115m-v2" / "best.pt")
+        _ckpt_path = str(_Path(__file__).resolve().parent.parent.parent / "models" / "sara-extractor-v2-clean" / "best.pt")
         _device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         _tok2id = build_vocab()
         _ext_vocab = len(_tok2id) + 300
         _model = SaraExtractor(_ext_vocab, d_model=768, enc_layers=8, dec_layers=6,
-                               n_heads=12, max_enc=300, max_dec=150).to(_device)
+                               n_heads=12, max_enc=400, max_dec=100).to(_device)
         _ckpt = torch.load(_ckpt_path, map_location=_device, weights_only=False)
         _model.load_state_dict(_ckpt["model"])
         _model.eval()
@@ -152,7 +152,7 @@ def main(argv: list[str] | None = None) -> int:
         def _sara_extract(clause, _nlp_unused):
             """Extract triples using the 115M from-scratch model."""
             from sara_brain.cortex.transformer.v2.normalize import normalize_label
-            enc_ids, oov, oov_map = encode_with_oov(clause, _tok2id, 300)
+            enc_ids, oov, oov_map = encode_with_oov(clause, _tok2id, 400)
             enc_t = torch.tensor([enc_ids], dtype=torch.long, device=_device)
             pm = torch.zeros(1, len(enc_ids), dtype=torch.bool, device=_device)
             with torch.no_grad():
@@ -250,7 +250,14 @@ def main(argv: list[str] | None = None) -> int:
                 segments_seen += 1
                 for sentence in _segment_sentences(nlp, seg.text):
                     sentences_seen += 1
-                    for clause in EnhancedParser._split_compound(sentence):
+                    
+                    # Do not fragment into clauses if using the neural 'sara' extractor
+                    if args.extractor == "sara":
+                        clauses = [sentence]
+                    else:
+                        clauses = EnhancedParser._split_compound(sentence)
+                        
+                    for clause in clauses:
                         if not clause.strip():
                             continue
                         clauses_seen += 1

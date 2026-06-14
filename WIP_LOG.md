@@ -33,19 +33,13 @@
 *   **Test Case:** Ingest Chapter 10 ONLY into `data/ch10_v2_clean.db`.
 *   **Next Step:** Run MMLU Biology benchmark against this brain.
 
-## Consensus (2026-06-13, 16:30)
-*   **Refactor Success:** `run_mmlu_biology.py` is now a universal loader. All models use the same **Wavefront Substrate** (no more keyword RAG).
-*   **The "Frozen" Brain Read:** Identified. Wavefront propagation on the 64k-neuron brain takes ~50s per question. The script is not frozen, just compute-heavy.
-*   **Benchmark Results (33Q, Ch10 Brain):**
-    *   **Pure Wavefront:** 18.2% (Pure graph intersections, zero-LLM)
-    *   **Custom 115M Reader:** 30.3% (Heavy bias toward 'B')
-    *   **Custom 1B Reader:** 18.2% (Heavy bias toward 'D')
-    *   **Llama 3.2:3b (Cortex):** **60.6%** (Proves the substrate knowledge is high quality)
-*   **Conclusion:** The architecture is verified. The next challenge is closing the reasoning gap for the custom small models so they can match the frontier model's performance on the same substrate.
+## Consensus (2026-06-13, 17:00)
+*   **Prose Injection Failure:** Template-based prose injection for Llama 3.2:3b scored **48.5%**, performing worse than raw wavefront (60.6%) and baseline (66.7%).
+*   **Hypothesis:** Basic template-based synthesis clutters the prompt. The 3B model is strong enough to knowledge-mine the raw neuron list better than clunky templates.
+*   **Verified Extractor:** The `v2-clean` extractor remains verified as the production standard.
 
 ---
 
 ## Next Steps (Agreed)
-1. Launch the full 47-chapter ingestion into `data/biology_full_v2_clean.db` (verified production path).
-2. Optimize wavefront propagation speed (optional but recommended to solve "frozen" feel).
-3. Re-train custom readers (115M/1B) using the exact wavefront neighborhoods from the production brain.
+1. Launch the full 47-chapter ingestion into `data/biology_full_v2_clean.db` using the verified `v2-clean` extractor.
+2. Refine the reader pipeline: try **Neural Synthesis** (115M synthesizer model) or **Fine-tuning** the cortex to actually gain lift on 3B+ models.

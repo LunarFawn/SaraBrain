@@ -220,7 +220,7 @@ def extract_answer(response: str) -> str | None:
     return None
 
 
-def build_sara_wavefront_substrate(brain, question: str) -> str:
+def build_sara_wavefront_substrate(brain, question: str, use_prose: bool = False) -> str:
     """Build a structured wavefront neighborhood for the cortex."""
     import re
     from sara_brain.cortex.cleanup import STOPWORD_SUBJECTS
@@ -239,7 +239,36 @@ def build_sara_wavefront_substrate(brain, question: str) -> str:
         conv = st.convergence_map
         inter = st.intersections(min_sources=2)
 
-    # Resolve to labels
+    if use_prose:
+        # Use template-based synthesizer to turn neurons into sentences
+        from sara_brain.cortex.transformer.synthesizer import synthesize
+        # Gather facts for the synthesizer
+        facts = []
+        # Take seeds + top converged neurons
+        candidate_ids = set(nid for nid, _, _ in inter)
+        if len(candidate_ids) < 10:
+            for nid, _ in sorted(conv.items(), key=lambda x: -x[1])[:20]:
+                candidate_ids.add(nid)
+        
+        for nid in candidate_ids:
+            # Get segments involving this neuron and resolve labels
+            cur = brain.conn.execute(
+                """
+                SELECT n1.label, s.relation, n2.label 
+                FROM segments s
+                JOIN neurons n1 ON s.source_id = n1.id
+                JOIN neurons n2 ON s.target_id = n2.id
+                WHERE s.source_id = ? OR s.target_id = ? 
+                LIMIT 10
+                """,
+                (nid, nid),
+            )
+            for row in cur:
+                facts.append({"result": f"'{row[0]}' --[{row[1]}]--> '{row[2]}'"})
+        
+        return synthesize(question, facts)
+
+    # Resolve to labels (structured neuron list)
     resolved = []
     for nid, weight in conv.items():
         n = brain.neuron_repo.get_by_id(nid)
@@ -261,7 +290,8 @@ def build_sara_wavefront_substrate(brain, question: str) -> str:
 
 
 def run_benchmark(questions: list[dict], model: str, brain=None,
-                  base_url: str = 'http://localhost:11434') -> dict:
+                  base_url: str = 'http://localhost:11434',
+                  use_prose: bool = False) -> dict:
     results = {
         'model': model,
         'mode': 'sara+llm' if brain else 'llm_only',
@@ -293,23 +323,25 @@ def run_benchmark(questions: list[dict], model: str, brain=None,
     for i, q in enumerate(questions):
         q_start = time.time()
         
-        if wavefront_only and brain:
-            from sara_brain.core.wavefront_scorer import score_choices, pick_choice
-            ranked = score_choices(q['question'], q['choices'], nlp, 
-                                  brain.recognizer, brain.neuron_repo)
-            pick, _ = pick_choice(ranked, q['question'])
-            answer = ['A', 'B', 'C', 'D'][pick] if pick is not None else None
+        if brain:
+            if wavefront_only:
+                from sara_brain.core.wavefront_scorer import score_choices, pick_choice
+                ranked = score_choices(q['question'], q['choices'], nlp, 
+                                      brain.recognizer, brain.neuron_repo)
+                pick, _ = pick_choice(ranked, q['question'])
+                answer = ['A', 'B', 'C', 'D'][pick] if pick is not None else None
+            else:
+                prompt = format_mc_prompt(q['question'], q['choices'])
+                # ALL models now use the structured wavefront substrate (or prose)
+                system = build_sara_wavefront_substrate(brain, q['question'], use_prose=use_prose)
+                response = call_llm(prompt, model, system, base_url, local_loader=local_loader)
+                answer = extract_answer(response)
         else:
             prompt = format_mc_prompt(q['question'], q['choices'])
-            if brain:
-                # ALL models now use the structured wavefront substrate
-                system = build_sara_wavefront_substrate(brain, q['question'])
-            else:
-                system = (
-                    'You are an expert answering a multiple-choice question. '
-                    'Answer with ONLY the letter (A, B, C, or D).'
-                )
-
+            system = (
+                'You are an expert answering a multiple-choice question. '
+                'Answer with ONLY the letter (A, B, C, or D).'
+            )
             response = call_llm(prompt, model, system, base_url, local_loader=local_loader)
             answer = extract_answer(response)
 
@@ -376,6 +408,7 @@ def main():
     parser.add_argument('--url', default='http://localhost:11434')
     parser.add_argument('--limit', type=int, default=0)
     parser.add_argument('--output')
+    parser.add_argument('--prose', action='store_true', help='Use prose synthesis for knowledge injection')
     args = parser.parse_args()
 
     questions = load_questions()
@@ -398,10 +431,10 @@ def main():
         from sara_brain.core.brain import Brain
         brain = Brain(args.db)
         stats = brain.stats()
-        print(f'  --- Sara Brain + 3B ---')
+        print(f'  --- Sara Brain + 3B {"(PROSE)" if args.prose else ""} ---')
         print(f'  Brain: {args.db} ({stats["neurons"]} neurons, {stats["paths"]} paths)\n')
         sara_results = run_benchmark(questions, args.model, brain=brain,
-                                     base_url=args.url)
+                                     base_url=args.url, use_prose=args.prose)
         print_summary(sara_results)
         all_results.append(sara_results)
 

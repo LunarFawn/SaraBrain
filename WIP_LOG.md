@@ -168,3 +168,17 @@
 1. Perform a domain-by-domain analysis of the 51k paths in `biology_full_v2_clean.db` to identify extraction errors.
 2. Investigate "Signal Tuning": adjust the hub discrimination weights to suppress generic nodes more aggressively.
 3. Archive the final logs and database.
+
+## Full-Domain Analysis (2026-06-14, 19:30)
+*   **Domain Cluster Success:** Cluster 9 (Questions 279-310) achieved **71.0%**, beating the baseline by 7.8%.
+*   **Domain Cluster Failure:** Cluster 3 (Questions 93-124) achieved only **38.7%**.
+*   **The Conflict:** 27 wins (Sara saved 3B) vs 59 regressions (Sara confused 3B).
+*   **Finding:** Sara Brain works brilliantly in specific domains (Cluster 9), but the raw Echo noise is currently a net negative in others due to hub interference.
+*   **Speedup:** C++ engine allows this 310Q domain analysis to run in seconds.
+
+---
+
+## Next Steps (Proactive)
+1. **Cluster 3 Audit:** Identify the biological topics in the 93-124 range and check the graph density.
+2. **Hub Tuning:** Increase the Hub Discrimination exponent (e.g., from 1.0 to 2.0) to aggressively filter generic nodes.
+3. **Extraction Audit:** Verify if the 'v2-clean' extractor produced any systematic errors in the lower-performing clusters.

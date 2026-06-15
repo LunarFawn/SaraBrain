@@ -88,14 +88,7 @@ class Brain:
             self.parser, self.neuron_repo, self.segment_repo,
             self.path_repo, segment_source_repo=self.segment_source_repo,
         )
-        try:
-            from .fast_recognizer import FastRecognizer
-            self.recognizer = FastRecognizer(self.neuron_repo, self.segment_repo)
-        except Exception as e:
-            import sys
-            print(f"Warning: could not load FastRecognizer, falling back to Python: {e}", file=sys.stderr)
-            self.recognizer = Recognizer(self.neuron_repo, self.segment_repo)
-
+        self.recognizer = Recognizer(self.neuron_repo, self.segment_repo)
         self.similarity = SimilarityAnalyzer(self.neuron_repo, self.segment_repo, self.conn)
 
         # Reverse-direction mirror DB (subject → relation → object).

@@ -82,6 +82,8 @@ def _reached_with_power(recognizer: Recognizer,
             in_count = len(recognizer.segment_repo.get_incoming(nid))
             connectivity = out_count + in_count
             
+            # TODO: Empirical tests show Hub Penalty actively hurts accuracy on Pure Wavefront 
+            # (drops from 28% to 24%). Consider removing this in the future.
             # Linear hub penalty
             h_weight = 1.0 / (connectivity + 1)
             power[nid] = weight * h_weight
@@ -106,6 +108,8 @@ def _reached_with_power(recognizer: Recognizer,
             in_count = len(recognizer.segment_repo.get_incoming(nid))
             connectivity = out_count + in_count
             
+            # TODO: Empirical tests show Hub Penalty actively hurts accuracy on Pure Wavefront 
+            # (drops from 28% to 24%). Consider removing this in the future.
             # linear scaling: Weight = 1.0 / (connectivity + 1)
             weight = 1.0 / (connectivity + 1)
             power[nid] += base_power_per_witness * weight

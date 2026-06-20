@@ -196,3 +196,11 @@
     *   **Brain**: data/jibberish_biology_v2_stable.db
     *   **Cipher**: data/biology_cipher.json
     *   **Next Action**: Resume ingestion from Chapter 32 using the --start-chapter flag (to be implemented).
+
+## C++ Parity & Hub Dampening Investigation (2026-06-19)
+*   **Parity Confirmed**: The new C++ `FastRecognizer` perfectly mirrors the Python BFS (same reached nodes and answers), but runs ~35-40x faster (2.3s vs 83s per question on the 952k edge brain).
+*   **Algorithmic Nuance**: C++ uses best-weight tracking (allowing it to discover higher-weight alternative paths to the same node), while Python uses a strict shortest-path `visited` set. Same node coverage, mathematically superior weight resolution.
+*   **Scoring Mechanisms Investigated**:
+    *   **Logarithmic Scoring** (`math.log1p` dampening): Found to have **zero impact** on accuracy in forward-propagation. It compresses scores uniformly without altering choice rankings.
+    *   **Hub Penalty** (`weight / (connectivity + 1)`): Found to actively **harm** pure wavefront accuracy. Turning the hub penalty OFF raised pure wavefront accuracy from 24.0% to 28.0% on the benchmark subset.
+*   **Action Taken**: Added a `TODO` to `wavefront_scorer.py` noting the accuracy drop caused by the hub penalty so it can be safely stripped out in future refactors.

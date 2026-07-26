@@ -279,37 +279,39 @@ def extract_native_answer(response: str, choices: list) -> str:
             score -= 1000
     return ['A', 'B', 'C', 'D'][best_idx]
 
-def build_sara_wavefront_substrate(brain, question: str, choices: list[str], answer_idx: int, use_echo: bool = True, arch: str = "sara") -> str:
-    """Build a perfect wavefront neighborhood isolating the correct answer."""
+def build_sara_wavefront_substrate(brain, question: str, choices: list[str], answer_idx: int = None, use_echo: bool = True, arch: str = "sara") -> str:
+    """Build wavefront substrate from question seeds only (no answer leakage).
+
+    The substrate is built by propagating from question concepts and
+    gathering the highest-power neighborhood. The answer_idx parameter
+    is accepted for API compatibility but IGNORED — using it would be
+    cheating (the model would get a substrate biased toward the correct
+    answer, which isn't available at inference time).
+    """
     from sara_brain.core.query_resolver import resolve_query_nospacy
     from sara_brain.core.wavefront_scorer import _reached_with_power
-    
+
     q_seeds = resolve_query_nospacy(question, brain.neuron_repo)
-    c_seeds = resolve_query_nospacy(choices[answer_idx], brain.neuron_repo)
-    
-    if not q_seeds: return "No seeds extracted from question."
-    if not c_seeds: c_seeds = q_seeds # fallback
-    
+    if not q_seeds:
+        return "No seeds extracted from question."
+
+    # Propagate from question seeds ONLY — no answer knowledge
     q_power = _reached_with_power(brain.recognizer, q_seeds, echo=use_echo)
-    c_power = _reached_with_power(brain.recognizer, c_seeds, echo=use_echo)
-    
-    shared = set(q_power) & set(c_power)
-    
-    if not shared:
-        ranked = sorted(q_power.items(), key=lambda x: x[1], reverse=True)
-        top_node_ids = {nid for nid, w in ranked[:20]}
-    else:
-        ranked = sorted([(nid, q_power[nid] + c_power[nid]) for nid in shared], key=lambda x: x[1], reverse=True)
-        top_node_ids = {nid for nid, w in ranked[:10]}
-        
+
+    if not q_power:
+        return "No facts found."
+
+    # Take top nodes by power (question-relevant neighborhood)
+    ranked = sorted(q_power.items(), key=lambda x: x[1], reverse=True)
+    top_node_ids = {nid for nid, w in ranked[:20]}
+
     sub_edges = set()
     for nid in top_node_ids:
-        # Get immediate neighborhood of the intersection
         for tgt in brain.segment_repo.get_outgoing(nid):
             sub_edges.add((nid, tgt.target_id, tgt.relation))
         for src in brain.segment_repo.get_incoming(nid):
             sub_edges.add((src.source_id, nid, src.relation))
-            
+
     sub_lines = []
     for src_id, tgt_id, r in list(sub_edges)[:30]:
         src_n = brain.neuron_repo.get_by_id(src_id)
@@ -319,10 +321,10 @@ def build_sara_wavefront_substrate(brain, question: str, choices: list[str], ans
                 sub_lines.append(f"'{src_n.label}' --[{r}]--> '{tgt_n.label}'")
             else:
                 sub_lines.append(f"  - {src_n.label} {r} {tgt_n.label}")
-            
+
     if not sub_lines:
         return "No facts found."
-        
+
     if arch == "hamroby_gen":
         return "\n".join(sub_lines)
     return "WAVEFRONT:\n" + "\n".join(sub_lines)

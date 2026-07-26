@@ -71,8 +71,13 @@ STOP_WORDS = {"a", "an", "the", "this", "that", "these", "those", "which",
               "therefore", "moreover", "furthermore", "additionally"}
 
 
-def clean_concept(text: str) -> str:
-    """Clean an extracted concept — strip articles, excess whitespace."""
+def clean_concept(text: str, max_words: int = 3) -> str:
+    """Clean an extracted concept — strip to core noun phrase.
+    
+    The goal: concepts should be 1-3 words representing a single thing.
+    'mitochondria', 'cell membrane', 'dna replication' — not
+    'process by which a cell divides' or 'example of a sesamoid bone'.
+    """
     text = text.strip().lower()
     # Remove leading articles
     for prefix in ["a ", "an ", "the ", "this ", "that ", "each ", "every "]:
@@ -90,24 +95,56 @@ def clean_concept(text: str) -> str:
     if text and text[0].isdigit():
         return ""
     # Reject modal/auxiliary starts (indicates a clause, not a concept)
-    if text.split()[0] in {"would", "could", "should", "can", "may", "might",
-                           "will", "shall", "do", "does", "did", "has", "have",
-                           "had", "is", "are", "was", "were", "be", "been",
-                           "one", "two", "three", "many", "several", "some"}:
+    first_word = text.split()[0] if text.split() else ""
+    if first_word in {"would", "could", "should", "can", "may", "might",
+                      "will", "shall", "do", "does", "did", "has", "have",
+                      "had", "is", "are", "was", "were", "be", "been",
+                      "one", "two", "three", "many", "several", "some",
+                      "by", "with", "from", "into", "through", "about"}:
         return ""
-    # Limit to ~4 words (concepts shouldn't be entire clauses)
+    # CUT at prepositions — "powerhouse of the cell" → "powerhouse"
+    # These indicate a trailing clause, not part of the core concept
+    cut_words = {"of", "in", "from", "than", "that", "which", "who",
+                 "where", "when", "while", "during", "after", "before",
+                 "between", "through", "about", "under", "over", "into"}
     words = text.split()
-    if len(words) > 5:
-        return ""
+    trimmed = []
+    for w in words:
+        if w in cut_words and len(trimmed) >= 1:
+            break  # Stop at first preposition (after at least 1 word)
+        if "," in w and len(trimmed) >= 1:
+            break  # Stop at commas (indicates clause boundary)
+        trimmed.append(w)
+    words = trimmed
+    # Strip commas from remaining words
+    words = [w.strip(",") for w in words]
+    words = [w for w in words if w]
+    # Hard limit
+    if len(words) > max_words:
+        words = words[:max_words]
     if len(words) == 0:
         return ""
-    return " ".join(words).strip()
+    # Reject single-character or very short results
+    result = " ".join(words).strip()
+    if len(result) < 3:
+        return ""
+    return result
 
 
 def extract_triples_from_sentence(sentence: str) -> list[tuple[str, str, str]]:
-    """Rule-based extraction of (subject, relation, object) from a sentence."""
+    """Rule-based extraction of (subject, relation, object) from a sentence.
+    
+    Conservative: only extracts when both subject and object are clean
+    noun phrases (1-3 words). Rejects partial clauses and fragments.
+    """
     triples = []
     sent_lower = sentence.lower().strip()
+    
+    # Reject sentences that are clearly questions or fragments
+    if sent_lower.startswith(("how ", "what ", "why ", "which ", "where ")):
+        return []
+    if len(sent_lower) < 15:
+        return []
 
     # Try is_a patterns first
     for pattern in IS_A_PATTERNS:
@@ -115,7 +152,7 @@ def extract_triples_from_sentence(sentence: str) -> list[tuple[str, str, str]]:
         if m:
             subj = clean_concept(m.group(1))
             obj = clean_concept(m.group(2))
-            if subj and obj and len(subj) > 2 and len(obj) > 2 and subj != obj:
+            if subj and obj and subj != obj:
                 triples.append((subj, "is_a", obj))
                 break
 
@@ -126,7 +163,7 @@ def extract_triples_from_sentence(sentence: str) -> list[tuple[str, str, str]]:
             if m:
                 subj = clean_concept(m.group(1))
                 obj = clean_concept(m.group(2))
-                if subj and obj and len(subj) > 2 and len(obj) > 2 and subj != obj:
+                if subj and obj and subj != obj:
                     triples.append((subj, relation, obj))
                     break
 

@@ -9,6 +9,7 @@ import os
 import sys
 import json
 import time
+import re
 from pathlib import Path
 
 # Add scripts to sys.path
@@ -73,7 +74,7 @@ def main():
         
         status = "CORRECT" if is_correct else "WRONG"
         print(f"  [{i+1}/{len(questions)}] Q{q['id']}: {status} (got {got}, correct {correct_letter})")
-        # print(f"    Prose: {answer_prose}")
+        print(f"    Prose: {answer_prose}")
 
     elapsed = time.time() - t0
     print(f"\n  Final Score: {correct}/{len(questions)} ({correct/len(questions)*100:.1f}%)")

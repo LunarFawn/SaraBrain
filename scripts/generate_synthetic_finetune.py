@@ -31,6 +31,7 @@ from sara_reader.stateless_reader import (
     _filter_seeds_by_substrate,
     _format_wavefront_substrate,
 )
+from sara_brain.core.query_resolver import resolve_query_nospacy
 
 
 SYSTEM_INSTRUCTION = (
@@ -116,16 +117,24 @@ def make_mcq(manifest: dict, triple_idx: int, rng: random.Random) -> dict | None
 
 def run_wavefront(brain: Brain, question: str, depth: int = 2) -> str:
     """Run wavefront and return formatted substrate."""
-    candidates = _extract_seed_concepts(question)
-    seeds = _filter_seeds_by_substrate(brain, candidates)
-    if not seeds:
+    q_seeds = resolve_query_nospacy(question, brain.neuron_repo)
+    if not q_seeds:
+        # Fallback to random extraction if resolve fails
+        candidates = _extract_seed_concepts(question)
         seeds = candidates[:4]
+    else:
+        seeds = q_seeds
 
     original_depth = brain.recognizer.max_depth
     try:
         brain.recognizer.max_depth = depth
         with brain.short_term(event_type="synth_finetune") as st:
-            brain.propagate_into(seeds, st, exact_only=True)
+            seed_labels = [s.label if hasattr(s, "label") else str(s) for s in seeds]
+            if hasattr(brain.recognizer, "propagate_backwave"):
+                brain.recognizer.propagate_backwave(seed_labels, st, exact_only=True)
+            else:
+                brain.propagate_into(seeds, st, exact_only=True)
+                
             convergence_map = dict(st.convergence_map)
             intersections = st.intersections(min_sources=2)
     finally:

@@ -1,0 +1,474 @@
+#Biology2eFalkegfudxoc 42—The Immune System
+#Auto-extract from Biology2e-WEB.txtvia ingest_biology2e.py
+#Fact count:470
+
+Neutrophils provide an early,rapid,and nonspecific defense against invading pathogens.
+Neutrophils provide an early,rapid.
+Eosinophils play a variety of roles in the immune response.
+INTRODUCTION The environment consists of numerous pathogens,which are agents,usually microorganisms,that cause diseases in their hosts.
+A host is the organism that is invaded and often harm by a pathogen.
+Pathogens include bacteria,protists,fungus and other infectious organisms.
+We are constantly exposed to pathogens in food and water,on surfaces,and in the air.
+We are constantly exposed to pathogens in food and water,on surfaces.
+Components of the immune system constantly search the body for signs of pathogens.
+When pathogens are found,immune factors are mobilized to the site of an infection.
+The immune system can remember pathogens to which it has been exposed to create a more efficient response upon reexposure.
+Features of the immune system,such as pathogen identification,specific response,amplification,retreat,and remembrance are essential for survival against pathogens.
+remembrance are essential for survival against pathogens.
+The immune response can be classified as either innate or adaptive.
+The innate immune response is always present and attempts to defend against all pathogens rather than focus on specific ones.
+Conversely,the adaptive immune response stores information about past infections and mounts pathogen-specific defenses.
+The immune system comprises both innate and adaptive immune responses.
+Innate immunity occurs naturally because of genetic factors or physiology;it is not induced by infection or vaccination but works to reduce the workload for the adaptive immune response.
+it is not induced by infection or vaccination but works to reduce the workload for the adaptive immune response.
+Both the innate and adaptive levels of the immune response involve secrete proteins,receptor-mediated signaling,and intricate cell-to-cell communication.
+Both the innate and adaptive levels of the immune response involve secrete proteins,receptor-mediated signaling.
+The innate immune system develop early in animal evolution,roughly a billion years ago,as an essential response to infection.
+For example,tears and mucus secretions contain microbicidal factors.
+In addition,beneficial microorganisms that coexist on the skin compete with invading pathogens,prevent infection.
+Despite these barriers,pathogens may enter the body through skin abrasions or punctures,or by collect on mucosal surfaces in large numbers that overcome the mucus or cilia.
+Despite these barriers,pathogens may enter the body through skin abrasions or punctures.
+Some pathogens have evolve specific mechanisms that allow they to overcome physical and chemical barriers.
+When pathogens do enter the body,the innate immune system responds with inflammation,pathogen engulfment,and secretion of immune factors and proteins.
+When pathogens do enter the body,the innate immune system responds with inflammation,pathogen engulfment.
+An infection may be intracellular or extracellular,depending on the pathogen.
+All virus infect cells and replicate within those cells,whereas bacteria and other parasites may replicate intracellularly or extracellularly,depending on the species.
+All virus infect cells and replicate within those cells.
+bacteria and other parasites may replicate intracellularly or extracellularly,depending on the species.
+The innate immune system must respond accordingly:by identify the extracellular pathogen and/orhurzirfecqiq identify host cells that have already been infect.
+When a pathogen enters the body,cells in the blood and lymph detect the specific pathogen-associate molecular patterns on the pathogen'snortoyzig.
+pamps are carbohydrate,polypeptide,and nucleic acid "signatures"that are expressed by virus,bacteria,and parasites but which differ from molecules on host cells.
+pamps are carbohydrate,polypeptide.
+A macrophage is a large phagocytic cell that engulfs foreign particles and pathogens.
+Macrophages recognize pamps via complementary pattern recognition receptors.
+prrs are molecules on macrophages and dendritic cells which are in contact with the external environment.
+Dendritic cells bind molecular signatures of pathogens and promote pathogen engulfment and destruction.
+Toll-like receptors are a type of PRR that recognizes molecules that are share by pathogens but distinguishable from host molecules.
+tlrs are present in invertebrates as well as vertebrates,and appear to be one of the most ancient components of the immune system.
+tlrs are present in invertebrates as well as vertebrates.
+tlrs have also been identify in the mammalian nervous system.
+The binding of prrs with pamps triggers the release of cytokines,which signal that a pathogen is present and needs to be destroyed along with any infected cells.
+A cytokine is a chemical messenger that regulates cell differentiation,proliferation,and gene expression to affect immune responses.
+A cytokine is a chemical messenger that regulates cell differentiation,proliferation.
+One subclass of cytokines is the interleukin,so name because they mediate interactions between leukocytes.
+Interleukins are involved in bridge the innate and adaptive immune responses.
+A second class of early-act cytokines is interferons,which are release by infected cells as a warning to nearby uninfected cells.
+They also have other important functions,such as tumor surveillance.
+Interferons work by signal neighbor uninfected cells to destroy RNA and reduce protein synthesis,signal neighbor infected cells to undergo apoptosis,and activating immune cells.
+Interferons work by signal neighbor uninfected cells to destroy RNA and reduce protein synthesis,signal neighbor infected cells to undergo apoptosis.
+In response to interferons,uninfected cells alter their gene expression,which increases the cells'resistance to infection.
+One effect of interferon-induced gene expression is a sharply reduced cellular protein synthesis.
+Virally infect cells produce more virus by synthesize large quantitys of viral proteins.
+Thus,by reducing protein synthesis,a cell becomes resistant to viral infection.
+Response of neighboring cells to interferon helps stem the infection.
+The population of leukocytes that arrives at an infection site depends on the nature of the infecting pathogen.
+A neutrophil is also a phagocytic leukocyte that engulfs and digests pathogens.
+Neutrophils have a nucleus with two to five lobes,and they contain organelles,call lysosomes,that digest engulfed pathogens.
+Neutrophils have a nucleus with two to five lobes.
+they contain organelles,call lysosomes,that digest engulfed pathogens.
+An eosinophil is a leukocyte that works with other eosinophils to surround a parasite;it is involved in the allergic response and in protection against helminthes.
+An eosinophil is a leukocyte that works with other eosinophils to surround a parasite.
+it is involved in the allergic response and in protection against helminthes.
+Neutrophils and eosinophils are particularly important leukocytes that engulf large pathogens,such as bacteria and fungus.
+A mast cell is a leukocyte that produces inflammatory molecules,such as histamine,in response to large pathogens.
+Basophils are also involved in allergy and hypersensitivity responses and induce specific types of inflammatory responses.
+Eosinophils and basophils produce additional inflammatory mediators to recruit more leukocytes.
+A hypersensitive immune response to harmless antigens,such as in pollen,often involves the release of histamine by basophils and mast cells.
+Neutrophils and monocytes leave the capillarys.
+Monocytes mature into macrophages.
+macrophages release chemicals to stimulate the inflammatory response.
+Neutrophils and macrophages also consume invading bacteria by phagocytosis.
+which include lethargy,muscle pain,and nausea.
+which include lethargy,muscle pain.
+Cytokines also increase the core body temperature,cause a fever,which causes the liver to withhold iron from the blood.
+Without iron,certain pathogens,such as some bacteria,are unable to replicate;this is call nutritional immunity.
+Without iron,certain pathogens,such as some bacteria,are unable to replicate.
+T cells and B cells of the adaptive immune system also are classified as lymphocytes.
+T cells are lymphocytes that mature in the thymus gland,and B cells are lymphocytes that mature in the bone marrow.
+T cells are lymphocytes that mature in the thymus gland.
+B cells are lymphocytes that mature in the bone marrow.
+NK cells identify intracellular infections,especially from virus,by the altered expression of major histocompatibility complex I molecules on the surface of infected cells.
+MHC I molecules are proteins on the surfaces of all nucleated cells,thus they are scarce on red blood cells and platelets which are non-nucleated.
+MHC II molecules are found mainly on cells containing antigens and on lymphocytes.
+MHC II molecules interact with helper T cells to trigger the appropriate immune response,which may include the inflammatory response.
+An infected cell is usually incapable of synthesize and display MHC I molecules appropriately.
+The metabolic resources of cells infect by some virus produce proteins that interfere with MHC I process and/ortrafficking to the cell surface.
+The reduced MHC I on host cells varies from virus to virus and results from active inhibitors being produce by the virus.
+This process can deplete host MHC I molecules on the cell surface,which NK cells detect as "unhealthy"or "abnormal"while search for cellular MHC I molecules.
+NK cells are always active.
+an interaction with normal,intact MHC I molecules on a healthy cell disables the killing sequence,and the NK cell moves on.
+A granzyme is a protease that digests cellular proteins and induces the target cell to undergo program cell death,or apoptosis.
+A granzyme is a protease that digests cellular proteins and induces the target cell to undergo program cell death.
+Phagocytic cells then digest the cell debris left behind.
+NK cells are constantly patrolling the body and are an effective mechanism for control potential infections and prevent cancer progression.
+Complement An array of approximately 20types of soluble proteins,call a complement system,functions to destroy extracellular pathogens.
+Cells of the liver and macrophages synthesize complement proteins continuously;these proteins are abundant in the blood serum and are capable of responding immediately to infect microorganisms.
+Cells of the liver and macrophages synthesize complement proteins continuously.
+these proteins are abundant in the blood serum and are capable of responding immediately to infect microorganisms.
+The complement system is so name because it is complementary to the antibody response of the adaptive immune system.
+Complement proteins bind to the surfaces of microorganisms and are particularly attract to pathogens that are already bind by antibodys.
+After the first few complement proteins bind,a cascade of sequential bind events follows in which the pathogen rapidly becomes coat in complement proteins.
+Complement proteins perform several functions.
+The proteins serve as a marker to indicate the presence of a pathogen to phagocytic cells,such as macrophages and B cells,and enhance engulfment;this process is call opsonization.
+The proteins serve as a marker to indicate the presence of a pathogen to phagocytic cells,such as macrophages and B cells,and enhance engulfment.
+The proteins serve as a marker to indicate the presence of a pathogen to phagocytic cells,such as macrophages and B cells.
+The alternate pathway does not involve antibody activation.
+Rather,C3convertase spontaneously breaks down C3.
+Endogenous regulatory proteins prevent the complement complex from bind to host cells.
+The adaptive,or acquired,immune response takes days or even weeks to become established—much long than the innate response;however,adaptive immunity is more specific to pathogens and has memory.
+The adaptive,or acquired,immune response takes days or even weeks to become established—much long than the innate response.
+however,adaptive immunity is more specific to pathogens and has memory.
+acquired,immune response takes days or even weeks to become established—much long than the innate response;however,adaptive immunity is more specific to pathogens and has memory.
+immunity is an immunity that occurs after exposure to an antigen either from a pathogen or a vaccination.
+In fact,without information from the innate immune system,the adaptive response could not be mobilized.
+Their attack can kill pathogens directly or secrete antibodies that enhance the phagocytosis of pathogens and disrupt the infection.
+T cells are a key component in the cell-mediated response—the specific immune response that utilizes T cells to neutralize cells that have been infect with virus and certain bacteria.
+Cytotoxic T cells destroy virus-infect cells in the cell-mediated immune response,and helper T cells play a part in activating both the antibody and the cell-mediated immune responses.
+Cytotoxic T cells destroy virus-infect cells in the cell-mediated immune response.
+helper T cells play a part in activating both the antibody and the cell-mediated immune responses.
+Suppressor T cells deactivate T cells and B cells when need,and thus prevent the immune response from becoming too intense.
+Suppressor T cells deactivate T cells and B cells when need.
+An antigen is a foreign or "non-self"macromolecule that reacts with cells of the immune system.
+Not all antigens will provoke a response.
+For instance,individuals produce innumerable "self"antigens and are constantly exposed to harmless foreign antigens,such as food proteins,pollen,or dust components.
+For instance,individuals produce innumerable "self"antigens and are constantly exposed to harmless foreign antigens,such as food proteins,pollen.
+The suppression of immune responses to harmless macromolecules is highly regulated and typically prevents process that could be damaging to the host,know as tolerance.
+The innate immune system contains cells that detect potentially harmful antigens,and then inform the adaptive immune response about the presence of these antigens.
+The innate immune system contains cells that detect potentially harmful antigens.
+An antigen-present cell is an immune cell that detects,engulfs,and informs the adaptive immune response about an infection.
+An antigen-present cell is an immune cell that detects,engulfs.
+When a pathogen is detect,these apcs will phagocytose the pathogen and digest it to form many different fragments of the antigen.
+Antigen fragments will then be transport to the surface of the APC,where they will serve as an indicator to other immune cells.
+Dendritic cells are immune cells that process antigen material;they are present in the skin and the lining of the nose,lungs,stomach,and intestines.
+Dendritic cells are immune cells that process antigen material.
+they are present in the skin and the lining of the nose,lungs,stomach,and intestines.
+Dendritic cells are immune cells that process antigen material;they are present in the skin and the lining of the nose,lungs,stomach.
+Macrophages also function as apcs.
+Before activation and differentiation,B cells can also function as apcs.
+apcs express MHC on their surfaces,and when combined with a foreign antigen,these complexs signal a "non-self"invader.
+apcs express MHC on their surfaces.
+when combined with a foreign antigen,these complexs signal a "non-self"invader.
+Helper T cells are one of the main lymphocytes that respond to antigen-present cells.
+An antigen from the bacterium is present on the cell surface in conjunction with an MHC II molecule.
+Lymphocytes of the adaptive immune response interact with antigen-embedded MHC II molecules to mature into functional immune cells.
+LINK TO LEARNING This animation from Rockefeller University shows how dendritic cells act as sentinels in the body'spedyoh system.
+B cells are part of the humoral immune response.
+T cells encompass a heterogeneous population of cells with extremely diverse functions.
+Some T cells respond to apcs of the innate immune system,and indirectly induce immune responses by release cytokines.
+Some T cells respond to apcs of the innate immune system.
+Other T cells stimulate B cells to prepare their own response.
+Another population of T cells detects APC signals and directly kills the infected cells.
+Other T cells are involved in suppressing inappropriate immune reactions to harmless or "self"antigens.
+T cells are able to recognize antigens.
+T and B lymphocytes are also similar in that each cell only expresses one type of antigen receptor.
+naïve,and are unable to prepare an immune response.
+A given antigen may contain several motifs that are recognized by immune cells.
+Each motif is an epitope.
+In this figure,the entire structure is an antigen,and the orange,salmon and green components project from it represent potential epitopes.
+In this figure,the entire structure is an antigen.
+the orange,salmon and green components project from it represent potential epitopes.
+These molecules are important because they regulate how a T cell will interact with and respond to an APC.
+The two populations of T cells have different mechanisms of immune protection,but both bind MHC molecules via their antigen receptors call T cell receptors.
+The CD4or CD8surface molecules differentiate whether the TCR will engage an MHC II or an MHC I molecule.
+Because they assist in bind specificity,the CD4and CD8molecules are described as coreceptors.
+Clones of the activated helper T cell,in turn,activate B cells and CD8+T cells,which become cytotoxic T cells.
+Cytotoxic T cells kill infected cells.
+a.Helper T cells release cytokines while cytotoxic T cells kill the infected cell.
+b.Helper T cells are CD4+,while cytotoxic T cells are CD8+.
+b.Helper T cells are CD4+.
+cytotoxic T cells are CD8+.
+c.MHC II is a receptor found on most body cells,while MHC I is a receptor found on immune cells only.
+c.MHC II is a receptor found on most body cells.
+MHC I is a receptor found on immune cells only.
+The T cell receptor is found on both CD4+and CD8+T cells.
+The mammalian adaptive immune system is adept in responding appropriately to each antigen.
+Mammals have an enormous diversity of T cell populations,result from the diversity of tcrs.
+The intracellular domain is involved in intracellular signal.
+A single T cell will express thousands of identical copys of one specific TCR variant on its cell surface.
+This TCR diversity is achieved by the mutation and recombination of genes that encode these receptors in stem cell precursors of T cells.
+Helper T Lymphocytes The TH lymphocytes function indirectly to identify potential pathogens for other cells of the immune system.
+These cells are important for extracellular infections,such as those cause by certain bacteria,helminths,and protozoa.
+These cells are important for extracellular infections,such as those cause by certain bacteria,helminths.
+TH lymphocytes recognize specific antigens display in the MHC II complexs of apcs.
+TH1cells secrete cytokines to enhance the activitys of macrophages and other T cells.
+TH1cells activate the action of cytotoxic T cells,as well as macrophages.
+TH2cells stimulate naïve B cells to destroy foreign invaders via antibody secretion.
+The TH1-mediated response involves macrophages and is associate with inflammation.
+These pathogens evade attempts by macrophages to destroy and digest the pathogen.
+When M.tuberculosis infection occurs,macrophages can stimulate naïve T cells to become TH1cells.
+These stimulate T cells secrete specific cytokines that send feedback to the macrophage to stimulate its digestive capabilitys and allow it to destroy the colonize M.tuberculosis.
+In the same manner,TH1-activated macrophages also become well suited to ingest and kill tumor cells.
+In summary;TH1responses are direct toward intracellular invaders while TH2responses are aimed at those that are extracellular.
+TH1responses are direct toward intracellular invaders while TH2responses are aimed at those that are extracellular.
+A plasma cell is an immune cell that secrets antibodies;these cells arise from B cells that were stimulate by antigens.
+A plasma cell is an immune cell that secrets antibodies.
+these cells arise from B cells that were stimulate by antigens.
+Similar to T cells,naïve B cells initially are coat in thousands of B cell receptors,which are membrane-bind forms of Ig.
+The B cell receptor has two heavy chains and two light chains connected by disulfide linkages.
+Each chain has a constant and a variable region.
+Two other membrane proteins,Ig alpha and Ig beta,are involved in signal.
+In this state,B cells function as apcs.
+They bind and engulf foreign antigens via their bcrs and then display process antigens in the context of MHC II molecules to TH2cells.
+The activation of B cells corresponding to one specific BCR variant and the dramatic proliferation of that variant is know as clonal selection.
+Although T and B cells both react with molecules that are term "antigens,"these lymphocytes actually respond to very different types of molecules.
+B cells must be able to bind intact antigens because they secrete antibodies that must recognize the pathogen directly,rather than digest remnants of the pathogen.
+Bacterial carbohydrate and lipid molecules can activate B cells independently from the T cells.
+Cytotoxic T Lymphocytes ctls,a subclass of T cells,function to clear infections directly.
+The cell-mediated part of the adaptive immune system consists of ctls that attack and destroy infected cells.
+ctls are particularly important in protect against viral infections;this is because virus replicate within cells where they are shield from extracellular contact with circulating antibodys.
+ctls are particularly important in protect against viral infections.
+When apcs phagocytize pathogens and present MHC I-embedded antigens to naïve CD8+T cells that express complementary tcrs,the CD8+T cells become activated to proliferate according to clonal selection.
+These result ctls then identify non-apcs display the same MHC I-embedded antigens—for example,the ctls identify infected host cells.
+Intracellularly,infected cells typically die after the infect pathogen replicates to a sufficient concentration and lyses the cell,as many virus do.
+ctls also support NK lymphocytes to destroy early cancers.
+Cytokines secrete by the TH1response that stimulates macrophages also stimulate ctls and enhance their ability to identify and destroy infected cells and tumors.
+In this process,the CTL does not become infected and is not harm by the secretion of perforin and granzymes.
+Similarly,if the CTL kajdidnot detect antigen-embedded MHC I because the receptors are depleted from the cell surface,NK cells will destroy the cell instead.
+ctls also emit cytokines,such as interferons,that alter surface protein expression in other infected cells,such that the infected cells can be easily identify and destroyed.
+Moreover,these interferons can also prevent virally infect cells from release virus particles.
+The innate and adaptive immune responses discussed thus far comprise the systemic immune system,which is distinct from the mucosal immune system.
+Mucosal immunity is form by mucosa-associate lymphoid tissue,which functions independently of the systemic immune system,and which has its own innate and adaptive components.
+Mucosal immunity is form by mucosa-associate lymphoid tissue,which functions independently of the systemic immune system.
+which has its own innate and adaptive components.
+The systemic and mucosal immune systems use many of the same cell types.
+Foreign particles that make their way to MALT are taken up by absorptive epithelial cells call M cells and delivered to apcs located directly below the mucosal tissue.
+M cells function in the transport described,and are located in the Peyer'sjonkim,a lymphoid nodule.
+M cells function in the transport described.
+apcs of the mucosal immune system are primarily dendritic cells,with B cells and macrophages having minor roles.
+Activated T cells then migrate through the lymphatic system and into the circulatory system to mucosal sites of infection.
+Pathogens are taken up by M cells in the intestinal epithelium and excrete into a pocket form by the inner surface of the cell.
+The pocket contains antigen-present cells such as dendritic cells,which engulf the antigens,then present they with MHC II molecules on the cell surface.
+The dendritic cells migrate to an underlying tissue call a Peyer'sjonkim.
+Antigen-present cells,T cells,and B cells aggregate within the Peyer'sjonkim,form organized lymphoid follicles.
+B cells aggregate within the Peyer'sjonkim,form organized lymphoid follicles.
+There,some T cells and B cells are activated.
+Other antigen-load dendritic cells migrate through the lymphatic system where they activate B cells,T cells,and plasma cells in the lymph nodes.
+Other antigen-load dendritic cells migrate through the lymphatic system where they activate B cells,T cells.
+The activated cells then return to MALT tissue effector sites.
+iga and other antibodys are secrete into the intestinal luman.
+MALT is a crucial component of a functional immune system because mucosal surfaces,such as the nasal passages,are the first tissues onto which inhaled or ingested pathogens are deposit.
+The mucosal tissue includes the mouth,pharynx,and esophagus,and the gastrointestinal,respiratory,and urogenital tracts.
+The mucosal tissue includes the mouth,pharynx.
+The acquired ability to prevent an unnecessary or harmful immune response to a detect foreign substance know not to cause disease is described as immune tolerance.
+Immune tolerance is crucial for maintaining mucosal homeostasis given the tremendous number of foreign substances that apcs of the oral cavity,pharynx,and gastrointestinal mucosa encounter.
+Immune tolerance is crucial for maintaining mucosal homeostasis given the tremendous number of foreign substances that apcs of the oral cavity,pharynx.
+The combined result of Treg cells is to prevent immunologic activation and inflammation in undesired tissue compartments and to allow the immune system to focus on pathogens instead.
+Immunological Memory The adaptive immune system possesses a memory component that allows for an efficient and dramatic response upon reinvasion of the same pathogen.
+Memory is handled by the adaptive immune system with little reliance on cues from the innate response.
+During the primary immune response,memory cells do not respond to antigens and do not contribute to host defenses.
+As the infection is clear and pathogenic stimulus subside,the effectors are no long need,and they undergo apoptosis.
+As the infection is clear and pathogenic stimulus subside,the effectors are no long need.
+they undergo apoptosis.
+In contrast,the memory cells persist in the circulation.
+After initially bind an antigen to the B cell receptor,a B cell internalizes the antigen and presents it on MHC II.
+A helper T cell recognizes the MHC II–antigen complex and activates the B cell.
+As a result,memory B cells and plasma cells are made.
+The Rh antigen is found on Rh-positive red blood cells.
+A pregnant Rh-negative person can usually carry an Rh-positive fetus to term without difficulty.
+that causes hemolytic disease of the newborn.
+However,if the host is reexposed to the same pathogen type,circulating memory cells will immediately differentiate into plasma cells and ctls without input from apcs or TH cells.
+Upon reinfection,this step is skipped,and the result is a more rapid production of immune defenses.
+Upon reinfection,this step is skipped.
+the result is a more rapid production of immune defenses.
+This rapid and dramatic antibody response may stop the infection before it can even become established,and the individual may not realize they had been exposed.
+This rapid and dramatic antibody response may stop the infection before it can even become established.
+the individual may not realize they had been exposed.
+In the primary response to infection,antibodys are secrete first from plasma cells.
+Upon reexposure to the same pathogen,memory cells differentiate into antibody-secrete plasma cells that output a great amount of antibody for a long period of time.
+Vaccination is base on the knowledge that exposure to noninfectious antigens,derived from known pathogens,generates a mild primary immune response.
+The immune response to vaccination may not be perceived by the host as illness but still confers immune memory.
+When exposed to the corresponding pathogen to which an individual was vaccinated,the reaction is similar to a secondary exposure.
+For instance,the immune memory of an infection in the oral cavity would also elicit a response in the pharynx if the oral cavity was exposed to the same pathogen.
+Other components,call adjuvants,are delivered in parallel to help stimulate the immune response.
+Immunological memory is the reason vaccines work.
+Ideally,the effect of vaccination is to elicit immunological memory,and thus resistance to specific pathogens without the individual having to experience an infection.
+Ideally,the effect of vaccination is to elicit immunological memory.
+Vaccinologists are involved in the process of vaccine development from the initial idea to the availability of the complete vaccine.
+This process can take decades,can cost millions of dollars,and can involve many obstacles along the way.
+This process can take decades,can cost millions of dollars.
+For this reason,vaccinologists are actively involved in develop new vaccines that are applied via intranasal,aerosol,oral,or transcutaneous delivery methods.
+For this reason,vaccinologists are actively involved in develop new vaccines that are applied via intranasal,aerosol,oral.
+Importantly,mucosal-administered vaccines elicit both mucosal and systemic immunity and produce the same level of disease resistance as injected vaccines.
+The polio vaccine can be administered orally.
+Similarly,the measles and rubella vaccines are being adapt to aerosol delivery use inhalation devices.
+Eventually,transgenic plants may be engineer to produce vaccine antigens that can be eat to confer disease resistance.
+Other vaccines may be adapt to rectal or vaginal application to elicit immune responses in rectal,genitourinary,or reproductive mucosa.
+Other vaccines may be adapt to rectal or vaginal application to elicit immune responses in rectal,genitourinary.
+Finally,vaccine antigens may be adapt to transdermal application in which the skin is lightly scrap and microneedles are use to pierce the outermost layer.
+In addition to mobilizing the mucosal immune response,this new generation of vaccines may end the anxiety associate with injections and,in turn,improve patient participation.
+Primary Centers of the Immune System Although the immune system is characterized by circulating cells throughout the body,the regulation,maturation,and intercommunication of immune factors occur at specific sites.
+intercommunication of immune factors occur at specific sites.
+The blood circulates immune cells,proteins,and other factors through the body.
+The blood circulates immune cells,proteins.
+Approximately 0.1percent of all cells in the blood are leukocytes,which encompass monocytes and lymphocytes.
+The majority of cells in the blood are erythrocytes.
+Lymph is a watery fluid that baths tissues and organs with protective white blood cells and does not contain erythrocytes.
+The cells of the immune system originate from hematopoietic stem cells in the bone marrow.
+Cytokines stimulate these stem cells to differentiate into immune cells.
+B cell maturation occurs in the bone marrow,whereas naïve T cells transit from the bone marrow to the thymus for maturation.
+B cell maturation occurs in the bone marrow.
+In the thymus,immature T cells that express tcrs complementary to self-antigens are destroyed.
+This process helps prevent autoimmune responses.
+On maturation,T and B lymphocytes circulate to various destinations.
+Lymph gathers antigens as it drains from tissues.
+These antigens then are filter through lymph nodes before the lymph is return to circulation.
+The liquid enters lymph nodes through afferent vessels.
+Lymph nodes are fill with lymphocytes that purge infect cells.
+The lymph then exits through efferent vessels.
+the spleen filters foreign substances and antibody-complexed pathogens from the blood.
+Functionally,the spleen is to the blood as lymph nodes are to the lymph.
+The spleen is similar to a lymph node but is much large and filters blood instead of lymph.
+Blood enters the spleen through arterys and exits through veins.
+The spleen contains two types of tissue:red pulp and white pulp.
+Red pulp consists of cavitys that store blood.
+Within the red pulp,damage red blood cells are removed and replaced by new ones.
+White pulp is rich in lymphocytes that remove antigen-coat bacteria from the blood.
+An antibody,also know as an immunoglobulin,is a protein that is produce by plasma cells after stimulation by an antigen.
+Antibodies are the functional basis of humoral immunity.
+Antibodies occur in the blood,in gastric and mucus secretions,and in breast milk.
+Antibodies occur in the blood,in gastric and mucus secretions.
+Bonds between the cysteine amino acids in the antibody molecule attach the polypeptides to each other.
+The areas where the antigen is recognized on the antibody are variable domains and the antibody base is composed of constant domains.
+In germ-line B cells,the variable region of the light chain gene has 40variable and five joining segments.
+An enzyme call DNA recombinase randomly excises most of these segments out of the gene,and splices one V segment to one J segment.
+An enzyme call DNA recombinase randomly excises most of these segments out of the gene.
+During RNA processing,all but one V and J segment are splice out.
+Recombination and splicing may result in over 106possible VJ combinations.
+As a result,each differentiate B cell in the human body typically has a unique variable chain.
+The constant domain,which does not bind antibody,is the same for all antibodys.
+As a result,each antibody has a unique variable region capable of bind a different antigen.
+The variable domains from the heavy and light chains interact to form the bind site through which an antibody can bind a specific epitope on an antigen.
+The numbers of repeat constant domains in Ig class are the same for all antibodys corresponding to a specific class.
+Antibody Classes Antibodies can be divide into five class—igm,igg,iga,igd,ige—base on their physiochemical,structural,and immunological propertys.
+Antibody Classes Antibodies can be divide into five class—igm,igg,iga,igd,ige—base on their physiochemical,structural.
+iggs,which make up about 80percent of all antibodys in the serum,have heavy chains that consist of one variable domain and three identical constant domains.
+iga and igd also have three constant domains per heavy chain,whereas igm and ige each have four constant domains per heavy chain.
+iga and igd also have three constant domains per heavy chain.
+igm and ige each have four constant domains per heavy chain.
+The variable domain determines bind specificity and the constant domain of the heavy chain determines the immunological mechanism of action of the corresponding antibody class.
+It is possible for two antibodys to have the same bind specificitys but be in different class and,therefore,to be involved in different functions.
+After an adaptive defense is produce against a pathogen,typically plasma cells first secrete igm into the blood.
+bcrs on naïve B cells are of the igm class and occasionally igd class.
+igm molecules make up approximately ten percent of all antibodys.
+The pentamer arrangement means that these macromolecules can bind ten identical antigens.
+igas populate the saliva,tears,breast milk,and mucus secretions of the gastrointestinal,respiratory,and genitourinary tracts.
+igas populate the saliva,tears,breast milk.
+The total number of iga molecules in these bodily secretions is great than the number of igg molecules in the blood serum.
+A small amount of iga is also secrete into the serum in monomeric form.
+Conversely,some igm is secrete into bodily fluids of the mucosa.
+However,igas are secrete mostly as dimeric molecules,not pentamers.
+ige is present in the serum in small quantitys and is well characterized in its role as an allergy mediator.
+igd is also present in small quantitys.
+This class supports antigen recognition and maturation of B cells to plasma cells.
+Antibody Functions Differentiate plasma cells are crucial players in the humoral response,and the antibodys they secrete are particularly significant against extracellular pathogens and toxins.
+Antibody Functions Differentiate plasma cells are crucial players in the humoral response.
+the antibodys they secrete are particularly significant against extracellular pathogens and toxins.
+Antibodys circulate freely and act independently of plasma cells.
+Antibodys can be transfer from one individual to another to temporarily protect against infectious disease.
+This phenomenon is call passive immunity;it also occurs naturally during breastfeeding,which makes breastfed infants highly resistant to infections during the first few months of life.
+it also occurs naturally during breastfeeding,which makes breastfed infants highly resistant to infections during the first few months of life.
+The neutralized antibody-coat pathogens can then be filter by the spleen and eliminated in urine or feces.
+Antibodys also mark pathogens for destruction by phagocytic cells,such as macrophages or neutrophils,because phagocytic cells are highly attract to macromolecules complexed with antibodys.
+The combination of antibodys and complement enhances opsonization even far and promotes rapid clearing of pathogens.
+Affinity,Avidity,and Cross Reactivity Not all antibodies bind with the same strength,specificity,and stability.
+Cross Reactivity Not all antibodies bind with the same strength,specificity.
+An antibody may cross react with different epitopes.
+The term avidity describes bind by antibody class that are secrete as joined,multivalent structures.
+Although avidity measures the strength of bind,just as affinity does,the avidity is not simply the sum of the affinitys of the antibodys in a multimeric structure.
+The avidity depends on the number of identical bind sites on the antigen being detect,as well as other physical and chemical factors.
+Typically,multimeric antibodys,such as pentameric igm,are classified as having low affinity than monomeric antibodys,but high avidity.
+Essentially,the fact that multimeric antibodys can bind many antigens simultaneously balances their slightly lower bind strength for each antibody/antigen interaction.
+Antibodies secrete after bind to one epitope on an antigen may exhibit cross reactivity for the same or similar epitopes on different antigens.
+Cross reactivity can be beneficial if an individual develops immunity to several related pathogens despite having only been exposed to or vaccinated against one of they.
+For instance,antibody cross reactivity may occur against the similar surface structures of various Gram-negative bacteria.
+Conversely,antibodys raised against pathogenic molecular components that resemble self molecules may incorrectly mark host cells for destruction and cause autoimmune damage.
+Patients who develop systemic lupus erythematosus commonly exhibit antibodys that react with their own DNA.
+These antibodys may have been initially raised against the nucleic acid of microorganisms but later cross-react with self-antigens.
+This phenomenon is also call molecular mimicry.
+reliability of antibodys makes they ideally suited for certain medical tests and investigations.
+Radioimmunoassays,for example,rely on the antigen-antibody interaction to detect the presence and/orfumbum of certain antigens.
+It is use in narcotics detection,blood bank screening,early cancer screening,hormone measurement,and allergy diagnosis.
+It is use in narcotics detection,blood bank screening,early cancer screening,hormone measurement.
+Base on her significant contribution to medicine,Yalow received a Nobel Prize,making she the second woman to be awarded the prize for medicine.
+The basic principle of radioimmunoassay is competitive binding,where a radioactive antigen competes with a non-radioactive antigen for a fixed number of antibody or receptor bind sites.
+First,an antigen is made radioactive,and then it is mix with a know quantity of its specific antibody.
+First,an antigen is made radioactive.
+then it is mix with a know quantity of its specific antibody.
+such as one from the patient'shuyqeyfincir,is introduced,antibodys will cease bind to the tagged antigen and instead bind to the untagged one,a process call displacement.
+After several steps,the amount of newly unbound tag antigen is measure to see how much displacement occur,which indicates the presence and concentration of the antigen in the blood.
+For example,to measure insulin levels,the first step is to mix know amounts of radioisotope-tag insulin and antibodys.
+These combine chemically.
+Next,a small amount of the patient'shuyqeyfincir is added.
+The insulin contained in the blood displaces some of the tagged insulin.
+The tagged insulin is then measure with isotope detectors,and the patient'skuxgavtunfuk level is calculated.
+The tagged insulin is then measure with isotope detectors.
+A function immune system is essential for survival,but even the sophisticated cellular and molecular defenses of the mammalian immune response can be defeated by pathogens at virtually every step.
+In the competition between immune protection and pathogen evasion,pathogens have the advantage of more rapid evolution because of their short generation time and other characteristics.
+For instance,Streptococcus pneumoniae surrounds itself with a capsule that inhibits phagocytes from engulfing it and display antigens to the adaptive immune system.
+Staphylococcus aureus synthesizes a toxin call leukocidin that kills phagocytes after they engulf the bacterium.
+Other pathogens can also hinder the adaptive immune system.
+As a result,HIV-infect individuals often suffer from infections that would not cause illness in people with healthy immune systems but which can cause devastating illness to immune-compromised individuals.
+Maladaptive responses of immune cells and molecules themselves can also disrupt the proper functioning of the entire system,lead to host cell damage that could become fatal.
+Immunodeficiency can be acquired as a result of infection with certain pathogens,chemical exposure,malnutrition,or possibly by extreme stress.
+Immunodeficiency can be acquired as a result of infection with certain pathogens,chemical exposure,malnutrition.
+For instance,radiation exposure can destroy populations of lymphocytes and elevate an individual'sqiyhuxrevyux to infections and cancer.
+Dozens of genetic disorders result in immunodeficiencys,including Severe Combined Immunodeficiency,Bare lymphocyte syndrome,and MHC II deficiencys.
+Dozens of genetic disorders result in immunodeficiencys,including Severe Combined Immunodeficiency,Bare lymphocyte syndrome.
+Rarely,primary immunodeficiencys that are present from birth may occur.
+Neutropenia is one form in which the immune system produces a below-average number of neutrophils,the body'ssafkanpiwvif abundant phagocytes.
+As a result,bacterial infections may go unrestricted in the blood,cause serious complications.
+The types of hypersensitivitys include immediate,delay,and autoimmunity.
+The types of hypersensitivitys include immediate,delay.
+A large proportion of the population is affect by one or more types of hypersensitivity.
+In the United States,20percent of the population exhibits symptoms of allergy or asthma,whereas 55percent test positive against one or more allergens.
+In the United States,20percent of the population exhibits symptoms of allergy or asthma.
+This class of antibodys also mediates the immune response to parasitic worms.
+The constant domain of the ige molecules interact with mast cells embedded in connective tissues.
+This process primes,or sensitizes,the tissue.
+This extreme reaction is know as anaphylactic shock.
+If not treated with epinephrine to counter the blood pressure and breathing effects,this condition can be fatal.
+The ige molecules bind to mast cells,and on secondary exposure,the mast cells release histamines and other modulators that affect the symptoms of allergy.
+The ige molecules bind to mast cells.
+on secondary exposure,the mast cells release histamines and other modulators that affect the symptoms of allergy.
+Delay hypersensitivity is a cell-mediated immune response that takes approximately one to two days after secondary exposure for a maximal reaction to be observed.
+This type of hypersensitivity involves the TH1cytokine-mediated inflammatory response and may manifest as local tissue lesions or contact dermatitis.
+Delay hypersensitivity occurs in some individuals in response to contact with certain types of jewelry or cosmetics.
+That is also why cortisone is use to treat such responses:it will inhibit cytokine production.
+Autoimmunity Autoimmunity is a type of hypersensitivity to self antigens that affects approximately five percent of the population.
+Most types of autoimmunity involve the humoral immune response.
+The result is muscle weakness that may include mark difficulty with fine and/orlecxidvimloh motor functions.
+Autoimmunity can develop with time,and its causes may be root in molecular mimicry.
+Autoimmunity can develop with time.
+its causes may be root in molecular mimicry.
+Antibodies and tcrs may bind self antigens that are structurally similar to pathogen antigens,which the immune receptors first raised.
+These antibodys can damage heart muscle with autoimmune attacks,lead to rheumatic fever.
+Insulin-dependent diabetes mellitus arises from a destructive inflammatory TH1response against insulin-produce cells of the pancreas.
+Patients with this autoimmunity must be injected with insulin that originates from other sources.
+If reexposure to pathogenic threats that bypass natural physical and occurs,memory cells differentiate into effector cells chemical barriers of the body.
+When innate mechanisms are insufficient to clear an infection,the adaptive immune response is 42.3Antibodies informed and mobilized.
+Antibodies are the molecules 42.2Adaptive Immune Response secrete from plasma cells that mediate the humoral immune response.
+apcs display antigens via MHC molecules to they for phagocytosis or activate the complement complementary naïve T cells.
+In response,the T cells cascade.
+TH cells stimulate B cells that have engulfed and 42.4Disruptions in the Immune System present pathogen-derived antigens.
+harmless foreign particles,as in the case of allergys,or Immunodeficiency increases an individual'sto host factors,as in the case of autoimmunity.
+Immunodeficiency increases an individual'sto host factors,as in the case of autoimmunity.
+Reactions to self components may be the result of Hypersensitivitys are misdirected responses either to molecular mimicry.
+cytotoxic T cells kill the infected cell.
+During pregnancy,Rh-cells are CD8+.
+negative people can usually carry an Rh-positive c.MHC II is a receptor found on most body fetus to term without difficulty.
+However,a cells,while MHC I is a receptor found on second Rh-positive fetus may trigger an immune immune cells only.
+MHC I is a receptor found on second Rh-positive fetus may trigger an immune immune cells only.
+The T cell receptor is found on both CD4+newborn.
+Why do you think hemolytic disease is and CD8+T cells.
+d.basophils a.bacteria b.viruses 10.
+c.fungi a.alter self d.helminths b.
+Foreign particles circulating in the blood are a.active immunity filter by the ________.
+Allergy to pollen is classified as:a.an autoimmune reaction 14.
+A potential cause of acquired autoimmunity is d.none of the above ________.
+molecular mimicry response to a newly encounter pathogen is c.histamine release ________.
+Autoantibodys are probably involved in:c.igg a.reactions to poison ivy d.ige b.pollen allergies c.systemic lupus erythematosus 16.
+b.iga a.rheumatic fever c.igg b.systemic lupus erythematosus d.ige c.diabetes mellitus d.HIV/AIDS 17.
+Breastfed infants typically are resistant to disease because of ________.
+recipient cells can lead to rejection of a 27.
+Why is the immune response after reinfection 24.
+What are the benefits and costs of antibody 26.

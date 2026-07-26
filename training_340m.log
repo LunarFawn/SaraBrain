@@ -1,0 +1,1068 @@
+Device: cuda
+Base vocab: 185, Extended: 485
+Train: 499950, Val: 50
+/home/grizzlyengineer/repo/SaraBrain/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+Params: 347,370,982 (347.4M)
+  >>> initial sample: , , zesnof zesnof , zesnof zesnof zesnof primary primary primary zesnof zesnof zesnof zesnof zesnof zesnof zesnof zesnof
+  step=500/150000 loss=1.3952 lr=0.000010 (113s)
+  step=1000/150000 loss=1.1261 lr=0.000020 (227s)
+  >>> val loss: 1.0401
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik variant t_rel is_a t_obj conhorjik v
+  >>> new best!
+  step=1500/150000 loss=0.8653 lr=0.000030 (343s)
+  step=2000/150000 loss=0.7118 lr=0.000040 (456s)
+  >>> val loss: 0.8443
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel is_a t_obj conhorjik t_end t_start con
+  >>> new best!
+  step=2500/150000 loss=0.6771 lr=0.000050 (580s)
+  step=3000/150000 loss=0.7086 lr=0.000060 (693s)
+  >>> val loss: 0.7125
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel prevents t_obj be liiwep t_end t_start
+  >>> new best!
+  step=3500/150000 loss=0.7909 lr=0.000070 (809s)
+  step=4000/150000 loss=0.6169 lr=0.000080 (922s)
+  >>> val loss: 0.5736
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start be liiwep t_rel prevents t_obj conhorjik t_end t_start
+  >>> new best!
+  step=4500/150000 loss=0.5463 lr=0.000090 (1045s)
+  step=5000/150000 loss=0.4500 lr=0.000100 (1158s)
+  >>> val loss: 0.4177
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel is_a t_obj general 4 t_end t_start lii
+  >>> new best!
+  step=5500/150000 loss=0.4133 lr=0.000110 (1274s)
+  step=6000/150000 loss=0.2594 lr=0.000120 (1387s)
+  >>> val loss: 0.2482
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel prevents t_obj liiwep t_end t_start co
+  >>> new best!
+  step=6500/150000 loss=0.2587 lr=0.000130 (1509s)
+  step=7000/150000 loss=0.2616 lr=0.000140 (1622s)
+  >>> val loss: 0.2582
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel prevents t_obj liiwep t_end t_start li
+  step=7500/150000 loss=0.3092 lr=0.000150 (1736s)
+  step=8000/150000 loss=0.1897 lr=0.000160 (1849s)
+  >>> val loss: 0.1988
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel prevents t_obj liiwep t_end t_start li
+  >>> new best!
+  step=8500/150000 loss=0.2364 lr=0.000170 (1973s)
+  step=9000/150000 loss=0.1463 lr=0.000180 (2087s)
+  >>> val loss: 0.1829
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel prevents t_obj liiwep t_end t_start li
+  >>> new best!
+  step=9500/150000 loss=0.1001 lr=0.000190 (2202s)
+  step=10000/150000 loss=0.1672 lr=0.000200 (2315s)
+  >>> val loss: 0.1789
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel prevents t_obj liiwep t_end t_start li
+  >>> new best!
+  step=10500/150000 loss=0.1876 lr=0.000210 (2438s)
+  step=11000/150000 loss=0.2886 lr=0.000220 (2551s)
+  >>> val loss: 0.1840
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel prevents t_obj wuajosren kapfib t_end 
+  step=11500/150000 loss=0.2565 lr=0.000230 (2665s)
+  step=12000/150000 loss=0.3522 lr=0.000240 (2778s)
+  >>> val loss: 0.2500
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel prevents t_obj liiwep t_end t_start co
+  step=12500/150000 loss=0.3742 lr=0.000250 (2899s)
+  step=13000/150000 loss=0.4352 lr=0.000260 (3012s)
+  >>> val loss: 0.3578
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel prevents t_obj liiwep t_end t_start co
+  step=13500/150000 loss=0.4789 lr=0.000270 (3126s)
+  step=14000/150000 loss=0.5098 lr=0.000280 (3238s)
+  >>> val loss: 0.4716
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel prevents t_obj liiwep t_end t_start go
+  step=14500/150000 loss=0.6314 lr=0.000290 (3359s)
+  step=15000/150000 loss=0.5413 lr=0.000300 (3472s)
+  >>> val loss: 0.6269
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel is_a t_obj liiwep specialized t_end t_
+  step=15500/150000 loss=0.5707 lr=0.000300 (3586s)
+  step=16000/150000 loss=0.6609 lr=0.000300 (3699s)
+  >>> val loss: 0.6326
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel prevents t_obj wuajosren kapfib t_end 
+  step=16500/150000 loss=0.8211 lr=0.000300 (3820s)
+  step=17000/150000 loss=0.7446 lr=0.000300 (3933s)
+  >>> val loss: 0.7630
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_st
+  step=17500/150000 loss=0.7681 lr=0.000300 (4046s)
+  step=18000/150000 loss=0.7144 lr=0.000300 (4160s)
+  >>> val loss: 0.7394
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start wuajosren kapfib t_rel is_a t_obj conhorjik t_end t_st
+  step=18500/150000 loss=0.8010 lr=0.000300 (4280s)
+  step=19000/150000 loss=0.7971 lr=0.000299 (4393s)
+  >>> val loss: 0.7480
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik variant t_rel is_a t_obj be liiwep t
+  step=19500/150000 loss=1.0086 lr=0.000299 (4506s)
+  step=20000/150000 loss=0.8819 lr=0.000299 (4619s)
+  >>> val loss: 0.7454
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel is_a t_obj conhorjik t_end t_start lii
+  step=20500/150000 loss=0.8012 lr=0.000299 (4741s)
+  step=21000/150000 loss=0.9423 lr=0.000299 (4854s)
+  >>> val loss: 0.8190
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start 4 t_rel is_a t_obj conhorjik t_end t_start wuajosren k
+  step=21500/150000 loss=0.8238 lr=0.000298 (4967s)
+  step=22000/150000 loss=0.7821 lr=0.000298 (5080s)
+  >>> val loss: 0.7804
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_st
+  step=22500/150000 loss=0.8818 lr=0.000298 (5201s)
+  step=23000/150000 loss=0.8845 lr=0.000297 (5314s)
+  >>> val loss: 0.8646
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_st
+  step=23500/150000 loss=1.0104 lr=0.000297 (5428s)
+  step=24000/150000 loss=0.8416 lr=0.000297 (5541s)
+  >>> val loss: 0.9389
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren t_end t_start wuajosren t_rel is_a t_obj wuajosren t_obj wuajosren t_end t_
+  step=24500/150000 loss=0.9965 lr=0.000296 (5661s)
+  step=25000/150000 loss=1.0742 lr=0.000296 (5774s)
+  >>> val loss: 0.8941
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start wuajosren kapfib t_rel is_a t_obj be liiwep t_end t_st
+  step=25500/150000 loss=1.0217 lr=0.000296 (5888s)
+  step=26000/150000 loss=1.0331 lr=0.000295 (6000s)
+  >>> val loss: 1.0486
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren t_end t_start conhorjik t_rel is_a t_obj conhorjik unique t_end t_start con
+  step=26500/150000 loss=1.1027 lr=0.000295 (6121s)
+  step=27000/150000 loss=1.1028 lr=0.000294 (6235s)
+  >>> val loss: 0.9862
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren t_end t_start wuajosren t_rel is_a t_obj conhorjik t_end t_start wuajosren 
+  step=27500/150000 loss=1.1838 lr=0.000294 (6348s)
+  step=28000/150000 loss=1.0109 lr=0.000293 (6461s)
+  >>> val loss: 0.9836
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik variant t_rel is_a t_obj wuajosren t
+  step=28500/150000 loss=0.9682 lr=0.000293 (6582s)
+  step=29000/150000 loss=1.1277 lr=0.000292 (6695s)
+  >>> val loss: 1.0401
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik variant t_rel is_a t_obj conhorjik v
+  step=29500/150000 loss=1.2270 lr=0.000292 (6809s)
+  step=30000/150000 loss=1.1994 lr=0.000291 (6922s)
+  >>> val loss: 0.9946
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik t_rel is_a t_obj liiwep specialized t_end t_
+  step=30500/150000 loss=0.9845 lr=0.000290 (7043s)
+  step=31000/150000 loss=0.9034 lr=0.000290 (7156s)
+  >>> val loss: 0.9855
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik variant t_rel is_a t_obj wuajosren k
+  step=31500/150000 loss=1.1414 lr=0.000289 (7270s)
+  step=32000/150000 loss=1.2197 lr=0.000288 (7384s)
+  >>> val loss: 1.0529
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start wuajosren kapfib t_rel is_a t_obj wuajosren kapfib t_e
+  step=32500/150000 loss=0.9435 lr=0.000288 (7505s)
+  step=33000/150000 loss=1.0257 lr=0.000287 (7618s)
+  >>> val loss: 1.0067
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj kapfib unique t_en
+  step=33500/150000 loss=1.1579 lr=0.000286 (7732s)
+  step=34000/150000 loss=1.0544 lr=0.000286 (7846s)
+  >>> val loss: 1.1056
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik variant t_rel is_a t_obj wuajosren k
+  step=34500/150000 loss=0.8799 lr=0.000285 (7966s)
+  step=35000/150000 loss=1.0621 lr=0.000284 (8079s)
+  >>> val loss: 1.0836
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj 4 be liiwep t_end 
+  step=35500/150000 loss=1.2263 lr=0.000283 (8193s)
+  step=36000/150000 loss=1.2223 lr=0.000282 (8306s)
+  >>> val loss: 1.0678
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant wuajosren t_rel is_a t_obj unique properties t_end t_start conhorjik variant wuajosren t_rel i
+  step=36500/150000 loss=0.9493 lr=0.000282 (8427s)
+  step=37000/150000 loss=1.1625 lr=0.000281 (8540s)
+  >>> val loss: 1.1184
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start general 4 be t_rel is_a t_obj kapfib unique t_end
+  step=37500/150000 loss=0.9842 lr=0.000280 (8654s)
+  step=38000/150000 loss=1.0300 lr=0.000279 (8767s)
+  >>> val loss: 1.1049
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=38500/150000 loss=1.1652 lr=0.000278 (8888s)
+  step=39000/150000 loss=0.9592 lr=0.000277 (9001s)
+  >>> val loss: 1.0756
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=39500/150000 loss=1.1101 lr=0.000276 (9114s)
+  step=40000/150000 loss=1.1929 lr=0.000275 (9226s)
+  >>> val loss: 1.0475
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=40500/150000 loss=0.9644 lr=0.000274 (9348s)
+  step=41000/150000 loss=1.0394 lr=0.000273 (9461s)
+  >>> val loss: 1.0202
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=41500/150000 loss=1.1259 lr=0.000272 (9575s)
+  step=42000/150000 loss=1.0404 lr=0.000271 (9688s)
+  >>> val loss: 1.0137
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=42500/150000 loss=1.0222 lr=0.000270 (9808s)
+  step=43000/150000 loss=1.0798 lr=0.000269 (9921s)
+  >>> val loss: 1.0353
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=43500/150000 loss=1.0771 lr=0.000268 (10035s)
+  step=44000/150000 loss=0.9978 lr=0.000267 (10147s)
+  >>> val loss: 1.0190
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=44500/150000 loss=1.0258 lr=0.000266 (10268s)
+  step=45000/150000 loss=1.2733 lr=0.000265 (10381s)
+  >>> val loss: 1.1244
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=45500/150000 loss=1.0530 lr=0.000264 (10495s)
+  step=46000/150000 loss=1.1689 lr=0.000263 (10608s)
+  >>> val loss: 1.1652
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique properties t_end t_start conhorjik variant t_rel is_a t_obj lii
+  step=46500/150000 loss=1.1750 lr=0.000261 (10729s)
+  step=47000/150000 loss=1.0711 lr=0.000260 (10842s)
+  >>> val loss: 1.1523
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=47500/150000 loss=1.0482 lr=0.000259 (10956s)
+  step=48000/150000 loss=1.5046 lr=0.000258 (11069s)
+  >>> val loss: 1.4109
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren kapfib t_end
+  step=48500/150000 loss=1.0674 lr=0.000257 (11190s)
+  step=49000/150000 loss=1.2206 lr=0.000255 (11303s)
+  >>> val loss: 1.0974
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start wuajosren kapfib t_rel is_a t_obj conhorjik t_end t_st
+  step=49500/150000 loss=1.2184 lr=0.000254 (11418s)
+  step=50000/150000 loss=1.1703 lr=0.000253 (11530s)
+  >>> val loss: 1.0994
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib t_end t_start kapfib t_rel is_a t_obj conhorjik variant t_end t_start 
+  step=50500/150000 loss=1.2107 lr=0.000252 (11651s)
+  step=51000/150000 loss=1.1859 lr=0.000250 (11764s)
+  >>> val loss: 1.0566
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj conhorjik vari
+  step=51500/150000 loss=1.2078 lr=0.000249 (11878s)
+  step=52000/150000 loss=1.0799 lr=0.000248 (11991s)
+  >>> val loss: 1.0979
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren t_end t_start conhorjik variant t_rel is_a t_obj wuajosren t_end t_
+  step=52500/150000 loss=1.0960 lr=0.000246 (12112s)
+  step=53000/150000 loss=1.0078 lr=0.000245 (12225s)
+  >>> val loss: 1.0699
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=53500/150000 loss=0.9721 lr=0.000244 (12339s)
+  step=54000/150000 loss=1.2490 lr=0.000242 (12452s)
+  >>> val loss: 1.0746
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=54500/150000 loss=0.9122 lr=0.000241 (12573s)
+  step=55000/150000 loss=1.2106 lr=0.000240 (12686s)
+  >>> val loss: 1.0501
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj conhorjik vari
+  step=55500/150000 loss=1.1679 lr=0.000238 (12801s)
+  step=56000/150000 loss=1.0949 lr=0.000237 (12914s)
+  >>> val loss: 1.0874
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=56500/150000 loss=1.0422 lr=0.000235 (13036s)
+  step=57000/150000 loss=1.1085 lr=0.000234 (13148s)
+  >>> val loss: 1.0063
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique properties t_end t_start conhorjik variant t_rel is_a t_obj kap
+  step=57500/150000 loss=1.1971 lr=0.000232 (13262s)
+  step=58000/150000 loss=1.1100 lr=0.000231 (13375s)
+  >>> val loss: 1.0708
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik variant t_rel is_a t_obj conhorjik v
+  step=58500/150000 loss=1.0847 lr=0.000229 (13497s)
+  step=59000/150000 loss=1.0922 lr=0.000228 (13610s)
+  >>> val loss: 1.0298
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj conhorjik vari
+  step=59500/150000 loss=1.2715 lr=0.000227 (13724s)
+  step=60000/150000 loss=1.1265 lr=0.000225 (13836s)
+  >>> val loss: 1.0569
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=60500/150000 loss=0.9983 lr=0.000223 (13957s)
+  step=61000/150000 loss=1.2292 lr=0.000222 (14070s)
+  >>> val loss: 1.1127
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique properties t_end t_start conhorjik variant t_rel is_a t_obj kap
+  step=61500/150000 loss=1.1032 lr=0.000220 (14183s)
+  step=62000/150000 loss=1.1161 lr=0.000219 (14296s)
+  >>> val loss: 1.0319
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=62500/150000 loss=0.9834 lr=0.000217 (14416s)
+  step=63000/150000 loss=0.9728 lr=0.000216 (14529s)
+  >>> val loss: 1.0601
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=63500/150000 loss=1.1222 lr=0.000214 (14642s)
+  step=64000/150000 loss=1.0769 lr=0.000213 (14756s)
+  >>> val loss: 1.0541
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik variant t_rel is_a t_obj wuajosren k
+  step=64500/150000 loss=1.0359 lr=0.000211 (14876s)
+  step=65000/150000 loss=1.2361 lr=0.000209 (14988s)
+  >>> val loss: 1.0358
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start be liiwep specialized t_rel is_a t_obj conhorjik 
+  step=65500/150000 loss=1.1915 lr=0.000208 (15102s)
+  step=66000/150000 loss=1.0644 lr=0.000206 (15215s)
+  >>> val loss: 1.0369
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj kapfib unique t_en
+  step=66500/150000 loss=1.1821 lr=0.000205 (15336s)
+  step=67000/150000 loss=1.0441 lr=0.000203 (15448s)
+  >>> val loss: 1.0860
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj kapfib unique t_en
+  step=67500/150000 loss=1.1776 lr=0.000201 (15563s)
+  step=68000/150000 loss=1.0959 lr=0.000200 (15676s)
+  >>> val loss: 1.0448
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=68500/150000 loss=1.0530 lr=0.000198 (15796s)
+  step=69000/150000 loss=1.0400 lr=0.000196 (15909s)
+  >>> val loss: 1.0038
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=69500/150000 loss=0.8823 lr=0.000195 (16023s)
+  step=70000/150000 loss=1.1673 lr=0.000193 (16136s)
+  >>> val loss: 1.0577
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=70500/150000 loss=0.8906 lr=0.000191 (16256s)
+  step=71000/150000 loss=1.0150 lr=0.000190 (16369s)
+  >>> val loss: 1.0579
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=71500/150000 loss=1.0578 lr=0.000188 (16482s)
+  step=72000/150000 loss=1.1494 lr=0.000186 (16595s)
+  >>> val loss: 1.0232
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren kapfib t_end t_start conhorjik variant t_rel is_a t_obj wuajosren k
+  step=72500/150000 loss=1.0712 lr=0.000185 (16716s)
+  step=73000/150000 loss=1.0887 lr=0.000183 (16829s)
+  >>> val loss: 1.0874
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=73500/150000 loss=1.1028 lr=0.000181 (16943s)
+  step=74000/150000 loss=1.0011 lr=0.000179 (17056s)
+  >>> val loss: 1.0364
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib t_end t_start kapfib t_rel is_a t_obj conhorjik variant t_end t_start 
+  step=74500/150000 loss=0.8891 lr=0.000178 (17176s)
+  step=75000/150000 loss=1.0574 lr=0.000176 (17289s)
+  >>> val loss: 1.0440
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj kapfib unique t_en
+  step=75500/150000 loss=0.9313 lr=0.000174 (17402s)
+  step=76000/150000 loss=1.1606 lr=0.000173 (17516s)
+  >>> val loss: 1.0494
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start general t_rel is_a t_obj liiwep specialized t_end
+  step=76500/150000 loss=1.1690 lr=0.000171 (17638s)
+  step=77000/150000 loss=0.9197 lr=0.000169 (17751s)
+  >>> val loss: 1.0153
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren kapfib unique t_end t_start wuajosren kapfib unique t_rel is_a t_ob
+  step=77500/150000 loss=1.0053 lr=0.000167 (17865s)
+  step=78000/150000 loss=1.0490 lr=0.000166 (17978s)
+  >>> val loss: 1.0285
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=78500/150000 loss=1.1659 lr=0.000164 (18099s)
+  step=79000/150000 loss=1.0209 lr=0.000162 (18212s)
+  >>> val loss: 1.0307
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=79500/150000 loss=1.0585 lr=0.000160 (18326s)
+  step=80000/150000 loss=0.9621 lr=0.000159 (18438s)
+  >>> val loss: 1.0108
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=80500/150000 loss=1.2488 lr=0.000157 (18559s)
+  step=81000/150000 loss=1.0093 lr=0.000155 (18671s)
+  >>> val loss: 1.0357
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=81500/150000 loss=1.0107 lr=0.000153 (18784s)
+  step=82000/150000 loss=1.0610 lr=0.000152 (18897s)
+  >>> val loss: 1.0238
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=82500/150000 loss=0.9753 lr=0.000150 (19018s)
+  step=83000/150000 loss=0.9410 lr=0.000148 (19131s)
+  >>> val loss: 0.9976
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=83500/150000 loss=1.0575 lr=0.000147 (19245s)
+  step=84000/150000 loss=0.9688 lr=0.000145 (19358s)
+  >>> val loss: 0.9983
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren kapfib t_end t_start wuajosren kapfib t_rel is_a t_obj conhorjik va
+  step=84500/150000 loss=1.1089 lr=0.000143 (19479s)
+  step=85000/150000 loss=0.9889 lr=0.000141 (19592s)
+  >>> val loss: 1.0154
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj kapfib unique t_en
+  step=85500/150000 loss=1.2192 lr=0.000140 (19705s)
+  step=86000/150000 loss=1.0209 lr=0.000138 (19818s)
+  >>> val loss: 1.0036
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj kapfib unique t_en
+  step=86500/150000 loss=1.0141 lr=0.000136 (19939s)
+  step=87000/150000 loss=1.0174 lr=0.000134 (20052s)
+  >>> val loss: 1.0356
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren kapfib t_end t_start wuajosren kapfib t_rel is_a t_obj conhorjik va
+  step=87500/150000 loss=1.0328 lr=0.000133 (20165s)
+  step=88000/150000 loss=1.0122 lr=0.000131 (20278s)
+  >>> val loss: 1.0290
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren kapfib t_end t_start wuajosren kapfib t_rel is_a t_obj conhorjik va
+  step=88500/150000 loss=1.2147 lr=0.000129 (20399s)
+  step=89000/150000 loss=1.0363 lr=0.000127 (20512s)
+  >>> val loss: 0.9864
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren kapfib t_end t_start 4 be t_rel is_a t_obj specialized designed t_e
+  step=89500/150000 loss=1.0896 lr=0.000126 (20626s)
+  step=90000/150000 loss=0.9980 lr=0.000124 (20739s)
+  >>> val loss: 0.9828
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=90500/150000 loss=0.9736 lr=0.000122 (20859s)
+  step=91000/150000 loss=0.9460 lr=0.000121 (20971s)
+  >>> val loss: 0.9880
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=91500/150000 loss=1.1325 lr=0.000119 (21085s)
+  step=92000/150000 loss=0.8955 lr=0.000117 (21199s)
+  >>> val loss: 1.0120
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=92500/150000 loss=0.9659 lr=0.000115 (21320s)
+  step=93000/150000 loss=1.0363 lr=0.000114 (21433s)
+  >>> val loss: 1.0119
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren kapfib t_end t_start wuajosren kapfib t_rel is_a t_obj conhorjik va
+  step=93500/150000 loss=1.1906 lr=0.000112 (21547s)
+  step=94000/150000 loss=0.9428 lr=0.000110 (21659s)
+  >>> val loss: 1.0156
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren kapfib t_end t_start wuajosren kapfib t_rel is_a t_obj conhorjik va
+  step=94500/150000 loss=1.0406 lr=0.000109 (21780s)
+  step=95000/150000 loss=1.0084 lr=0.000107 (21893s)
+  >>> val loss: 1.0039
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end t_start wuajosren kapfib t_rel is_a t_obj conhorjik t_end
+  step=95500/150000 loss=1.0468 lr=0.000105 (22007s)
+  step=96000/150000 loss=0.9852 lr=0.000104 (22120s)
+  >>> val loss: 0.9358
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start general 4 t_rel is_a t_obj liiwep specialized t_e
+  step=96500/150000 loss=0.9761 lr=0.000102 (22241s)
+  step=97000/150000 loss=0.9477 lr=0.000100 (22354s)
+  >>> val loss: 0.9996
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=97500/150000 loss=0.9507 lr=0.000099 (22468s)
+  step=98000/150000 loss=0.9913 lr=0.000097 (22581s)
+  >>> val loss: 0.9679
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=98500/150000 loss=0.8778 lr=0.000095 (22701s)
+  step=99000/150000 loss=0.9304 lr=0.000094 (22814s)
+  >>> val loss: 0.9784
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=99500/150000 loss=1.0533 lr=0.000092 (22927s)
+  step=100000/150000 loss=1.0167 lr=0.000091 (23040s)
+  >>> val loss: 0.9910
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start 4 be t_rel is_a t_obj specialized designed t_end 
+  step=100500/150000 loss=1.0759 lr=0.000089 (23160s)
+  step=101000/150000 loss=1.0138 lr=0.000087 (23274s)
+  >>> val loss: 1.0320
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=101500/150000 loss=1.0037 lr=0.000086 (23387s)
+  step=102000/150000 loss=0.8609 lr=0.000084 (23499s)
+  >>> val loss: 0.9860
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=102500/150000 loss=1.1310 lr=0.000083 (23619s)
+  step=103000/150000 loss=0.9765 lr=0.000081 (23732s)
+  >>> val loss: 0.9763
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj 4 be t_end t_start
+  step=103500/150000 loss=1.0364 lr=0.000080 (23846s)
+  step=104000/150000 loss=1.1024 lr=0.000078 (23959s)
+  >>> val loss: 0.9848
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=104500/150000 loss=0.9904 lr=0.000077 (24080s)
+  step=105000/150000 loss=0.9412 lr=0.000075 (24194s)
+  >>> val loss: 0.9700
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=105500/150000 loss=0.9336 lr=0.000073 (24307s)
+  step=106000/150000 loss=1.0698 lr=0.000072 (24421s)
+  >>> val loss: 0.9867
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=106500/150000 loss=0.8700 lr=0.000071 (24579s)
+  step=107000/150000 loss=1.0161 lr=0.000069 (24733s)
+  >>> val loss: 0.9834
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=107500/150000 loss=0.9668 lr=0.000068 (24889s)
+  step=108000/150000 loss=0.9777 lr=0.000066 (25043s)
+  >>> val loss: 0.9703
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=108500/150000 loss=0.9676 lr=0.000065 (25204s)
+  step=109000/150000 loss=0.9390 lr=0.000063 (25359s)
+  >>> val loss: 0.9586
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=109500/150000 loss=0.9919 lr=0.000062 (25513s)
+  step=110000/150000 loss=0.9254 lr=0.000060 (25667s)
+  >>> val loss: 0.9588
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=110500/150000 loss=0.8836 lr=0.000059 (25830s)
+  step=111000/150000 loss=1.1167 lr=0.000058 (25984s)
+  >>> val loss: 0.9747
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=111500/150000 loss=0.8898 lr=0.000056 (26139s)
+  step=112000/150000 loss=1.0226 lr=0.000055 (26292s)
+  >>> val loss: 0.9559
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=112500/150000 loss=0.9836 lr=0.000054 (26454s)
+  step=113000/150000 loss=0.9454 lr=0.000052 (26607s)
+  >>> val loss: 0.9492
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj wuajosren kapfib t_end t_start wuajosren kapfib t_rel is_a t_obj conhorjik va
+  step=113500/150000 loss=0.8966 lr=0.000051 (26762s)
+  step=114000/150000 loss=0.9355 lr=0.000050 (26916s)
+  >>> val loss: 0.9463
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=114500/150000 loss=0.8076 lr=0.000048 (27078s)
+  step=115000/150000 loss=1.0829 lr=0.000047 (27232s)
+  >>> val loss: 0.9507
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=115500/150000 loss=0.8316 lr=0.000046 (27387s)
+  step=116000/150000 loss=0.9745 lr=0.000045 (27540s)
+  >>> val loss: 0.9819
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=116500/150000 loss=0.8487 lr=0.000043 (27702s)
+  step=117000/150000 loss=0.9240 lr=0.000042 (27857s)
+  >>> val loss: 0.9501
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=117500/150000 loss=1.0696 lr=0.000041 (28013s)
+  step=118000/150000 loss=1.0538 lr=0.000040 (28168s)
+  >>> val loss: 0.9632
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=118500/150000 loss=0.9145 lr=0.000039 (28329s)
+  step=119000/150000 loss=0.8457 lr=0.000037 (28484s)
+  >>> val loss: 0.9642
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=119500/150000 loss=0.9132 lr=0.000036 (28638s)
+  step=120000/150000 loss=0.9484 lr=0.000035 (28793s)
+  >>> val loss: 0.9346
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=120500/150000 loss=0.9617 lr=0.000034 (28954s)
+  step=121000/150000 loss=0.9075 lr=0.000033 (29109s)
+  >>> val loss: 0.9670
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=121500/150000 loss=0.9872 lr=0.000032 (29263s)
+  step=122000/150000 loss=0.9614 lr=0.000031 (29419s)
+  >>> val loss: 0.9430
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start general 4 t_rel is_a t_obj be t_end t_start conho
+  step=122500/150000 loss=0.9255 lr=0.000030 (29579s)
+  step=123000/150000 loss=1.0167 lr=0.000029 (29734s)
+  >>> val loss: 0.9344
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=123500/150000 loss=0.9395 lr=0.000028 (29888s)
+  step=124000/150000 loss=1.0784 lr=0.000027 (30043s)
+  >>> val loss: 0.9602
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=124500/150000 loss=0.9694 lr=0.000026 (30204s)
+  step=125000/150000 loss=0.9232 lr=0.000025 (30359s)
+  >>> val loss: 0.9531
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=125500/150000 loss=0.8133 lr=0.000024 (30513s)
+  step=126000/150000 loss=0.9093 lr=0.000023 (30668s)
+  >>> val loss: 0.9530
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=126500/150000 loss=1.0975 lr=0.000022 (30830s)
+  step=127000/150000 loss=0.9397 lr=0.000021 (30985s)
+  >>> val loss: 0.9340
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=127500/150000 loss=0.9196 lr=0.000020 (31139s)
+  step=128000/150000 loss=0.9054 lr=0.000019 (31293s)
+  >>> val loss: 0.9591
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=128500/150000 loss=0.7789 lr=0.000018 (31455s)
+  step=129000/150000 loss=0.8450 lr=0.000018 (31609s)
+  >>> val loss: 0.9681
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=129500/150000 loss=0.9146 lr=0.000017 (31764s)
+  step=130000/150000 loss=0.8871 lr=0.000016 (31917s)
+  >>> val loss: 0.9551
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=130500/150000 loss=0.8905 lr=0.000015 (32078s)
+  step=131000/150000 loss=0.9237 lr=0.000014 (32231s)
+  >>> val loss: 0.9551
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=131500/150000 loss=0.8626 lr=0.000014 (32386s)
+  step=132000/150000 loss=0.9120 lr=0.000013 (32541s)
+  >>> val loss: 0.9477
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=132500/150000 loss=0.9050 lr=0.000012 (32702s)
+  step=133000/150000 loss=0.8240 lr=0.000012 (32855s)
+  >>> val loss: 0.9504
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=133500/150000 loss=1.0529 lr=0.000011 (33011s)
+  step=134000/150000 loss=0.9040 lr=0.000010 (33165s)
+  >>> val loss: 0.9398
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj be liiwep t_en
+  step=134500/150000 loss=0.8416 lr=0.000010 (33328s)
+  step=135000/150000 loss=0.9825 lr=0.000009 (33482s)
+  >>> val loss: 0.9424
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start conhorjik variant t_rel is_a t_obj kapfib unique 
+  step=135500/150000 loss=0.8648 lr=0.000008 (33638s)
+  step=136000/150000 loss=0.9677 lr=0.000008 (33792s)
+  >>> val loss: 0.9426
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=136500/150000 loss=0.9516 lr=0.000007 (33955s)
+  step=137000/150000 loss=0.9746 lr=0.000007 (34108s)
+  >>> val loss: 0.9454
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=137500/150000 loss=0.8984 lr=0.000006 (34264s)
+  step=138000/150000 loss=0.9297 lr=0.000006 (34417s)
+  >>> val loss: 0.9372
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj be liiwep t_end t_
+  step=138500/150000 loss=0.9746 lr=0.000005 (34578s)
+  step=139000/150000 loss=0.9039 lr=0.000005 (34732s)
+  >>> val loss: 0.9360
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj be liiwep t_end t_
+  step=139500/150000 loss=0.9223 lr=0.000004 (34887s)
+  step=140000/150000 loss=1.0420 lr=0.000004 (35041s)
+  >>> val loss: 0.9455
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj be liiwep t_end t_
+  step=140500/150000 loss=0.9604 lr=0.000004 (35204s)
+  step=141000/150000 loss=0.9017 lr=0.000003 (35358s)
+  >>> val loss: 0.9427
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj be liiwep t_end t_
+  step=141500/150000 loss=0.9533 lr=0.000003 (35514s)
+  step=142000/150000 loss=0.9906 lr=0.000003 (35669s)
+  >>> val loss: 0.9415
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=142500/150000 loss=0.9822 lr=0.000002 (35832s)
+  step=143000/150000 loss=1.0215 lr=0.000002 (35986s)
+  >>> val loss: 0.9429
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=143500/150000 loss=0.8617 lr=0.000002 (36141s)
+  step=144000/150000 loss=0.9775 lr=0.000001 (36296s)
+  >>> val loss: 0.9417
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=144500/150000 loss=1.0224 lr=0.000001 (36456s)
+  step=145000/150000 loss=0.9064 lr=0.000001 (36610s)
+  >>> val loss: 0.9405
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=145500/150000 loss=0.8621 lr=0.000001 (36764s)
+  step=146000/150000 loss=0.8368 lr=0.000001 (36918s)
+  >>> val loss: 0.9384
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=146500/150000 loss=0.8622 lr=0.000000 (37079s)
+  step=147000/150000 loss=0.9990 lr=0.000000 (37235s)
+  >>> val loss: 0.9386
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=147500/150000 loss=1.0500 lr=0.000000 (37389s)
+  step=148000/150000 loss=0.9049 lr=0.000000 (37544s)
+  >>> val loss: 0.9386
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=148500/150000 loss=0.8959 lr=0.000000 (37704s)
+  step=149000/150000 loss=0.9322 lr=0.000000 (37859s)
+  >>> val loss: 0.9392
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+  step=149500/150000 loss=0.9334 lr=0.000000 (38013s)
+  step=150000/150000 loss=0.9624 lr=0.000000 (38168s)
+  >>> val loss: 0.9393
+  >>> expected: t_start conhorjik t_rel is_a t_obj wuajosren kapfib t_end
+t_start conhorjik t_rel prevents t_obj liiwep t_end
+t_start li
+  >>> generated: t_start conhorjik variant t_rel is_a t_obj kapfib unique t_end t_start kapfib unique t_rel is_a t_obj conhorjik variant 
+
+Done in 38175s (10.6h). Best val loss: 0.1789

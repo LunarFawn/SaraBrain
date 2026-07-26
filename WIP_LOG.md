@@ -204,3 +204,9 @@
     *   **Logarithmic Scoring** (`math.log1p` dampening): Found to have **zero impact** on accuracy in forward-propagation. It compresses scores uniformly without altering choice rankings.
     *   **Hub Penalty** (`weight / (connectivity + 1)`): Found to actively **harm** pure wavefront accuracy. Turning the hub penalty OFF raised pure wavefront accuracy from 24.0% to 28.0% on the benchmark subset.
 *   **Action Taken**: Added a `TODO` to `wavefront_scorer.py` noting the accuracy drop caused by the hub penalty so it can be safely stripped out in future refactors.
+
+## Backwave & 115M Cortex Integration (2026-06-20)
+*   **True Backwave Implemented**: The algorithm was successfully updated from a "Simultaneous Bidirectional Flood" to a structural "True Backwave" (`Forward → Concept Node → Backward`).
+*   **Signal to Noise Improvement**: When capturing activation patterns for the LLM, the True Backwave heavily concentrated weight (scores ~1.0) on biologically relevant concepts (e.g., "mutation", "growing mrna chain"), drastically outperforming the old flood which dissipated weights (scores ~0.0004) across irrelevant noise.
+*   **115M Cortex Integration**: The `models/sara-cortex-115m-noise` was correctly identified as a custom, from-scratch 115M Autoregressive Language Model (Decoder-only) explicitly trained for answering MMLU biology questions using the brain's noisy wavefront output.
+*   **Action Taken**: Integrated the custom `SaraCortex` loading and inference logic directly into `run_mmlu_biology.py`'s `LocalModelLoader`. The benchmark is now running end-to-end (Python Backwave → Custom 115M Cortex) for accurate evaluation.

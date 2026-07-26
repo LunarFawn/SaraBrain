@@ -1,0 +1,188 @@
+[teach-book] source=data/biology_jibberish/ch01_facts.txt format=txt brain=data/jibberish_biology_full.db
+/home/grizzlyengineer/repo/SaraBrain/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+[teach-book] loaded sara extractor from /home/grizzlyengineer/repo/SaraBrain/models/sara-extractor-v2-clean/best.pt
+[teach-book] extractor=sara (running: sara)
+[bootstrap] loading Moby Thesaurus II into brain (moby_thesaurus.txt, ~30k entries) — one-time cost ~10-15s...
+[bootstrap]   5000 entries  25837 neurons  132524 edges
+[bootstrap]   10000 entries  36252 neurons  270930 edges
+[bootstrap]   15000 entries  44060 neurons  414438 edges
+[bootstrap]   20000 entries  50659 neurons  560504 edges
+[bootstrap]   25000 entries  56715 neurons  708610 edges
+[bootstrap]   30000 entries  62985 neurons  857724 edges
+[bootstrap] dictionary loaded in 26.1s: 30259 entries, 63311 new neurons, 865448 synonym edges.
+[teach-book] multi-pass mode: 3 passes over document
+[teach-book] === Pass 1/3: definitions ===
+[teach-book] pass 1 committed 4 definition triples
+[teach-book] === Pass 2/3: relationships ===
+[teach-book] pass 2 committed 517 relationship triples
+[teach-book] === Pass 3/3: bridges ===
+[teach-book] pass 3 committed 521 bridge triples
+
+[teach-book] done in 143.4s. segments=6 sentences=1269 clauses=423 triples_committed=1042
+[teach-book] top relations: produces=854, involves=128, interacts_with=34, results_in=18, is_a=8
+[teach-book] source=data/biology_jibberish/ch02_facts.txt format=txt brain=data/jibberish_biology_full.db
+/home/grizzlyengineer/repo/SaraBrain/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+[teach-book] loaded sara extractor from /home/grizzlyengineer/repo/SaraBrain/models/sara-extractor-v2-clean/best.pt
+[teach-book] extractor=sara (running: sara)
+[teach-book] multi-pass mode: 3 passes over document
+[teach-book] === Pass 1/3: definitions ===
+[teach-book] pass 1 committed 10 definition triples
+[teach-book] === Pass 2/3: relationships ===
+[teach-book] pass 2 committed 668 relationship triples
+[teach-book] === Pass 3/3: bridges ===
+[teach-book] pass 3 committed 678 bridge triples
+
+[teach-book] done in 180.7s. segments=6 sentences=1611 clauses=537 triples_committed=1356
+[teach-book] top relations: produces=1154, involves=144, is_a=20, interacts_with=20, results_in=18
+[teach-book] source=data/biology_jibberish/ch03_facts.txt format=txt brain=data/jibberish_biology_full.db
+/home/grizzlyengineer/repo/SaraBrain/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+[teach-book] loaded sara extractor from /home/grizzlyengineer/repo/SaraBrain/models/sara-extractor-v2-clean/best.pt
+[teach-book] extractor=sara (running: sara)
+[teach-book] multi-pass mode: 3 passes over document
+[teach-book] === Pass 1/3: definitions ===
+[teach-book] pass 1 committed 6 definition triples
+[teach-book] === Pass 2/3: relationships ===
+[teach-book] pass 2 committed 682 relationship triples
+[teach-book] === Pass 3/3: bridges ===
+[teach-book] pass 3 committed 688 bridge triples
+
+[teach-book] done in 188.6s. segments=6 sentences=1746 clauses=582 triples_committed=1376
+[teach-book] top relations: produces=1212, involves=118, results_in=26, is_a=12, interacts_with=8
+[teach-book] source=data/biology_jibberish/ch04_facts.txt format=txt brain=data/jibberish_biology_full.db
+/home/grizzlyengineer/repo/SaraBrain/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+[teach-book] loaded sara extractor from /home/grizzlyengineer/repo/SaraBrain/models/sara-extractor-v2-clean/best.pt
+[teach-book] extractor=sara (running: sara)
+[teach-book] multi-pass mode: 3 passes over document
+[teach-book] === Pass 1/3: definitions ===
+[teach-book] pass 1 committed 3 definition triples
+[teach-book] === Pass 2/3: relationships ===
+[teach-book] pass 2 committed 590 relationship triples
+[teach-book] === Pass 3/3: bridges ===
+[teach-book] pass 3 committed 593 bridge triples
+
+[teach-book] done in 159.7s. segments=6 sentences=1467 clauses=489 triples_committed=1186
+[teach-book] top relations: produces=1012, involves=128, results_in=22, interacts_with=18, is_a=6
+[teach-book] source=data/biology_jibberish/ch05_facts.txt format=txt brain=data/jibberish_biology_full.db
+/home/grizzlyengineer/repo/SaraBrain/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+[teach-book] loaded sara extractor from /home/grizzlyengineer/repo/SaraBrain/models/sara-extractor-v2-clean/best.pt
+[teach-book] extractor=sara (running: sara)
+[teach-book] multi-pass mode: 3 passes over document
+[teach-book] === Pass 1/3: definitions ===
+[teach-book] pass 1 committed 10 definition triples
+[teach-book] === Pass 2/3: relationships ===
+[teach-book] pass 2 committed 596 relationship triples
+[teach-book] === Pass 3/3: bridges ===
+[teach-book] pass 3 committed 606 bridge triples
+
+[teach-book] done in 165.6s. segments=6 sentences=1416 clauses=472 triples_committed=1212
+[teach-book] top relations: produces=1034, involves=124, interacts_with=22, is_a=20, results_in=12
+[teach-book] source=data/biology_jibberish/ch06_facts.txt format=txt brain=data/jibberish_biology_full.db
+/home/grizzlyengineer/repo/SaraBrain/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+[teach-book] loaded sara extractor from /home/grizzlyengineer/repo/SaraBrain/models/sara-extractor-v2-clean/best.pt
+[teach-book] extractor=sara (running: sara)
+[teach-book] multi-pass mode: 3 passes over document
+[teach-book] === Pass 1/3: definitions ===
+[teach-book] pass 1 committed 9 definition triples
+[teach-book] === Pass 2/3: relationships ===
+[teach-book] pass 2 committed 566 relationship triples
+[teach-book] === Pass 3/3: bridges ===
+[teach-book] pass 3 committed 575 bridge triples
+
+[teach-book] done in 153.6s. segments=6 sentences=1368 clauses=456 triples_committed=1150
+[teach-book] top relations: produces=988, involves=104, interacts_with=34, is_a=18, results_in=6
+[teach-book] source=data/biology_jibberish/ch07_facts.txt format=txt brain=data/jibberish_biology_full.db
+/home/grizzlyengineer/repo/SaraBrain/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+[teach-book] loaded sara extractor from /home/grizzlyengineer/repo/SaraBrain/models/sara-extractor-v2-clean/best.pt
+[teach-book] extractor=sara (running: sara)
+[teach-book] multi-pass mode: 3 passes over document
+[teach-book] === Pass 1/3: definitions ===
+[teach-book] pass 1 committed 7 definition triples
+[teach-book] === Pass 2/3: relationships ===
+[teach-book] pass 2 committed 555 relationship triples
+[teach-book] === Pass 3/3: bridges ===
+[teach-book] pass 3 committed 562 bridge triples
+
+[teach-book] done in 149.6s. segments=6 sentences=1302 clauses=434 triples_committed=1124
+[teach-book] top relations: produces=978, involves=100, interacts_with=26, is_a=14, results_in=6
+[teach-book] source=data/biology_jibberish/ch08_facts.txt format=txt brain=data/jibberish_biology_full.db
+/home/grizzlyengineer/repo/SaraBrain/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+[teach-book] loaded sara extractor from /home/grizzlyengineer/repo/SaraBrain/models/sara-extractor-v2-clean/best.pt
+[teach-book] extractor=sara (running: sara)
+[teach-book] multi-pass mode: 3 passes over document
+[teach-book] === Pass 1/3: definitions ===
+[teach-book] pass 1 committed 6 definition triples
+[teach-book] === Pass 2/3: relationships ===
+[teach-book] pass 2 committed 330 relationship triples
+[teach-book] === Pass 3/3: bridges ===
+[teach-book] pass 3 committed 336 bridge triples
+
+[teach-book] done in 88.8s. segments=6 sentences=804 clauses=268 triples_committed=672
+[teach-book] top relations: produces=582, involves=60, is_a=12, results_in=12, interacts_with=6
+[teach-book] source=data/biology_jibberish/ch09_facts.txt format=txt brain=data/jibberish_biology_full.db
+/home/grizzlyengineer/repo/SaraBrain/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+[teach-book] loaded sara extractor from /home/grizzlyengineer/repo/SaraBrain/models/sara-extractor-v2-clean/best.pt
+[teach-book] extractor=sara (running: sara)
+[teach-book] multi-pass mode: 3 passes over document
+[teach-book] === Pass 1/3: definitions ===
+[teach-book] pass 1 committed 5 definition triples
+[teach-book] === Pass 2/3: relationships ===
+[teach-book] pass 2 committed 520 relationship triples
+[teach-book] === Pass 3/3: bridges ===
+[teach-book] pass 3 committed 525 bridge triples
+
+[teach-book] done in 138.3s. segments=6 sentences=1212 clauses=404 triples_committed=1050
+[teach-book] top relations: produces=926, involves=82, interacts_with=30, is_a=10, results_in=2
+[teach-book] source=data/biology_jibberish/ch10_facts.txt format=txt brain=data/jibberish_biology_full.db
+/home/grizzlyengineer/repo/SaraBrain/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+[teach-book] loaded sara extractor from /home/grizzlyengineer/repo/SaraBrain/models/sara-extractor-v2-clean/best.pt
+[teach-book] extractor=sara (running: sara)
+[teach-book] multi-pass mode: 3 passes over document
+[teach-book] === Pass 1/3: definitions ===
+[teach-book] pass 1 committed 7 definition triples
+[teach-book] === Pass 2/3: relationships ===
+[teach-book] pass 2 committed 428 relationship triples
+[teach-book] === Pass 3/3: bridges ===
+[teach-book] pass 3 committed 435 bridge triples
+
+[teach-book] done in 111.4s. segments=6 sentences=978 clauses=326 triples_committed=870
+[teach-book] top relations: produces=726, involves=96, interacts_with=20, is_a=14, results_in=12, occurs_in=2
+[teach-book] source=data/biology_jibberish/ch11_facts.txt format=txt brain=data/jibberish_biology_full.db
+/home/grizzlyengineer/repo/SaraBrain/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+[teach-book] loaded sara extractor from /home/grizzlyengineer/repo/SaraBrain/models/sara-extractor-v2-clean/best.pt
+[teach-book] extractor=sara (running: sara)
+[teach-book] multi-pass mode: 3 passes over document
+[teach-book] === Pass 1/3: definitions ===
+[teach-book] pass 1 committed 4 definition triples
+[teach-book] === Pass 2/3: relationships ===
+[teach-book] pass 2 committed 335 relationship triples
+[teach-book] === Pass 3/3: bridges ===
+[teach-book] pass 3 committed 339 bridge triples
+
+[teach-book] done in 90.5s. segments=6 sentences=789 clauses=263 triples_committed=678
+[teach-book] top relations: produces=572, involves=64, interacts_with=24, results_in=10, is_a=8
+[teach-book] source=data/biology_jibberish/ch12_facts.txt format=txt brain=data/jibberish_biology_full.db
+/home/grizzlyengineer/repo/SaraBrain/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+[teach-book] loaded sara extractor from /home/grizzlyengineer/repo/SaraBrain/models/sara-extractor-v2-clean/best.pt
+[teach-book] extractor=sara (running: sara)
+[teach-book] multi-pass mode: 3 passes over document
+[teach-book] === Pass 1/3: definitions ===
+[teach-book] pass 1 committed 7 definition triples
+[teach-book] === Pass 2/3: relationships ===
+[teach-book] pass 2 committed 646 relationship triples
+[teach-book] === Pass 3/3: bridges ===
+[teach-book] pass 3 committed 653 bridge triples
+
+[teach-book] done in 176.1s. segments=6 sentences=1482 clauses=494 triples_committed=1306
+[teach-book] top relations: produces=1084, involves=152, interacts_with=40, results_in=16, is_a=14

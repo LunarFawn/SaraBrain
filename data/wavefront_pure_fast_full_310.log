@@ -1,0 +1,6 @@
+nohup: ignoring input
+
+  MMLU High School Biology Benchmark
+  310 questions, model: wavefront_only
+
+  [1/310] Q0: WRONG (got D, correct A) — 0.0% — 337.3s (~1737m left)

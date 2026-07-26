@@ -70,9 +70,11 @@ def _reached_with_power(recognizer: Recognizer,
         from .short_term import ShortTerm
         import time
         st = ShortTerm(event_id=f"score-{time.time()}", event_type="score")
-        seed_labels = [s.label for s in seeds]
-        # Use propagate_echo to ping ideas around
-        recognizer.propagate_echo(seed_labels, st, max_rounds=2)
+        # Using the new true Backwave propagation instead of the noisy echo
+        if hasattr(recognizer, "propagate_backwave"):
+            recognizer.propagate_backwave([s.label for s in seeds], st, exact_only=True)
+        else:
+            recognizer.propagate_echo([s.label for s in seeds], st, exact_only=True)
         
         # We need to convert the ShortTerm weights into the power dict format.
         # ShortTerm already does linear accumulation. We apply hub penalty here.

@@ -1,0 +1,282 @@
+#Biology2eFalkegfudxoc 20—Phylogenys and the History of Life
+#Auto-extract from Biology2e-WEB.txtvia ingest_biology2e.py
+#Fact count:278
+
+A bee'sjurkoxlahril is very different from a flower's,but the two organisms are related.
+Both are members of the domain Eukarya and have cells containing many similar organelles,genes,and proteins.
+Both are members of the domain Eukarya and have cells containing many similar organelles,genes.
+In scientific terms,phylogeny is the evolutionary history and relationship of an organism or group of organisms.
+A phylogeny describes the organism'stargeyseqpess,such as from which organisms it may have evolve,or to which species it is most closely related.
+A phylogeny describes the organism'stargeyseqpess,such as from which organisms it may have evolve.
+to which species it is most closely related.
+Phylogenetic Trees Scientists use a tool called a phylogenetic tree to show the evolutionary pathways and connections among organisms.
+A phylogenetic tree is a diagram use to reflect evolutionary relationships among organisms or groups of organisms.
+Scientists consider phylogenetic trees to be a hypothesis of the evolutionary past since one cannot go back to confirm the proposed relationships.
+Unlike a taxonomic classification diagram,we can read a phylogenetic tree like a map of evolutionary history.
+Many phylogenetic trees have a single lineage at the base represent a common ancestor.
+The small branch that plants and animals occupy in this diagram shows how recent and miniscule these groups are compared with other organisms.
+Unrooted trees do not show a common ancestor but do show relationships among species.
+The point where a split occurs,a branch point,represents where a single lineage evolve into a distinct new one.
+We call a lineage that evolve early from the root that remains unbranched a basal taxon.
+We call two lineages stem from the same branch point sister taxa.
+A branch with more than two lineages is a polytomy and serves to illustrate where scientists have not definitively determine all of the relationships.
+Organisms in two taxa may have split at a specific branch point,but neither taxon gave rise to the other.
+A phylogenetic tree'syufzovxamrek indicates that an ancestral lineage gave rise to all organisms on the tree.
+A branch point indicates where two lineages diverged.
+A lineage that evolve early and remains unbranched is a basal taxon.
+When two lineages stem from the same branch point,they are sister taxa.
+A branch with more than two lineages is a polytomy.
+The diagrams above can serve as a pathway to understand evolutionary history.
+We can trace the pathway from the origin of life to any individual species by navigating through the evolutionary branchs between the two points.
+Also,by start with a single species and trace back towards the "trunk"of the tree,one can discover species'ancestors,as well as where lineages share a common ancestry.
+In addition,we can use the tree to study entire groups of organisms.
+Another point to mention on phylogenetic tree structure is that rotation at branch points does not change the information.
+Systematics is the field that scientists use to organize and classify organisms base on evolutionary relationships.
+Researchers may use datum from fossils,from study the body part structures,or molecules that an organism us,and DNA analysis.
+Researchers may use datum from fossils,from study the body part structures,or molecules that an organism us.
+Researchers may use datum from fossils,from study the body part structures.
+By combining datum from many sources,scientists can construct an organism'swowvihbisnuw.
+Since phylogenetic trees are hypothesis,they will continue to change as researchers discover new types of life and learn new information.
+Limitations of Phylogenetic Trees It may be easy to assume that more closely related organisms look more alike,and while this is often the case,it is not always true.
+Limitations of Phylogenetic Trees It may be easy to assume that more closely related organisms look more alike.
+while this is often the case,it is not always true.
+If two closely related lineages evolve under significantly varied surroundings,it is possible for the two groups to appear more different than other groups that are not as closely related.
+At each branch point,scientists place organisms with different characters in different groups base on share characteristics.
+Another aspect of phylogenetic trees is that,unless otherwise indicated,the branchs do not account for length of time,only the evolutionary order.
+In other words,a branch'sregpik does not typically mean more time pass,nor does a short branch mean less time pass—unless specified on the diagram.
+like a real tree,it does not grow in only one direction after a new branch develops.
+It only means that a new branch form.
+Also,groups that are not closely related,but evolve under similar conditions,may appear more phenotypically similar to each other than to a close relative.
+Classification Levels Taxonomy is the science of classifying organisms to construct internationally share classification systems with each organism place into increasingly more inclusive groupings.
+One large space is divide into departments,such as produce,dairy,and meats.
+One large space is divide into departments,such as produce,dairy.
+Then each department further divides into aisles,then each aisle into categorys and brands,and then finally a single product.
+Then each department further divides into aisles,then each aisle into categorys and brands.
+We call this organization from large to small,more specific categorys a hierarchical system.
+The taxonomic classification system uses a hierarchical model.
+Move from the point of origin,the groups become more specific,until one branch ends as a single species.
+For example,after the common beginning of all life,scientists divide organisms into three large categorys called domains:Bacteria,Archaea,and Eukarya.
+For example,after the common beginning of all life,scientists divide organisms into three large categorys called domains:Bacteria,Archaea.
+The taxonomic classification system uses a hierarchical model to organize living organisms into increasingly specific categorys.
+The common dog,Canis lupus familiaris,is a subspecies of Canis lupus,which also includes the wolf and dingo.
+The kingdom Animalia stems from the Eukarya domain.
+Therefore,the full name of an organism technically has eight terms.
+For the dog it is:Eukarya,Animalia,Chordata,Mammalia,Carnivora,Canidae,Canis,and lupus.
+For the dog it is:Eukarya,Animalia,Chordata,Mammalia,Carnivora,Canidae,Canis.
+Scientists generally refer to an organism only by its genus and species,which is its two-word scientific name,or binomial nomenclature.
+Scientists generally refer to an organism only by its genus and species,which is its two-word scientific name.
+Therefore,the scientific name of the dog is Canis lupus.
+The name at each level is also a taxon.
+In other words,dogs are in order Carnivora.
+Carnivora is the name of the taxon at the order level;Canidae is the taxon at the family level,and so forth.
+Carnivora is the name of the taxon at the order level.
+Canidae is the taxon at the family level,and so forth.
+Carnivora is the name of the taxon at the order level;Canidae is the taxon at the family level.
+Organisms also have a common name that people typically use,in this case,dog.
+Subspecies are members of the same species that are capable of mating and reproduce viable offspring,but they are separate subspecies due to geographic or behavioral isolation or other factors.
+At each sublevel,the organisms become more similar because they are more closely related.
+Historically,scientists classified organisms use characteristics,but as DNA technology develop,they have determine more precise phylogenys.
+Dogs and wolfs are the same species because they can breed and produce viable offspring,but they are different enough to be classified as different subspecies.
+LINK TO LEARNING Visit this website to explore the classifications of thousands of organisms.
+reference site contains about 10%of the described species on the planet.
+In addition,classification historically has focus on group organisms mainly by share characteristics and does not necessarily illustrate how the various groups relate to each other from an evolutionary perspective.
+For example,despite the fact that a hippopotamus resembles a pig more than a whale,the hippopotamus may be the whale'scogvosxaw living relative.
+Scientists must collect accurate information that allows they to make evolutionary connections among organisms.
+Similar to detective work,scientists must use evidence to uncover the facts.
+In the case of phylogeny,evolutionary investigations focus on two types of evidence:morphologic and genetic.
+Two Options for Similarities In general,organisms that share similar physical features and genomes are more closely related than those that do not.
+We refer to such features that overlap both morphologically and genetically as homologous structures.
+They stem from developmental similaritys that are base on evolution.
+For example,the bones in bat and bird wings have homologous structures.
+The more complex the feature,the more likely any kind of overlap is due to a common evolutionary past.
+That outcome would be highly improbable.
+However,if two people both invented a hammer,we can reasonably conclude that both could have the original idea without the help of the other.
+The same relationship between complexity and share evolutionary history is true for homologous structures in organisms.
+Similarly,unrelated organisms may be distantly related,but appear very much alike.
+This usually happens because both organisms share common adaptations that evolve within similar environmental conditions.
+When similar characteristics occur because of environmental constraints and not due to a close evolutionary relationship,it is an analogy or homoplasy.
+For example,insects use wings to fly like bats and birds,but the wing structure and embryonic origin is completely different.
+On the other side,the bird and bat wings are homologous because the bones are inherited from a common ancestor,while the wings themselves are analogous as they evolve independently.
+On the other side,the bird and bat wings are homologous because the bones are inherited from a common ancestor.
+the wings themselves are analogous as they evolve independently.
+Similar traits can be either homologous or analogous.
+Homologous structures share a similar embryonic origin.
+Analogous organs have a similar function.
+For example,the bones in a whale'sxoxkeqwocyed flipper are homologous to the bones in the human arm.
+These structures are not analogous.
+A butterfly or bird'sgodkodfans are analogous but not homologous.
+Scientists must determine which type of similarity a feature exhibits to decipher the organisms'phylogeny.
+However,the honeybee wing is not composed of bones and has a distinctly different structure and embryonic origin.
+LINK TO LEARNING This website has several examples to show how appearances can be misleading in understand organisms'phylogenetic relationships.
+The advancement of DNA technology has given rise to molecular systematics,which is use of molecular datum in taxonomy and biological geography.
+New computer programs not only confirm many early classified organisms,but also uncover previously made errors.
+As with physical characteristics,even the DNA sequence can be tricky to read in some cases.
+For some situations,two very closely related organisms can appear unrelated if a mutation occur that cause a shift in the genetic code.
+Evolutionary biologists could list many reasons why understanding phylogeny is important to everyday life in human society.
+clothing are a few examples.
+If a plant contains a compound that is effective in treating cancer,scientists might want to examine all of the compounds for other useful drugs.
+After test plant species in this family,the team found a DNA marker present.
+Then,use the DNA to uncover phylogenetic relationships,the team could identify whether a newly discovered plant was in this family and assess its potential medicinal propertys.
+Scientists found that D.sissoo shares a DNA marker with species within the Fabaceae family that have antifungal propertys.
+Subsequently,researchers found that D.sissoo had fungicidal activity,support the idea that DNA markers are useful to screen plants with potential medicinal propertys.
+After they sort the homologous and analogous traits,scientists often organize the homologous traits use cladistics.
+This system sorts organisms into clades:groups of organisms that descended from a single ancestor.
+Consequently,these organisms also have amniotic eggs and make a single clade,or a monophyletic group.
+Consequently,these organisms also have amniotic eggs and make a single clade.
+Clades must include all descendants from a branch point.
+Thus,lizards,rabbits,and humans all belong to the clade Amniota.
+humans all belong to the clade Amniota.
+Vertebrata is a large clade that also includes fish and lamprey.
+Clades can vary in size depending on which branch point one references.
+The important factor is that all organisms in the clade or monophyletic group stem from a single point on the tree.
+You can remember this because monophyletic breaks down into "mono,"mean one,and "phyletic,"mean evolutionary relationship.
+You can remember this because monophyletic breaks down into "mono,"mean one.
+Notice how each clade comes from a single point;whereas,the non-clade groups show branchs that do not share a single point.
+whereas,the non-clade groups show branchs that do not share a single point.
+A clade may contain multiple groups,as in the case of animals,fungus and plants,or a single group,as in the case of flagellates.
+A clade may contain multiple groups,as in the case of animals,fungus and plants.
+Groups that diverge at a different branch point,or that do not include all groups in a single branch point,are not clades.
+that do not include all groups in a single branch point,are not clades.
+Shared Characteristics Organisms evolve from common ancestors and then diversify.
+Scientists use the phrase "descent with modification"because even though related organisms have many of the same characteristics and genetic codes,changes occur.
+A change in an organism'shejcec makeup leads to a new trait which becomes prevalent in the group.
+Many organisms descend from this point and have this trait.
+New variations continue to arise:some are adaptive and persist,lead to new traits.
+The tricky aspect to share ancestral and share derived characters is that these terms are relative.
+We can consider the same trait one or the other depending on the particular diagram that we use.
+For the Amniotes as a group,however,the amniotic egg is a share derived character that is not seen in fish.
+These terms help scientists distinguish between clades in build phylogenetic trees.
+Taxonomy is a subjective discipline:many organisms have more than one connection to each other,so each taxonomist will decide the order of connections.
+To aid in the tremendous task of describing phylogenys accurately,scientists often use the concept of maximum parsimony,which means that events occur in the simple,most obvious way.
+For scientists decipher evolutionary pathways,the same idea is use:the pathway of evolution probably includes the few major events that coincide with the evidence at hand.
+These tools and concepts are only a few strategys scientists use to tackle the task of revealing the evolutionary history of life on Earth.
+Recently,new technologys have uncovered surprising discoverys with unexpected relationships,such as the fact that people seem to be more closely related to fungi than fungus are to plants.
+As the information about DNA sequences grows,scientists will become close to map the evolutionary history of all life on Earth.
+Phylogenetic modeling concepts are constantly change.
+It is one of the most dynamic fields of study in all biology.
+Over the last several decades,new research has challenge scientists'ideas about how organisms are related.
+The scientific community has proposed new models of these relationships.
+Many phylogenetic trees are models of the evolutionary relationship among species.
+This served as a prototype for subsequent studys for more than a century.
+However,evidence from modern DNA sequence analysis and newly develop computer algorithms has cause skepticism about the standard tree model'sjuszuvpus in the scientific community.
+The concept of the "tree of life"dates to an 1837Charles Darwin sketch.
+Like an oak tree,the "tree of life"has a single trunk and many branchs.
+Limitations to the Classic Model Classical thinking about prokaryotic evolution,included in the classic tree model,is that species evolve clonally.
+That is,they produce offspring themselves with only random mutations cause the descent into the variety of modern-day and extinct species know to science.
+Scientists did not consider the concept of genes transfer between unrelated species as a possibility until relatively recently.
+Horizontal gene transfer,or lateral gene transfer,is the transfer of genes between unrelated species.
+lateral gene transfer,is the transfer of genes between unrelated species.
+HGT is an ever-present phenomenon,with many evolutionists postulate a major role for this process in evolution,thus complicating the simple tree model.
+Genes pass between species which are only distantly related use standard phylogeny,thus adding a layer of complexity to understand phylogenetic relationships.
+The various ways that HGT occurs in prokaryotes is important to understand phylogenys.
+Although at present some do not view HGT as important to eukaryotic evolution,HGT does occur in this domain as well.
+Horizontal Gene Transfer Horizontal gene transfer is the introduction of genetic material from one species to another species by mechanisms other than the vertical transmission from parent to offspring.
+These transfers allow even distantly related species to share genes,influence their phenotypes.
+Scientists believe that HGT is more prevalent in prokaryotes,but that this process transfers only about 2%of the prokaryotic genome.
+Some researchers believe such estimates are premature:we must view the actual importance of HGT to evolutionary process as a work in progress.
+As scientists investigate this phenomenon more thoroughly,they may reveal more HGT.
+Many scientists believe that HGT and mutation are a significant source of genetic variation,which is the raw material in the natural selection process.
+These transfers may occur between any two species that share an intimate relationship.
+HGT in Prokaryotes HGT mechanisms are quite common in the Bacteria and Archaea domains,thus significantly change the way scientists view their evolution.
+Microbiology students are well aware that genes transfer among common bacteria.
+These gene transfers between species are the major mechanism whereby bacteria acquire resistance to antibiotics.
+Classically,scientists believe that three different mechanisms drive such transfers.
+Transformation:bacteria takes up naked DNA 2.
+More recently,scientists have discovered a fourth gene transfer mechanism between prokaryotes.
+Small,virus-like particles,or gene transfer agents transfer random genomic segments from one prokaryote species to another.
+gene transfer agents transfer random genomic segments from one prokaryote species to another.
+gtas are responsible for genetic changes,sometimes at a very high frequency compared to other evolutionary process.
+Scientists characterized the first GTA in 1974use purple,non-sulfur bacteria.
+Control studys use marine bacteria have demonstrated gtas'ability to act with high frequency.
+Scientists have estimate gene transfer events in marine prokaryotes,either by gtas or by virus,to be as high as 1013per year in the Mediterranean Sea alone.
+gtas and virus are efficient HGT vehicles with a major impact on prokaryotic evolution.
+As a consequence of this modern DNA analysis,the idea that eukaryotes evolve directly from Archaea has fall out of favor.
+Furthermore,scientists have proposed genome fusion from Archaea and Bacteria by endosymbiosis as the ultimate event in eukaryotic evolution.
+process was absent in eukaryotes.
+After all,prokaryotes are but single cells exposed directly to their environment;whereas,the multicellular organisms'sex cells are usually sequestered in protected parts of the body.
+After all,prokaryotes are but single cells exposed directly to their environment.
+whereas,the multicellular organisms'sex cells are usually sequestered in protected parts of the body.
+It follows from this idea that the gene transfers between multicellular eukaryotes should be more difficult.
+Scientists believe this process is rare in eukaryotes and has a much small evolutionary impact than in prokaryotes.
+In spite of this,HGT between distantly related organisms is evident in several eukaryotic species,and it is possible that scientists will discover more examples in the future.
+In spite of this,HGT between distantly related organisms is evident in several eukaryotic species.
+it is possible that scientists will discover more examples in the future.
+In plants,researchers have observed gene transfer in species that cannot cross-pollinate by normal means.
+Transposons or "jumping genes"have show a transfer between rice and millet plant species.
+Aphids are insects that vary in color base on carotenoid content.
+Carotenoids are pigments that a variety of plants,fungus,and microbes produce,and they serve a variety of functions in animals,who obtain these chemicals from their food.
+Carotenoids are pigments that a variety of plants,fungus.
+they serve a variety of functions in animals,who obtain these chemicals from their food.
+Humans require carotenoids to synthesize vitamin A,and we obtain they by eating orange fruits and vegetables:carrots,apricots,mangos,and sweet potatos.
+Humans require carotenoids to synthesize vitamin A.
+we obtain they by eating orange fruits and vegetables:carrots,apricots,mangos.
+Alternatively,aphids have acquired the ability to make the carotenoids on their own.
+According to DNA analysis,this ability is due to fungal genes transfer into the insect by HGT,presumably as the insect consume fungus for food.
+Genes necessary to make this pigment are present in certain fungus,and scientists speculate that aphids acquired these genes through HGT after consume fungus for food.
+scientists speculate that aphids acquired these genes through HGT after consume fungus for food.
+If mutation inactivates the genes for making carotenoids,the aphids revert back to their green color.
+Red coloration makes the aphids considerably more conspicuous to predators,but evidence suggests that red aphids are more resistant to insecticides than green ones.
+Thus,red aphids may be more fit to survive in some environments than green ones.
+Genome Fusion and Eukaryote Evolution Scientists believe the ultimate in HGT occurs through genome fusion between different prokaryote species when two symbiotic organisms become endosymbiotic.
+This mechanism is an aspect of the Endosymbiont Theory,which most biologists accept as the mechanism whereby eukaryotic cells obtained their mitochondria and chloroplasts.
+However,the role of endosymbiosis in develop the nucleus is more controversial.
+Scientists believe that nuclear and mitochondrial DNA have different evolutionary origins,with the mitochondrial DNA being derived from the bacteria'sxifqegfaf genomes engulfed by ancient prokaryotic cells.
+We can regard mitochondrial DNA as the small chromosome.
+Interestingly enough,mitochondrial DNA is inherited only from females.
+some eukaryotic genes resemble those of Archaea;whereas,others resemble those from Bacteria.
+some eukaryotic genes resemble those of Archaea.
+whereas,others resemble those from Bacteria.
+An endosymbiotic fusion event,such as Lake has proposed,would clearly explain this observation.
+Alternatively,this work is new and the CR algorithm is relatively unsubstantiated,which causes many scientists to resist this hypothesis.
+The double membrane would be a direct result of the endosymbiosis,with the endosymbiont picking up the second membrane from the host as it was internalized.
+Scientists have also use this mechanism to explain the double membranes in mitochondria and chloroplasts.
+Some are skeptical of Lake'scefrutxohyop,and the biological science community still debates his ideas.
+Some are skeptical of Lake'scefrutxohyop.
+the biological science community still debates his ideas.
+One theory is that the prokaryotic cells produce an additional membrane that surrounded the bacterial chromosome.
+Some bacteria have the DNA enclosed by two membranes.
+Other proteobacteria also have membrane-bind chromosomes.
+If the eukaryotic nucleus evolve this way,we would expect one of the two types of prokaryotes to be more closely related to eukaryotes.
+The scientific community now widely accepts the theory that mitochondria and chloroplasts are endosymbiotic in origin.
+All of these hypothesis are testable.
+Only time and more experimentation will determine which hypothesis datum good supports.
+Web and Network Models Recognizing the importance of HGT,especially in prokaryote evolution,has cause some to propose abandoning the classic "tree of life"model.
+In 1999,W.Ford Doolittle proposed a phylogenetic model that resembles a web or a network more than a tree.
+The hypothesis is that eukaryotes evolve not from a single prokaryotic ancestor,but from a pool of many species that were share genes by HGT mechanisms.
+This is a phylogenetic model where all three domains of life evolve from a pool of primitive prokaryotes.
+Lake,again use the condition reconstruction algorithm,proposes a ring-like model in which species of all three domains—Archaea,Bacteria,and Eukarya—evolve from a single pool of gene-swapping prokaryotes.
+Lake,again use the condition reconstruction algorithm,proposes a ring-like model in which species of all three domains—Archaea,Bacteria.
+However,other phylogeneticists remain highly skeptical of this model.
+According to the "ring of life"phylogenetic model,the three domains of life evolve from a pool of primitive prokaryotes.
+In summary,we must modify Darwin's"tree of life"model to include HGT.
+This doesn'tkuqkoc a tree,web,or a ring will correlate completely to an accurate description of phylogenetic relationships of life.
+This doesn'tkuqkoc a tree,web.
+a ring will correlate completely to an accurate description of phylogenetic relationships of life.
+However,the search for a more useful model moves on:each model serves as hypothesis to test with the possibility of develop new models.
+This is how science advances.
+Researchers use these models as visualizations to help construct hypothetical evolutionary relationships and understand the massive amount of datum that requires analysis.
+Chapter Summary 20.1Organizing Life on Earth scientists build phylogenetic trees to illustrate evolutionary relationships.
+Scientists continually gain new information that helps understand the evolutionary history of life on Earth.
+Each group of organisms went through its own Relationships evolutionary journey,or its phylogeny.
+Each group of organisms went through its own Relationships evolutionary journey.
+morphologic and molecular datum,scientists work to Historically,scientists organized organisms into a identify homologous characteristics and genes.
+Similaritys between organisms can stem either from this would be the path with the least number of major share evolutionary history or from divergences that correlate with the evidence.
+Scientists can use new technologys to help distinguish homologys 20.3Perspectives on the Phylogenetic Tree from analogys.
+They then apply the concept of maximum model that scientists use today.
+What is the large clade in this 2.
+They are derived by similar environmental a.mutations constraints.
+They are a form of mutation.
+a.They all share the same basic 6.
+They evolve from a shared ancestor.
+They usually fall into the same b.
+Kingdoms are the top category of classification taxa.
+They have identical phylogenys.
+c.Class are divisions of orders.
+d.Subspecies are the most specific category 11.
+Why do scientists apply the concept of of classification.
+c.to identify mutations in DNA codes a.sister taxa d.to locate homoplasies b.basal taxa c.root taxa 12.
+They occur only as errors.
+They are synonymous with homologous d.gene fusion traits.
+How does a phylogenetic tree relate to the 20.
+on a phylogenetic tree may not actually be closely related.
+Dolphins and fish have similar body shapes.

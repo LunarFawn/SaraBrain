@@ -1,0 +1,6 @@
+
+  MMLU High School Biology Benchmark
+  310 questions, model: llama3.2:3b
+
+  [1/310] Q0: CORRECT (got A, correct A) — 100.0% — 274.0s (~1411m left)
+  [2/310] Q1: WRONG (got B, correct A) — 50.0% — 154.0s (~1099m left)

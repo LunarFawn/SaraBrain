@@ -1,0 +1,421 @@
+#Biology2eFalkegfudxoc 21—Viruses
+#Auto-extract from Biology2e-WEB.txtvia ingest_biology2e.py
+#Fact count:417
+
+The tobacco mosaic virus,seen here by transmission electron microscopy,was the first virus to be discovered.
+The virus causes disease in tobacco and other plants,such as the orchid.
+INTRODUCTION Virus are noncellular parasitic entitys that cannot be classified within any kingdom.
+They can infect organisms as diverse as bacteria,plants,and animals.
+They can infect organisms as diverse as bacteria,plants.
+In fact,virus exist in a sort of netherworld between a live organism and a nonliving entity.
+Live things grow,metabolize.
+In contrast,virus are not cellular,do not have a metabolism or grow,and cannot divide by cell division.
+In contrast,virus are not cellular,do not have a metabolism or grow.
+Virus can copy,or replicate themselves;however,they are entirely dependent on resources derived from their host cells to produce progeny virus—which are assembled in their mature form.
+however,they are entirely dependent on resources derived from their host cells to produce progeny virus—which are assembled in their mature form.
+replicate themselves;however,they are entirely dependent on resources derived from their host cells to produce progeny virus—which are assembled in their mature form.
+No one knows exactly when or how virus evolve or from what ancestral source because virus have not left a fossil record.
+Some virologists contend that modern virus are a mosaic of bits and pieces of nucleic acids picked up from various sources along their respective evolutionary paths.
+Virus are diverse entitys:They vary in structure,methods of replication,and the hosts they infect.
+Virus are diverse entitys:They vary in structure,methods of replication.
+Nearly all forms of life—from prokaryotic bacteria and archaeans,to eukaryotes such as plants,animals,and fungus—have virus that infect they.
+fungus—have virus that infect they.
+environmental conditions and how different species are related to one another through common descent),much about virus origins and evolution remains unknown.
+Discovery and Detection Viruses were first discovered after the development of a porcelain filter—the Chamberland-Pasteur filter—that could remove all bacteria visible in the microscope from any liquid sample.
+In 1886,Adolph Meyer demonstrated that a disease of tobacco plants—tobacco mosaic disease—could be transfer from a diseased plant to a healthy one via liquid plant extracts.
+In 1892,Dmitri Ivanowski show that this disease could be transmitted in this way even after the Chamberland-Pasteur filter had removed all viable bacteria from the extract.
+Still,it was many years before it was proved that these "filterable"infectious agents were not simply very small bacteria but were a new type of very small,disease-cause particle.
+Most virions,or single virus particles,are very small,about 20to 250nanometers in diameter.
+single virus particles,are very small,about 20to 250nanometers in diameter.
+With the exception of large virions,like the poxvirus and other large DNA virus,virus cannot be seen with a light microscope.
+The use of electron microscopy and other technologys has allowed for the discovery of many virus of all types of live organisms.
+Most virus particles are visible only by electron microscopy.
+In these transmission electron micrographs,a virus is as dwarf by the bacterial cell it infects,as these E.coli cells are dwarf by cultured colon cells.
+Evolution of Viruses Although biologists have a significant amount of knowledge about how present-day viruses mutate and adapt,much less is know about how virus originated in the first place.
+When exploring the evolutionary history of most organisms,scientists can look at fossil records and similar historic evidence.
+Most scholars agree that virus don'thave a single common ancestor,nor is there a single reasonable hypothesis about virus origins.
+One such hypothesis,the "devolution"or the regressive hypothesis,suggests that virus evolve from free-live cells,or from intracellular prokaryotic parasites.
+One such hypothesis,the "devolution"or the regressive hypothesis,suggests that virus evolve from free-live cells.
+However,many components of how this process might have occur remain a mystery.
+A third hypothesis,the virus first hypothesis,suggests that virus may have been the first self-replicate entitys before the first cells.
+In all cases,virus are probably continuing to evolve along with the cells on which they rely on as hosts.
+These researchers hope one day to well understand the origin of virus—a discovery that could lead to advances in the treatments for the ailments they produce.
+Viral Morphology Viruses are noncellular,mean they are biological entitys that do not have a cellular structure.
+They therefore lack most of the components of cells,such as organelles,ribosomes,and the plasma membrane.
+They therefore lack most of the components of cells,such as organelles,ribosomes.
+A virion consists of a nucleic acid core,an outer protein coating or capsid,and sometimes an outer envelope made of protein and phospholipid membranes derived from the host cell.
+A virion consists of a nucleic acid core,an outer protein coating or capsid.
+Virus may also contain additional proteins,such as enzymes,within the capsid or attached to the viral genome.
+The most obvious difference between members of different viral familys is the variation in their morphology,which is quite diverse.
+An interesting feature of viral complexity is that the complexity of the host does not necessarily correlate with the complexity of the virion.
+In fact,some of the most complex virion structures are found in the bacteriophages—virus that infect the simple living organisms,bacteria.
+Morphology Viruses come in many shapes and sizes,but these features are consistent for each viral family.
+As we have seen,all virions have a nucleic acid genome covered by a protective capsid.
+The proteins of the capsid are encode in the viral genome,and are called capsomeres.
+The proteins of the capsid are encode in the viral genome.
+In general,the capsids of virus are classified into four groups:helical,icosahedral,enveloped,and head-and-tail.
+In general,the capsids of virus are classified into four groups:helical,icosahedral,enveloped.
+Helical capsids are long and cylindrical.
+Many plant virus are helical,including TMV.
+Icosahedral virus have shapes that are roughly spherical,such as those of poliovirus or herpesviruses.
+Enveloped virus have membranes derived from the host cell that surrounds the capsids.
+Animal virus,such as HIV,are frequently enveloped.
+Head-and-tail virus infect bacteria and have a head that is similar to icosahedral virus and a tail shape like helical virus.
+Many virus use some sort of glycoprotein to attach to their host cells via molecules on the cell called viral receptors.
+For these virus,attachment is required for later penetration of the cell membrane;only after penetration takes place can the virus complete its replication inside the cell.
+For these virus,attachment is required for later penetration of the cell membrane.
+only after penetration takes place can the virus complete its replication inside the cell.
+The receptors that viruses use are molecules that are normally found on cell surfaces and have their own physiological functions.
+It appears that virus have simply evolve to make use of these molecules for their own replication.
+The HIV virus binds the CD4receptor on the surface of human cells.
+CD4receptors help white blood cells to communicate with other cells of the immune system when produce an immune response.
+Adenovirus,a non-enveloped animal virus that causes respiratory illness in humans,uses glycoprotein spikes protruding from its capsomeres to attach to host cells.
+Non-enveloped virus also include those that cause polio,plantar warts,and hepatitis A.
+Non-enveloped virus also include those that cause polio,plantar warts.
+Enveloped virions,such as the influenza virus,consist of nucleic acid and capsid proteins surrounded by a phospholipid bilayer envelope that contains virus-encode proteins.
+Glycoproteins embedded in the viral envelope are use to attach to host cells.
+Other envelope proteins are the matrix proteins that stabilize the envelope and often play a role in the assembly of progeny virions.
+Chicken pox,HIV,and mumps are other examples of diseases cause by virus with envelopes.
+mumps are other examples of diseases cause by virus with envelopes.
+Because of the fragility of the envelope,non-enveloped virus are more resistant to changes in temperature,ph,and some disinfectants than enveloped virus.
+Because of the fragility of the envelope,non-enveloped virus are more resistant to changes in temperature,pH.
+Virus can be either complex or relatively simple in shape.
+The influenza virus also has matrix proteins,internal to the envelope,which help stabilize the virion'snefdaszid.
+a.All virus are encased in a viral membrane.
+The capsomere is made up of small protein subunits called capsids.
+c.DNA is the genetic material in all virus.
+d.Glycoproteins help the virus attach to the host cell.
+Types of Nucleic Acid Unlike nearly all live organisms that use DNA as their genetic material,virus may use either DNA or RNA.
+The virus core contains the genome—the total genetic content of the virus.
+This genetic material may be single-or double-strand.
+It may also be linear or circular.
+While most virus contain a single nucleic acid,others have genomes divide into several segments.
+In DNA virus,the viral DNA directs the host cell'skatlibnimlof proteins to synthesize new copys of the viral genome and to transcribe and translate that genome into viral proteins.
+Human diseases cause by DNA virus include chickenpox,hepatitis B,and adenovirus.
+Human diseases cause by DNA virus include chickenpox,hepatitis B.
+Sexually transmitted DNA virus include the herpes virus and the human papilloma virus,which has been associate with cervical cancer and genital warts.
+RNA virus contain only RNA as their genetic material.
+To replicate their genomes in the host cell,the RNA virus must encode their own enzymes that can replicate RNA into RNA or,in the retrovirus,into DNA.
+For this reason,mutations in RNA virus occur more frequently than in DNA virus.
+This causes they to change and adapt more rapidly to their host.
+Human diseases cause by RNA virus include influenza,hepatitis C,measles,and rabies.
+Human diseases cause by RNA virus include influenza,hepatitis C,measles.
+The HIV virus,which is sexually transmitted,is an RNA retrovirus.
+The Challenge of Virus Classification Because most virus probably evolve from different ancestors,the systematic methods that scientists have use to classify prokaryotic and eukaryotic cells are not very useful.
+Biologists have use several classification systems in the past.
+Virus were initially group by share morphology.
+Later,groups of virus were classified by the type of nucleic acid they contained,DNA or RNA,and whether their nucleic acid was single-or double-strand.
+Later,groups of virus were classified by the type of nucleic acid they contained,DNA or RNA.
+whether their nucleic acid was single-or double-strand.
+However,these early classification methods group virus differently,because they were base on different sets of characters of the virus.
+Viral genomes may vary in the type of genetic material and its organization.
+In some virus,additional proteins need for replication are associate directly with the genome or contained within the viral capsid.
+The virus travels through neurons in the peripheral nervous system to the central nervous system,where it impairs brain function,and then travels to other tissues.
+The virus travels through neurons in the peripheral nervous system to the central nervous system,where it impairs brain function.
+The virus can infect any mammal,and most die within weeks of infection.
+The virus can infect any mammal.
+Smallpox is a human virus transmitted by inhalation of the variola virus,localized in the skin,mouth,and throat,which causes a characteristic rash.
+Smallpox is a human virus transmitted by inhalation of the variola virus,localized in the skin,mouth.
+Before its eradication in 1979,infection result in a 30to 35percent mortality rate.
+Capsids are classified as naked icosahedral,enveloped icosahedral,enveloped helical,naked helical,and complex.
+Capsids are classified as naked icosahedral,enveloped icosahedral,enveloped helical,naked helical.
+Baltimore Classification The most commonly and currently use system of virus classification was first develop by Nobel Prize-winning biologist David Baltimore in the early 1970s.
+Their mrna is produce by transcription in much the same way as with cellular DNA,use the enzymes of the host cell.
+Group II virus have single-strand DNA as their genome.
+Intermediates of dsrna,called replicative intermediates,are made in the process of copy the genomic RNA.
+Group V virus contain ssrna genomes with a negative polarity,mean that their sequence is complementary to the mrna.
+As with Group IV viruses,dsrna intermediates are use to make copys of the genome and produce mrna.
+In this case,the negative-strand genome can be convert directly to mrna.
+Additionally,full-length positive RNA strands are made to serve as templates for the production of the negative-strand genome.
+Then,mrna can be produce by transcription of the viral DNA that was integrated into the host genome.
+The characteristics of each group in the Baltimore classification are summarized in with examples of each group.
+Virus are obligate,intracellular parasites.
+A virus must first recognize and attach to a specific living cell prior to entering it.
+After penetration,the invading virus must copy its genome and manufacture its own proteins.
+Finally,the progeny virions must escape the host cell so that they can infect other cells.
+Virus can infect only certain species of hosts and only certain cells within that host.
+In most cases,the molecular basis for this specificity is due to a particular surface molecule know as the viral receptor on the host cell surface.
+In addition,differences in metabolism and host-cell immune responses are a likely factor in determine which cells a virus may target for replication.
+Steps of Virus Infections A virus must use its host-cell process to replicate.
+The viral replication cycle can produce dramatic biochemical and structural changes in the host cell,which may cause cell damage.
+These changes,called cytopathic effects,can change cell functions or even destroy the cell.
+Many animal virus,such as HIV,leave the infected cells of the immune system by a process know as bud,where virions leave the cell individually.
+During the bud process,the cell does not undergo lysis and is not immediately killed.
+The specificity of this interaction determines the host—and the cells within the host—that can be infect by a particular virus.
+This can be illustrated by thinking of several keys and several locks,where each key will fit only one specific lock.
+LINK TO LEARNING This video explains how influenza attacks the body.
+Entry Viruses may enter a host cell either with or without the viral capsid.
+The nucleic acid of bacteriophages enters the host cell "naked,"leaving the capsid outside the cell.
+Plant and animal virus can enter through endocytosis.
+Some enveloped virus enter the cell when the viral envelope fuses directly with the cell membrane.
+Once inside the cell,the viral capsid degrades,and then the viral nucleic acid is release and becomes available for replication and transcription.
+then the viral nucleic acid is release and becomes available for replication and transcription.
+The replication mechanism depends on the viral genome.
+DNA virus usually use host-cell proteins and enzymes to replicate the viral DNA and to transcribe viral mrna,which is then use to direct viral protein synthesis.
+RNA virus usually use the RNA core as a template for synthesis of viral genomic RNA and mrna.
+The viral mrna directs the host cell to synthesize viral enzymes and capsid proteins,and assemble new virions.
+The viral mrna directs the host cell to synthesize viral enzymes and capsid proteins.
+If a host cell does not provide the enzymes necessary for viral replication,viral genes supply the information to direct synthesis of the missing proteins.
+To convert RNA into DNA,retrovirus must contain genes that encode the virus-specific enzyme reverse transcriptase that transcribes an RNA template to DNA.
+Reverse transcription never occurs in uninfected host cells—the enzyme reverse transcriptase is only derived from the expression of viral genes within the infected host cells.
+The fact that HIV produces some of its own enzymes not found in the host has allowed researchers to develop drugs that inhibit these enzymes without affecting the host'svebyaqqafbag.
+other virus can leave infected cells by bud through the membrane without directly killing the cell.
+Following this,the virus is engulfed.
+RNA and proteins are then made and assembled into new virions.
+Influenza virus is package in a viral envelope that fuses with the plasma membrane.
+This way,the virus can exit the host cell without killing it.
+Different Hosts and Their Virus As you'velearned,virus often infect very specific hosts,as well as specific cells within the host.
+This feature of a virus makes it specific to one or a few species of life on Earth.
+On the other hand,so many different types of virus exist on Earth that nearly every living organism has its own set of virus trying to infect its cells.
+Even prokaryotes,the small and simple of cells,may be attack by specific types of virus.
+In the following section,we will look at some of the features of viral infection of prokaryotic cells.
+Archaea have their own similar virus.
+In bacteriophage with tails,like the one show here,the tails serve as a passageway for transmission of the phage genome.
+Most bacteriophages are dsdna virus,which use host enzymes for DNA replication and RNA transcription.
+Phage particles must bind to specific surface receptors and actively insert the genome into the host cell.
+When infection of a cell by a bacteriophage results in the production of new virions,the infection is said to be productive.
+An example of a lytic bacteriophage is T4,which infects Escherichia coli found in the human intestinal tract.
+Sometimes,however,a virus can remain within the cell without being release.
+An example of a lysogenic bacteriophage is the λ virus,which also infects the E.coli bacterium.
+Virus that infect plant or animal cells may sometimes undergo infections where they are not produce virions for long periods.
+An example is the animal herpesviruses,including herpes simplex viruses,the cause of oral and genital herpes in humans.
+Even though there are similaritys between lysogeny and latency,the term lysogenic cycle is usually reserved to describe bacteriophages.
+Latency will be described in more detail in the next section.
+A temperate bacteriophage has both lytic and lysogenic cycles.
+In the lysogenic cycle,phage DNA is incorporated into the host genome,where it is pass on to subsequent generations.
+Environmental stressors such as starvation or exposure to toxic chemicals may cause the prophage to excise and enter the lytic cycle.
+a.In the lytic cycle,new phages are produce and release into the environment.
+In the lysogenic cycle,phage DNA is incorporated into the host genome.
+An environmental stressor can cause the phage to initiate the lysogenic cycle.
+d.Cell lysis only occurs in the lytic cycle.
+Plant Virus Most plant virus,like the tobacco mosaic virus,have single-strand RNA genomes.
+Unlike bacteriophages,plant virus do not have active mechanisms for delivering the viral genome across the protective cell wall.
+For a plant virus to enter a new host plant,some type of mechanical damage must occur.
+This damage is often cause by weather,insects,animals,fire,or human activitys like farming or landscaping.
+This damage is often cause by weather,insects,animals,fire.
+Movement from cell to cell within a plant can be facilitate by viral modification of plasmodesmata.
+Additionally,plant offspring may inherit viral diseases from parent plants.
+Plant virus can be transmitted by a variety of vectors,through contact with an infect plant'smucpodtijget,by live organisms such as insects and nematodes,and through pollen.
+Plant virus can be transmitted by a variety of vectors,through contact with an infect plant'smucpodtijget,by live organisms such as insects and nematodes.
+The transfer of a virus from one plant to another is know as horizontal transmission,whereas the inheritance of a virus from a parent is called vertical transmission.
+The transfer of a virus from one plant to another is know as horizontal transmission.
+Symptoms of viral diseases vary according to the virus and its host.
+One common symptom is hyperplasia,the abnormal proliferation of cells that causes the appearance of plant tumors know as galls.
+Other virus induce hypoplasia,or decrease cell growth,in the leafs of plants,cause thin,yellow areas to appear.
+Other virus induce hypoplasia.
+decrease cell growth,in the leafs of plants,cause thin,yellow areas to appear.
+Still other virus affect the plant by directly killing plant cells,a process know as cell necrosis.
+Plant virus can seriously disrupt crop growth and development,significantly affecting our food supply.
+They are responsible for poor crop quality and quantity globally,and can bring about huge economic loss annually.
+They are responsible for poor crop quality and quantity globally.
+Others virus may damage plants use in landscaping.
+Some virus that infect agricultural food plants include the name of the plant they infect,such as tomato spot wilt virus,bean common mosaic virus,and cucumber mosaic virus.
+Some virus that infect agricultural food plants include the name of the plant they infect,such as tomato spot wilt virus,bean common mosaic virus.
+In the ornamental rose,the rose mosaic disease causes wavy yellow lines and colored splotchs on the leafs of the plant.
+The virus may even induce the host cell to cooperate in the infection process.
+Non-enveloped or "naked"animal virus may enter cells in two different ways.
+An alternative method of cell penetration use by non-enveloped virus is for capsid proteins to undergo shape changes after bind to the receptor,creating channels in the host cell membrane.
+The viral genome is then "injected"into the host cell through these channels in a manner analogous to that use by many bacteriophages.
+Enveloped virus also have two ways of entering cells after bind to their receptors:receptor-mediated endocytosis,or fusion.
+Enveloped virus also have two ways of entering cells after bind to their receptors:receptor-mediated endocytosis.
+On the other hand,fusion only occurs with enveloped virions.
+After making their proteins and copy their genomes,animal virus complete the assembly of new virions and exit the cell.
+On the other hand,non-enveloped viral progeny,such as rhinovirus,accumulate in infected cells until there is a signal for lysis or apoptosis,and all virions are release together.
+On the other hand,non-enveloped viral progeny,such as rhinovirus,accumulate in infected cells until there is a signal for lysis or apoptosis.
+all virions are release together.
+As you will learn in the next module,animal virus are associate with a variety of human diseases.
+Examples of acute viral diseases are the common cold and influenza.
+Other virus cause long-term chronic infections,such as the virus cause hepatitis C,whereas others,like herpes simplex virus,only cause intermittent symptoms.
+Other virus cause long-term chronic infections,such as the virus cause hepatitis C.
+others,like herpes simplex virus,only cause intermittent symptoms.
+thus we say these patients have an asymptomatic infection.
+In hepatitis C infections,the virus grows and reproduces in liver cells,cause low levels of liver damage.
+Chronic infection of the liver by this virus leads to a much great chance of develop liver cancer,sometimes as much as 30years after the initial infection.
+As already discussed,herpes simplex virus can remain in a state of latency in nervous tissue for months,even years.
+Latent infections are common with other herpesviruses as well,including the varicella-zoster virus that causes chickenpox.
+Varicella-zoster,the virus that causes chickenpox,has an enveloped icosahedral capsid visible in this transmission electron micrograph.
+Some animal-infect virus,including the hepatitis C virus discussed above,are know as oncogenic virus:They have the ability to cause cancer.
+Oncogenic virus can be either DNA or RNA virus.
+The virus,which is sexually transmitted,is oncogenic and can lead to cervical cancer.
+LINK TO LEARNING This video shows the life cycle of a virus.
+Virus can cause dozens of ailments in humans,range from mild illness to serious diseases.
+Vaccines may be prepared use live virus,killed virus,or molecular subunits of the virus.
+Vaccines may be prepared use live virus,killed virus.
+Live viral vaccines are design in the laboratory to cause few symptoms in recipients while giving they protective immunity against future infections.
+Polio was one disease that represent a milestone in the use of vaccines.
+Polio epidemics occur with increase frequency and impact as the twentieth century progress,becoming a terrifying and tragic event each summer.
+Tens of thousands of people die and many more were paralyzed;child made up a large portion of the victims.
+child made up a large portion of the victims.
+Use killed virus test on hela cell line,Jonas Salk develop a successful vaccine.
+Mass immunization campaigns in the 1950sand 1960ssignificantly reduced the incidence of the disease.
+The success of the polio vaccine paved the way for the routine dispensation of childhood vaccines against measles,mumps,rubella,chickenpox,and other diseases.
+The success of the polio vaccine paved the way for the routine dispensation of childhood vaccines against measles,mumps,rubella,chickenpox.
+These attenuated virus thus still cause infection,but they do not grow very well,allowing the immune response to develop in time to prevent major disease.
+This type of scenario happened as recently as 2007in Nigeria where mutations in a polio vaccine lead to an epidemic of polio in that country.
+Some vaccines are in continuous development because certain virus,such as influenza and HIV,have a high mutation rate compared to that of other virus and normal host cells.
+Vaccines and Antiviral Drugs for Treatment In some cases,vaccines can be use to treat an active viral infection.
+The concept behind this is that by giving the vaccine,immunity is boosted without adding more disease-cause virus.
+Thus,the potentially fatal neurological consequences of the disease are averted,and the individual only has to recover from the infected bite.
+Thus,the potentially fatal neurological consequences of the disease are averted.
+the individual only has to recover from the infected bite.
+This approach is also being use for the treatment of Ebola,one of the fast and most deadly virus on Earth.
+Transmitted by bats and great apes,this disease can cause death in 70to 90percent of infected humans within two weeks.
+Another way of treating viral infections is the use of antiviral drugs.
+Because virus use the resources of the host cell for replication and the production of new virus proteins,it is difficult to block their activitys without damage the host.
+For many years,scientists thought that drugs capable of impact virus would be too toxic for the body to endure.
+For example,some of her medicines focus on purines,while others affected DNA polymerase.
+For example,some of her medicines focus on purines.
+others affected DNA polymerase.
+However,we do have some effective antiviral drugs,such as those use to treat HIV and influenza.
+Some antiviral drugs are specific for a particular virus and others have been use to control and reduce symptoms for a wide variety of viral diseases.
+For most virus,antiviral drugs can inhibit the virus by block the actions of one or more of its proteins.
+It is important to note that the target proteins be encode by viral genes and that these molecules are not present in a healthy host cell.
+In this way,viral growth is inhibited without damage the host.
+Elion'scefrutxohyop with George Hitchens not only lead to direct treatments,but,more importantly,change the entire methodology of drug development.
+They were awarded the Nobel Prize in 1988.
+Antivirals have been develop to treat genital herpes and influenza.
+As the virus remains latent in nervous tissue of the body for life,this drug is not curative but can make the symptoms of the disease more manageable.
+Tamiflu works by inhibiting an enzyme that allows new virions to leave their infected cells.
+Thus,Tamiflu inhibits the spread of virus from infect to uninfected cells.
+Other antiviral drugs,such as Ribavirin,have been use to treat a variety of viral infections,although its mechanism of action against certain virus remains unclear.
+Tamiflu inhibits a viral enzyme called neuraminidase found in the influenza viral envelope.
+Neuraminidase cleaves the connection between viral hemagglutinin,also found in the viral envelope,and glycoproteins on the host cell surface.
+Neuraminidase cleaves the connection between viral hemagglutinin,also found in the viral envelope.
+Inhibition of neuraminidase prevents the virus from detach from the host cell,thereby block further infection.
+Anti-HIV drugs have been able to control viral replication to the point that individuals receiving these drugs survive for a significantly long time than the untreated.
+A particular challenge with HIV is its tendency to mutate quickly within the body of an individual patient.
+This leads to individual drug resistance,and requires a different treatment strategy than many other diseases.
+This leads to individual drug resistance.
+David Ho was among the first to propose and develop a method to treat multiple mutations of HIV at the same time.
+Ho'sbejbugs were a turning point in fight AIDS.
+HIV,an enveloped,icosahedral virus,attaches to the CD4receptor of an immune cell and fuses with the cell membrane.
+Viral contents are release into the cell,where viral enzymes convert the single-strand RNA genome into DNA and incorporate it into the host genome.
+By attack the virus at different stages of its replicative cycle,it is much more difficult for the virus to develop resistance to multiple drugs at the same time.
+Thus,new anti-HIV drugs are constantly being develop with the hope of continuing the battle against this highly fatal virus.
+The study of virus has lead to the development of a variety of new ways to treat non-viral diseases.
+Gene therapy is use to treat genetic diseases such as severe combined immunodeficiency,a heritable,recessive disease in which child are bear with severely compromised immune systems.
+One common type of SCID is due to the lack of an enzyme,adenosine deaminase,which breaks down purine basis.
+To treat this disease by gene therapy,bone marrow cells are taken from a SCID patient and the ADA gene is insert.
+their use relies on their ability to penetrate living cells and bring genes in with they.
+Virus such as adenovirus,an upper-respiratory human virus,are modified by the addition of the ADA gene,and the virus then transports this gene into the cell.
+Virus such as adenovirus,an upper-respiratory human virus,are modified by the addition of the ADA gene.
+the virus then transports this gene into the cell.
+The modified cells,now capable of making ADA,are then given back to the patients in the hope of cure they.
+Gene therapy use virus as carriers of genes,although still experimental,holds promise for the treatment of many genetic diseases.
+Still,many technological problems need to be solved for this approach to be a viable method for treating genetic disease.
+Another medical use for virus relies on their specificity and ability to kill the cells they infect.
+Oncolytic virus are engineered in the laboratory specifically to attack and kill cancer cells.
+A genetically modified adenovirus know as H101has been use since 2005in clinical trials in China to treat head and neck cancers.
+The results have been promise,with a great short-term response rate to the combination of chemotherapy and viral therapy than to chemotherapy treatment alone.
+A third use of virus in medicine relies on their specificity and involves use bacteriophages in the treatment of bacterial infections.
+Bacterial diseases have been treated with antibiotics since the 1940s.
+However,over time,many bacteria have evolve resistance to antibiotics.
+A good example is methicillin-resistant Staphylococcus aureus,an infection commonly acquired in hospitals.
+This bacterium is resistant to a variety of antibiotics,making it difficult to treat.
+The use of bacteriophages specific for such bacteria would bypass their resistance to antibiotics and specifically kill they.
+Although phage therapy is in use in the Republic of Georgia to treat antibiotic-resistant bacteria,its use to treat human diseases has not been approved in most countrys.
+However,the safety of the treatment was confirmed in the United States when the U.S.Food and Drug Administration approved spraying meats with bacteriophages to destroy the food pathogen Listeria.
+Prions and viroids are pathogens that have simple structures than virus but,in the case of prions,still can produce deadly diseases.
+Fatal neurodegenerative diseases,such as kuru in humans and bovine spongiform encephalopathy in cattle were show to be transmitted by prions.
+The disease was spread by the consumption of meat,nervous tissue,or internal organs between members of the same species.
+The disease was spread by the consumption of meat,nervous tissue.
+Kuru,native to humans in Papua New Guinea,was spread from human to human via ritualistic cannibalism.
+BSE,originally detected in the United Kingdom,was spread between cattle by the practice of including cattle nervous tissue in feed for other cattle.
+Individuals with kuru and BSE show symptoms of loss of motor control and unusual behaviors,such as uncontrolled bursts of laughter with kuru,followed by death.
+On the other hand,BSE was initially thought to only affect cattle.
+Cattle die of the disease were show to have develop lesions or "holes"in the brain,cause the brain tissue to resemble a sponge.
+BSE still exists in various areas,and although a rare disease,individuals that acquire CJD are difficult to treat.
+BSE still exists in various areas.
+although a rare disease,individuals that acquire CJD are difficult to treat.
+The disease can be spread from human to human by blood,so many countrys have banned blood donation from regions associate with BSE.
+The cause of spongiform encephalopathys,such as kuru and BSE,is an infectious structural variant of a normal cellular protein called PrP.
+It is this variant that constitutes the prion particle.
+prp exists in two forms,prpc,the normal form of the protein,and prpsc,the infectious form.
+prp exists in two forms,prpc,the normal form of the protein.
+Once introduced into the body,the prpsc contained within the prion binds to prpc and converts it to prpsc.
+This leads to an exponential increase of the prpsc protein,which aggregates.
+prpsc is fold abnormally,and the result conformation is directly responsible for the lesions seen in the brains of infected cattle.
+prpsc is fold abnormally.
+the result conformation is directly responsible for the lesions seen in the brains of infected cattle.
+Endogenous normal prion protein is convert into the disease-cause form when it encounters this variant form of the protein.
+This prion-infect brain tissue,visualize use light microscopy,shows the vacuoles that give it a spongy texture,typical of transmissible spongiform encephalopathys.
+Viroids Viroids are plant pathogens:small,single-strand,circular RNA particles that are much simple than a virus.
+They do not have a capsid or outer envelope,but like virus can reproduce only within a host cell.
+Viroids do not,however,manufacture any proteins,and they only produce a single,specific RNA molecule.
+Viroids do not,however,manufacture any proteins.
+they only produce a single,specific RNA molecule.
+Human diseases cause by viroids have yet to be identify.
+Some of the plants they infect include potatos,cucumbers,tomatos,chrysanthemums,avocados,and coconut palms.
+Some of the plants they infect include potatos,cucumbers,tomatos,chrysanthemums,avocados.
+These potatos have been infect by the potato spindle tuber viroid,which is typically spread when infected knifes are use to cut healthy potatos,which are then plant.
+Virologist Virology is the study of virus,and a virologist is an individual train in this discipline.
+Virologist Virology is the study of virus.
+a virologist is an individual train in this discipline.
+Training in virology can lead to many different career paths.
+Virologists are actively involved in academic research and teaching in colleges and medical schools.
+Some virologists treat patients or are involved in the generation and production of vaccines.
+This virologist is engaged in fieldwork,sample eggs from this nest for avian influenza.
+Many large medical centers have departments of virology,and small hospitals usually have virology labs within their microbiology departments.
+Many large medical centers have departments of virology.
+small hospitals usually have virology labs within their microbiology departments.
+first-hand look at the work will help you decide whether a career in virology is right for you.
+The American Society of Virology'sromxodyosbow is a good resource for information regard training and careers in virology.
+Chapter Summary 21.1Viral Evolution,Morphology,and animals have the ability to cause cancer by interfering Classification with the regulation of the host cell cycle.
+animals have the ability to cause cancer by interfering Classification with the regulation of the host cell cycle.
+Virus are tiny,noncellular entitys that usually can be 21.3Prevention and Treatment of Viral seen only with an electron microscope.
+Their genomes Infections contain either DNA or RNA—never both—and they Viruses cause a variety of diseases in humans.
+Virus are diverse,infect archaea,the virus without cause major disease.
+Virus have many us in medicines,such 21.2Virus Infections and Hosts as in the treatment of genetic disorders,cancer,and bacterial infections.
+Virus have many us in medicines,such 21.2Virus Infections and Hosts as in the treatment of genetic disorders,cancer.
+Plant virus may be transmitted either vertically from parent reproductive cells or horizontally through 21.4Other Acellular Entities:Prions and damage plant tissues.
+Virus of plants are Viroids responsible for significant economic damage in both Prions are infectious agents that consist of protein,but crop plants and plants use for ornamentation.
+Viroids are single-chronic,in which the infection persists.
+Their infections may cause chronic symptoms,presence can have a severe impact on the agriculture intermittent symptoms (latent virus such a herpes industry.
+a.All virus are encased in a viral 3.
+The capsomere is made up of small a.In the lytic cycle,new phages are protein subunits called capsids.
+d.Glycoproteins help the virus attach to the b.
+In the lysogenic cycle,phage DNA is host cell.
+An environmental stressor can cause the 2.
+A virion contains DNA and RNA.
+b.Viruses are acellular.
+c.Viruses replicate outside of the cell.
+Most virus are easily visualize with a 11.
+Which statement is true of reverse light microscope.
+a.It is a nucleic acid.
+It infects cells.
+It transcribes RNA to make DNA.
+Oncogenic virus cores can be_______.
+c.neither RNA nor DNA a.all have a round shape d.either RNA or DNA b.cannot have a long shape c.do not maintain any shape 13.
+d.vary in shape a.
+They use the host cell'sjivqem to produce new copys of their genome.
+They all have envelopes.
+Chlamydia contains species that can only survive c.
+They are the only kind of virus that can as intracellular parasites supports which viral cause cancer.
+They are not important plant pathogens.
+A bacteriophage can infect ________.
+The virus is most likely a member of which 15.
+surface protein can be exposed to some strains a.Rabies virus of HIV-1without becoming sick.
+Influenza viruses a.Release b.Reverse transcription 9.
+c.Uncoating a.A lysogenic cycle kills the host cell.
+Newly release virions can infect adjacent in the orchard that lack fungus appear healthy.
+What is the most likely conclusion the farmer can make about the virus infect his apple 10.
+The fungus carry disease.
+The fungi attract disease-carrying insects.
+The viral capsid helps the host cell d.
+The apple trees were infect by vertical produce more copys of the viral genome.
+a.Replicating shapes a.are similar to viroids b.Mad cow disease b.are only need once c.DNA c.kill virus d.
+Toxic proteins d.stimulate an immune response 21.
+A patient presents at the clinic with an acute a.They are single-strand RNA particles.
+They reproduce only outside of the cell.
+cycle classify the virus into Group V with a c.
+They produce proteins.
+Which virus is the most d.
+They affect both plants and animals.
+A bacteriophage with a lytic life cycle develops a mosaic virus)was produce in 1939.
+Before that mutation that allows it to now also go through time,how did scientists know that viruses the lysogenic cycle.
+Varicella-zoster virus is a double-strand DNA virus that causes chickenpox.
+What conclusions can be made about medication podofilox.
+Prions are responsible for variant Creutzfeldt-26.
+In this section,you were introduced to different 33.
+How could the botanist confirm that the agent cause disease is a viroid,and not a 28.
+How could the botanist confirm that the agent cause disease is a viroid.

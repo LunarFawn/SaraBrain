@@ -134,28 +134,34 @@ class Recognizer:
             min_strength = self.min_strength
 
         reached: dict[int, list[list[Neuron]]] = {}
-        queue: list[tuple[Neuron, list[Neuron]]] = [(start, [start])]
-        visited: set[int] = {start.id}
+        best_weights: dict[int, float] = {start.id: 0.0}
+        # Queue stores: (current_neuron, path, total_strength, path_length)
+        queue: list[tuple[Neuron, list[Neuron], float, int]] = [(start, [start], 0.0, 0)]
 
         depth = 0
         while queue and depth < self.max_depth:
-            next_queue: list[tuple[Neuron, list[Neuron]]] = []
-            for current, path in queue:
+            next_queue: list[tuple[Neuron, list[Neuron], float, int]] = []
+            for current, path, total_str, path_len in queue:
                 # Outgoing edges: property → relation → concept
                 for seg in self.segment_repo.get_outgoing(current.id):
                     if seg.strength < min_strength:
                         continue
                     if seg.relation in _NON_PROPAGATING_RELATIONS:
                         continue
-                    if seg.target_id in visited:
-                        continue
-                    target = self.neuron_repo.get_by_id(seg.target_id)
-                    if target is None:
-                        continue
-                    visited.add(target.id)
-                    new_path = path + [target]
-                    reached.setdefault(target.id, []).append(new_path)
-                    next_queue.append((target, new_path))
+                    
+                    new_total = total_str + seg.strength
+                    new_len = path_len + 1
+                    avg = new_total / new_len
+                    
+                    if seg.target_id not in best_weights or avg > best_weights[seg.target_id]:
+                        target = self.neuron_repo.get_by_id(seg.target_id)
+                        if target is None:
+                            continue
+                        best_weights[target.id] = avg
+                        new_path = path + [target]
+                        reached.setdefault(target.id, []).append(new_path)
+                        next_queue.append((target, new_path, new_total, new_len))
+                        
                 # Incoming edges: concept ← relation ← property
                 if bidirectional:
                     for seg in self.segment_repo.get_incoming(current.id):
@@ -163,15 +169,89 @@ class Recognizer:
                             continue
                         if seg.relation in _NON_PROPAGATING_RELATIONS:
                             continue
-                        if seg.source_id in visited:
-                            continue
-                        source = self.neuron_repo.get_by_id(seg.source_id)
-                        if source is None:
-                            continue
-                        visited.add(source.id)
-                        new_path = path + [source]
-                        reached.setdefault(source.id, []).append(new_path)
-                        next_queue.append((source, new_path))
+                            
+                        new_total = total_str + seg.strength
+                        new_len = path_len + 1
+                        avg = new_total / new_len
+                        
+                        if seg.source_id not in best_weights or avg > best_weights[seg.source_id]:
+                            source = self.neuron_repo.get_by_id(seg.source_id)
+                            if source is None:
+                                continue
+                            best_weights[source.id] = avg
+                            new_path = path + [source]
+                            reached.setdefault(source.id, []).append(new_path)
+                            next_queue.append((source, new_path, new_total, new_len))
+            queue = next_queue
+            depth += 1
+
+        return reached
+
+    def _propagate_backwave(self, start: Neuron,
+                            min_strength: float | None = None) -> dict[int, list[list[Neuron]]]:
+        """BFS wavefront that implements true 'Backwave Propagation'.
+        
+        Starts moving FORWARD (following outgoing edges).
+        If it hits a node with zero outgoing edges (a terminal Concept node),
+        it reverses polarity to BACKWARD and only follows incoming edges
+        from then on.
+        """
+        if min_strength is None:
+            min_strength = self.min_strength
+
+        reached: dict[int, list[list[Neuron]]] = {}
+        best_weights: dict[int, float] = {start.id: 0.0}
+        
+        # Queue stores: (current_neuron, path, direction, total_strength, path_length)
+        # direction is "F" (forward) or "B" (backward)
+        queue: list[tuple[Neuron, list[Neuron], str, float, int]] = [(start, [start], "F", 0.0, 0)]
+
+        depth = 0
+        while queue and depth < self.max_depth:
+            next_queue: list[tuple[Neuron, list[Neuron], str, float, int]] = []
+            for current, path, direction, total_str, path_len in queue:
+                
+                # Try forward if direction is F
+                if direction == "F":
+                    outgoing = [seg for seg in self.segment_repo.get_outgoing(current.id) 
+                                if seg.strength >= min_strength and seg.relation not in _NON_PROPAGATING_RELATIONS]
+                    
+                    if not outgoing:
+                        # Hit a terminal concept node! Bounce backward!
+                        direction = "B"
+                    else:
+                        for seg in outgoing:
+                            new_total = total_str + seg.strength
+                            new_len = path_len + 1
+                            avg = new_total / new_len
+                            
+                            if seg.target_id not in best_weights or avg > best_weights[seg.target_id]:
+                                target = self.neuron_repo.get_by_id(seg.target_id)
+                                if target is None:
+                                    continue
+                                best_weights[target.id] = avg
+                                new_path = path + [target]
+                                reached.setdefault(target.id, []).append(new_path)
+                                next_queue.append((target, new_path, "F", new_total, new_len))
+                
+                # If direction is B (or just flipped to B)
+                if direction == "B":
+                    incoming = [seg for seg in self.segment_repo.get_incoming(current.id)
+                                if seg.strength >= min_strength and seg.relation not in _NON_PROPAGATING_RELATIONS]
+                    for seg in incoming:
+                        new_total = total_str + seg.strength
+                        new_len = path_len + 1
+                        avg = new_total / new_len
+                        
+                        if seg.source_id not in best_weights or avg > best_weights[seg.source_id]:
+                            source = self.neuron_repo.get_by_id(seg.source_id)
+                            if source is None:
+                                continue
+                            best_weights[source.id] = avg
+                            new_path = path + [source]
+                            reached.setdefault(source.id, []).append(new_path)
+                            next_queue.append((source, new_path, "B", new_total, new_len))
+
             queue = next_queue
             depth += 1
 
@@ -291,6 +371,41 @@ class Recognizer:
                     continue
                 # Use the best path weight from this seed to this target.
                 # Multiple paths may exist; keep the strongest.
+                best_weight = max(
+                    self._path_weight(p) for p in path_lists
+                )
+                short_term.add_convergence(target_id, best_weight, seed.id)
+
+    def propagate_backwave(self, seed_labels: list[str], short_term,
+                           min_strength: float | None = None,
+                           exact_only: bool = True) -> None:
+        """True backwave propagation: Forward until dead-end, then Backward.
+        
+        This replaces propagate_echo by enforcing structural traversal
+        (hit a concept end node -> bounce backward to find connections)
+        instead of flooding the graph in all directions simultaneously.
+        """
+        # Resolve seeds to neurons (exact match by default at query time)
+        seeds = []
+        for label in seed_labels:
+            n = self.neuron_repo.resolve(
+                label.strip().lower(), exact_only=exact_only
+            )
+            if n is not None:
+                seeds.append(n)
+        if not seeds:
+            return
+
+        effective_min = (
+            self.min_strength if min_strength is None else min_strength
+        )
+
+        for seed in seeds:
+            reached = self._propagate_backwave(seed, min_strength=effective_min)
+            for target_id, path_lists in reached.items():
+                if target_id == seed.id:
+                    continue
+                # Use the best path weight from this seed to this target.
                 best_weight = max(
                     self._path_weight(p) for p in path_lists
                 )

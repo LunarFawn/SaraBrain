@@ -38,9 +38,8 @@ public:
     // BFS that computes max average path weight for each reached node.
     // This matches the logic of Recognizer._path_weight and propagate_into.
     int propagate(int start_node, int max_depth, float min_strength, 
-                  bool bidirectional, ResultNode* out_results, int max_results) {
+                  int mode, ResultNode* out_results, int max_results) {
         
-        // reached_id -> best_average_weight
         std::unordered_map<int, float> reached;
         
         struct State {
@@ -48,16 +47,11 @@ public:
             int depth;
             float total_strength;
             int length;
+            char direction;
         };
 
         std::queue<State> q;
-        q.push({start_node, 0, 0.0f, 0});
-        // We don't add the start node to 'reached' because propagate_into 
-        // explicitly skips it: if target_id == seed.id: continue
-        
-        // To avoid cycles and redundant work, we track the best weight seen.
-        // In a true BFS, the first time we see a node it's at the shortest depth,
-        // but not necessarily the highest weight.
+        q.push({start_node, 0, 0.0f, 0, mode == 2 ? 'F' : 'B'});
         
         while (!q.empty()) {
             State curr = q.front();
@@ -65,8 +59,7 @@ public:
 
             if (curr.depth >= max_depth) continue;
 
-            // lambda to process a list of edges
-            auto process = [&](const std::vector<Edge>& edges) {
+            auto process = [&](const std::vector<Edge>& edges, char next_dir) {
                 for (const auto& edge : edges) {
                     if (edge.strength < min_strength) continue;
                     
@@ -76,17 +69,27 @@ public:
 
                     if (reached.find(edge.node_id) == reached.end() || avg > reached[edge.node_id]) {
                         reached[edge.node_id] = avg;
-                        q.push({edge.node_id, curr.depth + 1, new_total, new_len});
+                        q.push({edge.node_id, curr.depth + 1, new_total, new_len, next_dir});
                     }
                 }
             };
 
-            if (outgoing.count(curr.node)) {
-                process(outgoing[curr.node]);
-            }
-            
-            if (bidirectional && incoming.count(curr.node)) {
-                process(incoming[curr.node]);
+            if (mode == 0) {
+                if (outgoing.count(curr.node)) process(outgoing[curr.node], 'F');
+            } else if (mode == 1) {
+                if (outgoing.count(curr.node)) process(outgoing[curr.node], 'F');
+                if (incoming.count(curr.node)) process(incoming[curr.node], 'B');
+            } else if (mode == 2) {
+                if (curr.direction == 'F') {
+                    if (outgoing.count(curr.node) && !outgoing[curr.node].empty()) {
+                        process(outgoing[curr.node], 'F');
+                    } else {
+                        curr.direction = 'B';
+                    }
+                }
+                if (curr.direction == 'B') {
+                    if (incoming.count(curr.node)) process(incoming[curr.node], 'B');
+                }
             }
         }
 
@@ -118,7 +121,7 @@ extern "C" {
     }
 
     int engine_propagate(SaraEngine* e, int start_node, int max_depth, float min_strength, 
-                         bool bidirectional, ResultNode* out_results, int max_results) {
-        return e->propagate(start_node, max_depth, min_strength, bidirectional, out_results, max_results);
+                         int mode, ResultNode* out_results, int max_results) {
+        return e->propagate(start_node, max_depth, min_strength, mode, out_results, max_results);
     }
 }

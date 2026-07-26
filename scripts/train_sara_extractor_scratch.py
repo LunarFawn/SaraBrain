@@ -48,6 +48,9 @@ BASE_VOCAB = [
     "occurs", "occurs_in", "forms", "uses", "provides",
     "attaches", "attaches_to", "separates", "divides", "called", "known_as",
     "composed_of", "part_of", "results_in", "leads_to", "depends_on",
+    # Prose words for chain-of-thought answering
+    "based", "on", "the", "substrate", "therefore", "correct", "choice", "is",
+    "a", "b", "c", "d",
     "activates", "inhibits", "enables", "regulates",
     "interacts_with", "transforms_into",
     "during", "within", "between", "from", "into",
@@ -206,6 +209,8 @@ def _get_input(ex: dict) -> str:
     # Selector/synthesizer format: facts + question
     if "facts" in ex and "question" in ex:
         return ex["facts"] + " " + ex["question"]
+    if "substrate" in ex and "question" in ex:
+        return ex["substrate"] + " " + ex["question"]
     # Extractor format: paragraph
     if "paragraph" in ex:
         return ex["paragraph"]
@@ -235,7 +240,7 @@ def main():
     print(f"Device: {device}")
 
     tok2id = build_vocab()
-    max_oov = 300
+    max_oov = args.max_enc
     ext_vocab = len(tok2id) + max_oov
     print(f"Base vocab: {len(tok2id)}, Extended: {ext_vocab}")
 
@@ -307,7 +312,7 @@ def main():
             enc_ids, oov, oov_map = encode_with_oov(_get_input(ex), tok2id, args.max_enc)
 
             # Encode target (triples) using same OOV mapping
-            target_text = ex.get("output", "\n".join(ex.get("triples", [])))
+            target_text = ex.get("output", ex.get("answer", "\n".join(ex.get("triples", []))))
             tgt_tokens = tokenize(target_text)[:args.max_dec - 1]
             tgt_ids = []
             for t in tgt_tokens:
@@ -374,8 +379,8 @@ def main():
             val_loss_sum, val_tokens = 0.0, 0
             with torch.no_grad():
                 for ex in val[:20]:
-                    enc_ids, oov, oov_map = encode_with_oov(_get_input(ex), tok2id, args.max_enc)
-                    target_text = ex.get("output", "\n".join(ex.get("triples", [])))
+                    enc_ids, oov, oov_map = encode_with_oov(_get_input(ex), tok2id, args.max_enc - 10)
+                    target_text = ex.get("output", ex.get("answer", "\n".join(ex.get("triples", []))))
                     tgt_tokens = tokenize(target_text)[:args.max_dec - 1]
                     tgt_ids = [tok2id.get(t, oov_map.get(t, tok2id["<unk>"])) for t in tgt_tokens]
                     din = [tok2id["<bos>"]] + tgt_ids
@@ -406,7 +411,7 @@ def main():
             for t, idx in oov_map.items():
                 id2tok[idx] = t
             gen = " ".join(id2tok.get(i, f"[{i}]") for i in out if i not in (0, 2))
-            expected = ex.get("output", " | ".join(ex.get("triples", [])))
+            expected = ex.get("output", ex.get("answer", " | ".join(ex.get("triples", []))))
             print(f"  >>> expected: {expected[:120]}")
             print(f"  >>> generated: {gen[:120]}")
 

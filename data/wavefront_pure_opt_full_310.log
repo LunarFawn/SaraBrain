@@ -1,0 +1,7 @@
+
+  MMLU High School Biology Benchmark
+  310 questions, model: wavefront_only
+
+  [1/310] Q0: WRONG (got C, correct A) — 0.0% — 17.1s (~88m left)
+  [2/310] Q1: WRONG (got C, correct A) — 0.0% — 16.2s (~85m left)
+  [3/310] Q2: WRONG (got B, correct C) — 0.0% — 14.4s (~81m left)

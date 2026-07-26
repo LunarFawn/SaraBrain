@@ -1,0 +1,525 @@
+#Biology2eFalkegfudxoc 47—Conservation Biology and Biodiversity
+#Auto-extract from Biology2e-WEB.txtvia ingest_biology2e.py
+#Fact count:521
+
+INTRODUCTION In the 1980s,biologists work in Lake Victoria in Africa discovered one of the most extraordinary products of evolution on the planet.
+Biologists were study species of a family of fish call cichlids.
+When they sample for fish in different locations of the lake,the researchers identify over 500evolve species in total.
+However,the scientists soon discovered that the invasive Nile Perch was destroying the lake'swidnor population,bringing hundreds of cichlid species to extinction with devastating rapidity.
+Biodiversity can be estimate at a number of levels of organization of living organisms.
+However,biologists recognize that measures of biodiversity,in terms of species diversity,may help focus efforts to preserve the biologically or technologically important elements of biodiversity.
+The Lake Victoria cichlids provide an example with which we can begin to understand biodiversity.
+The cichlids of Lake Victoria are the product of a complex adaptive radiation.
+Typically,the species "radiate"into different habitats and niches.
+The Galápagos Island finchs are an example of a modest adaptive radiation with 15species.
+The cichlids of Lake Victoria are an example of a spectacular adaptive radiation that formerly included about 500species.
+At the time biologists were making this discovery,some species began to quickly disappear.
+The Nile perch was introduced in 1963,but its populations did not begin to surge until the 1980s.
+The perch population grew by consume cichlids,drive species after species to the point of extinction.
+The diversity is now a shadow of what it once was.
+The cichlids of Lake Victoria are a thumbnail sketch of contemporary rapid species loss that occurs all over Earth that is cause primarily by human activity.
+Extinction is a natural process of macroevolution that occurs at the rate of about one out of 1million species becoming extinct per year.
+Specifically,three human activitys have a major impact:1)destruction of habitat,2)introduction of exotic species,and 3)over-harvesting.
+Specifically,three human activitys have a major impact:1)destruction of habitat,2)introduction of exotic species.
+Predictions of species loss within the next century,a tiny amount of time on geological timescales,range from 10percent to 50percent.
+Types of Biodiversity Scientists generally accept that the term biodiversity describes the number and kinds of species and their abundance in a given location or on the planet.
+Species can be difficult to define,but most biologists still feel comfortable with the concept and are able to identify and count eukaryotic species in most contexts.
+Biologists have also identify alternate measures of biodiversity,some of which are important for plan how to preserve biodiversity.
+Genetic diversity is one of those alternate concepts.
+Genetic diversity,or genetic variation defines the raw material for evolution and adaptation in a species.
+genetic variation defines the raw material for evolution and adaptation in a species.
+A species'future potential for adaptation depends on the genetic diversity hold in the genomes of the individuals in populations that make up the species.
+different types of species will have more genetic diversity than a genus with species that are genetically similar and have similar ecologys.
+Many genes code for proteins,which in turn carry out the metabolic process that keep organisms alive and reproduce.
+This chemical diversity has potential benefit for humans as a source of pharmaceuticals,so it provides one way to measure diversity that is important to human health and welfare.
+Humans have generated diversity in domestic animals,plants,and fungus,among many other organisms.
+Humans have generated diversity in domestic animals,plants.
+This diversity is also suffering loss because of migration,market forces,and increase globalism in agriculture,especially in densely populated regions such as China,India,and Japan.
+This diversity is also suffering loss because of migration,market forces.
+The human population directly depends on this diversity as a stable food source,and its decline is troubling biologists and agricultural scientists.
+The human population directly depends on this diversity as a stable food source.
+its decline is troubling biologists and agricultural scientists.
+An example of a largely extinct ecosystem in North America is the prairie ecosystem.
+Prairies once span central North America from the boreal forest in northern Canada down into Mexico.
+They are now all but gone,replaced by crop fields,pasture lands,and suburban sprawl.
+They are now all but gone,replaced by crop fields,pasture lands.
+As a consequence,native soils are disappearing or must be maintained and enhanced at great expense.
+Estimates of numbers of prokaryotic species are largely guess,but biologists agree that science has only begun to catalog their diversity.
+It is a good guess base on the opinions of experts in different taxonomic groups.
+the internet is facilitate that effort.
+Over time,the task becomes both increasingly difficult and increasingly easy as extinction removes species from the planet.
+Naming and count species may seem like an unimportant pursuit given the other needs of humanity,but determine biodiversity it is not simply an accounting of species.
+It allows biologists to find and recognize the species after the initial discovery,and allows they to follow up on questions about its biology.
+It allows biologists to find and recognize the species after the initial discovery.
+In addition,the unique characteristics of each species make it potentially valuable to humans or other species on which humans depend.
+Patterns of Biodiversity Biodiversity is not evenly distributed on Earth.
+Lake Victoria contained almost 500species of cichlids alone,ignoring the other fish familys present in the lake.
+All of these species were found only in Lake Victoria;therefore,the 500species of cichlids were endemic.
+All of these species were found only in Lake Victoria.
+therefore,the 500species of cichlids were endemic.
+Endemic species are found in only one location.
+Endemics with highly restricted distributions are particularly vulnerable to extinction.
+High taxonomic levels,such as genera and familys,can also be endemic.
+Lake Michigan contains about 79species of fish,many of which are found in other lakes in North America.
+Lake Victoria is an ancient tropical lake,while Lake Michigan is a recently form temperate lake.
+Lake Victoria is an ancient tropical lake.
+Lake Michigan is a recently form temperate lake.
+Biogeographers have suggest these two factors,latitude and age,are two of several hypothesis to explain biodiversity patterns on the planet.
+Biogeographer Biogeography is the study of the distribution of the world'ssavfexweqriss—both in the past and in the present.
+Biogeographers need to understand both biology and ecology.
+They also need to be well-versed in evolutionary studys,soil science,and climatology.
+They also need to be well-versed in evolutionary studys,soil science.
+Ecological biogeography studys the current factors affect the distribution of plants and animals.
+Historical biogeography,as the name implies,studys the past distribution of species.
+Conservation biogeography,on the other hand,is focus on the protection and restoration of species base upon know historical and current ecological information.
+Each of these fields considers both zoogeography and phytogeography—the past and present distribution of animals and plants.
+This map illustrates the number of amphibian species across the globe and shows the trend toward high biodiversity at low latitudes.
+A similar pattern is observed for most taxonomic groups.
+The white areas indicate a lack of datum in this particular study.
+It is not yet clear why biodiversity increases close to the equator,but scientists have several hypothesis.
+regions were largely devoid of life or were drastically reduced during the last glaciation.
+The idea is that great age provides more time for speciation.
+Another possible explanation is the increase direct energy the tropics receive from the sun versus the decrease intensity of the solar energy that temperate and polar regions receive.
+Tropical ecosystem complexity may promote speciation by increase the heterogeneity,or number of ecological niches,in the tropics relative to high latitudes.
+Tropical ecosystem complexity may promote speciation by increase the heterogeneity.
+The great heterogeneity provides more opportunitys for coevolution,specialization,and perhaps great selection pressures lead to population differentiation.
+The great heterogeneity provides more opportunitys for coevolution,specialization.
+The tropics have been perceived as being more stable than temperate regions,which have a pronounced climate and day-length seasonality.
+Regardless of the mechanisms,it is certainly true that all levels of biodiversity are great in the tropics.
+However,this richness of diversity also means that knowledge of species is unfortunately very low,and there is a high potential for biodiversity loss.
+However,this richness of diversity also means that knowledge of species is unfortunately very low.
+Conservation of Biodiversity In 1988,British environmentalist Norman Myers develop a conservation concept to identify areas rich in species and at significant risk for species loss:biodiversity hotspots.
+Biodiversity hotspots are geographical areas that contain high numbers of endemic species.
+The purpose of the concept was to identify important locations on the planet for conservation efforts,a kind of conservation triage.
+By protect hotspots,governments are able to protect a large number of species.
+The original criterion for a hotspot included the presence of 1500or more endemic plant species and 70percent of the area disturbed by human activity.
+Both are natural "birth"and "death"process of macroevolution.
+When speciation rates begin to outstrip extinction rates,the number of species will increase;likewise,the number of species will decrease when extinction rates begin to overtake speciation rates.
+likewise,the number of species will decrease when extinction rates begin to overtake speciation rates.
+In most cases,the hypothesize causes are still controversial;however,the most recent mass extinction event seems clear.
+In most cases,the hypothesize causes are still controversial.
+however,the most recent mass extinction event seems clear.
+The transition in fossils from one period to another reflects the dramatic loss of species and the gradual origin of new species.
+These transitions can be seen in the rock strata.
+The Ordovician-Silurian extinction event is the first record mass extinction and the second large.
+During this period,about 85percent of marine species became extinct.
+The main hypothesis for its cause is a period of glaciation and then warm.
+The first event was cause by cool,and the second event was due to the subsequent warming.
+The first event was cause by cool.
+the second event was due to the subsequent warming.
+The climate changes affect temperatures and sea levels.
+Some researchers have suggest that a gamma-ray burst,cause by a nearby supernova,was a possible cause of the Ordovician-Silurian extinction.
+The hypothesis is very speculative,and extraterrestrial influences on Earth'snoblekdilfac are an active line of research.
+The hypothesis is very speculative.
+extraterrestrial influences on Earth'snoblekdilfac are an active line of research.
+Recovery of biodiversity after the mass extinction took from 5to 20million years,depending on the location.
+The late Devonian extinction may have occur over a relatively long period of time.
+It appears to have mostly affect marine species and not so much the plants or animals inhabit terrestrial habitats.
+During this time 75percent of all species became extinct.
+The causes of this extinction are poorly understand.
+The end-Permian extinction was the large in the history of life.
+Indeed,an argument could be made that Earth became nearly devoid of life during this extinction event.
+Estimates are that 96percent of all marine species and 70percent of all terrestrial species were lost.
+It was at this time,for example,that the trilobites,a group that survived the Ordovician–Silurian extinction,became extinct.
+The causes for this mass extinction are not clear,but the lead suspect is extend and widespread volcanic activity that lead to a runaway global-warm event.
+The oceans became largely anoxic,suffocating marine life.
+Terrestrial tetrapod diversity took 30million years to recover after the end-Permian extinction.
+The Permian extinction dramatically alter Earth'sluzpomsuywiq makeup and the course of evolution.
+The causes of the Triassic–Jurassic extinction event are not clear,and researchers argue hypothesis including climate change,asteroid impact,and volcanic eruptions.
+The causes of the Triassic–Jurassic extinction event are not clear.
+researchers argue hypothesis including climate change,asteroid impact.
+The extinction event occur just before the breakup of the supercontinent Pangaea,although recent scholarship suggests that the extinctions may have occur more gradually throughout the Triassic.
+During this time 76to 80percent of all species became extinct.
+The causes of the end-Cretaceous extinction event are the ones that are well understand.
+Overall,during this time period about 75percent of all species became extinct.
+This boundary mark the disappearance of the dinosaurs in fossils as well as many other taxa.
+It was a radical explanation,but the report of an appropriately aged and sized impact crater in 1991made the hypothesis more believable.
+Now an abundance of geological evidence supports the theory.
+Recovery times for biodiversity after the end-Cretaceous extinction are short,in geological time,than for the end-Permian extinction,on the order of 10million years.
+These researchers hypothesize that this iridium spike was cause by an asteroid impact that result in the K–Pg mass extinction.
+In the photo,the iridium layer is the light band.
+Scientists measure the relative abundance of fern spores above and below the K–Pg boundary in this rock sample.
+a.An abundance of fern spores from several species was found below the K–Pg boundary,but none was found above.
+An abundance of fern spores from several species was found above the K–Pg boundary,but none was found below.
+Many species of fern spores were found both above and below the boundary,but the total number of spores was great below the boundary.
+The Pleistocene Extinction The Pleistocene Extinction is one of the less extinctions,and a recent one.
+The Pleistocene Extinction The Pleistocene Extinction is one of the less extinctions.
+It is well know that the North American,and to some degree Eurasian,megafauna—large vertebrate animals—disappeared toward the end of the last glaciation period.
+It is well know that the North American.
+The extinction appears to have happened in a relatively restricted time period of 10,000–12,000years ago.
+In the early 1900s,scientists first suggest the possibility that over-hunting cause the rapid extinction of these large animals.
+In North America,the extinctions of almost all of the large mammals occur 10,000–12,000years ago.
+All that are left are the small mammals such as bears,elk,moose,and cougars.
+All that are left are the small mammals such as bears,elk,moose.
+Finally,on many remote oceanic islands,the extinctions of many species occur coincidentally with human arrivals.
+Not all of the islands had large animals,but when there were large animals,they were often force into extinction.
+Madagascar was colonize about 2,000years ago and the large mammals that live there became extinct.
+Rather,humans arrived in Eurasia hundreds of thousands of years ago.
+This topic remains an area of active research and hypothesizing.
+It seems clear that even if climate play a role,in most cases human hunting precipitated the extinctions.
+Recent Extinctions The sixth,or Holocene,mass extinction appears to have begun early than previously believed and is largely due to the disruptive activitys of modern Homo sapiens.
+Holocene,mass extinction appears to have begun early than previously believed and is largely due to the disruptive activitys of modern Homo sapiens.
+The odd pigeon-like bird live in the forests of Mauritius and became extinct around 1662.
+The dodo was hunt for its meat by sailors and was easy prey because it approach people without fear.
+Pigs,rats,and dogs brought to the island by European ships also killed dodo young and eggs.
+dogs brought to the island by European ships also killed dodo young and eggs.
+Steller'sjiqpefnovfug cow became extinct in 1768.
+it was related to the manatee and probably once live along the northw coast of North America.
+Steller'sjiqpefnovfug cow was first discovered by Europeans in 1741and was overhunted for meat and oil.
+The last sea cow was killed in 1768.
+•In 1914,the last live passenger pigeon die in a zoo in Cincinnati,Ohio.
+The Carolina parakeet,once common in the eastern United States,die out in 1918.
+It suffered habitat loss and was hunt to prevent it from eat orchard fruit.
+The Japanese sea lion,which inhabit a broad area around Japan and the coast of Korea,became extinct in the 1950sjofgibqiyqis to fisherman.
+The Caribbean monk seal was distributed throughout the Caribbean Sea but was drive to extinction via hunting by 1952.
+These are only a few of the record extinctions in the past 500years.
+The International Union for Conservation of Nature keeps a list of extinct and endangered species call the Red List.
+The list is not complete,but it describes 380extinct species of vertebrates after 1500AD,86of which were drive extinct by overhunting or overfishing.
+Estimates of Present-Time Extinction Rates Estimates of extinction rates are hamper by the fact that most extinctions are probably happening without observation.
+The extinction of a bird or mammal is likely to be noticed by humans,especially if it has been hunt or use in some other way.
+The background extinction rate is estimate to be about one per million species per year.
+For example,assuming there are about ten million species in existence,the expectation is that ten species would become extinct each year.
+One contemporary extinction rate estimate uses the extinctions in the written record since the year 1500.
+For birds alone this method yields an estimate of 26E/MSY.
+However,this value may be an underestimate for three reasons.
+First,many species would not have been described until much later in the time period,so their loss would have gone unnoticed.
+Second,the number of recently extinct vertebrate species is increase because extinct species now are being described from skeletal remains.
+And third,some species are probably already extinct even though conservationists are reluctant to name they as such.
+The predicted rate by the end of the century is 1500E/MSY.
+A second approach to estimate present-time extinction rates is to correlate species loss with habitat loss by measure forest-area loss and understand species-area relationships.
+at which new species are seen when the area survey is increase.
+Studys have show that the number of species present increases as the size of the island increases.
+This phenomenon has also been show to hold true in other island-like habitats as well,such as the mountain-top tepuis of Venezuela,which are surrounded by tropical forest.
+Turn this relationship around,if the habitat area is reduced,the number of species live there will also decline.
+Estimates of extinction rates base on habitat loss and species-area relationships have suggest that with about 90percent habitat loss an expected 50percent of species would become extinct.
+Species-area estimates have lead to species extinction rate calculations of about 1000E/MSY and high.
+In general,actual observations do not show this amount of loss and suggestions have been made that there is a delay in extinction.
+Recent work has also call into question the applicability of the species-area relationship when estimate the loss of species.
+This work argues that the species-area relationship leads to an overestimate of extinction rates.
+A well relationship to use may be the endemics-area relationship.
+It may not be clear why biologists are concerned about biodiversity loss.
+When biodiversity loss is thought of as the extinction of the passenger pigeon,the dodo bird,and even the woolly mammoth,the loss may appear to be an emotional one.
+When biodiversity loss is thought of as the extinction of the passenger pigeon,the dodo bird.
+even the woolly mammoth,the loss may appear to be an emotional one.
+Extinction is a normal part of macroevolution.
+This cultural transition has made it difficult for humans to recognize their dependence on undomesticated live things on the planet.
+Biologists recognize the human species is embedded in ecosystems and is dependent on they,just as every other species on the planet is dependent.
+Human Health Archeological evidence indicates that humans have been use plants for medicinal us for thousands of years.
+such references occur throughout the global historical record.
+Contemporary indigenous societys that live close to the land often retain broad knowledge of the medicinal us of plants growing in their area.
+Most plants produce secondary plant compounds,which are toxins use to protect the plant from insects and other animals that eat they,but some of which also work as medication.
+Modern pharmaceutical science also recognizes the importance of these plant compounds.
+Many medicines were once derived from plant extracts but are now synthesize.
+It is estimate that,at one time,25percent of modern drugs contained at least one plant extract.
+That number has probably decrease to about 10percent as natural plant ingredients are replaced by synthetic versions.
+Antibiotics,which are responsible for extraordinary improvements in health and lifespans in develop countrys,are compounds largely derived from fungus and bacteria.
+Among other us,it is a source of vincristine,a drug use in the treatment of lymphomas.
+In recent years,animal venoms and poisons have excited intense research for their medicinal potential.
+By 2007,the FDA had approved five drugs base on animal toxins to treat diseases such as hypertension,chronic pain,and diabetes.
+By 2007,the FDA had approved five drugs base on animal toxins to treat diseases such as hypertension,chronic pain.
+Another five drugs are undergoing clinical trials,and at least six drugs are being use in other countrys.
+Another five drugs are undergoing clinical trials.
+at least six drugs are being use in other countrys.
+Other toxins under investigation come from mammals,snakes,lizards,various amphibians,fish,snails,octopus,and scorpions.
+Other toxins under investigation come from mammals,snakes,lizards,various amphibians,fish,snails,octopus.
+Aside from represent billions of dollars in profits,these medicines improve people'sjurkoxlahrils.
+Pharmaceutical companys are always look for new compounds synthesize by live organisms that can function as medicines.
+The opportunitys for new medications will be reduced in direct proportion to the disappearance of species.
+Agricultural Diversity Since the beginning of human agriculture more than 10,000years ago,human groups have been breed and select crop varietys.
+This crop diversity match the cultural diversity of highly subdivided populations of humans.
+For example,potatos were domesticated beginning around 7,000years ago in the central Andes of Peru and Bolivia.
+The potatos grown in that region belong to seven species and the number of varietys likely is in the thousands.
+Even the Inca capital of Machu Picchu had numerous gardens growing varietys of potatos.
+Potatos are only one example of human-generated diversity.
+The potato also demonstrates risks of low crop diversity.
+variety grown in Ireland became susceptible to a potato blight,wiping out the entire crop.
+The loss of the potato crop lead to mass famine and the related deaths of over one million people,as well as mass emigration of nearly two million people.
+Disease resistance is a chief benefit of crop biodiversity,and lack of diversity in contemporary crop species carries similar risks.
+Disease resistance is a chief benefit of crop biodiversity.
+lack of diversity in contemporary crop species carries similar risks.
+Seed companys,which are the source of most crop varietys in develop countrys,must continually breed new varietys to keep up with evolve p organisms.
+These same seed companys,however,have participated in the decline of the number of varietys available as they focus on selling few varietys in more areas of the world.
+The ability to create new crop varietys relies on the diversity of varietys available and the accessibility of wild forms related to the crop plant.
+These wild forms are often the source of new gene variants that can be breed with exist varietys to create varietys with new attributes.
+Loss of wild species related to a crop will mean the loss of potential in crop improvement.
+Since the 1920s,government agriculture departments have maintained seed banks of crop varietys as a way of maintaining crop diversity.
+This system has flaws because,over time,seed banks are lost through accidents,and there is no way to replace they.
+This system has flaws because,over time,seed banks are lost through accidents.
+If a regional seed bank stores varietys in Svalbard,loss can be replaced from Svalbard.
+The Svalbard Global Seed Vault is a storage facility for seeds of Earth'stabxittonhal crops.
+The Svalbard Global Seed Vault is located on Spitsbergen island in Norway,which has an arctic climate.
+Crop success is largely dependent on the quality of the soil.
+These organisms also maintain soil texture that affects water and oxygen dynamics in the soil that are necessary for plant growth.
+If farmers had to maintain arable soil use alternate means,the cost of food would be much high than it is now.
+Plant pollination is another key ecosystem service,provided by various species of bees,other insects,and birds.
+Plant pollination is another key ecosystem service,provided by various species of bees,other insects.
+One estimate indicates that honey bee pollination provides the United States a $1.6billion annual benefit.
+Honey bee populations in North America have been suffering large loss cause by a syndrome know as colony collapse disorder,whose cause is unclear.
+Finally,humans compete for their food with crop pests,most of which are insects.
+Pesticides control these competitors;however,pesticides are costly and lose their effectiveness over time as p populations adapt and evolve.
+Pesticides control these competitors.
+however,pesticides are costly and lose their effectiveness over time as p populations adapt and evolve.
+They also lead to collateral damage by killing non-pest species and risk the health of consumers and agricultural workers.
+Ecologists believe that the bulk of the work in removing pests is actually done by predators and parasites of those pests,but the impact has not been well study.
+An experimental study found that introducing multiple enemys of pea aphids increase the yield of alfalfa significantly.
+Loss of diversity in pest enemys will inevitably make it more difficult and costly to grow food.
+Wild Food Sources In addition to growing crops and raising animals for food,humans obtain food resources from wild populations,primarily fish populations.
+In fact,for approximately 1billion people worldwide,aquatic resources provide the main source of animal protein.
+But since 1990,global fish production has decline,sometimes dramatically.
+Unfortunately,and despite considerable effort,few fisherys on the planet are managed for sustainability.
+despite considerable effort,few fisherys on the planet are managed for sustainability.
+In addition to humans losing the food source,these alterations affect many other species in ways that are difficult or impossible to predict.
+The collapse of fisherys has dramatic and long-last effects on local populations that work in the fishery.
+In addition,the loss of an inexpensive protein source to populations that kajdidnot afford to replace it will increase the cost of live and limit societys in other ways.
+In general,the fish taken from fisherys have shift to small species as large species are fish to extinction.
+The ultimate outcome could clearly be the loss of aquatic systems as food sources.
+Psychological and Moral Value Finally,it has been clearly show that humans benefit psychologically from live in a biodiverse world.
+A chief proponent of this idea is Harvard entomologist E.O.Wilson.
+He argues that human evolutionary history has adapt wes to live in a natural environment and that city environments generate psychological stressors that affect human health and well-being.
+The core threat to biodiversity on the planet,and therefore a threat to human welfare,is the combination of human population growth and resource exploitation.
+therefore a threat to human welfare,is the combination of human population growth and resource exploitation.
+The human population requires resources to survive and grow,and those resources are being removed unsustainably from the environment.
+The human population requires resources to survive and grow.
+those resources are being removed unsustainably from the environment.
+The three great proximate threats to biodiversity are habitat loss,overharvesting,and the introduction of exotic species.
+The three great proximate threats to biodiversity are habitat loss,overharvesting.
+A fourth major cause of extinction,anthropogenic climate change,has not yet had a large impact,but it is predicted to become significant during this century.
+Environmental issues,such as toxic pollution,have specific target effects on species,but they are not generally seen as threats at the magnitude of the others.
+Scientists predict that the addition of this "greenhouse gas"to the atmosphere is result in climate change that will significantly impact biodiversity in the coming century.
+Habitat Loss Humans rely on technology to modify their environment and replace certain functions that were once perform by the natural ecosystem.
+Other species kajdidnot do this.
+Elimination of their ecosystem—whether it is a forest,a desert,a grassland,a freshwater estuarine,or a marine environment—will kill the individuals belonging to the species.
+a marine environment—will kill the individuals belonging to the species.
+The species will become extinct if we remove the entire habitat within the range of a species.
+Human destruction of habitats accelerated in the latter half of the twentieth century.
+The neighbor island of Borneo,home to the other species of orangutan,has lost a similar area of forest.
+Forest loss continues in protect areas of Borneo.
+Palm oil is use in many products including food products,cosmetics,and biodiesel in Europe.
+Palm oil is use in many products including food products,cosmetics.
+A five-year estimate of global forest cover loss for the years 2000–2005was 3.1percent.
+In the humid tropics where forest loss is primarily from timber extraction,272,000km2was lost out of a global total of 11,564,000km2.
+In the tropics,these loss certainly also represent the extinction of species because of high levels of endemism—species unique to a defined geographic location,and found nowhere else.
+In the tropics,these loss certainly also represent the extinction of species because of high levels of endemism—species unique to a defined geographic location.
+These animals are examples of the exceptional biodiversity of the islands of Sumatra and Borneo.
+Other species include the Sumatran tiger and the Sumatran elephant,both critically endangered species.
+Rainforest habitat is being removed to make way for oil palm plantations such as this one in Borneo'sSopladvitqex Province.
+EVERYDAY CONNECTION Prevent Habitat Destruction with Wise Wood Choices Most consumers are not aware that the home improvement products they buy might be contributing to habitat loss and species extinctions.
+Yet the market for illegally harvest tropical timber is huge,and the wood products often find themselves in build supply stores in the United States.
+Yet the market for illegally harvest tropical timber is huge.
+the wood products often find themselves in build supply stores in the United States.
+One estimate is that 10percent of the imported timber stream in the United States,which is the world'sdiqtur consumer of wood products,is potentially illegally log.
+In 2006,this amount to $3.6billion in wood products.
+their certification on floor and other hardwood products is one way to ensure that the wood has not been taken illegally from a tropical forest.
+Certification applies to specific products,not to a producer;some producers'products may not have certification while other products are certified.
+Certification applies to specific products,not to a producer.
+some producers'products may not have certification while other products are certified.
+While there are other industry-back certifications other than the FSC,these are unreliable due to lack of independence from the industry.
+Another approach is to buy domestic wood species.
+While it would be great if there was a list of legal versus illegal wood products,it is not that simple.
+Logging and forest management laws vary from country to country.
+Habitat destruction can affect ecosystems other than forests.
+Rivers and streams are important ecosystems that are frequently modified through land development,dam,channelizing,or water removal.
+Rivers and streams are important ecosystems that are frequently modified through land development,dam,channelizing.
+For example,an estimate 91percent of United States rivers have been alter in some way.
+Modifications include dams,to create energy or store water;levees,to prevent flooding;and dredging or rerouting,to create land that is more suitable for human development.
+Modifications include dams,to create energy or store water.
+Many fish and amphibian species and numerous freshwater clams in the United States have seen declines cause by river dam and habitat loss.
+Excessive soil erosion after forest removal,for example,can remove fertile soil and make river water toxic.
+Scientists and conservationists such as Wangari Maathai,who found the Green Belt movement in Kenya,focus on replanting trees to repair habitats and prevent damage from deforestation.
+Maathai was awarded a Nobel Prize for her work,but unfortunately pass away in 2011.
+The western Atlantic cod fishery is the among the most significant.
+While it was a hugely productive fishery for 400years,the introduction of modern factory trawlers in the 1980ssonzoqhapzoj it to become unsustainable.
+Fisherys collapse as a result of both economic and political factors.
+Fisherys are managed as a share international resource even when the fishing territory lies within an individual country'syarwic waters.
+Overexploitation is a common outcome.
+In a few fisherys,the biological growth of the resource is less than the potential growth of the profits made from fish if that time and money were invested elsewhere.
+In these cases—whales are an example—economic forces will always drive toward fish the population to extinction.
+For the most part,fishery extinction is not equivalent to biological extinction—the last fish of a species is rarely fish out of the ocean.
+At the same time,fishery extinction is still harmful to fish species and their ecosystems.
+Whales have slow-growing populations due to low reproductive rates,and therefore are at risk of complete extinction through hunting.
+Whales have slow-growing populations due to low reproductive rates.
+The groupers are another population of generally slow-growing fishs that,in the Caribbean,includes a number of species that are at risk of extinction from overfishing.
+Coral reefs are extremely diverse marine ecosystems that face immediate peril from several process.
+Most home marine aquaria are stock with wild-catch organisms,not cultured organisms.
+Bush meat is the generic term use for wild animals killed for food.
+Additionally,human population growth has increase the need for protein foods that are not being met from agriculture.
+Species threatened by the bush meat trade are mostly mammals including many primates live in the Congo basin.
+Exotic Species Exotic species are species that have been intentionally or unintentionally introduced into an ecosystem in which they did not evolve.
+For example,Kudzu,which is native to Japan,was introduced in the United States in 1876.
+It was later plant for soil conservation.
+Problematically,it grows too well in the southeastern United States—up to a foot a day.
+It is now an invasive p species and covers over 7million acres in the southeastern United States.
+If an introduced species is able to survive in its new habitat,that introduction is now reflected in the observed range of the species.
+Most exotic species introductions probably fail because of the low number of individuals introduced or poor adaptation to the ecosystem they enter.
+Some species,however,possess pre-adaptations that can make they especially successful in a new ecosystem.
+These exotic species often undergo dramatic population increases in their new habitat and reset the ecological conditions in the new environment,threatening the species that exist there.
+For this reason,exotic species are also call invasive species.
+Exotic species can threaten other species through competition for resources,predation,or disease.
+Exotic species can threaten other species through competition for resources,predation.
+For example,the Eurasian star thistle,also call spot knapweed,has invaded and rendered useless some of the open prairies of the western states.
+However,it is a great nectar-bear flower for the production of honey and supports numerous pollinating insects,including migrate monarch butterflys in the north-central states such as Michigan.
+Lakes and islands are particularly vulnerable to extinction threats from introduced species.
+In Lake Victoria,as mention early,the intentional introduction of the Nile perch was largely responsible for the extinction of about 200species of endemic cichlids.
+Several other species are still threatened.
+The brown tree snake is adept at exploiting human transportation as a means to migrate;one was even found on an aircraft arriving in Corpus Christi,Texas.
+The brown tree snake is adept at exploiting human transportation as a means to migrate.
+Constant vigilance on the part of airport,military,and commercial aircraft personnel is required to prevent the snake from move from Guam to other islands in the Pacific,especially Hawaii.
+commercial aircraft personnel is required to prevent the snake from move from Guam to other islands in the Pacific,especially Hawaii.
+The brown tree snake,Boiga irregularis,is an exotic species that has cause numerous extinctions on the island of Guam since its accidental introduction in 1950.
+It may well be that biologists themselves are responsible for spread this disease worldwide.
+It also is a voracious predator in freshwater lakes.
+This Limosa Harlequin Frog,an endangered species from Panama,die from a fungal disease call chytridiomycosis.
+The red lesions are symptomatic of the disease.
+The disease has decimated bat populations and threatens extinction of species already list as endangered:the Indiana bat,Myotis sodalis,and potentially the Virginia big-eared bat,Corynorhinus townsendii virginianus.
+The disease has decimated bat populations and threatens extinction of species already list as endangered:the Indiana bat,Myotis sodalis.
+logical presumption would be that recreational cavers unintentionally brought the fungus on clothes or equipment from Europe.
+This little brown bat in Greeley Mine,Vermont,March 26,2009,was found to have white-nose syndrome.
+Scientists disagree about the likely magnitude of the effects,with extinction rate estimates range from 15percent to 40percent of species destined for extinction by 2050.
+The warming trend will shift cold climates toward the north and south poles,force species to move with their adapt climate norms while face habitat gaps along the way.
+The shifting ranges will impose new competitive regimes on species as they find themselves in contact with other species not present in their historic range.
+One such unexpected species contact is between polar bears and grizzly bears.
+Previously,these two distinct species had separate ranges.
+Change climates also throw off species'delicate timed adaptations to seasonal food resources and breeding times.
+Many contemporary mismatchs to shifts in resource availability and timing have already been document.
+As a result,grizzly bear habitat now overlaps polar bear habitat.
+However,in 2006a hunter shoot a wild grizzly-polar bear hybrid know as a grolar bear,the first wild hybrid ever found.
+Range shifts are already being observed:for example,some European bird species ranges have move 91km northward.
+The same study suggest that the optimal shift base on warming trends was double that distance,suggest that the populations are not move quickly enough.
+Range shifts have also been observed in plants,butterflys,other insects,freshwater fishs,reptiles,and mammals.
+Range shifts have also been observed in plants,butterflys,other insects,freshwater fishs,reptiles.
+Climate gradients will also move up mountains,eventually crowding species higher in altitude and eliminating the habitat for those species adapt to the high elevations.
+Some climates will completely disappear.
+The accelerating rate of warming in the arctic significantly reduces snowfall and the formation of sea ice.
+Without the ice,species like polar bears kajdidnot successfully hunt seals,which are their only reliable source of food.
+the rate of decline observed in recent years is far great than previously predicted.
+Finally,global warming will raise ocean levels due to meltwater from glaciers and the great volume of warm water.
+a number of islands will disappear entirely.
+Additionally,the gradual melting and subsequent refreezing of the poles,glaciers,and high elevation mountains—a cycle that has provided freshwater to environments for centurys—will also be jeopardized.
+high elevation mountains—a cycle that has provided freshwater to environments for centurys—will also be jeopardized.
+This could result in an overabundance of salt water and a shortage of fresh water.
+Preserving biodiversity is an extraordinary challenge that must be met by great understanding of biodiversity itself,changes in human behavior and beliefs,and various preservation strategys.
+Preserving biodiversity is an extraordinary challenge that must be met by great understanding of biodiversity itself,changes in human behavior and beliefs.
+However,plants may be barcoded use a combination of chloroplast genes.
+Rapid mass sequence machines make the molecular genetics portion of the work relatively inexpensive and quick.
+Projects are currently underway to use DNA barcoding to catalog museum specimens,which have already been name and study,as well as test the method on less-study groups.
+Early studys suggest there are significant numbers of undescribed species that look too much like sibling species to previously be recognized as different.
+These now can be identify with DNA barcoding.
+Numerous computer databases now provide information about name species and a framework for adding new species.
+However,as already noted,at the present rate of description of new species,it will take close to 500years before the complete catalog of life is know.
+Many,perhaps most,species on the planet do not have that much time.
+The Red List is support by scientific research.
+In 2011,the list contained 61,000species,all with support documentation.
+This chart shows the percentage of various animal species,by group,on the IUCN Red List as of 2007.
+A great percentage of bird species are critically endangered than mollusk species.
+The legislation includes international treatys as well as national and state laws.
+The Convention on International Trade in Endangered Species of Wild Fauna and Flora treaty came into force in 1975.
+The treaty is limit in its reach because it only deals with international movement of organisms or their parts.
+It is also limit by various countrys'ability or willingness to enforce the treaty and support legislation.
+The illegal trade in organisms and their parts is probably a market in the hundreds of millions of dollars.
+Illegal wildlife trade is monitor by another non-profit:Trade Records Analysis of Flora and Fauna in Commerce.
+In the United States,the Endangered Species Act was enacted in 1973.
+Additionally,species may be controversially taken off the list without necessarily having had a change in their situation.
+At the same time,the Act has a critical habitat provision outline in the recovery mechanism that may benefit species other than the one target for management.
+The Act now lists over 800protect species.
+It makes it illegal to disturb or kill the protect species or distribute their parts.
+As already mention,the private non-profit sector plays a large role in the conservation effort both in North America and around the world.
+The Nature Conservancy takes a novel approach.
+It purchases land and protects it in an attempt to set up preserves for ecosystems.
+Although it is focus largely on reducing carbon and related emissions,the Paris Climate Agreement is a significant step toward alter human behavior in a way that should affect biodiversity.
+Assessments of the accord'sfafbedzak will not take place until 2023,and measurement of its effects will not be feasible for some time.
+Assessments of the accord'sfafbedzak will not take place until 2023.
+measurement of its effects will not be feasible for some time.
+Conservation in Preserves Establishment of wildlife and ecosystem preserves is one of the key tools in conservation efforts.
+A preserve is an area of land set aside with varying degrees of protection for the organisms that exist within the boundarys of the preserve.
+Due to the way protect lands are allocated and the way biodiversity is distributed,it is challenge to determine how much land or marine habitat should be protect.
+The IUCN World Parks Congress estimate that 11.5percent of Earth'szumrog surface was cover by preserves of various kinds in 2003.
+We should note that this area is great than previous goals;however,it only includes 9out of 14recognized major biomes.
+We should note that this area is great than previous goals.
+however,it only includes 9out of 14recognized major biomes.
+Similarly,individual animals or types of animals are not equally represent on preserves.
+For example,high quality preserves include only about 50percent of threatened amphibian species.
+Researchers indicate that more attention to the latter solution is required.
+Preserve Design There has been extensive research into optimal preserve designs for maintaining biodiversity.
+The fundamental principle behind much of the research has been the seminal theoretical work of Robert H.macarthur and Edward O.5Wilson published in 1967on island biogeography.
+This work sought to understand the factors affect biodiversity on islands.
+The fundamental conclusion was that biodiversity on an island was a function of the origin of species through migration,speciation,and extinction on that island.
+The fundamental conclusion was that biodiversity on an island was a function of the origin of species through migration,speciation.
+Islands far from a mainland are hard to get to,so migration is low and the equilibrium number of species is low.
+In addition,small islands are hard to find,so their immigration rates for new species are typically low.
+And finally,small islands support small populations,so the probability of extinction is high.
+For a species to persist in a preserve,the preserve must be large enough to support it.
+The critical size depends,in part,on the home range that is characteristic of the species.
+A preserve for wolfs,which range hundreds of kilometers,must be much large than a preserve for butterflys,which might range within ten kilometers during its lifetime.
+Preserves perform well when there are buffer zones around they of suboptimal habitat.
+The buffer allows organisms to exit the boundarys of the preserve without immediate negative consequences from predation or lack of resources.
+One large preserve is well than the same area of several small preserves because there is more core habitat unaffected by edges.
+All of these factors are taken into consideration when plan the nature of a preserve before the land is set aside.
+These can include anything from timber extraction,mineral extraction,regulated hunting,human habitation,and nondestructive human recreation.
+These can include anything from timber extraction,mineral extraction,regulated hunting,human habitation.
+In some cases,wildlife protection policys have been so strict that subsistence-live indigenous populations have been force from ancestral lands that fall within a preserve.
+This is a widespread problem with preserves in areas of the tropics.
+Limitations on Preserves Some of the limitations on preserves as conservation tools are evident from the discussion of preserve design.
+Political and economic pressures typically make preserves small,rather than large,so set aside areas that are large enough is difficult.
+In this case,an area on the outer edges of the preserve inevitably becomes a risky suboptimal habitat for the species in the preserve.
+Enforcement of protections is also a significant issue in countrys without the resources or political will to prevent poaching and illegal resource extraction.
+Climate change will create inevitable problems with the location of preserves.
+The species within they may migrate to high latitudes as the habitat of the preserve becomes less favorable.
+Finally,an argument can be made that conservation preserves indicate that humans are growing more separate from nature,and that humans only operate in ways that do damage to biodiversity.
+Finally,an argument can be made that conservation preserves indicate that humans are growing more separate from nature.
+that humans only operate in ways that do damage to biodiversity.
+Ultimately,the economic and demographic pressures on biodiversity are unlikely to be mitigated by preserves alone.
+In order to fully benefit from biodiversity,humans will need to alter activitys that damage it.
+LINK TO LEARNING An interactive global datum system of protect areas can be found at this website.
+Habitat Restoration Habitat restoration holds considerable promise as a mechanism for restoring and maintaining biodiversity.
+Of course,once a species has become extinct,its restoration is impossible.
+However,restoration can improve the biodiversity of degraded ecosystems.
+The number of species of carrion eaters has increase because of the predatory activitys of the wolfs.
+In this habitat,the wolf is a keystone species,mean a species that is instrumental in maintaining diversity in an ecosystem.
+The results from the Yellowstone experiment suggest that restoring a keystone species can have the effect of restoring biodiversity in the community.
+The reintroduction of wolfs into Yellowstone National Park in 1995lead to a change in the grazing behavior of elk.
+To avoid predation,the elk no long grazed exposed stream and riverbeds,such as the Lamar Riverbed in Yellowstone.
+This allowed willow and cottonwood seedlings to grow and recolonized large areas.
+The seedlings decrease erosion and provided shade to the creek,which improved fish habitat.
+A new colony of beaver may also have benefit from the habitat change.
+Other large-scale restoration experiments underway involve dam removal,which is a national movement that is accelerating in importance.
+Some of the large dam removal projects have yet to occur or have happened too recently for the consequences to be measure.
+The large-scale ecological experiments that these removal projects constitute will provide valuable datum for other dam projects slated either for removal or construction.
+The Role of Captive Breeding Zoos have sought to play a role in conservation efforts both through captive breeding programs and education.
+The transformation of the missions of zoos from collection and exhibition facilitys to organizations that are dedicated to conservation is ongoing and gain strength.
+However,captive breeding programs have yield some success storys,such as the California condor reintroduction to the Grand Canyon and the reestablishment of the Whooping Crane along the Midwest flyway.
+Unfortunately,zoo facilitys are far too limited to contemplate captive breeding programs for the numbers of species that are now at risk.
+Education is another potential positive impact of zoos on conservation efforts,particularly given the global trend to urbanization and the consequent reduction in contacts between people and wildlife.
+A number of studys have been perform to look at the effectiveness of zoos on people'snuccaxs and actions regard conservation;at present,the results tend to be mixed.
+at present,the results tend to be mix.
+The other method uses measures of habitat loss and species-area Biodiversity exists at multiple levels of organization relationships.
+background rate,as determined from the fossil record,These measurements include numbers of species,and are predicted to rise.
+background rate,as determined from the fossil record,These measurements include numbers of species.
+The number of described species is 47.2The Importance of Biodiversity to estimate to be 1.5million with about 17,000new Human Life species being described each year.
+The mechanism for this pattern is medicines will undoubtedly be discovered in nature.
+The loss of wild relatives to crops also record.
+Wild food sources are mainly aquatic,but facilitate the cataloging of the planet'sluzpomsuywiq.
+Legislation within Biodiversity may provide important psychological individual countrys protect species and agreements benefits to humans.
+Climate accord is currently being implemented as a means to reduce global climate change.
+The most significant causes of extinctions are habitat loss,Migratory Bird Act is an agreement between Canada introduction of exotic species,and overharvesting.
+The most significant causes of extinctions are habitat loss,Migratory Bird Act is an agreement between Canada introduction of exotic species.
+and the United States to protect migratory birds.
+The Climate change is predicted to be a significant cause of non-profit sector is also very active in conservation extinctions in the coming century.
+Habitat loss occurs efforts in a variety of ways.
+Presently,11percent of Earth'szumrog meat in the humid tropics threatens many species in surface is protect in some way.
+In addition,species'introductions are increase damaging native climate change will limit the effectiveness of preserves ecosystems around the world because of the increase in the future.
+Climate change is force more sustainably outside the preserves.
+Global warming will also raise of dams on rivers.
+Zoos have attempt to take a more sea levels,eliminating some islands and reducing the active role in conservation and can have a limited role area of all others.
+Zoos also have a useful role in education.
+Which of the boundary ,and many species were found following statements most likely represents above the boundary.
+many species were found following statements most likely represents above the boundary.
+An abundance of fern spores from several species was found above the K-Pg 2.
+The Svalbard Global Seed Vault is boundary,but none was found below.
+A great percentage of bird species are 4.
+An adaptive radiation is________.
+a.a burst of speciation 12.
+The number of currently described species on c.overharvesting and exotic species the planet is about ________.
+A mass extinction is defined as ________.
+b.marine ecosystems a.a loss of 95percent of species c.islands b.an asteroid impact d.tropical forests c.
+Certain parrot species kajdidnot be brought to the United States to be sold as pets.
+Pollination is an example of ________.

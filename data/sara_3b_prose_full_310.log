@@ -1,0 +1,162 @@
+/home/grizzlyengineer/repo/SaraBrain/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+
+  MMLU High School Biology Benchmark
+  310 questions, model: llama3.2:3b
+
+  [main] Loading neural synthesizer from models/sara-synthesizer-115m...
+  [loader] Loading model from models/sara-synthesizer-115m on cuda...
+  [loader] Detected from-scratch SaraExtractor architecture.
+  --- Sara Brain + 3B (PROSE) ---
+  Brain: data/biology_full_v2_clean.db (102319 neurons, 51474 paths)
+
+    [synth] Generating prose for 5 neurons........ done.
+  [1/310] Q0: CORRECT (got A, correct A) — 100.0% — 187.7s (~967m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [2/310] Q1: WRONG (got B, correct A) — 50.0% — 86.0s (~702m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [3/310] Q2: CORRECT (got C, correct C) — 66.7% — 123.2s (~677m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [4/310] Q3: CORRECT (got A, correct A) — 75.0% — 115.8s (~654m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [5/310] Q4: CORRECT (got C, correct C) — 80.0% — 68.2s (~591m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [6/310] Q5: WRONG (got A, correct C) — 66.7% — 74.1s (~553m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [7/310] Q6: CORRECT (got B, correct B) — 71.4% — 30.6s (~495m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [8/310] Q7: CORRECT (got B, correct B) — 75.0% — 66.8s (~473m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [9/310] Q8: CORRECT (got A, correct A) — 77.8% — 89.0s (~469m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [10/310] Q9: WRONG (got B, correct C) — 70.0% — 182.5s (~512m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [11/310] Q10: CORRECT (got C, correct C) — 72.7% — 160.7s (~537m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [12/310] Q11: CORRECT (got B, correct B) — 75.0% — 378.9s (~647m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [13/310] Q12: WRONG (got B, correct D) — 69.2% — 45.8s (~613m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [14/310] Q13: WRONG (got B, correct D) — 64.3% — 30.1s (~578m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [15/310] Q14: CORRECT (got D, correct D) — 66.7% — 41.3s (~551m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [16/310] Q15: CORRECT (got B, correct B) — 68.8% — 34.8s (~525m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [17/310] Q16: WRONG (got A, correct C) — 64.7% — 60.7s (~510m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [18/310] Q17: CORRECT (got B, correct B) — 66.7% — 39.7s (~491m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [19/310] Q18: CORRECT (got B, correct B) — 68.4% — 58.1s (~478m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [20/310] Q19: CORRECT (got C, correct C) — 70.0% — 349.4s (~537m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [21/310] Q20: CORRECT (got D, correct D) — 71.4% — 60.9s (~524m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [22/310] Q21: CORRECT (got C, correct C) — 72.7% — 313.0s (~567m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [23/310] Q22: WRONG (got B, correct A) — 69.6% — 121.2s (~565m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [24/310] Q23: CORRECT (got B, correct B) — 70.8% — 75.4s (~555m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [25/310] Q24: WRONG (got A, correct B) — 68.0% — 58.0s (~542m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [26/310] Q25: CORRECT (got C, correct C) — 69.2% — 111.0s (~539m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [27/310] Q26: WRONG (got A, correct B) — 66.7% — 1.3s (~518m left)
+/home/grizzlyengineer/repo/SaraBrain/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+
+  MMLU High School Biology Benchmark
+  283 questions, model: llama3.2:3b
+
+  [main] Loading neural synthesizer from models/sara-synthesizer-115m...
+  [loader] Loading model from models/sara-synthesizer-115m on cuda...
+  [loader] Detected from-scratch SaraExtractor architecture.
+  --- Sara Brain + 3B (PROSE) ---
+  Brain: data/biology_full_v2_clean.db (102319 neurons, 51474 paths)
+
+    [synth] Generating prose for 5 neurons........ done.
+  [1/283] Q27: CORRECT (got C, correct C) — 100.0% — 101.8s (~479m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [2/283] Q28: CORRECT (got C, correct C) — 100.0% — 218.7s (~751m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [3/283] Q29: WRONG (got B, correct C) — 66.7% — 19.0s (~528m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [4/283] Q30: WRONG (got C, correct D) — 50.0% — 45.3s (~447m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [5/283] Q31: CORRECT (got B, correct B) — 60.0% — 42.5s (~396m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [6/283] Q32: WRONG (got B, correct C) — 50.0% — 118.5s (~420m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [7/283] Q33: CORRECT (got C, correct C) — 57.1% — 229.0s (~509m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [8/283] Q34: WRONG (got C, correct D) — 50.0% — 52.8s (~474m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [9/283] Q35: WRONG (got B, correct C) — 44.4% — 83.7s (~462m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [10/283] Q36: WRONG (got D, correct B) — 40.0% — 21.0s (~424m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [11/283] Q37: CORRECT (got D, correct D) — 45.5% — 26.4s (~395m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [12/283] Q38: WRONG (got B, correct C) — 41.7% — 83.5s (~392m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [13/283] Q39: CORRECT (got B, correct B) — 46.2% — 72.2s (~386m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [14/283] Q40: CORRECT (got A, correct A) — 50.0% — 67.1s (~378m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [15/283] Q41: CORRECT (got D, correct D) — 53.3% — 64.2s (~371m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [16/283] Q42: WRONG (got A, correct B) — 50.0% — 78.9s (~368m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [17/283] Q43: CORRECT (got A, correct A) — 52.9% — 72.6s (~364m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [18/283] Q44: CORRECT (got B, correct B) — 55.6% — 192.6s (~390m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [19/283] Q45: CORRECT (got C, correct C) — 57.9% — 72.9s (~385m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [20/283] Q46: WRONG (got B, correct D) — 55.0% — 70.7s (~380m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [21/283] Q47: CORRECT (got A, correct A) — 57.1% — 105.4s (~382m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [22/283] Q48: CORRECT (got B, correct B) — 59.1% — 3.1s (~364m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [23/283] Q49: WRONG (got D, correct C) — 56.5% — 122.5s (~370m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [24/283] Q50: CORRECT (got D, correct D) — 58.3% — 154.9s (~381m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [25/283] Q51: CORRECT (got A, correct A) — 60.0% — 98.2s (~381m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [26/283] Q52: CORRECT (got A, correct A) — 61.5% — 6.6s (~366m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [27/283] Q53: WRONG (got A, correct D) — 59.3% — 95.2s (~366m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [28/283] Q54: WRONG (got A, correct D) — 57.1% — 109.0s (~369m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [29/283] Q55: CORRECT (got D, correct D) — 58.6% — 225.8s (~387m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [30/283] Q56: WRONG (got A, correct C) — 56.7% — 55.2s (~381m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [31/283] Q57: WRONG (got A, correct B) — 54.8% — 87.2s (~379m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [32/283] Q58: WRONG (got A, correct C) — 53.1% — 242.0s (~397m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [33/283] Q59: WRONG (got B, correct D) — 51.5% — 149.3s (~403m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [34/283] Q60: WRONG (got B, correct D) — 50.0% — 95.1s (~401m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [35/283] Q61: WRONG (got C, correct D) — 48.6% — 25.7s (~391m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [36/283] Q62: WRONG (got C, correct A) — 47.2% — 107.6s (~391m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [37/283] Q63: WRONG (got B, correct C) — 45.9% — 41.0s (~383m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [38/283] Q64: CORRECT (got D, correct D) — 47.4% — 22.6s (~374m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [39/283] Q65: WRONG (got A, correct B) — 46.2% — 81.0s (~371m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [40/283] Q66: WRONG (got B, correct C) — 45.0% — 46.5s (~365m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [41/283] Q67: WRONG (got A, correct C) — 43.9% — 133.0s (~368m left)
+    [synth] Generating prose for 5 neurons........ done.
+  [42/283] Q68: CORRECT (got C, correct C) — 45.2% — 85.9s (~366m left)

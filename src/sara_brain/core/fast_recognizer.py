@@ -34,7 +34,7 @@ class FastRecognizer(Recognizer):
             ctypes.c_int,    # start_node
             ctypes.c_int,    # max_depth
             ctypes.c_float,  # min_strength
-            ctypes.c_bool,   # bidirectional
+            ctypes.c_int,    # propagation_mode
             ctypes.POINTER(ResultNode), # out_results
             ctypes.c_int     # max_results
         ]
@@ -78,8 +78,8 @@ class FastRecognizer(Recognizer):
 
         for seed in seeds:
             count = self._lib.engine_propagate(
-                self._engine, seed.id, self.max_depth, effective_min,
-                False, # propagate_into is typically forward-only in current Python logic
+                self._engine, seed.id, self.max_depth, ctypes.c_float(effective_min),
+                0, # Forward propagation
                 result_buffer, max_res
             )
             for i in range(count):
@@ -101,6 +101,62 @@ class FastRecognizer(Recognizer):
         # However, we can trick it by returning a mock path if we only care about the weight.
         # But let's stay safe for now.
         return super()._propagate(start, min_strength, bidirectional)
+
+    def _propagate_backwave(self, start: Neuron, min_strength: float | None = None) -> dict[int, list[list[Neuron]]]:
+        """Use the C++ engine to perform a True Backwave propagation.
+        Note: The C++ engine only returns node weights, not paths."""
+        effective_min = self.min_strength if min_strength is None else min_strength
+        max_res = 50000
+        results = (ResultNode * max_res)()
+        
+        count = self._lib.engine_propagate(
+            self._engine, start.id, self.max_depth, ctypes.c_float(effective_min),
+            2, # Mode 2: True Backwave
+            results, max_res
+        )
+        
+        # Format the output to look like a path dictionary so callers don't break.
+        # True paths are not available, so we provide mock paths.
+        reached = {}
+        for i in range(count):
+            res = results[i]
+            if res.id == start.id: continue
+            
+            # Create a mock path for the python API compatibility
+            mock_target = self.neuron_repo.get_by_id(res.id)
+            if mock_target:
+                # We inject the weight as a 'strength' attr on the node for scoring
+                mock_target.strength = res.weight 
+                reached[res.id] = [[start, mock_target]]
+                
+        return reached
+
+    def propagate_backwave(self, seed_labels: list[str], short_term,
+                           min_strength: float | None = None,
+                           exact_only: bool = True) -> None:
+        """Optimized True Backwave using C++ engine."""
+        effective_min = self.min_strength if min_strength is None else min_strength
+
+        seeds = []
+        for label in seed_labels:
+            n = self.neuron_repo.resolve(label.strip().lower(), exact_only=exact_only)
+            if n is not None:
+                seeds.append(n)
+        if not seeds: return
+
+        max_res = 50000
+        result_buffer = (ResultNode * max_res)()
+
+        for seed in seeds:
+            count = self._lib.engine_propagate(
+                self._engine, seed.id, self.max_depth, ctypes.c_float(effective_min),
+                2, # Mode 2: True Backwave
+                result_buffer, max_res
+            )
+            for i in range(count):
+                res = result_buffer[i]
+                if res.id == seed.id: continue
+                short_term.add_convergence(res.id, res.weight, seed.id)
 
     # propagate_echo uses self._propagate. To optimize it, we should override it too.
     def propagate_echo(self, seed_labels: list[str], short_term,
@@ -126,8 +182,8 @@ class FastRecognizer(Recognizer):
         for _round in range(max_rounds):
             for seed in current_seeds:
                 count = self._lib.engine_propagate(
-                    self._engine, seed.id, self.max_depth, effective_min,
-                    True, # Echo is bidirectional
+                    self._engine, seed.id, self.max_depth, ctypes.c_float(effective_min),
+                    1, # Mode 1: Bidirectional (Echo)
                     result_buffer, max_res
                 )
                 for i in range(count):

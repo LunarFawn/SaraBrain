@@ -91,6 +91,8 @@ def load_substrate_edges(db_path: Path) -> list[Edge]:
     for src, rel, tgt, strength in rows:
         if rel in _NOISE_RELATIONS_FOR_LABELER:
             continue
+        if rel == "synonym_of":
+            continue
         out.append(Edge(
             src=src.replace("_attribute", ""),
             rel=rel,

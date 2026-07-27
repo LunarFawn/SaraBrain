@@ -18,21 +18,38 @@ from ..storage.segment_repo import SegmentRepo
 # to solve.
 _NON_PROPAGATING_RELATIONS = frozenset({"is_a"})
 
+# ---- Adaptive Depth Control ----
+# Hub nodes (high connectivity) cost more depth budget to traverse.
+# Specific nodes (low connectivity) cost less. This lets associative
+# paths through hubs still work — a thought CAN pass through "cell" —
+# but it spends more of its depth budget doing so, naturally limiting
+# how far the flood goes after hitting a hub.
+#
+# depth_cost_factor: controls how aggressively hubs are penalized.
+#   0.0 = all nodes cost 1 depth (original behavior, no hub penalty)
+#   1.0 = a node with 100 edges costs ~7 depth (log2(101))
+#   0.5 = moderate penalty (default)
+#
+# Adjust this globally to tune the balance between associative
+# wandering (low values) and focused retrieval (high values).
+DEPTH_COST_FACTOR = 0.5
+
 
 class Recognizer:
     def __init__(
         self,
         neuron_repo: NeuronRepo,
         segment_repo: SegmentRepo,
-        max_depth: int = 3,
+        max_depth: int = 8,
         min_strength: float = 0.5,
     ) -> None:
         """Propagation engine for path-of-thought recognition.
 
-        max_depth: BFS hop limit. Shallow is the right default — biological
-            signals converge in a few hops. Large max_depth floods a dense
-            graph and makes every concept appear to intersect with every
-            other one (the transformer attention problem).
+        max_depth: Total depth BUDGET for adaptive traversal. Each node
+            costs 1 + DEPTH_COST_FACTOR * log2(connectivity + 1) to pass
+            through. Specific nodes (few edges) cost ~1.5, hubs (many
+            edges) cost ~5+. A budget of 8 allows ~5 hops through
+            specific nodes or ~1-2 hops through hubs.
         min_strength: Segments below this are pruned from traversal. Weak
             associations (0.1) and refuted segments (<0) get filtered out
             by default. Pass 0.0 to include everything (useful for
@@ -42,6 +59,33 @@ class Recognizer:
         self.segment_repo = segment_repo
         self.max_depth = max_depth
         self.min_strength = min_strength
+        # In-memory segment cache — avoids repeated SQLite queries during
+        # propagation. Lazily populated on first wavefront launch.
+        self._outgoing_cache: dict[int, list] | None = None
+        self._incoming_cache: dict[int, list] | None = None
+
+    def _ensure_cache(self) -> None:
+        """Load all segments into memory for fast propagation."""
+        if self._outgoing_cache is not None:
+            return
+        from collections import defaultdict
+        self._outgoing_cache = defaultdict(list)
+        self._incoming_cache = defaultdict(list)
+        for seg in self.segment_repo.list_all():
+            self._outgoing_cache[seg.source_id].append(seg)
+            self._incoming_cache[seg.target_id].append(seg)
+
+    def _get_outgoing(self, node_id: int) -> list:
+        """Get outgoing segments (cached)."""
+        if self._outgoing_cache is not None:
+            return self._outgoing_cache.get(node_id, [])
+        return self.segment_repo.get_outgoing(node_id)
+
+    def _get_incoming(self, node_id: int) -> list:
+        """Get incoming segments (cached)."""
+        if self._incoming_cache is not None:
+            return self._incoming_cache.get(node_id, [])
+        return self.segment_repo.get_incoming(node_id)
 
     def recognize(self, input_labels: list[str],
                   min_strength: float | None = None) -> list[RecognitionResult]:
@@ -124,6 +168,11 @@ class Recognizer:
 
         Segments with strength < min_strength are pruned from traversal.
 
+        Adaptive depth: each node costs depth proportional to its
+        connectivity. Hubs cost more depth budget to pass through,
+        naturally limiting how far a wavefront can spread after hitting
+        a highly-connected node. Controlled by DEPTH_COST_FACTOR.
+
         When bidirectional=True, each step follows BOTH outgoing AND
         incoming edges. This lets wavefronts that start from concept
         neurons (which are path termini with no outgoing edges) discover
@@ -133,15 +182,36 @@ class Recognizer:
         if min_strength is None:
             min_strength = self.min_strength
 
+        import math
+
         reached: dict[int, list[list[Neuron]]] = {}
         best_weights: dict[int, float] = {start.id: 0.0}
-        # Queue stores: (current_neuron, path, total_strength, path_length)
-        queue: list[tuple[Neuron, list[Neuron], float, int]] = [(start, [start], 0.0, 0)]
+        # Queue stores: (current_neuron, path, total_strength, path_length, depth_spent)
+        # depth_spent tracks the adaptive cost accumulated so far
+        queue: list[tuple[Neuron, list[Neuron], float, int, float]] = [
+            (start, [start], 0.0, 0, 0.0)
+        ]
 
-        depth = 0
-        while queue and depth < self.max_depth:
-            next_queue: list[tuple[Neuron, list[Neuron], float, int]] = []
-            for current, path, total_str, path_len in queue:
+        while queue:
+            next_queue: list[tuple[Neuron, list[Neuron], float, int, float]] = []
+            for current, path, total_str, path_len, depth_spent in queue:
+                # Calculate depth cost of passing THROUGH this node
+                # High connectivity = higher cost
+                if DEPTH_COST_FACTOR > 0:
+                    out_count = len(self.segment_repo.get_outgoing(current.id))
+                    in_count = len(self.segment_repo.get_incoming(current.id))
+                    connectivity = out_count + in_count
+                    # Cost: 1 + factor * log2(connectivity + 1)
+                    # "mitotic spindle" (3 edges): cost = 1 + 0.5*2 = 2.0
+                    # "cell" (500 edges): cost = 1 + 0.5*9 = 5.5
+                    node_cost = 1.0 + DEPTH_COST_FACTOR * math.log2(connectivity + 1)
+                else:
+                    node_cost = 1.0  # Original flat behavior
+
+                new_depth = depth_spent + node_cost
+                if new_depth > self.max_depth:
+                    continue  # This node exhausted the depth budget
+
                 # Outgoing edges: property → relation → concept
                 for seg in self.segment_repo.get_outgoing(current.id):
                     if seg.strength < min_strength:
@@ -160,7 +230,7 @@ class Recognizer:
                         best_weights[target.id] = avg
                         new_path = path + [target]
                         reached.setdefault(target.id, []).append(new_path)
-                        next_queue.append((target, new_path, new_total, new_len))
+                        next_queue.append((target, new_path, new_total, new_len, new_depth))
                         
                 # Incoming edges: concept ← relation ← property
                 if bidirectional:
@@ -181,9 +251,8 @@ class Recognizer:
                             best_weights[source.id] = avg
                             new_path = path + [source]
                             reached.setdefault(source.id, []).append(new_path)
-                            next_queue.append((source, new_path, new_total, new_len))
+                            next_queue.append((source, new_path, new_total, new_len, new_depth))
             queue = next_queue
-            depth += 1
 
         return reached
 

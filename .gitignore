@@ -45,3 +45,4 @@ training_data/
 # Individual data files that exceed GitHub's 100MB push limit
 data/biology_full_v2_clean.db
 data/biology_synth_pairs.jsonl
+sara-brain-session-7-27-26.json

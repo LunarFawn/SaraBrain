@@ -16,7 +16,7 @@ from ..storage.segment_repo import SegmentRepo
 # …). That would cross-contaminate unrelated specializations sharing
 # a head noun — the transformer polysemy problem this graph is meant
 # to solve.
-_NON_PROPAGATING_RELATIONS = frozenset({"is_a"})
+_NON_PROPAGATING_RELATIONS = frozenset({"is_a", "part_of", "describes"})
 
 # ---- Adaptive Depth Control ----
 # Hub nodes (high connectivity) cost more depth budget to traverse.

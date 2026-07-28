@@ -153,7 +153,7 @@ class Recognizer:
         for i in range(len(path_neurons) - 1):
             src_id = path_neurons[i].id
             tgt_id = path_neurons[i + 1].id
-            segments = self.segment_repo.get_outgoing(src_id)
+            segments = self._get_outgoing(src_id)
             for seg in segments:
                 if seg.target_id == tgt_id:
                     total += seg.strength
@@ -183,6 +183,7 @@ class Recognizer:
             min_strength = self.min_strength
 
         import math
+        self._ensure_cache()
 
         reached: dict[int, list[list[Neuron]]] = {}
         best_weights: dict[int, float] = {start.id: 0.0}
@@ -198,8 +199,8 @@ class Recognizer:
                 # Calculate depth cost of passing THROUGH this node
                 # High connectivity = higher cost
                 if DEPTH_COST_FACTOR > 0:
-                    out_count = len(self.segment_repo.get_outgoing(current.id))
-                    in_count = len(self.segment_repo.get_incoming(current.id))
+                    out_count = len(self._get_outgoing(current.id))
+                    in_count = len(self._get_incoming(current.id))
                     connectivity = out_count + in_count
                     # Cost: 1 + factor * log2(connectivity + 1)
                     # "mitotic spindle" (3 edges): cost = 1 + 0.5*2 = 2.0
@@ -213,7 +214,7 @@ class Recognizer:
                     continue  # This node exhausted the depth budget
 
                 # Outgoing edges: property → relation → concept
-                for seg in self.segment_repo.get_outgoing(current.id):
+                for seg in self._get_outgoing(current.id):
                     if seg.strength < min_strength:
                         continue
                     if seg.relation in _NON_PROPAGATING_RELATIONS:
@@ -234,7 +235,7 @@ class Recognizer:
                         
                 # Incoming edges: concept ← relation ← property
                 if bidirectional:
-                    for seg in self.segment_repo.get_incoming(current.id):
+                    for seg in self._get_incoming(current.id):
                         if seg.strength < min_strength:
                             continue
                         if seg.relation in _NON_PROPAGATING_RELATIONS:
@@ -282,7 +283,7 @@ class Recognizer:
                 
                 # Try forward if direction is F
                 if direction == "F":
-                    outgoing = [seg for seg in self.segment_repo.get_outgoing(current.id) 
+                    outgoing = [seg for seg in self._get_outgoing(current.id) 
                                 if seg.strength >= min_strength and seg.relation not in _NON_PROPAGATING_RELATIONS]
                     
                     if not outgoing:
@@ -305,7 +306,7 @@ class Recognizer:
                 
                 # If direction is B (or just flipped to B)
                 if direction == "B":
-                    incoming = [seg for seg in self.segment_repo.get_incoming(current.id)
+                    incoming = [seg for seg in self._get_incoming(current.id)
                                 if seg.strength >= min_strength and seg.relation not in _NON_PROPAGATING_RELATIONS]
                     for seg in incoming:
                         new_total = total_str + seg.strength
@@ -339,7 +340,7 @@ class Recognizer:
                         if pair in strengthened:
                             continue
                         strengthened.add(pair)
-                        segments = self.segment_repo.get_outgoing(pair[0])
+                        segments = self._get_outgoing(pair[0])
                         for seg in segments:
                             if seg.target_id == pair[1]:
                                 self.segment_repo.strengthen(seg)
@@ -362,7 +363,7 @@ class Recognizer:
         for _ in range(max_hops):
             next_frontier: list[int] = []
             for nid in frontier:
-                for seg in self.segment_repo.get_outgoing(nid):
+                for seg in self._get_outgoing(nid):
                     if seg.relation != "is_a":
                         continue
                     if seg.target_id in seen:
@@ -546,8 +547,8 @@ class Recognizer:
                     n = self.neuron_repo.get_by_id(nid)
                     if n:
                         # Connectivity penalty: weight / (conn + 1)
-                        out_count = len(self.segment_repo.get_outgoing(nid))
-                        in_count = len(self.segment_repo.get_incoming(nid))
+                        out_count = len(self._get_outgoing(nid))
+                        in_count = len(self._get_incoming(nid))
                         connectivity = out_count + in_count
                         
                         # Inhibit hubs from becoming seeds

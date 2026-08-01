@@ -280,8 +280,27 @@ class Learner:
     def _link_sub_concepts(self, neuron) -> tuple[int, int]:
         """If neuron label is multi-word, create word → compound segments.
 
+        Skips function words (the, and, is, etc.) that would create
+        noise hub connections. Only content words get part_of edges.
+
         Returns (neurons_created, segments_created).
         """
+        _SKIP_WORDS = frozenset({
+            'the','a','an','of','to','in','on','at','by','for','with','as',
+            'is','are','was','were','be','been','being','am',
+            'do','does','did','have','has','had',
+            'will','would','could','should','can','may','might','shall',
+            'this','that','these','those','it','its','they','them','their',
+            'we','our','us','he','she','his','her','him','you','your','my',
+            'me','i','who','which','what','where','when','how','why',
+            'if','then','than','but','or','and','not','no','nor',
+            'so','yet','both','either','each','every','all','any','some',
+            'many','much','more','most','few','other','also','very',
+            'just','only','even','still','about','after','before',
+            'between','during','from','into','through','over','under',
+            'up','down','out','off','—','-',',','.',';',':',
+        })
+
         words = neuron.label.split()
         if len(words) < 2:
             return 0, 0
@@ -290,7 +309,7 @@ class Learner:
         segments_created = 0
         for word in words:
             word = word.strip()
-            if not word:
+            if not word or word.lower() in _SKIP_WORDS or len(word) < 3:
                 continue
             word_neuron, created = self.neuron_repo.get_or_create(
                 word, NeuronType.PROPERTY

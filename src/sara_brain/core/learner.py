@@ -178,6 +178,22 @@ class Learner:
                 # the operation tag.
                 pass
 
+        # 4c. Direct forward semantic edge: subject → [relation] → object
+        # Sara's internal model stores property → relation → concept
+        # (object → relation_node → subject), which is inverted from
+        # natural language direction. This direct edge lets the wavefront
+        # traverse forward from subject to object, matching how questions
+        # are asked: "what does X produce?" → X → produces → Y.
+        # This is the "semantic highway" that bypasses the 3-node chain.
+        if not refute:
+            seg_direct, created = self.segment_repo.get_or_create(
+                concept_neuron.id, prop_neuron.id, parsed.relation
+            )
+            if created:
+                segments_created += 1
+            elif source_label is None or self._record_source(seg_direct, source_label):
+                self.segment_repo.strengthen(seg_direct)
+
         # 5. Record the path. Source_text is NEVER prefixed or mutated.
         path = Path(
             id=None,

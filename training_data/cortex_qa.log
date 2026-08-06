@@ -1,0 +1,163 @@
+/home/grizzlyengineer/repo/SaraBrain/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+Device: cuda
+Base vocab: 192, Extended: 392
+Train: 33717, Val: 50
+Params: 115,126,665 (115.1M)
+  >>> initial sample: . ? . ? ? . ? . ? . . ? . . ? . . . . ? . . ? . . ? . . ? . ? . . ? . . ? . ? . ? . ? . . . ? . . . ? . ? . . ? . ? . . 
+  step=500/30000 loss=0.1144 lr=0.000050 (36s)
+  step=1000/30000 loss=0.0816 lr=0.000100 (72s)
+  >>> val loss: 0.1301
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  >>> new best!
+  step=1500/30000 loss=0.1138 lr=0.000150 (108s)
+  step=2000/30000 loss=0.0045 lr=0.000200 (145s)
+  >>> val loss: 0.1285
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf what t_end
+  >>> new best!
+  step=2500/30000 loss=0.2709 lr=0.000250 (181s)
+  step=3000/30000 loss=0.1496 lr=0.000300 (216s)
+  >>> val loss: 0.2237
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=3500/30000 loss=0.4446 lr=0.000300 (251s)
+  step=4000/30000 loss=0.0251 lr=0.000299 (286s)
+  >>> val loss: 0.2686
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=4500/30000 loss=0.0301 lr=0.000298 (321s)
+  step=5000/30000 loss=0.2435 lr=0.000296 (355s)
+  >>> val loss: 0.1111
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  >>> new best!
+  step=5500/30000 loss=0.1594 lr=0.000294 (391s)
+  step=6000/30000 loss=0.2095 lr=0.000291 (426s)
+  >>> val loss: 0.1294
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=6500/30000 loss=0.0440 lr=0.000288 (460s)
+  step=7000/30000 loss=0.5794 lr=0.000284 (494s)
+  >>> val loss: 0.1518
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=7500/30000 loss=0.1178 lr=0.000280 (529s)
+  step=8000/30000 loss=0.8675 lr=0.000275 (564s)
+  >>> val loss: 0.0738
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  >>> new best!
+  step=8500/30000 loss=0.2949 lr=0.000270 (599s)
+  step=9000/30000 loss=0.0272 lr=0.000265 (634s)
+  >>> val loss: 0.1137
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=9500/30000 loss=0.2135 lr=0.000259 (668s)
+  step=10000/30000 loss=0.6269 lr=0.000253 (703s)
+  >>> val loss: 0.1054
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=10500/30000 loss=0.2138 lr=0.000246 (739s)
+  step=11000/30000 loss=0.0121 lr=0.000240 (773s)
+  >>> val loss: 0.1356
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=11500/30000 loss=0.1844 lr=0.000232 (807s)
+  step=12000/30000 loss=0.3072 lr=0.000225 (841s)
+  >>> val loss: 0.0959
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=12500/30000 loss=0.0308 lr=0.000217 (875s)
+  step=13000/30000 loss=0.1768 lr=0.000209 (910s)
+  >>> val loss: 0.1326
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=13500/30000 loss=0.0628 lr=0.000201 (944s)
+  step=14000/30000 loss=0.0719 lr=0.000193 (978s)
+  >>> val loss: 0.1136
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=14500/30000 loss=0.3136 lr=0.000185 (1012s)
+  step=15000/30000 loss=0.7076 lr=0.000176 (1047s)
+  >>> val loss: 0.1252
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=15500/30000 loss=0.1307 lr=0.000167 (1083s)
+  step=16000/30000 loss=0.4771 lr=0.000159 (1117s)
+  >>> val loss: 0.1357
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=16500/30000 loss=0.0163 lr=0.000150 (1151s)
+  step=17000/30000 loss=0.2526 lr=0.000141 (1185s)
+  >>> val loss: 0.0957
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=17500/30000 loss=0.0772 lr=0.000133 (1220s)
+  step=18000/30000 loss=0.0948 lr=0.000124 (1254s)
+  >>> val loss: 0.1188
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=18500/30000 loss=0.2144 lr=0.000115 (1289s)
+  step=19000/30000 loss=0.0064 lr=0.000107 (1323s)
+  >>> val loss: 0.1208
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=19500/30000 loss=0.1874 lr=0.000099 (1357s)
+  step=20000/30000 loss=0.1912 lr=0.000091 (1391s)
+  >>> val loss: 0.1291
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=20500/30000 loss=0.0003 lr=0.000083 (1427s)
+  step=21000/30000 loss=0.2901 lr=0.000075 (1461s)
+  >>> val loss: 0.1237
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=21500/30000 loss=0.0005 lr=0.000068 (1495s)
+  step=22000/30000 loss=0.1895 lr=0.000060 (1530s)
+  >>> val loss: 0.1192
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=22500/30000 loss=0.0076 lr=0.000054 (1564s)
+  step=23000/30000 loss=0.0057 lr=0.000047 (1598s)
+  >>> val loss: 0.1158
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=23500/30000 loss=0.0457 lr=0.000041 (1632s)
+  step=24000/30000 loss=0.1871 lr=0.000035 (1667s)
+  >>> val loss: 0.1066
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=24500/30000 loss=0.0891 lr=0.000030 (1701s)
+  step=25000/30000 loss=0.0006 lr=0.000025 (1735s)
+  >>> val loss: 0.1101
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=25500/30000 loss=0.1918 lr=0.000020 (1771s)
+  step=26000/30000 loss=0.2555 lr=0.000016 (1805s)
+  >>> val loss: 0.1134
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=26500/30000 loss=0.0338 lr=0.000012 (1840s)
+  step=27000/30000 loss=0.3496 lr=0.000009 (1874s)
+  >>> val loss: 0.1139
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=27500/30000 loss=0.3022 lr=0.000006 (1908s)
+  step=28000/30000 loss=0.3759 lr=0.000004 (1942s)
+  >>> val loss: 0.1160
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=28500/30000 loss=0.1262 lr=0.000002 (1977s)
+  step=29000/30000 loss=0.1606 lr=0.000001 (2010s)
+  >>> val loss: 0.1150
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+  step=29500/30000 loss=0.4934 lr=0.000000 (2045s)
+  step=30000/30000 loss=0.3617 lr=0.000000 (2079s)
+  >>> val loss: 0.1149
+  >>> expected: t_start leaf t_end
+  >>> generated: t_start leaf t_end
+
+Done in 2080s (0.6h). Best val loss: 0.0738

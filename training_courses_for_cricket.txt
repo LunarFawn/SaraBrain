@@ -1,0 +1,25 @@
+# Training Courses for Cricket
+
+## Machine Learning / Deep Learning Fundamentals
+
+- **Fast.ai** (fast.ai) — Jeremy Howard's free course. Practical, top-down, builds real models from day one. Best starting point if you learn by doing.
+- **Andrej Karpathy's "Neural Networks: Zero to Hero"** (YouTube) — builds GPT from scratch in Python. You'll understand exactly how transformers work at the code level.
+
+## Transformers Specifically
+
+- **Karpathy's "Let's build GPT"** video — single best resource for understanding the attention mechanism, tokenization, and training loop. Everything we're doing with the cortex is based on this.
+
+## Knowledge Graphs + Reasoning
+
+- **Stanford CS224W: Machine Learning with Graphs** (free online) — covers graph neural networks, knowledge graph reasoning, propagation algorithms. Directly relevant to wavefront propagation.
+
+## The Intersection (what Sara Brain is)
+
+- **Stanford CS224N: Natural Language Processing with Deep Learning** — covers attention, transformers, question answering, knowledge-grounded generation. The last few lectures hit exactly where we are.
+
+## Priority Order
+
+1. **Karpathy's Zero to Hero** — understand every line of the training scripts we run
+2. **Fast.ai** — practical skills to design and debug architectures
+3. **CS224W (Graphs)** — understand why wavefront propagation works and how to improve it
+4. **CS224N (NLP)** — the full picture of how language models reason over knowledge

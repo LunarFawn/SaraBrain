@@ -1,0 +1,114 @@
+/home/grizzlyengineer/repo/SaraBrain/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+Device: cuda
+Base vocab: 192, Extended: 392
+Train: 6694, Val: 50
+Params: 115,126,665 (115.1M)
+  >>> initial sample: b potential b potential b monitor there as as as as as as . b , b potential b potential there as as as as as as as as as
+  step=500/20000 loss=1.1345 lr=0.000075 (37s)
+  step=1000/20000 loss=0.2463 lr=0.000150 (73s)
+  >>> val loss: 0.2545
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> <unk> and a <unk> t_end
+  >>> new best!
+  step=1500/20000 loss=0.1638 lr=0.000225 (109s)
+  step=2000/20000 loss=0.1068 lr=0.000300 (144s)
+  >>> val loss: 0.2262
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> <unk> and a <unk> t_end
+  >>> new best!
+  step=2500/20000 loss=0.3093 lr=0.000299 (179s)
+  step=3000/20000 loss=0.2302 lr=0.000298 (215s)
+  >>> val loss: 0.1939
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> <unk> and a <unk> t_end
+  >>> new best!
+  step=3500/20000 loss=0.2389 lr=0.000295 (250s)
+  step=4000/20000 loss=0.6239 lr=0.000291 (286s)
+  >>> val loss: 0.0951
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> <unk> and <unk> <unk> t_end
+  >>> new best!
+  step=4500/20000 loss=0.2277 lr=0.000286 (322s)
+  step=5000/20000 loss=0.0721 lr=0.000280 (357s)
+  >>> val loss: 0.1581
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start a <unk> of a <unk> and <unk> <unk> t_end
+  step=5500/20000 loss=0.1570 lr=0.000273 (394s)
+  step=6000/20000 loss=0.1132 lr=0.000265 (429s)
+  >>> val loss: 0.1609
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> and a many <unk> t_end
+  step=6500/20000 loss=0.0838 lr=0.000256 (464s)
+  step=7000/20000 loss=0.1316 lr=0.000246 (499s)
+  >>> val loss: 0.1757
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> <unk> and a <unk> t_end
+  step=7500/20000 loss=0.0551 lr=0.000236 (535s)
+  step=8000/20000 loss=0.0930 lr=0.000225 (570s)
+  >>> val loss: 0.1112
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> <unk> and a <unk> t_end
+  step=8500/20000 loss=0.1189 lr=0.000213 (606s)
+  step=9000/20000 loss=0.0948 lr=0.000201 (641s)
+  >>> val loss: 0.1120
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> <unk> and a <unk> t_end
+  step=9500/20000 loss=0.1088 lr=0.000189 (676s)
+  step=10000/20000 loss=0.0150 lr=0.000176 (711s)
+  >>> val loss: 0.1272
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> <unk> and a <unk> t_end
+  step=10500/20000 loss=0.0657 lr=0.000163 (748s)
+  step=11000/20000 loss=0.0225 lr=0.000150 (782s)
+  >>> val loss: 0.0852
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> <unk> and a <unk> t_end
+  >>> new best!
+  step=11500/20000 loss=0.0549 lr=0.000137 (818s)
+  step=12000/20000 loss=0.0096 lr=0.000124 (854s)
+  >>> val loss: 0.1073
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> <unk> and a <unk> t_end
+  step=12500/20000 loss=0.0952 lr=0.000111 (889s)
+  step=13000/20000 loss=0.0104 lr=0.000099 (924s)
+  >>> val loss: 0.1039
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> <unk> and a <unk> t_end
+  step=13500/20000 loss=0.0435 lr=0.000087 (960s)
+  step=14000/20000 loss=0.0668 lr=0.000075 (995s)
+  >>> val loss: 0.0905
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> <unk> and a <unk> t_end
+  step=14500/20000 loss=0.0616 lr=0.000064 (1030s)
+  step=15000/20000 loss=0.0003 lr=0.000054 (1065s)
+  >>> val loss: 0.1257
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> <unk> and a <unk> t_end
+  step=15500/20000 loss=0.0106 lr=0.000044 (1101s)
+  step=16000/20000 loss=0.0058 lr=0.000035 (1136s)
+  >>> val loss: 0.1082
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> <unk> and a <unk> t_end
+  step=16500/20000 loss=0.0133 lr=0.000027 (1171s)
+  step=17000/20000 loss=0.0018 lr=0.000020 (1207s)
+  >>> val loss: 0.1401
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> <unk> and a <unk> t_end
+  step=17500/20000 loss=0.0000 lr=0.000014 (1243s)
+  step=18000/20000 loss=0.0000 lr=0.000009 (1278s)
+  >>> val loss: 0.1448
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> <unk> and a <unk> t_end
+  step=18500/20000 loss=0.2086 lr=0.000005 (1313s)
+  step=19000/20000 loss=0.0909 lr=0.000002 (1347s)
+  >>> val loss: 0.1482
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> <unk> and a <unk> t_end
+  step=19500/20000 loss=0.0132 lr=0.000001 (1383s)
+  step=20000/20000 loss=0.0001 lr=0.000000 (1417s)
+  >>> val loss: 0.1491
+  >>> expected: t_start nucleic acid and a capsid t_end
+  >>> generated: t_start <unk> <unk> and a <unk> t_end
+
+Done in 1419s (0.4h). Best val loss: 0.0852

@@ -101,3 +101,44 @@
 {"subject": "connective tissue", "relation": "contains", "object": "bone cartilage and blood", "source": "Connective tissue includes bone, cartilage, adipose tissue, and blood."}
 {"subject": "muscle tissue", "relation": "is_a", "object": "separate tissue type", "source": "Muscle tissue (skeletal, smooth, cardiac) is not connective tissue."}
 {"subject": "meristematic tissue", "relation": "involves", "object": "active cell division", "source": "Meristematic tissue at shoot and root tips undergoes rapid mitosis."}
+{"subject": "early earth atmosphere", "relation": "prevents", "object": "free oxygen", "source": "Early Earth's atmosphere lacked free oxygen and was reducing."}
+{"subject": "convergent evolution", "relation": "involves", "object": "wings of insects and birds", "source": "Wings of insects and birds are analogous structures from convergent evolution."}
+{"subject": "shoot tip", "relation": "contains", "object": "actively dividing cells", "source": "A longitudinal section of a shoot tip shows many cells in mitosis."}
+{"subject": "forest fires", "relation": "enables", "object": "removal of dead matter", "source": "Periodic fires remove dead and decaying plant matter, recycling nutrients."}
+{"subject": "predation pressure", "relation": "causes", "object": "selection for survival traits", "source": "Predation pressure selects for traits that increase survival like larger body size or earlier maturity."}
+{"subject": "memory cells", "relation": "enables", "object": "faster immune response", "source": "Memory cells respond faster and stronger upon second exposure to the same pathogen."}
+{"subject": "pleiotropy", "relation": "involves", "object": "one gene affecting multiple traits", "source": "Pleiotropy occurs when one gene influences multiple seemingly unrelated phenotypes."}
+{"subject": "arbovirus", "relation": "involves", "object": "arthropod transmission", "source": "Arboviruses like Zika, West Nile, and Dengue are transmitted by arthropod vectors."}
+{"subject": "darwin", "relation": "involves", "object": "population level evolution", "source": "Darwin recognized that populations evolve, not individuals."}
+{"subject": "phospholipids", "relation": "contains", "object": "hydrophilic head", "source": "Phospholipids have a hydrophilic (water-soluble) head and hydrophobic tails."}
+{"subject": "endosymbiosis", "relation": "involves", "object": "organelles separating reactions", "source": "Endosymbiotic organelles separate specific chemical reactions increasing metabolic efficiency."}
+{"subject": "vaccination", "relation": "produces", "object": "increased lymphocytes", "source": "Vaccination increases the number of lymphocytes with receptors for a specific pathogen."}
+{"subject": "mutualism", "relation": "involves", "object": "both species benefit", "source": "Mutualism is a symbiotic relationship where both species benefit."}
+{"subject": "mycorrhizae", "relation": "is_a", "object": "mutualism", "source": "Mycorrhizal fungi form mutualistic associations with plant roots."}
+{"subject": "ADH", "relation": "regulates", "object": "water reabsorption", "source": "ADH (antidiuretic hormone) promotes water reabsorption in the kidneys."}
+{"subject": "ADH", "relation": "produces", "object": "concentrated urine", "source": "ADH reduces urine volume by increasing water reabsorption."}
+{"subject": "insulin", "relation": "activates", "object": "glycogen storage", "source": "Insulin promotes glycogen synthesis and storage of glucose."}
+{"subject": "barr body", "relation": "is_a", "object": "inactivated X chromosome", "source": "A Barr body is a condensed, inactivated X chromosome in female mammals."}
+{"subject": "mutation", "relation": "is_a", "object": "source of new alleles", "source": "All new alleles arise from mutations in DNA."}
+{"subject": "mutation", "relation": "produces", "object": "genetic variation", "source": "Mutations are the ultimate source of all genetic variation."}
+{"subject": "restriction enzymes", "relation": "involves", "object": "bacterial defense", "source": "Restriction enzymes are bacterial proteins that cut DNA at specific sequences."}
+{"subject": "EcoR1", "relation": "is_a", "object": "restriction enzyme", "source": "EcoR1 is a restriction enzyme from E. coli that cuts at GAATTC."}
+{"subject": "parthenogenesis", "relation": "involves", "object": "development without fertilization", "source": "Parthenogenesis is the development of an embryo from an unfertilized egg."}
+{"subject": "sexual selection", "relation": "involves", "object": "ornamental displays", "source": "Male ornamental displays like bowerbird decorations result from sexual selection."}
+{"subject": "heterozygosity", "relation": "involves", "object": "different alleles at a locus", "source": "Heterozygous loci have two different alleles."}
+{"subject": "homozygous loci", "relation": "involves", "object": "identical alleles", "source": "If 46% of loci are heterozygous, then 54% are homozygous."}
+{"subject": "natural selection", "relation": "involves", "object": "populations not individuals", "source": "The smallest entity that can evolve through natural selection is a population."}
+{"subject": "vestigial structures", "relation": "involves", "object": "reduced function", "source": "Vestigial structures have reduced or no function but indicate evolutionary history."}
+{"subject": "appendix", "relation": "contains", "object": "lymphoid tissue", "source": "The human appendix contains lymphoid tissue and may function in immunity."}
+{"subject": "evolution", "relation": "is_a", "object": "differential survival and reproduction", "source": "Evolution is the differential survival and reproduction of individuals with favorable traits."}
+{"subject": "DDT resistance", "relation": "involves", "object": "pre-existing variation", "source": "Pesticide resistance arises because some individuals already carry resistance alleles before exposure."}
+{"subject": "anaerobic respiration", "relation": "produces", "object": "less ATP than aerobic", "source": "Without oxygen, cells use fermentation which produces much less ATP per glucose."}
+{"subject": "fermentation", "relation": "requires", "object": "more glucose consumption", "source": "Cells using fermentation must consume more glucose to meet energy needs."}
+{"subject": "tropical rainforest", "relation": "contains", "object": "highest species diversity", "source": "Tropical rainforests have the highest species richness of any terrestrial biome."}
+{"subject": "nucleotide mutations", "relation": "produces", "object": "new alleles", "source": "All new alleles are ultimately the result of nucleotide mutations in DNA."}
+{"subject": "lipids", "relation": "involves", "object": "hydrophobic molecules", "source": "Lipids are hydrophobic molecules including fats, phospholipids, and steroids."}
+{"subject": "saturated fats", "relation": "contains", "object": "no double bonds", "source": "Saturated fatty acids have no carbon-carbon double bonds."}
+{"subject": "unsaturated fats", "relation": "contains", "object": "double bonds", "source": "Unsaturated fatty acids contain one or more carbon-carbon double bonds."}
+{"subject": "homeostasis", "relation": "involves", "object": "maintaining stable conditions", "source": "Homeostasis maintains stable internal conditions despite external changes."}
+{"subject": "negative feedback", "relation": "involves", "object": "reversing a change", "source": "Negative feedback loops reverse a change to maintain a set point."}
+{"subject": "positive feedback", "relation": "involves", "object": "amplifying a change", "source": "Positive feedback amplifies a change away from normal (e.g., childbirth contractions)."}

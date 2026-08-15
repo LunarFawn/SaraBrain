@@ -1,0 +1,103 @@
+{"subject": "directional selection", "relation": "is_a", "object": "natural selection", "source": "Directional selection favors one extreme phenotype over others."}
+{"subject": "directional selection", "relation": "causes", "object": "shift in population mean", "source": "Directional selection shifts the population mean toward one phenotypic extreme."}
+{"subject": "stabilizing selection", "relation": "prevents", "object": "extreme phenotypes", "source": "Stabilizing selection favors intermediate phenotypes and acts against extremes."}
+{"subject": "disruptive selection", "relation": "produces", "object": "two extreme phenotypes", "source": "Disruptive selection favors both extremes simultaneously."}
+{"subject": "sexual selection", "relation": "involves", "object": "mate choice", "source": "Sexual selection occurs through mate choice and competition for mates."}
+{"subject": "natural selection", "relation": "requires", "object": "variation", "source": "Natural selection can only act on heritable variation in a population."}
+{"subject": "natural selection", "relation": "requires", "object": "differential reproduction", "source": "Natural selection requires that some individuals reproduce more than others."}
+{"subject": "genetic drift", "relation": "occurs_in", "object": "small populations", "source": "Genetic drift has a larger effect on small populations."}
+{"subject": "genetic drift", "relation": "causes", "object": "random allele frequency changes", "source": "Genetic drift causes random changes in allele frequency unrelated to fitness."}
+{"subject": "gene flow", "relation": "involves", "object": "migration between populations", "source": "Gene flow occurs when individuals migrate and introduce new alleles."}
+{"subject": "founder effect", "relation": "is_a", "object": "genetic drift", "source": "The founder effect occurs when a small group establishes a new population."}
+{"subject": "bottleneck effect", "relation": "is_a", "object": "genetic drift", "source": "A population bottleneck drastically reduces genetic diversity."}
+{"subject": "hardy-weinberg equilibrium", "relation": "requires", "object": "no evolution occurring", "source": "Hardy-Weinberg equilibrium assumes no selection, drift, mutation, migration, or non-random mating."}
+{"subject": "convergent evolution", "relation": "produces", "object": "analogous structures", "source": "Convergent evolution produces similar features in unrelated species."}
+{"subject": "divergent evolution", "relation": "produces", "object": "homologous structures", "source": "Divergent evolution produces different structures from a common ancestor."}
+{"subject": "homologous structures", "relation": "indicates", "object": "common ancestor", "source": "Homologous structures are inherited from a shared ancestor."}
+{"subject": "analogous structures", "relation": "results_in", "object": "convergent evolution", "source": "Analogous structures evolved independently in different lineages."}
+{"subject": "adaptive radiation", "relation": "involves", "object": "rapid speciation", "source": "Adaptive radiation produces many new species filling available niches."}
+{"subject": "speciation", "relation": "requires", "object": "reproductive isolation", "source": "Speciation requires reproductive isolation between populations."}
+{"subject": "allopatric speciation", "relation": "requires", "object": "geographic isolation", "source": "Allopatric speciation occurs when populations are geographically separated."}
+{"subject": "sympatric speciation", "relation": "occurs_in", "object": "same geographic area", "source": "Sympatric speciation occurs without geographic separation."}
+{"subject": "mitochondria", "relation": "produces", "object": "ATP", "source": "Mitochondria produce ATP through oxidative phosphorylation."}
+{"subject": "mitochondria", "relation": "contains", "object": "own DNA", "source": "Mitochondria have their own circular DNA inherited maternally."}
+{"subject": "chloroplasts", "relation": "produces", "object": "glucose", "source": "Chloroplasts convert light energy into glucose through photosynthesis."}
+{"subject": "chloroplasts", "relation": "contains", "object": "chlorophyll", "source": "Chloroplasts contain chlorophyll that absorbs light energy."}
+{"subject": "endoplasmic reticulum", "relation": "produces", "object": "proteins and lipids", "source": "The ER synthesizes proteins (rough ER) and lipids (smooth ER)."}
+{"subject": "golgi apparatus", "relation": "involves", "object": "protein modification", "source": "The Golgi apparatus modifies, sorts, and packages proteins."}
+{"subject": "lysosomes", "relation": "contains", "object": "digestive enzymes", "source": "Lysosomes contain hydrolytic enzymes that break down cellular waste."}
+{"subject": "cell membrane", "relation": "composed_of", "object": "phospholipid bilayer", "source": "The cell membrane is a phospholipid bilayer with embedded proteins."}
+{"subject": "cell membrane", "relation": "regulates", "object": "transport of molecules", "source": "The cell membrane is selectively permeable."}
+{"subject": "osmosis", "relation": "involves", "object": "water movement", "source": "Osmosis is the movement of water across a semipermeable membrane."}
+{"subject": "active transport", "relation": "requires", "object": "ATP energy", "source": "Active transport moves molecules against their concentration gradient using ATP."}
+{"subject": "passive transport", "relation": "involves", "object": "diffusion", "source": "Passive transport moves molecules down their concentration gradient without energy."}
+{"subject": "mitosis", "relation": "produces", "object": "two identical daughter cells", "source": "Mitosis produces two genetically identical diploid cells."}
+{"subject": "meiosis", "relation": "produces", "object": "four haploid cells", "source": "Meiosis produces four genetically unique haploid cells."}
+{"subject": "meiosis", "relation": "involves", "object": "crossing over", "source": "Crossing over during meiosis increases genetic diversity."}
+{"subject": "crossing over", "relation": "occurs_in", "object": "prophase I", "source": "Crossing over occurs during prophase I of meiosis."}
+{"subject": "cell cycle", "relation": "contains", "object": "G1 S G2 and M phases", "source": "The cell cycle includes G1, S (DNA synthesis), G2, and M (mitosis) phases."}
+{"subject": "DNA replication", "relation": "occurs_in", "object": "S phase", "source": "DNA replication occurs during the S phase of the cell cycle."}
+{"subject": "DNA replication", "relation": "requires", "object": "DNA polymerase", "source": "DNA polymerase synthesizes new DNA strands."}
+{"subject": "tumor suppressor genes", "relation": "prevents", "object": "uncontrolled cell division", "source": "Tumor suppressor genes like p53 and Rb prevent cancer."}
+{"subject": "oncogenes", "relation": "causes", "object": "uncontrolled cell growth", "source": "Oncogenes promote cell division when mutated."}
+{"subject": "photosynthesis", "relation": "occurs_in", "object": "chloroplasts", "source": "Photosynthesis occurs in chloroplasts."}
+{"subject": "photosynthesis", "relation": "requires", "object": "carbon dioxide and water", "source": "Photosynthesis uses CO2 and H2O to produce glucose and oxygen."}
+{"subject": "photosynthesis", "relation": "produces", "object": "glucose and oxygen", "source": "The net products of photosynthesis are glucose and oxygen."}
+{"subject": "light reactions", "relation": "occurs_in", "object": "thylakoid membrane", "source": "Light reactions occur in the thylakoid membranes."}
+{"subject": "light reactions", "relation": "produces", "object": "ATP and NADPH", "source": "Light reactions produce ATP and NADPH for the Calvin cycle."}
+{"subject": "calvin cycle", "relation": "occurs_in", "object": "stroma", "source": "The Calvin cycle occurs in the stroma of chloroplasts."}
+{"subject": "calvin cycle", "relation": "requires", "object": "ATP and NADPH", "source": "The Calvin cycle uses ATP and NADPH to fix carbon dioxide."}
+{"subject": "cellular respiration", "relation": "produces", "object": "ATP", "source": "Cellular respiration breaks down glucose to produce ATP."}
+{"subject": "glycolysis", "relation": "occurs_in", "object": "cytoplasm", "source": "Glycolysis occurs in the cytoplasm and produces pyruvate."}
+{"subject": "glycolysis", "relation": "produces", "object": "pyruvate and ATP", "source": "Glycolysis produces 2 ATP and 2 pyruvate per glucose."}
+{"subject": "krebs cycle", "relation": "occurs_in", "object": "mitochondrial matrix", "source": "The Krebs cycle occurs in the mitochondrial matrix."}
+{"subject": "electron transport chain", "relation": "occurs_in", "object": "inner mitochondrial membrane", "source": "The electron transport chain is in the inner mitochondrial membrane."}
+{"subject": "electron transport chain", "relation": "produces", "object": "most ATP", "source": "The electron transport chain produces the majority of ATP."}
+{"subject": "fermentation", "relation": "occurs_in", "object": "absence of oxygen", "source": "Fermentation occurs when oxygen is unavailable."}
+{"subject": "DNA", "relation": "composed_of", "object": "nucleotides", "source": "DNA is a polymer of nucleotides containing A, T, G, and C bases."}
+{"subject": "transcription", "relation": "produces", "object": "mRNA", "source": "Transcription copies DNA into messenger RNA."}
+{"subject": "translation", "relation": "produces", "object": "proteins", "source": "Translation assembles amino acids into proteins at ribosomes."}
+{"subject": "mutation", "relation": "causes", "object": "changes in DNA sequence", "source": "Mutations are changes in the DNA nucleotide sequence."}
+{"subject": "frameshift mutation", "relation": "causes", "object": "altered reading frame", "source": "Insertions or deletions cause frameshift mutations affecting all downstream codons."}
+{"subject": "point mutation", "relation": "involves", "object": "single nucleotide change", "source": "Point mutations change a single nucleotide in DNA."}
+{"subject": "deletion mutation", "relation": "causes", "object": "frameshift", "source": "A single nucleotide deletion shifts the reading frame."}
+{"subject": "dominant allele", "relation": "produces", "object": "phenotype in heterozygote", "source": "Dominant alleles are expressed in heterozygotes."}
+{"subject": "recessive allele", "relation": "requires", "object": "homozygous state", "source": "Recessive alleles are only expressed when homozygous."}
+{"subject": "codominance", "relation": "involves", "object": "both alleles expressed", "source": "In codominance, both alleles are fully expressed in heterozygotes."}
+{"subject": "incomplete dominance", "relation": "produces", "object": "intermediate phenotype", "source": "Incomplete dominance produces a blended phenotype in heterozygotes."}
+{"subject": "epistasis", "relation": "involves", "object": "one gene masking another", "source": "Epistasis occurs when one gene affects the expression of another."}
+{"subject": "innate immunity", "relation": "contains", "object": "phagocytes", "source": "Innate immunity includes phagocytes, natural killer cells, and physical barriers."}
+{"subject": "adaptive immunity", "relation": "involves", "object": "lymphocytes", "source": "Adaptive immunity uses B cells and T cells for specific responses."}
+{"subject": "B cells", "relation": "produces", "object": "antibodies", "source": "B cells produce antibodies that bind specific antigens."}
+{"subject": "T cells", "relation": "involves", "object": "cell-mediated immunity", "source": "T cells directly kill infected cells or help activate other immune cells."}
+{"subject": "memory cells", "relation": "enables", "object": "faster secondary response", "source": "Memory cells enable a faster and stronger response upon re-exposure."}
+{"subject": "vaccination", "relation": "activates", "object": "memory cells", "source": "Vaccines stimulate the immune system to produce memory cells."}
+{"subject": "ecosystem", "relation": "contains", "object": "biotic and abiotic factors", "source": "An ecosystem includes living organisms and their physical environment."}
+{"subject": "primary succession", "relation": "occurs_in", "object": "bare rock or new land", "source": "Primary succession begins on surfaces with no prior life."}
+{"subject": "secondary succession", "relation": "occurs_in", "object": "disturbed areas", "source": "Secondary succession occurs after disturbance where soil remains."}
+{"subject": "nitrogen fixation", "relation": "involves", "object": "bacteria converting N2", "source": "Nitrogen-fixing bacteria convert atmospheric N2 to usable forms."}
+{"subject": "carbon cycle", "relation": "contains", "object": "gas phase", "source": "The carbon cycle includes atmospheric CO2 as a gas phase."}
+{"subject": "phosphorus cycle", "relation": "prevents", "object": "gas phase", "source": "The phosphorus cycle has no significant atmospheric gas phase."}
+{"subject": "water cycle", "relation": "involves", "object": "evaporation and precipitation", "source": "The water cycle moves water between atmosphere, land, and oceans."}
+{"subject": "trophic levels", "relation": "involves", "object": "energy transfer", "source": "Only about 10% of energy transfers between trophic levels."}
+{"subject": "producers", "relation": "is_a", "object": "autotrophs", "source": "Producers are autotrophs that make their own food from sunlight or chemicals."}
+{"subject": "primary consumers", "relation": "is_a", "object": "herbivores", "source": "Primary consumers are herbivores that eat producers."}
+{"subject": "xylem", "relation": "involves", "object": "water transport upward", "source": "Xylem transports water and minerals from roots to leaves."}
+{"subject": "phloem", "relation": "involves", "object": "sugar transport", "source": "Phloem transports sugars from leaves to other plant parts."}
+{"subject": "stomata", "relation": "regulates", "object": "gas exchange in leaves", "source": "Stomata open and close to control CO2 intake and water loss."}
+{"subject": "auxin", "relation": "regulates", "object": "plant growth", "source": "Auxin promotes cell elongation and phototropism."}
+{"subject": "insulin", "relation": "regulates", "object": "blood glucose", "source": "Insulin lowers blood glucose by promoting uptake into cells."}
+{"subject": "glucagon", "relation": "causes", "object": "blood glucose increase", "source": "Glucagon raises blood glucose by stimulating glycogen breakdown."}
+{"subject": "pancreas", "relation": "produces", "object": "insulin and glucagon", "source": "The pancreas produces insulin and glucagon to regulate blood sugar."}
+{"subject": "homeostasis", "relation": "involves", "object": "negative feedback", "source": "Homeostasis maintains stable internal conditions through negative feedback."}
+{"subject": "neurons", "relation": "involves", "object": "electrical impulses", "source": "Neurons transmit information as electrical impulses called action potentials."}
+{"subject": "synapse", "relation": "involves", "object": "neurotransmitters", "source": "Signals cross synapses via neurotransmitter release."}
+{"subject": "endosymbiotic theory", "relation": "involves", "object": "mitochondria and chloroplasts", "source": "Endosymbiotic theory states mitochondria and chloroplasts were once free-living prokaryotes."}
+{"subject": "evolutionary fitness", "relation": "depends_on", "object": "reproductive success", "source": "Fitness is measured by an organism's ability to survive and produce fertile offspring."}
+{"subject": "sterile organisms", "relation": "contains", "object": "zero fitness", "source": "Sterile organisms like mules have an evolutionary fitness of zero."}
+{"subject": "gel electrophoresis", "relation": "involves", "object": "DNA fragment separation", "source": "Smaller DNA fragments migrate faster through gel electrophoresis."}
+{"subject": "PCR", "relation": "produces", "object": "DNA amplification", "source": "PCR amplifies specific DNA sequences using primers and DNA polymerase."}
+{"subject": "restriction enzymes", "relation": "involves", "object": "cutting DNA at specific sites", "source": "Restriction enzymes cut DNA at specific recognition sequences."}
+{"subject": "connective tissue", "relation": "contains", "object": "bone cartilage and blood", "source": "Connective tissue includes bone, cartilage, adipose tissue, and blood."}
+{"subject": "muscle tissue", "relation": "is_a", "object": "separate tissue type", "source": "Muscle tissue (skeletal, smooth, cardiac) is not connective tissue."}
+{"subject": "meristematic tissue", "relation": "involves", "object": "active cell division", "source": "Meristematic tissue at shoot and root tips undergoes rapid mitosis."}

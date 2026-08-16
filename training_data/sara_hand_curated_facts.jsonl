@@ -185,3 +185,7 @@
 {"subject": "exponential growth", "relation": "involves", "object": "J-shaped curve", "source": "Exponential growth shows a J-shaped curve with no resource limitation."}
 {"subject": "r-selected species", "relation": "involves", "object": "many small offspring", "source": "r-selected species produce many offspring with little parental care."}
 {"subject": "K-selected species", "relation": "involves", "object": "few large offspring", "source": "K-selected species produce few offspring with extensive parental care."}
+{"subject": "glycolysis", "relation": "produces", "object": "NADH from NAD+", "source": "During glycolysis, NAD+ is reduced to NADH as glucose is oxidized."}
+{"subject": "NAD+", "relation": "transforms_into", "object": "NADH", "source": "NAD+ accepts electrons and hydrogen to become NADH in glycolysis and Krebs cycle."}
+{"subject": "meiosis", "relation": "causes", "object": "chromosome number halved", "source": "Meiosis reduces the chromosome number by half: a 2n=96 organism produces n=48 gametes."}
+{"subject": "diploid to haploid", "relation": "involves", "object": "dividing chromosome number by two", "source": "Haploid (n) is exactly half of diploid (2n): if 2n=96 then n=48."}

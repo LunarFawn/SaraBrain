@@ -142,3 +142,46 @@
 {"subject": "homeostasis", "relation": "involves", "object": "maintaining stable conditions", "source": "Homeostasis maintains stable internal conditions despite external changes."}
 {"subject": "negative feedback", "relation": "involves", "object": "reversing a change", "source": "Negative feedback loops reverse a change to maintain a set point."}
 {"subject": "positive feedback", "relation": "involves", "object": "amplifying a change", "source": "Positive feedback amplifies a change away from normal (e.g., childbirth contractions)."}
+{"subject": "drought selection", "relation": "causes", "object": "larger beaks favored", "source": "During drought, large hard seeds are more available so birds with larger beaks survive better."}
+{"subject": "natural selection", "relation": "involves", "object": "modifying existing structures", "source": "Natural selection can only modify existing structures, not design from scratch."}
+{"subject": "crossing over frequency", "relation": "indicates", "object": "gene distance on chromosome", "source": "The frequency of crossing over between genes indicates their distance apart on a chromosome."}
+{"subject": "endotherm", "relation": "involves", "object": "constant body temperature", "source": "Endotherms maintain constant internal temperature regardless of environment."}
+{"subject": "ectotherm", "relation": "involves", "object": "variable body temperature", "source": "Ectotherms have body temperatures that fluctuate with the environment."}
+{"subject": "osmosis", "relation": "involves", "object": "net water flow toward solute", "source": "In osmosis, water moves from low solute concentration to high solute concentration."}
+{"subject": "hypertonic solution", "relation": "causes", "object": "water leaves cell", "source": "In a hypertonic solution, water flows out of the cell causing it to shrink."}
+{"subject": "hypotonic solution", "relation": "causes", "object": "water enters cell", "source": "In a hypotonic solution, water flows into the cell causing it to swell."}
+{"subject": "universal genetic code", "relation": "indicates", "object": "common ancestor", "source": "All organisms using the same genetic code is strong evidence of common ancestry."}
+{"subject": "coelom", "relation": "involves", "object": "body cavity lined with mesoderm", "source": "A true coelom is a body cavity completely lined with mesoderm tissue."}
+{"subject": "annelida", "relation": "contains", "object": "true coelom", "source": "Annelids, mollusks, arthropods, and chordates have a true coelom."}
+{"subject": "porifera", "relation": "prevents", "object": "true coelom", "source": "Sponges (Porifera) lack a true coelom and true tissues."}
+{"subject": "water cohesion", "relation": "involves", "object": "hydrogen bonds between water molecules", "source": "Cohesion is the attraction between water molecules due to hydrogen bonding."}
+{"subject": "apoptosis", "relation": "is_a", "object": "programmed cell death", "source": "Apoptosis is programmed cell death, not a type of cell division."}
+{"subject": "apoptosis", "relation": "involves", "object": "cell shrinkage and fragmentation", "source": "During apoptosis cells shrink, fragment, and are recycled without inflammation."}
+{"subject": "gallbladder", "relation": "prevents", "object": "enzyme secretion", "source": "The gallbladder stores and concentrates bile but does not secrete digestive enzymes."}
+{"subject": "sympathetic nervous system", "relation": "inhibits", "object": "digestion", "source": "The sympathetic nervous system inhibits peristalsis and digestive activity."}
+{"subject": "parasympathetic system", "relation": "activates", "object": "peristalsis", "source": "The parasympathetic system stimulates peristalsis and digestive secretions."}
+{"subject": "cline", "relation": "involves", "object": "gradual change across geography", "source": "A cline is a gradual change in a trait across a geographic gradient like temperature."}
+{"subject": "autosomal recessive", "relation": "involves", "object": "25 percent risk from carriers", "source": "Two carriers of an autosomal recessive trait have a 25% chance of affected offspring."}
+{"subject": "turner syndrome", "relation": "involves", "object": "monosomy X", "source": "Turner syndrome females have only one X chromosome (45,X) lacking the second sex chromosome."}
+{"subject": "parasitism", "relation": "involves", "object": "one benefits one harmed", "source": "Parasitism is a relationship where one organism benefits at the expense of the host."}
+{"subject": "lampreys", "relation": "is_a", "object": "parasite", "source": "Lampreys attach to fish and absorb nutrients, an example of parasitism."}
+{"subject": "primary succession pioneers", "relation": "causes", "object": "habitat modification", "source": "Pioneer species in primary succession change the habitat making it suitable for later species."}
+{"subject": "small populations", "relation": "involves", "object": "inbreeding and genetic loss", "source": "Small populations are vulnerable to inbreeding depression and loss of genetic variation."}
+{"subject": "horse evolution", "relation": "involves", "object": "directional selection for size", "source": "Fossil evidence shows horses gradually increased in size over time, an example of directional selection."}
+{"subject": "two distinct color forms", "relation": "involves", "object": "disruptive selection", "source": "A species existing in two distinct color forms without intermediates indicates disruptive selection."}
+{"subject": "mitosis", "relation": "involves", "object": "sister chromatid separation", "source": "Sister chromatids separate during anaphase of mitosis and anaphase II of meiosis."}
+{"subject": "meiosis I", "relation": "involves", "object": "homolog separation", "source": "Homologous chromosomes separate during anaphase I of meiosis."}
+{"subject": "meiosis", "relation": "involves", "object": "two rounds of division", "source": "Meiosis involves two divisions: meiosis I separates homologs, meiosis II separates sister chromatids."}
+{"subject": "commensalism", "relation": "involves", "object": "one benefits one unaffected", "source": "Commensalism is a relationship where one organism benefits and the other is unaffected."}
+{"subject": "competition", "relation": "involves", "object": "both species harmed", "source": "Interspecific competition harms both species competing for the same resource."}
+{"subject": "predation", "relation": "involves", "object": "one kills and eats other", "source": "Predation is a relationship where one organism captures and feeds on another."}
+{"subject": "independent assortment", "relation": "occurs_in", "object": "meiosis I", "source": "Independent assortment of chromosomes occurs during metaphase I of meiosis."}
+{"subject": "linked genes", "relation": "prevents", "object": "independent assortment", "source": "Genes on the same chromosome are linked and do not assort independently."}
+{"subject": "sex-linked traits", "relation": "involves", "object": "X chromosome genes", "source": "Sex-linked traits are carried on the X chromosome and affect males more often."}
+{"subject": "hemophilia", "relation": "is_a", "object": "X-linked recessive", "source": "Hemophilia is an X-linked recessive disorder affecting blood clotting."}
+{"subject": "color blindness", "relation": "is_a", "object": "X-linked recessive", "source": "Red-green color blindness is an X-linked recessive trait."}
+{"subject": "carrying capacity", "relation": "involves", "object": "maximum population size", "source": "Carrying capacity (K) is the maximum population size an environment can sustain."}
+{"subject": "logistic growth", "relation": "involves", "object": "S-shaped curve", "source": "Logistic growth shows an S-shaped curve approaching carrying capacity."}
+{"subject": "exponential growth", "relation": "involves", "object": "J-shaped curve", "source": "Exponential growth shows a J-shaped curve with no resource limitation."}
+{"subject": "r-selected species", "relation": "involves", "object": "many small offspring", "source": "r-selected species produce many offspring with little parental care."}
+{"subject": "K-selected species", "relation": "involves", "object": "few large offspring", "source": "K-selected species produce few offspring with extensive parental care."}

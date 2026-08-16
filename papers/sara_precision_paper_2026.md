@@ -139,6 +139,24 @@ Retrieval-Augmented Generation (RAG) shares the concept of external knowledge, b
 - RAG cannot explain WHY a specific fact was relevant; Sara's wavefront provides the path
 - RAG retrieval errors are opaque; Sara's confidence scoring is inspectable
 
+### 4.5 Adaptation to Novel Knowledge: A Fundamental Limitation of Current AI
+
+The jibberish experiment reveals a critical weakness in current LLM infrastructure: **large language models cannot reason about genuinely novel concepts.** When biology nouns are replaced with words absent from training data, the 3B model drops to random chance (28%). Trillions of tokens of pretraining become useless the moment the model encounters something it has never seen.
+
+Sara Brain does not share this limitation. The system reasons correctly over ciphered facts (`konem gib produces similar features in unrelated lokub`) because the cortex operates on structural relationships, not memorized associations. The relationship pattern `X produces Y` is understood regardless of whether X and Y are familiar English words or novel nonsense.
+
+This has profound practical implications:
+
+**Emerging threats.** In January 2020, no language model could answer questions about SARS-CoV-2 — the virus was genuinely novel and absent from all training data. With Sara, a single fact (`{"subject": "SARS-CoV-2", "relation": "causes", "object": "COVID-19"}`) taught at runtime immediately enables correct question answering about the new pathogen. No retraining required.
+
+**Classified and proprietary knowledge.** Information that has never appeared on the public internet — military intelligence, trade secrets, internal medical procedures — is fundamentally inaccessible to pretrained LLMs. Sara stores and reasons over any knowledge taught to it, regardless of whether it exists in any public corpus.
+
+**Rapidly evolving domains.** Fields where last week's knowledge is already outdated (drug interactions, security vulnerabilities, market conditions) require systems that update in real time. LLMs require months of retraining; Sara requires one line added to a JSON file.
+
+**Truly novel discoveries.** When a researcher synthesizes a new compound or identifies a new species, that knowledge exists nowhere in any training dataset. Sara can immediately learn and reason about it: `{"subject": "compound_X471", "relation": "inhibits", "object": "enzyme_Y"}` — the system answers questions about compound_X471 correctly despite the name never existing before in any text.
+
+Current large language models are sophisticated libraries — they can recall what they've read but cannot think about what they haven't. Sara Brain is a reasoning system that can learn new things and think about them immediately. This distinction — between memorization and reasoning — may be the most important architectural difference between the current paradigm and what comes next.
+
 ## 5. Conclusion
 
 We demonstrate that separating knowledge from reasoning produces a system that is:

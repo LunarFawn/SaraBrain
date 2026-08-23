@@ -747,23 +747,6 @@ def get_neurons() -> str:
     return "\n".join(lines)
 
 
-# ── Entry point ──
-
-
-def main():
-    """Run the Sara Brain MCP server."""
-    mcp.run(transport="stdio")
-
-
-if __name__ == "__main__":
-    main()
-  strongest = s.get("strongest_segment", "none")
-    return (
-        f"Neurons: {s['neurons']}\n"
-        f"Segments: {s['segments']}\n"
-        f"Paths: {s['paths']}\n"
-        f"Strongest segment: {strongest}"
-    )
 
 
 @mcp.tool()

@@ -4,7 +4,7 @@
       "command": ".venv/bin/python",
       "args": ["-m", "sara_brain.mcp_server"],
       "env": {
-        "SARA_DB": "aptamer_exec.db"
+        "SARA_DB": "data/biology_hand_curated.db"
       }
     }
   }

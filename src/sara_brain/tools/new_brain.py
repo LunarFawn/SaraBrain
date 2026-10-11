@@ -11,7 +11,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Create a new empty Sara Brain database.")
     ap.add_argument("--out", required=True, help="Path for the new .db file")
     args = ap.parse_args()
-    Brain(path=args.out)
+    Brain(args.out)
     print(f"Brain created: {args.out}")
     return 0
 

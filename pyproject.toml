@@ -1,21 +1,32 @@
 [build-system]
-requires = ["setuptools>=68.0", "wheel"]
+requires = ["setuptools>=77.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "sara-brain"
 version = "0.1.0"
-description = "Path-of-thought cognitive architecture with structural alignment through innate primitives"
+description = "Path-of-thought cognitive architecture: an inspectable, teachable knowledge substrate that plugs into any LLM via MCP."
 requires-python = ">=3.11"
+# Base install has ZERO third-party dependencies. The pure-Python wavefront
+# recognizer works out of the box; the C++ accelerator is an optional build
+# (see the [project.scripts] `sara-build-engine`). LLM providers and the MCP
+# server are opt-in extras below.
 dependencies = []
 authors = [{name = "Jennifer Pearl", email = "jenpearl5@gmail.com"}]
-license = {text = "GPL-3.0-or-later"}
+license = "GPL-3.0-or-later"
 readme = "README.md"
+keywords = [
+    "knowledge-graph",
+    "cognitive-architecture",
+    "mcp",
+    "llm",
+    "symbolic-ai",
+    "path-of-thought",
+]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
@@ -25,24 +36,28 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
-reader = ["anthropic>=0.30.0"]
+# MCP server so any MCP client (Claude Desktop, Claude Code, etc.) can use Sara.
+# Targets the current mcp 2.x API (MCPServer); the server also runs against
+# mcp 1.x (FastMCP) via a fallback import.
 mcp = ["mcp>=1.0"]
-dev = ["pytest>=7.0", "pytest-asyncio>=0.21"]
+# Anthropic (Claude) provider for `sara-ask`. The ollama provider needs no
+# extra dependency (it uses the stdlib over Ollama's local HTTP API).
+anthropic = ["anthropic>=0.30.0"]
+# Everything a user needs to run the MCP server and both LLM providers.
+all = ["mcp>=1.0", "anthropic>=0.30.0"]
+dev = ["pytest>=7.0", "pytest-asyncio>=0.21", "build", "twine"]
 
 [project.scripts]
-sara = "sara_brain.repl.shell:main"
-sara-agent = "sara_brain.agent.cli:main"
+# Core substrate
+sara-new = "sara_brain.tools.new_brain:main"
+sara-build-engine = "sara_brain.core.build_engine:main"
+# MCP server (requires the [mcp] extra)
 sara-mcp = "sara_brain.mcp_server:main"
-sara-cortex = "sara_brain.cortex.cli:main"
-sara-cleanup = "sara_brain.cortex.cleanup:main"
-sara-shell = "sara_brain.sensory.cli:main"
+# Reader: ask / teach against a brain through an LLM
 sara-ask = "sara_reader.cli:main"
 sara-ask-stateless = "sara_reader.cli_stateless:main"
 sara-teach = "sara_reader.cli_teach:main"
 sara-refute = "sara_reader.cli_refute:main"
-sara-synth = "sara_brain.tools.synthetic_substrate:main"
-sara-new = "sara_brain.tools.new_brain:main"
-sara-experiment = "sara_brain.tools.run_experiment:main"
 sara-demo = "sara_reader.cli_demo:main"
 
 [project.urls]
@@ -52,9 +67,30 @@ Issues = "https://github.com/LunarFawn/SaraBrain/issues"
 Paper = "https://doi.org/10.5281/zenodo.19436522"
 Substack = "https://pathofthought.substack.com"
 
-[tool.setuptools.packages.find]
-where = ["src"]
-include = ["sara_brain*", "sara_reader*"]
+[tool.setuptools]
+# Explicit package list. The heavy / optional subpackages (cortex, agent,
+# sensory, teaching, nlp, care, repl, visualization) are intentionally NOT
+# shipped — they carry large model checkpoints and heavy deps, and the core
+# package reaches them only through lazy imports when their features are used.
+packages = [
+    "sara_brain",
+    "sara_brain.models",
+    "sara_brain.parsing",
+    "sara_brain.storage",
+    "sara_brain.core",
+    "sara_brain.innate",
+    "sara_brain.tools",
+    "sara_reader",
+    "sara_reader.providers",
+]
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+# Ship the SQL schema and the optional C++ engine source (so sara-build-engine
+# can compile it after install). The compiled .so is NOT shipped — it is built
+# on the user's machine for their platform.
+"sara_brain.storage" = ["schema.sql"]
+"sara_brain.core" = ["engine.cpp"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -5,11 +5,47 @@ from typing import List, Dict, Optional
 from ..models.neuron import Neuron
 from .recognizer import Recognizer, _NON_PROPAGATING_RELATIONS
 
+
+# The compiled C++ accelerator is an *optional* build artifact. The pure-Python
+# Recognizer is always available and is what Brain uses by default. Users who
+# want the extra speed build the shared library with the ``sara-build-engine``
+# console command (or ``make``), after which FastRecognizer / get_recognizer()
+# will pick it up automatically.
+_ENGINE_FILENAME = "sara_engine.so"
+
+
+def engine_library_path() -> str:
+    """Absolute path where the compiled C++ engine is expected to live."""
+    return os.path.join(os.path.dirname(__file__), _ENGINE_FILENAME)
+
+
+def engine_available() -> bool:
+    """Return True if the compiled C++ engine has been built and is loadable."""
+    path = engine_library_path()
+    if not os.path.exists(path):
+        return False
+    try:
+        ctypes.CDLL(path)
+        return True
+    except OSError:
+        return False
+
+
+class EngineNotBuiltError(RuntimeError):
+    """Raised when FastRecognizer is requested but the C++ engine is not built."""
+
+
 class ResultNode(ctypes.Structure):
     _fields_ = [("id", ctypes.c_int), ("weight", ctypes.c_float)]
 
 class FastRecognizer(Recognizer):
-    """High-performance C++ backend for wavefront propagation."""
+    """High-performance C++ backend for wavefront propagation.
+
+    This is an optional accelerator. If the compiled ``sara_engine.so`` is not
+    present, instantiating this class raises :class:`EngineNotBuiltError` with
+    instructions on how to build it. For transparent fallback to the
+    pure-Python recognizer, use :func:`get_recognizer` instead.
+    """
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -19,9 +55,16 @@ class FastRecognizer(Recognizer):
         self._init_engine()
 
     def _load_lib(self):
-        lib_path = os.path.join(os.path.dirname(__file__), "sara_engine.so")
+        lib_path = engine_library_path()
         if not os.path.exists(lib_path):
-            raise FileNotFoundError(f"C++ engine library not found at {lib_path}. Run 'make' first.")
+            raise EngineNotBuiltError(
+                f"Sara C++ engine not found at {lib_path}.\n"
+                "The compiled engine is optional; the pure-Python recognizer is "
+                "used by default. To build the accelerator, run:\n"
+                "    sara-build-engine\n"
+                "or, from a source checkout:\n"
+                "    make"
+            )
         self._lib = ctypes.CDLL(lib_path)
         
         # Setup argument and return types
@@ -210,3 +253,19 @@ class FastRecognizer(Recognizer):
             next_candidates.sort(key=lambda x: x[1], reverse=True)
             current_seeds = [c[0] for c in next_candidates[:top_k]]
             for n in current_seeds: used_ids.add(n.id)
+
+
+def get_recognizer(*args, prefer_fast: bool = True, **kwargs) -> Recognizer:
+    """Return a recognizer, preferring the C++ accelerator when available.
+
+    If ``prefer_fast`` is True and the compiled engine is present and loadable,
+    a :class:`FastRecognizer` is returned. Otherwise this transparently falls
+    back to the pure-Python :class:`Recognizer`. All positional and keyword
+    arguments are forwarded to the chosen recognizer's constructor.
+    """
+    if prefer_fast and engine_available():
+        try:
+            return FastRecognizer(*args, **kwargs)
+        except EngineNotBuiltError:
+            pass
+    return Recognizer(*args, **kwargs)

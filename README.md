@@ -23,7 +23,63 @@ sara-demo teach --brain my_brain.db
 sara-demo ask "what is the molecular snare?" --brain my_brain.db --compare llama3.2:1b
 ```
 
-## Key Results
+## Installation
+
+The base install has **zero third-party dependencies** — the pure-Python
+wavefront recognizer works out of the box:
+
+```bash
+pip install sara-brain
+```
+
+Optional extras:
+
+```bash
+pip install "sara-brain[mcp]"        # MCP server (for Claude Desktop / Claude Code / any MCP client)
+pip install "sara-brain[anthropic]"  # Claude provider for `sara-ask`
+pip install "sara-brain[all]"        # MCP + Anthropic
+```
+
+The Ollama provider needs no extra — it talks to the local Ollama HTTP API
+over the standard library.
+
+### Optional C++ accelerator
+
+Wavefront propagation has an optional C++ engine. It is **not** required — the
+pure-Python path is the default. To build it (needs a C++17 compiler such as
+`g++` or `clang++`):
+
+```bash
+sara-build-engine            # compile the accelerator in place
+sara-build-engine --check    # report whether it is built
+```
+
+Once built, the faster engine is picked up automatically. No compiler, no
+problem — Sara falls back to pure Python.
+
+## Use Sara as an MCP server
+
+Sara ships an MCP server so any MCP-capable LLM client can teach and query the
+substrate as tools. The brain persists across sessions (default:
+`~/.sara_brain/sara.db`, override with `SARA_DB`).
+
+```bash
+pip install "sara-brain[mcp]"
+
+# Register with Claude Code
+claude mcp add sara-brain -- sara-mcp
+
+# Or run directly over stdio
+sara-mcp
+
+# Point at a specific brain
+SARA_DB=/path/to/my_brain.db sara-mcp
+```
+
+Exposed tools include `brain_teach`, `brain_teach_triple`, `brain_recognize`,
+`brain_explore`, `brain_why`, `brain_trace`, `brain_query`, and `brain_refute`.
+Targets the current MCP SDK (`mcp` 2.x) and also runs against 1.x.
+
 
 | System | Parameters | MMLU Biology |
 |--------|-----------|--------------|

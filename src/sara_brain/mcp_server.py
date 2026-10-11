@@ -22,7 +22,23 @@ import time
 from functools import wraps
 from typing import Callable
 
-from mcp.server.fastmcp import FastMCP
+try:
+    # mcp 2.x: FastMCP was renamed to MCPServer. The decorator surface
+    # (@mcp.tool(), run(transport="stdio"), list_tools()) is unchanged.
+    from mcp.server.mcpserver import MCPServer as _MCPServer
+except ImportError:
+    try:
+        # mcp 1.x fallback.
+        from mcp.server.fastmcp import FastMCP as _MCPServer
+    except ImportError as e:  # pragma: no cover - only without the extra
+        raise ImportError(
+            "The Sara Brain MCP server requires the 'mcp' package (an optional "
+            "extra), which provides MCPServer (mcp 2.x) or FastMCP (mcp 1.x). "
+            "Install it with:\n"
+            "    pip install 'sara-brain[mcp]'\n"
+            "or directly:\n"
+            "    pip install mcp"
+        ) from e
 
 from .config import default_db_path
 from .core.brain import Brain
@@ -72,7 +88,7 @@ def _audited(fn: Callable) -> Callable:
         return result
     return wrapper
 
-mcp = FastMCP(
+mcp = _MCPServer(
     "sara-brain",
     instructions=(
         "Sara Brain — path-of-thought knowledge system. Persistent memory "
@@ -703,50 +719,6 @@ def brain_stats() -> str:
         f"Paths: {s['paths']}\n"
         f"Strongest segment: {strongest}"
     )
-
-
-@mcp.tool()
-@_audited
-def brain_similar(label: str) -> str:
-    """Find neurons that share downstream paths with the given neuron.
-
-    Answers: "What is similar to X in Sara's knowledge?"
-    """
-    brain = _get_brain()
-    links = brain.get_similar(label)
-    if not links:
-        return f"No similar neurons found for '{label}'."
-    lines = [f"Similar to '{label}':"]
-    for s in links:
-        lines.append(
-            f"  {s.neuron_a_label} <-> {s.neuron_b_label} "
-            f"(overlap: {s.overlap_ratio:.0%})"
-        )
-    return "\n".join(lines)
-
-
-# ── Resources ──
-
-
-@mcp.resource("sara://brain/stats")
-def get_brain_stats() -> str:
-    """Current brain statistics."""
-    return brain_stats()
-
-
-@mcp.resource("sara://brain/neurons")
-def get_neurons() -> str:
-    """List all neurons in Sara Brain."""
-    brain = _get_brain()
-    neurons = brain.neuron_repo.list_all()
-    lines = [f"Total neurons: {len(neurons)}\n"]
-    for n in neurons[:100]:
-        lines.append(f"  {n.label} ({n.neuron_type.value})")
-    if len(neurons) > 100:
-        lines.append(f"  ... and {len(neurons) - 100} more")
-    return "\n".join(lines)
-
-
 
 
 @mcp.tool()
